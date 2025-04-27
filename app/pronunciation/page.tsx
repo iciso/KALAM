@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { Home, ArrowLeft, ArrowRight, Repeat } from "lucide-react"
+import { Home, Volume2, ArrowLeft, ArrowRight, Repeat } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
@@ -65,10 +65,28 @@ export default function PronunciationPage() {
           </div>
         </header>
 
-        <main className="container mx-auto px-4 py-8">
-          <div className="text-center py-12">
-            <p className="text-gray-500">Loading pronunciation data...</p>
-          </div>
+        <main className="container mx-auto px-4 py-8 max-w-2xl">
+          <Card className="mb-8 border-dashed border-gray-300 dark:border-gray-600">
+            <CardHeader className="text-center">
+              <Volume2 className="h-16 w-16 mx-auto text-gray-400 mb-4" />
+              <CardTitle className="text-2xl">Pronunciation Practice Coming Soon</CardTitle>
+            </CardHeader>
+            <CardContent className="text-center">
+              <p className="text-gray-600 dark:text-gray-300 mb-6">
+                We're currently working on adding audio pronunciations for all vocabulary words. This feature will be
+                available soon!
+              </p>
+              <p className="text-gray-600 dark:text-gray-300 mb-8">
+                In the meantime, you can explore our other learning tools like flashcards, quizzes, and word lists.
+              </p>
+              <Link href="/">
+                <Button className="bg-emerald-600 hover:bg-emerald-700">
+                  <ArrowLeft className="mr-2 h-4 w-4" />
+                  Back to Home
+                </Button>
+              </Link>
+            </CardContent>
+          </Card>
         </main>
       </div>
     )

@@ -91,14 +91,18 @@ export function AudioPlayer({
       }
     }
 
-    const cleanup = initializeAudio()
+    let cleanup: (() => void) | null = null
+
+    if (!isPlaceholderAudio) {
+      cleanup = initializeAudio()
+    }
 
     return () => {
       if (cleanup) {
         cleanup()
       }
     }
-  }, [audioUrl, onEnded])
+  }, [audioUrl, onEnded, isPlaceholderAudio])
 
   const togglePlayPause = () => {
     if (!audioRef.current) return

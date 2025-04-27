@@ -9,7 +9,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Home, Sun, Moon, Menu } from "lucide-react"
 import { FontSizeControls } from "./font-size-controls"
 
-// Define our navigation links
+// Define our navigation links - Removed pronunciation link
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/vocabulary", label: "Vocabulary" },

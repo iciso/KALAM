@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowRight, BookOpen, Database, GamepadIcon, ListChecks, Volume2, ListPlus } from "lucide-react"
+import { ArrowRight, BookOpen, Database, GamepadIcon, ListChecks, Volume2, ListPlus, Clock } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
@@ -29,7 +29,8 @@ export default function HomePage() {
           <VocabularyStats />
         </section>
 
-        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6 mb-12">
+        {/* Main features grid - Now with 5 cards instead of 6 */}
+        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 mb-12">
           <Card>
             <CardHeader>
               <Database className="h-8 w-8 text-emerald-600 mb-2" />
@@ -66,26 +67,6 @@ export default function HomePage() {
               <Link href="/word-lists" className="w-full">
                 <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
                   My Word Lists <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
-            </CardFooter>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <Volume2 className="h-8 w-8 text-emerald-600 mb-2" />
-              <CardTitle>Pronunciation</CardTitle>
-              <CardDescription>Learn correct Arabic pronunciation</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-600 dark:text-gray-300">
-                Practice the correct pronunciation of Quranic Arabic words with audio guidance from expert reciters.
-              </p>
-            </CardContent>
-            <CardFooter>
-              <Link href="/pronunciation" className="w-full">
-                <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
-                  Practice Pronunciation <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
             </CardFooter>
@@ -153,6 +134,34 @@ export default function HomePage() {
               </Link>
             </CardFooter>
           </Card>
+        </section>
+
+        {/* New "Coming Soon" section */}
+        <section className="mb-12">
+          <h2 className="text-2xl font-bold mb-6 text-center">Coming Soon</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <Card className="md:col-start-2 border-dashed border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800/50">
+              <CardHeader>
+                <div className="flex items-center justify-center mb-2">
+                  <Volume2 className="h-8 w-8 text-gray-400" />
+                  <Clock className="h-5 w-5 text-amber-500 -ml-3 -mt-3" />
+                </div>
+                <CardTitle className="text-gray-600 dark:text-gray-300">Pronunciation</CardTitle>
+                <CardDescription>Learn correct Arabic pronunciation</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-500 dark:text-gray-400">
+                  We're working on adding audio pronunciations for all vocabulary words. Practice the correct
+                  pronunciation of Quranic Arabic with expert guidance.
+                </p>
+              </CardContent>
+              <CardFooter>
+                <Button className="w-full" variant="outline" disabled>
+                  Coming Soon <Clock className="ml-2 h-4 w-4" />
+                </Button>
+              </CardFooter>
+            </Card>
+          </div>
         </section>
 
         <AdvancedVocabularySection />
