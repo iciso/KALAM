@@ -69,6 +69,7 @@ export default function AboutPage() {
             <li>Tailwind CSS - For responsive and customizable styling</li>
             <li>Vercel - For deployment and hosting</li>
           </ul>
+          <h2 className="text-2xl font-bold mb-4">IQRA Codes Team</h2>
           <p className="mb-4 text-gray-600 dark:text-gray-300">
             {" "}
             وهي صدقة جارية لوجه الله تعالى or This is an ongoing charity for the sake of Allah Almighty. <br />
