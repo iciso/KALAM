@@ -80,3 +80,18 @@
   font-size: 1.25em;
   line-height: 1.5;
 }
+
+/* Add padding to account for the fixed navbar */
+main {
+  padding-top: 1rem;
+}
+
+/* Ensure the navbar has a slight background even when transparent */
+nav {
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.dark nav {
+  background-color: rgba(0, 0, 0, 0.5);
+}
