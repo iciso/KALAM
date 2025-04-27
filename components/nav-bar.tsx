@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Home, Sun, Moon, Menu } from "lucide-react"
+import { FontSizeControls } from "./font-size-controls"
 
 // Define our navigation links
 const navLinks = [
@@ -75,6 +76,9 @@ export function NavBar() {
 
         {/* Right side controls */}
         <div className="flex items-center space-x-2">
+          {/* Font size controls */}
+          <FontSizeControls />
+
           {/* Theme toggle */}
           <Button
             variant="outline"

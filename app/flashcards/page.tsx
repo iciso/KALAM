@@ -146,13 +146,13 @@ export default function FlashcardsPage() {
             <CardContent className="flex flex-col items-center justify-center h-full p-6">
               {!isFlipped ? (
                 <div className="text-center">
-                  <h2 className="text-4xl mb-4 font-arabic">{currentCard.arabic}</h2>
+                  <h2 className="mb-4 font-arabic-flashcard">{currentCard.arabic}</h2>
                   <p className="text-xl text-gray-600 dark:text-gray-300">{currentCard.transliteration}</p>
                 </div>
               ) : (
                 <div className="text-center">
                   <h3 className="text-2xl font-semibold mb-4">{currentCard.meaning}</h3>
-                  <p className="text-lg mb-4 font-arabic">{currentCard.example}</p>
+                  <p className="mb-4 font-arabic">{currentCard.example}</p>
                   <p className="text-sm text-gray-600 dark:text-gray-400">{currentCard.exampleTranslation}</p>
                 </div>
               )}
