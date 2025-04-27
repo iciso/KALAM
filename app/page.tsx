@@ -232,7 +232,10 @@ export default function HomePage() {
             <Link href="/contribute" className="text-emerald-600 hover:text-emerald-700">
               Contribute
             </Link>
-            <Link href="https://github.com/your-username/kalam" className="text-emerald-600 hover:text-emerald-700">
+            <Link
+              href="https://github.com/YOUR-ACTUAL-USERNAME/kalam"
+              className="text-emerald-600 hover:text-emerald-700"
+            >
               GitHub
             </Link>
           </div>

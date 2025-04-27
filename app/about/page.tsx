@@ -46,7 +46,7 @@ export default function AboutPage() {
             Quran scholars, and anyone passionate about making Quranic knowledge more accessible.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mt-6">
-            <Link href="https://github.com/your-username/kalam" target="_blank" rel="noopener noreferrer">
+            <Link href="https://github.com/YOUR-ACTUAL-USERNAME/kalam" target="_blank" rel="noopener noreferrer">
               <Button className="w-full sm:w-auto">
                 <Github className="mr-2 h-4 w-4" />
                 GitHub Repository
@@ -68,9 +68,9 @@ export default function AboutPage() {
             <li>TypeScript - For type safety and better developer experience</li>
             <li>Tailwind CSS - For responsive and customizable styling</li>
             <li>Vercel - For deployment and hosting</li>
-          </ul> 
-          </section>
-          <section className="mb-12">
+          </ul>
+        </section>
+        <section className="mb-12">
           <h2 className="text-2xl font-bold mb-4">IQRA Codes Team</h2>
           <p className="mb-4 text-gray-600 dark:text-gray-300">
             {" "}
