@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import { useParams, useRouter } from "next/navigation"
 import Link from "next/link"
-import { Home, ArrowLeft, ArrowRight, Bookmark, RotateCcw, ListChecks, Edit, Trash2 } from "lucide-react"
+import { Home, ArrowLeft, ArrowRight, Bookmark, RotateCcw, ListChecks, Edit, Trash2, Download } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
@@ -34,18 +34,32 @@ export default function WordListStudyPage() {
   const [isFlipped, setIsFlipped] = useState(false)
   const [savedWords, setSavedWords] = useState<string[]>([])
   const [showDeleteDialog, setShowDeleteDialog] = useState(false)
+  const [isPredefinedList, setIsPredefinedList] = useState(false)
 
   useEffect(() => {
     loadWordList()
   }, [listId])
 
   const loadWordList = () => {
-    const list = wordListService.getListWithWords(listId)
-    if (list) {
-      setWordList(list)
+    // Check if this is a predefined list
+    if (listId.startsWith("predefined-")) {
+      const list = wordListService.getPredefinedListWithWords(listId)
+      if (list) {
+        setWordList(list)
+        setIsPredefinedList(true)
+      } else {
+        // List not found, redirect to word lists page
+        router.push("/word-lists")
+      }
     } else {
-      // List not found, redirect to word lists page
-      router.push("/word-lists")
+      const list = wordListService.getListWithWords(listId)
+      if (list) {
+        setWordList(list)
+        setIsPredefinedList(false)
+      } else {
+        // List not found, redirect to word lists page
+        router.push("/word-lists")
+      }
     }
   }
 
@@ -58,8 +72,22 @@ export default function WordListStudyPage() {
     router.push("/word-lists")
   }
 
+  const handleImportList = () => {
+    if (wordList && isPredefinedList) {
+      const importedList = wordListService.importPredefinedList(wordList.id)
+      if (importedList) {
+        router.push(`/word-lists/${importedList.id}`)
+      }
+    }
+  }
+
   const handleRemoveWord = (wordId: string) => {
     if (wordList) {
+      if (isPredefinedList) {
+        // Cannot remove words from predefined lists
+        return
+      }
+
       wordListService.removeWordFromList(wordList.id, wordId)
       loadWordList()
 
@@ -133,38 +161,47 @@ export default function WordListStudyPage() {
             <p className="text-emerald-100 text-sm">{wordList.description}</p>
           </div>
           <div className="flex items-center gap-2">
-            <WordListDialog
-              existingList={wordList}
-              onListUpdated={handleListUpdated}
-              trigger={
-                <Button variant="ghost" size="icon" title="Edit list">
-                  <Edit className="h-5 w-5" />
-                  <span className="sr-only">Edit list</span>
-                </Button>
-              }
-            />
-            <AlertDialog open={showDeleteDialog} onOpenChange={setShowDeleteDialog}>
-              <AlertDialogTrigger asChild>
-                <Button variant="ghost" size="icon" title="Delete list">
-                  <Trash2 className="h-5 w-5" />
-                  <span className="sr-only">Delete list</span>
-                </Button>
-              </AlertDialogTrigger>
-              <AlertDialogContent>
-                <AlertDialogHeader>
-                  <AlertDialogTitle>Delete Word List</AlertDialogTitle>
-                  <AlertDialogDescription>
-                    Are you sure you want to delete "{wordList.name}"? This action cannot be undone.
-                  </AlertDialogDescription>
-                </AlertDialogHeader>
-                <AlertDialogFooter>
-                  <AlertDialogCancel>Cancel</AlertDialogCancel>
-                  <AlertDialogAction onClick={handleDeleteList} className="bg-red-600 hover:bg-red-700">
-                    Delete
-                  </AlertDialogAction>
-                </AlertDialogFooter>
-              </AlertDialogContent>
-            </AlertDialog>
+            {isPredefinedList ? (
+              <Button variant="ghost" size="icon" title="Import list" onClick={handleImportList}>
+                <Download className="h-5 w-5" />
+                <span className="sr-only">Import list</span>
+              </Button>
+            ) : (
+              <>
+                <WordListDialog
+                  existingList={wordList}
+                  onListUpdated={handleListUpdated}
+                  trigger={
+                    <Button variant="ghost" size="icon" title="Edit list">
+                      <Edit className="h-5 w-5" />
+                      <span className="sr-only">Edit list</span>
+                    </Button>
+                  }
+                />
+                <AlertDialog open={showDeleteDialog} onOpenChange={setShowDeleteDialog}>
+                  <AlertDialogTrigger asChild>
+                    <Button variant="ghost" size="icon" title="Delete list">
+                      <Trash2 className="h-5 w-5" />
+                      <span className="sr-only">Delete list</span>
+                    </Button>
+                  </AlertDialogTrigger>
+                  <AlertDialogContent>
+                    <AlertDialogHeader>
+                      <AlertDialogTitle>Delete Word List</AlertDialogTitle>
+                      <AlertDialogDescription>
+                        Are you sure you want to delete "{wordList.name}"? This action cannot be undone.
+                      </AlertDialogDescription>
+                    </AlertDialogHeader>
+                    <AlertDialogFooter>
+                      <AlertDialogCancel>Cancel</AlertDialogCancel>
+                      <AlertDialogAction onClick={handleDeleteList} className="bg-red-600 hover:bg-red-700">
+                        Delete
+                      </AlertDialogAction>
+                    </AlertDialogFooter>
+                  </AlertDialogContent>
+                </AlertDialog>
+              </>
+            )}
             <Link href="/word-lists">
               <Button variant="ghost" size="icon">
                 <ListChecks className="h-5 w-5" />
@@ -253,14 +290,16 @@ export default function WordListStudyPage() {
                 Reset
               </Button>
 
-              <Button
-                variant="outline"
-                onClick={() => handleRemoveWord(currentWord.id)}
-                className="text-red-600 hover:bg-red-50 hover:text-red-700"
-              >
-                <Trash2 className="mr-2 h-4 w-4" />
-                Remove
-              </Button>
+              {!isPredefinedList && (
+                <Button
+                  variant="outline"
+                  onClick={() => handleRemoveWord(currentWord.id)}
+                  className="text-red-600 hover:bg-red-50 hover:text-red-700"
+                >
+                  <Trash2 className="mr-2 h-4 w-4" />
+                  Remove
+                </Button>
+              )}
 
               <Button
                 onClick={handleNext}

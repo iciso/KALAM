@@ -3,6 +3,8 @@ import { ArrowRight, BookOpen, Database, GamepadIcon, ListChecks, Volume2, ListP
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { AdvancedVocabularySection } from "../components/advanced-vocabulary-section"
+import { VocabularyStats } from "../components/vocabulary-stats"
 
 export default function HomePage() {
   return (
@@ -21,6 +23,10 @@ export default function HomePage() {
             Enhance your understanding of the Quran through interactive learning tools designed to help you master
             Arabic vocabulary.
           </p>
+        </section>
+
+        <section className="mb-8">
+          <VocabularyStats />
         </section>
 
         <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6 mb-12">
@@ -149,7 +155,9 @@ export default function HomePage() {
           </Card>
         </section>
 
-        <section className="bg-emerald-50 dark:bg-emerald-900/20 rounded-lg p-6 mb-12">
+        <AdvancedVocabularySection />
+
+        <section className="bg-emerald-50 dark:bg-emerald-900/20 rounded-lg p-6 mb-12 mt-12">
           <h2 className="text-xl md:text-2xl font-bold mb-4 text-center">Why Learn Quranic Arabic?</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>

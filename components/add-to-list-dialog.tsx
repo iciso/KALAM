@@ -16,11 +16,12 @@ import {
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Label } from "@/components/ui/label"
-import { Plus, ListPlus } from "lucide-react"
+import { Plus, ListPlus, Download } from "lucide-react"
 import { wordListService } from "../services/word-list-service"
 import { WordListDialog } from "./word-list-dialog"
 import type { WordList } from "../types/word-lists"
 import type { VocabularyWord } from "../types/vocabulary"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 interface AddToListDialogProps {
   word: VocabularyWord
@@ -30,7 +31,9 @@ interface AddToListDialogProps {
 
 export function AddToListDialog({ word, trigger, onAddToList }: AddToListDialogProps) {
   const [open, setOpen] = useState(false)
+  const [activeTab, setActiveTab] = useState("my-lists")
   const [lists, setLists] = useState<WordList[]>([])
+  const [predefinedLists, setPredefinedLists] = useState<WordList[]>([])
   const [selectedLists, setSelectedLists] = useState<Set<string>>(new Set())
   const [message, setMessage] = useState("")
 
@@ -43,6 +46,9 @@ export function AddToListDialog({ word, trigger, onAddToList }: AddToListDialogP
   const loadLists = () => {
     const allLists = wordListService.getAllLists()
     setLists(allLists)
+
+    const allPredefinedLists = wordListService.getAllPredefinedLists()
+    setPredefinedLists(allPredefinedLists)
 
     // Pre-select lists that already contain this word
     const containingLists = wordListService.getListsContainingWord(word.id)
@@ -63,6 +69,17 @@ export function AddToListDialog({ word, trigger, onAddToList }: AddToListDialogP
       newSelected.add(listId)
     }
     setSelectedLists(newSelected)
+  }
+
+  const handleImportList = (listId: string) => {
+    const importedList = wordListService.importPredefinedList(listId)
+    if (importedList) {
+      setLists([...lists, importedList])
+      // Automatically select imported list
+      setSelectedLists(new Set([...selectedLists, importedList.id]))
+      // Switch to my lists tab
+      setActiveTab("my-lists")
+    }
   }
 
   const handleSave = () => {
@@ -114,60 +131,98 @@ export function AddToListDialog({ word, trigger, onAddToList }: AddToListDialogP
           </DialogDescription>
         </DialogHeader>
 
-        <div className="py-4">
-          {lists.length === 0 ? (
-            <div className="text-center py-4">
-              <p className="text-gray-500 mb-4">You don't have any word lists yet.</p>
-              <WordListDialog
-                trigger={
-                  <Button>
-                    <Plus className="h-4 w-4 mr-2" />
-                    Create Your First List
-                  </Button>
-                }
-                onListCreated={handleListCreated}
-              />
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="mt-4">
+          <TabsList className="grid grid-cols-2 mb-4">
+            <TabsTrigger value="my-lists">My Lists</TabsTrigger>
+            <TabsTrigger value="predefined">Pre-defined</TabsTrigger>
+          </TabsList>
+
+          <TabsContent value="my-lists">
+            <div className="py-4">
+              {lists.length === 0 ? (
+                <div className="text-center py-4">
+                  <p className="text-gray-500 mb-4">You don't have any word lists yet.</p>
+                  <WordListDialog
+                    trigger={
+                      <Button>
+                        <Plus className="h-4 w-4 mr-2" />
+                        Create Your First List
+                      </Button>
+                    }
+                    onListCreated={handleListCreated}
+                  />
+                </div>
+              ) : (
+                <>
+                  <ScrollArea className="h-[200px] pr-4">
+                    <div className="space-y-4">
+                      {lists.map((list) => (
+                        <div key={list.id} className="flex items-start space-x-2">
+                          <Checkbox
+                            id={`list-${list.id}`}
+                            checked={selectedLists.has(list.id)}
+                            onCheckedChange={() => handleToggleList(list.id)}
+                          />
+                          <div className="grid gap-1.5 leading-none">
+                            <Label htmlFor={`list-${list.id}`} className="font-medium">
+                              {list.name}
+                            </Label>
+                            {list.description && <p className="text-sm text-gray-500">{list.description}</p>}
+                            <p className="text-xs text-gray-400">
+                              {list.wordIds.length} {list.wordIds.length === 1 ? "word" : "words"}
+                            </p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </ScrollArea>
+
+                  <div className="mt-4 flex justify-between items-center">
+                    <WordListDialog
+                      trigger={
+                        <Button variant="outline" size="sm">
+                          <Plus className="h-4 w-4 mr-2" />
+                          New List
+                        </Button>
+                      }
+                      onListCreated={handleListCreated}
+                    />
+                    {message && <p className="text-sm text-emerald-600">{message}</p>}
+                  </div>
+                </>
+              )}
             </div>
-          ) : (
-            <>
+          </TabsContent>
+
+          <TabsContent value="predefined">
+            <div className="py-4">
               <ScrollArea className="h-[200px] pr-4">
                 <div className="space-y-4">
-                  {lists.map((list) => (
-                    <div key={list.id} className="flex items-start space-x-2">
-                      <Checkbox
-                        id={`list-${list.id}`}
-                        checked={selectedLists.has(list.id)}
-                        onCheckedChange={() => handleToggleList(list.id)}
-                      />
+                  {predefinedLists.map((list) => (
+                    <div key={list.id} className="flex items-start space-x-2 justify-between">
                       <div className="grid gap-1.5 leading-none">
-                        <Label htmlFor={`list-${list.id}`} className="font-medium">
-                          {list.name}
-                        </Label>
+                        <p className="font-medium">{list.name}</p>
                         {list.description && <p className="text-sm text-gray-500">{list.description}</p>}
                         <p className="text-xs text-gray-400">
                           {list.wordIds.length} {list.wordIds.length === 1 ? "word" : "words"}
                         </p>
                       </div>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => handleImportList(list.id)}
+                        className="shrink-0"
+                      >
+                        <Download className="h-4 w-4 mr-2" />
+                        Import
+                      </Button>
                     </div>
                   ))}
                 </div>
               </ScrollArea>
-
-              <div className="mt-4 flex justify-between items-center">
-                <WordListDialog
-                  trigger={
-                    <Button variant="outline" size="sm">
-                      <Plus className="h-4 w-4 mr-2" />
-                      New List
-                    </Button>
-                  }
-                  onListCreated={handleListCreated}
-                />
-                {message && <p className="text-sm text-emerald-600">{message}</p>}
-              </div>
-            </>
-          )}
-        </div>
+            </div>
+          </TabsContent>
+        </Tabs>
 
         <DialogFooter>
           <Button onClick={handleSave} disabled={lists.length === 0}>

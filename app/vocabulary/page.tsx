@@ -1,5 +1,6 @@
 import { VocabularyBrowser } from "../../components/vocabulary-browser"
 import { VocabularyStats } from "../../components/vocabulary-stats"
+import { RootWordExplorer } from "../../components/root-word-explorer"
 
 export default function VocabularyPage() {
   return (
@@ -13,6 +14,7 @@ export default function VocabularyPage() {
 
       <main className="container mx-auto px-4 py-8">
         <VocabularyStats />
+        <RootWordExplorer />
         <VocabularyBrowser />
       </main>
     </div>

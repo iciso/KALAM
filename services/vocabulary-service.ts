@@ -1,6 +1,7 @@
 import { vocabularyData } from "../data/vocabulary-data"
 import { additionalVocabularyData } from "../data/vocabulary-data-expansion"
 import { phase2VocabularyData } from "../data/vocabulary-data-expansion-phase2"
+import { phase3VocabularyData } from "../data/vocabulary-data-expansion-phase3"
 import { vocabularyCategories } from "../data/vocabulary-categories"
 import type { VocabularyWord, VocabularyCategory, Difficulty, PartOfSpeech } from "../types/vocabulary"
 
@@ -9,7 +10,12 @@ export class VocabularyService {
 
   constructor() {
     // Combine all vocabulary data sets
-    this.allVocabularyData = [...vocabularyData, ...additionalVocabularyData, ...phase2VocabularyData]
+    this.allVocabularyData = [
+      ...vocabularyData,
+      ...additionalVocabularyData,
+      ...phase2VocabularyData,
+      ...phase3VocabularyData,
+    ]
   }
 
   // Get all vocabulary words
@@ -100,6 +106,16 @@ export class VocabularyService {
   // Get words with example audio
   getWordsWithExampleAudio(): VocabularyWord[] {
     return this.allVocabularyData.filter((word) => word.examples.some((example) => example.hasAudio))
+  }
+
+  // Get advanced words
+  getAdvancedWords(): VocabularyWord[] {
+    return this.allVocabularyData.filter((word) => word.difficulty === Difficulty.Advanced)
+  }
+
+  // Get words by root letters
+  getWordsByRoot(rootLetters: string): VocabularyWord[] {
+    return this.allVocabularyData.filter((word) => word.rootLetters === rootLetters)
   }
 }
 
