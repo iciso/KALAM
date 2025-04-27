@@ -69,6 +69,14 @@ export default function AboutPage() {
             <li>Tailwind CSS - For responsive and customizable styling</li>
             <li>Vercel - For deployment and hosting</li>
           </ul>
+          <p className="mb-4 text-gray-600 dark:text-gray-300">
+            {" "}
+            وهي صدقة جارية لوجه الله تعالى or This is an ongoing charity for the sake of Allah Almighty. <br />
+            Thus, all apps by IQRA codes team of Rafique and Joy are freeware, and open source.
+            <br />
+            So, do send your suggestions to Rafique by WhatsApp on +91 7558845528 and May Allah reward Joy whose mail is
+            joy_ahmed_007@yahoo.com for his guidance and help.
+          </p>
         </section>
 
         <div className="flex justify-center mt-8">
