@@ -1,5 +1,6 @@
 import { vocabularyData } from "../data/vocabulary-data"
 import { additionalVocabularyData } from "../data/vocabulary-data-expansion"
+import { phase2VocabularyData } from "../data/vocabulary-data-expansion-phase2"
 import { vocabularyCategories } from "../data/vocabulary-categories"
 import type { VocabularyWord, VocabularyCategory, Difficulty, PartOfSpeech } from "../types/vocabulary"
 
@@ -7,8 +8,8 @@ export class VocabularyService {
   private allVocabularyData: VocabularyWord[]
 
   constructor() {
-    // Combine the original vocabulary data with the additional data
-    this.allVocabularyData = [...vocabularyData, ...additionalVocabularyData]
+    // Combine all vocabulary data sets
+    this.allVocabularyData = [...vocabularyData, ...additionalVocabularyData, ...phase2VocabularyData]
   }
 
   // Get all vocabulary words

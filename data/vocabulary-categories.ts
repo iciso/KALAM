@@ -17,7 +17,7 @@ export const vocabularyCategories: VocabularyCategory[] = [
     id: "category-003",
     name: "Worship and Devotion",
     description: "Terms related to worship, prayer, and devotional acts",
-    wordIds: ["word-007", "word-015"],
+    wordIds: ["word-007", "word-015", "word-039", "word-040", "word-041", "word-050"],
   },
   {
     id: "category-004",
@@ -41,7 +41,7 @@ export const vocabularyCategories: VocabularyCategory[] = [
     id: "category-007",
     name: "Natural World",
     description: "Words describing elements of nature and creation",
-    wordIds: ["word-016", "word-017", "word-018"],
+    wordIds: ["word-016", "word-017", "word-018", "word-042", "word-043", "word-044"],
   },
   {
     id: "category-008",
@@ -60,5 +60,29 @@ export const vocabularyCategories: VocabularyCategory[] = [
     name: "Knowledge and Wisdom",
     description: "Terms related to intellect, knowledge, and wisdom",
     wordIds: ["word-028", "word-029"],
+  },
+  {
+    id: "category-011",
+    name: "Prophets and Messengers",
+    description: "Names of prophets and terms related to prophethood",
+    wordIds: ["word-030", "word-031", "word-032", "word-033", "word-034"],
+  },
+  {
+    id: "category-012",
+    name: "Ethics and Virtues",
+    description: "Words related to moral values and ethical principles",
+    wordIds: ["word-035", "word-036", "word-037", "word-038", "word-049"],
+  },
+  {
+    id: "category-013",
+    name: "Family Relations",
+    description: "Terms describing family members and relationships",
+    wordIds: ["word-045", "word-046"],
+  },
+  {
+    id: "category-014",
+    name: "Spiritual States",
+    description: "Words describing spiritual and emotional states",
+    wordIds: ["word-047", "word-048", "word-049", "word-050"],
   },
 ]
