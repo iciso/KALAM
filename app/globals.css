@@ -75,10 +75,21 @@
   }
 }
 
+/* Updated Arabic font size - doubled from original */
 .font-arabic {
   font-family: "Traditional Arabic", "Scheherazade New", serif;
-  font-size: 1.25em;
-  line-height: 1.5;
+  font-size: 2.5em; /* Doubled from 1.25em */
+  line-height: 1.7;
+  letter-spacing: 0.01em; /* Slightly increased letter spacing for better readability */
+}
+
+/* Extra large Arabic font for flashcards */
+.font-arabic-flashcard {
+  font-family: "Traditional Arabic", "Scheherazade New", serif;
+  font-size: 5em; /* Quadrupled from 1.25em */
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+  text-align: center;
 }
 
 /* Add padding to account for the fixed navbar */
@@ -90,6 +101,15 @@ main {
 @media (max-width: 768px) {
   main {
     padding-top: 3.5rem;
+  }
+
+  /* Adjust font sizes for mobile */
+  .font-arabic {
+    font-size: 2em; /* Slightly smaller on mobile but still larger than original */
+  }
+
+  .font-arabic-flashcard {
+    font-size: 3.5em; /* Smaller on mobile but still much larger than original */
   }
 
   /* Larger touch targets for mobile */
