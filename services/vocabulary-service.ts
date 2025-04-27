@@ -2,8 +2,9 @@ import { vocabularyData } from "../data/vocabulary-data"
 import { additionalVocabularyData } from "../data/vocabulary-data-expansion"
 import { phase2VocabularyData } from "../data/vocabulary-data-expansion-phase2"
 import { phase3VocabularyData } from "../data/vocabulary-data-expansion-phase3"
+import { phase4VocabularyData } from "../data/vocabulary-data-expansion-phase4"
 import { vocabularyCategories } from "../data/vocabulary-categories"
-import type { VocabularyWord, VocabularyCategory, Difficulty, PartOfSpeech } from "../types/vocabulary"
+import { type VocabularyWord, type VocabularyCategory, Difficulty, type PartOfSpeech } from "../types/vocabulary"
 
 export class VocabularyService {
   private allVocabularyData: VocabularyWord[]
@@ -15,6 +16,7 @@ export class VocabularyService {
       ...additionalVocabularyData,
       ...phase2VocabularyData,
       ...phase3VocabularyData,
+      ...phase4VocabularyData,
     ]
   }
 
@@ -116,6 +118,16 @@ export class VocabularyService {
   // Get words by root letters
   getWordsByRoot(rootLetters: string): VocabularyWord[] {
     return this.allVocabularyData.filter((word) => word.rootLetters === rootLetters)
+  }
+
+  // Get total word count
+  getTotalWordCount(): number {
+    return this.allVocabularyData.length
+  }
+
+  // Get words added in Phase 4
+  getPhase4Words(): VocabularyWord[] {
+    return phase4VocabularyData
   }
 }
 

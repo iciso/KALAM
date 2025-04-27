@@ -92,6 +92,8 @@ export const predefinedWordLists: WordList[] = [
       "word-053", // Qada
       "word-054", // Qadar
       "word-071", // Rida
+      "word-083", // Rahmah
+      "word-084", // Adl
     ],
   },
   {
@@ -130,6 +132,8 @@ export const predefinedWordLists: WordList[] = [
       "word-070", // Khushu
       "word-072", // Amanah
       "word-073", // Iffah
+      "word-090", // Sabr
+      "word-091", // Shukr
     ],
   },
   {
@@ -147,6 +151,8 @@ export const predefinedWordLists: WordList[] = [
       "word-064", // Qiyamah
       "word-065", // Mizan
       "word-066", // Sirat
+      "word-085", // Barzakh
+      "word-086", // Shafa'ah
     ],
   },
   {
@@ -204,8 +210,8 @@ export const predefinedWordLists: WordList[] = [
       "word-016", // Samaa (120)
       "word-045", // Ab (117)
       "word-004", // Raheem (114)
+      "word-083", // Rahmah (114)
       "word-037", // Sabr (103)
-      "word-028", // Ilm (105)
     ],
   },
   {
@@ -257,6 +263,81 @@ export const predefinedWordLists: WordList[] = [
       "word-012", // Taqwa
       "word-022", // Huda
       "word-064", // Qiyamah
+    ],
+  },
+
+  // New Phase 4 Lists
+  {
+    id: "predefined-spiritual-purification",
+    name: "Spiritual Purification",
+    description: "Words related to spiritual growth and self-improvement",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    wordIds: [
+      "word-055", // Tazkiyah
+      "word-080", // Tawakkul
+      "word-081", // Muhasabah
+      "word-082", // Mujahadah
+      "word-096", // Tazkiyah
+      "word-099", // Basirah
+      "word-100", // Falah
+    ],
+  },
+  {
+    id: "predefined-spiritual-ailments",
+    name: "Spiritual Ailments",
+    description: "Words describing spiritual diseases and negative traits to avoid",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    wordIds: [
+      "word-052", // Shirk
+      "word-087", // Ghaflah
+      "word-088", // Kibr
+      "word-089", // Hasad
+    ],
+  },
+  {
+    id: "predefined-quranic-sciences",
+    name: "Quranic Sciences",
+    description: "Terms related to the study and recitation of the Quran",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    wordIds: [
+      "word-067", // Ayah
+      "word-068", // Surah
+      "word-069", // Tafsir
+      "word-092", // Tajweed
+      "word-093", // Tadabbur
+    ],
+  },
+  {
+    id: "predefined-cosmology",
+    name: "Islamic Cosmology",
+    description: "Terms related to the universe and divine creation in Islamic tradition",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    wordIds: [
+      "word-016", // Samaa
+      "word-017", // Ard
+      "word-042", // Shams
+      "word-043", // Qamar
+      "word-044", // Najm
+      "word-078", // Arsh
+      "word-079", // Kursi
+    ],
+  },
+  {
+    id: "predefined-narratives",
+    name: "Quranic Narratives",
+    description: "Terms related to stories and lessons in the Quran",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    wordIds: [
+      "word-076", // Qasas
+      "word-077", // Ibrah
+      "word-032", // Adam
+      "word-033", // Ibrahim
+      "word-034", // Musa
     ],
   },
 ]

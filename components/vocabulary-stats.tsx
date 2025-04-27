@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { vocabularyService } from "../services/vocabulary-service"
 import { Difficulty } from "../types/vocabulary"
+import { Progress } from "@/components/ui/progress"
 
 export function VocabularyStats() {
   const [totalWords, setTotalWords] = useState(0)
@@ -39,10 +40,28 @@ export function VocabularyStats() {
           <CardDescription>Total Vocabulary Words</CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="text-sm text-gray-500">
-            <div>Beginner: {beginnerWords}</div>
-            <div>Intermediate: {intermediateWords}</div>
-            <div>Advanced: {advancedWords}</div>
+          <div className="space-y-2">
+            <div className="text-sm text-gray-500">
+              <div className="flex justify-between mb-1">
+                <span>Beginner:</span>
+                <span>{beginnerWords}</span>
+              </div>
+              <Progress value={(beginnerWords / totalWords) * 100} className="h-1 mb-2" />
+            </div>
+            <div className="text-sm text-gray-500">
+              <div className="flex justify-between mb-1">
+                <span>Intermediate:</span>
+                <span>{intermediateWords}</span>
+              </div>
+              <Progress value={(intermediateWords / totalWords) * 100} className="h-1 mb-2" />
+            </div>
+            <div className="text-sm text-gray-500">
+              <div className="flex justify-between mb-1">
+                <span>Advanced:</span>
+                <span>{advancedWords}</span>
+              </div>
+              <Progress value={(advancedWords / totalWords) * 100} className="h-1 mb-2" />
+            </div>
           </div>
         </CardContent>
       </Card>
@@ -54,6 +73,7 @@ export function VocabularyStats() {
         </CardHeader>
         <CardContent>
           <p className="text-sm text-gray-500">Words organized into thematic categories for easier learning</p>
+          <div className="mt-2 text-xs text-emerald-600">+4 new categories in Phase 4</div>
         </CardContent>
       </Card>
 
