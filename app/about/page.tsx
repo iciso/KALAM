@@ -68,7 +68,9 @@ export default function AboutPage() {
             <li>TypeScript - For type safety and better developer experience</li>
             <li>Tailwind CSS - For responsive and customizable styling</li>
             <li>Vercel - For deployment and hosting</li>
-          </ul>
+          </ul> 
+          </section>
+          <section className="mb-12">
           <h2 className="text-2xl font-bold mb-4">IQRA Codes Team</h2>
           <p className="mb-4 text-gray-600 dark:text-gray-300">
             {" "}
