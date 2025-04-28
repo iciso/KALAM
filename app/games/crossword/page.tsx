@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 import Link from "next/link"
 import { RefreshCw, Home, ArrowLeft, HelpCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -288,6 +288,92 @@ export default function CrosswordGame() {
     return true
   }
 
+  // Arabic keyboard layout
+  const arabicKeyboardRows = [
+    ["ض", "ص", "ث", "ق", "ف", "غ", "ع", "ه", "خ", "ح", "ج"],
+    ["ش", "س", "ي", "ب", "ل", "ا", "ت", "ن", "م", "ك", "ط"],
+    ["ئ", "ء", "ؤ", "ر", "لا", "ى", "ة", "و", "ز", "ظ", "د"],
+  ]
+
+  const handleKeyboardInput = useCallback(
+    (char: string) => {
+      if (!selectedCell) return
+
+      const { row, col } = selectedCell
+      if (grid[row][col].isBlack) return
+
+      const newUserAnswers = [...userAnswers]
+      newUserAnswers[row][col] = char
+      setUserAnswers(newUserAnswers)
+
+      // Move to next cell after a short delay to ensure state updates
+      setTimeout(() => {
+        if (direction === "across") {
+          // Move right
+          let nextCol = col + 1
+          while (nextCol < grid[row].length) {
+            if (!grid[row][nextCol].isBlack) {
+              setSelectedCell({ row, col: nextCol })
+              return
+            }
+            nextCol++
+          }
+        } else {
+          // Move down
+          let nextRow = row + 1
+          while (nextRow < grid.length) {
+            if (!grid[nextRow][col].isBlack) {
+              setSelectedCell({ row: nextRow, col })
+              return
+            }
+            nextRow++
+          }
+        }
+      }, 10)
+    },
+    [selectedCell, grid, userAnswers, direction],
+  )
+
+  const handleBackspace = useCallback(() => {
+    if (!selectedCell) return
+
+    const { row, col } = selectedCell
+    if (grid[row][col].isBlack) return
+
+    const newUserAnswers = [...userAnswers]
+
+    // If current cell is empty, move to previous cell
+    if (newUserAnswers[row][col] === "") {
+      // Move to previous cell logic
+      setTimeout(() => {
+        if (direction === "across") {
+          // Move left
+          let prevCol = col - 1
+          while (prevCol >= 0) {
+            if (!grid[row][prevCol].isBlack) {
+              setSelectedCell({ row, col: prevCol })
+              return
+            }
+            prevCol--
+          }
+        } else {
+          // Move up
+          let prevRow = row - 1
+          while (prevRow >= 0) {
+            if (!grid[prevRow][col].isBlack) {
+              setSelectedCell({ row: prevRow, col })
+              return
+            }
+            prevRow--
+          }
+        }
+      }, 10)
+    } else {
+      newUserAnswers[row][col] = ""
+      setUserAnswers(newUserAnswers)
+    }
+  }, [selectedCell, grid, userAnswers, direction])
+
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 pb-12">
       <header className="bg-emerald-800 text-white py-4">
@@ -364,8 +450,17 @@ export default function CrosswordGame() {
                           key={`${rowIndex}-${colIndex}`}
                           className={`relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center font-arabic text-lg border border-gray-300 dark:border-gray-600
                             ${cell.isBlack ? "bg-gray-800 dark:bg-gray-900" : "bg-white dark:bg-gray-800"}
-                            ${selectedCell?.row === rowIndex && selectedCell?.col === colIndex ? "bg-emerald-200 dark:bg-emerald-800" : ""}
-                            ${isSelectedWord(rowIndex, colIndex) ? "bg-emerald-100 dark:bg-emerald-900" : ""}`}
+                            ${
+                              selectedCell?.row === rowIndex && selectedCell?.col === colIndex
+                                ? "bg-emerald-200 dark:bg-emerald-800 ring-2 ring-emerald-500 dark:ring-emerald-400"
+                                : ""
+                            }
+                            ${
+                              isSelectedWord(rowIndex, colIndex) &&
+                              !(selectedCell?.row === rowIndex && selectedCell?.col === colIndex)
+                                ? "bg-emerald-100 dark:bg-emerald-900"
+                                : ""
+                            }`}
                           onClick={() => !cell.isBlack && handleCellClick(rowIndex, colIndex)}
                           tabIndex={cell.isBlack ? -1 : 0}
                           onKeyDown={(e) => handleKeyDown(e, rowIndex, colIndex)}
@@ -389,6 +484,43 @@ export default function CrosswordGame() {
                   <p className="text-emerald-700 dark:text-emerald-300">You completed the crossword!</p>
                 </div>
               )}
+
+              {/* Virtual Arabic Keyboard */}
+              <div className="mt-6 bg-gray-100 dark:bg-gray-800 p-3 rounded-lg">
+                <h3 className="text-lg font-semibold mb-2 text-center">Arabic Keyboard</h3>
+                <div className="flex flex-col gap-1">
+                  {arabicKeyboardRows.map((row, rowIndex) => (
+                    <div key={`keyboard-row-${rowIndex}`} className="flex justify-center gap-1">
+                      {row.map((char) => (
+                        <button
+                          key={`key-${char}`}
+                          className="w-8 h-10 sm:w-10 sm:h-12 bg-white dark:bg-gray-700 rounded border border-gray-300 dark:border-gray-600 
+                                    font-arabic text-lg hover:bg-emerald-100 dark:hover:bg-emerald-900 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                          onClick={() => handleKeyboardInput(char)}
+                        >
+                          {char}
+                        </button>
+                      ))}
+                    </div>
+                  ))}
+                  <div className="flex justify-center gap-1 mt-1">
+                    <button
+                      className="px-4 py-2 bg-white dark:bg-gray-700 rounded border border-gray-300 dark:border-gray-600 
+                                text-sm hover:bg-emerald-100 dark:hover:bg-emerald-900 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                      onClick={handleBackspace}
+                    >
+                      Backspace
+                    </button>
+                    <button
+                      className="px-4 py-2 bg-white dark:bg-gray-700 rounded border border-gray-300 dark:border-gray-600 
+                                text-sm hover:bg-emerald-100 dark:hover:bg-emerald-900 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                      onClick={() => setDirection(direction === "across" ? "down" : "across")}
+                    >
+                      {direction === "across" ? "Switch to Down" : "Switch to Across"}
+                    </button>
+                  </div>
+                </div>
+              </div>
             </CardContent>
           </Card>
 

@@ -6,7 +6,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
-import { vocabularyPairs } from "@/data/game-data"
+import { vocabularyService } from "@/services/vocabulary-service"
 
 type MatchingCard = {
   id: string
@@ -17,7 +17,21 @@ type MatchingCard = {
   isMatched: boolean
 }
 
+// Function to generate vocabulary pairs for the game
+const generateVocabularyPairs = (count = 8) => {
+  const allWords = vocabularyService.getAllWords()
+  const shuffledWords = [...allWords].sort(() => Math.random() - 0.5)
+  const selectedWords = shuffledWords.slice(0, count)
+
+  return selectedWords.map((word, index) => ({
+    id: index + 1,
+    arabic: word.arabic,
+    meaning: word.meanings[0],
+  }))
+}
+
 export default function MemoryGamePage() {
+  const [vocabularyPairs, setVocabularyPairs] = useState(generateVocabularyPairs())
   const [cards, setCards] = useState<MatchingCard[]>([])
   const [flippedCards, setFlippedCards] = useState<MatchingCard[]>([])
   const [matchedPairs, setMatchedPairs] = useState(0)
@@ -40,13 +54,53 @@ export default function MemoryGamePage() {
     if (matchedPairs === vocabularyPairs.length) {
       setGameCompleted(true)
     }
-  }, [matchedPairs])
+  }, [matchedPairs, vocabularyPairs.length])
 
   const initializeGame = () => {
     // Create pairs of cards (arabic and meaning)
     const initialCards: MatchingCard[] = []
 
     vocabularyPairs.forEach((pair) => {
+      initialCards.push({
+        id: `arabic-${pair.id}`,
+        content: pair.arabic,
+        type: "arabic",
+        originalId: pair.id,
+        isFlipped: false,
+        isMatched: false,
+      })
+
+      initialCards.push({
+        id: `meaning-${pair.id}`,
+        content: pair.meaning,
+        type: "meaning",
+        originalId: pair.id,
+        isFlipped: false,
+        isMatched: false,
+      })
+    })
+
+    // Shuffle the cards
+    const shuffledCards = initialCards.sort(() => Math.random() - 0.5)
+
+    setCards(shuffledCards)
+    setFlippedCards([])
+    setMatchedPairs(0)
+    setMoves(0)
+    setTimer(0)
+    setGameStarted(true)
+    setGameCompleted(false)
+  }
+
+  const startNewGame = () => {
+    // Generate new vocabulary pairs
+    const newVocabularyPairs = generateVocabularyPairs()
+    setVocabularyPairs(newVocabularyPairs)
+
+    // Create pairs of cards with the new vocabulary
+    const initialCards: MatchingCard[] = []
+
+    newVocabularyPairs.forEach((pair) => {
       initialCards.push({
         id: `arabic-${pair.id}`,
         content: pair.arabic,
@@ -206,9 +260,10 @@ export default function MemoryGamePage() {
                     <RefreshCw className="mr-2 h-4 w-4" />
                     Play Again
                   </Button>
-                  <Link href="/games">
-                    <Button className="bg-emerald-600 hover:bg-emerald-700">More Games</Button>
-                  </Link>
+                  <Button className="bg-emerald-600 hover:bg-emerald-700" onClick={startNewGame}>
+                    <RefreshCw className="mr-2 h-4 w-4" />
+                    New Words
+                  </Button>
                 </CardFooter>
               </Card>
             ) : (

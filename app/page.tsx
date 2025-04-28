@@ -167,19 +167,6 @@ export default function HomePage() {
         <AdvancedVocabularySection />
 
         <section className="bg-emerald-50 dark:bg-emerald-900/20 rounded-lg p-6 mb-12 mt-12">
-          <h2 className="text-xl md:text-2xl font-bold mb-4 text-center">Phase 4 Vocabulary Expansion Complete!</h2>
-          <p className="text-center mb-6">
-            We've reached our goal of 100 vocabulary words! Explore the new specialized theological and spiritual
-            concepts.
-          </p>
-          <div className="flex justify-center">
-            <Link href="/phase4-summary">
-              <Button className="bg-emerald-600 hover:bg-emerald-700">View Phase 4 Summary</Button>
-            </Link>
-          </div>
-        </section>
-
-        <section className="bg-emerald-50 dark:bg-emerald-900/20 rounded-lg p-6 mb-12 mt-12">
           <h2 className="text-xl md:text-2xl font-bold mb-4 text-center">Why Learn Quranic Arabic?</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>

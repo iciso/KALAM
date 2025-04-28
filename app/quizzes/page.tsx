@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { ArrowLeft, CheckCircle, Home, XCircle } from "lucide-react"
+import { ArrowLeft, CheckCircle, Home, XCircle, RefreshCw } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
@@ -113,6 +113,17 @@ export default function QuizzesPage() {
     setTimeLeft(30)
   }
 
+  const startNewQuiz = () => {
+    // Generate a new set of questions
+    setQuizQuestions(generateRandomQuizQuestions())
+    setCurrentQuestionIndex(0)
+    setSelectedOption(null)
+    setIsAnswered(false)
+    setScore(0)
+    setQuizCompleted(false)
+    setTimeLeft(30)
+  }
+
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       <header className="bg-emerald-800 text-white py-4">
@@ -214,8 +225,15 @@ export default function QuizzesPage() {
                     : "Keep practicing! You'll improve with time."}
               </p>
               <div className="flex flex-col space-y-4">
-                <Button onClick={resetQuiz} className="bg-emerald-600 hover:bg-emerald-700">
-                  Try Again
+                <Button
+                  onClick={startNewQuiz}
+                  className="bg-emerald-600 hover:bg-emerald-700 flex items-center justify-center"
+                >
+                  <RefreshCw className="mr-2 h-4 w-4" />
+                  New Quiz (Different Words)
+                </Button>
+                <Button onClick={resetQuiz} variant="outline" className="w-full">
+                  Try Again (Same Words)
                 </Button>
                 <Link href="/games">
                   <Button variant="outline" className="w-full">

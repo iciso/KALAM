@@ -187,6 +187,32 @@ export default function FillBlanksGamePage() {
     }
   }
 
+  const startNewGame = () => {
+    // Shuffle the order of sentences to provide variety
+    const shuffledSentences = JSON.parse(JSON.stringify(fillBlanksData)).sort(() => Math.random() - 0.5)
+
+    // Get words for the first sentence
+    const firstSentenceWords = shuffledSentences[0].blanks.map((blank: any) => blank.word)
+
+    // Add additional distractor words
+    const distractorWords = getDistractorWords(shuffledSentences, 0, 3)
+
+    // Combine and shuffle
+    const allWords = [...firstSentenceWords, ...distractorWords]
+    const shuffledWords = [...allWords].sort(() => Math.random() - 0.5)
+
+    setSentences(shuffledSentences)
+    setCurrentSentenceIndex(0)
+    setAvailableWords(shuffledWords)
+    setTimer(0)
+    setScore(0)
+    setShowHint(false)
+    setGameStarted(true)
+    setGameCompleted(false)
+    setSentenceCompleted(false)
+    completionCheckedRef.current = false
+  }
+
   const handleRemoveWord = (blankId: string) => {
     if (sentenceCompleted) return
 
@@ -363,9 +389,10 @@ export default function FillBlanksGamePage() {
                     <RefreshCw className="mr-2 h-4 w-4" />
                     Play Again
                   </Button>
-                  <Link href="/games">
-                    <Button className="bg-emerald-600 hover:bg-emerald-700">More Games</Button>
-                  </Link>
+                  <Button className="bg-emerald-600 hover:bg-emerald-700" onClick={startNewGame}>
+                    <RefreshCw className="mr-2 h-4 w-4" />
+                    New Game
+                  </Button>
                 </CardFooter>
               </Card>
             ) : (

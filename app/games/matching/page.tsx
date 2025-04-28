@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
 import { Timer, RefreshCw, CheckCircle2 } from "lucide-react"
-import { matchingWords } from "@/data/game-data"
+import { vocabularyService } from "@/services/vocabulary-service"
 
 type MatchItem = {
   id: number
@@ -15,18 +15,25 @@ type MatchItem = {
   isMatched: boolean
 }
 
-type Line = {
-  startX: number
-  startY: number
-  endX: number
-  endY: number
-  isCorrect: boolean | null
+// Function to generate matching words for the game
+const generateMatchingWords = (count = 8) => {
+  const allWords = vocabularyService.getAllWords()
+  const shuffledWords = [...allWords].sort(() => Math.random() - 0.5)
+  const selectedWords = shuffledWords.slice(0, count)
+
+  return selectedWords.map((word, index) => ({
+    id: index + 1,
+    arabic: word.arabic,
+    meaning: word.meanings[0],
+    isMatched: false,
+  }))
 }
 
 export default function MatchingGamePage() {
+  const [matchingWords, setMatchingWords] = useState(generateMatchingWords())
   const [items, setItems] = useState<MatchItem[]>([])
   const [selectedItem, setSelectedItem] = useState<number | null>(null)
-  const [lines, setLines] = useState<Line[]>([])
+  const [lines, setLines] = useState<any[]>([])
   const [gameStarted, setGameStarted] = useState(false)
   const [gameCompleted, setGameCompleted] = useState(false)
   const [timer, setTimer] = useState(0)
@@ -52,6 +59,27 @@ export default function MatchingGamePage() {
   const initializeGame = () => {
     // Shuffle the meanings
     const shuffledItems = [...matchingWords].map((item) => ({
+      ...item,
+      isMatched: false,
+    }))
+
+    setItems(shuffledItems)
+    setSelectedItem(null)
+    setLines([])
+    setTimer(0)
+    setScore(0)
+    setAttempts(0)
+    setGameStarted(true)
+    setGameCompleted(false)
+  }
+
+  const startNewGame = () => {
+    // Generate new matching words
+    const newMatchingWords = generateMatchingWords()
+    setMatchingWords(newMatchingWords)
+
+    // Initialize with the new words
+    const shuffledItems = [...newMatchingWords].map((item) => ({
       ...item,
       isMatched: false,
     }))
@@ -179,9 +207,10 @@ export default function MatchingGamePage() {
                     <RefreshCw className="mr-2 h-4 w-4" />
                     Play Again
                   </Button>
-                  <Link href="/games">
-                    <Button className="bg-emerald-600 hover:bg-emerald-700">More Games</Button>
-                  </Link>
+                  <Button className="bg-emerald-600 hover:bg-emerald-700" onClick={startNewGame}>
+                    <RefreshCw className="mr-2 h-4 w-4" />
+                    New Words
+                  </Button>
                 </CardFooter>
               </Card>
             ) : (
