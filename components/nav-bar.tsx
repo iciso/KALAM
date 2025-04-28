@@ -9,10 +9,10 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Home, Sun, Moon, Menu } from "lucide-react"
 import { FontSizeControls } from "./font-size-controls"
 
-// Define our navigation links - Removed pronunciation link
+// Define our navigation links - Updated vocabulary to dictionary
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/vocabulary", label: "Vocabulary" },
+  { href: "/vocabulary", label: "Quranic Dictionary" },
   { href: "/flashcards", label: "Flashcards" },
   { href: "/quizzes", label: "Quizzes" },
   { href: "/word-lists", label: "Word Lists" },

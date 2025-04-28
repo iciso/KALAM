@@ -9,67 +9,46 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { Progress } from "@/components/ui/progress"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Label } from "@/components/ui/label"
+import { vocabularyService } from "@/services/vocabulary-service"
 
-// Sample quiz questions
-const quizQuestions = [
-  {
-    id: 1,
-    question: "What does 'الله' mean?",
-    options: [
-      { id: "a", text: "God" },
-      { id: "b", text: "Lord" },
-      { id: "c", text: "King" },
-      { id: "d", text: "Master" },
-    ],
-    correctAnswer: "a",
-  },
-  {
-    id: 2,
-    question: "What does 'رَبّ' mean?",
-    options: [
-      { id: "a", text: "God" },
-      { id: "b", text: "Lord" },
-      { id: "c", text: "King" },
-      { id: "d", text: "Master" },
-    ],
-    correctAnswer: "b",
-  },
-  {
-    id: 3,
-    question: "What does 'يَوْم' mean?",
-    options: [
-      { id: "a", text: "Month" },
-      { id: "b", text: "Year" },
-      { id: "c", text: "Day" },
-      { id: "d", text: "Time" },
-    ],
-    correctAnswer: "c",
-  },
-  {
-    id: 4,
-    question: "What does 'صِرَاط' mean?",
-    options: [
-      { id: "a", text: "Bridge" },
-      { id: "b", text: "Path" },
-      { id: "c", text: "Road" },
-      { id: "d", text: "Way" },
-    ],
-    correctAnswer: "b",
-  },
-  {
-    id: 5,
-    question: "Which word means 'The Most Merciful'?",
-    options: [
-      { id: "a", text: "رَحْمَن" },
-      { id: "b", text: "رَحِيم" },
-      { id: "c", text: "عَزِيز" },
-      { id: "d", text: "كَرِيم" },
-    ],
-    correctAnswer: "b",
-  },
-]
+// Function to generate random quiz questions from vocabulary
+const generateRandomQuizQuestions = () => {
+  const allWords = vocabularyService.getAllWords()
+  const shuffledWords = [...allWords].sort(() => 0.5 - Math.random())
+  const selectedWords = shuffledWords.slice(0, 5)
+
+  return selectedWords.map((word, index) => {
+    // Create wrong options by selecting random words that are different from the current word
+    const wrongOptions = shuffledWords
+      .filter((w) => w.id !== word.id)
+      .slice(0, 3)
+      .map((w) => w.meanings[0])
+
+    // Create all options including the correct one
+    const options = [
+      { id: "a", text: word.meanings[0] },
+      { id: "b", text: wrongOptions[0] },
+      { id: "c", text: wrongOptions[1] },
+      { id: "d", text: wrongOptions[2] },
+    ]
+
+    // Shuffle the options
+    const shuffledOptions = [...options].sort(() => 0.5 - Math.random())
+
+    // Find the new position of the correct answer
+    const correctAnswerId = shuffledOptions.find((option) => option.text === word.meanings[0])?.id || "a"
+
+    return {
+      id: index + 1,
+      question: `What does '${word.arabic}' mean?`,
+      options: shuffledOptions,
+      correctAnswer: correctAnswerId,
+    }
+  })
+}
 
 export default function QuizzesPage() {
+  const [quizQuestions, setQuizQuestions] = useState(() => generateRandomQuizQuestions())
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
   const [selectedOption, setSelectedOption] = useState<string | null>(null)
   const [isAnswered, setIsAnswered] = useState(false)
@@ -125,6 +104,7 @@ export default function QuizzesPage() {
   }
 
   const resetQuiz = () => {
+    setQuizQuestions(generateRandomQuizQuestions())
     setCurrentQuestionIndex(0)
     setSelectedOption(null)
     setIsAnswered(false)

@@ -97,21 +97,33 @@ export default function HangmanGame() {
   // Render hangman figure based on wrong guesses
   const renderHangman = () => {
     const hangmanParts = [
+      // Head
       <div
         key="head"
         className="w-10 h-10 rounded-full border-4 border-gray-800 absolute top-10 left-1/2 transform -translate-x-1/2"
       ></div>,
+      // Body
       <div key="body" className="w-1 h-20 bg-gray-800 absolute top-20 left-1/2 transform -translate-x-1/2"></div>,
+      // Left Arm - Positioned to connect to the upper body
       <div
         key="leftArm"
-        className="w-12 h-1 bg-gray-800 absolute top-24 left-[calc(50%-12px)] transform rotate-45"
+        className="w-14 h-1 bg-gray-800 absolute top-24 left-[calc(50%-14px)] transform rotate-30 origin-right"
       ></div>,
-      <div key="rightArm" className="w-12 h-1 bg-gray-800 absolute top-24 left-[calc(50%)] transform -rotate-45"></div>,
+      // Right Arm - Positioned to connect to the upper body
+      <div
+        key="rightArm"
+        className="w-14 h-1 bg-gray-800 absolute top-24 left-[calc(50%)] transform -rotate-30 origin-left"
+      ></div>,
+      // Left Leg - Positioned to connect to the lower body
       <div
         key="leftLeg"
-        className="w-12 h-1 bg-gray-800 absolute top-40 left-[calc(50%-12px)] transform rotate-45"
+        className="w-14 h-1 bg-gray-800 absolute top-40 left-[calc(50%-7px)] transform rotate-30 origin-top-right"
       ></div>,
-      <div key="rightLeg" className="w-12 h-1 bg-gray-800 absolute top-40 left-[calc(50%)] transform -rotate-45"></div>,
+      // Right Leg - Positioned to connect to the lower body
+      <div
+        key="rightLeg"
+        className="w-14 h-1 bg-gray-800 absolute top-40 left-[calc(50%-7px)] transform -rotate-30 origin-top-left"
+      ></div>,
     ]
 
     return (

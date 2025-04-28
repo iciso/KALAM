@@ -37,7 +37,7 @@ export function VocabularyStats() {
       <Card>
         <CardHeader className="pb-2">
           <CardTitle className="text-2xl">{totalWords}</CardTitle>
-          <CardDescription>Total Vocabulary Words</CardDescription>
+          <CardDescription>Total Words in Dictionary</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="space-y-2">
@@ -69,7 +69,7 @@ export function VocabularyStats() {
       <Card>
         <CardHeader className="pb-2">
           <CardTitle className="text-2xl">{categoriesCount}</CardTitle>
-          <CardDescription>Vocabulary Categories</CardDescription>
+          <CardDescription>Word Categories</CardDescription>
         </CardHeader>
         <CardContent>
           <p className="text-sm text-gray-500">Words organized into thematic categories for easier learning</p>

@@ -93,7 +93,7 @@ export function VocabularyBrowser() {
             <CardContent className="space-y-4">
               <div className="flex items-center space-x-2">
                 <Input
-                  placeholder="Search vocabulary..."
+                  placeholder="Search dictionary..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="flex-1"
@@ -210,7 +210,7 @@ export function VocabularyBrowser() {
           {selectedWord ? (
             <div className="mb-6">
               <Button variant="outline" className="mb-4" onClick={() => setSelectedWord(null)}>
-                Back to List
+                Back to Dictionary
               </Button>
               <VocabularyDetail
                 word={selectedWord}
@@ -223,7 +223,7 @@ export function VocabularyBrowser() {
               <div className="flex justify-between items-center mb-4">
                 <h2 className="text-2xl font-bold">
                   {activeTab === "all"
-                    ? "All Vocabulary"
+                    ? "Quranic Dictionary"
                     : activeTab === "saved"
                       ? "Saved Words"
                       : categories.find((c) => c.id === activeTab)?.name || "Vocabulary"}

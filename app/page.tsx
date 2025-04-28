@@ -34,19 +34,19 @@ export default function HomePage() {
           <Card>
             <CardHeader>
               <Database className="h-8 w-8 text-emerald-600 mb-2" />
-              <CardTitle>Vocabulary Database</CardTitle>
+              <CardTitle>Quranic Dictionary</CardTitle>
               <CardDescription>Explore comprehensive Quranic vocabulary</CardDescription>
             </CardHeader>
             <CardContent>
               <p className="text-gray-600 dark:text-gray-300">
-                Browse our extensive database of Quranic Arabic vocabulary with detailed meanings, examples, and
+                Browse our extensive collection of Quranic Arabic vocabulary with detailed meanings, examples, and
                 context.
               </p>
             </CardContent>
             <CardFooter>
               <Link href="/vocabulary" className="w-full">
                 <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
-                  Explore Database <ArrowRight className="ml-2 h-4 w-4" />
+                  Explore Dictionary <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
             </CardFooter>

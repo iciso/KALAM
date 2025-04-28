@@ -34,11 +34,8 @@ export const fillBlanksData = [
   },
   {
     id: 3,
-    text: "___ الرَّحْمَنِ ___",
-    blanks: [
-      { id: "blank3-1", word: "مَالِكِ", filled: null },
-      { id: "blank3-2", word: "الرَّحِيمِ", filled: null },
-    ],
+    text: "___ يَوْمِ الدِّينِ",
+    blanks: [{ id: "blank3-1", word: "مَالِكِ", filled: null }],
   },
   {
     id: 4,

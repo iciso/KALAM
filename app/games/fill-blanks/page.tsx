@@ -2,13 +2,14 @@
 
 import type React from "react"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
-import { Timer, RefreshCw, HelpCircle } from "lucide-react"
+import { Timer, RefreshCw, HelpCircle, ArrowRight, CheckCircle } from "lucide-react"
 import { fillBlanksData } from "@/data/game-data"
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 
 type Sentence = {
   id: number
@@ -30,6 +31,10 @@ export default function FillBlanksGamePage() {
   const [score, setScore] = useState(0)
   const [showHint, setShowHint] = useState(false)
   const [draggedWord, setDraggedWord] = useState<string | null>(null)
+  const [sentenceCompleted, setSentenceCompleted] = useState(false)
+
+  // Reference to track if we've checked completion for the current state
+  const completionCheckedRef = useRef(false)
 
   useEffect(() => {
     if (gameStarted && !gameCompleted) {
@@ -41,6 +46,54 @@ export default function FillBlanksGamePage() {
     }
   }, [gameStarted, gameCompleted])
 
+  // Effect to check sentence completion whenever sentences or currentSentenceIndex changes
+  useEffect(() => {
+    if (gameStarted && !gameCompleted && !sentenceCompleted && sentences.length > 0) {
+      const currentSentence = sentences[currentSentenceIndex]
+      if (currentSentence) {
+        // Check if all blanks are filled
+        const allFilled = currentSentence.blanks.every((blank) => blank.filled !== null)
+
+        if (allFilled) {
+          // Check if all blanks are filled correctly
+          const allCorrect = currentSentence.blanks.every((blank) => blank.filled === blank.word)
+
+          if (allCorrect && !completionCheckedRef.current) {
+            completionCheckedRef.current = true
+            setSentenceCompleted(true)
+            setScore((prev) => prev + 10)
+            console.log("Sentence completed:", currentSentenceIndex + 1)
+          }
+        } else {
+          completionCheckedRef.current = false
+        }
+      }
+    }
+  }, [sentences, currentSentenceIndex, gameStarted, gameCompleted, sentenceCompleted])
+
+  // Helper function to get distractor words from other sentences
+  const getDistractorWords = (sentences: Sentence[], currentIndex: number, count: number) => {
+    // Collect words from other sentences
+    const otherWords: string[] = []
+    sentences.forEach((sentence, index) => {
+      if (index !== currentIndex) {
+        sentence.blanks.forEach((blank) => {
+          otherWords.push(blank.word)
+        })
+      }
+    })
+
+    // If we don't have enough words from other sentences, add some common Arabic words
+    const commonWords = ["كتاب", "قلم", "ماء", "بيت", "مدرسة", "كبير", "صغير", "جميل"]
+
+    // Combine and shuffle all potential distractor words
+    const allPotentialDistractors = [...otherWords, ...commonWords]
+    const shuffledDistractors = [...allPotentialDistractors].sort(() => Math.random() - 0.5)
+
+    // Return the requested number of distractors
+    return shuffledDistractors.slice(0, count)
+  }
+
   const initializeGame = () => {
     // Deep copy the sentences to avoid modifying the original data
     const initialSentences = JSON.parse(JSON.stringify(fillBlanksData))
@@ -48,8 +101,14 @@ export default function FillBlanksGamePage() {
     // Get all words for the first sentence
     const firstSentenceWords = initialSentences[0].blanks.map((blank: any) => blank.word)
 
+    // Add additional distractor words from other sentences (2-3 extra words)
+    const distractorWords = getDistractorWords(initialSentences, 0, 3)
+
+    // Combine correct words and distractors
+    const allWords = [...firstSentenceWords, ...distractorWords]
+
     // Shuffle the words
-    const shuffledWords = [...firstSentenceWords].sort(() => Math.random() - 0.5)
+    const shuffledWords = [...allWords].sort(() => Math.random() - 0.5)
 
     setSentences(initialSentences)
     setCurrentSentenceIndex(0)
@@ -59,6 +118,8 @@ export default function FillBlanksGamePage() {
     setShowHint(false)
     setGameStarted(true)
     setGameCompleted(false)
+    setSentenceCompleted(false)
+    completionCheckedRef.current = false
   }
 
   const handleDragStart = (word: string) => {
@@ -72,7 +133,7 @@ export default function FillBlanksGamePage() {
   const handleDrop = (e: React.DragEvent, blankId: string) => {
     e.preventDefault()
 
-    if (!draggedWord) return
+    if (!draggedWord || sentenceCompleted) return
 
     // Update the sentence with the dropped word
     const updatedSentences = [...sentences]
@@ -93,41 +154,42 @@ export default function FillBlanksGamePage() {
       setAvailableWords((prev) => prev.filter((word) => word !== draggedWord))
 
       setSentences(updatedSentences)
-
-      // Check if all blanks are filled
-      const allFilled = currentSentence.blanks.every((blank) => blank.filled !== null)
-
-      if (allFilled) {
-        // Check if all blanks are filled correctly
-        const allCorrect = currentSentence.blanks.every((blank) => blank.filled === blank.word)
-
-        if (allCorrect) {
-          setScore((prev) => prev + 10)
-
-          // Move to next sentence or complete game
-          if (currentSentenceIndex < sentences.length - 1) {
-            setTimeout(() => {
-              const nextIndex = currentSentenceIndex + 1
-              setCurrentSentenceIndex(nextIndex)
-
-              // Get words for the next sentence
-              const nextSentenceWords = sentences[nextIndex].blanks.map((blank) => blank.word)
-              const shuffledWords = [...nextSentenceWords].sort(() => Math.random() - 0.5)
-
-              setAvailableWords(shuffledWords)
-              setShowHint(false)
-            }, 1000)
-          } else {
-            setGameCompleted(true)
-          }
-        }
-      }
+      completionCheckedRef.current = false
     }
 
     setDraggedWord(null)
   }
 
+  const handleNextSentence = () => {
+    if (currentSentenceIndex < sentences.length - 1) {
+      const nextIndex = currentSentenceIndex + 1
+      setCurrentSentenceIndex(nextIndex)
+
+      // Get words for the next sentence
+      const nextSentenceWords = sentences[nextIndex].blanks.map((blank) => blank.word)
+
+      // Add distractor words (2-3 extra words)
+      const distractorWords = getDistractorWords(sentences, nextIndex, 3)
+
+      // Combine and shuffle
+      const allWords = [...nextSentenceWords, ...distractorWords]
+      const shuffledWords = [...allWords].sort(() => Math.random() - 0.5)
+
+      setAvailableWords(shuffledWords)
+      setShowHint(false)
+      setSentenceCompleted(false)
+      completionCheckedRef.current = false
+      console.log("Moving to sentence:", nextIndex + 1)
+    } else {
+      // This is the last sentence, mark the game as completed
+      setGameCompleted(true)
+      console.log("Game completed!")
+    }
+  }
+
   const handleRemoveWord = (blankId: string) => {
+    if (sentenceCompleted) return
+
     const updatedSentences = [...sentences]
     const currentSentence = updatedSentences[currentSentenceIndex]
 
@@ -141,6 +203,10 @@ export default function FillBlanksGamePage() {
       currentSentence.blanks[blankIndex].filled = null
 
       setSentences(updatedSentences)
+
+      // Reset sentence completed state since we're modifying the sentence
+      setSentenceCompleted(false)
+      completionCheckedRef.current = false
     }
   }
 
@@ -156,6 +222,73 @@ export default function FillBlanksGamePage() {
   }
 
   const currentSentence = sentences[currentSentenceIndex]
+
+  // Function to render a sentence with blanks in the correct RTL order
+  const renderSentenceWithBlanks = (sentence: Sentence) => {
+    if (!sentence) return null
+
+    // For RTL text, we need to handle the rendering differently
+    // We'll create an array of elements (text parts and blanks) and then render them
+    const elements: React.ReactNode[] = []
+
+    // Split the text by the blank placeholder
+    const textParts = sentence.text.split("___")
+
+    // Create elements for each part and blank
+    textParts.forEach((part, index) => {
+      // Add the text part
+      elements.push(<span key={`text-${index}`}>{part}</span>)
+
+      // Add a blank if this isn't the last part
+      if (index < textParts.length - 1) {
+        const blank = sentence.blanks[index]
+        elements.push(
+          <TooltipProvider key={`blank-${index}`}>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <span
+                  className={`inline-block min-w-[100px] min-h-[40px] mx-1 p-2 border-2 border-dashed rounded ${
+                    blank.filled
+                      ? "border-green-500 bg-green-50 dark:bg-green-900/20"
+                      : "border-gray-300 dark:border-gray-600 bg-gray-50/50 dark:bg-gray-800/50"
+                  }`}
+                  onDragOver={handleDragOver}
+                  onDrop={(e) => handleDrop(e, blank.id)}
+                >
+                  {blank.filled ? (
+                    <div className="flex justify-between items-center">
+                      <span className="font-arabic">{blank.filled}</span>
+                      {!sentenceCompleted && (
+                        <button
+                          onClick={() => handleRemoveWord(blank.id)}
+                          className="text-red-500 mr-2"
+                          aria-label="Remove word"
+                        >
+                          ×
+                        </button>
+                      )}
+                    </div>
+                  ) : (
+                    <span className="sr-only">Drop word here</span>
+                  )}
+                </span>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Drop a word here</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>,
+        )
+      }
+    })
+
+    // Return the elements wrapped in a container with RTL direction
+    return (
+      <div className="text-lg mb-6 text-right font-arabic" dir="rtl">
+        {elements}
+      </div>
+    )
+  }
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
@@ -245,7 +378,7 @@ export default function FillBlanksGamePage() {
                         variant="ghost"
                         size="sm"
                         onClick={showHintHandler}
-                        disabled={showHint}
+                        disabled={showHint || sentenceCompleted}
                         className="text-gray-500"
                       >
                         <HelpCircle className="h-4 w-4 mr-1" />
@@ -254,41 +387,9 @@ export default function FillBlanksGamePage() {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <div className="text-lg mb-6">
-                      {currentSentence &&
-                        currentSentence.text.split("___").map((part, index) => (
-                          <span key={index}>
-                            {part}
-                            {index < currentSentence.text.split("___").length - 1 && (
-                              <span
-                                className={`inline-block min-w-[100px] mx-1 p-2 border-2 border-dashed rounded ${
-                                  currentSentence.blanks[index].filled
-                                    ? "border-green-500 bg-green-50 dark:bg-green-900/20"
-                                    : "border-gray-300 dark:border-gray-600"
-                                }`}
-                                onDragOver={handleDragOver}
-                                onDrop={(e) => handleDrop(e, currentSentence.blanks[index].id)}
-                              >
-                                {currentSentence.blanks[index].filled ? (
-                                  <div className="flex justify-between items-center">
-                                    <span className="font-arabic">{currentSentence.blanks[index].filled}</span>
-                                    <button
-                                      onClick={() => handleRemoveWord(currentSentence.blanks[index].id)}
-                                      className="text-red-500 ml-2"
-                                    >
-                                      ×
-                                    </button>
-                                  </div>
-                                ) : (
-                                  <span className="text-gray-400">Drop here</span>
-                                )}
-                              </span>
-                            )}
-                          </span>
-                        ))}
-                    </div>
+                    {renderSentenceWithBlanks(currentSentence)}
 
-                    {showHint && (
+                    {showHint && !sentenceCompleted && (
                       <div className="bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded-lg mb-6 border border-yellow-200 dark:border-yellow-800">
                         <h3 className="font-bold mb-2 flex items-center">
                           <HelpCircle className="h-4 w-4 mr-1 text-yellow-600 dark:text-yellow-400" />
@@ -304,15 +405,40 @@ export default function FillBlanksGamePage() {
                       </div>
                     )}
 
+                    {sentenceCompleted && (
+                      <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg mb-6 border border-green-200 dark:border-green-800">
+                        <h3 className="font-bold mb-2 flex items-center text-green-700 dark:text-green-400">
+                          <CheckCircle className="h-4 w-4 mr-2" />
+                          Correct! Well done!
+                        </h3>
+                        <div className="flex justify-end">
+                          <Button
+                            onClick={handleNextSentence}
+                            className="bg-emerald-600 hover:bg-emerald-700 flex items-center"
+                          >
+                            {currentSentenceIndex < sentences.length - 1 ? (
+                              <>
+                                Next Sentence <ArrowRight className="ml-2 h-4 w-4" />
+                              </>
+                            ) : (
+                              "Complete Game"
+                            )}
+                          </Button>
+                        </div>
+                      </div>
+                    )}
+
                     <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg">
                       <h3 className="font-bold mb-3">Word Bank</h3>
                       <div className="flex flex-wrap gap-2">
                         {availableWords.map((word, index) => (
                           <div
                             key={index}
-                            draggable
-                            onDragStart={() => handleDragStart(word)}
-                            className="bg-white dark:bg-gray-700 px-3 py-2 rounded border border-gray-300 dark:border-gray-600 cursor-move font-arabic"
+                            draggable={!sentenceCompleted}
+                            onDragStart={() => !sentenceCompleted && handleDragStart(word)}
+                            className={`bg-white dark:bg-gray-700 px-3 py-2 rounded border border-gray-300 dark:border-gray-600 ${
+                              sentenceCompleted ? "opacity-50" : "cursor-move"
+                            } font-arabic`}
                           >
                             {word}
                           </div>
