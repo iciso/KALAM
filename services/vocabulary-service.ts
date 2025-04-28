@@ -3,11 +3,24 @@ import { additionalVocabularyData } from "../data/vocabulary-data-expansion"
 import { phase2VocabularyData } from "../data/vocabulary-data-expansion-phase2"
 import { phase3VocabularyData } from "../data/vocabulary-data-expansion-phase3"
 import { phase4VocabularyData } from "../data/vocabulary-data-expansion-phase4"
+import { phase5VocabularyData } from "../data/vocabulary-data-expansion-phase5"
+import { phase6VocabularyData } from "../data/vocabulary-data-expansion-phase6"
+import { phase7VocabularyData } from "../data/vocabulary-data-expansion-phase7"
+import { phase8VocabularyData } from "../data/vocabulary-data-expansion-phase8"
+import { phase9VocabularyData } from "../data/vocabulary-data-expansion-phase9"
 import { vocabularyCategories } from "../data/vocabulary-categories"
 import { type VocabularyWord, type VocabularyCategory, Difficulty, type PartOfSpeech } from "../types/vocabulary"
 
+// Define a type for Surah information
+export interface SurahInfo {
+  number: number
+  name: string
+  wordCount: number
+}
+
 export class VocabularyService {
   private allVocabularyData: VocabularyWord[]
+  private surahList: SurahInfo[] = []
 
   constructor() {
     // Combine all vocabulary data sets
@@ -17,7 +30,42 @@ export class VocabularyService {
       ...phase2VocabularyData,
       ...phase3VocabularyData,
       ...phase4VocabularyData,
+      ...phase5VocabularyData,
+      ...phase6VocabularyData,
+      ...phase7VocabularyData,
+      ...phase8VocabularyData,
+      ...phase9VocabularyData,
     ]
+
+    // Generate the list of Surahs with word counts
+    this.generateSurahList()
+  }
+
+  // Generate a list of all Surahs that have words in our database
+  private generateSurahList(): void {
+    const surahMap = new Map<number, { name: string; words: Set<string> }>()
+
+    // Collect all Surahs and the words that appear in them
+    this.allVocabularyData.forEach((word) => {
+      word.examples.forEach((example) => {
+        if (!surahMap.has(example.surahNumber)) {
+          surahMap.set(example.surahNumber, {
+            name: example.surahName,
+            words: new Set<string>(),
+          })
+        }
+        surahMap.get(example.surahNumber)?.words.add(word.id)
+      })
+    })
+
+    // Convert the map to an array of SurahInfo objects
+    this.surahList = Array.from(surahMap.entries())
+      .map(([number, { name, words }]) => ({
+        number,
+        name,
+        wordCount: words.size,
+      }))
+      .sort((a, b) => a.number - b.number)
   }
 
   // Get all vocabulary words
@@ -128,6 +176,79 @@ export class VocabularyService {
   // Get words added in Phase 4
   getPhase4Words(): VocabularyWord[] {
     return phase4VocabularyData
+  }
+
+  // Get words added in Phase 5
+  getPhase5Words(): VocabularyWord[] {
+    return phase5VocabularyData
+  }
+
+  // Get words added in Phase 6
+  getPhase6Words(): VocabularyWord[] {
+    return phase6VocabularyData
+  }
+
+  // Get words added in Phase 7
+  getPhase7Words(): VocabularyWord[] {
+    return phase7VocabularyData
+  }
+
+  // Get words added in Phase 8
+  getPhase8Words(): VocabularyWord[] {
+    return phase8VocabularyData
+  }
+
+  // Get words added in Phase 9
+  getPhase9Words(): VocabularyWord[] {
+    return phase9VocabularyData
+  }
+
+  // Get words by phase
+  getWordsByPhase(phase: number): VocabularyWord[] {
+    switch (phase) {
+      case 1:
+        return vocabularyData
+      case 2:
+        return additionalVocabularyData
+      case 3:
+        return phase2VocabularyData
+      case 4:
+        return phase3VocabularyData
+      case 5:
+        return phase4VocabularyData
+      case 6:
+        return phase5VocabularyData
+      case 7:
+        return phase6VocabularyData
+      case 8:
+        return phase7VocabularyData
+      case 9:
+        return phase8VocabularyData
+      case 10:
+        return phase9VocabularyData
+      default:
+        return []
+    }
+  }
+
+  // Get all Surahs that have words in our database
+  getAllSurahs(): SurahInfo[] {
+    return this.surahList
+  }
+
+  // Get words that appear in a specific Surah
+  getWordsBySurah(surahNumber: number): VocabularyWord[] {
+    return this.allVocabularyData.filter((word) => word.examples.some((example) => example.surahNumber === surahNumber))
+  }
+
+  // Get words that appear in a specific Surah by name
+  getWordsBySurahName(surahName: string): VocabularyWord[] {
+    return this.allVocabularyData.filter((word) => word.examples.some((example) => example.surahName === surahName))
+  }
+
+  // Get Surah information by number
+  getSurahInfo(surahNumber: number): SurahInfo | undefined {
+    return this.surahList.find((surah) => surah.number === surahNumber)
   }
 }
 

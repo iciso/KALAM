@@ -1,121 +1,205 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Link from "next/link"
-import { useTheme } from "next-themes"
 import { usePathname } from "next/navigation"
-import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Home, Sun, Moon, Menu } from "lucide-react"
+import { Menu, X, BookOpen, Home, Book, Gamepad2, School, ListTodo, Info, BookMarked } from "lucide-react"
 import { FontSizeControls } from "./font-size-controls"
 
-// Define our navigation links - Updated vocabulary to dictionary
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/vocabulary", label: "Quranic Dictionary" },
-  { href: "/flashcards", label: "Flashcards" },
-  { href: "/quizzes", label: "Quizzes" },
-  { href: "/word-lists", label: "Word Lists" },
-  { href: "/games", label: "Games" },
-  { href: "/about", label: "About" },
-]
-
 export function NavBar() {
-  const { theme, setTheme } = useTheme()
-  const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
+  const pathname = usePathname()
 
-  // Handle scroll effect for navbar
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+  const toggleMenu = () => {
+    setIsOpen(!isOpen)
+  }
 
-  // Close mobile menu when route changes
-  useEffect(() => {
+  const closeMenu = () => {
     setIsOpen(false)
-  }, [pathname])
+  }
+
+  const isActive = (path: string) => {
+    return pathname === path
+  }
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "py-2 shadow-md" : "py-4"
-      } backdrop-blur-md bg-background/80`}
-    >
-      <div className="container mx-auto px-4 flex justify-between items-center">
-        {/* Home button on the left */}
-        <Link href="/">
-          <Button
-            variant="outline"
-            size="icon"
-            className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90"
-          >
-            <Home className="h-5 w-5" />
-            <span className="sr-only">Home</span>
-          </Button>
-        </Link>
-
-        {/* Desktop Navigation - Hidden on mobile */}
-        <div className="hidden md:flex items-center space-x-1">
-          {navLinks.slice(1).map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                pathname === link.href ? "bg-primary/10 text-primary" : "hover:bg-accent hover:text-accent-foreground"
-              }`}
-            >
-              {link.label}
+    <nav className="bg-emerald-700 text-white shadow-md">
+      <div className="container mx-auto px-4">
+        <div className="flex justify-between items-center py-3">
+          <div className="flex items-center">
+            <Link href="/" className="text-xl font-bold flex items-center" onClick={closeMenu}>
+              <BookOpen className="mr-2" />
+              <span>KALAM</span>
             </Link>
-          ))}
+          </div>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-4">
+            <Link
+              href="/"
+              className={`flex items-center px-3 py-2 rounded hover:bg-emerald-600 ${
+                isActive("/") ? "bg-emerald-800" : ""
+              }`}
+              onClick={closeMenu}
+            >
+              <Home className="mr-1 h-4 w-4" />
+              <span>Home</span>
+            </Link>
+            <Link
+              href="/vocabulary"
+              className={`flex items-center px-3 py-2 rounded hover:bg-emerald-600 ${
+                isActive("/vocabulary") ? "bg-emerald-800" : ""
+              }`}
+              onClick={closeMenu}
+            >
+              <Book className="mr-1 h-4 w-4" />
+              <span>Dictionary</span>
+            </Link>
+            <Link
+              href="/surah-vocabulary"
+              className={`flex items-center px-3 py-2 rounded hover:bg-emerald-600 ${
+                isActive("/surah-vocabulary") ? "bg-emerald-800" : ""
+              }`}
+              onClick={closeMenu}
+            >
+              <BookMarked className="mr-1 h-4 w-4" />
+              <span>Surah Browser</span>
+            </Link>
+            <Link
+              href="/games"
+              className={`flex items-center px-3 py-2 rounded hover:bg-emerald-600 ${
+                pathname.startsWith("/games") ? "bg-emerald-800" : ""
+              }`}
+              onClick={closeMenu}
+            >
+              <Gamepad2 className="mr-1 h-4 w-4" />
+              <span>Games</span>
+            </Link>
+            <Link
+              href="/quizzes"
+              className={`flex items-center px-3 py-2 rounded hover:bg-emerald-600 ${
+                isActive("/quizzes") ? "bg-emerald-800" : ""
+              }`}
+              onClick={closeMenu}
+            >
+              <School className="mr-1 h-4 w-4" />
+              <span>Quizzes</span>
+            </Link>
+            <Link
+              href="/word-lists"
+              className={`flex items-center px-3 py-2 rounded hover:bg-emerald-600 ${
+                pathname.startsWith("/word-lists") ? "bg-emerald-800" : ""
+              }`}
+              onClick={closeMenu}
+            >
+              <ListTodo className="mr-1 h-4 w-4" />
+              <span>Word Lists</span>
+            </Link>
+            <Link
+              href="/about"
+              className={`flex items-center px-3 py-2 rounded hover:bg-emerald-600 ${
+                isActive("/about") ? "bg-emerald-800" : ""
+              }`}
+              onClick={closeMenu}
+            >
+              <Info className="mr-1 h-4 w-4" />
+              <span>About</span>
+            </Link>
+            <FontSizeControls />
+          </div>
+
+          {/* Mobile Menu Button */}
+          <div className="md:hidden flex items-center">
+            <FontSizeControls />
+            <button onClick={toggleMenu} className="p-2 focus:outline-none">
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
 
-        {/* Right side controls */}
-        <div className="flex items-center space-x-2">
-          {/* Font size controls */}
-          <FontSizeControls />
-
-          {/* Theme toggle */}
-          <Button
-            variant="outline"
-            size="icon"
-            className="rounded-full"
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            aria-label="Toggle theme"
-          >
-            {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-          </Button>
-
-          {/* Mobile menu button - Only visible on mobile */}
-          <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger asChild>
-              <Button variant="outline" size="icon" className="md:hidden rounded-full" aria-label="Open menu">
-                <Menu className="h-5 w-5" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-[80%] sm:w-[350px] pt-12">
-              <div className="flex flex-col space-y-4 mt-4">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className={`px-4 py-3 rounded-md text-lg font-medium transition-colors ${
-                      pathname === link.href
-                        ? "bg-primary/10 text-primary"
-                        : "hover:bg-accent hover:text-accent-foreground"
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
+        {/* Mobile Navigation */}
+        {isOpen && (
+          <div className="md:hidden pb-4">
+            <Link
+              href="/"
+              className={`block px-4 py-2 rounded hover:bg-emerald-600 ${isActive("/") ? "bg-emerald-800" : ""}`}
+              onClick={closeMenu}
+            >
+              <div className="flex items-center">
+                <Home className="mr-2 h-5 w-5" />
+                <span>Home</span>
               </div>
-            </SheetContent>
-          </Sheet>
-        </div>
+            </Link>
+            <Link
+              href="/vocabulary"
+              className={`block px-4 py-2 rounded hover:bg-emerald-600 ${
+                isActive("/vocabulary") ? "bg-emerald-800" : ""
+              }`}
+              onClick={closeMenu}
+            >
+              <div className="flex items-center">
+                <Book className="mr-2 h-5 w-5" />
+                <span>Dictionary</span>
+              </div>
+            </Link>
+            <Link
+              href="/surah-vocabulary"
+              className={`block px-4 py-2 rounded hover:bg-emerald-600 ${
+                isActive("/surah-vocabulary") ? "bg-emerald-800" : ""
+              }`}
+              onClick={closeMenu}
+            >
+              <div className="flex items-center">
+                <BookMarked className="mr-2 h-5 w-5" />
+                <span>Surah Browser</span>
+              </div>
+            </Link>
+            <Link
+              href="/games"
+              className={`block px-4 py-2 rounded hover:bg-emerald-600 ${
+                pathname.startsWith("/games") ? "bg-emerald-800" : ""
+              }`}
+              onClick={closeMenu}
+            >
+              <div className="flex items-center">
+                <Gamepad2 className="mr-2 h-5 w-5" />
+                <span>Games</span>
+              </div>
+            </Link>
+            <Link
+              href="/quizzes"
+              className={`block px-4 py-2 rounded hover:bg-emerald-600 ${isActive("/quizzes") ? "bg-emerald-800" : ""}`}
+              onClick={closeMenu}
+            >
+              <div className="flex items-center">
+                <School className="mr-2 h-5 w-5" />
+                <span>Quizzes</span>
+              </div>
+            </Link>
+            <Link
+              href="/word-lists"
+              className={`block px-4 py-2 rounded hover:bg-emerald-600 ${
+                pathname.startsWith("/word-lists") ? "bg-emerald-800" : ""
+              }`}
+              onClick={closeMenu}
+            >
+              <div className="flex items-center">
+                <ListTodo className="mr-2 h-5 w-5" />
+                <span>Word Lists</span>
+              </div>
+            </Link>
+            <Link
+              href="/about"
+              className={`block px-4 py-2 rounded hover:bg-emerald-600 ${isActive("/about") ? "bg-emerald-800" : ""}`}
+              onClick={closeMenu}
+            >
+              <div className="flex items-center">
+                <Info className="mr-2 h-5 w-5" />
+                <span>About</span>
+              </div>
+            </Link>
+          </div>
+        )}
       </div>
     </nav>
   )

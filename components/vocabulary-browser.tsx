@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { type VocabularyWord, Difficulty, PartOfSpeech } from "../types/vocabulary"
-import { vocabularyService } from "../services/vocabulary-service"
+import { vocabularyService, type SurahInfo } from "../services/vocabulary-service"
 import { VocabularyDetail } from "./vocabulary-detail"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
@@ -10,7 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Search, Filter, Bookmark, Volume2, ListPlus } from "lucide-react"
+import { Search, Filter, Bookmark, Volume2, ListPlus, BookOpen } from "lucide-react"
 import { AddToListDialog } from "./add-to-list-dialog"
 
 export function VocabularyBrowser() {
@@ -23,12 +23,16 @@ export function VocabularyBrowser() {
   const [activeTab, setActiveTab] = useState("all")
   const [savedWords, setSavedWords] = useState<string[]>([])
   const [showAudioOnly, setShowAudioOnly] = useState(false)
+  const [surahs, setSurahs] = useState<SurahInfo[]>([])
+  const [selectedSurah, setSelectedSurah] = useState<number | null>(null)
 
-  // Load all words on component mount
+  // Load all words and surahs on component mount
   useEffect(() => {
     const allWords = vocabularyService.getAllWords()
+    const allSurahs = vocabularyService.getAllSurahs()
     setWords(allWords)
     setFilteredWords(allWords)
+    setSurahs(allSurahs)
   }, [])
 
   // Apply filters when search or filter criteria change
@@ -62,8 +66,13 @@ export function VocabularyBrowser() {
       result = result.filter((word) => word.hasAudio)
     }
 
+    // Apply Surah filter
+    if (selectedSurah) {
+      result = result.filter((word) => word.examples.some((example) => example.surahNumber === selectedSurah))
+    }
+
     setFilteredWords(result)
-  }, [searchQuery, difficulty, partOfSpeech, activeTab, words, savedWords, showAudioOnly])
+  }, [searchQuery, difficulty, partOfSpeech, activeTab, words, savedWords, showAudioOnly, selectedSurah])
 
   const handleWordSelect = (word: VocabularyWord) => {
     setSelectedWord(word)
@@ -77,6 +86,10 @@ export function VocabularyBrowser() {
         return [...prev, word.id]
       }
     })
+  }
+
+  const handleSurahChange = (value: string) => {
+    setSelectedSurah(value === "all" ? null : Number.parseInt(value))
   }
 
   const categories = vocabularyService.getAllCategories()
@@ -139,6 +152,23 @@ export function VocabularyBrowser() {
                 </Select>
               </div>
 
+              <div>
+                <label className="text-sm font-medium block mb-2">Surah (Chapter)</label>
+                <Select value={selectedSurah?.toString() || "all"} onValueChange={handleSurahChange}>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select Surah" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">All Surahs</SelectItem>
+                    {surahs.map((surah) => (
+                      <SelectItem key={surah.number} value={surah.number.toString()}>
+                        {surah.number}. {surah.name} ({surah.wordCount})
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+
               <div className="flex items-center space-x-2">
                 <input
                   type="checkbox"
@@ -164,6 +194,7 @@ export function VocabularyBrowser() {
                     setDifficulty("all")
                     setPartOfSpeech("all")
                     setShowAudioOnly(false)
+                    setSelectedSurah(null)
                   }}
                 >
                   <Filter className="mr-2 h-4 w-4" />
@@ -227,6 +258,11 @@ export function VocabularyBrowser() {
                     : activeTab === "saved"
                       ? "Saved Words"
                       : categories.find((c) => c.id === activeTab)?.name || "Vocabulary"}
+                  {selectedSurah && (
+                    <span className="ml-2 text-lg font-normal">
+                      in Surah {surahs.find((s) => s.number === selectedSurah)?.name}
+                    </span>
+                  )}
                 </h2>
                 <div className="text-sm text-gray-500">
                   {filteredWords.length} {filteredWords.length === 1 ? "word" : "words"} found
@@ -284,6 +320,18 @@ export function VocabularyBrowser() {
                           {word.partOfSpeech}
                         </Badge>
                       </div>
+                      {selectedSurah && (
+                        <div className="mt-2 text-sm text-gray-500">
+                          <div className="flex items-center">
+                            <BookOpen className="h-3 w-3 mr-1" />
+                            {word.examples.filter((ex) => ex.surahNumber === selectedSurah).length}
+                            {word.examples.filter((ex) => ex.surahNumber === selectedSurah).length === 1
+                              ? " occurrence"
+                              : " occurrences"}{" "}
+                            in this Surah
+                          </div>
+                        </div>
+                      )}
                     </CardContent>
                   </Card>
                 ))}
@@ -301,6 +349,7 @@ export function VocabularyBrowser() {
                       setPartOfSpeech("all")
                       setActiveTab("all")
                       setShowAudioOnly(false)
+                      setSelectedSurah(null)
                     }}
                   >
                     Reset Filters

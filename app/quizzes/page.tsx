@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { ArrowLeft, CheckCircle, Home, XCircle, RefreshCw } from "lucide-react"
+import { ArrowLeft, CheckCircle, Home, XCircle, RefreshCw, BookOpen } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
@@ -55,12 +55,13 @@ export default function QuizzesPage() {
   const [score, setScore] = useState(0)
   const [quizCompleted, setQuizCompleted] = useState(false)
   const [timeLeft, setTimeLeft] = useState(30)
+  const [showQuizOptions, setShowQuizOptions] = useState(true)
 
   const currentQuestion = quizQuestions[currentQuestionIndex]
   const progress = ((currentQuestionIndex + 1) / quizQuestions.length) * 100
 
   useEffect(() => {
-    if (!isAnswered && !quizCompleted) {
+    if (!isAnswered && !quizCompleted && !showQuizOptions) {
       const timer = setInterval(() => {
         setTimeLeft((prevTime) => {
           if (prevTime <= 1) {
@@ -74,7 +75,7 @@ export default function QuizzesPage() {
 
       return () => clearInterval(timer)
     }
-  }, [isAnswered, quizCompleted])
+  }, [isAnswered, quizCompleted, showQuizOptions])
 
   const handleOptionSelect = (optionId: string) => {
     if (!isAnswered) {
@@ -124,6 +125,11 @@ export default function QuizzesPage() {
     setTimeLeft(30)
   }
 
+  const startGeneralQuiz = () => {
+    setShowQuizOptions(false)
+    startNewQuiz()
+  }
+
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       <header className="bg-emerald-800 text-white py-4">
@@ -139,7 +145,53 @@ export default function QuizzesPage() {
       </header>
 
       <main className="container mx-auto px-4 py-8">
-        {!quizCompleted ? (
+        {showQuizOptions ? (
+          <div className="max-w-2xl mx-auto grid gap-6 md:grid-cols-2">
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-xl">General Vocabulary Quiz</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 dark:text-gray-400 mb-4">
+                  Test your knowledge of random vocabulary words from the entire Quranic dictionary.
+                </p>
+              </CardContent>
+              <CardFooter>
+                <Button onClick={startGeneralQuiz} className="w-full bg-emerald-600 hover:bg-emerald-700">
+                  Start General Quiz
+                </Button>
+              </CardFooter>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-xl">Surah-Specific Quiz</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 dark:text-gray-400 mb-4">
+                  Focus on vocabulary from a specific Surah (chapter) of the Quran.
+                </p>
+              </CardContent>
+              <CardFooter>
+                <Link href="/quizzes/surah" className="w-full">
+                  <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
+                    <BookOpen className="mr-2 h-4 w-4" />
+                    Browse Surah Quizzes
+                  </Button>
+                </Link>
+              </CardFooter>
+            </Card>
+
+            <div className="md:col-span-2">
+              <Link href="/">
+                <Button variant="ghost" className="w-full">
+                  <ArrowLeft className="mr-2 h-4 w-4" />
+                  Back to Home
+                </Button>
+              </Link>
+            </div>
+          </div>
+        ) : !quizCompleted ? (
           <>
             <div className="mb-6">
               <Progress value={progress} className="h-2" />
@@ -235,14 +287,19 @@ export default function QuizzesPage() {
                 <Button onClick={resetQuiz} variant="outline" className="w-full">
                   Try Again (Same Words)
                 </Button>
-                <Link href="/games">
+                <Link href="/quizzes/surah">
                   <Button variant="outline" className="w-full">
-                    Try a Vocabulary Game
+                    <BookOpen className="mr-2 h-4 w-4" />
+                    Try a Surah-Specific Quiz
                   </Button>
                 </Link>
+                <Button variant="ghost" className="w-full" onClick={() => setShowQuizOptions(true)}>
+                  <ArrowLeft className="mr-2 h-4 w-4" />
+                  Back to Quiz Options
+                </Button>
                 <Link href="/">
                   <Button variant="ghost" className="w-full">
-                    <ArrowLeft className="mr-2 h-4 w-4" />
+                    <Home className="mr-2 h-4 w-4" />
                     Back to Home
                   </Button>
                 </Link>
