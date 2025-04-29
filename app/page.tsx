@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowRight, BookOpen, Database, GamepadIcon, ListChecks, Volume2, ListPlus, Clock } from "lucide-react"
+import { ArrowRight, BookOpen, Database, Gamepad2, ListChecks, Volume2, ListPlus, Clock } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
@@ -116,7 +116,7 @@ export default function HomePage() {
 
           <Card>
             <CardHeader>
-              <GamepadIcon className="h-8 w-8 text-emerald-600 mb-2" />
+              <Gamepad2 className="h-8 w-8 text-emerald-600 mb-2" />
               <CardTitle>Games</CardTitle>
               <CardDescription>Learn while having fun with vocabulary games</CardDescription>
             </CardHeader>

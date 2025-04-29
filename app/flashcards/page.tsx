@@ -80,6 +80,7 @@ export default function FlashcardsPage() {
   const [currentCardIndex, setCurrentCardIndex] = useState(0)
   const [isFlipped, setIsFlipped] = useState(false)
   const [savedCards, setSavedCards] = useState<number[]>([])
+  const [isComplete, setIsComplete] = useState(false)
 
   const currentCard = vocabularyData[currentCardIndex]
   const progress = ((currentCardIndex + 1) / vocabularyData.length) * 100
@@ -88,6 +89,8 @@ export default function FlashcardsPage() {
     if (currentCardIndex < vocabularyData.length - 1) {
       setCurrentCardIndex(currentCardIndex + 1)
       setIsFlipped(false)
+    } else {
+      setIsComplete(true)
     }
   }
 
@@ -109,6 +112,7 @@ export default function FlashcardsPage() {
   const resetCards = () => {
     setCurrentCardIndex(0)
     setIsFlipped(false)
+    setIsComplete(false)
   }
 
   return (
@@ -194,6 +198,27 @@ export default function FlashcardsPage() {
             <Button variant="outline">Ready for a quiz? Test your knowledge</Button>
           </Link>
         </div>
+        {isComplete && (
+          <div className="mt-8 text-center bg-emerald-50 dark:bg-emerald-900/20 p-6 rounded-lg shadow-sm">
+            <h3 className="text-2xl font-semibold mb-2">Session Complete! 🎉</h3>
+            <p className="mb-4">You've reviewed all {vocabularyData.length} flashcards in this set.</p>
+            <div className="flex justify-center space-x-4">
+              <Button onClick={resetCards} variant="outline">
+                <RotateCcw className="mr-2 h-4 w-4" />
+                Start Over
+              </Button>
+              <Link href="/quizzes">
+                <Button className="bg-emerald-600 hover:bg-emerald-700">Test Your Knowledge</Button>
+              </Link>
+              <Link href="/">
+                <Button variant="outline">
+                  <Home className="mr-2 h-4 w-4" />
+                  Return Home
+                </Button>
+              </Link>
+            </div>
+          </div>
+        )}
       </main>
     </div>
   )

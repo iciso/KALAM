@@ -1,9 +1,9 @@
 "use client"
 
-import { useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Menu, X, BookOpen, Home, Book, Gamepad2, School, ListTodo, Info, BookMarked } from "lucide-react"
+import { useState } from "react"
 import { FontSizeControls } from "./font-size-controls"
 
 export function NavBar() {
