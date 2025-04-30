@@ -165,7 +165,12 @@ export default function QuizzesPage() {
 
             <Card>
               <CardHeader>
-                <CardTitle className="text-xl">Surah-Specific Quiz</CardTitle>
+                <CardTitle className="text-xl relative">
+                  Surah-Specific Quiz
+                  <span className="absolute -top-2 -right-2 bg-emerald-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+                    NEW
+                  </span>
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600 dark:text-gray-400 mb-4">

@@ -345,7 +345,7 @@ export const vocabularyData: VocabularyWord[] = [
         surahNumber: 1,
         surahName: "Al-Fatihah",
         ayahNumber: 6,
-        arabicText: "اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ",
+        arabicText: "اهْد��نَا الصِّرَاطَ الْمُسْتَقِيمَ",
         translationText: "Guide us to the straight path",
         wordLocation: {
           startIndex: 6,

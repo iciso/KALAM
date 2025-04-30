@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { BookOpen, BookText, Dices, Gamepad2, Grid3X3, PenTool, Puzzle, Search } from "lucide-react"
+import { BookText, Dices, Gamepad2, Grid3X3, PenTool, Puzzle, Search } from "lucide-react"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 
@@ -22,14 +22,6 @@ export default function GamesPage() {
       icon: <PenTool className="h-8 w-8 text-emerald-600" />,
       href: "/quizzes",
       new: false,
-    },
-    {
-      id: "surah-quiz",
-      title: "Surah Quizzes",
-      description: "Test your knowledge of words from specific Surahs",
-      icon: <BookOpen className="h-8 w-8 text-emerald-600" />,
-      href: "/quizzes/surah",
-      new: true,
     },
     {
       id: "matching",

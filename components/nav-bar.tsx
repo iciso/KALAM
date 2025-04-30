@@ -3,7 +3,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
-import { Menu, X, Book, Home, Gamepad2, School, ListTodo, Info, BookMarked } from "lucide-react"
+import { Menu, X, Book, Home, Gamepad2, School, ListTodo, Info, BookMarked, GraduationCap } from "lucide-react"
 import { useState } from "react"
 import { FontSizeControls } from "./font-size-controls"
 
@@ -97,6 +97,16 @@ export function NavBar() {
               <span>Word Lists</span>
             </Link>
             <Link
+              href="/verb-conjugation"
+              className={`flex items-center px-3 py-2 rounded hover:bg-emerald-600 ${
+                pathname.startsWith("/verb-conjugation") ? "bg-emerald-800" : ""
+              }`}
+              onClick={closeMenu}
+            >
+              <GraduationCap className="mr-1 h-4 w-4" />
+              <span>Verb Conjugation</span>
+            </Link>
+            <Link
               href="/about"
               className={`flex items-center px-3 py-2 rounded hover:bg-emerald-600 ${
                 isActive("/about") ? "bg-emerald-800" : ""
@@ -187,6 +197,18 @@ export function NavBar() {
               <div className="flex items-center">
                 <ListTodo className="mr-2 h-5 w-5" />
                 <span>Word Lists</span>
+              </div>
+            </Link>
+            <Link
+              href="/verb-conjugation"
+              className={`block px-4 py-2 rounded hover:bg-emerald-600 ${
+                pathname.startsWith("/verb-conjugation") ? "bg-emerald-800" : ""
+              }`}
+              onClick={closeMenu}
+            >
+              <div className="flex items-center">
+                <GraduationCap className="mr-2 h-5 w-5" />
+                <span>Verb Conjugation</span>
               </div>
             </Link>
             <Link

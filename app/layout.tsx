@@ -8,11 +8,28 @@ import { FontSizeProvider } from "@/contexts/font-size-context"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
-  title: "KALAM - Quran Vocabulary Learning App",
-  description: "Learn Quranic Arabic vocabulary through interactive quizzes, games, and challenges",
+  title: "KALAM: Interactive Quranic Vocabulary Learning Through Play",
+  description:
+    "Experience the joy of learning Quranic Arabic naturally through games, interactive flashcards, and themed quizzes. KALAM transforms memorization into discovery, helping you connect with the words of Allah, namely the Quran through fun activities rather than rote learning.",
+  keywords:
+    "Quran vocabulary, Arabic learning, interactive games, Islamic education, Quranic words, language learning, Arabic flashcards, Surah vocabulary",
+  openGraph: {
+    title: "KALAM: Interactive Quranic Vocabulary Learning Through Play",
+    description:
+      "Discover Quranic Arabic through games, quizzes, and interactive activities. Learn naturally and joyfully rather than through memorization.",
+    images: [{ url: "/logo.png" }],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "KALAM: Interactive Quranic Vocabulary Learning Through Play",
+    description:
+      "Discover Quranic Arabic through games, quizzes, and interactive activities. Learn naturally and joyfully rather than through memorization.",
+    images: [{ url: "/logo.png" }],
+  },
   icons: {
     icon: [
-      { url: "/favicon.png", type: "image/svg+xml" },
+      { url: "/logo.png", type: "image/svg+xml" },
       { url: "/favicon.ico", sizes: "any" },
     ],
     apple: { url: "/apple-touch-icon.png", sizes: "180x180" },
