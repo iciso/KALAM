@@ -2,6 +2,7 @@ import Link from "next/link"
 import { ArrowLeft, Github } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
+import { KalamAcronym } from "@/components/kalam-acronym"
 
 export default function AboutPage() {
   return (
@@ -14,11 +15,14 @@ export default function AboutPage() {
 
       <main className="container mx-auto px-4 py-8 max-w-3xl">
         <section className="mb-12">
+          <div className="flex justify-center mb-8">
+            <KalamAcronym size="md" />
+          </div>
           <h2 className="text-2xl font-bold mb-4">Our Mission</h2>
           <p className="mb-4 text-gray-600 dark:text-gray-300">
-            KALAM (Quran Arabic Learning And Memorization) is an open-source project dedicated to making Quranic Arabic
-            vocabulary accessible to everyone. Our mission is to help Muslims and Arabic language enthusiasts develop a
-            deeper connection with the Quran through interactive learning tools.
+            KALAM (Know Allah by Lighting up Activities of Mirth) is an open-source project dedicated to making Quranic
+            Arabic vocabulary accessible to everyone. Our mission is to help Muslims and Arabic language enthusiasts
+            develop a deeper connection with the Quran through interactive learning tools.
           </p>
           <p className="text-gray-600 dark:text-gray-300">
             We believe that understanding the language of the Quran enhances one's spiritual experience and provides a
