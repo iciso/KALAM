@@ -14,9 +14,9 @@ import {
 import { SortableContext, useSortable, verticalListSortingStrategy } from "@dnd-kit/sortable"
 import { useDroppable } from "@dnd-kit/core"
 import { CSS } from "@dnd-kit/utilities"
-import { type Relative, relatives } from "@/data/mahram-game-data"
+import { type Relative, relatives, mahramTerms } from "@/data/mahram-game-data"
 import { Button } from "@/components/ui/button"
-import { Check, X, Info, RefreshCw, Trophy, UserIcon as Male, UserIcon as Female } from "lucide-react"
+import { Check, X, Info, RefreshCw, Trophy, UserIcon as Male, UserIcon as Female, Languages } from "lucide-react"
 import {
   Dialog,
   DialogContent,
@@ -30,12 +30,22 @@ import {
 import { Progress } from "@/components/ui/progress"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Label } from "@/components/ui/label"
 import confetti from "canvas-confetti"
 
 type PlayerGender = "male" | "female"
 type RelativeWithZone = Relative & { zone: "unassigned" | "mahram" | "non-mahram" }
+type LanguageMode = "english" | "arabic" | "both"
 
-const RelativeItem = ({ relative, playerGender }: { relative: RelativeWithZone; playerGender: PlayerGender }) => {
+const RelativeItem = ({
+  relative,
+  playerGender,
+  languageMode,
+}: {
+  relative: RelativeWithZone
+  playerGender: PlayerGender
+  languageMode: LanguageMode
+}) => {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
     id: relative.id,
   })
@@ -51,6 +61,45 @@ const RelativeItem = ({ relative, playerGender }: { relative: RelativeWithZone; 
   const borderColor = relative.gender === "male" ? "border-blue-500" : "border-pink-500"
 
   const explanation = playerGender === "male" ? relative.explanationForMale : relative.explanationForFemale
+
+  // Determine what name to display based on language mode
+  const displayName = () => {
+    switch (languageMode) {
+      case "arabic":
+        return (
+          <span className="font-arabic text-lg" dir="rtl">
+            {relative.arabicName}
+          </span>
+        )
+      case "english":
+        return <span>{relative.name}</span>
+      case "both":
+        return (
+          <div className="flex flex-col">
+            <span>{relative.name}</span>
+            <span className="font-arabic text-sm" dir="rtl">
+              {relative.arabicName}
+            </span>
+          </div>
+        )
+    }
+  }
+
+  // Determine what relation to display based on language mode
+  const displayRelation = () => {
+    switch (languageMode) {
+      case "arabic":
+        return null // Skip relation in Arabic-only mode to save space
+      case "english":
+        return <div className="text-xs text-gray-500">{relative.relation}</div>
+      case "both":
+        return (
+          <div className="text-xs text-gray-500">
+            {relative.relation} <span className="text-gray-400">({relative.transliteration})</span>
+          </div>
+        )
+    }
+  }
 
   return (
     <div
@@ -69,8 +118,8 @@ const RelativeItem = ({ relative, playerGender }: { relative: RelativeWithZone; 
           {relative.gender === "male" ? "👨" : "👩"}
         </div>
         <div>
-          <div className="font-medium">{relative.name}</div>
-          <div className="text-xs text-gray-500">{relative.relation}</div>
+          {displayName()}
+          {displayRelation()}
         </div>
       </div>
       <Dialog>
@@ -81,8 +130,20 @@ const RelativeItem = ({ relative, playerGender }: { relative: RelativeWithZone; 
         </DialogTrigger>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>{relative.name}</DialogTitle>
-            <DialogDescription>{relative.relation}</DialogDescription>
+            <DialogTitle className="flex items-center gap-2">
+              {relative.name}
+              {languageMode !== "english" && (
+                <span className="font-arabic text-lg" dir="rtl">
+                  {relative.arabicName}
+                </span>
+              )}
+            </DialogTitle>
+            <DialogDescription className="flex flex-col">
+              <span>{relative.relation}</span>
+              {languageMode !== "english" && (
+                <span className="text-sm text-gray-500">Transliteration: {relative.transliteration}</span>
+              )}
+            </DialogDescription>
           </DialogHeader>
           <div className="py-4">
             <p>{explanation}</p>
@@ -96,19 +157,23 @@ const RelativeItem = ({ relative, playerGender }: { relative: RelativeWithZone; 
 const DropZone = ({
   id,
   title,
+  arabicTitle,
   items,
   type,
   isChecking,
   isGameOver,
   playerGender,
+  languageMode,
 }: {
   id: string
   title: string
+  arabicTitle: string
   items: RelativeWithZone[]
   type: "mahram" | "non-mahram" | "unassigned"
   isChecking: boolean
   isGameOver: boolean
   playerGender: PlayerGender
+  languageMode: LanguageMode
 }) => {
   // Use the useDroppable hook to make this a drop target
   const { setNodeRef, isOver } = useDroppable({
@@ -132,13 +197,36 @@ const DropZone = ({
     bgColor = "bg-blue-50"
   }
 
+  // Determine title based on language mode
+  const displayTitle = () => {
+    switch (languageMode) {
+      case "arabic":
+        return (
+          <h3 className="font-bold text-lg mb-4 text-center font-arabic" dir="rtl">
+            {arabicTitle}
+          </h3>
+        )
+      case "english":
+        return <h3 className="font-bold text-lg mb-4 text-center">{title}</h3>
+      case "both":
+        return (
+          <div className="text-center mb-4">
+            <h3 className="font-bold text-lg">{title}</h3>
+            <p className="font-arabic text-sm" dir="rtl">
+              {arabicTitle}
+            </p>
+          </div>
+        )
+    }
+  }
+
   return (
     <div ref={setNodeRef} className={`p-4 rounded-lg border-2 ${borderColor} ${bgColor} min-h-[200px] flex-1`}>
-      <h3 className="font-bold text-lg mb-4 text-center">{title}</h3>
+      {displayTitle()}
       <div>
         {items.map((item) => (
           <div key={item.id} className="relative">
-            <RelativeItem relative={item} playerGender={playerGender} />
+            <RelativeItem relative={item} playerGender={playerGender} languageMode={languageMode} />
             {isChecking && (
               <div className="absolute top-2 right-2">
                 {type !== "unassigned" &&
@@ -151,7 +239,17 @@ const DropZone = ({
             )}
           </div>
         ))}
-        {items.length === 0 && <div className="text-center text-gray-500 italic py-8">Drag relatives here</div>}
+        {items.length === 0 && (
+          <div className="text-center text-gray-500 italic py-8">
+            {languageMode === "arabic" ? (
+              <span className="font-arabic" dir="rtl">
+                اسحب الأقارب هنا
+              </span>
+            ) : (
+              "Drag relatives here"
+            )}
+          </div>
+        )}
       </div>
     </div>
   )
@@ -171,6 +269,7 @@ export default function MahramGame() {
   const [showInstructions, setShowInstructions] = useState(true)
   const [gameStarted, setGameStarted] = useState(false)
   const [debugInfo, setDebugInfo] = useState<string>("")
+  const [languageMode, setLanguageMode] = useState<LanguageMode>("both")
 
   // Configure sensors for better touch and mouse support
   const sensors = useSensors(
@@ -309,6 +408,9 @@ export default function MahramGame() {
       <div className="container mx-auto p-4 max-w-md">
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-amber-600 mb-2">Knowing Your Mahram</h1>
+          <p className="font-arabic text-2xl text-amber-600 mb-6" dir="rtl">
+            معرفة المَحارِم
+          </p>
           <p className="text-gray-600 mb-6">Select your gender to start the game</p>
 
           <div className="bg-white p-8 rounded-lg shadow-md">
@@ -325,6 +427,9 @@ export default function MahramGame() {
               >
                 <Male className="h-6 w-6" />
                 <span className="text-lg">Play as Male</span>
+                <span className="font-arabic text-sm" dir="rtl">
+                  (ذَكَر)
+                </span>
               </Button>
 
               <Button
@@ -333,6 +438,9 @@ export default function MahramGame() {
               >
                 <Female className="h-6 w-6" />
                 <span className="text-lg">Play as Female</span>
+                <span className="font-arabic text-sm" dir="rtl">
+                  (أُنثى)
+                </span>
               </Button>
             </div>
           </div>
@@ -402,6 +510,9 @@ export default function MahramGame() {
 
       <div className="mb-8 text-center">
         <h1 className="text-3xl font-bold text-amber-600 mb-2">Knowing Your Mahram</h1>
+        <p className="font-arabic text-2xl text-amber-600 mb-2" dir="rtl">
+          معرفة المَحارِم
+        </p>
         <p className="text-gray-600 mb-4">Drag each relative to the correct category</p>
 
         <div className="flex justify-between items-center mb-4">
@@ -429,7 +540,7 @@ export default function MahramGame() {
         )}
       </div>
 
-      <div className="flex justify-center mb-6">
+      <div className="flex justify-center mb-4">
         <div
           className={`w-20 h-20 rounded-full flex items-center justify-center text-2xl ${
             playerGender === "male" ? "bg-blue-100 border-4 border-blue-500" : "bg-pink-100 border-4 border-pink-500"
@@ -438,11 +549,14 @@ export default function MahramGame() {
           <div className="flex flex-col items-center">
             {playerGender === "male" ? <Male className="h-8 w-8" /> : <Female className="h-8 w-8" />}
             <span className="text-sm font-bold mt-1">ME</span>
+            <span className="font-arabic text-xs" dir="rtl">
+              {playerGender === "male" ? "أنا" : "أنا"}
+            </span>
           </div>
         </div>
       </div>
 
-      <div className="mb-4 flex justify-center">
+      <div className="mb-6 flex flex-col sm:flex-row justify-center items-center gap-4">
         <Button
           variant="outline"
           onClick={() => {
@@ -453,6 +567,21 @@ export default function MahramGame() {
         >
           Change Gender
         </Button>
+
+        <div className="flex items-center gap-2">
+          <Languages className="h-4 w-4" />
+          <Label htmlFor="language-mode">Language:</Label>
+          <select
+            id="language-mode"
+            value={languageMode}
+            onChange={(e) => setLanguageMode(e.target.value as LanguageMode)}
+            className="border rounded px-2 py-1 text-sm"
+          >
+            <option value="english">English</option>
+            <option value="arabic">Arabic</option>
+            <option value="both">Both</option>
+          </select>
+        </div>
       </div>
 
       <DndContext
@@ -467,11 +596,13 @@ export default function MahramGame() {
               <DropZone
                 id="unassigned-zone"
                 title="Relatives"
+                arabicTitle="الأقارب"
                 items={unassignedRelatives}
                 type="unassigned"
                 isChecking={isChecking}
                 isGameOver={gameOver}
                 playerGender={playerGender}
+                languageMode={languageMode}
               />
             </SortableContext>
           </div>
@@ -481,11 +612,13 @@ export default function MahramGame() {
               <DropZone
                 id="mahram-zone"
                 title="Mahram"
+                arabicTitle={mahramTerms.mahram.arabic}
                 items={mahramRelatives}
                 type="mahram"
                 isChecking={isChecking}
                 isGameOver={gameOver}
                 playerGender={playerGender}
+                languageMode={languageMode}
               />
             </SortableContext>
           </div>
@@ -495,11 +628,13 @@ export default function MahramGame() {
               <DropZone
                 id="non-mahram-zone"
                 title="Non-Mahram"
+                arabicTitle={mahramTerms.nonMahram.arabic}
                 items={nonMahramRelatives}
                 type="non-mahram"
                 isChecking={isChecking}
                 isGameOver={gameOver}
                 playerGender={playerGender}
+                languageMode={languageMode}
               />
             </SortableContext>
           </div>
@@ -514,21 +649,49 @@ export default function MahramGame() {
               disabled={unassignedRelatives.length > 0}
               className="bg-amber-600 hover:bg-amber-700"
             >
-              Check Answers
+              {languageMode === "arabic" ? (
+                <span className="font-arabic" dir="rtl">
+                  تحقق من الإجابات
+                </span>
+              ) : (
+                "Check Answers"
+              )}
             </Button>
           ) : (
             <Button onClick={resetGame} className="flex items-center gap-2">
-              <RefreshCw className="h-4 w-4" /> Play Again
+              <RefreshCw className="h-4 w-4" />
+              {languageMode === "arabic" ? (
+                <span className="font-arabic" dir="rtl">
+                  العب مرة أخرى
+                </span>
+              ) : (
+                "Play Again"
+              )}
             </Button>
           )}
 
           <Dialog>
             <DialogTrigger asChild>
-              <Button variant="outline">What is Mahram?</Button>
+              <Button variant="outline">
+                {languageMode === "arabic" ? (
+                  <span className="font-arabic" dir="rtl">
+                    ما هو المَحرم؟
+                  </span>
+                ) : (
+                  "What is Mahram?"
+                )}
+              </Button>
             </DialogTrigger>
             <DialogContent>
               <DialogHeader>
-                <DialogTitle>Understanding Mahram in Islam</DialogTitle>
+                <DialogTitle className="flex items-center gap-2">
+                  Understanding Mahram in Islam
+                  {languageMode !== "english" && (
+                    <span className="font-arabic text-lg" dir="rtl">
+                      فهم المَحرم في الإسلام
+                    </span>
+                  )}
+                </DialogTitle>
               </DialogHeader>
               <Tabs defaultValue="definition">
                 <TabsList className="grid w-full grid-cols-3">
@@ -538,10 +701,20 @@ export default function MahramGame() {
                 </TabsList>
                 <TabsContent value="definition" className="space-y-4 py-4">
                   <p>
-                    In Islamic law, a <strong>Mahram</strong> is a person with whom marriage is permanently forbidden
-                    (haram) due to blood relations, marriage, or breastfeeding relationships.
+                    In Islamic law, a <strong>Mahram</strong> (
+                    <span className="font-arabic" dir="rtl">
+                      مَحْرَم
+                    </span>
+                    ) is a person with whom marriage is permanently forbidden (haram) due to blood relations, marriage,
+                    or breastfeeding relationships.
                   </p>
-                  <p>Non-Mahram refers to individuals with whom marriage is potentially permissible.</p>
+                  <p>
+                    Non-Mahram (
+                    <span className="font-arabic" dir="rtl">
+                      غَيْر مَحْرَم
+                    </span>
+                    ) refers to individuals with whom marriage is potentially permissible.
+                  </p>
                 </TabsContent>
                 <TabsContent value="categories" className="space-y-4 py-4">
                   <p>
@@ -559,18 +732,60 @@ export default function MahramGame() {
                     <strong>Non-Mahram includes:</strong>
                   </p>
                   <ul className="list-disc pl-5 space-y-1">
-                    <li>Cousins</li>
-                    <li>Brother/sister-in-law</li>
-                    <li>Uncle's wife/Aunt's husband</li>
+                    <li>
+                      Cousins (
+                      <span className="font-arabic" dir="rtl">
+                        اِبن العَمّ / بِنت العَمّ
+                      </span>
+                      )
+                    </li>
+                    <li>
+                      Brother/sister-in-law (
+                      <span className="font-arabic" dir="rtl">
+                        زَوجَة الأخ / زَوج الأُخت
+                      </span>
+                      )
+                    </li>
+                    <li>
+                      Uncle's wife/Aunt's husband (
+                      <span className="font-arabic" dir="rtl">
+                        زَوجَة العَمّ / زَوج الخَالَة
+                      </span>
+                      )
+                    </li>
                   </ul>
                 </TabsContent>
                 <TabsContent value="importance" className="space-y-4 py-4">
                   <p>Understanding Mahram relationships is important in Islam for several reasons:</p>
                   <ul className="list-disc pl-5 space-y-1">
-                    <li>It determines who can be alone together</li>
-                    <li>It affects hijab requirements for women</li>
-                    <li>It clarifies who can travel together</li>
-                    <li>It establishes boundaries for physical contact</li>
+                    <li>
+                      It determines who can be alone together (
+                      <span className="font-arabic" dir="rtl">
+                        الخَلوة
+                      </span>
+                      )
+                    </li>
+                    <li>
+                      It affects hijab requirements for women (
+                      <span className="font-arabic" dir="rtl">
+                        الحِجاب
+                      </span>
+                      )
+                    </li>
+                    <li>
+                      It clarifies who can travel together (
+                      <span className="font-arabic" dir="rtl">
+                        السَفَر
+                      </span>
+                      )
+                    </li>
+                    <li>
+                      It establishes boundaries for physical contact (
+                      <span className="font-arabic" dir="rtl">
+                        التَواصُل الجَسَدي
+                      </span>
+                      )
+                    </li>
                   </ul>
                   <p>The concept helps maintain modesty and appropriate relationships between Muslims.</p>
                 </TabsContent>
