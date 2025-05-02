@@ -20,33 +20,6 @@ export const matchingWords = [
   { id: 6, arabic: "دِين", meaning: "Judgment/Religion" },
 ]
 
-// Sentences for the fill in the blanks game
-export const fillBlanksData = [
-  {
-    id: 1,
-    text: "بِسْمِ ___ الرَّحْمَنِ الرَّحِيمِ",
-    blanks: [{ id: "blank1-1", word: "اللهِ", filled: null }],
-  },
-  {
-    id: 2,
-    text: "الْحَمْدُ لِلَّهِ ___ الْعَالَمِينَ",
-    blanks: [{ id: "blank2-1", word: "رَبِّ", filled: null }],
-  },
-  {
-    id: 3,
-    text: "___ يَوْمِ الدِّينِ",
-    blanks: [{ id: "blank3-1", word: "مَالِكِ", filled: null }],
-  },
-  {
-    id: 4,
-    text: "إِيَّاكَ ___ وَإِيَّاكَ ___",
-    blanks: [
-      { id: "blank4-1", word: "نَعْبُدُ", filled: null },
-      { id: "blank4-2", word: "نَسْتَعِينُ", filled: null },
-    ],
-  },
-]
-
 // Words for the hangman game
 export const hangmanWords = [
   { word: "الله", hint: "The Creator of everything" },

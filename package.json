@@ -59,7 +59,11 @@
     "vaul": "^0.9.6",
     "zod": "^3.24.1",
     "@emotion/is-prop-valid": "latest",
-    "framer-motion": "latest"
+    "@dnd-kit/core": "latest",
+    "framer-motion": "latest",
+    "@dnd-kit/sortable": "latest",
+    "@dnd-kit/utilities": "latest",
+    "canvas-confetti": "latest"
   },
   "devDependencies": {
     "@types/node": "^22",

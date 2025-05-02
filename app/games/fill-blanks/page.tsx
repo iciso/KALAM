@@ -2,27 +2,17 @@
 
 import type React from "react"
 
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
-import { Timer, RefreshCw, HelpCircle, ArrowRight, CheckCircle } from "lucide-react"
-import { fillBlanksData } from "@/data/game-data"
+import { Timer, RefreshCw, HelpCircle, ArrowRight, CheckCircle, BookOpen, XCircle, Bug } from "lucide-react"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
-
-type Sentence = {
-  id: number
-  text: string
-  blanks: {
-    id: string
-    word: string
-    filled: string | null
-  }[]
-}
+import { fillBlanksService, type FillBlankSentence } from "@/services/fill-blanks-service"
 
 export default function FillBlanksGamePage() {
-  const [sentences, setSentences] = useState<Sentence[]>([])
+  const [sentences, setSentences] = useState<FillBlankSentence[]>([])
   const [currentSentenceIndex, setCurrentSentenceIndex] = useState(0)
   const [availableWords, setAvailableWords] = useState<string[]>([])
   const [gameStarted, setGameStarted] = useState(false)
@@ -32,9 +22,12 @@ export default function FillBlanksGamePage() {
   const [showHint, setShowHint] = useState(false)
   const [draggedWord, setDraggedWord] = useState<string | null>(null)
   const [sentenceCompleted, setSentenceCompleted] = useState(false)
-
-  // Reference to track if we've checked completion for the current state
-  const completionCheckedRef = useRef(false)
+  const [showTranslation, setShowTranslation] = useState(false)
+  const [isCorrect, setIsCorrect] = useState<boolean | null>(null)
+  const [hasCheckedAnswer, setHasCheckedAnswer] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+  const [showDebug, setShowDebug] = useState(false)
+  const [debugInfo, setDebugInfo] = useState<any>(null)
 
   useEffect(() => {
     if (gameStarted && !gameCompleted) {
@@ -46,80 +39,147 @@ export default function FillBlanksGamePage() {
     }
   }, [gameStarted, gameCompleted])
 
-  // Effect to check sentence completion whenever sentences or currentSentenceIndex changes
+  // Reset validation state when moving to a new sentence
   useEffect(() => {
-    if (gameStarted && !gameCompleted && !sentenceCompleted && sentences.length > 0) {
-      const currentSentence = sentences[currentSentenceIndex]
-      if (currentSentence) {
-        // Check if all blanks are filled
-        const allFilled = currentSentence.blanks.every((blank) => blank.filled !== null)
+    setIsCorrect(null)
+    setHasCheckedAnswer(false)
+  }, [currentSentenceIndex])
 
-        if (allFilled) {
-          // Check if all blanks are filled correctly
-          const allCorrect = currentSentence.blanks.every((blank) => blank.filled === blank.word)
+  useEffect(() => {
+    console.log("Fill in the Blanks game loaded")
 
-          if (allCorrect && !completionCheckedRef.current) {
-            completionCheckedRef.current = true
-            setSentenceCompleted(true)
-            setScore((prev) => prev + 10)
-            console.log("Sentence completed:", currentSentenceIndex + 1)
-          }
-        } else {
-          completionCheckedRef.current = false
-        }
-      }
+    // Check if the page is available
+    try {
+      console.log("Current path:", window.location.pathname)
+    } catch (e) {
+      console.error("Error getting location:", e)
     }
-  }, [sentences, currentSentenceIndex, gameStarted, gameCompleted, sentenceCompleted])
+  }, [])
 
-  // Helper function to get distractor words from other sentences
-  const getDistractorWords = (sentences: Sentence[], currentIndex: number, count: number) => {
-    // Collect words from other sentences
-    const otherWords: string[] = []
-    sentences.forEach((sentence, index) => {
-      if (index !== currentIndex) {
-        sentence.blanks.forEach((blank) => {
-          otherWords.push(blank.word)
-        })
+  const initializeGame = () => {
+    try {
+      // Generate new sentences from our vocabulary database
+      const generatedSentences = fillBlanksService.generateSentences(5)
+      console.log("Generated sentences:", generatedSentences)
+
+      if (generatedSentences.length === 0) {
+        setError("Could not generate sentences. Please try again.")
+        return
+      }
+
+      // Validate that each sentence has blanks
+      const validSentences = generatedSentences.filter((sentence) => sentence.blanks && sentence.blanks.length > 0)
+
+      if (validSentences.length === 0) {
+        setError("Generated sentences are invalid. Please try again.")
+        return
+      }
+
+      // Set up the first sentence
+      setupSentence(validSentences, 0)
+      setError(null) // Clear any previous errors
+    } catch (err) {
+      console.error("Error initializing game:", err)
+      setError("An error occurred while setting up the game. Please try again.")
+    }
+  }
+
+  // Utility function to shuffle an array
+  const shuffleArray = <T,>(array: T[]): T[] => {
+    const newArray = [...array]
+    for (let i = newArray.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1))
+      ;[newArray[i], newArray[j]] = [newArray[j], newArray[i]]
+    }
+    return newArray
+  }
+
+  // Function to set up a sentence with its word bank
+  const setupSentence = (allSentences: FillBlankSentence[], index: number) => {
+    // Get all words for the current sentence
+    const currentSentenceWords = allSentences[index].blanks.map((blank) => blank.word)
+
+    // Log the correct words for debugging
+    console.log("Correct words for this sentence:", currentSentenceWords)
+
+    // Add additional distractor words (6-8 extra words)
+    const distractorWords = fillBlanksService.generateDistractorWords([allSentences[index]], 8)
+    console.log("Distractor words:", distractorWords)
+
+    // Create a word bank with the correct words FIRST to ensure they're included
+    let wordBank = [...currentSentenceWords]
+
+    // Then add distractors, avoiding duplicates
+    distractorWords.forEach((word) => {
+      if (!wordBank.includes(word)) {
+        wordBank.push(word)
       }
     })
 
-    // If we don't have enough words from other sentences, add some common Arabic words
-    const commonWords = ["كتاب", "قلم", "ماء", "بيت", "مدرسة", "كبير", "صغير", "جميل"]
+    // Shuffle the word bank
+    wordBank = shuffleArray(wordBank)
 
-    // Combine and shuffle all potential distractor words
-    const allPotentialDistractors = [...otherWords, ...commonWords]
-    const shuffledDistractors = [...allPotentialDistractors].sort(() => Math.random() - 0.5)
+    // Limit to a reasonable number of words (12-15)
+    wordBank = wordBank.slice(0, Math.min(15, wordBank.length))
 
-    // Return the requested number of distractors
-    return shuffledDistractors.slice(0, count)
-  }
+    // CRITICAL: Final verification - make sure all correct words are included
+    let allIncluded = true
+    const missingWords = []
 
-  const initializeGame = () => {
-    // Deep copy the sentences to avoid modifying the original data
-    const initialSentences = JSON.parse(JSON.stringify(fillBlanksData))
+    for (const correctWord of currentSentenceWords) {
+      if (!wordBank.includes(correctWord)) {
+        allIncluded = false
+        missingWords.push(correctWord)
 
-    // Get all words for the first sentence
-    const firstSentenceWords = initialSentences[0].blanks.map((blank: any) => blank.word)
+        // Add the missing word by replacing a distractor
+        const distractorsInBank = wordBank.filter((word) => !currentSentenceWords.includes(word))
+        if (distractorsInBank.length > 0) {
+          // Replace a random distractor
+          const randomDistractorIndex = wordBank.findIndex((word) => word === distractorsInBank[0])
+          if (randomDistractorIndex !== -1) {
+            wordBank[randomDistractorIndex] = correctWord
+          } else {
+            // If we couldn't find a distractor to replace, just add it
+            wordBank.push(correctWord)
+          }
+        } else {
+          // If no distractors to replace, just add it
+          wordBank.push(correctWord)
+        }
+      }
+    }
 
-    // Add additional distractor words from other sentences (2-3 extra words)
-    const distractorWords = getDistractorWords(initialSentences, 0, 3)
+    // Final shuffle after ensuring all words are included
+    wordBank = shuffleArray(wordBank)
 
-    // Combine correct words and distractors
-    const allWords = [...firstSentenceWords, ...distractorWords]
+    // Log the final word bank for debugging
+    console.log("Final word bank:", wordBank)
+    console.log(
+      "Correct words included?",
+      currentSentenceWords.every((word) => wordBank.includes(word)),
+    )
 
-    // Shuffle the words
-    const shuffledWords = [...allWords].sort(() => Math.random() - 0.5)
+    // Store debug info
+    setDebugInfo({
+      correctWords: currentSentenceWords,
+      wordBank: wordBank,
+      allIncluded: allIncluded,
+      missingWords: missingWords,
+      wordBankContainsAll: currentSentenceWords.every((word) => wordBank.includes(word)),
+    })
 
-    setSentences(initialSentences)
-    setCurrentSentenceIndex(0)
-    setAvailableWords(shuffledWords)
-    setTimer(0)
-    setScore(0)
+    setSentences(allSentences)
+    setCurrentSentenceIndex(index)
+    setAvailableWords(wordBank)
+    setTimer(index === 0 ? 0 : timer)
+    setScore(index === 0 ? 0 : score)
     setShowHint(false)
+    setShowTranslation(false)
     setGameStarted(true)
     setGameCompleted(false)
     setSentenceCompleted(false)
-    completionCheckedRef.current = false
+    setIsCorrect(null)
+    setHasCheckedAnswer(false)
   }
 
   const handleDragStart = (word: string) => {
@@ -154,31 +214,45 @@ export default function FillBlanksGamePage() {
       setAvailableWords((prev) => prev.filter((word) => word !== draggedWord))
 
       setSentences(updatedSentences)
-      completionCheckedRef.current = false
+
+      // Reset validation state when changing answers
+      if (hasCheckedAnswer) {
+        setIsCorrect(null)
+        setHasCheckedAnswer(false)
+        setSentenceCompleted(false)
+      }
     }
 
     setDraggedWord(null)
   }
 
+  const checkAnswer = () => {
+    const currentSentence = sentences[currentSentenceIndex]
+
+    // Check if all blanks are filled
+    const allFilled = currentSentence.blanks.every((blank) => blank.filled !== null)
+
+    if (!allFilled) {
+      // Can't check if not all blanks are filled
+      return
+    }
+
+    // Check if all blanks are filled correctly
+    const allCorrect = currentSentence.blanks.every((blank) => blank.filled === blank.word)
+
+    setIsCorrect(allCorrect)
+    setHasCheckedAnswer(true)
+
+    if (allCorrect) {
+      setSentenceCompleted(true)
+      setScore((prev) => prev + 10)
+    }
+  }
+
   const handleNextSentence = () => {
     if (currentSentenceIndex < sentences.length - 1) {
       const nextIndex = currentSentenceIndex + 1
-      setCurrentSentenceIndex(nextIndex)
-
-      // Get words for the next sentence
-      const nextSentenceWords = sentences[nextIndex].blanks.map((blank) => blank.word)
-
-      // Add distractor words (2-3 extra words)
-      const distractorWords = getDistractorWords(sentences, nextIndex, 3)
-
-      // Combine and shuffle
-      const allWords = [...nextSentenceWords, ...distractorWords]
-      const shuffledWords = [...allWords].sort(() => Math.random() - 0.5)
-
-      setAvailableWords(shuffledWords)
-      setShowHint(false)
-      setSentenceCompleted(false)
-      completionCheckedRef.current = false
+      setupSentence(sentences, nextIndex)
       console.log("Moving to sentence:", nextIndex + 1)
     } else {
       // This is the last sentence, mark the game as completed
@@ -188,29 +262,9 @@ export default function FillBlanksGamePage() {
   }
 
   const startNewGame = () => {
-    // Shuffle the order of sentences to provide variety
-    const shuffledSentences = JSON.parse(JSON.stringify(fillBlanksData)).sort(() => Math.random() - 0.5)
-
-    // Get words for the first sentence
-    const firstSentenceWords = shuffledSentences[0].blanks.map((blank: any) => blank.word)
-
-    // Add additional distractor words
-    const distractorWords = getDistractorWords(shuffledSentences, 0, 3)
-
-    // Combine and shuffle
-    const allWords = [...firstSentenceWords, ...distractorWords]
-    const shuffledWords = [...allWords].sort(() => Math.random() - 0.5)
-
-    setSentences(shuffledSentences)
-    setCurrentSentenceIndex(0)
-    setAvailableWords(shuffledWords)
-    setTimer(0)
-    setScore(0)
-    setShowHint(false)
-    setGameStarted(true)
-    setGameCompleted(false)
-    setSentenceCompleted(false)
-    completionCheckedRef.current = false
+    // Generate completely new sentences
+    const generatedSentences = fillBlanksService.generateSentences(5)
+    setupSentence(generatedSentences, 0)
   }
 
   const handleRemoveWord = (blankId: string) => {
@@ -230,15 +284,24 @@ export default function FillBlanksGamePage() {
 
       setSentences(updatedSentences)
 
-      // Reset sentence completed state since we're modifying the sentence
+      // Reset validation state
+      setIsCorrect(null)
+      setHasCheckedAnswer(false)
       setSentenceCompleted(false)
-      completionCheckedRef.current = false
     }
   }
 
   const showHintHandler = () => {
     setShowHint(true)
     setScore((prev) => Math.max(0, prev - 2)) // Penalty for using hint
+  }
+
+  const toggleTranslation = () => {
+    setShowTranslation(!showTranslation)
+  }
+
+  const toggleDebug = () => {
+    setShowDebug(!showDebug)
   }
 
   const formatTime = (seconds: number) => {
@@ -250,7 +313,7 @@ export default function FillBlanksGamePage() {
   const currentSentence = sentences[currentSentenceIndex]
 
   // Function to render a sentence with blanks in the correct RTL order
-  const renderSentenceWithBlanks = (sentence: Sentence) => {
+  const renderSentenceWithBlanks = (sentence: FillBlankSentence) => {
     if (!sentence) return null
 
     // For RTL text, we need to handle the rendering differently
@@ -265,46 +328,53 @@ export default function FillBlanksGamePage() {
       // Add the text part
       elements.push(<span key={`text-${index}`}>{part}</span>)
 
-      // Add a blank if this isn't the last part
-      if (index < textParts.length - 1) {
+      // Add a blank if this isn't the last part AND we have a corresponding blank in the array
+      if (index < textParts.length - 1 && index < sentence.blanks.length) {
         const blank = sentence.blanks[index]
-        elements.push(
-          <TooltipProvider key={`blank-${index}`}>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <span
-                  className={`inline-block min-w-[100px] min-h-[40px] mx-1 p-2 border-2 border-dashed rounded ${
-                    blank.filled
-                      ? "border-green-500 bg-green-50 dark:bg-green-900/20"
-                      : "border-gray-300 dark:border-gray-600 bg-gray-50/50 dark:bg-gray-800/50"
-                  }`}
-                  onDragOver={handleDragOver}
-                  onDrop={(e) => handleDrop(e, blank.id)}
-                >
-                  {blank.filled ? (
-                    <div className="flex justify-between items-center">
-                      <span className="font-arabic">{blank.filled}</span>
-                      {!sentenceCompleted && (
-                        <button
-                          onClick={() => handleRemoveWord(blank.id)}
-                          className="text-red-500 mr-2"
-                          aria-label="Remove word"
-                        >
-                          ×
-                        </button>
-                      )}
-                    </div>
-                  ) : (
-                    <span className="sr-only">Drop word here</span>
-                  )}
-                </span>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>Drop a word here</p>
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>,
-        )
+        if (blank) {
+          // Make sure blank exists
+          elements.push(
+            <TooltipProvider key={`blank-${index}`}>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <span
+                    className={`inline-block min-w-[100px] min-h-[40px] mx-1 p-2 border-2 border-dashed rounded ${
+                      blank.filled
+                        ? isCorrect === false
+                          ? "border-red-500 bg-red-50 dark:bg-red-900/20"
+                          : isCorrect === true
+                            ? "border-green-500 bg-green-50 dark:bg-green-900/20"
+                            : "border-gray-300 dark:border-gray-600 bg-gray-50/50 dark:bg-gray-800/50"
+                        : "border-gray-300 dark:border-gray-600 bg-gray-50/50 dark:bg-gray-800/50"
+                    }`}
+                    onDragOver={handleDragOver}
+                    onDrop={(e) => handleDrop(e, blank.id)}
+                  >
+                    {blank.filled ? (
+                      <div className="flex justify-between items-center">
+                        <span className="font-arabic">{blank.filled}</span>
+                        {!sentenceCompleted && (
+                          <button
+                            onClick={() => handleRemoveWord(blank.id)}
+                            className="text-red-500 mr-2"
+                            aria-label="Remove word"
+                          >
+                            ×
+                          </button>
+                        )}
+                      </div>
+                    ) : (
+                      <span className="sr-only">Drop word here</span>
+                    )}
+                  </span>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>Drop a word here</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>,
+          )
+        }
       }
     })
 
@@ -316,16 +386,73 @@ export default function FillBlanksGamePage() {
     )
   }
 
+  // Check if all blanks are filled
+  const areAllBlanksFilled = () => {
+    if (!currentSentence) return false
+    return currentSentence.blanks.every((blank) => blank.filled !== null)
+  }
+
+  // Debug function to show the correct answer
+  const debugCorrectAnswer = () => {
+    if (!currentSentence) return null
+
+    return (
+      <div className="mt-4 p-2 bg-gray-100 dark:bg-gray-800 rounded text-xs text-gray-500">
+        <p>Debug - Correct answer: {currentSentence.blanks.map((blank) => blank.word).join(", ")}</p>
+        {showDebug && (
+          <>
+            {currentSentence.originalText && (
+              <>
+                <p className="mt-2">Original text:</p>
+                <p className="font-arabic text-right" dir="rtl">
+                  {currentSentence.originalText}
+                </p>
+                <p className="mt-2">Modified text:</p>
+                <p className="font-arabic text-right" dir="rtl">
+                  {currentSentence.text}
+                </p>
+              </>
+            )}
+            {debugInfo && (
+              <>
+                <p className="mt-2 font-bold">Word Bank Debug:</p>
+                <p>All correct words included: {debugInfo.wordBankContainsAll ? "Yes" : "No"}</p>
+                {debugInfo.missingWords && debugInfo.missingWords.length > 0 && (
+                  <p>Missing words: {debugInfo.missingWords.join(", ")}</p>
+                )}
+                <p className="mt-2">Correct words:</p>
+                <ul className="list-disc pl-5">
+                  {debugInfo.correctWords &&
+                    debugInfo.correctWords.map((word: string, i: number) => (
+                      <li key={i} className="font-arabic">
+                        {word} - {debugInfo.wordBank.includes(word) ? "✓" : "✗"}
+                      </li>
+                    ))}
+                </ul>
+              </>
+            )}
+          </>
+        )}
+      </div>
+    )
+  }
+
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       <header className="bg-emerald-800 text-white py-4">
         <div className="container mx-auto px-4 flex justify-between items-center">
           <h1 className="text-2xl font-bold">Fill in the Blanks</h1>
-          <Link href="/games">
-            <Button variant="ghost" size="sm">
-              Back to Games
+          <div className="flex items-center gap-2">
+            <Button variant="ghost" size="sm" onClick={toggleDebug} className="text-white">
+              <Bug className="h-4 w-4 mr-1" />
+              {showDebug ? "Hide" : "Show"} Debug
             </Button>
-          </Link>
+            <Link href="/games">
+              <Button variant="ghost" size="sm">
+                Back to Games
+              </Button>
+            </Link>
+          </div>
         </div>
       </header>
 
@@ -343,6 +470,9 @@ export default function FillBlanksGamePage() {
                 Test your knowledge of Quranic vocabulary by completing sentences with the correct words. Drag words
                 from the word bank to the appropriate blanks in the sentence.
               </p>
+              <p className="text-sm text-gray-500 mb-4">
+                Each game features different sentences from the Quran, helping you learn vocabulary in context.
+              </p>
             </CardContent>
             <CardFooter className="flex justify-center">
               <Button onClick={initializeGame} className="bg-emerald-600 hover:bg-emerald-700">
@@ -352,6 +482,20 @@ export default function FillBlanksGamePage() {
           </Card>
         ) : (
           <>
+            {error && (
+              <Card className="max-w-md mx-auto mb-4 border-red-300 dark:border-red-700">
+                <CardContent className="p-4">
+                  <div className="flex items-center text-red-600 dark:text-red-400">
+                    <XCircle className="h-5 w-5 mr-2" />
+                    <p>{error}</p>
+                  </div>
+                  <Button onClick={() => window.location.reload()} className="mt-4 w-full">
+                    <RefreshCw className="mr-2 h-4 w-4" />
+                    Reload Game
+                  </Button>
+                </CardContent>
+              </Card>
+            )}
             <div className="mb-6 max-w-md mx-auto">
               <div className="flex justify-between items-center mb-2">
                 <div className="flex items-center">
@@ -400,21 +544,45 @@ export default function FillBlanksGamePage() {
                 <Card className="mb-8">
                   <CardHeader>
                     <CardTitle className="flex justify-between items-center">
-                      <span>Sentence {currentSentenceIndex + 1}</span>
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        onClick={showHintHandler}
-                        disabled={showHint || sentenceCompleted}
-                        className="text-gray-500"
-                      >
-                        <HelpCircle className="h-4 w-4 mr-1" />
-                        Hint
-                      </Button>
+                      <span>
+                        Sentence {currentSentenceIndex + 1}
+                        {currentSentence?.surahName && (
+                          <span className="text-sm font-normal ml-2 text-gray-500">
+                            (Surah {currentSentence.surahName}, {currentSentence.ayahNumber})
+                          </span>
+                        )}
+                      </span>
+                      <div className="flex space-x-2">
+                        <Button variant="ghost" size="sm" onClick={toggleTranslation} className="text-gray-500">
+                          <BookOpen className="h-4 w-4 mr-1" />
+                          {showTranslation ? "Hide" : "Show"} Translation
+                        </Button>
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          onClick={showHintHandler}
+                          disabled={showHint || sentenceCompleted}
+                          className="text-gray-500"
+                        >
+                          <HelpCircle className="h-4 w-4 mr-1" />
+                          Hint
+                        </Button>
+                      </div>
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    {renderSentenceWithBlanks(currentSentence)}
+                    {/* Display the full sentence with blanks */}
+                    {currentSentence && <div className="mb-6">{renderSentenceWithBlanks(currentSentence)}</div>}
+
+                    {showTranslation && currentSentence?.translation && (
+                      <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg mb-6 border border-blue-200 dark:border-blue-800">
+                        <h3 className="font-bold mb-2 flex items-center">
+                          <BookOpen className="h-4 w-4 mr-1 text-blue-600 dark:text-blue-400" />
+                          Translation
+                        </h3>
+                        <p className="text-gray-700 dark:text-gray-300">{currentSentence.translation}</p>
+                      </div>
+                    )}
 
                     {showHint && !sentenceCompleted && (
                       <div className="bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded-lg mb-6 border border-yellow-200 dark:border-yellow-800">
@@ -432,26 +600,58 @@ export default function FillBlanksGamePage() {
                       </div>
                     )}
 
-                    {sentenceCompleted && (
-                      <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg mb-6 border border-green-200 dark:border-green-800">
-                        <h3 className="font-bold mb-2 flex items-center text-green-700 dark:text-green-400">
-                          <CheckCircle className="h-4 w-4 mr-2" />
-                          Correct! Well done!
+                    {/* Check Answer Button */}
+                    {!hasCheckedAnswer && areAllBlanksFilled() && (
+                      <div className="flex justify-center mb-6">
+                        <Button onClick={checkAnswer} className="bg-blue-600 hover:bg-blue-700">
+                          Check Answer
+                        </Button>
+                      </div>
+                    )}
+
+                    {/* Feedback after checking answer */}
+                    {hasCheckedAnswer && (
+                      <div
+                        className={`p-4 rounded-lg mb-6 border ${
+                          isCorrect
+                            ? "bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800"
+                            : "bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-800"
+                        }`}
+                      >
+                        <h3
+                          className={`font-bold mb-2 flex items-center ${
+                            isCorrect ? "text-green-700 dark:text-green-400" : "text-red-700 dark:text-red-400"
+                          }`}
+                        >
+                          {isCorrect ? (
+                            <>
+                              <CheckCircle className="h-4 w-4 mr-2" />
+                              Correct! Well done!
+                            </>
+                          ) : (
+                            <>
+                              <XCircle className="h-4 w-4 mr-2" />
+                              Not quite right. Try again!
+                            </>
+                          )}
                         </h3>
-                        <div className="flex justify-end">
-                          <Button
-                            onClick={handleNextSentence}
-                            className="bg-emerald-600 hover:bg-emerald-700 flex items-center"
-                          >
-                            {currentSentenceIndex < sentences.length - 1 ? (
-                              <>
-                                Next Sentence <ArrowRight className="ml-2 h-4 w-4" />
-                              </>
-                            ) : (
-                              "Complete Game"
-                            )}
-                          </Button>
-                        </div>
+
+                        {isCorrect && (
+                          <div className="flex justify-end">
+                            <Button
+                              onClick={handleNextSentence}
+                              className="bg-emerald-600 hover:bg-emerald-700 flex items-center"
+                            >
+                              {currentSentenceIndex < sentences.length - 1 ? (
+                                <>
+                                  Next Sentence <ArrowRight className="ml-2 h-4 w-4" />
+                                </>
+                              ) : (
+                                "Complete Game"
+                              )}
+                            </Button>
+                          </div>
+                        )}
                       </div>
                     )}
 
@@ -472,6 +672,9 @@ export default function FillBlanksGamePage() {
                         ))}
                       </div>
                     </div>
+
+                    {/* Debug information */}
+                    {debugCorrectAnswer()}
                   </CardContent>
                 </Card>
               </div>
