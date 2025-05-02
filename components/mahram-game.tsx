@@ -15,8 +15,20 @@ import { SortableContext, useSortable, verticalListSortingStrategy } from "@dnd-
 import { useDroppable } from "@dnd-kit/core"
 import { CSS } from "@dnd-kit/utilities"
 import { type Relative, relatives, mahramTerms } from "@/data/mahram-game-data"
+import { familyRelationVerses, type QuranVerse } from "@/data/mahram-quran-verses"
 import { Button } from "@/components/ui/button"
-import { Check, X, Info, RefreshCw, Trophy, UserIcon as Male, UserIcon as Female, Languages } from "lucide-react"
+import {
+  Check,
+  X,
+  Info,
+  RefreshCw,
+  Trophy,
+  UserIcon as Male,
+  UserIcon as Female,
+  Languages,
+  BookOpen,
+  GitFork,
+} from "lucide-react"
 import {
   Dialog,
   DialogContent,
@@ -31,11 +43,45 @@ import { Progress } from "@/components/ui/progress"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Label } from "@/components/ui/label"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import FamilyTreeVisualizer from "./family-tree-visualizer"
 import confetti from "canvas-confetti"
 
 type PlayerGender = "male" | "female"
 type RelativeWithZone = Relative & { zone: "unassigned" | "mahram" | "non-mahram" }
 type LanguageMode = "english" | "arabic" | "both"
+
+const QuranVerseCard = ({ verse }: { verse: QuranVerse }) => {
+  return (
+    <Card className="mb-4">
+      <CardHeader>
+        <CardTitle className="flex justify-between items-center">
+          <span>
+            Surah {verse.surah} ({verse.surahNumber}:{verse.verseNumber})
+          </span>
+          <Badge variant="outline">{verse.topic.replace("_", " ")}</Badge>
+        </CardTitle>
+        <CardDescription>
+          {verse.relatedRelatives && verse.relatedRelatives.length > 0 && (
+            <div className="text-xs text-gray-500 mt-1">
+              Related to: {verse.relatedRelatives.map((r) => r.split("-").join(" ")).join(", ")}
+            </div>
+          )}
+        </CardDescription>
+      </CardHeader>
+      <CardContent>
+        <div className="mb-4">
+          <p className="font-arabic text-xl leading-relaxed" dir="rtl">
+            {verse.arabicText}
+          </p>
+        </div>
+        <div className="text-sm text-gray-700">{verse.translation}</div>
+      </CardContent>
+      <CardFooter className="text-xs text-gray-600 border-t pt-4">{verse.explanation}</CardFooter>
+    </Card>
+  )
+}
 
 const RelativeItem = ({
   relative,
@@ -61,6 +107,11 @@ const RelativeItem = ({
   const borderColor = relative.gender === "male" ? "border-blue-500" : "border-pink-500"
 
   const explanation = playerGender === "male" ? relative.explanationForMale : relative.explanationForFemale
+
+  // Find relevant Quranic verses for this relative
+  const relevantVerses = familyRelationVerses.filter(
+    (verse) => verse.relatedRelatives && verse.relatedRelatives.includes(relative.id),
+  )
 
   // Determine what name to display based on language mode
   const displayName = () => {
@@ -128,7 +179,7 @@ const RelativeItem = ({
             <Info className="h-4 w-4" />
           </Button>
         </DialogTrigger>
-        <DialogContent>
+        <DialogContent className="max-w-3xl">
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2">
               {relative.name}
@@ -145,9 +196,24 @@ const RelativeItem = ({
               )}
             </DialogDescription>
           </DialogHeader>
-          <div className="py-4">
-            <p>{explanation}</p>
-          </div>
+          <Tabs defaultValue="explanation">
+            <TabsList className="grid w-full grid-cols-2">
+              <TabsTrigger value="explanation">Explanation</TabsTrigger>
+              <TabsTrigger value="quran" disabled={relevantVerses.length === 0}>
+                Quranic References {relevantVerses.length > 0 && `(${relevantVerses.length})`}
+              </TabsTrigger>
+            </TabsList>
+            <TabsContent value="explanation" className="py-4">
+              <p>{explanation}</p>
+            </TabsContent>
+            <TabsContent value="quran" className="py-4">
+              {relevantVerses.length > 0 ? (
+                relevantVerses.map((verse) => <QuranVerseCard key={verse.id} verse={verse} />)
+              ) : (
+                <p className="text-center text-gray-500 italic">No specific Quranic references available.</p>
+              )}
+            </TabsContent>
+          </Tabs>
         </DialogContent>
       </Dialog>
     </div>
@@ -270,6 +336,8 @@ export default function MahramGame() {
   const [gameStarted, setGameStarted] = useState(false)
   const [debugInfo, setDebugInfo] = useState<string>("")
   const [languageMode, setLanguageMode] = useState<LanguageMode>("both")
+  const [showQuranVerses, setShowQuranVerses] = useState(false)
+  const [showFamilyTree, setShowFamilyTree] = useState(false)
 
   // Configure sensors for better touch and mouse support
   const sensors = useSensors(
@@ -508,6 +576,12 @@ export default function MahramGame() {
         </DialogContent>
       </Dialog>
 
+      <Dialog open={showFamilyTree} onOpenChange={setShowFamilyTree}>
+        <DialogContent className="max-w-5xl h-[80vh] overflow-y-auto">
+          <FamilyTreeVisualizer playerGender={playerGender} onClose={() => setShowFamilyTree(false)} />
+        </DialogContent>
+      </Dialog>
+
       <div className="mb-8 text-center">
         <h1 className="text-3xl font-bold text-amber-600 mb-2">Knowing Your Mahram</h1>
         <p className="font-arabic text-2xl text-amber-600 mb-2" dir="rtl">
@@ -542,15 +616,15 @@ export default function MahramGame() {
 
       <div className="flex justify-center mb-4">
         <div
-          className={`w-20 h-20 rounded-full flex items-center justify-center text-2xl ${
+          className={`w-28 h-28 rounded-full flex items-center justify-center text-2xl ${
             playerGender === "male" ? "bg-blue-100 border-4 border-blue-500" : "bg-pink-100 border-4 border-pink-500"
           }`}
         >
           <div className="flex flex-col items-center">
             {playerGender === "male" ? <Male className="h-8 w-8" /> : <Female className="h-8 w-8" />}
             <span className="text-sm font-bold mt-1">ME</span>
-            <span className="font-arabic text-xs" dir="rtl">
-              {playerGender === "male" ? "أنا" : "أنا"}
+            <span className="font-arabic text-sm" dir="rtl">
+              أنا
             </span>
           </div>
         </div>
@@ -566,6 +640,11 @@ export default function MahramGame() {
           className="flex items-center gap-2"
         >
           Change Gender
+        </Button>
+
+        <Button variant="outline" onClick={() => setShowFamilyTree(true)} className="flex items-center gap-2">
+          <GitFork className="h-4 w-4" />
+          View Family Tree
         </Button>
 
         <div className="flex items-center gap-2">
@@ -802,6 +881,53 @@ export default function MahramGame() {
           </div>
         )}
       </DndContext>
+
+      {/* Quranic Verses Section */}
+      <div className="mt-8">
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-xl font-bold flex items-center gap-2">
+            <BookOpen className="h-5 w-5" />
+            Quranic References
+          </h2>
+          <Button variant="outline" size="sm" onClick={() => setShowQuranVerses(!showQuranVerses)}>
+            {showQuranVerses ? "Hide" : "Show"} Verses
+          </Button>
+        </div>
+
+        {showQuranVerses && (
+          <div className="bg-amber-50 p-4 rounded-lg border border-amber-200">
+            <p className="mb-4 text-amber-800">
+              The Quran provides guidance on family relationships and Mahram rules. Here are some relevant verses:
+            </p>
+
+            <Accordion type="single" collapsible className="w-full">
+              {familyRelationVerses.map((verse) => (
+                <AccordionItem key={verse.id} value={verse.id}>
+                  <AccordionTrigger className="hover:no-underline">
+                    <div className="flex justify-between w-full items-center">
+                      <span>
+                        Surah {verse.surah} ({verse.surahNumber}:{verse.verseNumber})
+                      </span>
+                      <Badge variant="outline" className="ml-2">
+                        {verse.topic.replace("_", " ")}
+                      </Badge>
+                    </div>
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <div className="mb-4">
+                      <p className="font-arabic text-lg leading-relaxed mb-4" dir="rtl">
+                        {verse.arabicText}
+                      </p>
+                      <p className="text-sm">{verse.translation}</p>
+                    </div>
+                    <div className="text-xs text-gray-600 border-t pt-2">{verse.explanation}</div>
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+        )}
+      </div>
     </div>
   )
 }
