@@ -1,12 +1,22 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { DndContext, closestCenter, type DragEndEvent, type DragStartEvent } from "@dnd-kit/core"
+import {
+  DndContext,
+  closestCenter,
+  type DragEndEvent,
+  type DragStartEvent,
+  useSensor,
+  useSensors,
+  PointerSensor,
+  TouchSensor,
+} from "@dnd-kit/core"
 import { SortableContext, useSortable, verticalListSortingStrategy } from "@dnd-kit/sortable"
+import { useDroppable } from "@dnd-kit/core"
 import { CSS } from "@dnd-kit/utilities"
 import { type Relative, relatives } from "@/data/mahram-game-data"
 import { Button } from "@/components/ui/button"
-import { Check, X, Info, RefreshCw, Trophy } from "lucide-react"
+import { Check, X, Info, RefreshCw, Trophy, UserIcon as Male, UserIcon as Female } from "lucide-react"
 import {
   Dialog,
   DialogContent,
@@ -22,9 +32,10 @@ import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import confetti from "canvas-confetti"
 
+type PlayerGender = "male" | "female"
 type RelativeWithZone = Relative & { zone: "unassigned" | "mahram" | "non-mahram" }
 
-const RelativeItem = ({ relative }: { relative: RelativeWithZone }) => {
+const RelativeItem = ({ relative, playerGender }: { relative: RelativeWithZone; playerGender: PlayerGender }) => {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
     id: relative.id,
   })
@@ -39,6 +50,8 @@ const RelativeItem = ({ relative }: { relative: RelativeWithZone }) => {
   const iconColor = relative.gender === "male" ? "bg-blue-100" : "bg-pink-100"
   const borderColor = relative.gender === "male" ? "border-blue-500" : "border-pink-500"
 
+  const explanation = playerGender === "male" ? relative.explanationForMale : relative.explanationForFemale
+
   return (
     <div
       ref={setNodeRef}
@@ -49,7 +62,9 @@ const RelativeItem = ({ relative }: { relative: RelativeWithZone }) => {
     >
       <div className="flex items-center">
         <div
-          className={`w-10 h-10 rounded-full flex items-center justify-center mr-3 ${relative.gender === "male" ? "bg-blue-200" : "bg-pink-200"}`}
+          className={`w-10 h-10 rounded-full flex items-center justify-center mr-3 ${
+            relative.gender === "male" ? "bg-blue-200" : "bg-pink-200"
+          }`}
         >
           {relative.gender === "male" ? "👨" : "👩"}
         </div>
@@ -70,7 +85,7 @@ const RelativeItem = ({ relative }: { relative: RelativeWithZone }) => {
             <DialogDescription>{relative.relation}</DialogDescription>
           </DialogHeader>
           <div className="py-4">
-            <p>{relative.explanation}</p>
+            <p>{explanation}</p>
           </div>
         </DialogContent>
       </Dialog>
@@ -79,18 +94,27 @@ const RelativeItem = ({ relative }: { relative: RelativeWithZone }) => {
 }
 
 const DropZone = ({
+  id,
   title,
   items,
   type,
   isChecking,
   isGameOver,
+  playerGender,
 }: {
+  id: string
   title: string
   items: RelativeWithZone[]
   type: "mahram" | "non-mahram" | "unassigned"
   isChecking: boolean
   isGameOver: boolean
+  playerGender: PlayerGender
 }) => {
+  // Use the useDroppable hook to make this a drop target
+  const { setNodeRef, isOver } = useDroppable({
+    id: id,
+  })
+
   let bgColor = "bg-gray-100"
   let borderColor = "border-gray-300"
 
@@ -102,17 +126,23 @@ const DropZone = ({
     borderColor = "border-amber-300"
   }
 
+  // Add a highlight effect when dragging over
+  if (isOver) {
+    borderColor = "border-blue-500"
+    bgColor = "bg-blue-50"
+  }
+
   return (
-    <div className={`p-4 rounded-lg border-2 ${borderColor} ${bgColor} min-h-[200px] flex-1`}>
+    <div ref={setNodeRef} className={`p-4 rounded-lg border-2 ${borderColor} ${bgColor} min-h-[200px] flex-1`}>
       <h3 className="font-bold text-lg mb-4 text-center">{title}</h3>
       <div>
         {items.map((item) => (
           <div key={item.id} className="relative">
-            <RelativeItem relative={item} />
+            <RelativeItem relative={item} playerGender={playerGender} />
             {isChecking && (
               <div className="absolute top-2 right-2">
                 {type !== "unassigned" &&
-                  (item.isMahram === (type === "mahram") ? (
+                  ((playerGender === "male" ? item.isMahramToMale : item.isMahramToFemale) === (type === "mahram") ? (
                     <Check className="h-6 w-6 text-green-600" />
                   ) : (
                     <X className="h-6 w-6 text-red-600" />
@@ -128,22 +158,41 @@ const DropZone = ({
 }
 
 export default function MahramGame() {
+  const [playerGender, setPlayerGender] = useState<PlayerGender>("male")
   const [gameRelatives, setGameRelatives] = useState<RelativeWithZone[]>([])
   const [activeId, setActiveId] = useState<string | null>(null)
   const [isChecking, setIsChecking] = useState(false)
   const [score, setScore] = useState(0)
   const [maxScore, setMaxScore] = useState(0)
   const [gameOver, setGameOver] = useState(false)
-  const [showExplanation, setShowExplanation] = useState(false)
   const [timer, setTimer] = useState(0)
   const [isTimerRunning, setIsTimerRunning] = useState(false)
   const [level, setLevel] = useState(1)
   const [showInstructions, setShowInstructions] = useState(true)
+  const [gameStarted, setGameStarted] = useState(false)
+  const [debugInfo, setDebugInfo] = useState<string>("")
 
-  // Initialize the game
+  // Configure sensors for better touch and mouse support
+  const sensors = useSensors(
+    useSensor(PointerSensor, {
+      activationConstraint: {
+        distance: 8, // 8px of movement before drag starts
+      },
+    }),
+    useSensor(TouchSensor, {
+      activationConstraint: {
+        delay: 250, // 250ms delay for touch
+        tolerance: 8, // 8px of movement during delay
+      },
+    }),
+  )
+
+  // Initialize the game when gender is selected or level changes
   useEffect(() => {
-    initializeGame()
-  }, [level])
+    if (gameStarted) {
+      initializeGame()
+    }
+  }, [level, playerGender, gameStarted])
 
   // Timer effect
   useEffect(() => {
@@ -175,6 +224,7 @@ export default function MahramGame() {
     setGameOver(false)
     setTimer(0)
     setIsTimerRunning(true)
+    setDebugInfo("")
   }
 
   const handleDragStart = (event: DragStartEvent) => {
@@ -184,17 +234,26 @@ export default function MahramGame() {
   const handleDragEnd = (event: DragEndEvent) => {
     const { active, over } = event
 
-    if (!over) return
+    if (!over) {
+      setDebugInfo("No drop target detected")
+      return
+    }
 
     const relativeId = active.id as string
     let newZone: "unassigned" | "mahram" | "non-mahram" = "unassigned"
 
+    // Set the new zone based on where the item was dropped
     if (over.id === "mahram-zone") {
       newZone = "mahram"
     } else if (over.id === "non-mahram-zone") {
       newZone = "non-mahram"
+    } else if (over.id === "unassigned-zone") {
+      newZone = "unassigned"
     }
 
+    setDebugInfo(`Dropped ${relativeId} onto ${over.id}, setting zone to ${newZone}`)
+
+    // Update the relative's zone
     setGameRelatives((prev) => prev.map((rel) => (rel.id === relativeId ? { ...rel, zone: newZone } : rel)))
 
     setActiveId(null)
@@ -206,7 +265,8 @@ export default function MahramGame() {
 
     let correctAnswers = 0
     gameRelatives.forEach((rel) => {
-      if ((rel.zone === "mahram" && rel.isMahram) || (rel.zone === "non-mahram" && !rel.isMahram)) {
+      const isMahram = playerGender === "male" ? rel.isMahramToMale : rel.isMahramToFemale
+      if ((rel.zone === "mahram" && isMahram) || (rel.zone === "non-mahram" && !isMahram)) {
         correctAnswers++
       }
     })
@@ -232,11 +292,54 @@ export default function MahramGame() {
     setLevel((prev) => prev + 1)
   }
 
+  const startGame = (gender: PlayerGender) => {
+    setPlayerGender(gender)
+    setGameStarted(true)
+    setShowInstructions(false)
+  }
+
   const unassignedRelatives = gameRelatives.filter((rel) => rel.zone === "unassigned")
   const mahramRelatives = gameRelatives.filter((rel) => rel.zone === "mahram")
   const nonMahramRelatives = gameRelatives.filter((rel) => rel.zone === "non-mahram")
 
   const accuracy = maxScore > 0 ? Math.round((score / maxScore) * 100) : 0
+
+  if (!gameStarted) {
+    return (
+      <div className="container mx-auto p-4 max-w-md">
+        <div className="text-center mb-8">
+          <h1 className="text-3xl font-bold text-amber-600 mb-2">Knowing Your Mahram</h1>
+          <p className="text-gray-600 mb-6">Select your gender to start the game</p>
+
+          <div className="bg-white p-8 rounded-lg shadow-md">
+            <h2 className="text-xl font-semibold mb-4">Choose Your Perspective</h2>
+            <p className="mb-6 text-gray-600">
+              In Islam, Mahram relationships depend on your gender. Select your gender to learn the correct Mahram
+              relationships from your perspective.
+            </p>
+
+            <div className="flex flex-col gap-6">
+              <Button
+                onClick={() => startGame("male")}
+                className="flex items-center justify-center gap-2 h-16 bg-blue-600 hover:bg-blue-700"
+              >
+                <Male className="h-6 w-6" />
+                <span className="text-lg">Play as Male</span>
+              </Button>
+
+              <Button
+                onClick={() => startGame("female")}
+                className="flex items-center justify-center gap-2 h-16 bg-pink-600 hover:bg-pink-700"
+              >
+                <Female className="h-6 w-6" />
+                <span className="text-lg">Play as Female</span>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="container mx-auto p-4">
@@ -327,49 +430,82 @@ export default function MahramGame() {
       </div>
 
       <div className="flex justify-center mb-6">
-        <div className="w-20 h-20 rounded-full bg-amber-100 border-4 border-amber-500 flex items-center justify-center text-2xl">
-          ME
+        <div
+          className={`w-20 h-20 rounded-full flex items-center justify-center text-2xl ${
+            playerGender === "male" ? "bg-blue-100 border-4 border-blue-500" : "bg-pink-100 border-4 border-pink-500"
+          }`}
+        >
+          <div className="flex flex-col items-center">
+            {playerGender === "male" ? <Male className="h-8 w-8" /> : <Female className="h-8 w-8" />}
+            <span className="text-sm font-bold mt-1">ME</span>
+          </div>
         </div>
       </div>
 
-      <DndContext collisionDetection={closestCenter} onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
+      <div className="mb-4 flex justify-center">
+        <Button
+          variant="outline"
+          onClick={() => {
+            setGameStarted(false)
+            setIsTimerRunning(false)
+          }}
+          className="flex items-center gap-2"
+        >
+          Change Gender
+        </Button>
+      </div>
+
+      <DndContext
+        collisionDetection={closestCenter}
+        onDragStart={handleDragStart}
+        onDragEnd={handleDragEnd}
+        sensors={sensors}
+      >
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
           <div className="md:col-span-1">
             <SortableContext items={unassignedRelatives.map((r) => r.id)} strategy={verticalListSortingStrategy}>
               <DropZone
+                id="unassigned-zone"
                 title="Relatives"
                 items={unassignedRelatives}
                 type="unassigned"
                 isChecking={isChecking}
                 isGameOver={gameOver}
+                playerGender={playerGender}
               />
             </SortableContext>
           </div>
 
-          <div id="mahram-zone" className="md:col-span-1">
+          <div className="md:col-span-1">
             <SortableContext items={mahramRelatives.map((r) => r.id)} strategy={verticalListSortingStrategy}>
               <DropZone
+                id="mahram-zone"
                 title="Mahram"
                 items={mahramRelatives}
                 type="mahram"
                 isChecking={isChecking}
                 isGameOver={gameOver}
+                playerGender={playerGender}
               />
             </SortableContext>
           </div>
 
-          <div id="non-mahram-zone" className="md:col-span-1">
+          <div className="md:col-span-1">
             <SortableContext items={nonMahramRelatives.map((r) => r.id)} strategy={verticalListSortingStrategy}>
               <DropZone
+                id="non-mahram-zone"
                 title="Non-Mahram"
                 items={nonMahramRelatives}
                 type="non-mahram"
                 isChecking={isChecking}
                 isGameOver={gameOver}
+                playerGender={playerGender}
               />
             </SortableContext>
           </div>
         </div>
+
+        {debugInfo && <div className="mb-4 p-2 bg-gray-100 text-xs text-gray-600 rounded">Debug: {debugInfo}</div>}
 
         <div className="flex justify-center gap-4">
           {!isChecking ? (
