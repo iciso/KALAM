@@ -338,18 +338,20 @@ export default function MahramGame() {
   const [languageMode, setLanguageMode] = useState<LanguageMode>("both")
   const [showQuranVerses, setShowQuranVerses] = useState(false)
   const [showFamilyTree, setShowFamilyTree] = useState(false)
+  const [useMobileFallback, setUseMobileFallback] = useState(false)
+  const [isMobileDevice, setIsMobileDevice] = useState(false)
 
   // Configure sensors for better touch and mouse support
   const sensors = useSensors(
     useSensor(PointerSensor, {
       activationConstraint: {
-        distance: 8, // 8px of movement before drag starts
+        distance: 5, // Reduced from 8px to 5px for easier activation
       },
     }),
     useSensor(TouchSensor, {
       activationConstraint: {
-        delay: 250, // 250ms delay for touch
-        tolerance: 8, // 8px of movement during delay
+        delay: 100, // Reduced from 250ms to 100ms for more responsive touch
+        tolerance: 5, // Reduced from 8px to 5px
       },
     }),
   )
@@ -373,6 +375,22 @@ export default function MahramGame() {
 
     return () => clearInterval(interval)
   }, [isTimerRunning])
+
+  // Detect mobile devices
+  useEffect(() => {
+    const checkMobile = () => {
+      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || window.innerWidth < 768
+      setIsMobileDevice(isMobile)
+      // Auto-enable fallback mode on mobile devices
+      if (isMobile && !useMobileFallback) {
+        setUseMobileFallback(true)
+      }
+    }
+
+    checkMobile()
+    window.addEventListener("resize", checkMobile)
+    return () => window.removeEventListener("resize", checkMobile)
+  }, [])
 
   const initializeGame = () => {
     // Shuffle and select relatives based on level
@@ -470,6 +488,113 @@ export default function MahramGame() {
   const nonMahramRelatives = gameRelatives.filter((rel) => rel.zone === "non-mahram")
 
   const accuracy = maxScore > 0 ? Math.round((score / maxScore) * 100) : 0
+
+  // Mobile fallback UI for devices where drag and drop doesn't work well
+  const renderMobileFallback = () => {
+    return (
+      <div className="grid grid-cols-1 gap-6 mb-6">
+        {gameRelatives.map((relative) => {
+          const isMahram = playerGender === "male" ? relative.isMahramToMale : relative.isMahramToFemale
+
+          return (
+            <div key={relative.id} className="border rounded-lg p-4 bg-white shadow-sm">
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center">
+                  <div
+                    className={`w-10 h-10 rounded-full flex items-center justify-center mr-3 ${
+                      relative.gender === "male" ? "bg-blue-200" : "bg-pink-200"
+                    }`}
+                  >
+                    {relative.gender === "male" ? "👨" : "👩"}
+                  </div>
+                  <div>
+                    {languageMode !== "arabic" && <div className="font-semibold">{relative.name}</div>}
+                    {languageMode !== "english" && (
+                      <div className="font-arabic text-sm" dir="rtl">
+                        {relative.arabicName}
+                      </div>
+                    )}
+                    {languageMode !== "arabic" && <div className="text-xs text-gray-500">{relative.relation}</div>}
+                  </div>
+                </div>
+
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button variant="outline" size="sm">
+                      <Info className="h-4 w-4 mr-1" />
+                      Info
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="max-w-3xl">
+                    <DialogHeader>
+                      <DialogTitle className="flex items-center gap-2">
+                        {relative.name}
+                        {languageMode !== "english" && (
+                          <span className="font-arabic text-lg" dir="rtl">
+                            {relative.arabicName}
+                          </span>
+                        )}
+                      </DialogTitle>
+                      <DialogDescription className="flex flex-col">
+                        <span>{relative.relation}</span>
+                        {languageMode !== "english" && (
+                          <span className="text-sm text-gray-500">Transliteration: {relative.transliteration}</span>
+                        )}
+                      </DialogDescription>
+                    </DialogHeader>
+                    <div className="py-4">
+                      <p>{playerGender === "male" ? relative.explanationForMale : relative.explanationForFemale}</p>
+                    </div>
+                  </DialogContent>
+                </Dialog>
+              </div>
+
+              <div className="flex justify-between gap-2">
+                <Button
+                  variant={relative.zone === "mahram" ? "default" : "outline"}
+                  className={relative.zone === "mahram" ? "bg-green-600 hover:bg-green-700 w-1/2" : "w-1/2"}
+                  onClick={() => {
+                    setGameRelatives((prev) =>
+                      prev.map((rel) => (rel.id === relative.id ? { ...rel, zone: "mahram" } : rel)),
+                    )
+                  }}
+                >
+                  Mahram
+                </Button>
+                <Button
+                  variant={relative.zone === "non-mahram" ? "default" : "outline"}
+                  className={relative.zone === "non-mahram" ? "bg-amber-600 hover:bg-amber-700 w-1/2" : "w-1/2"}
+                  onClick={() => {
+                    setGameRelatives((prev) =>
+                      prev.map((rel) => (rel.id === relative.id ? { ...rel, zone: "non-mahram" } : rel)),
+                    )
+                  }}
+                >
+                  Non-Mahram
+                </Button>
+              </div>
+
+              {isChecking && (
+                <div className="mt-3 text-center">
+                  {(playerGender === "male" ? relative.isMahramToMale : relative.isMahramToFemale) ===
+                  (relative.zone === "mahram") ? (
+                    <div className="flex items-center justify-center text-green-600">
+                      <Check className="h-5 w-5 mr-1" /> Correct
+                    </div>
+                  ) : (
+                    <div className="flex items-center justify-center text-red-600">
+                      <X className="h-5 w-5 mr-1" /> Incorrect -{" "}
+                      {isMahram ? "This is a Mahram" : "This is a Non-Mahram"}
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+          )
+        })}
+      </div>
+    )
+  }
 
   if (!gameStarted) {
     return (
@@ -661,228 +786,240 @@ export default function MahramGame() {
             <option value="both">Both</option>
           </select>
         </div>
+        {isMobileDevice && (
+          <Button
+            variant="outline"
+            onClick={() => setUseMobileFallback(!useMobileFallback)}
+            className="flex items-center gap-2"
+          >
+            {useMobileFallback ? "Try Drag & Drop" : "Use Tap Interface"}
+          </Button>
+        )}
       </div>
 
-      <DndContext
-        collisionDetection={closestCenter}
-        onDragStart={handleDragStart}
-        onDragEnd={handleDragEnd}
-        sensors={sensors}
-      >
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-          <div className="md:col-span-1">
-            <SortableContext items={unassignedRelatives.map((r) => r.id)} strategy={verticalListSortingStrategy}>
-              <DropZone
-                id="unassigned-zone"
-                title="Relatives"
-                arabicTitle="الأقارب"
-                items={unassignedRelatives}
-                type="unassigned"
-                isChecking={isChecking}
-                isGameOver={gameOver}
-                playerGender={playerGender}
-                languageMode={languageMode}
-              />
-            </SortableContext>
+      {useMobileFallback ? (
+        renderMobileFallback()
+      ) : (
+        <DndContext
+          collisionDetection={closestCenter}
+          onDragStart={handleDragStart}
+          onDragEnd={handleDragEnd}
+          sensors={sensors}
+        >
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+            <div className="md:col-span-1">
+              <SortableContext items={unassignedRelatives.map((r) => r.id)} strategy={verticalListSortingStrategy}>
+                <DropZone
+                  id="unassigned-zone"
+                  title="Relatives"
+                  arabicTitle="الأقارب"
+                  items={unassignedRelatives}
+                  type="unassigned"
+                  isChecking={isChecking}
+                  isGameOver={gameOver}
+                  playerGender={playerGender}
+                  languageMode={languageMode}
+                />
+              </SortableContext>
+            </div>
+
+            <div className="md:col-span-1">
+              <SortableContext items={mahramRelatives.map((r) => r.id)} strategy={verticalListSortingStrategy}>
+                <DropZone
+                  id="mahram-zone"
+                  title="Mahram"
+                  arabicTitle={mahramTerms.mahram.arabic}
+                  items={mahramRelatives}
+                  type="mahram"
+                  isChecking={isChecking}
+                  isGameOver={gameOver}
+                  playerGender={playerGender}
+                  languageMode={languageMode}
+                />
+              </SortableContext>
+            </div>
+
+            <div className="md:col-span-1">
+              <SortableContext items={nonMahramRelatives.map((r) => r.id)} strategy={verticalListSortingStrategy}>
+                <DropZone
+                  id="non-mahram-zone"
+                  title="Non-Mahram"
+                  arabicTitle={mahramTerms.nonMahram.arabic}
+                  items={nonMahramRelatives}
+                  type="non-mahram"
+                  isChecking={isChecking}
+                  isGameOver={gameOver}
+                  playerGender={playerGender}
+                  languageMode={languageMode}
+                />
+              </SortableContext>
+            </div>
           </div>
 
-          <div className="md:col-span-1">
-            <SortableContext items={mahramRelatives.map((r) => r.id)} strategy={verticalListSortingStrategy}>
-              <DropZone
-                id="mahram-zone"
-                title="Mahram"
-                arabicTitle={mahramTerms.mahram.arabic}
-                items={mahramRelatives}
-                type="mahram"
-                isChecking={isChecking}
-                isGameOver={gameOver}
-                playerGender={playerGender}
-                languageMode={languageMode}
-              />
-            </SortableContext>
-          </div>
+          {debugInfo && <div className="mb-4 p-2 bg-gray-100 text-xs text-gray-600 rounded">Debug: {debugInfo}</div>}
 
-          <div className="md:col-span-1">
-            <SortableContext items={nonMahramRelatives.map((r) => r.id)} strategy={verticalListSortingStrategy}>
-              <DropZone
-                id="non-mahram-zone"
-                title="Non-Mahram"
-                arabicTitle={mahramTerms.nonMahram.arabic}
-                items={nonMahramRelatives}
-                type="non-mahram"
-                isChecking={isChecking}
-                isGameOver={gameOver}
-                playerGender={playerGender}
-                languageMode={languageMode}
-              />
-            </SortableContext>
-          </div>
-        </div>
-
-        {debugInfo && <div className="mb-4 p-2 bg-gray-100 text-xs text-gray-600 rounded">Debug: {debugInfo}</div>}
-
-        <div className="flex justify-center gap-4">
-          {!isChecking ? (
-            <Button
-              onClick={checkAnswers}
-              disabled={unassignedRelatives.length > 0}
-              className="bg-amber-600 hover:bg-amber-700"
-            >
-              {languageMode === "arabic" ? (
-                <span className="font-arabic" dir="rtl">
-                  تحقق من الإجابات
-                </span>
-              ) : (
-                "Check Answers"
-              )}
-            </Button>
-          ) : (
-            <Button onClick={resetGame} className="flex items-center gap-2">
-              <RefreshCw className="h-4 w-4" />
-              {languageMode === "arabic" ? (
-                <span className="font-arabic" dir="rtl">
-                  العب مرة أخرى
-                </span>
-              ) : (
-                "Play Again"
-              )}
-            </Button>
-          )}
-
-          <Dialog>
-            <DialogTrigger asChild>
-              <Button variant="outline">
+          <div className="flex justify-center gap-4">
+            {!isChecking ? (
+              <Button
+                onClick={checkAnswers}
+                disabled={unassignedRelatives.length > 0}
+                className="bg-amber-600 hover:bg-amber-700"
+              >
                 {languageMode === "arabic" ? (
                   <span className="font-arabic" dir="rtl">
-                    ما هو المَحرم؟
+                    تحقق من الإجابات
                   </span>
                 ) : (
-                  "What is Mahram?"
+                  "Check Answers"
                 )}
               </Button>
-            </DialogTrigger>
-            <DialogContent>
-              <DialogHeader>
-                <DialogTitle className="flex items-center gap-2">
-                  Understanding Mahram in Islam
-                  {languageMode !== "english" && (
-                    <span className="font-arabic text-lg" dir="rtl">
-                      فهم المَحرم في الإسلام
+            ) : (
+              <Button onClick={resetGame} className="flex items-center gap-2">
+                <RefreshCw className="h-4 w-4" />
+                {languageMode === "arabic" ? (
+                  <span className="font-arabic" dir="rtl">
+                    العب مرة أخرى
+                  </span>
+                ) : (
+                  "Play Again"
+                )}
+              </Button>
+            )}
+
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button variant="outline">
+                  {languageMode === "arabic" ? (
+                    <span className="font-arabic" dir="rtl">
+                      ما هو المَحرم؟
                     </span>
+                  ) : (
+                    "What is Mahram?"
                   )}
-                </DialogTitle>
-              </DialogHeader>
-              <Tabs defaultValue="definition">
-                <TabsList className="grid w-full grid-cols-3">
-                  <TabsTrigger value="definition">Definition</TabsTrigger>
-                  <TabsTrigger value="categories">Categories</TabsTrigger>
-                  <TabsTrigger value="importance">Importance</TabsTrigger>
-                </TabsList>
-                <TabsContent value="definition" className="space-y-4 py-4">
-                  <p>
-                    In Islamic law, a <strong>Mahram</strong> (
-                    <span className="font-arabic" dir="rtl">
-                      مَحْرَم
-                    </span>
-                    ) is a person with whom marriage is permanently forbidden (haram) due to blood relations, marriage,
-                    or breastfeeding relationships.
-                  </p>
-                  <p>
-                    Non-Mahram (
-                    <span className="font-arabic" dir="rtl">
-                      غَيْر مَحْرَم
-                    </span>
-                    ) refers to individuals with whom marriage is potentially permissible.
-                  </p>
-                </TabsContent>
-                <TabsContent value="categories" className="space-y-4 py-4">
-                  <p>
-                    <strong>Mahram categories include:</strong>
-                  </p>
-                  <ul className="list-disc pl-5 space-y-1">
-                    <li>
-                      Blood relatives: parents, grandparents, siblings, children, grandchildren, aunts, uncles, nieces,
-                      nephews
-                    </li>
-                    <li>In-laws: parents-in-law, children's spouses</li>
-                    <li>Milk relatives: those related through breastfeeding</li>
-                  </ul>
-                  <p>
-                    <strong>Non-Mahram includes:</strong>
-                  </p>
-                  <ul className="list-disc pl-5 space-y-1">
-                    <li>
-                      Cousins (
-                      <span className="font-arabic" dir="rtl">
-                        اِبن العَمّ / بِنت العَمّ
+                </Button>
+              </DialogTrigger>
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle className="flex items-center gap-2">
+                    Understanding Mahram in Islam
+                    {languageMode !== "english" && (
+                      <span className="font-arabic text-lg" dir="rtl">
+                        فهم المَحرم في الإسلام
                       </span>
-                      )
-                    </li>
-                    <li>
-                      Brother/sister-in-law (
+                    )}
+                  </DialogTitle>
+                </DialogHeader>
+                <Tabs defaultValue="definition">
+                  <TabsList className="grid w-full grid-cols-3">
+                    <TabsTrigger value="definition">Definition</TabsTrigger>
+                    <TabsTrigger value="categories">Categories</TabsTrigger>
+                    <TabsTrigger value="importance">Importance</TabsTrigger>
+                  </TabsList>
+                  <TabsContent value="definition" className="space-y-4 py-4">
+                    <p>
+                      In Islamic law, a <strong>Mahram</strong> (
                       <span className="font-arabic" dir="rtl">
-                        زَوجَة الأخ / زَوج الأُخت
+                        مَحْرَم
                       </span>
-                      )
-                    </li>
-                    <li>
-                      Uncle's wife/Aunt's husband (
+                      ) is a person with whom marriage is permanently forbidden (haram) due to blood relations,
+                      marriage, or breastfeeding relationships.
+                    </p>
+                    <p>
+                      Non-Mahram (
                       <span className="font-arabic" dir="rtl">
-                        زَوجَة العَمّ / زَوج الخَالَة
+                        غَيْر مَحْرَم
                       </span>
-                      )
-                    </li>
-                  </ul>
-                </TabsContent>
-                <TabsContent value="importance" className="space-y-4 py-4">
-                  <p>Understanding Mahram relationships is important in Islam for several reasons:</p>
-                  <ul className="list-disc pl-5 space-y-1">
-                    <li>
-                      It determines who can be alone together (
-                      <span className="font-arabic" dir="rtl">
-                        الخَلوة
-                      </span>
-                      )
-                    </li>
-                    <li>
-                      It affects hijab requirements for women (
-                      <span className="font-arabic" dir="rtl">
-                        الحِجاب
-                      </span>
-                      )
-                    </li>
-                    <li>
-                      It clarifies who can travel together (
-                      <span className="font-arabic" dir="rtl">
-                        السَفَر
-                      </span>
-                      )
-                    </li>
-                    <li>
-                      It establishes boundaries for physical contact (
-                      <span className="font-arabic" dir="rtl">
-                        التَواصُل الجَسَدي
-                      </span>
-                      )
-                    </li>
-                  </ul>
-                  <p>The concept helps maintain modesty and appropriate relationships between Muslims.</p>
-                </TabsContent>
-              </Tabs>
-            </DialogContent>
-          </Dialog>
-        </div>
-
-        {isChecking && score < maxScore && (
-          <div className="mt-6 p-4 bg-amber-50 border border-amber-200 rounded-lg">
-            <p className="text-center text-amber-800">
-              You got {score} out of {maxScore} correct. Review the answers and try again!
-            </p>
+                      ) refers to individuals with whom marriage is potentially permissible.
+                    </p>
+                  </TabsContent>
+                  <TabsContent value="categories" className="space-y-4 py-4">
+                    <p>
+                      <strong>Mahram categories include:</strong>
+                    </p>
+                    <ul className="list-disc pl-5 space-y-1">
+                      <li>
+                        Blood relatives: parents, grandparents, siblings, children, grandchildren, aunts, uncles,
+                        nieces, nephews
+                      </li>
+                      <li>In-laws: parents-in-law, children's spouses</li>
+                      <li>Milk relatives: those related through breastfeeding</li>
+                    </ul>
+                    <p>
+                      <strong>Non-Mahram includes:</strong>
+                    </p>
+                    <ul className="list-disc pl-5 space-y-1">
+                      <li>
+                        Cousins (
+                        <span className="font-arabic" dir="rtl">
+                          اِبن العَمّ / بِنت العَمّ
+                        </span>
+                        )
+                      </li>
+                      <li>
+                        Brother/sister-in-law (
+                        <span className="font-arabic" dir="rtl">
+                          زَوجَة الأخ / زَوج الأُخت
+                        </span>
+                        )
+                      </li>
+                      <li>
+                        Uncle's wife/Aunt's husband (
+                        <span className="font-arabic" dir="rtl">
+                          زَوجَة العَمّ / زَوج الخَالَة
+                        </span>
+                        )
+                      </li>
+                    </ul>
+                  </TabsContent>
+                  <TabsContent value="importance" className="space-y-4 py-4">
+                    <p>Understanding Mahram relationships is important in Islam for several reasons:</p>
+                    <ul className="list-disc pl-5 space-y-1">
+                      <li>
+                        It determines who can be alone together (
+                        <span className="font-arabic" dir="rtl">
+                          الخَلوة
+                        </span>
+                        )
+                      </li>
+                      <li>
+                        It affects hijab requirements for women (
+                        <span className="font-arabic" dir="rtl">
+                          الحِجاب
+                        </span>
+                        )
+                      </li>
+                      <li>
+                        It clarifies who can travel together (
+                        <span className="font-arabic" dir="rtl">
+                          السَفَر
+                        </span>
+                        )
+                      </li>
+                      <li>
+                        It establishes boundaries for physical contact (
+                        <span className="font-arabic" dir="rtl">
+                          التَواصُل الجَسَدي
+                        </span>
+                        )
+                      </li>
+                    </ul>
+                    <p>The concept helps maintain modesty and appropriate relationships between Muslims.</p>
+                  </TabsContent>
+                </Tabs>
+              </DialogContent>
+            </Dialog>
           </div>
-        )}
-      </DndContext>
 
-      {/* Quranic Verses Section */}
+          {isChecking && score < maxScore && (
+            <div className="mt-6 p-4 bg-amber-50 border border-amber-200 rounded-lg">
+              <p className="text-center text-amber-800">
+                You got {score} out of {maxScore} correct. Review the answers and try again!
+              </p>
+            </div>
+          )}
+        </DndContext>
+      )}
+
       <div className="mt-8">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-xl font-bold flex items-center gap-2">
