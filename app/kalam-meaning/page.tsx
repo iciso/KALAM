@@ -27,7 +27,7 @@ export default function KalamMeaningPage() {
             </CardDescription>
           </CardHeader>
           <CardContent className="flex justify-center py-8">
-            <KalamAcronym size="lg" />
+            <KalamAcronym size="lg" withLinks={true} />
           </CardContent>
         </Card>
 
@@ -63,6 +63,11 @@ export default function KalamMeaningPage() {
               </p>
             </CardContent>
           </Card>
+        </div>
+        <div className="mt-6 text-center">
+          <p className="text-sm text-muted-foreground">
+            Click on any letter to explore the corresponding learning experience!
+          </p>
         </div>
       </div>
     </div>

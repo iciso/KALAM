@@ -384,7 +384,7 @@ export const phase3VocabularyData: VocabularyWord[] = [
         surahNumber: 5,
         surahName: "Al-Ma'idah",
         ayahNumber: 87,
-        arabicText: "يَا أَيُّهَا الَّذِينَ آمَنُوا لَا تُحَرِّمُوا طَيِّبَاتِ مَا أَحَلَّ اللَّهُ لَكُمْ",
+        arabicText: "يَا أَيُّهَا الَّذِينَ آمَنُوا لَا تُحَ��ِّمُوا طَيِّبَاتِ مَا أَحَلَّ اللَّهُ لَكُمْ",
         translationText: "O you who have believed, do not prohibit the good things which Allah has made lawful to you",
         wordLocation: {
           startIndex: 21,

@@ -341,6 +341,11 @@ export default function MahramGame() {
   const [useMobileFallback, setUseMobileFallback] = useState(false)
   const [isMobileDevice, setIsMobileDevice] = useState(false)
 
+  // First, let's add a new state to track mobile scoring
+  const [mobileScore, setMobileScore] = useState(0)
+  const [mobileAnswered, setMobileAnswered] = useState<Set<string>>(new Set())
+  const [showMobileResults, setShowMobileResults] = useState(false)
+
   // Configure sensors for better touch and mouse support
   const sensors = useSensors(
     useSensor(PointerSensor, {
@@ -410,6 +415,11 @@ export default function MahramGame() {
     setTimer(0)
     setIsTimerRunning(true)
     setDebugInfo("")
+
+    // Reset mobile scoring
+    setMobileScore(0)
+    setMobileAnswered(new Set())
+    setShowMobileResults(false)
   }
 
   const handleDragStart = (event: DragStartEvent) => {
@@ -493,105 +503,228 @@ export default function MahramGame() {
   const renderMobileFallback = () => {
     return (
       <div className="grid grid-cols-1 gap-6 mb-6">
-        {gameRelatives.map((relative) => {
-          const isMahram = playerGender === "male" ? relative.isMahramToMale : relative.isMahramToFemale
-
-          return (
-            <div key={relative.id} className="border rounded-lg p-4 bg-white shadow-sm">
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center">
-                  <div
-                    className={`w-10 h-10 rounded-full flex items-center justify-center mr-3 ${
-                      relative.gender === "male" ? "bg-blue-200" : "bg-pink-200"
-                    }`}
-                  >
-                    {relative.gender === "male" ? "👨" : "👩"}
-                  </div>
-                  <div>
-                    {languageMode !== "arabic" && <div className="font-semibold">{relative.name}</div>}
-                    {languageMode !== "english" && (
-                      <div className="font-arabic text-sm" dir="rtl">
-                        {relative.arabicName}
-                      </div>
-                    )}
-                    {languageMode !== "arabic" && <div className="text-xs text-gray-500">{relative.relation}</div>}
-                  </div>
-                </div>
-
-                <Dialog>
-                  <DialogTrigger asChild>
-                    <Button variant="outline" size="sm">
-                      <Info className="h-4 w-4 mr-1" />
-                      Info
-                    </Button>
-                  </DialogTrigger>
-                  <DialogContent className="max-w-3xl">
-                    <DialogHeader>
-                      <DialogTitle className="flex items-center gap-2">
-                        {relative.name}
-                        {languageMode !== "english" && (
-                          <span className="font-arabic text-lg" dir="rtl">
-                            {relative.arabicName}
-                          </span>
-                        )}
-                      </DialogTitle>
-                      <DialogDescription className="flex flex-col">
-                        <span>{relative.relation}</span>
-                        {languageMode !== "english" && (
-                          <span className="text-sm text-gray-500">Transliteration: {relative.transliteration}</span>
-                        )}
-                      </DialogDescription>
-                    </DialogHeader>
-                    <div className="py-4">
-                      <p>{playerGender === "male" ? relative.explanationForMale : relative.explanationForFemale}</p>
-                    </div>
-                  </DialogContent>
-                </Dialog>
+        {!showMobileResults && (
+          <div className="bg-white p-4 rounded-lg shadow-sm border border-amber-200">
+            <div className="flex justify-between items-center">
+              <div>
+                <span className="font-semibold">Progress: </span>
+                <span>
+                  {mobileAnswered.size} of {gameRelatives.length} answered
+                </span>
               </div>
+              <div>
+                <span className="font-semibold">Score: </span>
+                <span>{mobileScore}</span>
+              </div>
+            </div>
+            <Progress value={(mobileAnswered.size / gameRelatives.length) * 100} className="h-2 mt-2" />
+          </div>
+        )}
 
-              <div className="flex justify-between gap-2">
+        {showMobileResults ? (
+          <div className="bg-white p-6 rounded-lg shadow-sm border border-amber-200 text-center">
+            <h3 className="text-xl font-bold mb-4">Results</h3>
+            <div className="text-5xl font-bold mb-4 text-amber-600">
+              {mobileScore} / {gameRelatives.length}
+            </div>
+            <p className="mb-6">
+              You got {mobileScore} out of {gameRelatives.length} correct!
+              {mobileScore === gameRelatives.length && (
+                <span className="block mt-2 text-green-600 font-semibold">Perfect score! Excellent work!</span>
+              )}
+            </p>
+            <div className="flex justify-center gap-4">
+              <Button
+                onClick={() => {
+                  setShowMobileResults(false)
+                  resetGame()
+                  setMobileScore(0)
+                  setMobileAnswered(new Set())
+                }}
+              >
+                Play Again
+              </Button>
+              {mobileScore === gameRelatives.length && (
                 <Button
-                  variant={relative.zone === "mahram" ? "default" : "outline"}
-                  className={relative.zone === "mahram" ? "bg-green-600 hover:bg-green-700 w-1/2" : "w-1/2"}
                   onClick={() => {
-                    setGameRelatives((prev) =>
-                      prev.map((rel) => (rel.id === relative.id ? { ...rel, zone: "mahram" } : rel)),
-                    )
+                    setShowMobileResults(false)
+                    nextLevel()
+                    setMobileScore(0)
+                    setMobileAnswered(new Set())
                   }}
                 >
-                  Mahram
+                  Next Level
                 </Button>
-                <Button
-                  variant={relative.zone === "non-mahram" ? "default" : "outline"}
-                  className={relative.zone === "non-mahram" ? "bg-amber-600 hover:bg-amber-700 w-1/2" : "w-1/2"}
-                  onClick={() => {
-                    setGameRelatives((prev) =>
-                      prev.map((rel) => (rel.id === relative.id ? { ...rel, zone: "non-mahram" } : rel)),
-                    )
-                  }}
-                >
-                  Non-Mahram
-                </Button>
-              </div>
-
-              {isChecking && (
-                <div className="mt-3 text-center">
-                  {(playerGender === "male" ? relative.isMahramToMale : relative.isMahramToFemale) ===
-                  (relative.zone === "mahram") ? (
-                    <div className="flex items-center justify-center text-green-600">
-                      <Check className="h-5 w-5 mr-1" /> Correct
-                    </div>
-                  ) : (
-                    <div className="flex items-center justify-center text-red-600">
-                      <X className="h-5 w-5 mr-1" /> Incorrect -{" "}
-                      {isMahram ? "This is a Mahram" : "This is a Non-Mahram"}
-                    </div>
-                  )}
-                </div>
               )}
             </div>
-          )
-        })}
+          </div>
+        ) : (
+          gameRelatives.map((relative) => {
+            const isMahram = playerGender === "male" ? relative.isMahramToMale : relative.isMahramToFemale
+            const isAnswered = mobileAnswered.has(relative.id)
+            const isCorrect = (relative.zone === "mahram" && isMahram) || (relative.zone === "non-mahram" && !isMahram)
+
+            return (
+              <div
+                key={relative.id}
+                className={`border rounded-lg p-4 bg-white shadow-sm ${
+                  isAnswered ? (isCorrect ? "border-green-500 bg-green-50" : "border-red-500 bg-red-50") : ""
+                }`}
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center">
+                    <div
+                      className={`w-10 h-10 rounded-full flex items-center justify-center mr-3 ${
+                        relative.gender === "male" ? "bg-blue-200" : "bg-pink-200"
+                      }`}
+                    >
+                      {relative.gender === "male" ? "👨" : "👩"}
+                    </div>
+                    <div>
+                      {languageMode !== "arabic" && <div className="font-semibold">{relative.name}</div>}
+                      {languageMode !== "english" && (
+                        <div className="font-arabic text-sm" dir="rtl">
+                          {relative.arabicName}
+                        </div>
+                      )}
+                      {languageMode !== "arabic" && <div className="text-xs text-gray-500">{relative.relation}</div>}
+                    </div>
+                  </div>
+
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <Button variant="outline" size="sm">
+                        <Info className="h-4 w-4 mr-1" />
+                        Info
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent className="max-w-3xl">
+                      <DialogHeader>
+                        <DialogTitle className="flex items-center gap-2">
+                          {relative.name}
+                          {languageMode !== "english" && (
+                            <span className="font-arabic text-lg" dir="rtl">
+                              {relative.arabicName}
+                            </span>
+                          )}
+                        </DialogTitle>
+                        <DialogDescription className="flex flex-col">
+                          <span>{relative.relation}</span>
+                          {languageMode !== "english" && (
+                            <span className="text-sm text-gray-500">Transliteration: {relative.transliteration}</span>
+                          )}
+                        </DialogDescription>
+                      </DialogHeader>
+                      <div className="py-4">
+                        <p>{playerGender === "male" ? relative.explanationForMale : relative.explanationForFemale}</p>
+                      </div>
+                    </DialogContent>
+                  </Dialog>
+                </div>
+
+                <div className="flex justify-between gap-2">
+                  <Button
+                    variant={relative.zone === "mahram" ? "default" : "outline"}
+                    className={relative.zone === "mahram" ? "bg-green-600 hover:bg-green-700 w-1/2" : "w-1/2"}
+                    disabled={isAnswered}
+                    onClick={() => {
+                      const isMahramRelative =
+                        playerGender === "male" ? relative.isMahramToMale : relative.isMahramToFemale
+                      const isCorrectAnswer = isMahramRelative === true
+
+                      // Update score if correct
+                      if (isCorrectAnswer) {
+                        setMobileScore((prev) => prev + 1)
+                      }
+
+                      // Mark as answered
+                      setMobileAnswered((prev) => new Set([...prev, relative.id]))
+
+                      // Update the relative's zone
+                      setGameRelatives((prev) =>
+                        prev.map((rel) => (rel.id === relative.id ? { ...rel, zone: "mahram" } : rel)),
+                      )
+
+                      // Check if all relatives have been answered
+                      if (mobileAnswered.size + 1 === gameRelatives.length) {
+                        // Show results after a short delay
+                        setTimeout(() => {
+                          setShowMobileResults(true)
+                          // Trigger confetti if perfect score
+                          if (mobileScore + (isCorrectAnswer ? 1 : 0) === gameRelatives.length) {
+                            confetti({
+                              particleCount: 100,
+                              spread: 70,
+                              origin: { y: 0.6 },
+                            })
+                          }
+                        }, 500)
+                      }
+                    }}
+                  >
+                    Mahram
+                  </Button>
+                  <Button
+                    variant={relative.zone === "non-mahram" ? "default" : "outline"}
+                    className={relative.zone === "non-mahram" ? "bg-amber-600 hover:bg-amber-700 w-1/2" : "w-1/2"}
+                    disabled={isAnswered}
+                    onClick={() => {
+                      const isMahramRelative =
+                        playerGender === "male" ? relative.isMahramToMale : relative.isMahramToFemale
+                      const isCorrectAnswer = isMahramRelative === false
+
+                      // Update score if correct
+                      if (isCorrectAnswer) {
+                        setMobileScore((prev) => prev + 1)
+                      }
+
+                      // Mark as answered
+                      setMobileAnswered((prev) => new Set([...prev, relative.id]))
+
+                      // Update the relative's zone
+                      setGameRelatives((prev) =>
+                        prev.map((rel) => (rel.id === relative.id ? { ...rel, zone: "non-mahram" } : rel)),
+                      )
+
+                      // Check if all relatives have been answered
+                      if (mobileAnswered.size + 1 === gameRelatives.length) {
+                        // Show results after a short delay
+                        setTimeout(() => {
+                          setShowMobileResults(true)
+                          // Trigger confetti if perfect score
+                          if (mobileScore + (isCorrectAnswer ? 1 : 0) === gameRelatives.length) {
+                            confetti({
+                              particleCount: 100,
+                              spread: 70,
+                              origin: { y: 0.6 },
+                            })
+                          }
+                        }, 500)
+                      }
+                    }}
+                  >
+                    Non-Mahram
+                  </Button>
+                </div>
+
+                {isAnswered && (
+                  <div className="mt-3 text-center">
+                    {isCorrect ? (
+                      <div className="flex items-center justify-center text-green-600">
+                        <Check className="h-5 w-5 mr-1" /> Correct
+                      </div>
+                    ) : (
+                      <div className="flex items-center justify-center text-red-600">
+                        <X className="h-5 w-5 mr-1" /> Incorrect -{" "}
+                        {isMahram ? "This is a Mahram" : "This is a Non-Mahram"}
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
+            )
+          })
+        )}
       </div>
     )
   }
@@ -764,7 +897,17 @@ export default function MahramGame() {
           }}
           className="flex items-center gap-2"
         >
-          Change Gender
+          {playerGender === "male" ? (
+            <>
+              <Female className="h-4 w-4" />
+              Change Gender to Female
+            </>
+          ) : (
+            <>
+              <Male className="h-4 w-4" />
+              Change Gender to Male
+            </>
+          )}
         </Button>
 
         <Button variant="outline" onClick={() => setShowFamilyTree(true)} className="flex items-center gap-2">

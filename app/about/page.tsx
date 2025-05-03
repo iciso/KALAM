@@ -82,7 +82,7 @@ export default function AboutPage() {
             Thus, all apps by IQRA codes team of Rafique and Joy are freeware, and open source.
             <br />
             So, do send your suggestions to Rafique by WhatsApp on +91 7558845528 and May Allah reward Joy whose mail is
-            joy_ahmed_007@yahoo.com for his guidance and help.
+            joy_ahmed_007@yahoo.com for teachinng and guiding Rafique.
           </p>
         </section>
 
