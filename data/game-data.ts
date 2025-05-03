@@ -50,10 +50,10 @@ export const crosswordData = {
   ],
   clues: {
     across: [
-      { number: 1, clue: "The Creator of everything", answer: "الله", row: 0, col: 2 },
-      { number: 2, clue: "The Most Compassionate", answer: "رحمن", row: 2, col: 0 },
-      { number: 3, clue: "A period of 24 hours", answer: "يوم", row: 3, col: 4 },
-      { number: 4, clue: "Faith or judgment", answer: "دين", row: 5, col: 4 },
+      { number: 1, clue: "The Creator of everything", answer: "الله", row: 0, col: 5 }, // Changed col to rightmost letter
+      { number: 2, clue: "The Most Compassionate", answer: "رحمن", row: 2, col: 3 }, // Changed col to rightmost letter
+      { number: 3, clue: "A period of 24 hours", answer: "يوم", row: 3, col: 6 }, // Changed col to rightmost letter
+      { number: 4, clue: "Faith or judgment", answer: "دين", row: 5, col: 6 }, // Changed col to rightmost letter
     ],
     down: [
       { number: 5, clue: "The Sustainer and Nourisher", answer: "رب", row: 3, col: 0 },

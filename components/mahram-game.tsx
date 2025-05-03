@@ -39,13 +39,13 @@ import {
   DialogFooter,
   DialogClose,
 } from "@/components/ui/dialog"
-import { Progress } from "@/components/ui/progress"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import FamilyTreeVisualizer from "./family-tree-visualizer"
+import { ImanOMeter } from "./iman-o-meter"
 import confetti from "canvas-confetti"
 
 type PlayerGender = "male" | "female"
@@ -505,7 +505,7 @@ export default function MahramGame() {
       <div className="grid grid-cols-1 gap-6 mb-6">
         {!showMobileResults && (
           <div className="bg-white p-4 rounded-lg shadow-sm border border-amber-200">
-            <div className="flex justify-between items-center">
+            <div className="flex justify-between items-center mb-2">
               <div>
                 <span className="font-semibold">Progress: </span>
                 <span>
@@ -517,7 +517,8 @@ export default function MahramGame() {
                 <span>{mobileScore}</span>
               </div>
             </div>
-            <Progress value={(mobileAnswered.size / gameRelatives.length) * 100} className="h-2 mt-2" />
+
+            <ImanOMeter score={mobileScore} maxScore={gameRelatives.length} className="mb-2" />
           </div>
         )}
 
@@ -527,12 +528,18 @@ export default function MahramGame() {
             <div className="text-5xl font-bold mb-4 text-amber-600">
               {mobileScore} / {gameRelatives.length}
             </div>
-            <p className="mb-6">
-              You got {mobileScore} out of {gameRelatives.length} correct!
-              {mobileScore === gameRelatives.length && (
-                <span className="block mt-2 text-green-600 font-semibold">Perfect score! Excellent work!</span>
-              )}
-            </p>
+
+            <div className="mb-6">
+              <ImanOMeter score={mobileScore} maxScore={gameRelatives.length} className="mb-4 max-w-md mx-auto" />
+
+              <p>
+                You got {mobileScore} out of {gameRelatives.length} correct!
+                {mobileScore === gameRelatives.length && (
+                  <span className="block mt-2 text-green-600 font-semibold">Perfect score! Excellent work!</span>
+                )}
+              </p>
+            </div>
+
             <div className="flex justify-center gap-4">
               <Button
                 onClick={() => {
@@ -826,6 +833,7 @@ export default function MahramGame() {
             <p className="mb-2">
               Time: {Math.floor(timer / 60)}:{(timer % 60).toString().padStart(2, "0")}
             </p>
+            <ImanOMeter score={score} maxScore={maxScore} className="mb-2" />
             <p>Accuracy: 100%</p>
           </div>
           <DialogFooter>
@@ -867,7 +875,7 @@ export default function MahramGame() {
               </span>
               <span>{accuracy}%</span>
             </div>
-            <Progress value={accuracy} className="h-2" />
+            <ImanOMeter score={score} maxScore={maxScore} />
           </div>
         )}
       </div>

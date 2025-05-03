@@ -2,9 +2,9 @@
 
 import type React from "react"
 
-import { useState, useEffect, useCallback } from "react"
+import { useState, useEffect, useCallback, useRef } from "react"
 import Link from "next/link"
-import { RefreshCw, Home, ArrowLeft, HelpCircle } from "lucide-react"
+import { RefreshCw, Home, ArrowLeft, HelpCircle, Plus } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { crosswordData } from "@/data/game-data"
@@ -44,10 +44,22 @@ export default function CrosswordGame() {
   const [direction, setDirection] = useState<"across" | "down">("across")
   const [gameComplete, setGameComplete] = useState(false)
 
+  // Add the following state variables to the component function:
+  const [score, setScore] = useState(1000)
+  const [feedback, setFeedback] = useState("")
+  const [showFeedback, setShowFeedback] = useState(false)
+  const [isCorrect, setIsCorrect] = useState(false)
+  const scoreRef = useRef(1000)
+
   // Initialize game
   useEffect(() => {
     initializeCrossword()
   }, [])
+
+  // Add this effect to track score changes
+  useEffect(() => {
+    scoreRef.current = score
+  }, [score])
 
   // Check if game is complete
   useEffect(() => {
@@ -163,8 +175,23 @@ export default function CrosswordGame() {
     // Handle letter input
     if (/^[\u0600-\u06FF]$/.test(e.key)) {
       const newUserAnswers = [...userAnswers]
+      const oldValue = newUserAnswers[row][col]
       newUserAnswers[row][col] = e.key
       setUserAnswers(newUserAnswers)
+
+      // Check if the input is correct
+      if (e.key === grid[row][col].value) {
+        setFeedback("Correct!")
+        setIsCorrect(true)
+      } else {
+        setFeedback("Incorrect. Try again.")
+        setIsCorrect(false)
+        // Reduce score for wrong answers
+        setScore(Math.max(0, scoreRef.current - 10))
+      }
+
+      setShowFeedback(true)
+      setTimeout(() => setShowFeedback(false), 1500)
 
       // Move to next cell
       moveToNextCell(row, col)
@@ -199,14 +226,14 @@ export default function CrosswordGame() {
 
   const moveToNextCell = (row: number, col: number) => {
     if (direction === "across") {
-      // Move right
-      let nextCol = col + 1
-      while (nextCol < grid[row].length) {
+      // For Arabic, move left (RTL) instead of right
+      let nextCol = col - 1
+      while (nextCol >= 0) {
         if (!grid[row][nextCol].isBlack) {
           setSelectedCell({ row, col: nextCol })
           return
         }
-        nextCol++
+        nextCol--
       }
     } else {
       // Move down
@@ -223,14 +250,14 @@ export default function CrosswordGame() {
 
   const moveToPrevCell = (row: number, col: number) => {
     if (direction === "across") {
-      // Move left
-      let prevCol = col - 1
-      while (prevCol >= 0) {
+      // For Arabic, move right (RTL) instead of left
+      let prevCol = col + 1
+      while (prevCol < grid[row].length) {
         if (!grid[row][prevCol].isBlack) {
           setSelectedCell({ row, col: prevCol })
           return
         }
-        prevCol--
+        prevCol++
       }
     } else {
       // Move up
@@ -306,17 +333,31 @@ export default function CrosswordGame() {
       newUserAnswers[row][col] = char
       setUserAnswers(newUserAnswers)
 
+      // Check if the input is correct
+      if (char === grid[row][col].value) {
+        setFeedback("Correct!")
+        setIsCorrect(true)
+      } else {
+        setFeedback("Incorrect. Try again.")
+        setIsCorrect(false)
+        // Reduce score for wrong answers
+        setScore(Math.max(0, scoreRef.current - 10))
+      }
+
+      setShowFeedback(true)
+      setTimeout(() => setShowFeedback(false), 1500)
+
       // Move to next cell after a short delay to ensure state updates
       setTimeout(() => {
         if (direction === "across") {
-          // Move right
-          let nextCol = col + 1
-          while (nextCol < grid[row].length) {
+          // For Arabic, move left (RTL) instead of right
+          let nextCol = col - 1
+          while (nextCol >= 0) {
             if (!grid[row][nextCol].isBlack) {
               setSelectedCell({ row, col: nextCol })
               return
             }
-            nextCol++
+            nextCol--
           }
         } else {
           // Move down
@@ -347,14 +388,14 @@ export default function CrosswordGame() {
       // Move to previous cell logic
       setTimeout(() => {
         if (direction === "across") {
-          // Move left
-          let prevCol = col - 1
-          while (prevCol >= 0) {
+          // For Arabic, move right (RTL) instead of left
+          let prevCol = col + 1
+          while (prevCol < grid[row].length) {
             if (!grid[row][prevCol].isBlack) {
               setSelectedCell({ row, col: prevCol })
               return
             }
-            prevCol--
+            prevCol++
           }
         } else {
           // Move up
@@ -373,6 +414,16 @@ export default function CrosswordGame() {
       setUserAnswers(newUserAnswers)
     }
   }, [selectedCell, grid, userAnswers, direction])
+
+  // Add a function to load a new crossword
+  const loadNewCrossword = () => {
+    // In a real implementation, you would fetch a new crossword
+    // For now, we'll just reset the current one
+    initializeCrossword()
+    setScore(1000)
+    setFeedback("")
+    setShowFeedback(false)
+  }
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 pb-12">
@@ -478,6 +529,39 @@ export default function CrosswordGame() {
                 </div>
               </div>
 
+              <div className="mt-4 flex flex-col items-center">
+                {/* Iman-o-meter */}
+                <div className="w-full max-w-md mb-4">
+                  <h3 className="text-center font-semibold mb-2">Iman-o-meter (Faith Level)</h3>
+                  <div className="h-6 w-full bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                    <div
+                      className={`h-full transition-all duration-500 ease-out rounded-full ${
+                        score > 750
+                          ? "bg-emerald-500"
+                          : score > 500
+                            ? "bg-yellow-500"
+                            : score > 250
+                              ? "bg-orange-500"
+                              : "bg-red-500"
+                      }`}
+                      style={{ width: `${Math.max(score / 10, 0)}%` }}
+                    ></div>
+                  </div>
+                  <div className="flex justify-between mt-1 text-sm">
+                    <span>0</span>
+                    <span className="font-bold">{score}</span>
+                    <span>1000</span>
+                  </div>
+                </div>
+
+                {/* Feedback message */}
+                {showFeedback && (
+                  <div className={`mb-4 p-2 rounded-md text-white ${isCorrect ? "bg-emerald-500" : "bg-red-500"}`}>
+                    {feedback}
+                  </div>
+                )}
+              </div>
+
               {gameComplete && (
                 <div className="mt-4 p-4 bg-emerald-100 dark:bg-emerald-900 rounded-lg text-center">
                   <h3 className="text-xl font-bold text-emerald-800 dark:text-emerald-200 mb-2">Congratulations!</h3>
@@ -580,10 +664,18 @@ export default function CrosswordGame() {
                 </div>
               </div>
             </CardContent>
-            <CardFooter>
+            <CardFooter className="flex flex-col gap-3">
+              <Button
+                variant="default"
+                onClick={loadNewCrossword}
+                className="w-full bg-emerald-600 hover:bg-emerald-700"
+              >
+                <Plus className="mr-2 h-4 w-4" />
+                New Crossword
+              </Button>
               <Button variant="outline" onClick={initializeCrossword} className="w-full">
                 <RefreshCw className="mr-2 h-4 w-4" />
-                Reset Crossword
+                Reset Current Crossword
               </Button>
             </CardFooter>
           </Card>

@@ -2,7 +2,9 @@
 
 import { useEffect, useState } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { vocabularyService } from "../services/vocabulary-service"
+import { enhancedVocabularyService } from "../services/enhanced-vocabulary-service"
+// Remove or comment out the original import
+// import { vocabularyService } from "../services/vocabulary-service"
 import { Difficulty } from "../types/vocabulary"
 import { Progress } from "@/components/ui/progress"
 
@@ -15,16 +17,16 @@ export function VocabularyStats() {
   const [mostFrequentWord, setMostFrequentWord] = useState<string>("")
 
   useEffect(() => {
-    const allWords = vocabularyService.getAllWords()
+    const allWords = enhancedVocabularyService.getAllWords()
     setTotalWords(allWords.length)
 
-    setBeginnerWords(vocabularyService.getWordsByDifficulty(Difficulty.Beginner).length)
-    setIntermediateWords(vocabularyService.getWordsByDifficulty(Difficulty.Intermediate).length)
-    setAdvancedWords(vocabularyService.getWordsByDifficulty(Difficulty.Advanced).length)
+    setBeginnerWords(enhancedVocabularyService.getWordsByDifficulty(Difficulty.Beginner).length)
+    setIntermediateWords(enhancedVocabularyService.getWordsByDifficulty(Difficulty.Intermediate).length)
+    setAdvancedWords(enhancedVocabularyService.getWordsByDifficulty(Difficulty.Advanced).length)
 
-    setCategoriesCount(vocabularyService.getAllCategories().length)
+    setCategoriesCount(enhancedVocabularyService.getAllCategories().length)
 
-    const mostFrequent = vocabularyService.getMostFrequentWords(1)[0]
+    const mostFrequent = enhancedVocabularyService.getMostFrequentWords(1)[0]
     if (mostFrequent) {
       setMostFrequentWord(
         `${mostFrequent.arabic} (${mostFrequent.transliteration}): ${mostFrequent.frequency} occurrences`,

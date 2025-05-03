@@ -8,7 +8,9 @@ import { phase6VocabularyData } from "@/data/vocabulary-data-expansion-phase6"
 import { phase7VocabularyData } from "@/data/vocabulary-data-expansion-phase7"
 import { phase8VocabularyData } from "@/data/vocabulary-data-expansion-phase8"
 import { phase9VocabularyData } from "@/data/vocabulary-data-expansion-phase9"
+import { familyRelationshipsVocabulary, divineAttributesVocabulary } from "@/data/vocabulary-data-expansion-phase10"
 import { type VocabularyWord, Difficulty } from "@/types/vocabulary"
+import { vocabularyCategories } from "@/data/vocabulary-categories"
 
 class EnhancedVocabularyService {
   private allWords: VocabularyWord[]
@@ -27,6 +29,8 @@ class EnhancedVocabularyService {
       ...phase7VocabularyData,
       ...phase8VocabularyData,
       ...phase9VocabularyData,
+      ...familyRelationshipsVocabulary,
+      ...divineAttributesVocabulary,
     ]
 
     // Create map of surahs
@@ -173,6 +177,38 @@ class EnhancedVocabularyService {
     }
 
     return counts
+  }
+
+  // Get family relationship words
+  getFamilyRelationshipWords(): VocabularyWord[] {
+    return this.allWords.filter((word) => word.tags && word.tags.includes("family"))
+  }
+
+  // Get divine attribute words
+  getDivineAttributeWords(): VocabularyWord[] {
+    return this.allWords.filter((word) => word.tags && word.tags.includes("asma-ul-husna"))
+  }
+
+  // Get all categories
+  getAllCategories(): string[] {
+    // Import categories from vocabulary-categories.ts instead of trying to extract them from words
+    return vocabularyCategories.map((category) => category.name)
+  }
+
+  // Get most frequent words
+  getMostFrequentWords(count: number): VocabularyWord[] {
+    // Filter words that have frequency property
+    const wordsWithFrequency = this.allWords.filter((word) => word.frequency !== undefined)
+
+    // Sort by frequency in descending order
+    const sortedWords = [...wordsWithFrequency].sort((a, b) => {
+      const freqA = a.frequency || 0
+      const freqB = b.frequency || 0
+      return freqB - freqA
+    })
+
+    // Return the top 'count' words
+    return sortedWords.slice(0, count)
   }
 }
 

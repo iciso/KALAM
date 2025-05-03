@@ -25,7 +25,7 @@ export default function HomePage() {
                 </Link>
               </div>
               <div className="mt-6">
-                <KalamAcronym size="sm" interactive={false} />
+                <KalamAcronym size="sm" interactive={false} withLinks={true} />
               </div>
             </div>
           </div>
