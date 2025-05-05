@@ -41,8 +41,8 @@ export default function VocabularyStatsPage() {
   const topCategories = [
     { tag: "divine-attributes", count: 15 },
     { tag: "ethics", count: 12 },
+    { tag: "prophets", count: 25 },
     { tag: "afterlife", count: 10 },
-    { tag: "prophets", count: 8 },
     { tag: "worship", count: 7 },
     { tag: "nature", count: 6 },
     { tag: "guidance", count: 5 },

@@ -3,7 +3,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
-import { Menu, X, Book, Home, Gamepad2, School, ListTodo, Info, BookMarked, GraduationCap } from "lucide-react"
+import { Menu, X, Book, Home, Gamepad2, School, ListTodo, Info, BookMarked, GraduationCap, Heart } from "lucide-react"
 import { useState } from "react"
 import { FontSizeControls } from "./font-size-controls"
 
@@ -116,6 +116,16 @@ export function NavBar() {
               <Info className="mr-1 h-4 w-4" />
               <span>About</span>
             </Link>
+            <Link
+              href="/divine-names"
+              className={`flex items-center px-3 py-2 rounded hover:bg-emerald-600 ${
+                isActive("/divine-names") ? "bg-emerald-800" : ""
+              }`}
+              onClick={closeMenu}
+            >
+              <Heart className="mr-1 h-4 w-4" />
+              <span>Divine Names</span>
+            </Link>
             <FontSizeControls />
           </div>
 
@@ -219,6 +229,16 @@ export function NavBar() {
               <div className="flex items-center">
                 <Info className="mr-2 h-5 w-5" />
                 <span>About</span>
+              </div>
+            </Link>
+            <Link
+              href="/divine-names"
+              className={`block px-4 py-2 rounded hover:bg-emerald-600 ${isActive("/divine-names") ? "bg-emerald-800" : ""}`}
+              onClick={closeMenu}
+            >
+              <div className="flex items-center">
+                <Heart className="mr-2 h-5 w-5" />
+                <span>Divine Names</span>
               </div>
             </Link>
           </div>

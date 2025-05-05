@@ -73,6 +73,23 @@ export default function GamesPage() {
           </CardFooter>
         </Card>
 
+        <Card className="border-emerald-200 bg-emerald-50">
+          <CardHeader>
+            <CardTitle className="text-emerald-800">Divine Attributes</CardTitle>
+            <CardDescription>Learn the beautiful names of Allah</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p>
+              Match the Arabic names of Allah (Asma-ul-Husna) with their English meanings in this special matching game.
+            </p>
+          </CardContent>
+          <CardFooter>
+            <Link href="/games/matching/divine-attributes" passHref>
+              <Button className="bg-emerald-600 hover:bg-emerald-700">Play Now</Button>
+            </Link>
+          </CardFooter>
+        </Card>
+
         <Card>
           <CardHeader>
             <CardTitle>Crossword</CardTitle>

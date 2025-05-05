@@ -9,7 +9,7 @@ export default function AboutPage() {
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       <header className="bg-emerald-800 text-white py-6">
         <div className="container mx-auto px-4">
-          <h1 className="text-3xl md:text-4xl font-bold text-center">About KALAM</h1>
+          <h1 className="text-3xl md:text-4xl font-bold text-center">About KALAM Demo App</h1>
         </div>
       </header>
 
@@ -20,14 +20,13 @@ export default function AboutPage() {
           </div>
           <h2 className="text-2xl font-bold mb-4">Our Mission</h2>
           <p className="mb-4 text-gray-600 dark:text-gray-300">
-            KALAM (Know Allah by Lighting up Activities of Mirth) is an open-source project dedicated to making Quranic
-            Arabic vocabulary accessible to everyone. Our mission is to help Muslims and Arabic language enthusiasts
-            develop a deeper connection with the Quran through interactive learning tools.
+            KALAM (Know Allah by Lovely Activities of Mirth) is an open-source Demo project dedicated to making Quranic Arabic or the words of Allah comprehensible to everyone. Our mission is to help Muslims and Arabic language enthusiasts
+            develop a deeper connection with the Quran through gaming and other interactive learning tools.
           </p>
           <p className="text-gray-600 dark:text-gray-300">
-            We believe that understanding the language of the Quran enhances one's spiritual experience and provides a
-            more profound connection to the text. By creating engaging, interactive tools for vocabulary acquisition, we
-            hope to make this journey enjoyable and effective.
+            Muslims believe that understanding the language of the Quran enhances one's spiritual experience and provides a
+            more profound connection to the text. By creating engaging, gaming and interactive tools for vocabulary acquisition, we
+            hope to make this journey fun-filled, enjoyable and effective.
           </p>
         </section>
 

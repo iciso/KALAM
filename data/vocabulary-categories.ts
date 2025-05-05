@@ -160,4 +160,11 @@ export const vocabularyCategories: VocabularyCategory[] = [
     description: "Terms describing spiritual diseases and negative traits",
     wordIds: ["word-087", "word-088", "word-089"],
   },
+  {
+    name: "prophets",
+    displayName: "Prophets",
+    description: "Names and attributes of the 25 prophets mentioned in the Quran",
+    count: 25,
+    icon: "user",
+  },
 ]

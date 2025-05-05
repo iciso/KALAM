@@ -9,6 +9,7 @@ import { phase7VocabularyData } from "@/data/vocabulary-data-expansion-phase7"
 import { phase8VocabularyData } from "@/data/vocabulary-data-expansion-phase8"
 import { phase9VocabularyData } from "@/data/vocabulary-data-expansion-phase9"
 import { familyRelationshipsVocabulary, divineAttributesVocabulary } from "@/data/vocabulary-data-expansion-phase10"
+import { prophetsVocabulary } from "@/data/vocabulary-data-prophets"
 import { type VocabularyWord, Difficulty } from "@/types/vocabulary"
 import { vocabularyCategories } from "@/data/vocabulary-categories"
 
@@ -31,6 +32,7 @@ class EnhancedVocabularyService {
       ...phase9VocabularyData,
       ...familyRelationshipsVocabulary,
       ...divineAttributesVocabulary,
+      ...prophetsVocabulary,
     ]
 
     // Create map of surahs
@@ -209,6 +211,11 @@ class EnhancedVocabularyService {
 
     // Return the top 'count' words
     return sortedWords.slice(0, count)
+  }
+
+  // Add a new method to get prophets
+  getProphets(): VocabularyWord[] {
+    return this.allWords.filter((word) => word.tags && word.tags.includes("prophets"))
   }
 }
 

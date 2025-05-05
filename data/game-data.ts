@@ -32,10 +32,33 @@ export const hangmanWords = [
   { word: "صِرَاط", hint: "A way or path" },
   { word: "مَالِك", hint: "Owner or master" },
   { word: "نَعْبُدُ", hint: "We worship" },
+  { word: "آدَم", hint: "First human and prophet" },
+  { word: "نُوح", hint: "Built an ark" },
+  { word: "إِبْرَاهِيم", hint: "Friend of Allah" },
+  { word: "مُوسَى", hint: "Received the Torah" },
+  { word: "عِيسَى", hint: "Son of Maryam" },
+  { word: "مُحَمَّد", hint: "Final Messenger" },
 ]
 
 // Words for the word search game
-export const wordSearchWords = ["الله", "رَبّ", "رَحْمَن", "رَحِيم", "يَوْم", "دِين", "عِبَادَة", "صِرَاط", "مَالِك", "نَعْبُدُ"]
+export const wordSearchWords = [
+  "الله",
+  "رَبّ",
+  "رَحْمَن",
+  "رَحِيم",
+  "يَوْم",
+  "دِين",
+  "عِبَادَة",
+  "صِرَاط",
+  "مَالِك",
+  "نَعْبُدُ",
+  "آدَم",
+  "نُوح",
+  "إِبْرَاهِيم",
+  "مُوسَى",
+  "عِيسَى",
+  "مُحَمَّد",
+]
 
 // Crossword puzzle data
 export const crosswordData = {

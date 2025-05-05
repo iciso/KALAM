@@ -150,6 +150,18 @@ export default function HomePage() {
               </Link>
             </CardFooter>
           </Card>
+
+          <Link href="/prophets-summary">
+            <Card className="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+              <CardHeader>
+                <CardTitle>Prophets in the Quran</CardTitle>
+                <CardDescription>Learn about the 25 prophets mentioned in the Quran</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p>Explore the stories and attributes of the prophets mentioned in the Quran</p>
+              </CardContent>
+            </Card>
+          </Link>
         </section>
 
         {/* Rest of the homepage content remains the same */}
