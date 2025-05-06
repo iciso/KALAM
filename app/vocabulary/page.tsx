@@ -1,5 +1,6 @@
-import { VocabularyBrowser } from "@/components/vocabulary-browser"
+import { Suspense } from "react"
 import { VocabularyCategoryLinks } from "@/components/vocabulary-category-links"
+import { VocabularyBrowserWrapper } from "@/components/vocabulary-browser-wrapper"
 
 export default function VocabularyPage() {
   return (
@@ -23,7 +24,9 @@ export default function VocabularyPage() {
         />
       </div>
 
-      <VocabularyBrowser />
+      <Suspense fallback={<div className="container mx-auto px-4 py-8">Loading vocabulary browser...</div>}>
+        <VocabularyBrowserWrapper />
+      </Suspense>
     </div>
   )
 }

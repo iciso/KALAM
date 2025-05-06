@@ -24,7 +24,7 @@ export function VocabularyBrowser() {
   const [searchQuery, setSearchQuery] = useState("")
   const [difficulty, setDifficulty] = useState<Difficulty | "all">("all")
   const [partOfSpeech, setPartOfSpeech] = useState<PartOfSpeech | "all">("all")
-  const [activeTab, setActiveTab] = useState(categoryParam || "all")
+  const [activeTab, setActiveTab] = useState("all")
   const [savedWords, setSavedWords] = useState<string[]>([])
   const [showAudioOnly, setShowAudioOnly] = useState(false)
   const [surahs, setSurahs] = useState<SurahInfo[]>([])
@@ -47,6 +47,7 @@ export function VocabularyBrowser() {
     }
   }, [categoryParam])
 
+  // Rest of the component remains the same...
   // Apply filters when search or filter criteria change
   useEffect(() => {
     let result = words
