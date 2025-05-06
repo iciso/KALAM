@@ -191,10 +191,46 @@ class EnhancedVocabularyService {
     return this.allWords.filter((word) => word.tags && word.tags.includes("asma-ul-husna"))
   }
 
+  // Get prophets words
+  getProphets(): VocabularyWord[] {
+    return this.allWords.filter((word) => word.tags && word.tags.includes("prophets"))
+  }
+
   // Get all categories
-  getAllCategories(): string[] {
-    // Import categories from vocabulary-categories.ts instead of trying to extract them from words
-    return vocabularyCategories.map((category) => category.name)
+  getAllCategories() {
+    // Return the full category objects, not just the names
+    return vocabularyCategories.map((category) => ({
+      id: category.id,
+      name: category.name,
+      description: category.description,
+      wordIds: this.getWordsByCategoryId(category.id).map((word) => word.id),
+    }))
+  }
+
+  // Get words by category ID
+  getWordsByCategoryId(categoryId: string): VocabularyWord[] {
+    const category = vocabularyCategories.find((c) => c.id === categoryId)
+    if (!category) return []
+
+    // If it's the prophets category, return all words with the prophets tag
+    if (categoryId === "prophets") {
+      return this.getProphets()
+    }
+
+    // For other categories, use the existing logic
+    return this.allWords.filter((word) => {
+      // Check if the word has the category tag
+      if (word.tags && word.tags.includes(categoryId)) {
+        return true
+      }
+
+      // Check if the word is in the category's wordIds
+      if (category.wordIds && category.wordIds.includes(word.id)) {
+        return true
+      }
+
+      return false
+    })
   }
 
   // Get most frequent words
@@ -211,11 +247,6 @@ class EnhancedVocabularyService {
 
     // Return the top 'count' words
     return sortedWords.slice(0, count)
-  }
-
-  // Add a new method to get prophets
-  getProphets(): VocabularyWord[] {
-    return this.allWords.filter((word) => word.tags && word.tags.includes("prophets"))
   }
 }
 

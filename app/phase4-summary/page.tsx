@@ -69,7 +69,7 @@ export default function Phase4SummaryPage() {
                 <div>
                   <h4 className="font-medium">Phase 4: Specialized Expansion</h4>
                   <p className="text-gray-600 dark:text-gray-400">
-                    Expanded vocabulary to 100 words with specialized theological and spiritual concepts
+                    Expanded vocabulary to over 400 words curently with specialized theological and spiritual concepts
                   </p>
                 </div>
               </div>

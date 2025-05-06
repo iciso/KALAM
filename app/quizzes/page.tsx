@@ -193,8 +193,8 @@ export default function QuizzesPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600 dark:text-gray-400 mb-4">
-                  Test your vocabulary knowledge organized by categories like divine attributes, ethics, afterlife, and
-                  more.
+                  Test your vocabulary knowledge organized by categories like divine attributes, prophets, ethics,
+                  afterlife, and more.
                 </p>
               </CardContent>
               <CardFooter>

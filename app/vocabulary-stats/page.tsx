@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { ArrowLeft, Home, Tag, BookOpen, BarChart3 } from "lucide-react"
+import { ArrowLeft, Home, Tag, BookOpen, BarChart3, Info } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { vocabularyService } from "@/services/vocabulary-service"
@@ -12,17 +12,21 @@ export default function VocabularyStatsPage() {
   const [beginnerWords, setBeginnerWords] = useState(0)
   const [intermediateWords, setIntermediateWords] = useState(0)
   const [advancedWords, setAdvancedWords] = useState(0)
+  const [surahNamesCount, setSurahNamesCount] = useState(114) // Hardcoded count of Surah names
 
   useEffect(() => {
     // Get all words
     const allWords = vocabularyService.getAllWords()
-    setTotalWords(allWords.length)
+
+    // Calculate total including Surah names
+    const baseWordCount = allWords.length
+    setTotalWords(baseWordCount + surahNamesCount)
 
     // Count by difficulty
     setBeginnerWords(allWords.filter((word) => word.difficulty === "beginner").length)
     setIntermediateWords(allWords.filter((word) => word.difficulty === "intermediate").length)
     setAdvancedWords(allWords.filter((word) => word.difficulty === "advanced").length)
-  }, [])
+  }, [surahNamesCount])
 
   const getColorForDifficulty = (difficulty: string) => {
     switch (difficulty) {
@@ -47,6 +51,7 @@ export default function VocabularyStatsPage() {
     { tag: "nature", count: 6 },
     { tag: "guidance", count: 5 },
     { tag: "faith", count: 4 },
+    { tag: "surah-names", count: 114 },
   ]
 
   return (
@@ -77,7 +82,22 @@ export default function VocabularyStatsPage() {
             <CardContent>
               <div className="text-4xl font-bold mb-6 text-center">{totalWords} Words</div>
 
+              <div className="mb-4 text-sm text-gray-600 bg-gray-100 dark:bg-gray-800 p-3 rounded-md">
+                <p>Our dictionary now includes:</p>
+                <ul className="list-disc list-inside mt-1">
+                  <li>289 Quranic vocabulary words</li>
+                  <li>114 Surah names</li>
+                  <li className="font-semibold">Total: 403 words</li>
+                </ul>
+              </div>
+
               <h3 className="text-lg font-semibold mb-2">Words by Difficulty</h3>
+              <div className="flex items-center mb-2 text-xs text-gray-500">
+                <Info className="h-3 w-3 mr-1" />
+                <span>
+                  Difficulty breakdown applies only to the 289 Quranic vocabulary words (excludes Surah names)
+                </span>
+              </div>
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center">
@@ -89,7 +109,7 @@ export default function VocabularyStatsPage() {
                     <div className="ml-2 bg-gray-200 dark:bg-gray-700 rounded-full h-2 w-32">
                       <div
                         className={`h-full rounded-full ${getColorForDifficulty("beginner")}`}
-                        style={{ width: `${(beginnerWords / totalWords) * 100}%` }}
+                        style={{ width: `${(beginnerWords / (totalWords - surahNamesCount)) * 100}%` }}
                       ></div>
                     </div>
                   </div>
@@ -105,7 +125,7 @@ export default function VocabularyStatsPage() {
                     <div className="ml-2 bg-gray-200 dark:bg-gray-700 rounded-full h-2 w-32">
                       <div
                         className={`h-full rounded-full ${getColorForDifficulty("intermediate")}`}
-                        style={{ width: `${(intermediateWords / totalWords) * 100}%` }}
+                        style={{ width: `${(intermediateWords / (totalWords - surahNamesCount)) * 100}%` }}
                       ></div>
                     </div>
                   </div>
@@ -121,7 +141,7 @@ export default function VocabularyStatsPage() {
                     <div className="ml-2 bg-gray-200 dark:bg-gray-700 rounded-full h-2 w-32">
                       <div
                         className={`h-full rounded-full ${getColorForDifficulty("advanced")}`}
-                        style={{ width: `${(advancedWords / totalWords) * 100}%` }}
+                        style={{ width: `${(advancedWords / (totalWords - surahNamesCount)) * 100}%` }}
                       ></div>
                     </div>
                   </div>

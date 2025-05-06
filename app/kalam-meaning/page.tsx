@@ -38,8 +38,7 @@ export default function KalamMeaningPage() {
             </CardHeader>
             <CardContent>
               <p>
-                At KALAM, we believe that learning should be joyful. By combining educational content with engaging
-                activities, we help you connect with the language of the Quran in a meaningful way.
+                At KALAM, we believe that learning should be joyful. By combining educational content with engaging activities, we help you connect with the language of the Quran in a meaningful way.
               </p>
               <p className="mt-4">
                 Each letter in our name represents a core aspect of our philosophy toward Quranic Arabic learning.
@@ -54,8 +53,7 @@ export default function KalamMeaningPage() {
             <CardContent>
               <p>
                 Understanding the Quran in its original language creates a deeper connection with its message. Our
-                approach makes this journey accessible and enjoyable for everyone, regardless of their current Arabic
-                proficiency.
+                approach makes this journey accessible and enjoyable for everyone, regardless of their current Arabic proficiency.
               </p>
               <p className="mt-4">
                 By lighting up the path to knowledge with activities full of mirth, we hope to inspire a lifelong love
@@ -66,7 +64,7 @@ export default function KalamMeaningPage() {
         </div>
         <div className="mt-6 text-center">
           <p className="text-sm text-muted-foreground">
-            Click on any letter to explore the corresponding learning experience!
+            Click on any letter to explore the corresponding learning through fun and games experience!
           </p>
         </div>
       </div>

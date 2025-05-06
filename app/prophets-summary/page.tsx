@@ -1,7 +1,9 @@
 import ProphetsSummary from "@/components/prophets-summary"
+import ProphetsTimeline from "@/components/prophets-timeline"
 import { Button } from "@/components/ui/button"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import Link from "next/link"
-import { ArrowLeft, BookOpen } from "lucide-react"
+import { ArrowLeft, BookOpen, Clock } from "lucide-react"
 
 export default function ProphetsSummaryPage() {
   return (
@@ -24,7 +26,20 @@ export default function ProphetsSummaryPage() {
         </div>
       </div>
 
-      <ProphetsSummary />
+      <Tabs defaultValue="overview" className="mb-8">
+        <TabsList className="grid w-full grid-cols-2">
+          <TabsTrigger value="overview">Overview</TabsTrigger>
+          <TabsTrigger value="timeline" className="flex items-center gap-1">
+            <Clock className="h-4 w-4" /> Timeline
+          </TabsTrigger>
+        </TabsList>
+        <TabsContent value="overview" className="pt-4">
+          <ProphetsSummary />
+        </TabsContent>
+        <TabsContent value="timeline" className="pt-4">
+          <ProphetsTimeline />
+        </TabsContent>
+      </Tabs>
 
       <div className="mt-8">
         <h2 className="text-2xl font-bold mb-4">Learn About the Prophets</h2>

@@ -7,6 +7,7 @@ import { enhancedVocabularyService } from "../services/enhanced-vocabulary-servi
 // import { vocabularyService } from "../services/vocabulary-service"
 import { Difficulty } from "../types/vocabulary"
 import { Progress } from "@/components/ui/progress"
+import { Info } from "lucide-react"
 
 export function VocabularyStats() {
   const [totalWords, setTotalWords] = useState(0)
@@ -15,10 +16,12 @@ export function VocabularyStats() {
   const [advancedWords, setAdvancedWords] = useState(0)
   const [categoriesCount, setCategoriesCount] = useState(0)
   const [mostFrequentWord, setMostFrequentWord] = useState<string>("")
+  const [surahNamesCount] = useState(114) // Hardcoded count of Surah names
 
   useEffect(() => {
     const allWords = enhancedVocabularyService.getAllWords()
-    setTotalWords(allWords.length)
+    // Add Surah names to the total
+    setTotalWords(allWords.length + surahNamesCount)
 
     setBeginnerWords(enhancedVocabularyService.getWordsByDifficulty(Difficulty.Beginner).length)
     setIntermediateWords(enhancedVocabularyService.getWordsByDifficulty(Difficulty.Intermediate).length)
@@ -32,7 +35,7 @@ export function VocabularyStats() {
         `${mostFrequent.arabic} (${mostFrequent.transliteration}): ${mostFrequent.frequency} occurrences`,
       )
     }
-  }, [])
+  }, [surahNamesCount])
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
@@ -43,26 +46,33 @@ export function VocabularyStats() {
         </CardHeader>
         <CardContent>
           <div className="space-y-2">
+            <div className="text-sm text-gray-500 mb-2">
+              <span className="block text-xs text-emerald-600">Including 289 Quranic words + 114 Surah names</span>
+            </div>
+            <div className="flex items-center mb-2 text-xs text-gray-500">
+              <Info className="h-3 w-3 mr-1" />
+              <span>Difficulty bars below are for 289 Quranic words only</span>
+            </div>
             <div className="text-sm text-gray-500">
               <div className="flex justify-between mb-1">
                 <span>Beginner:</span>
                 <span>{beginnerWords}</span>
               </div>
-              <Progress value={(beginnerWords / totalWords) * 100} className="h-1 mb-2" />
+              <Progress value={(beginnerWords / (totalWords - surahNamesCount)) * 100} className="h-1 mb-2" />
             </div>
             <div className="text-sm text-gray-500">
               <div className="flex justify-between mb-1">
                 <span>Intermediate:</span>
                 <span>{intermediateWords}</span>
               </div>
-              <Progress value={(intermediateWords / totalWords) * 100} className="h-1 mb-2" />
+              <Progress value={(intermediateWords / (totalWords - surahNamesCount)) * 100} className="h-1 mb-2" />
             </div>
             <div className="text-sm text-gray-500">
               <div className="flex justify-between mb-1">
                 <span>Advanced:</span>
                 <span>{advancedWords}</span>
               </div>
-              <Progress value={(advancedWords / totalWords) * 100} className="h-1 mb-2" />
+              <Progress value={(advancedWords / (totalWords - surahNamesCount)) * 100} className="h-1 mb-2" />
             </div>
           </div>
         </CardContent>

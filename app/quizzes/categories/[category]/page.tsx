@@ -8,7 +8,6 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { Progress } from "@/components/ui/progress"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Label } from "@/components/ui/label"
-import { prophetQuizQuestions } from "@/data/prophets-quiz-data"
 
 // Sample quiz questions
 const sampleQuestions = [
@@ -67,7 +66,7 @@ const sampleQuestions = [
 
 export default function CategoryQuizPage({ params }: { params: { category: string } }) {
   const category = params.category
-  const [quizQuestions, setQuizQuestions] = useState(sampleQuestions)
+  const [quizQuestions] = useState(sampleQuestions)
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
   const [selectedOption, setSelectedOption] = useState<string | null>(null)
   const [isAnswered, setIsAnswered] = useState(false)
@@ -75,13 +74,6 @@ export default function CategoryQuizPage({ params }: { params: { category: strin
   const [quizCompleted, setQuizCompleted] = useState(false)
   const [timeLeft, setTimeLeft] = useState(30)
   const [showExplanation, setShowExplanation] = useState(false)
-
-  // Use prophet quiz questions if the category is prophets
-  useEffect(() => {
-    if (category === "prophets") {
-      setQuizQuestions(prophetQuizQuestions)
-    }
-  }, [category])
 
   const currentQuestion = quizQuestions[currentQuestionIndex]
   const progress = ((currentQuestionIndex + 1) / quizQuestions.length) * 100
@@ -161,9 +153,6 @@ export default function CategoryQuizPage({ params }: { params: { category: strin
     return cat.charAt(0).toUpperCase() + cat.slice(1).replace(/-/g, " ")
   }
 
-  // Check if we're using the prophets quiz
-  const isProphetsQuiz = category === "prophets"
-
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       <header className="bg-emerald-800 text-white py-4">
@@ -207,7 +196,14 @@ export default function CategoryQuizPage({ params }: { params: { category: strin
 
             <Card className="mb-8">
               <CardHeader>
-                <CardTitle className="text-xl">{currentQuestion?.question}</CardTitle>
+                <CardTitle className="text-xl flex items-center justify-between">
+                  <span>{currentQuestion?.question}</span>
+                  {currentQuestion?.wordInfo.difficulty && (
+                    <span className={`text-sm ${getDifficultyColor(currentQuestion.wordInfo.difficulty)}`}>
+                      {currentQuestion.wordInfo.difficulty}
+                    </span>
+                  )}
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <RadioGroup value={selectedOption || ""} className="space-y-4">
@@ -248,36 +244,10 @@ export default function CategoryQuizPage({ params }: { params: { category: strin
                 {isAnswered && (
                   <div className="mt-6">
                     <Button variant="outline" size="sm" onClick={toggleExplanation} className="mb-2">
-                      {showExplanation ? "Hide" : "Show"} {isProphetsQuiz ? "Prophet Details" : "Word Details"}
+                      {showExplanation ? "Hide" : "Show"} Word Details
                     </Button>
 
-                    {showExplanation && isProphetsQuiz && "explanation" in currentQuestion && (
-                      <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
-                        <p className="mb-4 text-gray-700 dark:text-gray-300">{currentQuestion.explanation}</p>
-
-                        <div className="mt-4 border-t pt-4">
-                          <h4 className="font-medium text-lg mb-2">About {currentQuestion.prophetInfo.name}</h4>
-                          <div className="flex flex-col space-y-2">
-                            <div className="flex justify-between">
-                              <span className="font-medium">Arabic:</span>
-                              <span className="font-arabic text-lg">{currentQuestion.prophetInfo.arabic}</span>
-                            </div>
-                            <div className="flex justify-between">
-                              <span className="font-medium">Transliteration:</span>
-                              <span>{currentQuestion.prophetInfo.transliteration}</span>
-                            </div>
-                            <div className="mt-2">
-                              <span className="font-medium">Significance:</span>
-                              <p className="mt-1 text-gray-700 dark:text-gray-300">
-                                {currentQuestion.prophetInfo.significance}
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    )}
-
-                    {showExplanation && !isProphetsQuiz && "wordInfo" in currentQuestion && (
+                    {showExplanation && (
                       <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
                         <div className="flex flex-col space-y-2">
                           <div className="flex justify-between">
@@ -334,7 +304,10 @@ export default function CategoryQuizPage({ params }: { params: { category: strin
                     : "Keep practicing! You'll improve with time."}
               </p>
               <div className="flex flex-col space-y-4">
-                <Button onClick={resetQuiz} className="bg-emerald-600 hover:bg-emerald-700">
+                <Button
+                  onClick={resetQuiz}
+                  className="bg-emerald-600 hover:bg-emerald-700 flex items-center justify-center"
+                >
                   <RefreshCw className="mr-2 h-4 w-4" />
                   Try Again
                 </Button>

@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { useSearchParams } from "next/navigation"
 import { type VocabularyWord, Difficulty, PartOfSpeech } from "../types/vocabulary"
 import { vocabularyService, type SurahInfo } from "../services/vocabulary-service"
 import { VocabularyDetail } from "./vocabulary-detail"
@@ -14,26 +15,37 @@ import { Search, Filter, Bookmark, Volume2, ListPlus, BookOpen } from "lucide-re
 import { AddToListDialog } from "./add-to-list-dialog"
 
 export function VocabularyBrowser() {
+  const searchParams = useSearchParams()
+  const categoryParam = searchParams.get("category")
+
   const [words, setWords] = useState<VocabularyWord[]>([])
   const [filteredWords, setFilteredWords] = useState<VocabularyWord[]>([])
   const [selectedWord, setSelectedWord] = useState<VocabularyWord | null>(null)
   const [searchQuery, setSearchQuery] = useState("")
   const [difficulty, setDifficulty] = useState<Difficulty | "all">("all")
   const [partOfSpeech, setPartOfSpeech] = useState<PartOfSpeech | "all">("all")
-  const [activeTab, setActiveTab] = useState("all")
+  const [activeTab, setActiveTab] = useState(categoryParam || "all")
   const [savedWords, setSavedWords] = useState<string[]>([])
   const [showAudioOnly, setShowAudioOnly] = useState(false)
   const [surahs, setSurahs] = useState<SurahInfo[]>([])
   const [selectedSurah, setSelectedSurah] = useState<number | null>(null)
+  const [categories, setCategories] = useState<Array<{ id: string; name: string; wordIds: string[] }>>([])
 
   // Load all words and surahs on component mount
   useEffect(() => {
     const allWords = vocabularyService.getAllWords()
     const allSurahs = vocabularyService.getAllSurahs()
+    const allCategories = vocabularyService.getAllCategories()
     setWords(allWords)
     setFilteredWords(allWords)
     setSurahs(allSurahs)
-  }, [])
+    setCategories(allCategories || []) // Ensure categories is never undefined
+
+    // If category param exists, set it as the active tab
+    if (categoryParam) {
+      setActiveTab(categoryParam)
+    }
+  }, [categoryParam])
 
   // Apply filters when search or filter criteria change
   useEffect(() => {
@@ -68,7 +80,9 @@ export function VocabularyBrowser() {
 
     // Apply Surah filter
     if (selectedSurah) {
-      result = result.filter((word) => word.examples.some((example) => example.surahNumber === selectedSurah))
+      result = result.filter(
+        (word) => word.examples && word.examples.some((example) => example.surahNumber === selectedSurah),
+      )
     }
 
     setFilteredWords(result)
@@ -91,8 +105,6 @@ export function VocabularyBrowser() {
   const handleSurahChange = (value: string) => {
     setSelectedSurah(value === "all" ? null : Number.parseInt(value))
   }
-
-  const categories = vocabularyService.getAllCategories()
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -218,19 +230,20 @@ export function VocabularyBrowser() {
                   </TabsTrigger>
                 </TabsList>
 
-                {categories.map((category) => (
-                  <Button
-                    key={category.id}
-                    variant={activeTab === category.id ? "default" : "ghost"}
-                    className="w-full justify-start mb-1 px-2"
-                    onClick={() => setActiveTab(category.id)}
-                  >
-                    {category.name}
-                    <Badge variant="outline" className="ml-auto">
-                      {category.wordIds.length}
-                    </Badge>
-                  </Button>
-                ))}
+                {categories &&
+                  categories.map((category) => (
+                    <Button
+                      key={category.id}
+                      variant={activeTab === category.id ? "default" : "ghost"}
+                      className="w-full justify-start mb-1 px-2"
+                      onClick={() => setActiveTab(category.id)}
+                    >
+                      {category.name}
+                      <Badge variant="outline" className="ml-auto">
+                        {category.wordIds ? category.wordIds.length : 0}
+                      </Badge>
+                    </Button>
+                  ))}
               </Tabs>
             </CardContent>
           </Card>
@@ -257,7 +270,7 @@ export function VocabularyBrowser() {
                     ? "Quranic Dictionary"
                     : activeTab === "saved"
                       ? "Saved Words"
-                      : categories.find((c) => c.id === activeTab)?.name || "Vocabulary"}
+                      : (categories && categories.find((c) => c.id === activeTab)?.name) || "Vocabulary"}
                   {selectedSurah && (
                     <span className="ml-2 text-lg font-normal">
                       in Surah {surahs.find((s) => s.number === selectedSurah)?.name}
@@ -320,7 +333,7 @@ export function VocabularyBrowser() {
                           {word.partOfSpeech}
                         </Badge>
                       </div>
-                      {selectedSurah && (
+                      {selectedSurah && word.examples && (
                         <div className="mt-2 text-sm text-gray-500">
                           <div className="flex items-center">
                             <BookOpen className="h-3 w-3 mr-1" />

@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowRight, BookOpen, Database, Gamepad2, ListChecks, ListPlus } from "lucide-react"
+import { ArrowRight, BookOpen, Database, Gamepad2, ListChecks, ListPlus, Users } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
@@ -45,8 +45,8 @@ export default function HomePage() {
           <VocabularyStats />
         </section>
 
-        {/* Main features grid - Now with 5 cards instead of 6 */}
-        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 mb-12">
+        {/* Main features grid - Now with 6 cards */}
+        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           <Card>
             <CardHeader>
               <Database className="h-8 w-8 text-emerald-600 mb-2" />
@@ -151,17 +151,26 @@ export default function HomePage() {
             </CardFooter>
           </Card>
 
-          <Link href="/prophets-summary">
-            <Card className="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
-              <CardHeader>
-                <CardTitle>Prophets in the Quran</CardTitle>
-                <CardDescription>Learn about the 25 prophets mentioned in the Quran</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p>Explore the stories and attributes of the prophets mentioned in the Quran</p>
-              </CardContent>
-            </Card>
-          </Link>
+          <Card>
+            <CardHeader>
+              <Users className="h-8 w-8 text-blue-600 mb-2" />
+              <CardTitle>Prophets in the Quran</CardTitle>
+              <CardDescription>Learn about the 25 prophets mentioned in the Quran</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p className="text-gray-600 dark:text-gray-300">
+                Explore the stories and attributes of the prophets mentioned in the Quran and their significance in
+                Islamic teachings.
+              </p>
+            </CardContent>
+            <CardFooter>
+              <Link href="/vocabulary?category=prophets" className="w-full">
+                <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
+                  Explore Prophets <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
+            </CardFooter>
+          </Card>
         </section>
 
         {/* Rest of the homepage content remains the same */}
@@ -181,7 +190,7 @@ export default function HomePage() {
               Contribute
             </Link>
             <Link
-              href="https://github.com/YOUR-ACTUAL-USERNAME/kalam"
+              href="https://github.com/iciso/KALAM"
               className="text-emerald-600 hover:text-emerald-700"
             >
               GitHub
