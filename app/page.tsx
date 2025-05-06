@@ -164,7 +164,7 @@ export default function HomePage() {
               </p>
             </CardContent>
             <CardFooter>
-              <Link href="/vocabulary?category=prophets" className="w-full">
+              <Link href="/prophets" className="w-full">
                 <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
                   Explore Prophets <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>

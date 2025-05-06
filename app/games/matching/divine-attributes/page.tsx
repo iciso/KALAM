@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button"
 import { Shuffle, RefreshCw } from "lucide-react"
 import { motion } from "framer-motion"
-import { ImanOMeter } from "@/components/iman-o-meter"
+import { ImanOMeter } from "@/components/score"
 
 // Divine attributes data
 const divineAttributes = [

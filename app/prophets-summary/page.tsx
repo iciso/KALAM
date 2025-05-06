@@ -1,11 +1,27 @@
+"use client"
+
+import { useSearchParams } from "next/navigation"
 import ProphetsSummary from "@/components/prophets-summary"
 import ProphetsTimeline from "@/components/prophets-timeline"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import Link from "next/link"
 import { ArrowLeft, BookOpen, Clock } from "lucide-react"
+import { useEffect, useState } from "react"
 
 export default function ProphetsSummaryPage() {
+  const searchParams = useSearchParams()
+  const [activeTab, setActiveTab] = useState("overview")
+
+  useEffect(() => {
+    const tab = searchParams.get("tab")
+    if (tab === "timeline") {
+      setActiveTab("timeline")
+    } else {
+      setActiveTab("overview")
+    }
+  }, [searchParams])
+
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="flex items-center justify-between mb-6">
@@ -17,16 +33,16 @@ export default function ProphetsSummaryPage() {
               Browse Prophets
             </Button>
           </Link>
-          <Link href="/">
+          <Link href="/prophets">
             <Button variant="ghost" className="flex items-center">
               <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Home
+              Back to Prophets
             </Button>
           </Link>
         </div>
       </div>
 
-      <Tabs defaultValue="overview" className="mb-8">
+      <Tabs value={activeTab} onValueChange={setActiveTab} className="mb-8">
         <TabsList className="grid w-full grid-cols-2">
           <TabsTrigger value="overview">Overview</TabsTrigger>
           <TabsTrigger value="timeline" className="flex items-center gap-1">

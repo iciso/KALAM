@@ -119,16 +119,12 @@ export class VocabularyService {
     return vocabularyCategories.find((category) => category.id === id)
   }
 
-  // Get words by category ID
+  // Get words by category ID - FIX THE ERROR HERE
   getWordsByCategoryId(categoryId: string): VocabularyWord[] {
     const category = this.getCategoryById(categoryId)
-    if (!category) return []
+    if (!category || !category.wordIds) return []
 
-    return category.wordIds.map((wordId) => {
-      const word = this.getWordById(wordId)
-      if (!word) throw new Error(`Word with ID ${wordId} not found in category ${categoryId}`)
-      return word
-    })
+    return this.allVocabularyData.filter((word) => category.wordIds.includes(word.id))
   }
 
   // Get most frequent words (limit by count)
@@ -141,11 +137,9 @@ export class VocabularyService {
     const word = this.getWordById(wordId)
     if (!word || !word.relatedWords) return []
 
-    return word.relatedWords.map((relatedWord) => {
-      const related = this.getWordById(relatedWord.id)
-      if (!related) throw new Error(`Related word with ID ${relatedWord.id} not found`)
-      return related
-    })
+    return word.relatedWords
+      .map((relatedWord) => this.getWordById(relatedWord.id))
+      .filter((word): word is VocabularyWord => word !== undefined)
   }
 
   // Get words with audio

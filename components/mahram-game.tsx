@@ -45,7 +45,7 @@ import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import FamilyTreeVisualizer from "./family-tree-visualizer"
-import { ImanOMeter } from "./iman-o-meter"
+import { ImanOMeter } from "./score"
 import confetti from "canvas-confetti"
 
 type PlayerGender = "male" | "female"

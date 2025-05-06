@@ -45,8 +45,8 @@ export function ImanOMeter({ score, maxScore, className }: ImanOMeterProps) {
         />
       </div>
       <div className="flex justify-between text-xs mt-1">
-        <span>Low Faith</span>
-        <span>High Faith</span>
+        <span>Low Ilm</span>
+        <span>High Ilm</span>
       </div>
     </div>
   )
