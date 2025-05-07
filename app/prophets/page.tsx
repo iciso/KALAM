@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { BookOpen, Clock, Users, BookMarked, School } from "lucide-react"
+import { BookOpen, Clock, Users, BookMarked, School, GitCompare } from "lucide-react"
 
 export const metadata = {
   title: "Prophets in the Quran - KALAM",
@@ -115,6 +115,25 @@ export default function ProphetsPage() {
           <CardFooter>
             <Link href="/prophets/family-tree" passHref className="w-full">
               <Button className="w-full bg-blue-600 hover:bg-blue-700">View Family Tree</Button>
+            </Link>
+          </CardFooter>
+        </Card>
+
+        <Card className="border-green-200 bg-green-50 dark:bg-green-900/20 dark:border-green-800 col-span-1 md:col-span-2 lg:col-span-3">
+          <CardHeader>
+            <GitCompare className="h-8 w-8 text-green-600 mb-2" />
+            <CardTitle>Prophet Comparison Tool</CardTitle>
+            <CardDescription>Compare different prophets side by side</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p className="text-center">
+              Use our interactive comparison tool to explore similarities and differences between prophets mentioned in
+              the Quran. Compare their lives, teachings, miracles, challenges, and Quranic mentions.
+            </p>
+          </CardContent>
+          <CardFooter className="flex justify-center">
+            <Link href="/prophets/comparison" passHref>
+              <Button className="bg-green-600 hover:bg-green-700">Open Comparison Tool</Button>
             </Link>
           </CardFooter>
         </Card>

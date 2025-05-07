@@ -9,6 +9,7 @@ import { phase7VocabularyData } from "../data/vocabulary-data-expansion-phase7"
 import { phase8VocabularyData } from "../data/vocabulary-data-expansion-phase8"
 import { phase9VocabularyData } from "../data/vocabulary-data-expansion-phase9"
 import { vocabularyCategories } from "../data/vocabulary-categories"
+import { prophetsVocabulary } from "../data/vocabulary-data-prophets"
 import { type VocabularyWord, type VocabularyCategory, Difficulty, type PartOfSpeech } from "../types/vocabulary"
 
 // Define a type for Surah information
@@ -35,6 +36,7 @@ export class VocabularyService {
       ...phase7VocabularyData,
       ...phase8VocabularyData,
       ...phase9VocabularyData,
+      ...prophetsVocabulary, // Add prophets vocabulary
     ]
 
     // Generate the list of Surahs with word counts
@@ -122,9 +124,26 @@ export class VocabularyService {
   // Get words by category ID - FIX THE ERROR HERE
   getWordsByCategoryId(categoryId: string): VocabularyWord[] {
     const category = this.getCategoryById(categoryId)
-    if (!category || !category.wordIds) return []
+    if (!category) return []
 
-    return this.allVocabularyData.filter((word) => category.wordIds.includes(word.id))
+    // Special case for prophets category
+    if (categoryId === "prophets") {
+      return this.allVocabularyData.filter((word) => word.tags && word.tags.includes("prophets"))
+    }
+
+    return this.allVocabularyData.filter((word) => {
+      // Check if the word has the category tag
+      if (word.tags && word.tags.includes(categoryId)) {
+        return true
+      }
+
+      // Check if the word is in the category's wordIds
+      if (category.wordIds && category.wordIds.includes(word.id)) {
+        return true
+      }
+
+      return false
+    })
   }
 
   // Get most frequent words (limit by count)

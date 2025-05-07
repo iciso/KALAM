@@ -1,7 +1,7 @@
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/components/ui/card"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
 import Link from "next/link"
-import { ArrowLeft } from "lucide-react"
+import { ArrowLeft, BookOpen, CheckCircle2 } from "lucide-react"
 
 export const metadata = {
   title: "Prophet Stories - KALAM",
@@ -37,12 +37,14 @@ export default function ProphetStoriesPage() {
               Learn about the creation of Adam, his time in Paradise, and his descent to Earth. The story teaches about
               human nature, free will, and repentance.
             </p>
-            <div className="mt-4">
+          </CardContent>
+          <CardFooter>
+            <Link href="/prophets/stories/adam" className="w-full">
               <Button variant="outline" className="w-full">
                 Read Story
               </Button>
-            </div>
-          </CardContent>
+            </Link>
+          </CardFooter>
         </Card>
 
         <Card>
@@ -55,30 +57,35 @@ export default function ProphetStoriesPage() {
               Explore the story of Nuh who preached for 950 years, built the Ark, and survived the great flood with the
               believers.
             </p>
-            <div className="mt-4">
+          </CardContent>
+          <CardFooter>
+            <Link href="/prophets/stories/nuh" className="w-full">
               <Button variant="outline" className="w-full">
                 Read Story
               </Button>
-            </div>
-          </CardContent>
+            </Link>
+          </CardFooter>
         </Card>
 
-        <Card>
-          <CardHeader>
-            <CardTitle>The Story of Ibrahim (Abraham)</CardTitle>
-            <CardDescription>The friend of Allah</CardDescription>
+        <Card className="border-emerald-200 bg-emerald-50 dark:bg-emerald-900/20 dark:border-emerald-800">
+          <CardHeader className="flex flex-row items-start justify-between pb-2">
+            <div>
+              <CardTitle>The Story of Ibrahim (Abraham)</CardTitle>
+              <CardDescription>The friend of Allah</CardDescription>
+            </div>
+            <CheckCircle2 className="h-5 w-5 text-emerald-600" />
           </CardHeader>
           <CardContent>
             <p>
               Discover the story of Ibrahim, who challenged idolatry, was willing to sacrifice his son, and built the
               Ka'bah.
             </p>
-            <div className="mt-4">
-              <Button variant="outline" className="w-full">
-                Read Story
-              </Button>
-            </div>
           </CardContent>
+          <CardFooter>
+            <Link href="/prophets/stories/ibrahim" className="w-full">
+              <Button className="w-full bg-emerald-600 hover:bg-emerald-700">Read Story</Button>
+            </Link>
+          </CardFooter>
         </Card>
 
         <Card>
@@ -91,12 +98,14 @@ export default function ProphetStoriesPage() {
               Read about Yusuf, whose story is described in the Quran as "the most beautiful of stories," including his
               trials and rise to power in Egypt.
             </p>
-            <div className="mt-4">
+          </CardContent>
+          <CardFooter>
+            <Link href="/prophets/stories/yusuf" className="w-full">
               <Button variant="outline" className="w-full">
                 Read Story
               </Button>
-            </div>
-          </CardContent>
+            </Link>
+          </CardFooter>
         </Card>
 
         <Card>
@@ -109,12 +118,14 @@ export default function ProphetStoriesPage() {
               Learn about Musa, who was raised in Pharaoh's palace, received revelation at Mount Tur, and led the
               Israelites out of Egypt.
             </p>
-            <div className="mt-4">
+          </CardContent>
+          <CardFooter>
+            <Link href="/prophets/stories/musa" className="w-full">
               <Button variant="outline" className="w-full">
                 Read Story
               </Button>
-            </div>
-          </CardContent>
+            </Link>
+          </CardFooter>
         </Card>
 
         <Card>
@@ -127,19 +138,53 @@ export default function ProphetStoriesPage() {
               Explore the story of Isa, who was born miraculously to Virgin Maryam, performed many miracles, and was
               raised to heaven.
             </p>
-            <div className="mt-4">
+          </CardContent>
+          <CardFooter>
+            <Link href="/prophets/stories/isa" className="w-full">
               <Button variant="outline" className="w-full">
                 Read Story
               </Button>
-            </div>
-          </CardContent>
+            </Link>
+          </CardFooter>
         </Card>
       </div>
 
+      <div className="mt-12 bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg border border-blue-200 dark:border-blue-800">
+        <h2 className="text-2xl font-bold mb-4">Reading Guide</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <h3 className="text-lg font-semibold mb-2 flex items-center">
+              <BookOpen className="h-5 w-5 mr-2 text-blue-600" />
+              How to Benefit from Prophet Stories
+            </h3>
+            <ul className="list-disc pl-5 space-y-2">
+              <li>Reflect on the moral lessons in each story</li>
+              <li>Consider how the prophets responded to challenges</li>
+              <li>Note the consistent message of monotheism across all prophets</li>
+              <li>Apply the lessons to your own life situations</li>
+              <li>Discuss the stories with others to gain new perspectives</li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold mb-2">Chronological Reading Order</h3>
+            <p className="mb-2">For those who wish to read the stories in chronological order:</p>
+            <ol className="list-decimal pl-5 space-y-1">
+              <li>Adam - The first human and prophet</li>
+              <li>Idris (Enoch) - Before the flood</li>
+              <li>Nuh (Noah) - The flood</li>
+              <li>Hud - To the people of 'Ad</li>
+              <li>Salih - To the people of Thamud</li>
+              <li>Ibrahim (Abraham) - The friend of Allah</li>
+              <li>Lut (Lot) - Contemporary of Ibrahim</li>
+              <li>Isma'il (Ishmael) - Son of Ibrahim</li>
+              <li>Ishaq (Isaac) - Son of Ibrahim</li>
+              <li>Ya'qub (Jacob) - Son of Ishaq</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
       <div className="mt-8 text-center">
-        <p className="text-gray-600 dark:text-gray-400 mb-4">
-          More prophet stories coming soon. Check back for updates!
-        </p>
         <Link href="/prophets">
           <Button>Back to Prophets Hub</Button>
         </Link>
