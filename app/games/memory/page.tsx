@@ -1,37 +1,24 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import { Timer, RefreshCw } from "lucide-react"
+import { useState, useEffect, useRef } from "react"
+import { Timer, RefreshCw, ChevronLeft, ChevronRight } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
-import { vocabularyService } from "@/services/vocabulary-service"
+import { memoryMatchSets, getTotalUniqueWords, getTotalVocabularyWords } from "@/data/memory-match-sets"
 
 type MatchingCard = {
   id: string
   content: string
   type: "arabic" | "meaning"
-  originalId: number
+  originalId: string
   isFlipped: boolean
   isMatched: boolean
 }
 
-// Function to generate vocabulary pairs for the game
-const generateVocabularyPairs = (count = 8) => {
-  const allWords = vocabularyService.getAllWords()
-  const shuffledWords = [...allWords].sort(() => Math.random() - 0.5)
-  const selectedWords = shuffledWords.slice(0, count)
-
-  return selectedWords.map((word, index) => ({
-    id: index + 1,
-    arabic: word.arabic,
-    meaning: word.meanings[0],
-  }))
-}
-
 export default function MemoryGamePage() {
-  const [vocabularyPairs, setVocabularyPairs] = useState(generateVocabularyPairs())
+  const [currentSetIndex, setCurrentSetIndex] = useState(0)
   const [cards, setCards] = useState<MatchingCard[]>([])
   const [flippedCards, setFlippedCards] = useState<MatchingCard[]>([])
   const [matchedPairs, setMatchedPairs] = useState(0)
@@ -39,6 +26,14 @@ export default function MemoryGamePage() {
   const [gameStarted, setGameStarted] = useState(false)
   const [gameCompleted, setGameCompleted] = useState(false)
   const [timer, setTimer] = useState(0)
+
+  // Track completed sets
+  const completedSetsRef = useRef<Set<number>>(new Set())
+
+  // Stats
+  const totalSets = memoryMatchSets.length
+  const totalWords = getTotalUniqueWords()
+  const vocabularySize = getTotalVocabularyWords()
 
   useEffect(() => {
     if (gameStarted && !gameCompleted) {
@@ -51,30 +46,34 @@ export default function MemoryGamePage() {
   }, [gameStarted, gameCompleted])
 
   useEffect(() => {
-    if (matchedPairs === vocabularyPairs.length) {
+    if (matchedPairs === memoryMatchSets[currentSetIndex].words.length) {
       setGameCompleted(true)
+      // Mark this set as completed
+      completedSetsRef.current.add(currentSetIndex)
     }
-  }, [matchedPairs, vocabularyPairs.length])
+  }, [matchedPairs, currentSetIndex])
 
   const initializeGame = () => {
+    const currentSet = memoryMatchSets[currentSetIndex]
+
     // Create pairs of cards (arabic and meaning)
     const initialCards: MatchingCard[] = []
 
-    vocabularyPairs.forEach((pair) => {
+    currentSet.words.forEach((word) => {
       initialCards.push({
-        id: `arabic-${pair.id}`,
-        content: pair.arabic,
+        id: `arabic-${word.id}`,
+        content: word.arabic,
         type: "arabic",
-        originalId: pair.id,
+        originalId: word.id,
         isFlipped: false,
         isMatched: false,
       })
 
       initialCards.push({
-        id: `meaning-${pair.id}`,
-        content: pair.meaning,
+        id: `meaning-${word.id}`,
+        content: word.meaning,
         type: "meaning",
-        originalId: pair.id,
+        originalId: word.id,
         isFlipped: false,
         isMatched: false,
       })
@@ -92,43 +91,17 @@ export default function MemoryGamePage() {
     setGameCompleted(false)
   }
 
-  const startNewGame = () => {
-    // Generate new vocabulary pairs
-    const newVocabularyPairs = generateVocabularyPairs()
-    setVocabularyPairs(newVocabularyPairs)
+  const changeSet = (direction: "next" | "prev") => {
+    let newIndex = currentSetIndex
 
-    // Create pairs of cards with the new vocabulary
-    const initialCards: MatchingCard[] = []
+    if (direction === "next") {
+      newIndex = (currentSetIndex + 1) % totalSets
+    } else {
+      newIndex = (currentSetIndex - 1 + totalSets) % totalSets
+    }
 
-    newVocabularyPairs.forEach((pair) => {
-      initialCards.push({
-        id: `arabic-${pair.id}`,
-        content: pair.arabic,
-        type: "arabic",
-        originalId: pair.id,
-        isFlipped: false,
-        isMatched: false,
-      })
-
-      initialCards.push({
-        id: `meaning-${pair.id}`,
-        content: pair.meaning,
-        type: "meaning",
-        originalId: pair.id,
-        isFlipped: false,
-        isMatched: false,
-      })
-    })
-
-    // Shuffle the cards
-    const shuffledCards = initialCards.sort(() => Math.random() - 0.5)
-
-    setCards(shuffledCards)
-    setFlippedCards([])
-    setMatchedPairs(0)
-    setMoves(0)
-    setTimer(0)
-    setGameStarted(true)
+    setCurrentSetIndex(newIndex)
+    setGameStarted(false)
     setGameCompleted(false)
   }
 
@@ -189,6 +162,9 @@ export default function MemoryGamePage() {
     return `${minutes}:${remainingSeconds < 10 ? "0" : ""}${remainingSeconds}`
   }
 
+  const currentSet = memoryMatchSets[currentSetIndex]
+  const completedSetsCount = completedSetsRef.current.size
+
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       <header className="bg-emerald-800 text-white py-4">
@@ -210,10 +186,44 @@ export default function MemoryGamePage() {
               <CardDescription className="text-center">Match Arabic words with their meanings</CardDescription>
             </CardHeader>
             <CardContent className="text-center">
-              <p className="mb-6">
+              <div className="flex justify-between items-center mb-4">
+                <Button variant="outline" size="sm" onClick={() => changeSet("prev")} className="flex items-center">
+                  <ChevronLeft className="h-4 w-4 mr-1" /> Previous Set
+                </Button>
+                <span className="text-sm font-medium">
+                  Set {currentSetIndex + 1} of {totalSets}
+                </span>
+                <Button variant="outline" size="sm" onClick={() => changeSet("next")} className="flex items-center">
+                  Next Set <ChevronRight className="h-4 w-4 ml-1" />
+                </Button>
+              </div>
+
+              <div className="bg-emerald-50 dark:bg-emerald-900/20 p-4 rounded-lg mb-4">
+                <h3 className="font-semibold text-emerald-700 dark:text-emerald-300 mb-2">{currentSet.name}</h3>
+                <p className="text-sm mb-2">{currentSet.description}</p>
+                <div className="text-xs text-emerald-600 dark:text-emerald-400">
+                  {completedSetsRef.current.has(currentSetIndex)
+                    ? "✓ You've completed this set!"
+                    : "You haven't completed this set yet"}
+                </div>
+              </div>
+
+              <p className="mb-4">
                 Test your knowledge of Quranic vocabulary by matching Arabic words with their meanings. Flip cards to
                 find matching pairs and try to complete the game with as few moves as possible!
               </p>
+
+              <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mb-4">
+                <h3 className="font-semibold mb-2">Your Progress</h3>
+                <p className="text-sm mb-2">
+                  You've completed {completedSetsCount} of {totalSets} sets (
+                  {Math.round((completedSetsCount / totalSets) * 100)}%)
+                </p>
+                <Progress value={(completedSetsCount / totalSets) * 100} className="h-2 mb-2" />
+                <p className="text-xs text-gray-500 dark:text-gray-400">
+                  Master all {totalWords} words from our collection of {vocabularySize} Quranic vocabulary terms!
+                </p>
+              </div>
             </CardContent>
             <CardFooter className="flex justify-center">
               <Button onClick={initializeGame} className="bg-emerald-600 hover:bg-emerald-700">
@@ -231,19 +241,25 @@ export default function MemoryGamePage() {
                 </div>
                 <div>Moves: {moves}</div>
                 <div>
-                  Pairs: {matchedPairs}/{vocabularyPairs.length}
+                  Pairs: {matchedPairs}/{currentSet.words.length}
                 </div>
               </div>
-              <Progress value={(matchedPairs / vocabularyPairs.length) * 100} className="h-2" />
+              <Progress value={(matchedPairs / currentSet.words.length) * 100} className="h-2" />
+              <div className="text-center text-sm text-gray-500 dark:text-gray-400 mt-2 mb-6">
+                Playing Set {currentSetIndex + 1}: {currentSet.name}
+              </div>
             </div>
 
             {gameCompleted ? (
               <Card className="max-w-md mx-auto">
                 <CardHeader>
-                  <CardTitle className="text-2xl text-center">Game Completed!</CardTitle>
+                  <CardTitle className="text-2xl text-center">Set Completed!</CardTitle>
                 </CardHeader>
                 <CardContent className="text-center">
                   <p className="text-lg mb-4">Congratulations! You've matched all the pairs.</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+                    You've mastered Set {currentSetIndex + 1}: {currentSet.name}
+                  </p>
                   <div className="grid grid-cols-2 gap-4 mb-6">
                     <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg">
                       <div className="text-sm text-gray-500 dark:text-gray-400">Time</div>
@@ -254,15 +270,23 @@ export default function MemoryGamePage() {
                       <div className="text-xl font-bold">{moves}</div>
                     </div>
                   </div>
+
+                  <div className="bg-emerald-50 dark:bg-emerald-900/20 p-4 rounded-lg mb-4">
+                    <h3 className="font-semibold text-emerald-700 dark:text-emerald-300 mb-2">Your Progress</h3>
+                    <p className="text-sm mb-2">
+                      You've completed {completedSetsCount} of {totalSets} sets (
+                      {Math.round((completedSetsCount / totalSets) * 100)}%)
+                    </p>
+                    <Progress value={(completedSetsCount / totalSets) * 100} className="h-2" />
+                  </div>
                 </CardContent>
                 <CardFooter className="flex justify-between">
                   <Button variant="outline" onClick={initializeGame}>
                     <RefreshCw className="mr-2 h-4 w-4" />
                     Play Again
                   </Button>
-                  <Button className="bg-emerald-600 hover:bg-emerald-700" onClick={startNewGame}>
-                    <RefreshCw className="mr-2 h-4 w-4" />
-                    New Words
+                  <Button className="bg-emerald-600 hover:bg-emerald-700" onClick={() => changeSet("next")}>
+                    Next Set <ChevronRight className="ml-2 h-4 w-4" />
                   </Button>
                 </CardFooter>
               </Card>
