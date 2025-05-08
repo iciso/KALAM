@@ -111,6 +111,11 @@ class VocabularyService {
   getSurahCoveragePercentage(): number {
     return (this.getWordsWithSurahCount() / this.getTotalWordCount()) * 100
   }
+
+  // Add this method to the VocabularyService class
+  getPhase5Words(): VocabularyWord[] {
+    return phase5VocabularyData
+  }
 }
 
 export const vocabularyService = new VocabularyService()

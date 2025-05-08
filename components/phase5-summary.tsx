@@ -1,9 +1,10 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { vocabularyService } from "@/services/vocabulary-service"
+import { phase5VocabularyData } from "@/data/vocabulary-data-expansion-phase5"
 
 export function Phase5Summary() {
-  const phase5Words = vocabularyService.getPhase5Words()
+  // Use the phase5VocabularyData directly instead of trying to get it from the service
+  const phase5Words = phase5VocabularyData
 
   return (
     <Card className="w-full">
