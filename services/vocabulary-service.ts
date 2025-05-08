@@ -10,6 +10,7 @@ import { phase8VocabularyData } from "@/data/vocabulary-data-expansion-phase8"
 import { phase9VocabularyData } from "@/data/vocabulary-data-expansion-phase9"
 import { familyRelationshipsVocabulary, divineAttributesVocabulary } from "@/data/vocabulary-data-expansion-phase10"
 import { prophetsVocabulary } from "@/data/vocabulary-data-prophets"
+import { vocabularyCategories } from "@/data/vocabulary-categories"
 import type { VocabularyWord, Difficulty } from "@/types/vocabulary"
 
 export interface SurahInfo {
@@ -97,6 +98,70 @@ class VocabularyService {
     return surahs.sort((a, b) => a.number - b.number)
   }
 
+  // Get all categories
+  getAllCategories() {
+    return vocabularyCategories.map((category) => ({
+      id: category.id,
+      name: category.name,
+      description: category.description,
+      wordIds: this.getWordsByCategoryId(category.id).map((word) => word.id),
+    }))
+  }
+
+  // Get words by category ID
+  getWordsByCategoryId(categoryId: string): VocabularyWord[] {
+    const category = vocabularyCategories.find((c) => c.id === categoryId)
+    if (!category) return []
+
+    // If it's the prophets category, return all words with the prophets tag
+    if (categoryId === "prophets") {
+      return this.allWords.filter((word) => word.tags && word.tags.includes("prophets"))
+    }
+
+    // For other categories, use the existing logic
+    return this.allWords.filter((word) => {
+      // Check if the word has the category tag
+      if (word.tags && word.tags.includes(categoryId)) {
+        return true
+      }
+
+      // Check if the word is in the category's wordIds
+      if (category.wordIds && category.wordIds.includes(word.id)) {
+        return true
+      }
+
+      return false
+    })
+  }
+
+  // Search for words
+  searchWords(query: string): VocabularyWord[] {
+    const lowercaseQuery = query.toLowerCase()
+    return this.allWords.filter((word) => {
+      // Search in Arabic
+      if (word.arabic.includes(query)) {
+        return true
+      }
+
+      // Search in transliteration
+      if (word.transliteration.toLowerCase().includes(lowercaseQuery)) {
+        return true
+      }
+
+      // Search in meanings
+      if (word.meanings.some((meaning) => meaning.toLowerCase().includes(lowercaseQuery))) {
+        return true
+      }
+
+      // Search in root letters
+      if (word.rootLetters && word.rootLetters.includes(query)) {
+        return true
+      }
+
+      return false
+    })
+  }
+
   // Get total number of words in the dictionary
   getTotalWordCount(): number {
     return this.allWords.length
@@ -112,9 +177,25 @@ class VocabularyService {
     return (this.getWordsWithSurahCount() / this.getTotalWordCount()) * 100
   }
 
-  // Add this method to the VocabularyService class
+  // Phase-specific methods
   getPhase5Words(): VocabularyWord[] {
     return phase5VocabularyData
+  }
+
+  getPhase6Words(): VocabularyWord[] {
+    return phase6VocabularyData
+  }
+
+  getPhase7Words(): VocabularyWord[] {
+    return phase7VocabularyData
+  }
+
+  getPhase8Words(): VocabularyWord[] {
+    return phase8VocabularyData
+  }
+
+  getPhase9Words(): VocabularyWord[] {
+    return phase9VocabularyData
   }
 }
 
