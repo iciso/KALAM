@@ -197,6 +197,34 @@ class VocabularyService {
   getPhase9Words(): VocabularyWord[] {
     return phase9VocabularyData
   }
+
+  // Generic method to get words by phase number
+  getWordsByPhase(phase: number): VocabularyWord[] {
+    switch (phase) {
+      case 1:
+        return additionalVocabularyData
+      case 2:
+        return phase2VocabularyData
+      case 3:
+        return phase3VocabularyData
+      case 4:
+        return phase4VocabularyData
+      case 5:
+        return phase5VocabularyData
+      case 6:
+        return phase6VocabularyData
+      case 7:
+        return phase7VocabularyData
+      case 8:
+        return phase8VocabularyData
+      case 9:
+        return phase9VocabularyData
+      case 10:
+        return [...familyRelationshipsVocabulary, ...divineAttributesVocabulary]
+      default:
+        return []
+    }
+  }
 }
 
 export const vocabularyService = new VocabularyService()
