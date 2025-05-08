@@ -12,6 +12,10 @@ export default function EnhancedSurahTimeline() {
   const [activeIndex, setActiveIndex] = useState(0)
   const [zoomLevel, setZoomLevel] = useState(1)
   const timelineRef = useRef<HTMLDivElement>(null)
+  const [specialConnectionVisible, setSpecialConnectionVisible] = useState(false)
+  const surah58Ref = useRef<HTMLButtonElement>(null)
+  const surah49Ref = useRef<HTMLButtonElement>(null)
+  const [connectionPath, setConnectionPath] = useState("")
 
   // Get the actual data for the active surah
   const activeSurah =
@@ -44,18 +48,76 @@ export default function EnhancedSurahTimeline() {
     }
   }, [activeIndex])
 
+  // Draw special connection between Surah 58 and Surah 49
+  useEffect(() => {
+    // Wait for refs to be available and timeline to be rendered
+    if (surah58Ref.current && surah49Ref.current && timelineRef.current) {
+      // Use requestAnimationFrame to ensure the DOM is fully rendered
+      requestAnimationFrame(() => {
+        const rect58 = surah58Ref.current?.getBoundingClientRect()
+        const rect49 = surah49Ref.current?.getBoundingClientRect()
+        const timelineRect = timelineRef.current?.getBoundingClientRect()
+
+        if (rect58 && rect49 && timelineRect) {
+          // Calculate positions relative to the timeline container
+          const x1 = rect58.left + rect58.width / 2 - timelineRect.left
+          const y1 = rect58.top + rect58.height / 2 - timelineRect.top
+          const x2 = rect49.left + rect49.width / 2 - timelineRect.left
+          const y2 = rect49.top + rect49.height / 2 - timelineRect.top
+
+          // Create a vertical path from 58 to 49
+          setConnectionPath(`M ${x1},${y1} L ${x1},${y1 + (y2 - y1) / 2} L ${x2},${y1 + (y2 - y1) / 2} L ${x2},${y2}`)
+          setSpecialConnectionVisible(true)
+        }
+      })
+    }
+  }, [zoomLevel]) // Re-run when zoom level changes to redraw the connection
+
   // Group surahs into rows for serpentine layout
   const rows = 8 // Number of rows in the serpentine layout
   const itemsPerRow = Math.ceil(fullSurahTimelineData.length / rows)
 
-  // Create the serpentine layout data structure
+  // Find the indices of Surah 58 and 49
+  const surah58Index = fullSurahTimelineData.findIndex((s) => s.id === 58)
+  const surah49Index = fullSurahTimelineData.findIndex((s) => s.id === 49)
+
+  // Calculate which rows they're in
+  const surah58Row = Math.floor(surah58Index / itemsPerRow)
+  const surah49Row = Math.floor(surah49Index / itemsPerRow)
+
+  // Calculate the position within the row for Surah 58
+  const surah58PosInRow =
+    surah58Row % 2 === 0 ? surah58Index % itemsPerRow : itemsPerRow - 1 - (surah58Index % itemsPerRow)
+
+  // Create the serpentine layout data structure with custom alignment
   const serpentineRows = Array.from({ length: rows }, (_, rowIndex) => {
     const start = rowIndex * itemsPerRow
     const end = Math.min(start + itemsPerRow, fullSurahTimelineData.length)
-    const rowItems = fullSurahTimelineData.slice(start, end)
+    let rowItems = fullSurahTimelineData.slice(start, end)
 
     // Reverse every other row for the serpentine effect
-    return rowIndex % 2 === 0 ? rowItems : [...rowItems].reverse()
+    rowItems = rowIndex % 2 === 0 ? rowItems : [...rowItems].reverse()
+
+    // Apply custom offset to align Surah 49 under Surah 58
+    if (rowIndex === surah49Row) {
+      // Calculate how many positions we need to shift
+      const surah49PosInRow =
+        rowIndex % 2 === 0 ? surah49Index % itemsPerRow : itemsPerRow - 1 - (surah49Index % itemsPerRow)
+
+      const offsetNeeded = surah58PosInRow - surah49PosInRow
+
+      if (offsetNeeded > 0) {
+        // Add empty placeholders at the beginning to shift right
+        const placeholders = Array(offsetNeeded).fill(null)
+        rowItems = [...placeholders, ...rowItems]
+      } else if (offsetNeeded < 0) {
+        // Add empty placeholders at the end to shift left
+        const placeholders = Array(Math.abs(offsetNeeded)).fill(null)
+        rowItems = [...rowItems, ...placeholders]
+      }
+    }
+
+    return rowItems
   })
 
   // Determine if a surah has detailed data
@@ -132,21 +194,52 @@ export default function EnhancedSurahTimeline() {
           }}
         >
           <div className="flex flex-col items-center gap-2 min-w-max">
+            {/* Special connection between Surah 58 and 49 */}
+            {specialConnectionVisible && (
+              <svg
+                className="absolute top-0 left-0 w-full h-full pointer-events-none z-0"
+                style={{ overflow: "visible" }}
+              >
+                <defs>
+                  <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+                    <polygon points="0 0, 10 3.5, 0 7" fill="#10b981" />
+                  </marker>
+                </defs>
+                <path
+                  d={connectionPath}
+                  stroke="#10b981"
+                  strokeWidth="2"
+                  strokeDasharray="5,3"
+                  fill="none"
+                  markerEnd="url(#arrowhead)"
+                  className="special-connection"
+                  style={{
+                    visibility: connectionPath ? "visible" : "hidden",
+                  }}
+                />
+              </svg>
+            )}
+
             {serpentineRows.map((row, rowIndex) => (
               <div
                 key={rowIndex}
-                className="flex items-center relative"
+                className="flex items-center justify-center relative"
                 style={{
                   minWidth: `${row.length * 40}px`,
                   height: "40px",
+                  maxWidth: "100%",
+                  margin: "0 auto",
                 }}
               >
                 {/* Connecting line */}
                 <div
-                  className={`absolute h-1 bg-emerald-200 dark:bg-emerald-900 ${
-                    rowIndex % 2 === 0 ? "left-5 right-5" : "left-5 right-5"
-                  }`}
-                  style={{ top: "50%", transform: "translateY(-50%)" }}
+                  className={`absolute h-1 bg-emerald-200 dark:bg-emerald-900`}
+                  style={{
+                    top: "50%",
+                    transform: "translateY(-50%)",
+                    left: "20px",
+                    right: "20px",
+                  }}
                 ></div>
 
                 {/* Vertical connector to next row if not the last row */}
@@ -157,34 +250,43 @@ export default function EnhancedSurahTimeline() {
                       height: "40px",
                       top: "50%",
                       ...(rowIndex % 2 === 0
-                        ? { right: "5px" } // End of even row
-                        : { left: "5px" }), // End of odd row
+                        ? { right: "20px" } // End of even row
+                        : { left: "20px" }), // End of odd row
                     }}
                   ></div>
                 )}
 
                 {/* Timeline nodes */}
                 {row.map((surah, nodeIndex) => {
-                  const globalIndex =
-                    rowIndex % 2 === 0
-                      ? rowIndex * itemsPerRow + nodeIndex
-                      : rowIndex * itemsPerRow + (row.length - nodeIndex - 1)
+                  // Skip rendering for null placeholders
+                  if (surah === null) {
+                    return <div key={`placeholder-${rowIndex}-${nodeIndex}`} className="w-8 h-8 mx-1" />
+                  }
 
+                  const globalIndex = fullSurahTimelineData.findIndex((s) => s.id === surah.id)
                   const isActive = globalIndex === activeIndex
                   const hasData = hasDetailedData(surah.revelationOrder)
+
+                  // Special refs for Surah 58 and 49
+                  const isSurah58 = surah.id === 58
+                  const isSurah49 = surah.id === 49
+                  const specialRef = isSurah58 ? surah58Ref : isSurah49 ? surah49Ref : null
 
                   return (
                     <button
                       key={surah.revelationOrder}
                       data-index={globalIndex}
-                      className={`w-8 h-8 rounded-full z-10 transition-all flex items-center justify-center
+                      data-surah-id={surah.id}
+                      ref={specialRef}
+                      className={`w-8 h-8 mx-1 rounded-full z-10 transition-all flex items-center justify-center
                         ${isActive ? "ring-4 ring-emerald-100 dark:ring-emerald-900 transform scale-125" : ""}
                         ${surah.period === "Meccan" ? "bg-emerald-600" : "bg-blue-600"}
                         ${hasData ? "opacity-100" : "opacity-50"}
+                        ${isSurah58 || isSurah49 ? "ring-2 ring-yellow-400" : ""}
                       `}
                       onClick={() => setActiveIndex(globalIndex)}
                       aria-label={`Go to Surah ${surah.name}`}
-                      title={`${surah.name} (${surah.revelationOrder})`}
+                      title={`${surah.name} (${surah.revelationOrder})${isSurah58 || isSurah49 ? " - Special thematic connection" : ""}`}
                     >
                       <span className="text-white text-xs font-bold">{surah.id > 0 ? surah.id : "?"}</span>
                     </button>
@@ -237,6 +339,11 @@ export default function EnhancedSurahTimeline() {
                     >
                       {activeSurah.period}
                     </Badge>
+                    {(activeSurah.id === 58 || activeSurah.id === 49) && (
+                      <Badge variant="outline" className="ml-2 border-yellow-400 text-yellow-600">
+                        Special Connection
+                      </Badge>
+                    )}
                   </div>
                 </div>
                 <div className="flex items-center justify-center gap-2 text-sm text-gray-600 dark:text-gray-400 mb-4">
@@ -253,6 +360,17 @@ export default function EnhancedSurahTimeline() {
                   <MapPin className="h-4 w-4" />
                   <span>Revelation Order: {activeSurah.revelationOrder}</span>
                 </div>
+
+                {/* Special connection note */}
+                {(activeSurah.id === 58 || activeSurah.id === 49) && (
+                  <div className="mt-4 p-2 bg-yellow-50 dark:bg-yellow-900/20 rounded-md text-sm">
+                    <p className="text-yellow-800 dark:text-yellow-200">
+                      {activeSurah.id === 58
+                        ? "This surah has a special thematic connection with Surah Al-Hujurat (49), both addressing social etiquette and proper conduct."
+                        : "This surah has a special thematic connection with Surah Al-Mujadilah (58), both addressing social etiquette and proper conduct."}
+                    </p>
+                  </div>
+                )}
               </div>
 
               <div className="md:w-2/3">
@@ -282,6 +400,37 @@ export default function EnhancedSurahTimeline() {
                     <p>{activeSurah.significance}</p>
                   </div>
 
+                  {/* Special connection explanation */}
+                  {activeSurah.id === 58 && (
+                    <div className="mt-2 p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-md">
+                      <h4 className="font-semibold text-yellow-800 dark:text-yellow-200">
+                        Connection with Surah Al-Hujurat (49)
+                      </h4>
+                      <p className="text-yellow-700 dark:text-yellow-300 mt-1">
+                        Both surahs address proper social conduct and etiquette in the Muslim community. While
+                        Al-Mujadilah (58) begins with addressing a woman's complaint and establishes principles for
+                        private conversations and gatherings, Al-Hujurat (49) provides comprehensive guidelines for
+                        social interaction, respect for leadership, and avoiding mockery and backbiting. Together, they
+                        form a complete guide to Islamic social ethics.
+                      </p>
+                    </div>
+                  )}
+
+                  {activeSurah.id === 49 && (
+                    <div className="mt-2 p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-md">
+                      <h4 className="font-semibold text-yellow-800 dark:text-yellow-200">
+                        Connection with Surah Al-Mujadilah (58)
+                      </h4>
+                      <p className="text-yellow-700 dark:text-yellow-300 mt-1">
+                        Both surahs establish principles for proper social conduct. Al-Hujurat (49) provides guidelines
+                        for respecting the Prophet, verifying news, reconciling between believers, and avoiding mockery
+                        and suspicion. Al-Mujadilah (58) complements these teachings by addressing private
+                        conversations, proper conduct in gatherings, and the importance of making room for others.
+                        Together, they form a comprehensive guide to Islamic social ethics.
+                      </p>
+                    </div>
+                  )}
+
                   <div className="pt-2 flex gap-2">
                     <Link href={`/vocabulary?search=${activeSurah.arabicName}`}>
                       <Button variant="outline" size="sm">
@@ -293,6 +442,17 @@ export default function EnhancedSurahTimeline() {
                         Explore Surah
                       </Button>
                     </Link>
+                    {(activeSurah.id === 58 || activeSurah.id === 49) && (
+                      <Link href={activeSurah.id === 58 ? `/surah-vocabulary?surah=49` : `/surah-vocabulary?surah=58`}>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="border-yellow-400 text-yellow-600 hover:bg-yellow-50"
+                        >
+                          View Connected Surah
+                        </Button>
+                      </Link>
+                    )}
                   </div>
                 </div>
               </div>
@@ -322,9 +482,13 @@ export default function EnhancedSurahTimeline() {
             <div className="w-4 h-4 rounded-full bg-emerald-600"></div>
             <span className="text-sm">Meccan Surahs (610-622 CE)</span>
           </div>
-          <div className="flex items-center gap-2 mb-3">
+          <div className="flex items-center gap-2 mb-2">
             <div className="w-4 h-4 rounded-full bg-blue-600"></div>
             <span className="text-sm">Medinan Surahs (622-632 CE)</span>
+          </div>
+          <div className="flex items-center gap-2 mb-3">
+            <div className="w-4 h-4 rounded-full ring-2 ring-yellow-400 bg-blue-600"></div>
+            <span className="text-sm">Surahs with special thematic connections</span>
           </div>
           <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
             This timeline represents the chronological order of revelation of the surahs of the Quran. The serpentine
@@ -334,6 +498,11 @@ export default function EnhancedSurahTimeline() {
           <p className="text-sm text-gray-600 dark:text-gray-400">
             The traditional order of the Quran (by surah number) differs from the chronological order of revelation.
             This timeline helps understand the historical context of each surah's revelation.
+          </p>
+          <p className="text-sm text-yellow-600 dark:text-yellow-400 mt-2">
+            <strong>Special Connections:</strong> Some surahs share strong thematic relationships despite being revealed
+            at different times. The connection between Surah Al-Mujadilah (58) and Surah Al-Hujurat (49) highlights
+            complementary teachings on social etiquette and community conduct.
           </p>
         </CardContent>
       </Card>
