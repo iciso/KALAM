@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { vocabularyService } from "@/services/vocabulary-service"
+import { enhancedVocabularyService } from "@/services/enhanced-vocabulary-service"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Search, ChevronDown, ChevronUp } from "lucide-react"
@@ -24,7 +24,7 @@ export function VocabularyCategoryLinks({
   maxInitialCategories = 8,
   compact = false,
 }: VocabularyCategoryLinksProps) {
-  const categories = vocabularyService.getAllCategories()
+  const categories = enhancedVocabularyService.getAllCategories()
   const [searchQuery, setSearchQuery] = useState("")
   const [showAll, setShowAll] = useState(false)
 

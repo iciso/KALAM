@@ -63,7 +63,9 @@
     "framer-motion": "latest",
     "@dnd-kit/sortable": "latest",
     "@dnd-kit/utilities": "latest",
-    "canvas-confetti": "latest"
+    "canvas-confetti": "latest",
+    "fs": "latest",
+    "path": "latest"
   },
   "devDependencies": {
     "@types/node": "^22",

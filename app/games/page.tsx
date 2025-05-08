@@ -107,6 +107,21 @@ export default function GamesPage() {
 
         <Card>
           <CardHeader>
+            <CardTitle>Word Jumble</CardTitle>
+            <CardDescription>Unscramble Arabic letters to form Quranic words</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p>Test your vocabulary knowledge by rearranging jumbled Arabic letters to form correct Quranic words.</p>
+          </CardContent>
+          <CardFooter>
+            <Link href="/games/jumble" passHref>
+              <Button>Play Now</Button>
+            </Link>
+          </CardFooter>
+        </Card>
+
+        <Card>
+          <CardHeader>
             <CardTitle>Fill in the Blanks</CardTitle>
             <CardDescription>Complete Quranic sentences by filling in missing words</CardDescription>
           </CardHeader>

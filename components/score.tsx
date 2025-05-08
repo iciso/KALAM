@@ -3,13 +3,13 @@
 import { motion } from "framer-motion"
 import { cn } from "@/lib/utils"
 
-interface ImanOMeterProps {
+interface IlmMeterProps {
   score: number
   maxScore: number
   className?: string
 }
 
-export function ImanOMeter({ score, maxScore, className }: ImanOMeterProps) {
+export function IlmMeter({ score, maxScore, className }: IlmMeterProps) {
   // Calculate percentage of score
   const percentage = Math.max(0, Math.min(100, (score / maxScore) * 100))
 
@@ -31,7 +31,7 @@ export function ImanOMeter({ score, maxScore, className }: ImanOMeterProps) {
   return (
     <div className={cn("w-full", className)}>
       <div className="flex justify-between mb-1">
-        <span className="text-sm font-medium">Iman-o-meter</span>
+        <span className="text-sm font-medium">Ilm-Meter</span>
         <span className={cn("text-sm font-medium", getTextColor(percentage))}>
           {score} / {maxScore}
         </span>
@@ -51,3 +51,6 @@ export function ImanOMeter({ score, maxScore, className }: ImanOMeterProps) {
     </div>
   )
 }
+
+// Keep the old component name for backward compatibility
+export const ImanOMeter = IlmMeter

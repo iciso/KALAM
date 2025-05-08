@@ -1,4 +1,6 @@
 import { SurahVocabularyBrowser } from "../../components/surah-vocabulary-browser"
+import EnhancedSurahTimeline from "@/components/enhanced-surah-timeline"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 export default function SurahVocabularyPage() {
   return (
@@ -11,7 +13,18 @@ export default function SurahVocabularyPage() {
       </header>
 
       <main className="container mx-auto px-4 py-8">
-        <SurahVocabularyBrowser />
+        <Tabs defaultValue="browser" className="mb-8">
+          <TabsList className="grid w-full grid-cols-2">
+            <TabsTrigger value="browser">Surah Browser</TabsTrigger>
+            <TabsTrigger value="timeline">Revelation Timeline</TabsTrigger>
+          </TabsList>
+          <TabsContent value="browser" className="pt-4">
+            <SurahVocabularyBrowser />
+          </TabsContent>
+          <TabsContent value="timeline" className="pt-4">
+            <EnhancedSurahTimeline />
+          </TabsContent>
+        </Tabs>
       </main>
     </div>
   )

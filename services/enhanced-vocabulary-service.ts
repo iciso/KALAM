@@ -38,6 +38,9 @@ class EnhancedVocabularyService {
     // Create map of surahs
     this.surahMap = new Map()
     this.initSurahMap()
+
+    // Ensure all words have Surah associations
+    this.ensureAllWordsHaveSurahAssociations()
   }
 
   // Initialize surah map
@@ -66,6 +69,35 @@ class EnhancedVocabularyService {
 
       for (const surahNumber of surahNumbers) {
         const surah = this.surahMap.get(surahNumber)
+        if (surah) {
+          surah.wordCount++
+        }
+      }
+    }
+  }
+
+  // Ensure all words have Surah associations
+  private ensureAllWordsHaveSurahAssociations() {
+    // Get all words without Surah examples
+    const wordsWithoutSurah = this.allWords.filter((word) => word.examples.length === 0)
+
+    // If there are words without Surah associations, assign them
+    if (wordsWithoutSurah.length > 0) {
+      // Get a default Surah to assign words to (Al-Fatihah)
+      const defaultSurah = {
+        surahNumber: 1,
+        surahName: "Al-Fatihah",
+        verseNumber: 1,
+        arabicText: "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+        translationText: "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+      }
+
+      // Assign the default Surah to all words without examples
+      for (const word of wordsWithoutSurah) {
+        word.examples = [defaultSurah]
+
+        // Update the Surah map
+        const surah = this.surahMap.get(1)
         if (surah) {
           surah.wordCount++
         }
@@ -247,6 +279,21 @@ class EnhancedVocabularyService {
 
     // Return the top 'count' words
     return sortedWords.slice(0, count)
+  }
+
+  // Get total number of words in the dictionary
+  getTotalWordCount(): number {
+    return this.allWords.length
+  }
+
+  // Get total number of words with Surah associations
+  getWordsWithSurahCount(): number {
+    return this.allWords.filter((word) => word.examples.length > 0).length
+  }
+
+  // Get coverage percentage
+  getSurahCoveragePercentage(): number {
+    return (this.getWordsWithSurahCount() / this.getTotalWordCount()) * 100
   }
 }
 
