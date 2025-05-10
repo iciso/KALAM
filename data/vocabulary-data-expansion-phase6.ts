@@ -184,7 +184,7 @@ export const phase6VocabularyData: VocabularyWord[] = [
         surahNumber: 92,
         surahName: "Al-Layl",
         ayahNumber: 1,
-        arabicText: "وَاللَّيْلِ إِذَا يَغْشَىٰ",
+        arabicText: "وَاللَّيْلِ إِذ��ا يَغْشَىٰ",
         translationText: "By the night when it covers",
         wordLocation: {
           startIndex: 1,

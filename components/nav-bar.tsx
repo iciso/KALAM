@@ -77,6 +77,13 @@ export function NavBar() {
           icon: <Clock className="h-4 w-4" />,
           isInteractive: true,
         },
+        {
+          name: "Isra & Miraj",
+          shortName: "Isra",
+          href: "/isra-miraj",
+          icon: <Clock className="h-4 w-4" />,
+          isInteractive: true,
+        },
         { name: "Word Lists", href: "/word-lists", icon: <ListTodo className="h-4 w-4" />, isInteractive: true },
       ],
     },

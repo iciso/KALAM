@@ -192,7 +192,7 @@ export default function JumblePage() {
       {!gameStarted ? (
         <Card className="max-w-2xl mx-auto">
           <CardHeader>
-            <CardTitle>Welcome to Word Jumble!</CardTitle>
+            <CardTitle>Quranic Jumble!</CardTitle>
             <CardDescription>Rearrange the jumbled Arabic letters to form Quranic words</CardDescription>
           </CardHeader>
           <CardContent>

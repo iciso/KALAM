@@ -182,7 +182,7 @@ export default function MemoryGamePage() {
         {!gameStarted ? (
           <Card className="max-w-md mx-auto">
             <CardHeader>
-              <CardTitle className="text-2xl text-center">Memory Match Game</CardTitle>
+              <CardTitle className="text-2xl text-center">Memory Match</CardTitle>
               <CardDescription className="text-center">Match Arabic words with their meanings</CardDescription>
             </CardHeader>
             <CardContent className="text-center">

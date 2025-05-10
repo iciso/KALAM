@@ -133,7 +133,7 @@ export default function DivineAttributesMatchingGame() {
     <div className="container mx-auto px-4 py-8">
       <Card className="mb-6">
         <CardHeader>
-          <CardTitle className="text-center text-2xl">Divine Attributes Matching Game</CardTitle>
+          <CardTitle className="text-center text-2xl">Match Names of Allah</CardTitle>
           <CardDescription className="text-center">
             Match the Arabic names of Allah with their English meanings
           </CardDescription>

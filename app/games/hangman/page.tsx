@@ -150,7 +150,7 @@ export default function HangmanGame() {
               <span className="sr-only">Back to Games</span>
             </Button>
           </Link>
-          <h1 className="text-2xl font-bold">Vocabulary Hangman</h1>
+          <h1 className="text-2xl font-bold">Quranic Hangman</h1>
           <Link href="/">
             <Button variant="ghost" size="icon">
               <Home className="h-5 w-5" />

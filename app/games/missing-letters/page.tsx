@@ -1,7 +1,7 @@
 import { MissingLettersGame } from "@/components/missing-letters-game"
 
 export const metadata = {
-  title: "Missing Letters Game | KALAM",
+  title: "Missing Letters | KALAM",
   description: "Fill in the missing letters in Arabic words from the Quran",
 }
 

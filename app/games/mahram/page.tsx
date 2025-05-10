@@ -1,7 +1,7 @@
 import MahramGame from "@/components/mahram-game"
 
 export const metadata = {
-  title: "Knowing Your Mahram - KALAM",
+  title: "Knowing Your Mahram",
   description: "Learn about Mahram relationships in Islam through an interactive game with Quranic references",
 }
 
