@@ -1,4 +1,7 @@
 import { InteractiveIsraMiraj } from "@/components/interactive-isra-miraj"
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import { Clock } from "lucide-react"
 
 export const metadata = {
   title: "Isra and Miraj - The Night Journey",
@@ -11,9 +14,18 @@ export default function IsraMirajPage() {
       <h1 className="text-3xl font-bold text-center mb-2 text-amber-700 dark:text-amber-300">
         Isra and Miraj: The Night Journey
       </h1>
-      <p className="text-center mb-8 text-amber-600 dark:text-amber-400">
+      <p className="text-center mb-4 text-amber-600 dark:text-amber-400">
         Explore the miraculous journey of Prophet Muhammad ﷺ from Mecca to Jerusalem and through the seven heavens
       </p>
+
+      <div className="flex justify-center mb-8">
+        <Link href="/isra-miraj/timeline-comparison">
+          <Button variant="outline" className="flex items-center gap-2">
+            <Clock className="h-4 w-4" />
+            View in Prophetic Timeline
+          </Button>
+        </Link>
+      </div>
 
       <InteractiveIsraMiraj />
 
