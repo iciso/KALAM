@@ -290,7 +290,7 @@ export default function QuizzesPage() {
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       <header className="bg-emerald-800 text-white py-4">
         <div className="container mx-auto px-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold">Quran Vocabulary Quiz</h1>
+          <h1 className="text-2xl font-bold">Quranic Quizzes</h1>
           <Link href="/">
             <Button variant="ghost" size="icon">
               <Home className="h-5 w-5" />
