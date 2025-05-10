@@ -2,19 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import {
-  ArrowLeft,
-  CheckCircle,
-  Home,
-  XCircle,
-  RefreshCw,
-  BookOpen,
-  Tag,
-  Clock,
-  Trophy,
-  Repeat,
-  MapPin,
-} from "lucide-react"
+import { ArrowLeft, CheckCircle, Home, XCircle, RefreshCw, Clock, Trophy } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
@@ -25,13 +13,13 @@ import { vocabularyService } from "@/services/vocabulary-service"
 
 // Constants for quiz configuration
 const WORDS_PER_SESSION = 10 // Number of questions per session
-const TOTAL_WORDS_TO_USE = 400 // Total words to use from dictionary
+const TOTAL_WORDS_TO_USE = 200 // Total words to use from dictionary
 const MAX_TIME_PER_QUESTION = 30 // Maximum time allowed per question in seconds
 const BASE_POINTS_PER_CORRECT = 100 // Base points for a correct answer
 const TIME_BONUS_MULTIPLIER = 3 // Points per second saved
 
-// Function to generate random quiz questions from vocabulary
-const generateRandomQuizQuestions = (startIndex = 0, wordsPerSession = WORDS_PER_SESSION) => {
+// Function to generate random reverse quiz questions from vocabulary
+const generateRandomReverseQuizQuestions = (startIndex = 0, wordsPerSession = WORDS_PER_SESSION) => {
   const allWords = vocabularyService.getAllWords()
   const shuffledWords = [...allWords].sort(() => 0.5 - Math.random())
 
@@ -43,11 +31,11 @@ const generateRandomQuizQuestions = (startIndex = 0, wordsPerSession = WORDS_PER
     const wrongOptions = shuffledWords
       .filter((w) => w.id !== word.id)
       .slice(0, 3)
-      .map((w) => w.meanings[0])
+      .map((w) => w.arabic)
 
     // Create all options including the correct one
     const options = [
-      { id: "a", text: word.meanings[0] },
+      { id: "a", text: word.arabic },
       { id: "b", text: wrongOptions[0] },
       { id: "c", text: wrongOptions[1] },
       { id: "d", text: wrongOptions[2] },
@@ -57,11 +45,11 @@ const generateRandomQuizQuestions = (startIndex = 0, wordsPerSession = WORDS_PER
     const shuffledOptions = [...options].sort(() => 0.5 - Math.random())
 
     // Find the new position of the correct answer
-    const correctAnswerId = shuffledOptions.find((option) => option.text === word.meanings[0])?.id || "a"
+    const correctAnswerId = shuffledOptions.find((option) => option.text === word.arabic)?.id || "a"
 
     return {
       id: index + 1,
-      question: `What does '${word.arabic}' mean?`,
+      question: `Which Arabic word means '${word.meanings[0]}'?`,
       options: shuffledOptions,
       correctAnswer: correctAnswerId,
       word: word, // Store the original word for reference
@@ -83,8 +71,8 @@ const calculatePoints = (isCorrect: boolean, timeSpent: number) => {
   return points + timeBonus
 }
 
-export default function QuizzesPage() {
-  const [quizQuestions, setQuizQuestions] = useState(() => generateRandomQuizQuestions())
+export default function ReverseQuizPage() {
+  const [quizQuestions, setQuizQuestions] = useState(() => generateRandomReverseQuizQuestions())
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
   const [selectedOption, setSelectedOption] = useState<string | null>(null)
   const [isAnswered, setIsAnswered] = useState(false)
@@ -92,7 +80,6 @@ export default function QuizzesPage() {
   const [points, setPoints] = useState(0) // Point-based score
   const [quizCompleted, setQuizCompleted] = useState(false)
   const [timeLeft, setTimeLeft] = useState(MAX_TIME_PER_QUESTION)
-  const [showQuizOptions, setShowQuizOptions] = useState(true)
   const [questionStartTime, setQuestionStartTime] = useState(0)
   const [questionResults, setQuestionResults] = useState<
     Array<{
@@ -100,6 +87,7 @@ export default function QuizzesPage() {
       timeSpent: number
       points: number
       word: string
+      meaning: string
     }>
   >([])
 
@@ -119,7 +107,7 @@ export default function QuizzesPage() {
     (((currentSession - 1) * WORDS_PER_SESSION + currentQuestionIndex + 1) / TOTAL_WORDS_TO_USE) * 100
 
   useEffect(() => {
-    if (!isAnswered && !quizCompleted && !showQuizOptions) {
+    if (!isAnswered && !quizCompleted) {
       // Set the start time when a new question is shown
       if (questionStartTime === 0) {
         setQuestionStartTime(Date.now())
@@ -138,7 +126,7 @@ export default function QuizzesPage() {
 
       return () => clearInterval(timer)
     }
-  }, [isAnswered, quizCompleted, showQuizOptions, questionStartTime])
+  }, [isAnswered, quizCompleted, questionStartTime])
 
   const handleOptionSelect = (optionId: string) => {
     if (!isAnswered) {
@@ -169,6 +157,7 @@ export default function QuizzesPage() {
         timeSpent,
         points: earnedPoints,
         word: currentQuestion.word.arabic,
+        meaning: currentQuestion.word.meanings[0],
       },
     ])
 
@@ -215,7 +204,7 @@ export default function QuizzesPage() {
     if (nextSession <= totalSessions) {
       setCurrentSession(nextSession)
       setCurrentStartIndex(nextStartIndex)
-      setQuizQuestions(generateRandomQuizQuestions(nextStartIndex))
+      setQuizQuestions(generateRandomReverseQuizQuestions(nextStartIndex))
       setCurrentQuestionIndex(0)
       setSelectedOption(null)
       setIsAnswered(false)
@@ -229,13 +218,13 @@ export default function QuizzesPage() {
     } else {
       // All sessions completed - could navigate to a final results page
       // For now, just reset to the quiz options
-      setShowQuizOptions(true)
+      resetQuiz()
     }
   }
 
   const resetQuiz = () => {
     // Reset current session
-    setQuizQuestions(generateRandomQuizQuestions(currentStartIndex))
+    setQuizQuestions(generateRandomReverseQuizQuestions(currentStartIndex))
     setCurrentQuestionIndex(0)
     setSelectedOption(null)
     setIsAnswered(false)
@@ -256,7 +245,7 @@ export default function QuizzesPage() {
     setOverallPoints(0)
     setSessionScores([])
     setTotalTimeSpent(0)
-    setQuizQuestions(generateRandomQuizQuestions(0))
+    setQuizQuestions(generateRandomReverseQuizQuestions(0))
     setCurrentQuestionIndex(0)
     setSelectedOption(null)
     setIsAnswered(false)
@@ -267,11 +256,6 @@ export default function QuizzesPage() {
     setQuizCompleted(false)
     setTimeLeft(MAX_TIME_PER_QUESTION)
     setQuestionStartTime(0)
-  }
-
-  const startGeneralQuiz = () => {
-    setShowQuizOptions(false)
-    startNewQuiz()
   }
 
   // Format time in minutes and seconds
@@ -288,237 +272,133 @@ export default function QuizzesPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-      <header className="bg-emerald-800 text-white py-4">
+      <header className="bg-purple-800 text-white py-4">
         <div className="container mx-auto px-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold">Quran Vocabulary Quiz</h1>
-          <Link href="/">
+          <h1 className="text-2xl font-bold">Reverse Quran Vocabulary Quiz</h1>
+          <Link href="/quizzes">
             <Button variant="ghost" size="icon">
-              <Home className="h-5 w-5" />
-              <span className="sr-only">Home</span>
+              <ArrowLeft className="h-5 w-5" />
+              <span className="sr-only">Back to Quizzes</span>
             </Button>
           </Link>
         </div>
       </header>
 
       <main className="container mx-auto px-4 py-8">
-        {showQuizOptions ? (
-          <div className="max-w-2xl mx-auto grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-xl">General Quiz</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 dark:text-gray-400 mb-4">
-                  Test your knowledge of vocabulary words from the entire Quranic dictionary. Covers{" "}
-                  {TOTAL_WORDS_TO_USE} words in {totalSessions} sessions.
-                </p>
-              </CardContent>
-              <CardFooter>
-                <Button onClick={startGeneralQuiz} className="w-full bg-emerald-600 hover:bg-emerald-700">
-                  Start General Quiz
-                </Button>
-              </CardFooter>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-xl relative">Surah-Specific Quiz</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 dark:text-gray-400 mb-4">
-                  Focus on vocabulary from a specific Surah (chapter) of the Quran.
-                </p>
-              </CardContent>
-              <CardFooter>
-                <Link href="/quizzes/surah" className="w-full">
-                  <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
-                    <BookOpen className="mr-2 h-4 w-4" />
-                    Browse Surah Quizzes
-                  </Button>
-                </Link>
-              </CardFooter>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-xl">Category Quiz</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 dark:text-gray-400 mb-4">
-                  Test your vocabulary knowledge organized by categories like divine attributes, prophets, ethics,
-                  afterlife, and more.
-                </p>
-              </CardContent>
-              <CardFooter>
-                <Link href="/quizzes/categories" className="w-full">
-                  <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
-                    <Tag className="mr-2 h-4 w-4" />
-                    Browse Categories
-                  </Button>
-                </Link>
-              </CardFooter>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-xl relative">
-                  Reverse Word Quiz
-                  <span className="absolute -top-2 -right-2 bg-emerald-500 text-white text-xs font-bold px-2 py-1 rounded-full">
-                    NEW
-                  </span>
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 dark:text-gray-400 mb-4">
-                  Challenge yourself with English meanings and select the correct Arabic word. Tests your recall rather
-                  than just recognition.
-                </p>
-              </CardContent>
-              <CardFooter>
-                <Link href="/quizzes/reverse" className="w-full">
-                  <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
-                    <Repeat className="mr-2 h-4 w-4" />
-                    Start Reverse Quiz
-                  </Button>
-                </Link>
-              </CardFooter>
-            </Card>
-
-            {/* New Hijra Quiz Card */}
-            <Card className="border-orange-200 dark:border-orange-800">
-              <CardHeader>
-                <CardTitle className="text-xl relative flex items-center gap-2">
-                  <MapPin className="h-4 w-4 text-orange-600" />
-                  Hijra Journey Quiz
-                  <span className="absolute -top-2 -right-2 bg-orange-500 text-white text-xs font-bold px-2 py-1 rounded-full">
-                    NEW
-                  </span>
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 dark:text-gray-400 mb-4">
-                  Test your knowledge of the Prophet's historic migration from Mecca to Medina, including key events,
-                  locations, and Quranic references.
-                </p>
-              </CardContent>
-              <CardFooter>
-                <Link href="/hijra/quiz" className="w-full">
-                  <Button className="w-full bg-orange-600 hover:bg-orange-700">
-                    <MapPin className="mr-2 h-4 w-4" />
-                    Start Hijra Quiz
-                  </Button>
-                </Link>
-              </CardFooter>
-            </Card>
-
-            <div className="md:col-span-2 lg:col-span-4">
-              <Link href="/">
-                <Button variant="ghost" className="w-full">
-                  <ArrowLeft className="mr-2 h-4 w-4" />
-                  Back to Home
-                </Button>
-              </Link>
-            </div>
-          </div>
-        ) : !quizCompleted ? (
+        {!quizCompleted ? (
           <>
-            <div className="mb-2">
-              <div className="flex justify-between mb-1 text-sm text-gray-600 dark:text-gray-400">
-                <span>Session progress:</span>
-                <span>
-                  {currentQuestionIndex + 1} of {quizQuestions.length}
-                </span>
-              </div>
-              <Progress value={progress} className="h-2" />
+            <div className="max-w-2xl mx-auto mb-8">
+              <Card className="mb-6 border-purple-200 dark:border-purple-800">
+                <CardHeader className="bg-purple-50 dark:bg-purple-950/30 rounded-t-lg">
+                  <CardTitle className="text-xl">Reverse Quiz: English to Arabic</CardTitle>
+                </CardHeader>
+                <CardContent className="pt-4">
+                  <p className="text-gray-600 dark:text-gray-400 mb-4">
+                    This quiz tests your ability to recall Arabic words when given their English meanings. This is more
+                    challenging than recognizing Arabic words and helps build active vocabulary skills.
+                  </p>
+                </CardContent>
+              </Card>
             </div>
 
-            <div className="mb-4">
-              <div className="flex justify-between mb-1 text-sm text-gray-600 dark:text-gray-400">
-                <span>Overall progress:</span>
-                <span>
-                  Session {currentSession} of {totalSessions}
-                </span>
+            <div className="max-w-2xl mx-auto">
+              <div className="mb-2">
+                <div className="flex justify-between mb-1 text-sm text-gray-600 dark:text-gray-400">
+                  <span>Session progress:</span>
+                  <span>
+                    {currentQuestionIndex + 1} of {quizQuestions.length}
+                  </span>
+                </div>
+                <Progress value={progress} className="h-2 bg-purple-100 dark:bg-purple-900" />
               </div>
-              <Progress value={overallProgress} className="h-2 bg-emerald-100 dark:bg-emerald-900" />
-              <div className="flex justify-between mt-1 text-sm text-gray-600 dark:text-gray-400">
-                <span>
-                  Word {(currentSession - 1) * WORDS_PER_SESSION + currentQuestionIndex + 1} of {TOTAL_WORDS_TO_USE}
-                </span>
-                <span className="flex items-center">
-                  <Clock className="h-3 w-3 mr-1" /> {timeLeft}s
-                </span>
+
+              <div className="mb-4">
+                <div className="flex justify-between mb-1 text-sm text-gray-600 dark:text-gray-400">
+                  <span>Overall progress:</span>
+                  <span>
+                    Session {currentSession} of {totalSessions}
+                  </span>
+                </div>
+                <Progress value={overallProgress} className="h-2 bg-purple-100 dark:bg-purple-900" />
+                <div className="flex justify-between mt-1 text-sm text-gray-600 dark:text-gray-400">
+                  <span>
+                    Word {(currentSession - 1) * WORDS_PER_SESSION + currentQuestionIndex + 1} of {TOTAL_WORDS_TO_USE}
+                  </span>
+                  <span className="flex items-center">
+                    <Clock className="h-3 w-3 mr-1" /> {timeLeft}s
+                  </span>
+                </div>
               </div>
-            </div>
 
-            {/* Add the statistics card here */}
-            <div className="mb-4 p-3 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg border border-emerald-100 dark:border-emerald-800">
-              <p className="text-sm text-emerald-800 dark:text-emerald-200">
-                <span className="font-medium">Quiz Stats:</span> This comprehensive quiz covers {TOTAL_WORDS_TO_USE}{" "}
-                words from a total of 403 words in our dictionary ({((TOTAL_WORDS_TO_USE / 403) * 100).toFixed(2)}%).
-                You're currently in session {currentSession} of {totalSessions}.
-              </p>
-              <p className="text-sm text-emerald-800 dark:text-emerald-200 mt-1">
-                <span className="font-medium">Scoring:</span> Earn {BASE_POINTS_PER_CORRECT} points for each correct
-                answer plus {TIME_BONUS_MULTIPLIER} points for each second saved!
-              </p>
-            </div>
+              {/* Add the statistics card here */}
+              <div className="mb-4 p-3 bg-purple-50 dark:bg-purple-900/20 rounded-lg border border-purple-100 dark:border-purple-800">
+                <p className="text-sm text-purple-800 dark:text-purple-200">
+                  <span className="font-medium">Quiz Stats:</span> This reverse quiz covers {TOTAL_WORDS_TO_USE} words
+                  from our dictionary. You're currently in session {currentSession} of {totalSessions}.
+                </p>
+                <p className="text-sm text-purple-800 dark:text-purple-200 mt-1">
+                  <span className="font-medium">Scoring:</span> Earn {BASE_POINTS_PER_CORRECT} points for each correct
+                  answer plus {TIME_BONUS_MULTIPLIER} points for each second saved!
+                </p>
+              </div>
 
-            <Card className="mb-8">
-              <CardHeader>
-                <CardTitle className="text-xl">{currentQuestion.question}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <RadioGroup value={selectedOption || ""} className="space-y-4">
-                  {currentQuestion.options.map((option) => (
-                    <div
-                      key={option.id}
-                      className={`flex items-center space-x-2 p-4 rounded-lg border ${
-                        isAnswered && option.id === currentQuestion.correctAnswer
-                          ? "bg-green-50 border-green-200 dark:bg-green-900/20 dark:border-green-800"
-                          : isAnswered && option.id === selectedOption && option.id !== currentQuestion.correctAnswer
-                            ? "bg-red-50 border-red-200 dark:bg-red-900/20 dark:border-red-800"
-                            : "hover:bg-gray-50 dark:hover:bg-gray-800"
-                      }`}
-                      onClick={() => handleOptionSelect(option.id)}
-                    >
-                      <RadioGroupItem
-                        value={option.id}
-                        id={`option-${option.id}`}
-                        disabled={isAnswered}
-                        className="sr-only"
-                      />
-                      <Label
-                        htmlFor={`option-${option.id}`}
-                        className="flex-1 cursor-pointer flex items-center justify-between"
+              <Card className="mb-8">
+                <CardHeader>
+                  <CardTitle className="text-xl">{currentQuestion.question}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <RadioGroup value={selectedOption || ""} className="space-y-4">
+                    {currentQuestion.options.map((option) => (
+                      <div
+                        key={option.id}
+                        className={`flex items-center space-x-2 p-4 rounded-lg border ${
+                          isAnswered && option.id === currentQuestion.correctAnswer
+                            ? "bg-green-50 border-green-200 dark:bg-green-900/20 dark:border-green-800"
+                            : isAnswered && option.id === selectedOption && option.id !== currentQuestion.correctAnswer
+                              ? "bg-red-50 border-red-200 dark:bg-red-900/20 dark:border-red-800"
+                              : "hover:bg-gray-50 dark:hover:bg-gray-800"
+                        }`}
+                        onClick={() => handleOptionSelect(option.id)}
                       >
-                        <span>{option.text}</span>
-                        {isAnswered && option.id === currentQuestion.correctAnswer && (
-                          <CheckCircle className="h-5 w-5 text-green-500" />
-                        )}
-                        {isAnswered && option.id === selectedOption && option.id !== currentQuestion.correctAnswer && (
-                          <XCircle className="h-5 w-5 text-red-500" />
-                        )}
-                      </Label>
-                    </div>
-                  ))}
-                </RadioGroup>
-              </CardContent>
-              <CardFooter className="flex justify-between">
-                {!isAnswered ? (
-                  <Button
-                    onClick={handleSubmit}
-                    disabled={!selectedOption}
-                    className="bg-emerald-600 hover:bg-emerald-700"
-                  >
-                    Submit Answer
-                  </Button>
-                ) : (
-                  <Button onClick={handleNextQuestion} className="bg-emerald-600 hover:bg-emerald-700">
-                    {currentQuestionIndex < quizQuestions.length - 1 ? "Next Question" : "Complete Session"}
-                  </Button>
-                )}
-              </CardFooter>
-            </Card>
+                        <RadioGroupItem
+                          value={option.id}
+                          id={`option-${option.id}`}
+                          disabled={isAnswered}
+                          className="sr-only"
+                        />
+                        <Label
+                          htmlFor={`option-${option.id}`}
+                          className="flex-1 cursor-pointer flex items-center justify-between"
+                        >
+                          <span className="font-arabic text-xl">{option.text}</span>
+                          {isAnswered && option.id === currentQuestion.correctAnswer && (
+                            <CheckCircle className="h-5 w-5 text-green-500" />
+                          )}
+                          {isAnswered &&
+                            option.id === selectedOption &&
+                            option.id !== currentQuestion.correctAnswer && <XCircle className="h-5 w-5 text-red-500" />}
+                        </Label>
+                      </div>
+                    ))}
+                  </RadioGroup>
+                </CardContent>
+                <CardFooter className="flex justify-between">
+                  {!isAnswered ? (
+                    <Button
+                      onClick={handleSubmit}
+                      disabled={!selectedOption}
+                      className="bg-purple-600 hover:bg-purple-700"
+                    >
+                      Submit Answer
+                    </Button>
+                  ) : (
+                    <Button onClick={handleNextQuestion} className="bg-purple-600 hover:bg-purple-700">
+                      {currentQuestionIndex < quizQuestions.length - 1 ? "Next Question" : "Complete Session"}
+                    </Button>
+                  )}
+                </CardFooter>
+              </Card>
+            </div>
           </>
         ) : (
           <Card className="max-w-md mx-auto">
@@ -531,14 +411,14 @@ export default function QuizzesPage() {
               <div className="flex justify-center items-center gap-4 mb-4">
                 <div className="text-center">
                   <div className="text-sm text-gray-500 mb-1">Accuracy</div>
-                  <div className="text-4xl font-bold text-emerald-600">
+                  <div className="text-4xl font-bold text-purple-600">
                     {score}/{quizQuestions.length}
                   </div>
                   <div className="text-sm text-gray-500">{Math.round((score / quizQuestions.length) * 100)}%</div>
                 </div>
                 <div className="text-center">
                   <div className="text-sm text-gray-500 mb-1">Points</div>
-                  <div className="text-4xl font-bold text-emerald-600">{formatPoints(points)}</div>
+                  <div className="text-4xl font-bold text-purple-600">{formatPoints(points)}</div>
                   <div className="text-sm text-gray-500">
                     <Clock className="inline h-3 w-3 mr-1" />
                     {formatTime(sessionTimeSpent)}
@@ -548,19 +428,19 @@ export default function QuizzesPage() {
 
               <p className="mb-4">
                 {score === quizQuestions.length
-                  ? "Perfect score! Excellent work!"
+                  ? "Perfect score! Your Arabic recall is excellent!"
                   : score >= quizQuestions.length * 0.7
-                    ? "Great job! You're making good progress."
-                    : "Keep practicing! You'll improve with time."}
+                    ? "Great job! Your Arabic recall is developing well."
+                    : "Keep practicing! Recalling Arabic words takes time to master."}
               </p>
 
               {/* Question Results Table */}
               <div className="mb-6 border rounded-lg overflow-hidden">
                 <div className="text-sm font-medium text-left bg-gray-100 dark:bg-gray-800 p-2">
                   <div className="grid grid-cols-12 gap-2">
-                    <div className="col-span-5">Word</div>
-                    <div className="col-span-3 text-center">Result</div>
-                    <div className="col-span-2 text-center">Time</div>
+                    <div className="col-span-4">English</div>
+                    <div className="col-span-4">Arabic</div>
+                    <div className="col-span-2 text-center">Result</div>
                     <div className="col-span-2 text-center">Points</div>
                   </div>
                 </div>
@@ -568,15 +448,15 @@ export default function QuizzesPage() {
                   {questionResults.map((result, index) => (
                     <div key={index} className="text-sm p-2">
                       <div className="grid grid-cols-12 gap-2 items-center">
-                        <div className="col-span-5 font-arabic text-right">{result.word}</div>
-                        <div className="col-span-3 text-center">
+                        <div className="col-span-4">{result.meaning}</div>
+                        <div className="col-span-4 font-arabic text-right">{result.word}</div>
+                        <div className="col-span-2 text-center">
                           {result.correct ? (
                             <CheckCircle className="h-4 w-4 text-green-500 mx-auto" />
                           ) : (
                             <XCircle className="h-4 w-4 text-red-500 mx-auto" />
                           )}
                         </div>
-                        <div className="col-span-2 text-center">{result.timeSpent.toFixed(1)}s</div>
                         <div className="col-span-2 text-center">{formatPoints(result.points)}</div>
                       </div>
                     </div>
@@ -601,7 +481,7 @@ export default function QuizzesPage() {
                   </div>
                   <Progress
                     value={(currentSession / totalSessions) * 100}
-                    className="h-2 mb-4 bg-emerald-100 dark:bg-emerald-900"
+                    className="h-2 mb-4 bg-purple-100 dark:bg-purple-900"
                   />
                 </div>
               ) : (
@@ -619,7 +499,7 @@ export default function QuizzesPage() {
                       <span>Total time: {formatTime(totalTimeSpent + sessionTimeSpent)}</span>
                     </div>
                   </div>
-                  <Progress value={100} className="h-2 mb-4 bg-emerald-100 dark:bg-emerald-900" />
+                  <Progress value={100} className="h-2 mb-4 bg-purple-100 dark:bg-purple-900" />
                 </div>
               )}
 
@@ -627,14 +507,14 @@ export default function QuizzesPage() {
                 {currentSession < totalSessions ? (
                   <Button
                     onClick={startNextSession}
-                    className="bg-emerald-600 hover:bg-emerald-700 flex items-center justify-center"
+                    className="bg-purple-600 hover:bg-purple-700 flex items-center justify-center"
                   >
                     Continue to Session {currentSession + 1}
                   </Button>
                 ) : (
                   <Button
                     onClick={startNewQuiz}
-                    className="bg-emerald-600 hover:bg-emerald-700 flex items-center justify-center"
+                    className="bg-purple-600 hover:bg-purple-700 flex items-center justify-center"
                   >
                     <RefreshCw className="mr-2 h-4 w-4" />
                     Start New Quiz
@@ -645,10 +525,12 @@ export default function QuizzesPage() {
                   Retry This Session
                 </Button>
 
-                <Button variant="ghost" className="w-full" onClick={() => setShowQuizOptions(true)}>
-                  <ArrowLeft className="mr-2 h-4 w-4" />
-                  Back to Quiz Options
-                </Button>
+                <Link href="/quizzes">
+                  <Button variant="ghost" className="w-full">
+                    <ArrowLeft className="mr-2 h-4 w-4" />
+                    Back to Quizzes
+                  </Button>
+                </Link>
 
                 <Link href="/">
                   <Button variant="ghost" className="w-full">

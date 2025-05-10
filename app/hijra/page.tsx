@@ -1,6 +1,8 @@
 import { InteractiveHijraMap } from "@/components/interactive-hijra-map"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { BookOpen } from "lucide-react"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
+import { BookOpen, BrainCircuit } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 export const metadata = {
   title: "Hijra Journey | KALAM",
@@ -62,6 +64,54 @@ export default function HijraPage() {
           </CardContent>
         </Card>
       </div>
+
+      {/* New Quiz Card */}
+      <Card className="mb-8 border-orange-200 dark:border-orange-800">
+        <CardHeader className="bg-orange-50 dark:bg-orange-950/30 rounded-t-lg">
+          <div className="flex items-center gap-2">
+            <BrainCircuit className="h-5 w-5 text-orange-600" />
+            <CardTitle>Test Your Knowledge</CardTitle>
+          </div>
+          <CardDescription>
+            Challenge yourself with questions about the Hijra journey, its events, locations, and significance
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="pt-6">
+          <p className="mb-4">This interactive quiz covers all aspects of the Hijra journey including:</p>
+          <ul className="grid grid-cols-2 gap-x-4 gap-y-2 mb-4">
+            <li className="flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-orange-500"></span>
+              Key locations
+            </li>
+            <li className="flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-orange-500"></span>
+              Timeline of events
+            </li>
+            <li className="flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-orange-500"></span>
+              Important figures
+            </li>
+            <li className="flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-orange-500"></span>
+              Quranic references
+            </li>
+            <li className="flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-orange-500"></span>
+              Historical significance
+            </li>
+            <li className="flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-orange-500"></span>
+              Lessons and wisdom
+            </li>
+          </ul>
+          <p>Choose from different difficulty levels and test categories to customize your learning experience.</p>
+        </CardContent>
+        <CardFooter>
+          <Link href="/hijra/quiz" className="w-full">
+            <Button className="w-full bg-orange-600 hover:bg-orange-700">Take the Hijra Quiz</Button>
+          </Link>
+        </CardFooter>
+      </Card>
 
       <Card className="mb-8">
         <CardHeader className="flex flex-row items-center gap-2">
