@@ -13,6 +13,25 @@ export default function GamesPage() {
       <h1 className="text-3xl font-bold mb-8 text-center">Quranic Games</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* New Make Quranic Ayats Game Card */}
+        <Card className="border-purple-200 bg-purple-50">
+          <CardHeader>
+            <CardTitle className="text-purple-800">Make Quranic Ayats</CardTitle>
+            <CardDescription>Arrange words to form Quranic verses</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p>
+              Test your knowledge of Quranic verses by arranging Arabic words in the correct order to form complete
+              ayats.
+            </p>
+          </CardContent>
+          <CardFooter>
+            <Link href="/games/quranic-ayats" passHref>
+              <Button className="bg-purple-600 hover:bg-purple-700">Play Now</Button>
+            </Link>
+          </CardFooter>
+        </Card>
+
         <Card>
           <CardHeader>
             <CardTitle>Word Search</CardTitle>
