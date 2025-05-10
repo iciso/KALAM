@@ -9,6 +9,7 @@ import { phase7VocabularyData } from "@/data/vocabulary-data-expansion-phase7"
 import { phase8VocabularyData } from "@/data/vocabulary-data-expansion-phase8"
 import { phase9VocabularyData } from "@/data/vocabulary-data-expansion-phase9"
 import { familyRelationshipsVocabulary, divineAttributesVocabulary } from "@/data/vocabulary-data-expansion-phase10"
+import { phase11VocabularyData } from "@/data/vocabulary-data-expansion-phase11"
 import { prophetsVocabulary } from "@/data/vocabulary-data-prophets"
 import { type VocabularyWord, Difficulty } from "@/types/vocabulary"
 import { vocabularyCategories } from "@/data/vocabulary-categories"
@@ -32,6 +33,7 @@ class EnhancedVocabularyService {
       ...phase9VocabularyData,
       ...familyRelationshipsVocabulary,
       ...divineAttributesVocabulary,
+      ...phase11VocabularyData, // Add the new phase11 vocabulary data
       ...prophetsVocabulary,
     ]
 

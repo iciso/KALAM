@@ -16,6 +16,7 @@ import {
   GraduationCap,
   Heart,
   BookOpen,
+  Clock,
 } from "lucide-react"
 import { useState } from "react"
 import { FontSizeControls } from "./font-size-controls"
@@ -88,6 +89,16 @@ export function NavBar() {
             >
               <BookOpen className="mr-1 h-4 w-4" />
               <span>Revelation Contexts</span>
+            </Link>
+            <Link
+              href="/hijra"
+              className={`flex items-center px-3 py-2 rounded hover:bg-emerald-600 ${
+                pathname.startsWith("/hijra") ? "bg-emerald-800" : ""
+              }`}
+              onClick={closeMenu}
+            >
+              <Clock className="mr-1 h-4 w-4" />
+              <span>Hijra Journey</span>
             </Link>
             <Link
               href="/games"
@@ -208,6 +219,18 @@ export function NavBar() {
               <div className="flex items-center">
                 <BookOpen className="mr-2 h-5 w-5" />
                 <span>Revelation Contexts</span>
+              </div>
+            </Link>
+            <Link
+              href="/hijra"
+              className={`block px-4 py-2 rounded hover:bg-emerald-600 ${
+                pathname.startsWith("/hijra") ? "bg-emerald-800" : ""
+              }`}
+              onClick={closeMenu}
+            >
+              <div className="flex items-center">
+                <Clock className="mr-2 h-5 w-5" />
+                <span>Hijra Journey</span>
               </div>
             </Link>
             <Link

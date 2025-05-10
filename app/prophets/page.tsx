@@ -119,6 +119,25 @@ export default function ProphetsPage() {
           </CardFooter>
         </Card>
 
+        <Card>
+          <CardHeader>
+            <Clock className="h-8 w-8 text-orange-600 mb-2" />
+            <CardTitle>Hijra Journey</CardTitle>
+            <CardDescription>The Prophet's migration from Mecca to Medina</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p>
+              Explore the historic journey of Prophet Muhammad ﷺ from Mecca to Medina with interactive maps and Quranic
+              references.
+            </p>
+          </CardContent>
+          <CardFooter>
+            <Link href="/hijra" passHref className="w-full">
+              <Button className="w-full bg-orange-600 hover:bg-orange-700">Explore Journey</Button>
+            </Link>
+          </CardFooter>
+        </Card>
+
         <Card className="border-green-200 bg-green-50 dark:bg-green-900/20 dark:border-green-800 col-span-1 md:col-span-2 lg:col-span-3">
           <CardHeader>
             <GitCompare className="h-8 w-8 text-green-600 mb-2" />

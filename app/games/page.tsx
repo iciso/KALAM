@@ -151,6 +151,21 @@ export default function GamesPage() {
             </Link>
           </CardFooter>
         </Card>
+
+        <Card className="border-blue-200 bg-blue-50">
+          <CardHeader>
+            <CardTitle className="text-blue-800">Missing Letters</CardTitle>
+            <CardDescription>Fill in the missing letters in Arabic words</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p>Test your knowledge of Quranic vocabulary by filling in missing letters in Arabic words.</p>
+          </CardContent>
+          <CardFooter>
+            <Link href="/games/missing-letters" passHref>
+              <Button className="bg-blue-600 hover:bg-blue-700">Play Now</Button>
+            </Link>
+          </CardFooter>
+        </Card>
       </div>
     </div>
   )

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { ArrowLeft, CheckCircle, Home, XCircle, RefreshCw, BookOpen, Tag, Clock, Trophy } from "lucide-react"
+import { ArrowLeft, CheckCircle, Home, XCircle, RefreshCw, BookOpen, Tag, Clock, Trophy, Repeat } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
@@ -290,7 +290,7 @@ export default function QuizzesPage() {
 
       <main className="container mx-auto px-4 py-8">
         {showQuizOptions ? (
-          <div className="max-w-2xl mx-auto grid gap-6 md:grid-cols-3">
+          <div className="max-w-2xl mx-auto grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             <Card>
               <CardHeader>
                 <CardTitle className="text-xl">General Quiz</CardTitle>
@@ -310,12 +310,7 @@ export default function QuizzesPage() {
 
             <Card>
               <CardHeader>
-                <CardTitle className="text-xl relative">
-                  Surah-Specific Quiz
-                  <span className="absolute -top-2 -right-2 bg-emerald-500 text-white text-xs font-bold px-2 py-1 rounded-full">
-                    NEW
-                  </span>
-                </CardTitle>
+                <CardTitle className="text-xl relative">Surah-Specific Quiz</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600 dark:text-gray-400 mb-4">
@@ -352,7 +347,32 @@ export default function QuizzesPage() {
               </CardFooter>
             </Card>
 
-            <div className="md:col-span-3">
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-xl relative">
+                  Reverse Word Quiz
+                  <span className="absolute -top-2 -right-2 bg-emerald-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+                    NEW
+                  </span>
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 dark:text-gray-400 mb-4">
+                  Challenge yourself with English meanings and select the correct Arabic word. Tests your recall rather
+                  than just recognition.
+                </p>
+              </CardContent>
+              <CardFooter>
+                <Link href="/quizzes/reverse" className="w-full">
+                  <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
+                    <Repeat className="mr-2 h-4 w-4" />
+                    Start Reverse Quiz
+                  </Button>
+                </Link>
+              </CardFooter>
+            </Card>
+
+            <div className="md:col-span-2 lg:col-span-4">
               <Link href="/">
                 <Button variant="ghost" className="w-full">
                   <ArrowLeft className="mr-2 h-4 w-4" />

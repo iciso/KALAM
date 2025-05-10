@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowRight, BookOpen, Database, Gamepad2, ListChecks, ListPlus, Users } from "lucide-react"
+import { ArrowRight, BookOpen, Database, Gamepad2, ListChecks, ListPlus, Users, Clock } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
@@ -171,6 +171,26 @@ export default function HomePage() {
               </Link>
             </CardFooter>
           </Card>
+          <Card>
+            <CardHeader>
+              <Clock className="h-8 w-8 text-orange-600 mb-2" />
+              <CardTitle>Hijra Journey</CardTitle>
+              <CardDescription>Explore the Prophet's migration from Mecca to Medina</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p className="text-gray-600 dark:text-gray-300">
+                Discover the historic journey of Prophet Muhammad (PBUH) with interactive maps, historical context, and
+                Quranic references.
+              </p>
+            </CardContent>
+            <CardFooter>
+              <Link href="/hijra" className="w-full">
+                <Button className="w-full bg-orange-600 hover:bg-orange-700">
+                  Explore Journey <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
+            </CardFooter>
+          </Card>
         </section>
 
         {/* Rest of the homepage content remains the same */}
@@ -189,10 +209,7 @@ export default function HomePage() {
             <Link href="/contribute" className="text-emerald-600 hover:text-emerald-700">
               Contribute
             </Link>
-            <Link
-              href="https://github.com/iciso/KALAM"
-              className="text-emerald-600 hover:text-emerald-700"
-            >
+            <Link href="https://github.com/iciso/KALAM" className="text-emerald-600 hover:text-emerald-700">
               GitHub
             </Link>
           </div>
