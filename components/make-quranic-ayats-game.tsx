@@ -22,14 +22,15 @@ import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { type QuranicAyat, type AyatWord, getRandomAyats } from "@/data/quranic-ayats-game-data"
-import { Check, RefreshCw, Award } from "lucide-react"
+import { Check, RefreshCw, Award, HelpCircle, Info } from "lucide-react"
 
 interface SortableItemProps {
   id: string
   word: string
+  onDoubleClick?: () => void
 }
 
-const SortableItem = ({ id, word }: SortableItemProps) => {
+const SortableItem = ({ id, word, onDoubleClick }: SortableItemProps) => {
   const { attributes, listeners, setNodeRef, transform, transition } = useSortable({ id })
 
   const style = {
@@ -43,7 +44,10 @@ const SortableItem = ({ id, word }: SortableItemProps) => {
       style={style}
       {...attributes}
       {...listeners}
+      onDoubleClick={onDoubleClick}
       className="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md p-3 m-1 cursor-grab shadow-sm hover:shadow-md transition-shadow font-arabic text-xl text-center min-w-[80px] select-none"
+      title="Drag to rearrange or double-click to select"
+      aria-label={`Word: ${word}. Drag to rearrange.`}
     >
       {word}
     </div>
@@ -58,14 +62,13 @@ interface MakeQuranicAyatsGameProps {
 export default function MakeQuranicAyatsGame({ difficulty = "easy", initialAyatCount = 3 }: MakeQuranicAyatsGameProps) {
   const [ayats, setAyats] = useState<QuranicAyat[]>([])
   const [currentAyatIndex, setCurrentAyatIndex] = useState(0)
-  const [wordPool, setWordPool] = useState<AyatWord[]>([])
-  const [selectedWords, setSelectedWords] = useState<AyatWord[]>([])
-  const [secondRowWords, setSecondRowWords] = useState<AyatWord[]>([])
+  const [words, setWords] = useState<AyatWord[]>([])
   const [score, setScore] = useState(0)
   const [feedback, setFeedback] = useState("")
   const [isCorrect, setIsCorrect] = useState(false)
   const [showTranslation, setShowTranslation] = useState(false)
   const [gameCompleted, setGameCompleted] = useState(false)
+  const [showInstructions, setShowInstructions] = useState(true)
 
   const sensors = useSensors(
     useSensor(PointerSensor),
@@ -85,83 +88,33 @@ export default function MakeQuranicAyatsGame({ difficulty = "easy", initialAyatC
   }, [difficulty, initialAyatCount])
 
   const prepareAyat = (ayat: QuranicAyat) => {
-    // Create a shuffled pool of words
+    // Create a shuffled array of words
     const shuffledWords = [...ayat.words].sort(() => Math.random() - 0.5)
-    setWordPool(shuffledWords)
-    setSelectedWords([])
-    setSecondRowWords([])
+    setWords(shuffledWords)
     setFeedback("")
     setIsCorrect(false)
     setShowTranslation(false)
   }
 
-  const handleDragEnd = (event: DragEndEvent, container: "wordPool" | "selectedWords" | "secondRowWords") => {
+  const handleDragEnd = (event: DragEndEvent) => {
     const { active, over } = event
 
     if (!over) return
 
     if (active.id !== over.id) {
-      if (container === "wordPool") {
-        setWordPool((items) => {
-          const oldIndex = items.findIndex((item) => item.id === active.id)
-          const newIndex = items.findIndex((item) => item.id === over.id)
-          return arrayMove(items, oldIndex, newIndex)
-        })
-      } else if (container === "selectedWords") {
-        setSelectedWords((items) => {
-          const oldIndex = items.findIndex((item) => item.id === active.id)
-          const newIndex = items.findIndex((item) => item.id === over.id)
-          return arrayMove(items, oldIndex, newIndex)
-        })
-      } else if (container === "secondRowWords") {
-        setSecondRowWords((items) => {
-          const oldIndex = items.findIndex((item) => item.id === active.id)
-          const newIndex = items.findIndex((item) => item.id === over.id)
-          return arrayMove(items, oldIndex, newIndex)
-        })
-      }
-    }
-  }
-
-  const moveWordToSelected = (word: AyatWord) => {
-    if (difficulty === "hard" && selectedWords.length >= 3 && secondRowWords.length < 3) {
-      // In hard mode, if first row has 3+ words and second row has less than 3, add to second row
-      setSecondRowWords([...secondRowWords, word])
-    } else {
-      // Otherwise add to first row
-      setSelectedWords([...selectedWords, word])
-    }
-    setWordPool(wordPool.filter((w) => w.id !== word.id))
-  }
-
-  const moveWordBackToPool = (word: AyatWord, fromSecondRow = false) => {
-    setWordPool([...wordPool, word])
-    if (fromSecondRow) {
-      setSecondRowWords(secondRowWords.filter((w) => w.id !== word.id))
-    } else {
-      setSelectedWords(selectedWords.filter((w) => w.id !== word.id))
+      setWords((items) => {
+        const oldIndex = items.findIndex((item) => item.id === active.id)
+        const newIndex = items.findIndex((item) => item.id === over.id)
+        return arrayMove(items, oldIndex, newIndex)
+      })
     }
   }
 
   const checkAnswer = () => {
     const currentAyat = ayats[currentAyatIndex]
 
-    // For hard difficulty, we need to check both rows
-    let allWords = [...selectedWords]
-    if (difficulty === "hard") {
-      allWords = [...allWords, ...secondRowWords]
-    }
-
-    // Check if all words are selected and in correct order
-    const isAllWordsSelected = allWords.length === currentAyat.words.length
-
-    if (!isAllWordsSelected) {
-      setFeedback("Please use all the words to complete the ayat.")
-      return
-    }
-
     // Check if words are in correct order
-    const isCorrectOrder = allWords.every((word, index) => {
+    const isCorrectOrder = words.every((word, index) => {
       return word.id === currentAyat.words[index].id
     })
 
@@ -246,65 +199,59 @@ export default function MakeQuranicAyatsGame({ difficulty = "easy", initialAyatC
         <div className="text-xl font-bold">Score: {score}</div>
       </div>
 
-      <div className="bg-gray-100 dark:bg-gray-900 p-4 rounded-lg">
-        <h3 className="text-lg font-medium mb-2">Word Pool</h3>
-        <DndContext
-          sensors={sensors}
-          collisionDetection={closestCenter}
-          onDragEnd={(event) => handleDragEnd(event, "wordPool")}
-        >
-          <SortableContext items={wordPool.map((word) => word.id)} strategy={horizontalListSortingStrategy}>
-            <div className="flex flex-wrap justify-center p-2 min-h-[100px]">
-              {wordPool.map((word) => (
-                <div key={word.id} onClick={() => moveWordToSelected(word)}>
-                  <SortableItem id={word.id} word={word.text} />
-                </div>
-              ))}
+      {showInstructions && (
+        <Card className="p-4 bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800">
+          <div className="flex items-start">
+            <Info className="h-5 w-5 text-blue-500 mr-2 mt-0.5 flex-shrink-0" />
+            <div>
+              <h3 className="font-medium text-blue-700 dark:text-blue-300">How to Play</h3>
+              <p className="text-sm text-blue-600 dark:text-blue-400 mt-1">
+                Rearrange the words to form the correct Quranic ayat (verse). Drag words to reorder them or double-click
+                to select. The ayat should read from right to left in Arabic.
+              </p>
             </div>
-          </SortableContext>
-        </DndContext>
-      </div>
+          </div>
+          <Button
+            variant="outline"
+            size="sm"
+            className="mt-2 text-blue-600 border-blue-300 hover:bg-blue-100 dark:text-blue-300 dark:border-blue-700 dark:hover:bg-blue-900/40"
+            onClick={() => setShowInstructions(false)}
+          >
+            Got it
+          </Button>
+        </Card>
+      )}
 
       <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
-        <h3 className="text-lg font-medium mb-2">Arrange the Ayat (Right to Left)</h3>
-        <DndContext
-          sensors={sensors}
-          collisionDetection={closestCenter}
-          onDragEnd={(event) => handleDragEnd(event, "selectedWords")}
-        >
-          <SortableContext items={selectedWords.map((word) => word.id)} strategy={horizontalListSortingStrategy}>
-            <div className="flex flex-wrap justify-center p-2 min-h-[80px] border-2 border-dashed border-blue-300 dark:border-blue-700 rounded-lg dir-rtl">
-              {selectedWords.map((word) => (
-                <div key={word.id} onClick={() => moveWordBackToPool(word)}>
-                  <SortableItem id={word.id} word={word.text} />
-                </div>
+        <div className="flex justify-between items-center mb-2">
+          <h3 className="text-lg font-medium">Arrange the Ayat (Right to Left)</h3>
+          <Button
+            variant="ghost"
+            size="sm"
+            className="text-blue-600 hover:bg-blue-100 dark:text-blue-300 dark:hover:bg-blue-900/40"
+            onClick={() => setShowInstructions(true)}
+          >
+            <HelpCircle className="h-4 w-4 mr-1" /> Help
+          </Button>
+        </div>
+        <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
+          <SortableContext items={words.map((word) => word.id)} strategy={horizontalListSortingStrategy}>
+            <div className="flex flex-wrap justify-center p-4 min-h-[120px] border-2 border-dashed border-blue-300 dark:border-blue-700 rounded-lg dir-rtl bg-white dark:bg-gray-900/50">
+              {words.map((word) => (
+                <SortableItem key={word.id} id={word.id} word={word.text} />
               ))}
             </div>
           </SortableContext>
         </DndContext>
-
-        {difficulty === "hard" && (
-          <DndContext
-            sensors={sensors}
-            collisionDetection={closestCenter}
-            onDragEnd={(event) => handleDragEnd(event, "secondRowWords")}
-          >
-            <SortableContext items={secondRowWords.map((word) => word.id)} strategy={horizontalListSortingStrategy}>
-              <div className="flex flex-wrap justify-center p-2 mt-2 min-h-[80px] border-2 border-dashed border-blue-300 dark:border-blue-700 rounded-lg dir-rtl">
-                {secondRowWords.map((word) => (
-                  <div key={word.id} onClick={() => moveWordBackToPool(word, true)}>
-                    <SortableItem id={word.id} word={word.text} />
-                  </div>
-                ))}
-              </div>
-            </SortableContext>
-          </DndContext>
-        )}
       </div>
 
       {feedback && (
         <div
-          className={`p-4 rounded-lg ${isCorrect ? "bg-green-100 dark:bg-green-900/20 text-green-800 dark:text-green-200" : "bg-red-100 dark:bg-red-900/20 text-red-800 dark:text-red-200"}`}
+          className={`p-4 rounded-lg ${
+            isCorrect
+              ? "bg-green-100 dark:bg-green-900/20 text-green-800 dark:text-green-200"
+              : "bg-red-100 dark:bg-red-900/20 text-red-800 dark:text-red-200"
+          }`}
         >
           {feedback}
           {showTranslation && <div className="mt-2 font-medium">Translation: {currentAyat.translation}</div>}
