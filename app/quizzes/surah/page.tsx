@@ -388,6 +388,18 @@ export default function SurahQuizPage() {
     return matchesSearch && matchesDifficulty && matchesType && matchesStatus
   })
 
+  // Function to get the appropriate link for a surah
+  const getSurahLink = (surahId: number) => {
+    // List of implemented surahs
+    const implementedSurahs = [1, 112, 113, 114]
+
+    if (implementedSurahs.includes(surahId)) {
+      return `/quizzes/surah/${surahId}`
+    }
+
+    return null
+  }
+
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       <header className="bg-emerald-800 text-white py-4">
@@ -635,15 +647,8 @@ export default function SurahQuizPage() {
                               <Layers className="mr-2 h-4 w-4" />
                               View Sections ({surah.sections.filter((s) => s.status === "available").length} Available)
                             </Button>
-                          ) : surah.id === 1 ? (
-                            <Link href="/quizzes/surah/1" className="w-full">
-                              <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
-                                <BookOpen className="mr-2 h-4 w-4" />
-                                Start Quiz
-                              </Button>
-                            </Link>
-                          ) : surah.id === 112 ? (
-                            <Link href="/quizzes/surah/112" className="w-full">
+                          ) : getSurahLink(surah.id) ? (
+                            <Link href={getSurahLink(surah.id)!} className="w-full">
                               <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
                                 <BookOpen className="mr-2 h-4 w-4" />
                                 Start Quiz

@@ -316,18 +316,21 @@ export default function SurahQuiz({ quizData }: SurahQuizProps) {
               <div className="mb-6 border rounded-lg overflow-hidden">
                 <div className="text-sm font-medium text-left bg-gray-100 dark:bg-gray-800 p-2">
                   <div className="grid grid-cols-12 gap-2">
-                    <div className="col-span-8">Word</div>
-                    <div className="col-span-4 text-center">Result</div>
+                    <div className="col-span-5">English</div>
+                    <div className="col-span-5">Arabic</div>
+                    <div className="col-span-2 text-center">Result</div>
                   </div>
                 </div>
                 <div className="divide-y">
                   {questionResults.map((result, index) => {
                     const question = quizData.questions.find((q) => q.id === result.questionId)
+                    const correctTranslation = question?.options.find((opt) => opt.isCorrect)?.text
                     return (
                       <div key={index} className="text-sm p-2">
                         <div className="grid grid-cols-12 gap-2 items-center">
-                          <div className="col-span-8 font-arabic text-right text-lg">{question?.arabic}</div>
-                          <div className="col-span-4 text-center">
+                          <div className="col-span-5">{correctTranslation}</div>
+                          <div className="col-span-5 font-arabic text-right text-lg">{question?.arabic}</div>
+                          <div className="col-span-2 text-center">
                             {result.correct ? (
                               <CheckCircle className="h-4 w-4 text-green-500 mx-auto" />
                             ) : (
