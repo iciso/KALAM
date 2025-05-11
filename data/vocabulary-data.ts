@@ -19,7 +19,7 @@ export const vocabularyData: VocabularyWord[] = [
         surahName: "Al-Fatihah",
         ayahNumber: 1,
         arabicText: "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
-        translationText: "In the name of Allah, the Entirely Merciful, the Especially Merciful",
+        translationText: "In the name of Allah, the Entirely Benificient, the Especially Merciful",
         wordLocation: {
           startIndex: 5,
           endIndex: 9,
@@ -109,7 +109,7 @@ export const vocabularyData: VocabularyWord[] = [
         surahName: "Al-Fatihah",
         ayahNumber: 1,
         arabicText: "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
-        translationText: "In the name of Allah, the Entirely Merciful, the Especially Merciful",
+        translationText: "In the name of Allah, the Entirely Benificient, the Especially Merciful",
         wordLocation: {
           startIndex: 10,
           endIndex: 16,
@@ -160,7 +160,7 @@ export const vocabularyData: VocabularyWord[] = [
         surahName: "Al-Fatihah",
         ayahNumber: 1,
         arabicText: "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
-        translationText: "In the name of Allah, the Entirely Merciful, the Especially Merciful",
+        translationText: "In the name of Allah, the Entirely Benificient, the Especially Merciful",
         wordLocation: {
           startIndex: 17,
           endIndex: 22,

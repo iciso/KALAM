@@ -324,7 +324,7 @@ export const divineAttributesVocabulary: VocabularyWord[] = [
       {
         arabic: "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
         transliteration: "Bismi llāhi r-raḥmāni r-raḥīm",
-        translation: "In the name of Allah, the Entirely Merciful, the Especially Merciful",
+        translation: "In the name of Allah, the Entirely Benificient, the Especially Merciful",
         surahNumber: 1,
         surahName: "Al-Fatihah",
         verseNumber: 1,
@@ -343,7 +343,7 @@ export const divineAttributesVocabulary: VocabularyWord[] = [
       {
         arabic: "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
         transliteration: "Bismi llāhi r-raḥmāni r-raḥīm",
-        translation: "In the name of Allah, the Entirely Merciful, the Especially Merciful",
+        translation: "In the name of Allah, the Entirely Benificient, the Especially Merciful",
         surahNumber: 1,
         surahName: "Al-Fatihah",
         verseNumber: 1,
