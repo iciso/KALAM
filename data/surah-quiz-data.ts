@@ -274,7 +274,7 @@ export const alFatihahQuizData: SurahQuizData = {
   ],
 }
 
-// Al-Ikhlas Quiz Data
+// Al-Ikhlas Quiz Data (Enhanced)
 export const alIkhlasQuizData: SurahQuizData = {
   surahId: 112,
   surahName: "Al-Ikhlas",
@@ -283,7 +283,7 @@ export const alIkhlasQuizData: SurahQuizData = {
   type: "Meccan",
   difficulty: "Beginner",
   introduction:
-    "Surah Al-Ikhlas (The Sincerity) is the 112th chapter of the Quran. Despite being one of the shortest surahs with only 4 verses, it is considered equal to one-third of the Quran in value because it establishes the concept of pure monotheism (Tawhid). This quiz will test your knowledge of the key vocabulary from this profound surah.",
+    "Surah Al-Ikhlas (The Sincerity) is the 112th chapter of the Quran. Despite being one of the shortest surahs with only 4 verses, it is considered equal to one-third of the Quran in value because it establishes the concept of pure monotheism (Tawheed). This surah is the cornerstone of Islamic theology, defining the nature of Allah in a way that distinguishes Islam from all other belief systems. The Prophet Muhammad (peace be upon him) said about this surah: 'By Him in whose hand is my soul, it is equivalent to one-third of the Quran.' This quiz will test your knowledge of the key vocabulary and theological concepts from this profound surah.",
   questions: [
     {
       id: "ikhlas-1",
@@ -296,7 +296,7 @@ export const alIkhlasQuizData: SurahQuizData = {
       ],
       rootLetters: "ق و ل",
       explanation:
-        "Qul means 'say'. It is a command from Allah to Prophet Muhammad to declare the message that follows. This command appears frequently in the Quran.",
+        "Qul means 'say'. It is a command from Allah to Prophet Muhammad to declare the message that follows. This command appears frequently in the Quran and indicates the importance of the declaration that follows. In Surah Al-Ikhlas, it introduces the fundamental statement of Islamic monotheism.",
     },
     {
       id: "ikhlas-2",
@@ -308,7 +308,7 @@ export const alIkhlasQuizData: SurahQuizData = {
         { id: "d", text: "That", isCorrect: false },
       ],
       explanation:
-        "Huwa means 'He' and refers to Allah. It is a pronoun used to emphasize the personal nature of Allah, who is not an abstract concept but a conscious being.",
+        "Huwa means 'He' and refers to Allah. It is a pronoun used to emphasize the personal nature of Allah, who is not an abstract concept but a conscious being. This personal pronoun establishes a relationship between the Creator and creation, while maintaining Allah's transcendence.",
     },
     {
       id: "ikhlas-3",
@@ -320,7 +320,7 @@ export const alIkhlasQuizData: SurahQuizData = {
         { id: "d", text: "The Divine", isCorrect: false },
       ],
       explanation:
-        "Allah is the proper name of God in Arabic. It is not a generic term but the specific name of the One True God, the Creator and Sustainer of all that exists.",
+        "Allah is the proper name of God in Arabic. It is not a generic term but the specific name of the One True God, the Creator and Sustainer of all that exists. Unlike the English word 'God' which can be pluralized or gendered, the term 'Allah' cannot be pluralized or gendered, reinforcing the concept of absolute unity.",
     },
     {
       id: "ikhlas-4",
@@ -333,7 +333,7 @@ export const alIkhlasQuizData: SurahQuizData = {
       ],
       rootLetters: "أ ح د",
       explanation:
-        "Ahad means 'One' but not merely in a numerical sense. It signifies absolute oneness and uniqueness, with no partners, parts, or comparable entities.",
+        "Ahad means 'One' but not merely in a numerical sense. It signifies absolute oneness and uniqueness, with no partners, parts, or comparable entities. This term is exclusively used for Allah in the Quran and differs from 'Wahid' (also meaning 'one') in that Ahad emphasizes absolute indivisibility and uniqueness. This concept forms the first pillar of Tawheed (Islamic monotheism).",
     },
     {
       id: "ikhlas-5",
@@ -346,7 +346,7 @@ export const alIkhlasQuizData: SurahQuizData = {
       ],
       rootLetters: "ص م د",
       explanation:
-        "As-Samad means 'The Eternal Refuge' or 'The Self-Sufficient'. It refers to the one upon whom all depend for their needs while He depends on no one.",
+        "As-Samad means 'The Eternal Refuge' or 'The Self-Sufficient'. It refers to the one upon whom all depend for their needs while He depends on no one. This attribute emphasizes Allah's absolute independence and the complete dependence of all creation upon Him. As-Samad has no hollowness, is not in need of food or drink, and is the Master who is perfect in His sovereignty and leadership.",
     },
     {
       id: "ikhlas-6",
@@ -359,7 +359,7 @@ export const alIkhlasQuizData: SurahQuizData = {
       ],
       rootLetters: "و ل د",
       explanation:
-        "Lam yalid means 'He begets not' or 'He has not given birth'. This negates the concept that Allah has offspring or children, refuting beliefs that attribute sons or daughters to God.",
+        "Lam yalid means 'He begets not' or 'He has not given birth'. This negates the concept that Allah has offspring or children, refuting beliefs that attribute sons or daughters to God. This is a direct refutation of Christian doctrine of divine sonship and other polytheistic beliefs. It emphasizes that Allah's nature is unlike that of His creation, which reproduces and multiplies.",
     },
     {
       id: "ikhlas-7",
@@ -372,7 +372,7 @@ export const alIkhlasQuizData: SurahQuizData = {
       ],
       rootLetters: "و ل د",
       explanation:
-        "Wa lam yoolad means 'nor is He begotten' or 'nor was He born'. This negates the idea that Allah came into existence at some point or was created by something else.",
+        "Wa lam yoolad means 'nor is He begotten' or 'nor was He born'. This negates the idea that Allah came into existence at some point or was created by something else. It establishes Allah's eternal nature, having no beginning and no end. This refutes the concept of a 'first cause' that itself was caused by something else, establishing Allah as the Uncaused Cause of all existence.",
     },
     {
       id: "ikhlas-8",
@@ -385,7 +385,7 @@ export const alIkhlasQuizData: SurahQuizData = {
       ],
       rootLetters: "ك و ن",
       explanation:
-        "Wa lam yakun means 'and there is not' or 'and there has never been'. It introduces the final statement of the surah, emphasizing that nothing compares to Allah.",
+        "Wa lam yakun means 'and there is not' or 'and there has never been'. It introduces the final statement of the surah, emphasizing that nothing compares to Allah. This phrase establishes the absolute uniqueness of Allah in all aspects, reinforcing the concept of Tawheed (monotheism).",
     },
     {
       id: "ikhlas-9",
@@ -398,7 +398,7 @@ export const alIkhlasQuizData: SurahQuizData = {
       ],
       rootLetters: "ك ف أ",
       explanation:
-        "Kufuwan means 'equivalent' or 'comparable'. It refers to something that is equal or similar to another in rank, status, or attributes.",
+        "Kufuwan means 'equivalent' or 'comparable'. It refers to something that is equal or similar to another in rank, status, or attributes. The negation of any 'kufuwan' for Allah establishes the concept of Tawheed al-Asma wa al-Sifat (Oneness of Allah's Names and Attributes), meaning that Allah's attributes are unique and incomparable to those of His creation.",
     },
     {
       id: "ikhlas-10",
@@ -411,7 +411,71 @@ export const alIkhlasQuizData: SurahQuizData = {
       ],
       rootLetters: "أ ح د",
       explanation:
-        "Ahad in this context means 'anyone' or 'any being'. The phrase 'lam yakun lahu kufuwan ahad' means 'there is none comparable to Him', emphasizing Allah's absolute uniqueness.",
+        "Ahad in this context means 'anyone' or 'any being'. The phrase 'lam yakun lahu kufuwan ahad' means 'there is none comparable to Him', emphasizing Allah's absolute uniqueness. This completes the surah's comprehensive definition of Tawheed, establishing that Allah is One, Eternal, neither begetting nor begotten, and without any equal or comparable being in any aspect.",
+    },
+    {
+      id: "ikhlas-11",
+      arabic: "التوحيد",
+      options: [
+        { id: "a", text: "Monotheism", isCorrect: true },
+        { id: "b", text: "Worship", isCorrect: false },
+        { id: "c", text: "Faith", isCorrect: false },
+        { id: "d", text: "Prayer", isCorrect: false },
+      ],
+      rootLetters: "و ح د",
+      explanation:
+        "Tawheed (not directly in the surah but its central theme) means 'monotheism' or 'oneness'. It is the core concept of Islam that Allah is absolutely One in His essence, attributes, and actions. Surah Al-Ikhlas is known as 'the surah of Tawheed' because it perfectly encapsulates this concept. Scholars divide Tawheed into three categories: Tawheed al-Rububiyyah (Oneness of Lordship), Tawheed al-Uluhiyyah (Oneness of Worship), and Tawheed al-Asma wa al-Sifat (Oneness of Names and Attributes).",
+    },
+    {
+      id: "ikhlas-12",
+      arabic: "ثلث القرآن",
+      options: [
+        { id: "a", text: "One-third of the Quran", isCorrect: true },
+        { id: "b", text: "The heart of the Quran", isCorrect: false },
+        { id: "c", text: "The essence of the Quran", isCorrect: false },
+        { id: "d", text: "The conclusion of the Quran", isCorrect: false },
+      ],
+      explanation:
+        "Thuluth al-Quran (not in the surah but a description of it) means 'one-third of the Quran'. Prophet Muhammad stated that reciting Surah Al-Ikhlas is equivalent to reciting one-third of the Quran. This is because the Quran's teachings can be divided into three main categories: stories, laws, and beliefs about Allah. Surah Al-Ikhlas completely covers the third category, which is the foundation of Islamic faith.",
+    },
+    {
+      id: "ikhlas-13",
+      arabic: "الإخلاص",
+      options: [
+        { id: "a", text: "Sincerity", isCorrect: true },
+        { id: "b", text: "Purity", isCorrect: false },
+        { id: "c", text: "Devotion", isCorrect: false },
+        { id: "d", text: "Faith", isCorrect: false },
+      ],
+      rootLetters: "خ ل ص",
+      explanation:
+        "Al-Ikhlas (the surah's name) means 'sincerity' or 'purity'. The surah is named this because it teaches pure monotheism, free from any contamination of polytheism or incorrect beliefs about Allah. It also implies that one should worship Allah with sincerity and purity of intention. The concept of Ikhlas is central to Islamic worship, as actions are judged by intentions and sincerity.",
+    },
+    {
+      id: "ikhlas-14",
+      arabic: "الشرك",
+      options: [
+        { id: "a", text: "Polytheism", isCorrect: true },
+        { id: "b", text: "Disbelief", isCorrect: false },
+        { id: "c", text: "Sin", isCorrect: false },
+        { id: "d", text: "Disobedience", isCorrect: false },
+      ],
+      rootLetters: "ش ر ك",
+      explanation:
+        "Shirk (the opposite of what the surah teaches) means 'polytheism' or 'associating partners with Allah'. Surah Al-Ikhlas refutes all forms of shirk by establishing Allah's absolute oneness. Shirk is considered the gravest sin in Islam, as it contradicts the very foundation of the faith. The surah's teachings serve as a protection against falling into any form of shirk, whether obvious or subtle.",
+    },
+    {
+      id: "ikhlas-15",
+      arabic: "العقيدة",
+      options: [
+        { id: "a", text: "Creed", isCorrect: true },
+        { id: "b", text: "Religion", isCorrect: false },
+        { id: "c", text: "Law", isCorrect: false },
+        { id: "d", text: "Practice", isCorrect: false },
+      ],
+      rootLetters: "ع ق د",
+      explanation:
+        "Aqeedah (the category this surah defines) means 'creed' or 'doctrine'. Surah Al-Ikhlas establishes the core of Islamic aqeedah regarding the nature of Allah. Understanding and believing in the concepts presented in this surah is essential for a correct Islamic faith. The surah serves as a concise statement of Islamic theology that distinguishes it from all other belief systems.",
     },
   ],
 }

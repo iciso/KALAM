@@ -1,6 +1,5 @@
-import SurahQuiz from "@/components/surah-quiz"
-import { alIkhlasQuizData } from "@/data/surah-quiz-data"
+import AlIkhlasQuizClient from "./client"
 
 export default function AlIkhlasQuizPage() {
-  return <SurahQuiz quizData={alIkhlasQuizData} />
+  return <AlIkhlasQuizClient />
 }

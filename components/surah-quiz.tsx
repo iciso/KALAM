@@ -2,10 +2,9 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { ArrowLeft, Home, CheckCircle, XCircle, RefreshCw, BookOpen, AlertCircle, Info } from "lucide-react"
+import { ArrowLeft, Home, BookOpen, Check, X, HelpCircle, ChevronRight, ChevronLeft } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Progress } from "@/components/ui/progress"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import type { SurahQuizData } from "@/data/surah-quiz-data"
 
@@ -16,67 +15,58 @@ interface SurahQuizProps {
 export default function SurahQuiz({ quizData }: SurahQuizProps) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
   const [selectedOption, setSelectedOption] = useState<string | null>(null)
-  const [isAnswered, setIsAnswered] = useState(false)
+  const [isCorrect, setIsCorrect] = useState<boolean | null>(null)
+  const [showExplanation, setShowExplanation] = useState(false)
   const [score, setScore] = useState(0)
   const [quizCompleted, setQuizCompleted] = useState(false)
-  const [showExplanation, setShowExplanation] = useState(false)
-  const [questionResults, setQuestionResults] = useState<Array<{ questionId: string; correct: boolean }>>([])
   const [showIntroduction, setShowIntroduction] = useState(true)
 
   const currentQuestion = quizData.questions[currentQuestionIndex]
-  const progress = ((currentQuestionIndex + 1) / quizData.questions.length) * 100
 
   const handleOptionSelect = (optionId: string) => {
-    if (!isAnswered) {
-      setSelectedOption(optionId)
-    }
-  }
+    if (selectedOption !== null) return // Prevent changing answer after selection
 
-  const handleSubmit = () => {
-    if (!selectedOption) return
-
-    const isCorrect = currentQuestion.options.find((option) => option.id === selectedOption)?.isCorrect || false
-
-    // Store the result for this question
-    setQuestionResults((prev) => [
-      ...prev,
-      {
-        questionId: currentQuestion.id,
-        correct: isCorrect,
-      },
-    ])
-
-    if (isCorrect) {
+    setSelectedOption(optionId)
+    const selectedOptionObj = currentQuestion.options.find((option) => option.id === optionId)
+    const correct = selectedOptionObj?.isCorrect || false
+    setIsCorrect(correct)
+    if (correct) {
       setScore(score + 1)
     }
-
-    setIsAnswered(true)
   }
 
   const handleNextQuestion = () => {
     if (currentQuestionIndex < quizData.questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1)
       setSelectedOption(null)
-      setIsAnswered(false)
+      setIsCorrect(null)
       setShowExplanation(false)
     } else {
-      // Quiz completed
       setQuizCompleted(true)
+    }
+  }
+
+  const handlePreviousQuestion = () => {
+    if (currentQuestionIndex > 0) {
+      setCurrentQuestionIndex(currentQuestionIndex - 1)
+      setSelectedOption(null)
+      setIsCorrect(null)
+      setShowExplanation(false)
     }
   }
 
   const resetQuiz = () => {
     setCurrentQuestionIndex(0)
     setSelectedOption(null)
-    setIsAnswered(false)
+    setIsCorrect(null)
+    setShowExplanation(false)
     setScore(0)
     setQuizCompleted(false)
-    setShowExplanation(false)
-    setQuestionResults([])
+    setShowIntroduction(true)
   }
 
-  const toggleExplanation = () => {
-    setShowExplanation(!showExplanation)
+  const startQuiz = () => {
+    setShowIntroduction(false)
   }
 
   // Get difficulty color
@@ -100,88 +90,54 @@ export default function SurahQuiz({ quizData }: SurahQuizProps) {
       : "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/20 dark:text-emerald-300"
   }
 
-  if (showIntroduction) {
-    return (
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-        <header className="bg-emerald-800 text-white py-4">
-          <div className="container mx-auto px-4 flex justify-between items-center">
-            <h1 className="text-2xl font-bold">Surah {quizData.surahName} Quiz</h1>
-            <div className="flex gap-2">
-              <Link href="/quizzes/surah">
-                <Button variant="ghost" size="icon">
-                  <ArrowLeft className="h-5 w-5" />
-                  <span className="sr-only">Back to Surah Quizzes</span>
-                </Button>
-              </Link>
-              <Link href="/">
-                <Button variant="ghost" size="icon">
-                  <Home className="h-5 w-5" />
-                  <span className="sr-only">Home</span>
-                </Button>
-              </Link>
+  // Calculate percentage score
+  const percentageScore = Math.round((score / quizData.questions.length) * 100)
+
+  // Get score color
+  const getScoreColor = () => {
+    if (percentageScore >= 80) {
+      return "text-green-600 dark:text-green-400"
+    } else if (percentageScore >= 60) {
+      return "text-amber-600 dark:text-amber-400"
+    } else {
+      return "text-red-600 dark:text-red-400"
+    }
+  }
+
+  // Function to render theological significance for Surah Al-Ikhlas
+  const renderTheologicalSignificance = () => {
+    if (quizData.surahId === 112) {
+      return (
+        <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-100 dark:border-blue-800">
+          <h3 className="text-lg font-semibold text-blue-800 dark:text-blue-300 mb-2">Theological Significance</h3>
+          <p className="text-blue-700 dark:text-blue-200 mb-3">
+            Surah Al-Ikhlas is the cornerstone of Tawheed (Islamic monotheism) and establishes the fundamental concept
+            of Allah's oneness that distinguishes Islam from all other religions.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            <div className="bg-white dark:bg-gray-800 p-3 rounded shadow-sm">
+              <h4 className="font-medium text-blue-700 dark:text-blue-300 mb-1">Tawheed ar-Rububiyyah</h4>
+              <p className="text-sm text-gray-600 dark:text-gray-300">
+                Oneness of Lordship: Allah is the only creator and sustainer of all that exists
+              </p>
+            </div>
+            <div className="bg-white dark:bg-gray-800 p-3 rounded shadow-sm">
+              <h4 className="font-medium text-blue-700 dark:text-blue-300 mb-1">Tawheed al-Uluhiyyah</h4>
+              <p className="text-sm text-gray-600 dark:text-gray-300">
+                Oneness of Worship: Allah alone deserves to be worshipped
+              </p>
+            </div>
+            <div className="bg-white dark:bg-gray-800 p-3 rounded shadow-sm">
+              <h4 className="font-medium text-blue-700 dark:text-blue-300 mb-1">Tawheed al-Asma wa al-Sifat</h4>
+              <p className="text-sm text-gray-600 dark:text-gray-300">
+                Oneness of Names and Attributes: Allah's attributes are unique and incomparable
+              </p>
             </div>
           </div>
-        </header>
-
-        <main className="container mx-auto px-4 py-8">
-          <Card className="max-w-2xl mx-auto">
-            <CardHeader>
-              <div className="flex justify-between items-start">
-                <div>
-                  <CardTitle className="text-2xl flex items-center gap-2">
-                    <span className="inline-block w-8 h-8 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-300 text-sm flex items-center justify-center">
-                      {quizData.surahId}
-                    </span>
-                    Surah {quizData.surahName}
-                  </CardTitle>
-                  <p className="font-arabic text-2xl mt-2">{quizData.surahArabicName}</p>
-                </div>
-                <div className="flex flex-col gap-2 items-end">
-                  <Badge className={getTypeColor(quizData.type)}>{quizData.type}</Badge>
-                  <Badge className={getDifficultyColor(quizData.difficulty)}>{quizData.difficulty}</Badge>
-                </div>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <div className="mb-6">
-                <h3 className="text-lg font-medium mb-2">Introduction</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">{quizData.introduction}</p>
-
-                <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800 rounded-lg p-4 mb-4">
-                  <div className="flex items-start">
-                    <Info className="h-5 w-5 text-blue-500 mr-2 mt-0.5 flex-shrink-0" />
-                    <div>
-                      <h4 className="font-medium text-blue-800 dark:text-blue-300 mb-1">About This Quiz</h4>
-                      <p className="text-sm text-blue-700 dark:text-blue-200">
-                        This quiz contains {quizData.questions.length} questions testing your knowledge of key
-                        vocabulary from Surah {quizData.surahName}. Each question presents an Arabic word from the surah
-                        and asks you to select its correct meaning in English.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex flex-col sm:flex-row gap-2 text-sm text-gray-500 dark:text-gray-400 mb-4">
-                  <div className="flex items-center">
-                    <BookOpen className="h-4 w-4 mr-1" />
-                    <span>{quizData.totalVerses} verses</span>
-                  </div>
-                  <div className="flex items-center">
-                    <AlertCircle className="h-4 w-4 mr-1" />
-                    <span>{quizData.questions.length} vocabulary words</span>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-            <CardFooter>
-              <Button onClick={() => setShowIntroduction(false)} className="w-full bg-emerald-600 hover:bg-emerald-700">
-                Start Quiz
-              </Button>
-            </CardFooter>
-          </Card>
-        </main>
-      </div>
-    )
+        </div>
+      )
+    }
+    return null
   }
 
   return (
@@ -207,169 +163,215 @@ export default function SurahQuiz({ quizData }: SurahQuizProps) {
       </header>
 
       <main className="container mx-auto px-4 py-8">
-        {!quizCompleted ? (
-          <>
-            <div className="mb-6">
-              <div className="flex justify-between mb-1 text-sm text-gray-600 dark:text-gray-400">
-                <span>
-                  Question {currentQuestionIndex + 1} of {quizData.questions.length}
-                </span>
-                <span>
-                  Score: {score}/{currentQuestionIndex + (isAnswered ? 1 : 0)}
-                </span>
-              </div>
-              <Progress value={progress} className="h-2" />
-            </div>
-
-            <Card className="max-w-2xl mx-auto mb-8">
+        <div className="max-w-2xl mx-auto">
+          {showIntroduction ? (
+            <Card>
               <CardHeader>
-                <CardTitle className="text-xl">
-                  What does <span className="font-arabic text-2xl">{currentQuestion.arabic}</span> mean?
-                </CardTitle>
-                {currentQuestion.rootLetters && (
-                  <p className="text-sm text-gray-500 dark:text-gray-400">
-                    Root letters: <span className="font-arabic">{currentQuestion.rootLetters}</span>
-                  </p>
-                )}
+                <div className="flex items-center justify-between">
+                  <div>
+                    <CardTitle className="text-2xl flex items-center gap-2">
+                      <span className="inline-block w-8 h-8 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-300 text-sm flex items-center justify-center">
+                        {quizData.surahId}
+                      </span>
+                      Surah {quizData.surahName}
+                    </CardTitle>
+                    <CardDescription className="font-arabic text-2xl mt-1">{quizData.surahArabicName}</CardDescription>
+                  </div>
+                  <div className="flex flex-col gap-2 items-end">
+                    <Badge className={getTypeColor(quizData.type)}>{quizData.type}</Badge>
+                    <Badge className={getDifficultyColor(quizData.difficulty)}>{quizData.difficulty}</Badge>
+                  </div>
+                </div>
               </CardHeader>
               <CardContent>
-                <div className="space-y-4">
+                <div className="flex justify-between text-sm text-gray-500 dark:text-gray-400 mb-4">
+                  <span>{quizData.totalVerses} verses</span>
+                  <span>{quizData.questions.length} vocabulary words</span>
+                </div>
+
+                <div className="prose dark:prose-invert max-w-none">
+                  <h3 className="text-lg font-semibold mb-2">About This Surah</h3>
+                  <p>{quizData.introduction}</p>
+
+                  {renderTheologicalSignificance()}
+
+                  <h3 className="text-lg font-semibold mt-6 mb-2">Quiz Instructions</h3>
+                  <p>
+                    This quiz contains {quizData.questions.length} questions testing your knowledge of key vocabulary
+                    from Surah {quizData.surahName}. Select the correct meaning for each Arabic word or phrase.
+                  </p>
+                  <ul className="list-disc pl-5 mt-2">
+                    <li>Read each question carefully</li>
+                    <li>Select the option you believe is correct</li>
+                    <li>Review the explanation to deepen your understanding</li>
+                    <li>Your final score will be displayed at the end</li>
+                  </ul>
+                </div>
+              </CardContent>
+              <CardFooter className="flex justify-end">
+                <Button onClick={startQuiz} className="bg-emerald-600 hover:bg-emerald-700">
+                  <BookOpen className="mr-2 h-4 w-4" />
+                  Start Quiz
+                </Button>
+              </CardFooter>
+            </Card>
+          ) : quizCompleted ? (
+            <Card>
+              <CardHeader>
+                <CardTitle>Quiz Completed!</CardTitle>
+                <CardDescription>You've completed the Surah {quizData.surahName} vocabulary quiz.</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="text-center py-6">
+                  <div className="text-5xl font-bold mb-2 flex justify-center items-center">
+                    <span className={getScoreColor()}>
+                      {score}/{quizData.questions.length}
+                    </span>
+                  </div>
+                  <p className={`text-xl ${getScoreColor()}`}>{percentageScore}%</p>
+                  <div className="mt-6 max-w-md mx-auto">
+                    {percentageScore >= 80 ? (
+                      <div className="bg-green-50 dark:bg-green-900/20 border border-green-100 dark:border-green-800 rounded-lg p-4 text-green-800 dark:text-green-200">
+                        <h3 className="font-semibold mb-1">Excellent!</h3>
+                        <p className="text-sm">
+                          You have a strong understanding of the vocabulary in Surah {quizData.surahName}. Keep up the
+                          good work!
+                        </p>
+                      </div>
+                    ) : percentageScore >= 60 ? (
+                      <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-100 dark:border-amber-800 rounded-lg p-4 text-amber-800 dark:text-amber-200">
+                        <h3 className="font-semibold mb-1">Good effort!</h3>
+                        <p className="text-sm">
+                          You have a decent grasp of the vocabulary in Surah {quizData.surahName}. Review the words you
+                          missed and try again.
+                        </p>
+                      </div>
+                    ) : (
+                      <div className="bg-red-50 dark:bg-red-900/20 border border-red-100 dark:border-red-800 rounded-lg p-4 text-red-800 dark:text-red-200">
+                        <h3 className="font-semibold mb-1">Keep practicing!</h3>
+                        <p className="text-sm">
+                          You might need more practice with the vocabulary in Surah {quizData.surahName}. Review the
+                          words and try again.
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </CardContent>
+              <CardFooter className="flex justify-between">
+                <Button variant="outline" onClick={resetQuiz}>
+                  Restart Quiz
+                </Button>
+                <Link href="/quizzes/surah">
+                  <Button>Back to Surah Quizzes</Button>
+                </Link>
+              </CardFooter>
+            </Card>
+          ) : (
+            <Card>
+              <CardHeader>
+                <div className="flex justify-between items-center">
+                  <div>
+                    <CardTitle>
+                      Question {currentQuestionIndex + 1} of {quizData.questions.length}
+                    </CardTitle>
+                    <CardDescription>Surah {quizData.surahName} Vocabulary Quiz</CardDescription>
+                  </div>
+                  <div className="text-sm font-medium">
+                    Score: {score}/{currentQuestionIndex + (isCorrect !== null ? 1 : 0)}
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <div className="mb-6">
+                  <h3 className="text-lg font-medium mb-2">What is the meaning of:</h3>
+                  <div className="text-center">
+                    <p className="text-3xl font-arabic mb-2">{currentQuestion.arabic}</p>
+                    {currentQuestion.rootLetters && (
+                      <p className="text-sm text-gray-500 dark:text-gray-400 font-arabic">
+                        Root letters: {currentQuestion.rootLetters}
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                <div className="space-y-3">
                   {currentQuestion.options.map((option) => (
-                    <div
+                    <button
                       key={option.id}
-                      className={`flex items-center space-x-2 p-4 rounded-lg border cursor-pointer ${
-                        isAnswered && option.isCorrect
-                          ? "bg-green-50 border-green-200 dark:bg-green-900/20 dark:border-green-800"
-                          : isAnswered && option.id === selectedOption && !option.isCorrect
-                            ? "bg-red-50 border-red-200 dark:bg-red-900/20 dark:border-red-800"
-                            : selectedOption === option.id
-                              ? "bg-blue-50 border-blue-200 dark:bg-blue-900/20 dark:border-blue-800"
-                              : "hover:bg-gray-50 dark:hover:bg-gray-800"
-                      }`}
                       onClick={() => handleOptionSelect(option.id)}
+                      className={`w-full text-left p-3 rounded-lg border transition-colors ${
+                        selectedOption === option.id
+                          ? option.isCorrect
+                            ? "bg-green-100 border-green-300 dark:bg-green-900/30 dark:border-green-700"
+                            : "bg-red-100 border-red-300 dark:bg-red-900/30 dark:border-red-700"
+                          : "bg-white border-gray-200 hover:bg-gray-50 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-750"
+                      }`}
+                      disabled={selectedOption !== null}
                     >
-                      <div className="flex-1 flex items-center justify-between">
-                        <span>{option.text}</span>
-                        {isAnswered && option.isCorrect && <CheckCircle className="h-5 w-5 text-green-500" />}
-                        {isAnswered && option.id === selectedOption && !option.isCorrect && (
-                          <XCircle className="h-5 w-5 text-red-500" />
+                      <div className="flex justify-between items-center">
+                        <span>
+                          <span className="font-medium mr-2">{option.id.toUpperCase()}.</span>
+                          {option.text}
+                        </span>
+                        {selectedOption === option.id && (
+                          <span>
+                            {option.isCorrect ? (
+                              <Check className="h-5 w-5 text-green-600 dark:text-green-400" />
+                            ) : (
+                              <X className="h-5 w-5 text-red-600 dark:text-red-400" />
+                            )}
+                          </span>
                         )}
                       </div>
-                    </div>
+                    </button>
                   ))}
                 </div>
 
-                {isAnswered && currentQuestion.explanation && (
-                  <div className="mt-6">
+                {selectedOption !== null && !showExplanation && currentQuestion.explanation && (
+                  <div className="mt-4 flex justify-center">
                     <Button
                       variant="outline"
-                      onClick={toggleExplanation}
-                      className="mb-2 text-sm w-full justify-between"
+                      size="sm"
+                      onClick={() => setShowExplanation(true)}
+                      className="text-blue-600 dark:text-blue-400"
                     >
-                      <span>{showExplanation ? "Hide Explanation" : "Show Explanation"}</span>
-                      <Info className="h-4 w-4 ml-2" />
+                      <HelpCircle className="h-4 w-4 mr-1" />
+                      Show Explanation
                     </Button>
-                    {showExplanation && (
-                      <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-100 dark:border-amber-800 rounded-lg p-4 text-sm text-amber-800 dark:text-amber-200">
-                        {currentQuestion.explanation}
-                      </div>
-                    )}
+                  </div>
+                )}
+
+                {showExplanation && currentQuestion.explanation && (
+                  <div className="mt-4 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-100 dark:border-blue-800">
+                    <h4 className="font-medium text-blue-800 dark:text-blue-300 mb-1">Explanation:</h4>
+                    <p className="text-blue-700 dark:text-blue-200">{currentQuestion.explanation}</p>
                   </div>
                 )}
               </CardContent>
               <CardFooter className="flex justify-between">
-                {!isAnswered ? (
-                  <Button
-                    onClick={handleSubmit}
-                    disabled={!selectedOption}
-                    className="bg-emerald-600 hover:bg-emerald-700"
-                  >
-                    Submit Answer
-                  </Button>
-                ) : (
-                  <Button onClick={handleNextQuestion} className="bg-emerald-600 hover:bg-emerald-700">
-                    {currentQuestionIndex < quizData.questions.length - 1 ? "Next Question" : "Complete Quiz"}
-                  </Button>
-                )}
+                <Button variant="outline" onClick={handlePreviousQuestion} disabled={currentQuestionIndex === 0}>
+                  <ChevronLeft className="h-4 w-4 mr-1" />
+                  Previous
+                </Button>
+                <Button
+                  onClick={handleNextQuestion}
+                  disabled={selectedOption === null}
+                  className={isCorrect !== null ? "bg-emerald-600 hover:bg-emerald-700" : ""}
+                >
+                  {currentQuestionIndex < quizData.questions.length - 1 ? (
+                    <>
+                      Next
+                      <ChevronRight className="h-4 w-4 ml-1" />
+                    </>
+                  ) : (
+                    "Finish Quiz"
+                  )}
+                </Button>
               </CardFooter>
             </Card>
-          </>
-        ) : (
-          <Card className="max-w-md mx-auto">
-            <CardHeader>
-              <CardTitle className="text-2xl text-center">Quiz Completed!</CardTitle>
-            </CardHeader>
-            <CardContent className="text-center">
-              <div className="text-5xl font-bold text-emerald-600 mb-4">
-                {score}/{quizData.questions.length}
-              </div>
-              <p className="text-xl mb-6">
-                {score === quizData.questions.length
-                  ? "Perfect score! Excellent work!"
-                  : score >= quizData.questions.length * 0.8
-                    ? "Great job! You have a strong understanding of this surah's vocabulary."
-                    : score >= quizData.questions.length * 0.6
-                      ? "Good effort! Keep studying to improve your knowledge."
-                      : "Keep practicing! You'll improve with more study."}
-              </p>
-
-              <div className="mb-6 border rounded-lg overflow-hidden">
-                <div className="text-sm font-medium text-left bg-gray-100 dark:bg-gray-800 p-2">
-                  <div className="grid grid-cols-12 gap-2">
-                    <div className="col-span-5">English</div>
-                    <div className="col-span-5">Arabic</div>
-                    <div className="col-span-2 text-center">Result</div>
-                  </div>
-                </div>
-                <div className="divide-y">
-                  {questionResults.map((result, index) => {
-                    const question = quizData.questions.find((q) => q.id === result.questionId)
-                    const correctTranslation = question?.options.find((opt) => opt.isCorrect)?.text
-                    return (
-                      <div key={index} className="text-sm p-2">
-                        <div className="grid grid-cols-12 gap-2 items-center">
-                          <div className="col-span-5">{correctTranslation}</div>
-                          <div className="col-span-5 font-arabic text-right text-lg">{question?.arabic}</div>
-                          <div className="col-span-2 text-center">
-                            {result.correct ? (
-                              <CheckCircle className="h-4 w-4 text-green-500 mx-auto" />
-                            ) : (
-                              <XCircle className="h-4 w-4 text-red-500 mx-auto" />
-                            )}
-                          </div>
-                        </div>
-                      </div>
-                    )
-                  })}
-                </div>
-              </div>
-
-              <div className="flex flex-col space-y-4">
-                <Button
-                  onClick={resetQuiz}
-                  className="bg-emerald-600 hover:bg-emerald-700 flex items-center justify-center"
-                >
-                  <RefreshCw className="mr-2 h-4 w-4" />
-                  Retry Quiz
-                </Button>
-
-                <Link href="/quizzes/surah">
-                  <Button variant="outline" className="w-full">
-                    <ArrowLeft className="mr-2 h-4 w-4" />
-                    Back to Surah Quizzes
-                  </Button>
-                </Link>
-
-                <Link href="/">
-                  <Button variant="ghost" className="w-full">
-                    <Home className="mr-2 h-4 w-4" />
-                    Back to Home
-                  </Button>
-                </Link>
-              </div>
-            </CardContent>
-          </Card>
-        )}
+          )}
+        </div>
       </main>
     </div>
   )
