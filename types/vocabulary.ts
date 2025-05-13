@@ -106,3 +106,31 @@ export enum Performance {
   Hard = "hard",
   Forgot = "forgot",
 }
+
+export interface SurahQuizData {
+  surahId: number
+  surahName: string
+  surahArabicName: string
+  totalVerses: number
+  type: string
+  difficulty: string
+  introduction: string
+  additionalContextElements?: {
+    title: string
+    content: string
+  }[]
+  questions: SurahQuizQuestion[]
+}
+
+export interface SurahQuizQuestion {
+  id: string
+  question: string
+  arabic?: string
+  rootLetters?: string
+  options: {
+    id: string
+    text: string
+    isCorrect: boolean
+  }[]
+  explanation?: string
+}

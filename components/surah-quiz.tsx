@@ -1,12 +1,12 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import { ArrowLeft, Home, BookOpen, Check, X, HelpCircle, ChevronRight, ChevronLeft } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import type { SurahQuizData } from "@/data/surah-quiz-data"
+import type { SurahQuizData } from "@/types/vocabulary"
 
 interface SurahQuizProps {
   quizData: SurahQuizData
@@ -20,6 +20,12 @@ export default function SurahQuiz({ quizData }: SurahQuizProps) {
   const [score, setScore] = useState(0)
   const [quizCompleted, setQuizCompleted] = useState(false)
   const [showIntroduction, setShowIntroduction] = useState(true)
+
+  // Debug logging to help identify issues
+  useEffect(() => {
+    console.log(`Current question: ${currentQuestionIndex + 1} of ${quizData.questions.length}`)
+    console.log(`Selected option: ${selectedOption}`)
+  }, [currentQuestionIndex, selectedOption, quizData.questions.length])
 
   const currentQuestion = quizData.questions[currentQuestionIndex]
 
@@ -36,6 +42,11 @@ export default function SurahQuiz({ quizData }: SurahQuizProps) {
   }
 
   const handleNextQuestion = () => {
+    // Debug logging
+    console.log(
+      `Attempting to move to next question. Current: ${currentQuestionIndex}, Total: ${quizData.questions.length}`,
+    )
+
     if (currentQuestionIndex < quizData.questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1)
       setSelectedOption(null)
@@ -71,12 +82,12 @@ export default function SurahQuiz({ quizData }: SurahQuizProps) {
 
   // Get difficulty color
   const getDifficultyColor = (difficulty: string) => {
-    switch (difficulty) {
-      case "Beginner":
+    switch (difficulty.toLowerCase()) {
+      case "beginner":
         return "bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-300"
-      case "Intermediate":
+      case "intermediate":
         return "bg-blue-100 text-blue-800 dark:bg-blue-900/20 dark:text-blue-300"
-      case "Advanced":
+      case "advanced":
         return "bg-purple-100 text-purple-800 dark:bg-purple-900/20 dark:text-purple-300"
       default:
         return "bg-gray-100 text-gray-800 dark:bg-gray-900/20 dark:text-gray-300"
@@ -85,7 +96,7 @@ export default function SurahQuiz({ quizData }: SurahQuizProps) {
 
   // Get type color
   const getTypeColor = (type: string) => {
-    return type === "Meccan"
+    return type.toLowerCase() === "meccan"
       ? "bg-amber-100 text-amber-800 dark:bg-amber-900/20 dark:text-amber-300"
       : "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/20 dark:text-emerald-300"
   }
@@ -102,42 +113,6 @@ export default function SurahQuiz({ quizData }: SurahQuizProps) {
     } else {
       return "text-red-600 dark:text-red-400"
     }
-  }
-
-  // Function to render theological significance for Surah Al-Ikhlas
-  const renderTheologicalSignificance = () => {
-    if (quizData.surahId === 112) {
-      return (
-        <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-100 dark:border-blue-800">
-          <h3 className="text-lg font-semibold text-blue-800 dark:text-blue-300 mb-2">Theological Significance</h3>
-          <p className="text-blue-700 dark:text-blue-200 mb-3">
-            Surah Al-Ikhlas is the cornerstone of Tawheed (Islamic monotheism) and establishes the fundamental concept
-            of Allah's oneness that distinguishes Islam from all other religions.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-            <div className="bg-white dark:bg-gray-800 p-3 rounded shadow-sm">
-              <h4 className="font-medium text-blue-700 dark:text-blue-300 mb-1">Tawheed ar-Rububiyyah</h4>
-              <p className="text-sm text-gray-600 dark:text-gray-300">
-                Oneness of Lordship: Allah is the only creator and sustainer of all that exists
-              </p>
-            </div>
-            <div className="bg-white dark:bg-gray-800 p-3 rounded shadow-sm">
-              <h4 className="font-medium text-blue-700 dark:text-blue-300 mb-1">Tawheed al-Uluhiyyah</h4>
-              <p className="text-sm text-gray-600 dark:text-gray-300">
-                Oneness of Worship: Allah alone deserves to be worshipped
-              </p>
-            </div>
-            <div className="bg-white dark:bg-gray-800 p-3 rounded shadow-sm">
-              <h4 className="font-medium text-blue-700 dark:text-blue-300 mb-1">Tawheed al-Asma wa al-Sifat</h4>
-              <p className="text-sm text-gray-600 dark:text-gray-300">
-                Oneness of Names and Attributes: Allah's attributes are unique and incomparable
-              </p>
-            </div>
-          </div>
-        </div>
-      )
-    }
-    return null
   }
 
   return (
@@ -193,7 +168,10 @@ export default function SurahQuiz({ quizData }: SurahQuizProps) {
                   <h3 className="text-lg font-semibold mb-2">About This Surah</h3>
                   <p>{quizData.introduction}</p>
 
-                  {renderTheologicalSignificance()}
+                  {quizData.additionalContextElements &&
+                    quizData.additionalContextElements.map((element, index) => (
+                      <div key={index} dangerouslySetInnerHTML={{ __html: element.content }} />
+                    ))}
 
                   <h3 className="text-lg font-semibold mt-6 mb-2">Quiz Instructions</h3>
                   <p>
@@ -284,15 +262,22 @@ export default function SurahQuiz({ quizData }: SurahQuizProps) {
               </CardHeader>
               <CardContent>
                 <div className="mb-6">
-                  <h3 className="text-lg font-medium mb-2">What is the meaning of:</h3>
-                  <div className="text-center">
-                    <p className="text-3xl font-arabic mb-2">{currentQuestion.arabic}</p>
-                    {currentQuestion.rootLetters && (
-                      <p className="text-sm text-gray-500 dark:text-gray-400 font-arabic">
-                        Root letters: {currentQuestion.rootLetters}
-                      </p>
-                    )}
-                  </div>
+                  <h3 className="text-lg font-medium mb-2">
+                    {currentQuestion.arabic ? "What is the meaning of:" : currentQuestion.question}
+                  </h3>
+                  {currentQuestion.arabic && (
+                    <div className="text-center">
+                      <p className="text-3xl font-arabic mb-2">{currentQuestion.arabic}</p>
+                      {currentQuestion.rootLetters && (
+                        <p className="text-sm text-gray-500 dark:text-gray-400 font-arabic">
+                          Root letters: {currentQuestion.rootLetters}
+                        </p>
+                      )}
+                    </div>
+                  )}
+                  {!currentQuestion.arabic && currentQuestion.question && (
+                    <p className="text-lg mb-4">{currentQuestion.question}</p>
+                  )}
                 </div>
 
                 <div className="space-y-3">
@@ -354,10 +339,12 @@ export default function SurahQuiz({ quizData }: SurahQuizProps) {
                   <ChevronLeft className="h-4 w-4 mr-1" />
                   Previous
                 </Button>
+
+                {/* CRITICAL FIX: Simplified the Next button logic to ensure it works for all questions */}
                 <Button
                   onClick={handleNextQuestion}
                   disabled={selectedOption === null}
-                  className={isCorrect !== null ? "bg-emerald-600 hover:bg-emerald-700" : ""}
+                  className="bg-emerald-600 hover:bg-emerald-700"
                 >
                   {currentQuestionIndex < quizData.questions.length - 1 ? (
                     <>
