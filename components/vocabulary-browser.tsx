@@ -30,30 +30,16 @@ export function VocabularyBrowser() {
   const [surahs, setSurahs] = useState<SurahInfo[]>([])
   const [selectedSurah, setSelectedSurah] = useState<number | null>(null)
   const [categories, setCategories] = useState<Array<{ id: string; name: string; wordIds: string[] }>>([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
 
   // Load all words and surahs on component mount
   useEffect(() => {
-    const loadWords = async () => {
-      try {
-        setLoading(true)
-        const allWords = await vocabularyService.getAllWords()
-        const allSurahs = vocabularyService.getAllSurahs()
-        const allCategories = vocabularyService.getAllCategories()
-        setWords(allWords)
-        setFilteredWords(allWords)
-        setSurahs(allSurahs)
-        setCategories(allCategories || []) // Ensure categories is never undefined
-      } catch (err) {
-        console.error("Error loading vocabulary:", err)
-        setError("Failed to load vocabulary words")
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    loadWords()
+    const allWords = vocabularyService.getAllWords()
+    const allSurahs = vocabularyService.getAllSurahs()
+    const allCategories = vocabularyService.getAllCategories()
+    setWords(allWords)
+    setFilteredWords(allWords)
+    setSurahs(allSurahs)
+    setCategories(allCategories || []) // Ensure categories is never undefined
 
     // If category param exists, set it as the active tab
     if (categoryParam) {
@@ -120,9 +106,6 @@ export function VocabularyBrowser() {
   const handleSurahChange = (value: string) => {
     setSelectedSurah(value === "all" ? null : Number.parseInt(value))
   }
-
-  if (loading) return <div>Loading vocabulary...</div>
-  if (error) return <div>Error: {error}</div>
 
   return (
     <div className="container mx-auto px-4 py-8">
