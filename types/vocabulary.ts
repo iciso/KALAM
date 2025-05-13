@@ -115,22 +115,17 @@ export interface SurahQuizData {
   type: string
   difficulty: string
   introduction: string
+  questions: SurahQuizQuestion[]
   additionalContextElements?: {
     title: string
     content: string
   }[]
-  questions: SurahQuizQuestion[]
 }
 
 export interface SurahQuizQuestion {
   id: string
   question: string
-  arabic?: string
-  rootLetters?: string
-  options: {
-    id: string
-    text: string
-    isCorrect: boolean
-  }[]
+  options: string[]
+  correctAnswerIndex: number
   explanation?: string
 }
