@@ -801,3 +801,6 @@ export const phase4VocabularyData: VocabularyWord[] = [
     ],
   },
 ]
+
+// Export as vocabularyDataPhase5 to match the expected import
+export const vocabularyDataPhase5 = phase4VocabularyData

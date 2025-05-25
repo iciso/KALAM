@@ -314,3 +314,6 @@ export const phase8VocabularyData: VocabularyWord[] = [
     ],
   },
 ]
+
+// Export as vocabularyDataPhase9 to match the expected import
+export const vocabularyDataPhase9 = phase8VocabularyData

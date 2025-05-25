@@ -115,7 +115,7 @@ export const familyRelationshipsVocabulary: VocabularyWord[] = [
         arabic:
           "أَمْ كُنتُمْ شُهَدَاءَ إِذْ حَضَرَ يَعْقُوبَ الْمَوْتُ إِذْ قَالَ لِبَنِيهِ مَا تَعْبُدُونَ مِن بَعْدِي قَالُوا نَعْبُدُ إِلَٰهَكَ وَإِلَٰهَ آبَائِكَ إِبْرَاهِيمَ وَإِسْمَاعِيلَ وَإِسْحَاقَ",
         transliteration:
-          "Am kuntum shuhadāʾa idh ḥaḍara Yaʿqūba l-mawtu idh qāla li-banīhi mā taʿbudūna min baʿdī qālū naʿbudu ilāhaka wa-ilāha ābā��ika Ibrāhīma wa-Ismāʿīla wa-Isḥāqa",
+          "Am kuntum shuhadāʾa idh ḥaḍara Yaʿqūba l-mawtu idh qāla li-banīhi mā taʿbudūna min baʿdī qālū naʿbudu ilāhaka wa-ilāha ābāʾika Ibrāhīma wa-Ismāʿīla wa-Isḥāqa",
         translation:
           "Or were you witnesses when death approached Jacob, when he said to his sons, 'What will you worship after me?' They said, 'We will worship your God and the God of your fathers, Abraham and Ishmael and Isaac'",
         surahNumber: 2,
@@ -2211,3 +2211,6 @@ export const divineAttributesVocabulary: VocabularyWord[] = [
     hasAudio: false,
   },
 ]
+
+// Export as vocabularyDataPhase11 to match the expected import
+export const vocabularyDataPhase11 = [...familyRelationshipsVocabulary, ...divineAttributesVocabulary]

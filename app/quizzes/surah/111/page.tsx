@@ -1,4 +1,4 @@
-import SurahMasadQuizClient from "./client"
+import SurahMasadQuizWrapper from "./client-wrapper"
 
 export const metadata = {
   title: "Surah Al-Masad Quiz | KALAM",
@@ -6,5 +6,5 @@ export const metadata = {
 }
 
 export default function SurahMasadQuizPage() {
-  return <SurahMasadQuizClient />
+  return <SurahMasadQuizWrapper />
 }

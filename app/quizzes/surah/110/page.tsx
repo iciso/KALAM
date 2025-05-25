@@ -1,10 +1,11 @@
-import SurahNasrQuizClient from "./client"
+import { anNasrQuizData } from "@/data/surah-quiz-data"
+import ClientWrapper from "./client-wrapper"
 
 export const metadata = {
-  title: "Surah An-Nasr Quiz | KALAM",
-  description: "Test your knowledge of vocabulary from Surah An-Nasr (The Divine Support)",
+  title: `Surah ${anNasrQuizData.surahName} Quiz - KALAM`,
+  description: `Test your knowledge of Surah ${anNasrQuizData.surahName} vocabulary and meanings with this interactive quiz.`,
 }
 
-export default function SurahNasrQuizPage() {
-  return <SurahNasrQuizClient />
+export default function SurahQuizPage() {
+  return <ClientWrapper />
 }

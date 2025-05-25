@@ -275,7 +275,7 @@ export const phase5VocabularyData: VocabularyWord[] = [
         surahNumber: 2,
         surahName: "Al-Baqarah",
         ayahNumber: 64,
-        arabicText: "فَلَوْلَا فَضْلُ اللَّهِ عَلَيْكُمْ وَرَ��ْمَتُهُ",
+        arabicText: "فَلَوْلَا فَضْلُ اللَّهِ عَلَيْكُمْ وَرَْمَتُهُ",
         translationText: "And if not for the favor of Allah upon you and His mercy",
         wordLocation: {
           startIndex: 7,
@@ -318,3 +318,6 @@ export const phase5VocabularyData: VocabularyWord[] = [
     ],
   },
 ]
+
+// Export as vocabularyDataPhase6 to match the expected import
+export const vocabularyDataPhase6 = phase5VocabularyData

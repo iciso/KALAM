@@ -25,7 +25,7 @@ export default function AboutPage() {
           </p>
           <p className="text-gray-600 dark:text-gray-300">
             Muslims believe that understanding the language of the Quran enhances one's spiritual experience and provides a
-            more profound connection to the text. By creating engaging, gaming and interactive tools for vocabulary acquisition, we
+            more profound connection to the text. By creating engaging, gaming and interactive tools for learning new words, we
             hope to make this journey fun-filled, enjoyable and effective.
           </p>
         </section>
@@ -46,10 +46,10 @@ export default function AboutPage() {
           <h2 className="text-2xl font-bold mb-4">Open Source</h2>
           <p className="mb-4 text-gray-600 dark:text-gray-300">
             KALAM is completely open-source and free to use. We welcome contributions from developers, Arabic linguists,
-            Quran scholars, and anyone passionate about making Quranic knowledge more accessible.
+            Quran scholars, and anyone passionate about making Quranic words and knowledge more accessible.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mt-6">
-            <Link href="https://github.com/YOUR-ACTUAL-USERNAME/kalam" target="_blank" rel="noopener noreferrer">
+            <Link href="https://github.com/iciso/KALAM" target="_blank" rel="noopener noreferrer">
               <Button className="w-full sm:w-auto">
                 <Github className="mr-2 h-4 w-4" />
                 GitHub Repository
