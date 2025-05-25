@@ -129,6 +129,26 @@ export default function HomePage() {
               </CardFooter>
             </Card>
 
+            <Card>
+              <CardHeader>
+                <div className="h-8 w-8 text-amber-600 mb-2 text-2xl">🕋</div>
+                <CardTitle>Hajj Tamattu Journey</CardTitle>
+                <CardDescription>Experience the complete pilgrimage journey</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 dark:text-gray-300">
+                  Follow the sacred pilgrimage steps with interactive guidance through Umrah and Hajj rituals in the
+                  Tamattu method.
+                </p>
+              </CardContent>
+              <CardFooter>
+                <Link href="https://tamatu.vercel.app/" target="_blank" rel="noopener noreferrer" className="w-full">
+                  <Button className="w-full bg-amber-600 hover:bg-amber-700">
+                    Begin Pilgrimage <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </CardFooter>
+            </Card>
 
             <Card>
               <CardHeader>
@@ -224,7 +244,6 @@ export default function HomePage() {
                 </Link>
               </CardFooter>
             </Card>
-
           </div>
         </section>
       </main>

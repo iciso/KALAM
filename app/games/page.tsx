@@ -26,7 +26,7 @@ export default function GamesPage() {
             </p>
           </CardContent>
           <CardFooter>
-            <Link href="https://v0-barzaq.vercel.app/" passHref>
+            <Link href="https://v0-barzaq.vercel.app/" target="_blank" rel="noopener noreferrer" className="w-full">
               <Button className="bg-indigo-600 hover:bg-indigo-700">Play Now</Button>
             </Link>
           </CardFooter>
