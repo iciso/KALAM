@@ -13,6 +13,25 @@ export default function GamesPage() {
       <h1 className="text-3xl font-bold mb-8 text-center">Quranic Games</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* New Barzaq Game Card */}
+        <Card className="border-indigo-200 bg-indigo-50">
+          <CardHeader>
+            <CardTitle className="text-indigo-800">Barzaq Game</CardTitle>
+            <CardDescription>Learn about the intermediate state after death</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p>
+              Explore the concept of Barzaq (the intermediate state between death and resurrection) through an
+              interactive educational game based on Islamic teachings.
+            </p>
+          </CardContent>
+          <CardFooter>
+            <Link href="https://v0-barzaq.vercel.app/" passHref>
+              <Button className="bg-indigo-600 hover:bg-indigo-700">Play Now</Button>
+            </Link>
+          </CardFooter>
+        </Card>
+
         {/* New Make Quranic Ayats Game Card */}
         <Card className="border-purple-200 bg-purple-50">
           <CardHeader>

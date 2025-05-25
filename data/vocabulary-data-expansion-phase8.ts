@@ -69,7 +69,7 @@ export const phase8VocabularyData: VocabularyWord[] = [
     id: "word-133",
     arabic: "خَوْف",
     transliteration: "Khawf",
-    rootLetters: "خ و ف",
+    rootLetters: "خ و ��",
     meanings: ["Fear", "Dread", "Apprehension"],
     partOfSpeech: PartOfSpeech.Noun,
     difficulty: Difficulty.Intermediate,
