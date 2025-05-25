@@ -41,185 +41,192 @@ export default function HomePage() {
           </p>
         </section>
 
-        <section className="mb-8">
-          <VocabularyStats />
-        </section>
-
         {/* Interactive Learning Section - Top Priority */}
-        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          <Card>
-            <CardHeader>
-              <Gamepad2 className="h-8 w-8 text-emerald-600 mb-2" />
-              <CardTitle>Games</CardTitle>
-              <CardDescription>Learn while having fun with vocabulary games</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-600 dark:text-gray-300">
-                Enjoy learning through games that make vocabulary acquisition fun and engaging. Perfect for all ages and
-                learning styles.
-              </p>
-            </CardContent>
-            <CardFooter>
-              <Link href="/games" className="w-full">
-                <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
-                  Play Games <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
-            </CardFooter>
-          </Card>
+        <section className="mb-12">
+          <h3 className="text-xl font-semibold mb-6 text-center">Interactive Learning</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <Card>
+              <CardHeader>
+                <Gamepad2 className="h-8 w-8 text-emerald-600 mb-2" />
+                <CardTitle>Games</CardTitle>
+                <CardDescription>Learn while having fun with vocabulary games</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 dark:text-gray-300">
+                  Enjoy learning through games that make vocabulary acquisition fun and engaging. Perfect for all ages
+                  and learning styles.
+                </p>
+              </CardContent>
+              <CardFooter>
+                <Link href="/games" className="w-full">
+                  <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
+                    Play Games <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </CardFooter>
+            </Card>
 
-          <Card>
-            <CardHeader>
-              <ListChecks className="h-8 w-8 text-emerald-600 mb-2" />
-              <CardTitle>Quizzes</CardTitle>
-              <CardDescription>Test your knowledge with interactive quizzes</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-600 dark:text-gray-300">
-                Challenge yourself with quizzes designed to reinforce your vocabulary learning. Track your progress and
-                identify areas for improvement.
-              </p>
-            </CardContent>
-            <CardFooter>
-              <Link href="/quizzes" className="w-full">
-                <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
-                  Take a Quiz <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
-            </CardFooter>
-          </Card>
+            <Card>
+              <CardHeader>
+                <ListChecks className="h-8 w-8 text-emerald-600 mb-2" />
+                <CardTitle>Quizzes</CardTitle>
+                <CardDescription>Test your knowledge with interactive quizzes</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 dark:text-gray-300">
+                  Challenge yourself with quizzes designed to reinforce your vocabulary learning. Track your progress
+                  and identify areas for improvement.
+                </p>
+              </CardContent>
+              <CardFooter>
+                <Link href="/quizzes" className="w-full">
+                  <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
+                    Take a Quiz <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </CardFooter>
+            </Card>
 
-          <Card>
-            <CardHeader>
-              <Clock className="h-8 w-8 text-orange-600 mb-2" />
-              <CardTitle>Hijra Journey</CardTitle>
-              <CardDescription>Explore the Prophet's migration from Mecca to Medina</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-600 dark:text-gray-300">
-                Discover the historic journey of Prophet Muhammad (PBUH) with interactive maps, historical context, and
-                Quranic references.
-              </p>
-            </CardContent>
-            <CardFooter>
-              <Link href="/hijra" className="w-full">
-                <Button className="w-full bg-orange-600 hover:bg-orange-700">
-                  Explore Journey <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
-            </CardFooter>
-          </Card>
+            <Card>
+              <CardHeader>
+                <Clock className="h-8 w-8 text-orange-600 mb-2" />
+                <CardTitle>Hijra Journey</CardTitle>
+                <CardDescription>Explore the Prophet's migration from Mecca to Medina</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 dark:text-gray-300">
+                  Discover the historic journey of Prophet Muhammad (PBUH) with interactive maps, historical context,
+                  and Quranic references.
+                </p>
+              </CardContent>
+              <CardFooter>
+                <Link href="/hijra" className="w-full">
+                  <Button className="w-full bg-orange-600 hover:bg-orange-700">
+                    Explore Journey <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </CardFooter>
+            </Card>
 
-          <Card>
-            <CardHeader>
-              <Clock className="h-8 w-8 text-purple-600 mb-2" />
-              <CardTitle>Isra & Miraj</CardTitle>
-              <CardDescription>Experience the Prophet's miraculous night journey</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-600 dark:text-gray-300">
-                Follow the Prophet's journey from Mecca to Jerusalem and ascension to the heavens with interactive
-                storytelling.
-              </p>
-            </CardContent>
-            <CardFooter>
-              <Link href="/isra-miraj" className="w-full">
-                <Button className="w-full bg-purple-600 hover:bg-purple-700">
-                  Begin Journey <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
-            </CardFooter>
-          </Card>
+            <Card>
+              <CardHeader>
+                <Clock className="h-8 w-8 text-purple-600 mb-2" />
+                <CardTitle>Isra & Miraj</CardTitle>
+                <CardDescription>Experience the Prophet's miraculous night journey</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 dark:text-gray-300">
+                  Follow the Prophet's journey from Mecca to Jerusalem and ascension to the heavens with interactive
+                  storytelling.
+                </p>
+              </CardContent>
+              <CardFooter>
+                <Link href="/isra-miraj" className="w-full">
+                  <Button className="w-full bg-purple-600 hover:bg-purple-700">
+                    Begin Journey <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </CardFooter>
+            </Card>
 
-          <Card>
-            <CardHeader>
-              <ListPlus className="h-8 w-8 text-emerald-600 mb-2" />
-              <CardTitle>Word Lists</CardTitle>
-              <CardDescription>Create custom lists for focused study</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-600 dark:text-gray-300">
-                Create and manage your own word lists to organize vocabulary based on your learning needs and goals.
-              </p>
-            </CardContent>
-            <CardFooter>
-              <Link href="/word-lists" className="w-full">
-                <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
-                  My Word Lists <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
-            </CardFooter>
-          </Card>
+
+            <Card>
+              <CardHeader>
+                <Users className="h-8 w-8 text-blue-600 mb-2" />
+                <CardTitle>Prophets in the Quran</CardTitle>
+                <CardDescription>Learn about the 25 prophets mentioned in the Quran</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 dark:text-gray-300">
+                  Explore the stories and attributes of the prophets mentioned in the Quran and their significance in
+                  Islamic teachings.
+                </p>
+              </CardContent>
+              <CardFooter>
+                <Link href="/prophets" className="w-full">
+                  <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
+                    Explore Prophets <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </CardFooter>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <ListPlus className="h-8 w-8 text-emerald-600 mb-2" />
+                <CardTitle>Word Lists</CardTitle>
+                <CardDescription>Create custom lists for focused study</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 dark:text-gray-300">
+                  Create and manage your own word lists to organize vocabulary based on your learning needs and goals.
+                </p>
+              </CardContent>
+              <CardFooter>
+                <Link href="/word-lists" className="w-full">
+                  <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
+                    My Word Lists <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </CardFooter>
+            </Card>
+          </div>
         </section>
 
         {/* Reference & Study Tools Section */}
-        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          <Card>
-            <CardHeader>
-              <Database className="h-8 w-8 text-emerald-600 mb-2" />
-              <CardTitle>Quranic Dictionary</CardTitle>
-              <CardDescription>Explore comprehensive Quranic vocabulary</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-600 dark:text-gray-300">
-                Browse our extensive collection of Quranic Arabic vocabulary with detailed meanings, examples, and
-                context.
-              </p>
-            </CardContent>
-            <CardFooter>
-              <Link href="/vocabulary" className="w-full">
-                <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
-                  Explore Dictionary <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
-            </CardFooter>
-          </Card>
+        <section className="mb-12">
+          <h3 className="text-xl font-semibold mb-6 text-center">Reference & Study Tools</h3>
 
-          <Card>
-            <CardHeader>
-              <BookOpen className="h-8 w-8 text-emerald-600 mb-2" />
-              <CardTitle>Flashcards</CardTitle>
-              <CardDescription>Learn new words with interactive flashcards</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-600 dark:text-gray-300">
-                Study Quranic vocabulary with our comprehensive flashcard system. Review words, their meanings, and
-                their context in the Quran.
-              </p>
-            </CardContent>
-            <CardFooter>
-              <Link href="/flashcards" className="w-full">
-                <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
-                  Start Learning <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
-            </CardFooter>
-          </Card>
+          {/* Vocabulary Statistics */}
+          <div className="mb-8">
+            <VocabularyStats />
+          </div>
 
-          <Card>
-            <CardHeader>
-              <Users className="h-8 w-8 text-blue-600 mb-2" />
-              <CardTitle>Prophets in the Quran</CardTitle>
-              <CardDescription>Learn about the 25 prophets mentioned in the Quran</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-600 dark:text-gray-300">
-                Explore the stories and attributes of the prophets mentioned in the Quran and their significance in
-                Islamic teachings.
-              </p>
-            </CardContent>
-            <CardFooter>
-              <Link href="/prophets" className="w-full">
-                <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
-                  Explore Prophets <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
-            </CardFooter>
-          </Card>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <Card>
+              <CardHeader>
+                <Database className="h-8 w-8 text-emerald-600 mb-2" />
+                <CardTitle>Quranic Dictionary</CardTitle>
+                <CardDescription>Explore comprehensive Quranic vocabulary</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 dark:text-gray-300">
+                  Browse our extensive collection of Quranic Arabic vocabulary with detailed meanings, examples, and
+                  context.
+                </p>
+              </CardContent>
+              <CardFooter>
+                <Link href="/vocabulary" className="w-full">
+                  <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
+                    Explore Dictionary <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </CardFooter>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <BookOpen className="h-8 w-8 text-emerald-600 mb-2" />
+                <CardTitle>Flashcards</CardTitle>
+                <CardDescription>Learn new words with interactive flashcards</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 dark:text-gray-300">
+                  Study Quranic vocabulary with our comprehensive flashcard system. Review words, their meanings, and
+                  their context in the Quran.
+                </p>
+              </CardContent>
+              <CardFooter>
+                <Link href="/flashcards" className="w-full">
+                  <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
+                    Start Learning <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </CardFooter>
+            </Card>
+
+          </div>
         </section>
-
-        {/* Rest of the homepage content remains the same */}
-        {/* ... */}
       </main>
 
       <footer className="bg-gray-100 dark:bg-gray-800 py-6">
