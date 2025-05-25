@@ -56,31 +56,61 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const signIn = async (email: string, password: string) => {
     try {
+      // Add a small delay to avoid rate limiting
+      await new Promise((resolve) => setTimeout(resolve, 100))
+
       const { data, error } = await supabase.auth.signInWithPassword({
-        email: email.trim(),
+        email: email.trim().toLowerCase(),
         password,
       })
 
       console.log("Sign in result:", { data, error })
+
+      if (error) {
+        // Handle specific error types
+        if (error.message.includes("Invalid login credentials")) {
+          return { error: { message: "Invalid email or password. Please check your credentials." } }
+        } else if (error.message.includes("Failed to fetch")) {
+          return { error: { message: "Network error. Please check your internet connection and try again." } }
+        } else if (error.message.includes("Email not confirmed")) {
+          return { error: { message: "Please check your email and click the confirmation link before signing in." } }
+        }
+      }
+
       return { error }
     } catch (error) {
       console.error("Sign in error:", error)
-      return { error: { message: "An unexpected error occurred" } }
+      return { error: { message: "Network error. Please check your internet connection and try again." } }
     }
   }
 
   const signUp = async (email: string, password: string) => {
     try {
+      // Add a small delay to avoid rate limiting
+      await new Promise((resolve) => setTimeout(resolve, 100))
+
       const { data, error } = await supabase.auth.signUp({
-        email: email.trim(),
+        email: email.trim().toLowerCase(),
         password,
+        options: {
+          emailRedirectTo: `${window.location.origin}/auth/callback`,
+        },
       })
 
       console.log("Sign up result:", { data, error })
+
+      if (error) {
+        if (error.message.includes("User already registered")) {
+          return { error: { message: "An account with this email already exists. Please sign in instead." } }
+        } else if (error.message.includes("Failed to fetch")) {
+          return { error: { message: "Network error. Please check your internet connection and try again." } }
+        }
+      }
+
       return { error }
     } catch (error) {
       console.error("Sign up error:", error)
-      return { error: { message: "An unexpected error occurred" } }
+      return { error: { message: "Network error. Please check your internet connection and try again." } }
     }
   }
 
