@@ -8,7 +8,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } f
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useAuth } from "@/contexts/auth-context"
-import { Loader2 } from "lucide-react"
+import { Loader2, Chrome } from "lucide-react"
 
 interface SignUpDialogProps {
   open: boolean
@@ -23,7 +23,26 @@ export function SignUpDialog({ open, onOpenChange, onSwitchToSignIn }: SignUpDia
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
   const [success, setSuccess] = useState(false)
-  const { signUp } = useAuth()
+  const { signUp, signInWithGoogle } = useAuth()
+
+  const handleGoogleSignIn = async () => {
+    setLoading(true)
+    setError("")
+    setSuccess(false)
+
+    try {
+      const { error } = await signInWithGoogle()
+      if (error) {
+        setError(error.message || "Failed to sign in with Google")
+      } else {
+        onOpenChange(false)
+      }
+    } catch (error) {
+      setError("An unexpected error occurred. Please try again.")
+    } finally {
+      setLoading(false)
+    }
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -82,6 +101,27 @@ export function SignUpDialog({ open, onOpenChange, onSwitchToSignIn }: SignUpDia
           <DialogTitle>Create KALAM Account</DialogTitle>
           <DialogDescription>Join KALAM to save your progress and create custom word lists.</DialogDescription>
         </DialogHeader>
+        <div className="space-y-4">
+          <Button
+            type="button"
+            variant="outline"
+            onClick={handleGoogleSignIn}
+            disabled={loading}
+            className="w-full flex items-center justify-center gap-2"
+          >
+            <Chrome className="h-4 w-4" />
+            Continue with Google
+          </Button>
+
+          <div className="relative">
+            <div className="absolute inset-0 flex items-center">
+              <span className="w-full border-t" />
+            </div>
+            <div className="relative flex justify-center text-xs uppercase">
+              <span className="bg-background px-2 text-muted-foreground">Or create account with email</span>
+            </div>
+          </div>
+        </div>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
             <Label htmlFor="email">Email</Label>

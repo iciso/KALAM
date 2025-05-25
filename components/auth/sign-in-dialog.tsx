@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useAuth } from "@/contexts/auth-context"
 import { Loader2 } from "lucide-react"
+import { Chrome } from "lucide-react"
 
 interface SignInDialogProps {
   open: boolean
@@ -20,7 +21,25 @@ export function SignInDialog({ open, onOpenChange, onSwitchToSignUp }: SignInDia
   const [password, setPassword] = useState("")
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
-  const { signIn } = useAuth()
+  const { signIn, signInWithGoogle } = useAuth()
+
+  const handleGoogleSignIn = async () => {
+    setLoading(true)
+    setError("")
+
+    try {
+      const { error } = await signInWithGoogle()
+      if (error) {
+        setError(error.message || "Failed to sign in with Google")
+      } else {
+        onOpenChange(false)
+      }
+    } catch (error) {
+      setError("An unexpected error occurred. Please try again.")
+    } finally {
+      setLoading(false)
+    }
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -59,6 +78,27 @@ export function SignInDialog({ open, onOpenChange, onSwitchToSignUp }: SignInDia
           <DialogTitle>Sign In to KALAM</DialogTitle>
           <DialogDescription>Enter your email and password to access your account.</DialogDescription>
         </DialogHeader>
+        <div className="space-y-4">
+          <Button
+            type="button"
+            variant="outline"
+            onClick={handleGoogleSignIn}
+            disabled={loading}
+            className="w-full flex items-center justify-center gap-2"
+          >
+            <Chrome className="h-4 w-4" />
+            Continue with Google
+          </Button>
+
+          <div className="relative">
+            <div className="absolute inset-0 flex items-center">
+              <span className="w-full border-t" />
+            </div>
+            <div className="relative flex justify-center text-xs uppercase">
+              <span className="bg-background px-2 text-muted-foreground">Or continue with email</span>
+            </div>
+          </div>
+        </div>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
             <Label htmlFor="email">Email</Label>
