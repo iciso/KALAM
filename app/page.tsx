@@ -99,20 +99,21 @@ export default function HomePage() {
               </CardFooter>
             </Card>
 
-            {/* Hangman */}
-            <Card className="border-amber-200 bg-amber-50">
+            {/* Islamic Finance Game */}
+            <Card className="border-teal-200 bg-teal-50">
               <CardHeader>
-                <CardTitle className="text-amber-800">Hangman</CardTitle>
-                <CardDescription>Guess the Arabic word letter by letter</CardDescription>
+                <CardTitle className="text-teal-800">Islamic Finance Game</CardTitle>
+                <CardDescription>Learn Islamic financial ethics through scenarios</CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-gray-600">
-                  Test your vocabulary knowledge by guessing Arabic words one letter at a time.
+                  Navigate ethical financial decisions and learn Islamic principles through interactive scenarios and
+                  choices.
                 </p>
               </CardContent>
               <CardFooter>
-                <Link href="/games/hangman" className="w-full">
-                  <Button className="w-full bg-amber-600 hover:bg-amber-700">Play Now</Button>
+                <Link href="https://isfin.vercel.app/" target="_blank" rel="noopener noreferrer" className="w-full">
+                  <Button className="w-full bg-teal-600 hover:bg-teal-700">Begin Journey</Button>
                 </Link>
               </CardFooter>
             </Card>
