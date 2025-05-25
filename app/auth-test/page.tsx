@@ -46,59 +46,118 @@ export default function AuthTestPage() {
     setTestResults((prev) => [...prev, `${new Date().toLocaleTimeString()}: ${result}`])
   }
 
-  const testSignUp = async () => {
+  const testDirectFetch = async () => {
     try {
-      addTestResult("🔄 Testing sign up...")
-      const { data, error } = await supabase.auth.signUp({
+      addTestResult("🔄 Testing direct fetch to Supabase auth endpoint...")
+
+      const authUrl = `${envVars.fullUrl}/auth/v1/signup`
+
+      const response = await fetch(authUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          apikey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+        },
+        body: JSON.stringify({
+          email: testEmail,
+          password: testPassword,
+        }),
+      })
+
+      addTestResult(`📡 Response status: ${response.status}`)
+
+      if (response.ok) {
+        const data = await response.json()
+        addTestResult(`✅ Direct fetch successful!`)
+      } else {
+        const errorText = await response.text()
+        addTestResult(`❌ Direct fetch failed: ${errorText}`)
+      }
+    } catch (error) {
+      addTestResult(`❌ Direct fetch exception: ${error}`)
+    }
+  }
+
+  const testSupabaseClient = async () => {
+    try {
+      addTestResult("🔄 Testing Supabase client...")
+
+      // Test with a completely new client instance
+      const { createClient } = await import("@supabase/supabase-js")
+      const testClient = createClient(
+        process.env.NEXT_PUBLIC_SUPABASE_URL!,
+        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+        {
+          auth: {
+            autoRefreshToken: false,
+            persistSession: false,
+            detectSessionInUrl: false,
+          },
+        },
+      )
+
+      const { data, error } = await testClient.auth.signUp({
         email: testEmail,
         password: testPassword,
       })
 
       if (error) {
-        addTestResult(`❌ Sign up error: ${error.message}`)
+        addTestResult(`❌ Supabase client error: ${error.message}`)
       } else {
-        addTestResult(`✅ Sign up successful! User: ${data.user?.email}`)
+        addTestResult(`✅ Supabase client successful!`)
       }
     } catch (error) {
-      addTestResult(`❌ Sign up exception: ${error}`)
+      addTestResult(`❌ Supabase client exception: ${error}`)
     }
   }
 
-  const testSignIn = async () => {
+  const testCORS = async () => {
     try {
-      addTestResult("🔄 Testing sign in...")
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email: testEmail,
-        password: testPassword,
-      })
+      addTestResult("🔄 Testing CORS...")
 
-      if (error) {
-        addTestResult(`❌ Sign in error: ${error.message}`)
-      } else {
-        addTestResult(`✅ Sign in successful! User: ${data.user?.email}`)
-      }
-    } catch (error) {
-      addTestResult(`❌ Sign in exception: ${error}`)
-    }
-  }
-
-  const testNetworkConnectivity = async () => {
-    try {
-      addTestResult("🔄 Testing network connectivity...")
-      const response = await fetch(envVars.fullUrl + "/rest/v1/", {
+      // Test a simple GET request to check CORS
+      const response = await fetch(`${envVars.fullUrl}/rest/v1/`, {
+        method: "GET",
         headers: {
           apikey: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-          Authorization: `Bearer ${process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!}`,
         },
       })
 
+      addTestResult(`📡 CORS test status: ${response.status}`)
+
       if (response.ok) {
-        addTestResult("✅ Network connectivity successful!")
+        addTestResult(`✅ CORS working correctly!`)
       } else {
-        addTestResult(`❌ Network error: ${response.status} ${response.statusText}`)
+        addTestResult(`❌ CORS issue detected`)
       }
     } catch (error) {
-      addTestResult(`❌ Network exception: ${error}`)
+      addTestResult(`❌ CORS test exception: ${error}`)
+    }
+  }
+
+  const testWithDifferentConfig = async () => {
+    try {
+      addTestResult("🔄 Testing with different Supabase config...")
+
+      const { createClient } = await import("@supabase/supabase-js")
+      const altClient = createClient(
+        process.env.NEXT_PUBLIC_SUPABASE_URL!,
+        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+        // No additional config - use defaults
+      )
+
+      const { data, error } = await altClient.auth.signUp({
+        email: `test-${Date.now()}@example.com`, // Use unique email
+        password: testPassword,
+      })
+
+      if (error) {
+        addTestResult(`❌ Alt config error: ${error.message}`)
+      } else {
+        addTestResult(`✅ Alt config successful!`)
+      }
+    } catch (error) {
+      addTestResult(`❌ Alt config exception: ${error}`)
     }
   }
 
@@ -141,14 +200,17 @@ export default function AuthTestPage() {
           </div>
 
           <div className="space-y-2">
-            <Button onClick={testNetworkConnectivity} className="w-full">
-              Test Network Connectivity
+            <Button onClick={testCORS} className="w-full">
+              Test CORS
             </Button>
-            <Button onClick={testSignUp} className="w-full">
-              Test Sign Up
+            <Button onClick={testDirectFetch} className="w-full">
+              Test Direct Fetch
             </Button>
-            <Button onClick={testSignIn} className="w-full">
-              Test Sign In
+            <Button onClick={testSupabaseClient} className="w-full">
+              Test Supabase Client
+            </Button>
+            <Button onClick={testWithDifferentConfig} className="w-full">
+              Test Different Config
             </Button>
             <Button onClick={() => setTestResults([])} variant="outline" className="w-full">
               Clear Results
@@ -170,6 +232,16 @@ export default function AuthTestPage() {
             )}
           </div>
         </div>
+      </div>
+
+      <div className="mt-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+        <h3 className="font-semibold text-yellow-800">Troubleshooting Tips:</h3>
+        <ul className="text-sm text-yellow-700 mt-2 space-y-1">
+          <li>• If CORS test fails, check your Supabase project settings</li>
+          <li>• If Direct Fetch works but Supabase Client fails, it's a client configuration issue</li>
+          <li>• Try testing from a different network or device</li>
+          <li>• Check if your Supabase project is paused or has billing issues</li>
+        </ul>
       </div>
     </div>
   )
