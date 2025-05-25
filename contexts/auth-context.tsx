@@ -116,17 +116,24 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       const { data, error } = await supabase.auth.signInWithOAuth({
         provider: "google",
         options: {
-          redirectTo:
-            typeof window !== "undefined"
-              ? `${window.location.origin}/auth/callback`
-              : "https://v0-kalam.vercel.app/auth/callback",
+          redirectTo: `${window.location.origin}/auth/callback`,
+          queryParams: {
+            access_type: "offline",
+            prompt: "consent",
+          },
         },
       })
 
       console.log("Google sign in result:", { data, error })
-      return { error }
+
+      if (error) {
+        console.error("Google OAuth error:", error)
+        return { error: { message: error.message || "Failed to authenticate with Google" } }
+      }
+
+      return { error: null }
     } catch (error) {
-      console.error("Google sign in error:", error)
+      console.error("Google sign in exception:", error)
       return { error: { message: "An unexpected error occurred. Please try again." } }
     }
   }
