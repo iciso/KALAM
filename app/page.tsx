@@ -45,9 +45,8 @@ export default function HomePage() {
           <VocabularyStats />
         </section>
 
-        {/* Main features grid - Reordered to match navigation */}
+        {/* Interactive Learning Section - Top Priority */}
         <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {/* Interactive Learning Section - Top Priority */}
           <Card>
             <CardHeader>
               <Gamepad2 className="h-8 w-8 text-emerald-600 mb-2" />
@@ -151,8 +150,10 @@ export default function HomePage() {
               </Link>
             </CardFooter>
           </Card>
+        </section>
 
-          {/* Reference Section */}
+        {/* Reference & Study Tools Section */}
+        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           <Card>
             <CardHeader>
               <Database className="h-8 w-8 text-emerald-600 mb-2" />
