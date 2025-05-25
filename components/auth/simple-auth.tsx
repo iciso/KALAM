@@ -4,7 +4,7 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { createClient } from "@supabase/supabase-js"
+import { supabase } from "@/lib/supabase"
 
 export function SimpleAuth() {
   const [email, setEmail] = useState("")
@@ -17,14 +17,20 @@ export function SimpleAuth() {
     setMessage("")
 
     try {
-      // Create a fresh client instance
-      const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!)
-
       let result
       if (isSignUp) {
+        // Get the current origin for redirect URL
+        const redirectTo =
+          typeof window !== "undefined"
+            ? `${window.location.origin}/auth/callback`
+            : "https://v0-kalam.vercel.app/auth/callback"
+
         result = await supabase.auth.signUp({
           email: email.trim(),
           password,
+          options: {
+            emailRedirectTo: redirectTo,
+          },
         })
       } else {
         result = await supabase.auth.signInWithPassword({
@@ -36,7 +42,11 @@ export function SimpleAuth() {
       if (result.error) {
         setMessage(`Error: ${result.error.message}`)
       } else {
-        setMessage(`Success! ${isSignUp ? "Check your email for confirmation." : "You are signed in."}`)
+        if (isSignUp) {
+          setMessage(`Success! Check your email for a confirmation link. The link will redirect you to this site.`)
+        } else {
+          setMessage(`Success! You are signed in.`)
+        }
       }
     } catch (error) {
       setMessage(`Exception: ${error}`)
