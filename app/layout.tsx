@@ -4,6 +4,7 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { NavBar } from "@/components/nav-bar"
 import { FontSizeProvider } from "@/contexts/font-size-context"
+import { AuthProvider } from "@/contexts/auth-context"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -34,7 +35,7 @@ export const metadata = {
     ],
     apple: { url: "/apple-touch-icon.png", sizes: "180x180" },
   },
-    generator: 'v0.dev'
+  generator: "v0.dev",
 }
 
 export default function RootLayout({
@@ -52,10 +53,12 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <FontSizeProvider>
-            <NavBar />
-            <div className="pt-16">{children}</div>
-          </FontSizeProvider>
+          <AuthProvider>
+            <FontSizeProvider>
+              <NavBar />
+              <div className="pt-16">{children}</div>
+            </FontSizeProvider>
+          </AuthProvider>
         </ThemeProvider>
       </body>
     </html>

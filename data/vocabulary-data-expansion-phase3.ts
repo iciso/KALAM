@@ -384,7 +384,7 @@ export const phase3VocabularyData: VocabularyWord[] = [
         surahNumber: 5,
         surahName: "Al-Ma'idah",
         ayahNumber: 87,
-        arabicText: "يَا أَيُّهَا الَّذِينَ آمَنُوا لَا تُحَرِّمُوا طَيِّبَاتِ مَا أَحَلَّ اللَّهُ لَكُمْ",
+        arabicText: "يَا أَيُّهَا الَّذِينَ آمَنُوا لَا تُحَ��ِّمُوا طَيِّبَاتِ مَا أَحَلَّ اللَّهُ لَكُمْ",
         translationText: "O you who have believed, do not prohibit the good things which Allah has made lawful to you",
         wordLocation: {
           startIndex: 21,
@@ -545,7 +545,7 @@ export const phase3VocabularyData: VocabularyWord[] = [
         surahNumber: 2,
         surahName: "Al-Baqarah",
         ayahNumber: 106,
-        arabicText: "مَا نَنسَخْ مِنْ آيَةٍ أَوْ نُنسِهَا نَأْتِ بِخَيْرٍ مِّنْهَا أَوْ مِثْلِهَا",
+        arabicText: "مَا نَنسَخْ مِنْ آيَةٍ أَوْ نُنسِهَا نَأْتِ بِخَيْرٍ ��ِّنْهَا أَوْ مِثْلِهَا",
         translationText:
           "We do not abrogate a verse or cause it to be forgotten except that We bring forth [one] better than it or similar to it",
         wordLocation: {
@@ -812,6 +812,3 @@ export const phase3VocabularyData: VocabularyWord[] = [
     ],
   },
 ]
-
-// Export as vocabularyDataPhase4 to match the expected import
-export const vocabularyDataPhase4 = phase3VocabularyData

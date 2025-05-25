@@ -184,7 +184,7 @@ export const phase6VocabularyData: VocabularyWord[] = [
         surahNumber: 92,
         surahName: "Al-Layl",
         ayahNumber: 1,
-        arabicText: "وَاللَّيْلِ إِذَا يَغْشَىٰ",
+        arabicText: "وَاللَّيْلِ إِذ��ا يَغْشَىٰ",
         translationText: "By the night when it covers",
         wordLocation: {
           startIndex: 1,
@@ -216,7 +216,7 @@ export const phase6VocabularyData: VocabularyWord[] = [
         surahNumber: 2,
         surahName: "Al-Baqarah",
         ayahNumber: 34,
-        arabicText: "فَإِذْ قُلْنَا لِلْمَلَائِكَةِ اسْجُدُوا لِآدَمَ فَسَجَدُوا إِلَّا إِبْلِيسَ",
+        arabicText: "وَإِذْ قُلْنَا لِلْمَلَائِكَةِ اسْجُدُوا لِآدَمَ فَسَجَدُوا إِلَّا إِبْلِيسَ",
         translationText:
           "And [mention] when We said to the angels, 'Prostrate before Adam'; so they prostrated, except for Iblis.",
         wordLocation: {
@@ -335,6 +335,3 @@ export const phase6VocabularyData: VocabularyWord[] = [
     ],
   },
 ]
-
-// Export as vocabularyDataPhase7 to match the expected import
-export const vocabularyDataPhase7 = phase6VocabularyData

@@ -26,6 +26,7 @@ import {
 } from "lucide-react"
 import { useState } from "react"
 import { FontSizeControls } from "./font-size-controls"
+import { AuthButtons } from "./auth/auth-buttons"
 import { cn } from "@/lib/utils"
 
 type NavCategory = {
@@ -153,12 +154,14 @@ export function NavBar() {
             ))}
 
             <FontSizeControls />
+            <AuthButtons />
           </div>
 
           {/* Hamburger Menu Button - Always visible on all screen sizes */}
-          <div className="flex items-center">
+          <div className="flex items-center space-x-2">
             <div className="md:hidden">
               <FontSizeControls />
+              <AuthButtons />
             </div>
             <button
               onClick={toggleMenu}
