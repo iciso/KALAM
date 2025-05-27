@@ -487,7 +487,7 @@ export const alFalaqQuizData: SurahQuizData = {
         { id: "d", text: "Protection only from spiritual harm", isCorrect: false },
       ],
       explanation:
-        "Surah Al-Falaq seeks comprehensive protection from all forms of evil: general evil from all creation, the evil that emerges in darkness, the evil of sorcery and magic, and the evil of envy. This covers physical, spiritual, seen, and unseen forms of harm, making it a complete prayer of protection for believers.,,
+        "Surah Al-Falaq seeks comprehensive protection from all forms of evil: general evil from all creation, the evil that emerges in darkness, the evil of sorcery and magic, and the evil of envy. This covers physical, spiritual, seen, and unseen forms of harm, making it a complete prayer of protection for believers.",
     },
   ],
 }
@@ -503,7 +503,7 @@ export const alNasQuizData: SurahQuizData = {
   questions: [
     {
       id: "nas-1",
-      question: \"What does this word mean?",
+      question: "What does this word mean?",
       arabic: "النَّاسِ",
       options: [
         { id: "a", text: "The Believers", isCorrect: false },
