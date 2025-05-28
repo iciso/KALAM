@@ -80,7 +80,7 @@ export const additionalVocabularyData: VocabularyWord[] = [
         surahNumber: 2,
         surahName: "Al-Baqarah",
         ayahNumber: 22,
-        arabicText: "وَأَنزَلَ مِنَ السَّمَاءِ مَاءً فَأَخْرَجَ بِهِ مِنَ الثَّمَرَاتِ رِزْقًا لَّكُمْ",
+        arabicText: "وَأَنزَلَ مِنَ ��لسَّمَاءِ مَاءً فَأَخْرَجَ بِهِ مِنَ الثَّمَرَاتِ رِزْقًا لَّكُمْ",
         translationText: "And sent down rain from the sky and brought forth thereby fruits as provision for you",
         wordLocation: {
           startIndex: 19,

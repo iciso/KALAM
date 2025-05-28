@@ -1,58 +1,65 @@
 import Link from "next/link"
-import { ArrowRight, BookOpen, Database, ListPlus, Users, Clock } from "lucide-react"
+import { ArrowRight, BookOpen, Database, ListPlus, Users, Clock, Gamepad2 } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { VocabularyStats } from "../components/vocabulary-stats"
-import { Ribbon } from "@/components/ribbon"
-import { KalamAcronym } from "@/components/kalam-acronym"
+import { VocabularyStats } from "@/components/vocabulary-stats"
+import { Badge } from "@/components/ui/badge"
 
 export default function HomePage() {
   return (
     <div className="flex flex-col min-h-screen">
-      <header className="bg-emerald-800 text-white py-6">
-        <div className="container mx-auto px-4">
-          <div className="relative bg-gradient-to-r from-emerald-700 to-emerald-900 text-white p-8 rounded-lg shadow-lg mb-8">
-            <Ribbon text="Demo" position="top-right" color="bg-amber-500" textColor="text-white" />
-            <div className="flex flex-col items-center">
-              <h1 className="text-3xl md:text-4xl font-bold mb-2">KALAM</h1>
-              <p className="text-xl mb-4">Know Allah by Lighting up Activities of Mirth</p>
-              <div className="mt-2">
-                <Link href="/kalam-meaning">
-                  <Button variant="outline" size="sm" className="text-white border-white hover:bg-emerald-600">
-                    What does KALAM mean?
-                  </Button>
-                </Link>
-              </div>
-              <div className="mt-6">
-                <KalamAcronym size="sm" interactive={false} withLinks={true} />
-              </div>
-            </div>
+      {/* Hero Section */}
+      <section className="relative py-20 px-4 text-center bg-gradient-to-br from-blue-50 via-white to-green-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+        <div className="max-w-4xl mx-auto">
+          <div className="mb-8">
+            <Badge variant="secondary" className="mb-4 text-sm font-medium">
+              Open Source Freeware for learning Islam by Games
+            </Badge>
+            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
+              <span className="text-blue-600 dark:text-blue-400">K</span>now{" "}
+              <span className="text-green-600 dark:text-green-400">A</span>llah by{" "}
+              <span className="text-purple-600 dark:text-purple-400">L</span>ighting up{" "}
+              <span className="text-orange-600 dark:text-orange-400">A</span>ctivities of{" "}
+              <span className="text-red-600 dark:text-red-400">M</span>irth
+            </h1>
+            <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
+              Experience the joy of learning Quranic Arabic naturally through games, interactive flashcards, and themed
+              quizzes. Transform memorization into discovery and connect with the words of Allah through fun activities
+              rather than rote learning.
+            </p>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <Button asChild size="lg" className="text-lg px-8 py-3">
+              <Link href="/games">
+                <Gamepad2 className="mr-2 h-5 w-5" />
+                Play Games
+              </Link>
+            </Button>
+            <Button asChild variant="outline" size="lg" className="text-lg px-8 py-3">
+              <Link href="/vocabulary">
+                <BookOpen className="mr-2 h-5 w-5" />
+                Start Learning
+              </Link>
+            </Button>
           </div>
         </div>
-      </header>
+      </section>
 
       <main className="flex-1 container mx-auto px-4 py-8">
-        <section className="mb-12 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">Learn Quranic Arabic Vocabulary</h2>
-          <p className="max-w-2xl mx-auto text-gray-600 dark:text-gray-300">
-            Enhance your understanding of the Quran through interactive learning tools designed to help you master
-            Arabic vocabulary.
-          </p>
-        </section>
-
         {/* 1. Featured Games Section - Top Priority */}
         <section className="mb-12">
           <h3 className="text-xl font-semibold mb-6 text-center">🎮 Featured Games</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Barzaq Game */}
-            <Card className="border-indigo-200 bg-indigo-50">
+            <Card className="border-indigo-200 bg-indigo-50 dark:bg-indigo-950 dark:border-indigo-800">
               <CardHeader>
-                <CardTitle className="text-indigo-800">Barzaq Game</CardTitle>
+                <CardTitle className="text-indigo-800 dark:text-indigo-200">Barzaq Game</CardTitle>
                 <CardDescription>Learn about the intermediate state after death</CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-gray-600 dark:text-gray-300">
                   Explore the concept of Barzaq through an interactive educational game based on Islamic teachings.
                 </p>
               </CardContent>
@@ -64,13 +71,13 @@ export default function HomePage() {
             </Card>
 
             {/* Make Quranic Ayats */}
-            <Card className="border-purple-200 bg-purple-50">
+            <Card className="border-purple-200 bg-purple-50 dark:bg-purple-950 dark:border-purple-800">
               <CardHeader>
-                <CardTitle className="text-purple-800">Make Quranic Ayats</CardTitle>
+                <CardTitle className="text-purple-800 dark:text-purple-200">Make Quranic Ayats</CardTitle>
                 <CardDescription>Arrange words to form Quranic verses</CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-gray-600 dark:text-gray-300">
                   Test your knowledge by arranging Arabic words in the correct order to form complete ayats.
                 </p>
               </CardContent>
@@ -82,13 +89,13 @@ export default function HomePage() {
             </Card>
 
             {/* Memory Match */}
-            <Card className="border-emerald-200 bg-emerald-50">
+            <Card className="border-emerald-200 bg-emerald-50 dark:bg-emerald-950 dark:border-emerald-800">
               <CardHeader>
-                <CardTitle className="text-emerald-800">Memory Match</CardTitle>
+                <CardTitle className="text-emerald-800 dark:text-emerald-200">Memory Match</CardTitle>
                 <CardDescription>Match Arabic words with their meanings</CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-gray-600 dark:text-gray-300">
                   Improve your memory and vocabulary by matching Arabic words with their English translations.
                 </p>
               </CardContent>
@@ -100,13 +107,13 @@ export default function HomePage() {
             </Card>
 
             {/* Islamic Finance Game */}
-            <Card className="border-teal-200 bg-teal-50">
+            <Card className="border-teal-200 bg-teal-50 dark:bg-teal-950 dark:border-teal-800">
               <CardHeader>
-                <CardTitle className="text-teal-800">Islamic Finance Game</CardTitle>
+                <CardTitle className="text-teal-800 dark:text-teal-200">Islamic Finance Game</CardTitle>
                 <CardDescription>Learn Islamic financial ethics through scenarios</CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-gray-600 dark:text-gray-300">
                   Navigate ethical financial decisions and learn Islamic principles through interactive scenarios and
                   choices.
                 </p>
@@ -138,13 +145,13 @@ export default function HomePage() {
           <h3 className="text-xl font-semibold mb-6 text-center">✅ Quizzes</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* General Quiz */}
-            <Card className="border-emerald-200 bg-emerald-50">
+            <Card className="border-emerald-200 bg-emerald-50 dark:bg-emerald-950 dark:border-emerald-800">
               <CardHeader>
-                <CardTitle className="text-emerald-800">General Quiz</CardTitle>
+                <CardTitle className="text-emerald-800 dark:text-emerald-200">General Quiz</CardTitle>
                 <CardDescription>Test your knowledge of vocabulary words</CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-gray-600 dark:text-gray-300">
                   Comprehensive quiz covering 400 words from the Quranic dictionary in multiple sessions.
                 </p>
               </CardContent>
@@ -156,14 +163,14 @@ export default function HomePage() {
             </Card>
 
             {/* Surah-Specific Quiz */}
-            <Card className="border-blue-200 bg-blue-50">
+            <Card className="border-blue-200 bg-blue-50 dark:bg-blue-950 dark:border-blue-800">
               <CardHeader>
                 <BookOpen className="h-6 w-6 text-blue-600 mb-2" />
-                <CardTitle className="text-blue-800">Surah-Specific Quiz</CardTitle>
+                <CardTitle className="text-blue-800 dark:text-blue-200">Surah-Specific Quiz</CardTitle>
                 <CardDescription>Focus on vocabulary from specific Surahs</CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-gray-600 dark:text-gray-300">
                   Test your knowledge of vocabulary from individual chapters of the Quran.
                 </p>
               </CardContent>
@@ -175,14 +182,14 @@ export default function HomePage() {
             </Card>
 
             {/* Category Quiz */}
-            <Card className="border-purple-200 bg-purple-50">
+            <Card className="border-purple-200 bg-purple-50 dark:bg-purple-950 dark:border-purple-800">
               <CardHeader>
                 <div className="h-6 w-6 text-purple-600 mb-2 text-xl">🏷️</div>
-                <CardTitle className="text-purple-800">Category Quiz</CardTitle>
+                <CardTitle className="text-purple-800 dark:text-purple-200">Category Quiz</CardTitle>
                 <CardDescription>Organized by themes and categories</CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-gray-600 dark:text-gray-300">
                   Learn vocabulary organized by categories like divine attributes, prophets, ethics, and more.
                 </p>
               </CardContent>
@@ -194,10 +201,10 @@ export default function HomePage() {
             </Card>
 
             {/* Reverse Word Quiz */}
-            <Card className="border-amber-200 bg-amber-50">
+            <Card className="border-amber-200 bg-amber-50 dark:bg-amber-950 dark:border-amber-800">
               <CardHeader>
                 <div className="h-6 w-6 text-amber-600 mb-2 text-xl">🔄</div>
-                <CardTitle className="text-amber-800 relative">
+                <CardTitle className="text-amber-800 dark:text-amber-200 relative">
                   Reverse Word Quiz
                   <span className="absolute -top-2 -right-2 bg-amber-500 text-white text-xs font-bold px-2 py-1 rounded-full">
                     NEW
@@ -206,7 +213,7 @@ export default function HomePage() {
                 <CardDescription>English meanings to Arabic words</CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-gray-600 dark:text-gray-300">
                   Challenge yourself by selecting the correct Arabic word from English meanings.
                 </p>
               </CardContent>
@@ -317,6 +324,14 @@ export default function HomePage() {
               </CardFooter>
             </Card>
           </div>
+        </section>
+
+        <section className="mb-12 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">Learn Quranic Arabic Vocabulary</h2>
+          <p className="max-w-2xl mx-auto text-gray-600 dark:text-gray-300">
+            Enhance your understanding of the Quran through interactive learning tools designed to help you master
+            Arabic vocabulary.
+          </p>
         </section>
 
         {/* 4. Reference & Study Tools Section */}
