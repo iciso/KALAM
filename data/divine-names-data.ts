@@ -21,7 +21,7 @@ export const divineNames: DivineName[] = [
     id: 2,
     arabic: "الرحمن",
     transliteration: "Ar-Rahman",
-    english: "The Entirely Benificient",
+    english: "The Entirely Beneficent",
     meaning:
       "The One who has plenty of mercy for the believers and the blasphemers in this world and especially for the believers in the Hereafter",
     quranReference: "Surah Al-Fatihah 1:1",
