@@ -21,7 +21,7 @@ export const divineNames: DivineName[] = [
     id: 2,
     arabic: "الرحمن",
     transliteration: "Ar-Rahman",
-    english: "The Most Compassionate",
+    english: "The Entirely Benificient",
     meaning:
       "The One who has plenty of mercy for the believers and the blasphemers in this world and especially for the believers in the Hereafter",
     quranReference: "Surah Al-Fatihah 1:1",
@@ -30,7 +30,7 @@ export const divineNames: DivineName[] = [
     id: 3,
     arabic: "الرحيم",
     transliteration: "Ar-Raheem",
-    english: "The Most Merciful",
+    english: "The Entirely Merciful",
     meaning: "The One who has plenty of mercy for the believers",
     quranReference: "Surah Al-Fatihah 1:1",
   },
