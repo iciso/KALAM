@@ -457,7 +457,7 @@ export const matchingGameWords = [
   { id: 342, arabic: "جُمَادَى الآخِرَة", english: "Jumada al-Thani" },
 
   // Set 58: More Islamic Months
-  { id: 343, arabic: "رَجَ��", english: "Rajab" },
+  { id: 343, arabic: "رَجَب", english: "Rajab" },
   { id: 344, arabic: "شَعْبَان", english: "Sha'ban" },
   { id: 345, arabic: "رَمَضَان", english: "Ramadan" },
   { id: 346, arabic: "شَوَّال", english: "Shawwal" },
