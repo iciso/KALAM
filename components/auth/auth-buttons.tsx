@@ -15,14 +15,17 @@ import { SignUpDialog } from "./sign-up-dialog"
 import { User, LogOut, Settings } from "lucide-react"
 
 export function AuthButtons() {
+  // Temporarily disable all auth functionality
+  return null;
+  
+  /* Keep the original code commented below for easy restoration
   const { user, signOut, loading } = useAuth()
   const [showSignIn, setShowSignIn] = useState(false)
   const [showSignUp, setShowSignUp] = useState(false)
 
-  const handleSwitchToSignUp = () => {
-    setShowSignIn(false)
-    setShowSignUp(true)
-  }
+  // ... rest of the original component code
+  */
+}
 
   const handleSwitchToSignIn = () => {
     setShowSignUp(false)
