@@ -125,54 +125,52 @@ export function NavBar() {
 
           {/* Primary Navigation - Always visible, limited to key interactive items */}
           <div className="hidden md:flex items-center space-x-2">
-            {/* Only show Home link if not on home page */}
-            {!isHomePage && (
-              <Link
-                href="/"
-                className={`flex items-center px-3 py-2 rounded hover:bg-emerald-600 ${
-                  isActive("/") ? "bg-emerald-800" : ""
-                }`}
-                onClick={closeMenu}
-              >
-                <Home className="mr-1 h-4 w-4" />
-                <span>Home</span>
-              </Link>
-            )}
+  {/* Only show Home link if not on home page */}
+  {!isHomePage && (
+    <Link
+      href="/"
+      className={`flex items-center px-3 py-2 rounded hover:bg-emerald-600 ${
+        isActive("/") ? "bg-emerald-800" : ""
+      }`}
+      onClick={closeMenu}
+    >
+      <Home className="mr-1 h-4 w-4" />
+      <span>Home</span>
+    </Link>
+  )}
 
-            {primaryNavLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`flex items-center px-3 py-2 rounded hover:bg-emerald-600 ${
-                  pathname.startsWith(link.href) ? "bg-emerald-800" : ""
-                }`}
-                onClick={closeMenu}
-              >
-                {link.icon}
-                <span className="ml-1">{link.shortName || link.name}</span>
-              </Link>
-            ))}
+  {primaryNavLinks.map((link) => (
+    <Link
+      key={link.href}
+      href={link.href}
+      className={`flex items-center px-3 py-2 rounded hover:bg-emerald-600 ${
+        pathname.startsWith(link.href) ? "bg-emerald-800" : ""
+      }`}
+      onClick={closeMenu}
+    >
+      {link.icon}
+      <span className="ml-1">{link.shortName || link.name}</span>
+    </Link>
+  ))}
 
-            <FontSizeControls />
-            <AuthButtons />
-          </div>
+  <FontSizeControls />
+  {/* <AuthButtons /> Removed temporarily */}
+</div>
 
           {/* Hamburger Menu Button - Always visible on all screen sizes */}
           <div className="flex items-center space-x-2">
-            <div className="md:hidden">
-              <FontSizeControls />
-              <AuthButtons />
-            </div>
-            <button
-              onClick={toggleMenu}
-              className="p-2 rounded-full hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-400"
-              aria-label="Menu"
-            >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
-        </div>
-
+  <div className="md:hidden">
+    <FontSizeControls />
+    {/* <AuthButtons /> Removed temporarily */}
+  </div>
+  <button
+    onClick={toggleMenu}
+    className="p-2 rounded-full hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-400"
+    aria-label="Menu"
+  >
+    {isOpen ? <X size={24} /> : <Menu size={24} />}
+  </button>
+</div>
         {/* Full Navigation Menu - Shown when hamburger is clicked */}
         {isOpen && (
           <div className="py-4 px-2 bg-emerald-800 rounded-lg shadow-xl absolute right-4 left-4 z-50 mt-2 max-h-[80vh] overflow-y-auto">
