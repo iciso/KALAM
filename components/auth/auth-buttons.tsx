@@ -12,39 +12,25 @@ import { User, LogOut, Settings } from "lucide-react"
 export function AuthButtons() {
   return (
     <div className="flex space-x-2">
-      {/* Sign In Button with Tooltip */}
-      <Tooltip>
-        <TooltipTrigger asChild>
-          <Button
-            variant="ghost"
-            size="sm"
-            disabled
-            className="text-white hover:bg-emerald-600 cursor-not-allowed opacity-50"
-          >
-            Sign In
-          </Button>
-        </TooltipTrigger>
-        <TooltipContent>
-          <p>Sign In temporarily unavailable</p>
-        </TooltipContent>
-      </Tooltip>
+      {/* Disabled Sign In Button */}
+      <Button
+        variant="ghost"
+        size="sm"
+        disabled
+        className="text-white hover:bg-emerald-600 cursor-not-allowed opacity-50"
+      >
+        Sign In
+      </Button>
 
-      {/* Sign Up Button with Tooltip */}
-      <Tooltip>
-        <TooltipTrigger asChild>
-          <Button
-            variant="outline"
-            size="sm"
-            disabled
-            className="bg-white text-emerald-700 border-white hover:bg-gray-100 cursor-not-allowed opacity-50"
-          >
-            Sign Up
-          </Button>
-        </TooltipTrigger>
-        <TooltipContent>
-          <p>Sign Up temporarily unavailable</p>
-        </TooltipContent>
-      </Tooltip>
+      {/* Disabled Sign Up Button */}
+      <Button
+        variant="outline"
+        size="sm"
+        disabled
+        className="bg-white text-emerald-700 border-white hover:bg-gray-100 cursor-not-allowed opacity-50"
+      >
+        Sign Up
+      </Button>
     </div>
   )
 }
