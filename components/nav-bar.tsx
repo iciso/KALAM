@@ -113,7 +113,7 @@ export function NavBar() {
     .slice(0, 3) // Limit to first 3 interactive links
 
   return (
-    <nav className="bg-emerald-700 text-white shadow-md">
+    <div className="bg-emerald-700 text-white shadow-md">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center py-3">
           <div className="flex items-center">
