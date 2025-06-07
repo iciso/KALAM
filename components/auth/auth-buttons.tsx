@@ -91,6 +91,6 @@ Original component implementation here...
 
       <SignUpDialog open={showSignUp} onOpenChange={setShowSignUp} onSwitchToSignIn={handleSwitchToSignIn} />
     </>
-    */
   )
 }
+*/
