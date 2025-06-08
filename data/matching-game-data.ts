@@ -583,4 +583,12 @@ export const matchingGameWords = [
 { id: 436, arabic: "قُرَيْش", english: "Quraysh" },
 { id: 437, arabic: "الْمَاعُون", english: "The Small Kindnesses, The Daily Necessities, Aid" },
 { id: 438, arabic: "الْكَوْثَر", english: "The Abundance, The River in Paradise" },
+
+// Set 74: Surah Names 19
+{ id: 439, arabic: "الْكَافِرُون", english: "The Disbelievers" },
+{ id: 440, arabic: "النَّصْر", english: "The Divine Support, The Victory" },
+{ id: 441, arabic: "الْمَسَد", english: "The Palm Fiber, The Flame" },
+{ id: 442, arabic: "الإِخْلَاص", english: "The Purity, The Sincerity" },
+{ id: 443, arabic: "الْفَلَق", english: "The Daybreak, The Dawn" },
+{ id: 444, arabic: "النَّاس", english: "Mankind" },
 ]
