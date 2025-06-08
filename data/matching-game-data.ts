@@ -1,4 +1,4 @@
-// Expanded vocabulary for the matching game - 65 sets of 6 words each (390 words total)
+// Expanded vocabulary first to 65 then to 74 for the matching game - 74 sets of 6 words each (444 words total)
 export const matchingGameWords = [
   // Set 1: Basic Nouns
   { id: 1, arabic: "كِتَاب", english: "Book" },
