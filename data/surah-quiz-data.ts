@@ -1436,7 +1436,7 @@ export const anNasrQuizData: SurahQuizData = {
     },
     {
       id: "nasr-10",
-      question: "What is the significance of this being one of the last revealed surahs?",
+      question: "What is the significance of this verse being in one of the last revealed surahs?",
       arabic: "فَسَبِّحْ بِحَمْدِ رَبِّكَ وَاسْتَغْفِرْهُ",
       options: [
         { id: "a", text: "It summarizes the proper response to Allah's blessings throughout life", isCorrect: true },
@@ -1445,7 +1445,7 @@ export const anNasrQuizData: SurahQuizData = {
         { id: "d", text: "It proves the Quran was written by humans", isCorrect: false },
       ],
       explanation:
-        "As one of the last revealed surahs, An-Nasr beautifully summarizes the proper response to Allah's blessings throughout life: gratitude through praise and glorification, and humility through seeking forgiveness. It serves as a perfect conclusion to the prophetic mission, teaching believers how to respond to success and divine favor with the right spiritual attitude.",
+        "As the arabic verse means to, 'glorify the praises of your Lord and seek His forgiveness' and as it occurs in one of the last revealed surahs, An-Nasr beautifully summarizes the proper response to Allah's blessings throughout life: gratitude through praise and glorification, and humility through seeking forgiveness. It serves as a perfect conclusion to the prophetic mission, teaching believers how to respond to success and divine favor with the right spiritual attitude.",
     },
   ],
 }
