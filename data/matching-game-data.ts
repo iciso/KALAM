@@ -559,4 +559,28 @@ export const matchingGameWords = [
 { id: 418, arabic: "الْغَاشِيَة", english: "The Overwhelming" },
 { id: 419, arabic: "الْفَجْر", english: "The Dawn" },
 { id: 420, arabic: "الْبَلَد", english: "The City" },
+
+// Set 71: Surah Names 16
+{ id: 421, arabic: "الشَّمْس", english: "The Sun" },
+{ id: 422, arabic: "اللَّيْل", english: "The Night" },
+{ id: 423, arabic: "الضُّحَى", english: "The Morning Hours" },
+{ id: 424, arabic: "الشَّرْح", english: "The Relief" }, // Also known as Al-Inshirah (The Opening Forth)
+{ id: 425, arabic: "التِّين", english: "The Fig" },
+{ id: 426, arabic: "الْعَلَق", english: "The Clot" },
+
+// Set 72: Surah Names 17
+{ id: 427, arabic: "الْقَدْر", english: "The Power, The Night of Decree" },
+{ id: 428, arabic: "الْبَيِّنَة", english: "The Clear Proof" },
+{ id: 429, arabic: "الزَّلْزَلَة", english: "The Earthquake" },
+{ id: 430, arabic: "الْعَادِيَات", english: "The Chargers" },
+{ id: 431, arabic: "الْقَارِعَة", english: "The Striking Hour" },
+{ id: 432, arabic: "التَّكَاثُر", english: "The Rivalry in Worldly Increase" },
+
+// Set 73: Surah Names 18
+{ id: 433, arabic: "الْعَصْر", english: "The Declining Day, The Time" },
+{ id: 434, arabic: "الْهُمَزَة", english: "The Traducer, The Slanderer, The Scoffer" },
+{ id: 435, arabic: "الْفِيل", english: "The Elephant" },
+{ id: 436, arabic: "قُرَيْش", english: "Quraysh" },
+{ id: 437, arabic: "الْمَاعُون", english: "The Small Kindnesses, The Daily Necessities, Aid" },
+{ id: 438, arabic: "الْكَوْثَر", english: "The Abundance, The River in Paradise" },
 ]
