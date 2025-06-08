@@ -552,4 +552,11 @@ export const matchingGameWords = [
   { id: 413, arabic: "المُطَفِّفِين", english: "The Defrauders" },
   { id: 414, arabic: "الاِنشِقَاق", english: "The Sundering" },
 
+// Set 70: Surah Names 15
+{ id: 415, arabic: "الْبُرُوج", english: "The Constellations" },
+{ id: 416, arabic: "الطَّارِق", english: "The Night-Comer" },
+{ id: 417, arabic: "الأَعْلَى", english: "The Most High" },
+{ id: 418, arabic: "الْغَاشِيَة", english: "The Overwhelming" },
+{ id: 419, arabic: "الْفَجْر", english: "The Dawn" },
+{ id: 420, arabic: "الْبَلَد", english: "The City" },
 ]
