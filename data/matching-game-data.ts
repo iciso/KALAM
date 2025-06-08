@@ -527,4 +527,12 @@ export const matchingGameWords = [
 { id: 394, arabic: "التَّغَابُن", english: "Mutual Disillusion" },
 { id: 395, arabic: "الطَّلَاق", english: "Divorce" },
 { id: 396, arabic: "التَّحْرِيم", english: "The Prohibiting" },
+
+  // Set 67: Surah Names 12
+{ id: 397, arabic: "المُلْك", english: "The Sovereignty" },
+{ id: 398, arabic: "القَلَم", english: "The Pen" },
+{ id: 399, arabic: "الحَاقَّة", english: "The Inevitable" },
+{ id: 400, arabic: "المَعَارِج", english: "The Ascending Stairways" },
+{ id: 401, arabic: "نُوح", english: "Noah" },
+{ id: 402, arabic: "الجِنّ", english: "The Jinn" },
 ]
