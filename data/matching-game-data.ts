@@ -543,4 +543,13 @@ export const matchingGameWords = [
 { id: 406, arabic: "الإِنسَان", english: "The Man" },
 { id: 407, arabic: "المُرْسَلَات", english: "The Emissaries" },
 { id: 408, arabic: "النَّبَأ", english: "The Tidings" },
+
+  // Set 69: Surah Names 14
+  { id: 409, arabic: "النَّازِعَات", english: "The Snatchers" },
+  { id: 410, arabic: "عَبَسَ", english: "He Frowned" },
+  { id: 411, arabic: "التَّكْوِير", english: "The Overthrowing" },
+  { id: 412, arabic: "الاِنفِطَار", english: "The Cleaving" },
+  { id: 413, arabic: "المُطَفِّفِين", english: "The Defrauders" },
+  { id: 414, arabic: "الاِنشِقَاق", english: "The Sundering" },
+
 ]
