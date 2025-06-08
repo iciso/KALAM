@@ -519,4 +519,12 @@ export const matchingGameWords = [
   { id: 388, arabic: "المُجَادَلَة", english: "The Pleading Woman" },
   { id: 389, arabic: "الحَشْر", english: "The Exile" },
   { id: 390, arabic: "المُمْتَحَنَة", english: "She That Is To Be Examined" },
+
+  // Set 66: Surah Names 11
+{ id: 391, arabic: "الصَّف", english: "The Ranks" },
+{ id: 392, arabic: "الجُمُعَة", english: "The Congregation" },
+{ id: 393, arabic: "المُنَافِقُون", english: "The Hypocrites" },
+{ id: 394, arabic: "التَّغَابُن", english: "Mutual Disillusion" },
+{ id: 395, arabic: "الطَّلَاق", english: "Divorce" },
+{ id: 396, arabic: "التَّحْرِيم", english: "The Prohibiting" },
 ]
