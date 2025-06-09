@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowRight, BookOpen, Award, Beaker, BoxSelect, Bookmark, Briefcase, Album, Award, Bitcoin, Database, ListPlus, Users, CheckSquare, Clock, Gamepad2 } from "lucide-react"
+import { ArrowRight, BookOpen, Award, Beaker, BoxSelect, Bookmark, Briefcase, Album, Bitcoin, Database, ListPlus, Users, CheckSquare, Clock, Gamepad2 } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
