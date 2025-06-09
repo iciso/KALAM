@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
+import { Tooltip } from "@/components/tooltip" // Make sure this path is correct
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -72,27 +73,40 @@ export function AuthButtons() {
   return (
     <>
       <div className="flex space-x-2">
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={() => setShowSignIn(true)}
-          className="text-white hover:bg-emerald-600"
-        >
-          Sign In IQRA
-        </Button>
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => setShowSignUp(true)}
-          className="bg-white text-emerald-700 border-white hover:bg-gray-100"
-        >
-          Sign Up IQRA
-        </Button>
+        <Tooltip content="Sign in to IQRA for quiz challenges, leaderboards, and badges">
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => setShowSignInIQRA(true)}
+            className="text-white hover:bg-emerald-600"
+          >
+            Sign In IQRA
+          </Button>
+        </Tooltip>
+        
+        <Tooltip content="Sign up for IQRA to access all quiz features">
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => setShowSignUpIQRA(true)}
+            className="bg-white text-emerald-700 border-white hover:bg-gray-100"
+          >
+            Sign Up IQRA
+          </Button>
+        </Tooltip>
       </div>
 
-      <SignInDialog open={showSignInIQRA} onOpenChange={setShowSignInIQRA} onSwitchToSignUp={handleSwitchToSignUpIQRA} />
+      <SignInDialog 
+        open={showSignInIQRA} 
+        onOpenChange={setShowSignInIQRA} 
+        onSwitchToSignUp={handleSwitchToSignUpIQRA} 
+      />
 
-      <SignUpDialog open={showSignUpIQRA} onOpenChange={setShowSignUpIQRA} onSwitchToSignIn={handleSwitchToSignInIQRA} />
+      <SignUpDialog 
+        open={showSignUpIQRA} 
+        onOpenChange={setShowSignUpIQRA} 
+        onSwitchToSignIn={handleSwitchToSignInIQRA} 
+      />
     </>
   )
 }
