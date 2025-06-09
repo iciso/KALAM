@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowRight, BookOpen, Award, Beaker, BoxSelect, Bookmark, Briefcase, Album, Bitcoin, Database, ListPlus, Users, CheckSquare, Clock, Gamepad2 } from "lucide-react"
+import { ArrowRight, BookOpen, Award, Beaker, CircleHelp, BookHeart, Bookmark, Briefcase, Album, Bitcoin, Database, ListPlus, Route, Star, Users, CheckSquare, Clock, Gamepad2 } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
@@ -74,7 +74,7 @@ export default function HomePage() {
             {/* Make Quranic Ayats */}
             <Card className="border-purple-200 bg-purple-50 dark:bg-purple-950 dark:border-purple-800">
               <CardHeader>
-             <BoxSelect className="h-6 w-6 text-blue-600 mb-2" />
+             <BookHeart className="h-6 w-6 text-blue-600 mb-2" />
                 <CardTitle className="text-purple-800 dark:text-purple-200">Make Quranic Ayats</CardTitle>
                 <CardDescription>Arrange words to form Quranic verses</CardDescription>
               </CardHeader>
@@ -189,8 +189,7 @@ export default function HomePage() {
             {/* Category Quiz */}
             <Card className="border-purple-200 bg-purple-50 dark:bg-purple-950 dark:border-purple-800">
               <CardHeader>
-                <Beaker className="h-6 w-6 text-blue-600 mb-2" />
-                <div className="h-6 w-6 text-purple-600 mb-2 text-xl">🏷️</div>
+                <CircleHelp className="h-6 w-6 text-blue-600 mb-2" />
                 <CardTitle className="text-purple-800 dark:text-purple-200">Category Quiz</CardTitle>
                 <CardDescription>Organized by themes and categories</CardDescription>
               </CardHeader>
@@ -209,8 +208,7 @@ export default function HomePage() {
             {/* Reverse Word Quiz */}
             <Card className="border-amber-200 bg-amber-50 dark:bg-amber-950 dark:border-amber-800">
               <CardHeader>
-                 <CheckSquare className="h-6 w-6 text-blue-600 mb-2" />
-                <div className="h-6 w-6 text-amber-600 mb-2 text-xl">🔄</div>
+                 <Star className="h-6 w-6 text-blue-600 mb-2" />
                 <CardTitle className="text-amber-800 dark:text-amber-200 relative">
                   Reverse Word Quiz
                   <span className="absolute -top-2 -right-2 bg-amber-500 text-white text-xs font-bold px-2 py-1 rounded-full">
@@ -248,11 +246,11 @@ export default function HomePage() {
 
         {/* 3. Timelines that are Lifelines! */}
         <section className="mb-12">
-          <h3 className="text-xl font-semibold mb-6 text-center">📝 Additional Interactive Learning</h3>
+          <h3 className="text-xl font-semibold mb-6 text-center">📝 Timelines that are Lifelines!</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <Card>
               <CardHeader>
-                <Clock className="h-8 w-8 text-orange-600 mb-2" />
+                <Route className="h-8 w-8 text-orange-600 mb-2" />
                 <CardTitle>Hijra Journey</CardTitle>
                 <CardDescription>Explore the Prophet's migration from Mecca to Medina</CardDescription>
               </CardHeader>
@@ -294,7 +292,6 @@ export default function HomePage() {
             <Card>
               <CardHeader>
                 <Briefcase className="h-8 w-8 text-purple-600 mb-2" />
-                <div className="h-8 w-8 text-amber-600 mb-2 text-2xl">🕋</div>
                 <CardTitle>Hajj Tamattu Journey</CardTitle>
                 <CardDescription>Experience the complete pilgrimage journey</CardDescription>
               </CardHeader>
