@@ -110,7 +110,7 @@ export function NavBar() {
   const primaryNavLinks = navCategories
     .flatMap((category) => category.links)
     .filter((link) => link.isInteractive)
-    .slice(0, 3) // Limit to first 3 interactive links
+    .slice(0, 2) // Limit to first 2 interactive links
 
   return (
     <nav className="bg-emerald-700 text-white shadow-md">
