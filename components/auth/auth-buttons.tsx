@@ -16,17 +16,17 @@ import { User, LogOut, Settings } from "lucide-react"
 
 export function AuthButtons() {
   const { user, signOut, loading } = useAuth()
-  const [showSignIn, setShowSignIn] = useState(false)
-  const [showSignUp, setShowSignUp] = useState(false)
+  const [showSignInIQRA, setShowSignInIQRA] = useState(false)
+  const [showSignUpIQRA, setShowSignUpIQRA] = useState(false)
 
-  const handleSwitchToSignUp = () => {
-    setShowSignIn(false)
-    setShowSignUp(true)
+  const handleSwitchToSignUpIQRA = () => {
+    setShowSignInIQRA(false)
+    setShowSignUpIQRA(true)
   }
 
-  const handleSwitchToSignIn = () => {
-    setShowSignUp(false)
-    setShowSignIn(true)
+  const handleSwitchToSignInIQRA = () => {
+    setShowSignUpIQRA(false)
+    setShowSignInIQRA(true)
   }
 
   if (loading) {
@@ -61,7 +61,7 @@ export function AuthButtons() {
             <DropdownMenuSeparator />
             <DropdownMenuItem onClick={signOut} className="text-red-600">
               <LogOut className="mr-2 h-4 w-4" />
-              Sign Out
+              Sign Out IQRA
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
@@ -78,7 +78,7 @@ export function AuthButtons() {
           onClick={() => setShowSignIn(true)}
           className="text-white hover:bg-emerald-600"
         >
-          Sign In
+          Sign In IQRA
         </Button>
         <Button
           variant="outline"
@@ -86,13 +86,13 @@ export function AuthButtons() {
           onClick={() => setShowSignUp(true)}
           className="bg-white text-emerald-700 border-white hover:bg-gray-100"
         >
-          Sign Up
+          Sign Up IQRA
         </Button>
       </div>
 
-      <SignInDialog open={showSignIn} onOpenChange={setShowSignIn} onSwitchToSignUp={handleSwitchToSignUp} />
+      <SignInDialog open={showSignInIQRA} onOpenChange={setShowSignInIQRA} onSwitchToSignUp={handleSwitchToSignUpIQRA} />
 
-      <SignUpDialog open={showSignUp} onOpenChange={setShowSignUp} onSwitchToSignIn={handleSwitchToSignIn} />
+      <SignUpDialog open={showSignUpIQRA} onOpenChange={setShowSignUpIQRA} onSwitchToSignIn={handleSwitchToSignInIQRA} />
     </>
   )
 }
