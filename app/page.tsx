@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowRight, BookOpen, Database, ListPlus, Users, Clock, Gamepad2 } from "lucide-react"
+import { ArrowRight, BookOpen, Award, Beaker, BoxSelect, Bookmark, BookOpen, Briefcase, Album, Award, Bitcoin, Database, ListPlus, Users, CheckSquare, Clock, Gamepad2 } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
@@ -55,6 +55,7 @@ export default function HomePage() {
             {/* Barzaq Game */}
             <Card className="border-indigo-200 bg-indigo-50 dark:bg-indigo-950 dark:border-indigo-800">
               <CardHeader>
+                <Award className="h-6 w-6 text-blue-600 mb-2" />
                 <CardTitle className="text-indigo-800 dark:text-indigo-200">Barzaq Game</CardTitle>
                 <CardDescription>Learn about the intermediate state after death</CardDescription>
               </CardHeader>
@@ -73,6 +74,7 @@ export default function HomePage() {
             {/* Make Quranic Ayats */}
             <Card className="border-purple-200 bg-purple-50 dark:bg-purple-950 dark:border-purple-800">
               <CardHeader>
+             <BoxSelect className="h-6 w-6 text-blue-600 mb-2" />
                 <CardTitle className="text-purple-800 dark:text-purple-200">Make Quranic Ayats</CardTitle>
                 <CardDescription>Arrange words to form Quranic verses</CardDescription>
               </CardHeader>
@@ -91,6 +93,7 @@ export default function HomePage() {
             {/* Memory Match */}
             <Card className="border-emerald-200 bg-emerald-50 dark:bg-emerald-950 dark:border-emerald-800">
               <CardHeader>
+                 <Beaker className="h-6 w-6 text-blue-600 mb-2" />
                 <CardTitle className="text-emerald-800 dark:text-emerald-200">Memory Match</CardTitle>
                 <CardDescription>Match Arabic words with their meanings</CardDescription>
               </CardHeader>
@@ -109,6 +112,7 @@ export default function HomePage() {
             {/* Islamic Finance Game */}
             <Card className="border-teal-200 bg-teal-50 dark:bg-teal-950 dark:border-teal-800">
               <CardHeader>
+                <Bitcoin className="h-6 w-6 text-blue-600 mb-2" />
                 <CardTitle className="text-teal-800 dark:text-teal-200">Islamic Finance Game</CardTitle>
                 <CardDescription>Learn Islamic financial ethics through scenarios</CardDescription>
               </CardHeader>
@@ -147,6 +151,7 @@ export default function HomePage() {
             {/* General Quiz */}
             <Card className="border-emerald-200 bg-emerald-50 dark:bg-emerald-950 dark:border-emerald-800">
               <CardHeader>
+                <Bookmark className="h-6 w-6 text-blue-600 mb-2" />
                 <CardTitle className="text-emerald-800 dark:text-emerald-200">General Quiz</CardTitle>
                 <CardDescription>Test your knowledge of vocabulary words</CardDescription>
               </CardHeader>
@@ -184,6 +189,7 @@ export default function HomePage() {
             {/* Category Quiz */}
             <Card className="border-purple-200 bg-purple-50 dark:bg-purple-950 dark:border-purple-800">
               <CardHeader>
+                <Beaker className="h-6 w-6 text-blue-600 mb-2" />
                 <div className="h-6 w-6 text-purple-600 mb-2 text-xl">🏷️</div>
                 <CardTitle className="text-purple-800 dark:text-purple-200">Category Quiz</CardTitle>
                 <CardDescription>Organized by themes and categories</CardDescription>
@@ -203,6 +209,7 @@ export default function HomePage() {
             {/* Reverse Word Quiz */}
             <Card className="border-amber-200 bg-amber-50 dark:bg-amber-950 dark:border-amber-800">
               <CardHeader>
+                 <CheckSquare className="h-6 w-6 text-blue-600 mb-2" />
                 <div className="h-6 w-6 text-amber-600 mb-2 text-xl">🔄</div>
                 <CardTitle className="text-amber-800 dark:text-amber-200 relative">
                   Reverse Word Quiz
@@ -239,7 +246,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* 3. Additional Interactive Learning Section */}
+        {/* 3. Timelines that are Lifelines! */}
         <section className="mb-12">
           <h3 className="text-xl font-semibold mb-6 text-center">📝 Additional Interactive Learning</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -286,6 +293,7 @@ export default function HomePage() {
 
             <Card>
               <CardHeader>
+                <Briefcase className="h-8 w-8 text-purple-600 mb-2" />
                 <div className="h-8 w-8 text-amber-600 mb-2 text-2xl">🕋</div>
                 <CardTitle>Hajj Tamattu Journey</CardTitle>
                 <CardDescription>Experience the complete pilgrimage journey</CardDescription>
