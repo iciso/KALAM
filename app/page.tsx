@@ -238,7 +238,7 @@ export default function HomePage() {
           </div>
 
           {/* See All Quizzes Button */}
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Button asChild size="lg" className="text-lg px-8 py-3">
               <Link href="/quizzes">
                 <CheckSquare className="mr-2 h-5 w-5" />
