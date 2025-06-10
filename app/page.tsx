@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { ArrowRight, BookOpen, Award, Beaker, CircleHelp, BookHeart, Bookmark, Briefcase, Album, Bitcoin, Database, ListPlus, Route, Star, Users, CheckSquare, Clock, Gamepad2 } from "lucide-react"
 
+import { AuthButtons } from "./auth/auth-buttons"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { VocabularyStats } from "@/components/vocabulary-stats"
@@ -14,7 +15,7 @@ export default function HomePage() {
         <div className="max-w-4xl mx-auto">
           <div className="mb-8">
             <Badge variant="secondary" className="mb-4 text-sm font-medium">
-              Open Source Freeware for learning Islam by Games
+              <span className="text-blue-300 dark:text-blue-200">KALAM</span> is an Open Source Freeware for learning Islam by Games{" "}
             </Badge>
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
               <span className="text-blue-600 dark:text-blue-400">K</span>now{" "}
@@ -242,6 +243,14 @@ export default function HomePage() {
               </Button>
             </Link>
           </div>
+
+          {/* Inserting Auth Buttons for IQRA */}
+           <div className="text-center mt-8">
+           
+            <AuthButtons />
+          </div>
+
+
         </section>
 
         {/* 3. Timelines that are Lifelines! */}
