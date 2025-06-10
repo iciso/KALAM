@@ -14,7 +14,11 @@ export default function HomePage() {
         <div className="max-w-4xl mx-auto">
           <div className="mb-8">
             <Badge variant="secondary" className="mb-4 text-sm font-medium">
-              <p><span className="text-blue-600 dark:text-blue-400">KALAM</span>{" "} is an Open Source Freeware for learning Islam by fun and Games</p>
+              <p><span className="text-blue-600 dark:text-blue-400">K</span>{" "}
+              <span className="text-green-600 dark:text-green-400">A</span>{" "}
+              <span className="text-purple-600 dark:text-purple-400">L</span>{" "}
+              <span className="text-orange-600 dark:text-orange-400">A</span>{" "}
+              <span className="text-red-600 dark:text-red-400">M</span>{" "} is an Open Source Freeware for learning Islam by fun and Games</p>
             </Badge>
              <Badge variant="secondary" className="mb-4 text-sm font-medium">
               <p><span className="text-green-600 dark:text-green-400">IQRA</span>{" "} is an Open Source Freeware for learning Islam by Quiz challenges</p>
@@ -235,6 +239,7 @@ export default function HomePage() {
 
           {/* See All Quizzes Button */}
           <div className="text-center mt-8">
+            <p>
             <Link href="/quizzes">
               <Button
                 variant="outline"
@@ -244,15 +249,18 @@ export default function HomePage() {
                 See all quizzes <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
+              </p>
+              <p>
              <Link href="https://ichal.vercel.app/">
               <Button
                 variant="outline"
                 size="lg"
                 className="text-emerald-600 hover:text-emerald-700 border-emerald-600 hover:border-emerald-700"
               >
-                Visit IQRA App 
+                Visit IQRA App  <Trophy className="h-6 w-6 text-blue-600 mb-2" />
               </Button>
             </Link>
+            </p>
           </div>
         </section>
 
