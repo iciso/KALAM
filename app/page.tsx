@@ -242,6 +242,9 @@ export default function HomePage() {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
                <p>{" "}</p>
+              <p className="text-xl text-gray-600 dark:text-gray-300">
+                  {" "}
+                </p>
             <Button asChild size="lg" className="text-lg px-8 py-3">
               <Link href="https://ichal.vercel.app/" target="_blank" rel="noopener noreferrer">
                 <Trophy className="mr-2 h-5 w-5" />
