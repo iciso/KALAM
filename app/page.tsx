@@ -388,17 +388,16 @@ export default function HomePage() {
             <Card>
               <CardHeader>
                 <BookOpen className="h-8 w-8 text-emerald-600 mb-2" />
-                <CardTitle>Flashcards</CardTitle>
-                <CardDescription>Learn new words with interactive flashcards</CardDescription>
+                <CardTitle>Grammar</CardTitle>
+                <CardDescription>Learn verbs with easy interactive method</CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600 dark:text-gray-300">
-                  Study Quranic vocabulary with our comprehensive flashcard system. Review words, their meanings, and
-                  their context in the Quran.
+                  Start the study of Quranic grammar with conjugation of three letter verbs from their context in the Quran.
                 </p>
               </CardContent>
               <CardFooter>
-                <Link href="/flashcards" className="w-full">
+                <Link href="/verb-conjugation" className="w-full">
                   <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
                     Start Learning <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
