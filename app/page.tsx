@@ -239,16 +239,19 @@ export default function HomePage() {
 
           {/* See All Quizzes Button */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <Badge variant="secondary" className="mb-4 text-sm font-medium">
+              <p><span className="text-green-600 dark:text-green-400">IQRA</span>{" "} is an Open Source Freeware for learning Islam by Quiz challenges</p>
+              </Badge>
             <Button asChild size="lg" className="text-lg px-8 py-3">
-              <Link href="/quizzes">
-                <CheckSquare className="mr-2 h-5 w-5" />
-                See All Quizzes
-              </Link>
-            </Button>
-            <Button asChild variant="outline" size="lg" className="text-lg px-8 py-3">
               <Link href="https://ichal.vercel.app/" target="_blank" rel="noopener noreferrer">
                 <Trophy className="mr-2 h-5 w-5" />
                 Visit IQRA App
+              </Link>
+            </Button>
+            <Button asChild variant="outline" size="lg" className="text-lg px-8 py-3">
+               <Link href="/quizzes">
+                <CheckSquare className="mr-2 h-5 w-5" />
+                See All Quizzes
               </Link>
             </Button>
           </div>
