@@ -260,7 +260,7 @@ export default function HomePage() {
         {/* 3. Timelines that are Lifelines! */}
         <section className="mb-12">
           <h3 className="text-xl font-semibold mb-6 flex items-center justify-center space-x-2">
-                <Milestone className="h-8 w-8 text-orange-600" /> Timelines that are Lifelines!</h3>
+  <Milestone className="h-8 w-8 text-orange-600" /> Timelines that are Lifelines!</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <Card>
               <CardHeader>
