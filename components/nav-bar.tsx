@@ -253,7 +253,7 @@ export function NavBar() {
       </div>
     </div>
   </div>
-)}      
+
 
  {/* ... existing menu code ... */}
         )}
