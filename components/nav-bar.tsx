@@ -119,7 +119,7 @@ export function NavBar() {
           <div className="flex items-center">
             <Link href="/" className="text-xl font-bold flex items-center" onClick={closeMenu}>
               <Image src="/logo.png" alt="KALAM Logo" width={32} height={32} className="mr-2" />
-              <span>KALAM</span>
+              <span></span>
             </Link>
           </div>
 
