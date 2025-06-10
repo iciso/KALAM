@@ -15,8 +15,9 @@ export default function HomePage() {
         <div className="max-w-4xl mx-auto">
           <div className="mb-8">
             <Badge variant="secondary" className="mb-4 text-sm font-medium">
-              <span className="text-blue-300 dark:text-blue-200">KALAM</span> is an Open Source Freeware for learning Islam by Games{" "}
-            </Badge>
+              <p><span className="text-blue-600 dark:text-blue-400">KALAM</span>{" "} is an Open Source Freeware for learning Islam by fun and Games</p>
+              <p><span className="text-navy-600 dark:text-navy-400">IQRA</span>{" "} is an Open Source Freeware for learning Islam by Quiz challenges</p>
+              </Badge>
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
               <span className="text-blue-600 dark:text-blue-400">K</span>now{" "}
               <span className="text-green-600 dark:text-green-400">A</span>llah by{" "}
