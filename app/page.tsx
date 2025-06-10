@@ -1,7 +1,6 @@
 import Link from "next/link"
 import { ArrowRight, BookOpen, Award, Beaker, CircleHelp, BookHeart, Bookmark, Briefcase, Album, Bitcoin, Database, ListPlus, Route, Star, Users, CheckSquare, Clock, Gamepad2 } from "lucide-react"
 
-import { AuthButtons } from "@/components/auth/auth-buttons"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { VocabularyStats } from "@/components/vocabulary-stats"
@@ -16,7 +15,9 @@ export default function HomePage() {
           <div className="mb-8">
             <Badge variant="secondary" className="mb-4 text-sm font-medium">
               <p><span className="text-blue-600 dark:text-blue-400">KALAM</span>{" "} is an Open Source Freeware for learning Islam by fun and Games</p>
-              <p><span className="text-navy-600 dark:text-navy-400">IQRA</span>{" "} is an Open Source Freeware for learning Islam by Quiz challenges</p>
+            </Badge>
+             <Badge variant="secondary" className="mb-4 text-sm font-medium">
+              <p><span className="text-green-600 dark:text-green-400">IQRA</span>{" "} is an Open Source Freeware for learning Islam by Quiz challenges</p>
               </Badge>
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
               <span className="text-blue-600 dark:text-blue-400">K</span>now{" "}
@@ -243,14 +244,16 @@ export default function HomePage() {
                 See all quizzes <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
+             <Link href="https://ichal.vercel.app/">
+              <Button
+                variant="outline"
+                size="lg"
+                className="text-emerald-600 hover:text-emerald-700 border-emerald-600 hover:border-emerald-700"
+              >
+                Visit IQRA App 
+              </Button>
+            </Link>
           </div>
-
-          {/* Inserting Auth Buttons for IQRA */}
-           <div className="text-xl font-semibold mb-6 text-center">
-            <AuthButtons />
-          </div>
-
-
         </section>
 
         {/* 3. Timelines that are Lifelines! */}
