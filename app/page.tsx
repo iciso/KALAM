@@ -252,7 +252,6 @@ export default function HomePage() {
               </Link>
             </Button>
           </div>
-        </div>
       </section>
 
         {/* 3. Timelines that are Lifelines! */}
