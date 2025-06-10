@@ -222,6 +222,18 @@ export function NavBar() {
               ))}
             </div>
 
+    {/* ... existing mobile menu content ... */}
+
+    {/* Add this right before the "Back to Home" link */}
+    <div className="px-2 pb-2">
+      <div className="text-center text-xs bg-amber-600/10 rounded-lg p-2 text-amber-100 border border-amber-600/20">
+        <p className="font-medium">IQRA App Users:</p>
+        <p className="mt-1">Sign in for IQRA challenges & leaderboards</p>
+      </div>
+    </div>
+
+    {/* Existing "Back to Home" link */}
+
             <div className="mt-4 pt-2 border-t border-emerald-700">
               <Link
                 href="/"
@@ -235,27 +247,6 @@ export function NavBar() {
               </Link>
             </div>
           </div>
-
-                 {/* ... existing menu code ... */}
-    
-    {/* Enhanced mobile-friendly IQRA notice */}
-    <div className="mt-4 pt-3 border-t border-emerald-700">
-      <div className="text-center text-xs px-2 py-1.5 bg-amber-600/20 rounded-md text-amber-100">
-        <p className="font-medium">IQRA App Users:</p>
-        <p className="mt-0.5">Sign in for quiz challenges & leaderboards</p>
-        <Link 
-          href="https://iqra-app.com" 
-          className="inline-block mt-1 text-xs font-bold text-amber-300 hover:underline"
-          onClick={closeMenu}
-        >
-          Learn more →
-        </Link>
-      </div>
-    </div>
-  </div>
-
-
- {/* ... existing menu code ... */}
         )}
       </div>
     </nav>
