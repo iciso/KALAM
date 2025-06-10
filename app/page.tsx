@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowRight, BookOpen, Award, Beaker, CircleHelp, BookHeart, Bookmark, Briefcase, Album, Bitcoin, Database, ListPlus, Route, Star, Trophy, Users, CheckSquare, Clock, Gamepad2 } from "lucide-react"
+import { ArrowRight, BookOpen, Award, Beaker, CircleHelp, BookHeart, Bookmark, Briefcase, Album, Bitcoin, Database, ListPlus, Route, Star, Trophy, Users, WayPoints, CheckSquare, Clock, Gamepad2 } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
@@ -238,36 +238,26 @@ export default function HomePage() {
           </div>
 
           {/* See All Quizzes Button */}
-          <div className="text-center mt-8">
-            <p>
-            <Link href="/quizzes">
-              <Button
-                variant="outline"
-                size="lg"
-                className="text-emerald-600 hover:text-emerald-700 border-emerald-600 hover:border-emerald-700"
-              >
-                See all quizzes <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </Link>
-              </p>
-                 <p>{" "}</p>  
-              <p>
-             <Link href="https://ichal.vercel.app/">
-              <Button
-                variant="outline"
-                size="lg"
-                className="text-emerald-600 hover:text-emerald-700 border-emerald-600 hover:border-emerald-700"
-              >
-                Visit IQRA App  <Trophy className="h-6 w-6 text-blue-600 mb-2" />
-              </Button>
-            </Link>
-            </p>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <Button asChild size="lg" className="text-lg px-8 py-3">
+              <Link href="/quizzes">
+                <CheckSquare className="mr-2 h-5 w-5" />
+                See All Quizzes
+              </Link>
+            </Button>
+            <Button asChild variant="outline" size="lg" className="text-lg px-8 py-3">
+              <Link href="https://ichal.vercel.app/" target="_blank" rel="noopener noreferrer">
+                <Trophy className="mr-2 h-5 w-5" />
+                Visit IQRA App
+              </Link>
+            </Button>
           </div>
-        </section>
+        </div>
+      </section>
 
         {/* 3. Timelines that are Lifelines! */}
         <section className="mb-12">
-          <h3 className="text-xl font-semibold mb-6 text-center">📝 Timelines that are Lifelines!</h3>
+          <h3 className="text-xl font-semibold mb-6 text-center"><WayPoints className="h-8 w-8 text-orange-600 mb-2" /> Timelines that are Lifelines!</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <Card>
               <CardHeader>
