@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowRight, BookOpen, Award, Beaker, CircleHelp, BookHeart, Bookmark, Briefcase, Album, Bitcoin, Database, ListPlus, Route, Star, Trophy, Users, Milestone, CheckSquare, Clock, Gamepad2 } from "lucide-react"
+import { ArrowRight, BookOpen, Award, Beaker, CircleHelp, BookHeart, Bookmark, Briefcase, Album, Bitcoin, Database, ListPlus, Route, Star, ShieldQuestion, Trophy, Users, Milestone, CheckSquare, Clock, Gamepad2 } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
@@ -238,7 +238,7 @@ export default function HomePage() {
             </Card>
           </div>
 
-         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 mt-12">
+         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 mt-6">
   {/* See All Quizzes Buttons */}
 </div>
             
