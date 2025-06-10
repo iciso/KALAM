@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { ArrowRight, BookOpen, Award, Beaker, CircleHelp, BookHeart, Bookmark, Briefcase, Album, Bitcoin, Database, ListPlus, Route, Star, Users, CheckSquare, Clock, Gamepad2 } from "lucide-react"
 
-import { AuthButtons } from "./auth/auth-buttons"
+import { AuthButtons } from "@/components/auth/auth-buttons"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { VocabularyStats } from "@/components/vocabulary-stats"
