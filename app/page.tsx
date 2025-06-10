@@ -245,8 +245,7 @@ export default function HomePage() {
           </div>
 
           {/* Inserting Auth Buttons for IQRA */}
-           <div className="text-center mt-8">
-           
+           <div className="text-xl font-semibold mb-6 text-center">
             <AuthButtons />
           </div>
 
