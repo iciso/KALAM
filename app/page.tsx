@@ -58,7 +58,7 @@ export default function HomePage() {
       <main className="flex-1 container mx-auto px-4 py-8">
         {/* 1. Featured Games Section - Top Priority */}
         <section className="mb-12">
-          <h3 className="text-xl font-semibold mb-6 flex items-center justify-center space-x-2"><Gamepad2 className="h-6 w-6 text-blue-600 mb-2" /> Featured Games</h3>
+          <h3 className="text-xl font-semibold mb-6 flex items-center justify-center space-x-2"><Gamepad2 className="h-6 w-6 text-black-600 mb-2" />{" "}Featured Games</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Barzaq Game */}
             <Card className="border-indigo-200 bg-indigo-50 dark:bg-indigo-950 dark:border-indigo-800">
@@ -154,7 +154,7 @@ export default function HomePage() {
 
         {/* 2. Quizzes Section */}
         <section className="mb-12">
-          <h3 className="text-xl font-semibold mb-6 text-center">✅ Quizzes</h3>
+          <h3 className="text-xl font-semibold mb-6 flex items-center justify-center space-x-2"><ShieldQuestion className="h-8 w-8 text-orange-600" />{" "}Quizzes</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* General Quiz */}
             <Card className="border-emerald-200 bg-emerald-50 dark:bg-emerald-950 dark:border-emerald-800">
