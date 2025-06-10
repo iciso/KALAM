@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowRight, BookOpen, Award, Beaker, CircleHelp, BookHeart, Bookmark, Briefcase, Album, Bitcoin, Database, ListPlus, Route, Star, Trophy, Users, WayPoints, CheckSquare, Clock, Gamepad2 } from "lucide-react"
+import { ArrowRight, BookOpen, Award, Beaker, CircleHelp, BookHeart, Bookmark, Briefcase, Album, Bitcoin, Database, ListPlus, Route, Star, Trophy, Users, Milestone, CheckSquare, Clock, Gamepad2 } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
@@ -256,7 +256,7 @@ export default function HomePage() {
 
         {/* 3. Timelines that are Lifelines! */}
         <section className="mb-12">
-          <h3 className="text-xl font-semibold mb-6 text-center"><WayPoints className="h-8 w-8 text-orange-600 mb-2" /> Timelines that are Lifelines!</h3>
+          <h3 className="text-xl font-semibold mb-6 text-center"><Milestone className="h-8 w-8 text-orange-600 mb-2" /> Timelines that are Lifelines!</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <Card>
               <CardHeader>
