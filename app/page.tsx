@@ -20,8 +20,9 @@ export default function HomePage() {
               <span className="text-orange-600 dark:text-orange-400">A</span>{" "}
               <span className="text-red-600 dark:text-red-400">M</span>{" "} is an Open Source Freeware for learning Islam by fun and Games</p>
             </Badge>
-             <Badge variant="secondary" className="mb-4 text-sm font-medium">
-              <p><span className="text-green-600 dark:text-green-400">{" "}</span>{" "}</p>
+            
+<Badge variant="secondary" className="mb-4 text-sm font-medium">
+              <p><span className="text-green-600 dark:text-green-400">IQRA</span>{" "} is an Open Source Freeware for learning Islam by Quiz challenges</p>
               </Badge>
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
               <span className="text-blue-600 dark:text-blue-400">K</span>now{" "}
@@ -240,8 +241,8 @@ export default function HomePage() {
           {/* See All Quizzes Button */}
             
                <div className="mb-8">
-            <Badge variant="secondary" className="mb-4 text-sm font-medium">
-              <p><span className="text-green-600 dark:text-green-400">IQRA</span>{" "} is an Open Source Freeware for learning Islam by Quiz challenges</p>
+<Badge variant="secondary" className="mb-4 text-sm font-medium">
+              <p><span className="text-green-600 dark:text-green-400">{" "}</span>{" "}</p>
               </Badge>
               </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
