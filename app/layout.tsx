@@ -18,7 +18,7 @@ export const metadata = {
     title: "KALAM: Know Allah by Lighting up Activities of Mirth",
     description:
       "Discover Quranic Arabic through games, quizzes, and interactive activities. Learn naturally and joyfully rather than through memorization.",
-    images: [{ url: "/favicon.png" }],
+    images: [{ url: "/logo.png" }],
     type: "website",
   },
   twitter: {
@@ -26,12 +26,12 @@ export const metadata = {
     title: "KALAM: Know Allah by Lighting up Activities of Mirth",
     description:
       "Discover Quranic Arabic through games, quizzes, and interactive activities. Learn naturally and joyfully rather than through memorization.",
-    images: [{ url: "/favicon.png" }],
+    images: [{ url: "/logo.png" }],
   },
   icons: {
     icon: [
-      { url: "/favicon.png", type: "image/png" },
-      { url: "/favicon.ico", sizes: "any" },
+      { url: "/logo.png", type: "image/png" },
+      { url: "/logo.ico", sizes: "any" },
     ],
     apple: { url: "/apple-touch-icon.png", sizes: "180x180" },
   },
