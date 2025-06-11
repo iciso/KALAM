@@ -226,6 +226,10 @@ export function NavBar() {
 
     {/* Add this right before the "Back to Home" link */}
     <div className="px-2 pb-2">
+      <div className="flex items-center justify-center gap-1 mt-1">
+  <Image src="/iqra-logo.png" width={16} height={16} alt="IQRA" />
+  <span className="text-xs text-amber-300">Quiz challenges await!</span>
+</div>
       <div className="text-center text-xs bg-amber-600/10 rounded-lg p-2 text-amber-100 border border-amber-600/20">
         <p className="font-medium">IQRA App Users:</p>
         <p className="mt-1">Sign in for IQRA challenges & leaderboards</p>
