@@ -95,13 +95,13 @@ const gameSets: GameSet[] = [
         arabic: "رَبِّ اغْفِرْ لِي وَلِوَالِدَيَّ وَلِمَن دَخَلَ بَيْتِيَ مُؤْمِنًا",
         english: "My Lord! Forgive me and my parents and whoever enters my house a believer.",
         prophet: "Nuh",
-        reference: "Quran 71:28",
+        reference: "Quran 線71:28",
       },
       {
-        arabic: "رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً",
-        english: "Our Lord! Give us in this world [that which is] good and in the Hereafter [that which is] good.",
-        prophet: "Muhammad",
-        reference: "Quran 2:201",
+        arabic: "لَا إِلَٰهَ إِلَّا أَنْتَ سُبْحَانَكَ إِنِّي كُنْتُ مِنَ الظَّالِمِينَ",
+        english: "There is no deity except You; exalted are You. Indeed, I have been of the wrongdoers.",
+        prophet: "Yunus",
+        reference: "Quran 21:87",
       },
       {
         arabic: "رَبِّ هَبْ لِي مِنَ الصَّالِحِينَ",
@@ -116,10 +116,10 @@ const gameSets: GameSet[] = [
         reference: "Quran 21:89",
       },
       {
-        arabic: "رَبِّ اغْفِرْ لِي وَلِأَخِي وَأَدْخِلْنَا فِي رَحْمَتِكَ",
-        english: "My Lord! Forgive me and my brother and admit us into Your mercy.",
+        arabic: "رَبِّ إِنِّي لِمَا أَنزَلْتَ إِلَيَّ مِنْ خَيْرٍ فَقِيرٌ",
+        english: "My Lord! I am in need of whatever good You would send down to me.",
         prophet: "Musa",
-        reference: "Quran 7:151",
+        reference: "Quran 28:24",
       },
     ],
   },
@@ -314,7 +314,7 @@ const allProphets: string[] = [
   "Imran",
   "Ayyub",
   "Lut",
-  "Luai",
+  "Yunus",
 ];
 
 const DuaMatch: React.FC = () => {
@@ -421,8 +421,7 @@ const DuaMatch: React.FC = () => {
                         handleProphetSelect(firstEmptyIndex, prophet);
                       }
                     }}
-                    className="px-3 py-2 bg-gray-200 rounded hover:bg-gray-300 disabled:opacity-50"
-                    disabled={Object.values(selectedAnswers).includes(prophet)}
+                    className="px-3 py-2 bg-gray-200 rounded hover:bg-gray-300"
                   >
                     {prophet}
                   </button>
