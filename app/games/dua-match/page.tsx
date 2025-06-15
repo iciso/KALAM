@@ -317,7 +317,7 @@ const allProphets: string[] = [
   "Luai",
 ];
 
-const DuaMatch: React.FC = () => {
+const dua-match: React.FC = () => {
   const [currentSetId, setCurrentSetId] = useState<number>(1);
   const [selectedAnswers, setSelectedAnswers] = useState<Record<string, string>>({});
   const [showResults, setShowResults] = useState<boolean>(false);
@@ -449,4 +449,4 @@ const DuaMatch: React.FC = () => {
   );
 };
 
-export default DuaMatch;
+export default dua-match;
