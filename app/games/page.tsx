@@ -130,19 +130,19 @@ export default function GamesPage() {
 
 
            {/* New Make Dua Match Game Card */}
-        <Card className="border-purple-200 bg-orange-50">
+        <Card className="border-orange-200 bg-orange-50">
           <CardHeader>
             <CardTitle className="text-orange-800">Match Duas</CardTitle>
-            <CardDescription>Match the Quranic Duas with their Prophets(AS)</CardDescription>
+            <CardDescription>Match Duas with their Prophets(AS)</CardDescription>
           </CardHeader>
           <CardContent>
             <p>
-              Test your knowledge of Quranic Duas by matching each supplication with the respective Prophets.
+              Test your knowledge of the Quranic Duas by matching each supplication with their respective Prophets(AS).
             </p>
           </CardContent>
           <CardFooter>
             <Link href="/games/dua-match" passHref>
-              <Button className="bg-purple-600 hover:bg-orange-700">Play Now</Button>
+              <Button className="bg-orange-600 hover:bg-orange-700">Play Now</Button>
             </Link>
           </CardFooter>
         </Card>
