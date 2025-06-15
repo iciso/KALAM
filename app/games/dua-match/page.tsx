@@ -127,22 +127,22 @@ const gameSets: GameSet[] = [
     id: 4,
     duas: [
       {
-        arabic: "رَبِّ إِنِّي لِمَا أَنزَلْتَ إِلَيَّ مِنْ خَيْرٍ فَقِيرٌ",
-        english: "My Lord! I am in need of whatever good You would send down to me.",
+        arabic: "رَبِّ إِنِّى ظَلَمْتُ نَفْسِى فَٱغْفِرْ لِى",
+        english: "My Lord! I have definitely wronged my soul, so forgive me.",
         prophet: "Musa",
-        reference: "Quran 28:24",
+        reference: "Quran 28:16",
       },
       {
-        arabic: "رَبَّنَا آمَنَّا فَاغْفِرْ لَنَا وَارْحَمْنَا وَأَنتَ خَيْرُ الرَّاحِمِينَ",
-        english: "Our Lord! We believe, so forgive us and have mercy upon us, and You are the best of the merciful.",
-        prophet: "Muhammad",
-        reference: "Quran 23:109",
+        arabic: "أَنِّي مَسَّنِيَ الضُّرُّ وَأَنتَ أَرْحَمُ الرَّاحِمِينَ",
+        english: "Indeed, adversity has touched me, and You are the Most Merciful of the Merciful.",
+        prophet: "Ayyub",
+        reference: "Quran 21:83",
       },
       {
-        arabic: "رَبِّ هَبْ لِي حُكْمًا وَأَلْحِقْنِي بِالصَّالِحِينَ",
-        english: "My Lord! Grant me wisdom and join me with the righteous.",
+        arabic: "رَبِّ ٱجْعَلْنِى مُقِيمَ ٱلصَّلَوٰةِ وَمِن ذُرِّيَّتِى ۚ رَبَّنَا وَتَقَبَّلْ دُعَآءِ",
+        english: "My Lord! Make me and those believers of my descendants keep up prayer. Our Lord! Accept my prayers",
         prophet: "Ibrahim",
-        reference: "Quran 26:83",
+        reference: "Quran 14:40",
       },
       {
         arabic: "رَبِّ أَوْزِعْنِي أَنْ أَشْكُرَ نِعْمَتَكَ",
