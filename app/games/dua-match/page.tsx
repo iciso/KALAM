@@ -273,16 +273,16 @@ const gameSets: GameSet[] = [
         reference: "Quran 21:89",
       },
       {
-        arabic: "رَبَّنَا هَبْ لَنَا مِن لَّدُنْكَ رَحْمَةً وَهَيءْ لَنَا مِنْ أَمْرِنَا رَشَدًا",
+        arabic: "رَبَّنَا هَبْ لَنَا مِن لَّدُنْكَ رَحْمَةً وَهَيِّئْ لَنَا مِنْ أَمْرِنَا رَشَدًا",
         english: "Our Lord! Grant us from Yourself mercy and prepare for us guidance in our affair.",
         prophet: "Musa",
-        reference: "Quran 18:28",
+        reference: "Quran 18:10",
       },
       {
-        arabic": "رَبِّ اغْفِرْ وَارْحَمْ وَأَنتَ خَيْرُ الرَّاحِمِينَ",
+        arabic: "رَبِّ اغْفِرْ وَارْحَمْ وَأَنتَ خَيْرُ الرَّاحِمِينَ",
         english: "My Lord! Forgive and have mercy, for You are the best of those who show mercy.",
         prophet: "Muhammad",
-        reference: "Quran 23:34",
+        reference: "Quran 23:118",
       },
       {
         arabic: "رَبِّ ادْفَعْ عَنَّا عَذَابَ جَهَنَّمَ ۖ إِنَّ عَذَابَهَا كَانَ غَرَامًا",
@@ -291,8 +291,8 @@ const gameSets: GameSet[] = [
         reference: "Quran 25:65",
       },
       {
-        arabic: "رَبِّ أَنْزِلْنِيَ مُنْزَلًا مُبَارَكًا وَأَنتَ خَيْرُ الْمُنْزِلِينَ",
-        english: "Our Lord! Enable me to disembark with blessings, for You are the best to enable us to disembark.",
+        arabic: "رَبِّ أَنْزِلْنِي مُنْزَلًا مُبَارَكًا وَأَنتَ خَيْرُ الْمُنْزِلِينَ",
+        english: "My Lord! Enable me to disembark with blessings, for You are the best to enable to disembark.",
         prophet: "Nuh",
         reference: "Quran 23:29",
       },
@@ -361,7 +361,7 @@ const DuaMatch: React.FC = () => {
           <ul className="space-y-4 mb-6">
             {currentSet!.duas.map((dua, index) => (
               <li key={index} className="text-left">
-                <p className="text-right text-xl font-arabic" dir="rtl">{dua.dua.arabic}</p>
+                <p className="text-right text-xl font-arabic" dir="rtl">{dua.arabic}</p>
                 <p><strong>Dua:</strong> {dua.english} ({dua.reference})</p>
                 <p><strong>Correct Prophet:</strong> {dua.prophet}</p>
                 <p>
