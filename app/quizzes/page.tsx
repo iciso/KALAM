@@ -286,140 +286,149 @@ export default function QuizzesPage() {
     return Math.round(pts)
   }
 
-  return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-      <header className="bg-emerald-800 text-white py-4">
-        <div className="container mx-auto px-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold">Quranic Quizzes</h1>
-          <Link href="/">
-            <Button variant="ghost" size="icon">
-              <Home className="h-5 w-5" />
-              <span className="sr-only">Home</span>
-            </Button>
-          </Link>
-        </div>
-      </header>
+return (
+  <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <header className="bg-emerald-800 text-white py-4">
+      <div className="container mx-auto px-4 flex justify-between items-center">
+        <h1 className="text-2xl font-bold">Quranic Quizzes</h1>
+        <Link href="/">
+          <Button variant="ghost" size="icon">
+            <Home className="h-5 w-5" />
+            <span className="sr-only">Home</span>
+          </Button>
+        </Link>
+      </div>
+    </header>
 
-      <main className="container mx-auto px-4 py-8">
-        {showQuizOptions ? (
-          <div className="max-w-2xl mx-auto grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-xl">General Quiz</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 dark:text-gray-400 mb-4">
-                  Test your knowledge of vocabulary words from the entire Quranic dictionary. Covers{" "}
-                  {TOTAL_WORDS_TO_USE} words in {totalSessions} sessions.
-                </p>
-              </CardContent>
-              <CardFooter>
-                <Button onClick={startGeneralQuiz} className="w-full bg-emerald-600 hover:bg-emerald-700">
-                  Start General Quiz
-                </Button>
-              </CardFooter>
-            </Card>
+    <main className="container mx-auto px-4 py-8">
+      {showQuizOptions ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* General Quiz Card */}
+          <Card className="border-emerald-200 bg-emerald-50">
+            <CardHeader>
+              <CardTitle className="text-emerald-800">General Quiz</CardTitle>
+              <CardDescription>Test your knowledge of vocabulary words from the entire Quranic dictionary</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p className="text-gray-600 dark:text-gray-400">
+                Covers {TOTAL_WORDS_TO_USE} words in {totalSessions} sessions.
+              </p>
+            </CardContent>
+            <CardFooter>
+              <Button 
+                onClick={startGeneralQuiz} 
+                className="w-full bg-emerald-600 hover:bg-emerald-700"
+              >
+                Start General Quiz
+              </Button>
+            </CardFooter>
+          </Card>
 
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-xl relative">Surah-Specific Quiz</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 dark:text-gray-400 mb-4">
-                  Focus on vocabulary from a specific Surah (chapter) of the Quran.
-                </p>
-              </CardContent>
-              <CardFooter>
-                <Link href="/quizzes/surah" className="w-full">
-                  <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
-                    <BookOpen className="mr-2 h-4 w-4" />
-                    Browse Surah Quizzes
-                  </Button>
-                </Link>
-              </CardFooter>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-xl">Category Quiz</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 dark:text-gray-400 mb-4">
-                  Test your vocabulary knowledge organized by categories like divine attributes, prophets, ethics,
-                  afterlife, and more.
-                </p>
-              </CardContent>
-              <CardFooter>
-                <Link href="/quizzes/categories" className="w-full">
-                  <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
-                    <Tag className="mr-2 h-4 w-4" />
-                    Browse Categories
-                  </Button>
-                </Link>
-              </CardFooter>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-xl relative">
-                  Reverse Word Quiz
-                  <span className="absolute -top-2 -right-2 bg-emerald-500 text-white text-xs font-bold px-2 py-1 rounded-full">
-                    NEW
-                  </span>
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 dark:text-gray-400 mb-4">
-                  Challenge yourself with English meanings and select the correct Arabic word. Tests your recall rather
-                  than just recognition.
-                </p>
-              </CardContent>
-              <CardFooter>
-                <Link href="/quizzes/reverse" className="w-full">
-                  <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
-                    <Repeat className="mr-2 h-4 w-4" />
-                    Start Reverse Quiz
-                  </Button>
-                </Link>
-              </CardFooter>
-            </Card>
-
-            {/* New Hijra Quiz Card */}
-            <Card className="border-orange-200 dark:border-orange-800">
-              <CardHeader>
-                <CardTitle className="text-xl relative flex items-center gap-2">
-                  <MapPin className="h-4 w-4 text-orange-600" />
-                  Hijra Journey Quiz
-                  <span className="absolute -top-2 -right-2 bg-orange-500 text-white text-xs font-bold px-2 py-1 rounded-full">
-                    NEW
-                  </span>
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 dark:text-gray-400 mb-4">
-                  Test your knowledge of the Prophet's historic migration from Mecca to Medina, including key events,
-                  locations, and Quranic references.
-                </p>
-              </CardContent>
-              <CardFooter>
-                <Link href="/hijra/quiz" className="w-full">
-                  <Button className="w-full bg-orange-600 hover:bg-orange-700">
-                    <MapPin className="mr-2 h-4 w-4" />
-                    Start Hijra Quiz
-                  </Button>
-                </Link>
-              </CardFooter>
-            </Card>
-
-            <div className="md:col-span-2 lg:col-span-4">
-              <Link href="/">
-                <Button variant="ghost" className="w-full">
-                  <ArrowLeft className="mr-2 h-4 w-4" />
-                  Back to Home
+          {/* Surah-Specific Quiz Card */}
+          <Card className="border-blue-200 bg-blue-50">
+            <CardHeader>
+              <CardTitle className="text-blue-800">Surah-Specific Quiz</CardTitle>
+              <CardDescription>Focus on vocabulary from a specific Surah</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p className="text-gray-600 dark:text-gray-400">
+                Learn words from individual chapters of the Quran.
+              </p>
+            </CardContent>
+            <CardFooter>
+              <Link href="/quizzes/surah" className="w-full">
+                <Button className="w-full bg-blue-600 hover:bg-blue-700">
+                  <BookOpen className="mr-2 h-4 w-4" />
+                  Browse Surah Quizzes
                 </Button>
               </Link>
-            </div>
+            </CardFooter>
+          </Card>
+
+          {/* Category Quiz Card */}
+          <Card className="border-purple-200 bg-purple-50">
+            <CardHeader>
+              <CardTitle className="text-purple-800">Category Quiz</CardTitle>
+              <CardDescription>Vocabulary organized by categories</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p className="text-gray-600 dark:text-gray-400">
+                Divine attributes, prophets, ethics, afterlife, and more.
+              </p>
+            </CardContent>
+            <CardFooter>
+              <Link href="/quizzes/categories" className="w-full">
+                <Button className="w-full bg-purple-600 hover:bg-purple-700">
+                  <Tag className="mr-2 h-4 w-4" />
+                  Browse Categories
+                </Button>
+              </Link>
+            </CardFooter>
+          </Card>
+
+          {/* Reverse Word Quiz Card */}
+          <Card className="border-amber-200 bg-amber-50">
+            <CardHeader>
+              <CardTitle className="text-amber-800 flex items-center gap-2">
+                Reverse Word Quiz
+                <span className="bg-amber-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+                  NEW
+                </span>
+              </CardTitle>
+              <CardDescription>Challenge yourself with English meanings</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p className="text-gray-600 dark:text-gray-400">
+                Select the correct Arabic word for given English meanings.
+              </p>
+            </CardContent>
+            <CardFooter>
+              <Link href="/quizzes/reverse" className="w-full">
+                <Button className="w-full bg-amber-600 hover:bg-amber-700">
+                  <Repeat className="mr-2 h-4 w-4" />
+                  Start Reverse Quiz
+                </Button>
+              </Link>
+            </CardFooter>
+          </Card>
+
+          {/* Hijra Journey Quiz Card */}
+          <Card className="border-orange-200 bg-orange-50">
+            <CardHeader>
+              <CardTitle className="text-orange-800 flex items-center gap-2">
+                <MapPin className="h-4 w-4" />
+                Hijra Journey Quiz
+                <span className="bg-orange-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+                  NEW
+                </span>
+              </CardTitle>
+              <CardDescription>The Prophet's migration from Mecca to Medina</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p className="text-gray-600 dark:text-gray-400">
+                Key events, locations, and Quranic references.
+              </p>
+            </CardContent>
+            <CardFooter>
+              <Link href="/hijra/quiz" className="w-full">
+                <Button className="w-full bg-orange-600 hover:bg-orange-700">
+                  <MapPin className="mr-2 h-4 w-4" />
+                  Start Hijra Quiz
+                </Button>
+              </Link>
+            </CardFooter>
+          </Card>
+
+          {/* Back to Home Button */}
+          <div className="md:col-span-3">
+            <Link href="/">
+              <Button variant="ghost" className="w-full">
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Back to Home
+              </Button>
+            </Link>
           </div>
+        </div>
         ) : !quizCompleted ? (
           <>
             <div className="mb-2">
