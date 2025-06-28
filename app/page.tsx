@@ -33,8 +33,7 @@ export default function HomePage() {
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
               Experience the joy of learning Quranic Arabic naturally through games, interactive flashcards, and themed
-              quizzes. Transform memorization into discovery and connect with the words of Allah through fun activities
-              rather than rote learning.
+              quizzes. Connect with the words of Allah through fun activities rather than rote learning.
             </p>
           </div>
 
