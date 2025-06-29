@@ -215,6 +215,7 @@ export const quranicAyatsData: QuranicAyat[] = [
       { id: "18-1-8", text: "وَلَمْ", transliteration: "Walam", translation: "and did not" },
       { id: "18-1-9", text: "يَجْعَلْ", transliteration: "Yaj'al", translation: "make" },
       { id: "18-1-10", text: "لَهُ", transliteration: "Lahu", translation: "therein" },
+      { id: "18-1-11", text: "عِوَجَاۜ", transliteration: "iwajaa", translation: "any deviance" },
     ],
     translation: "Praise to Allah, who sent down upon His Servant the Book and did not make therein any deviance.",
   },
