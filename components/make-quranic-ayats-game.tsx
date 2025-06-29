@@ -14,10 +14,10 @@ import {
   arrayMove,
   SortableContext,
   sortableKeyboardCoordinates,
+  useSortable,
   horizontalListSortingStrategy,
 } from "@dnd-kit/sortable"
 import { CSS } from "@dnd-kit/utilities"
-import { useSortable } from "@dnd-kit/sortable"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -36,7 +36,6 @@ const SortableItem = ({ id, word, onDoubleClick }: SortableItemProps) => {
   const style = {
     transform: CSS.Transform.toString(transform),
     transition,
-    touchAction: "none", // Prevent default touch behaviors (scroll, zoom)
   }
 
   return (
@@ -46,9 +45,9 @@ const SortableItem = ({ id, word, onDoubleClick }: SortableItemProps) => {
       {...attributes}
       {...listeners}
       onDoubleClick={onDoubleClick}
-      className="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md p-3 m-1 cursor-grab shadow-sm hover:shadow-md transition-shadow font-arabic text-xl text-center min-w-[100px] sm:min-w-[80px] select-none touch-none"
+      className="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md p-3 m-1 cursor-grab shadow-sm hover:shadow-md transition-shadow font-arabic text-xl text-center min-w-[80px] select-none"
       title="Drag to rearrange or double-click to select"
-      aria-label={`Word: ${word}. Drag to rearrange or double-click to select.`}
+      aria-label={`Word: ${word}. Drag to rearrange.`}
     >
       {word}
     </div>
@@ -60,7 +59,7 @@ interface MakeQuranicAyatsGameProps {
   initialAyatCount?: number
 }
 
-export default function MakeQuranicAyatsGame({ difficulty = "easy", initialAyatCount = 5 }: MakeQuranicAyatsGameProps) {
+export default function MakeQuranicAyatsGame({ difficulty = "easy", initialAyatCount = 3 }: MakeQuranicAyatsGameProps) {
   const [ayats, setAyats] = useState<QuranicAyat[]>([])
   const [currentAyatIndex, setCurrentAyatIndex] = useState(0)
   const [words, setWords] = useState<AyatWord[]>([])
@@ -72,25 +71,16 @@ export default function MakeQuranicAyatsGame({ difficulty = "easy", initialAyatC
   const [showInstructions, setShowInstructions] = useState(true)
 
   const sensors = useSensors(
-    useSensor(PointerSensor, {
-      activationConstraint: {
-        distance: 8, // Require 8px movement to initiate drag (helps distinguish from scroll)
-        delay: 100, // 100ms delay to reduce accidental drags
-        tolerance: 5, // Allow slight movement without canceling drag
-      },
-    }),
+    useSensor(PointerSensor),
     useSensor(KeyboardSensor, {
       coordinateGetter: sortableKeyboardCoordinates,
     }),
   )
 
   useEffect(() => {
-    // Initialize or refresh ayats when difficulty changes
+    // Initialize the game with random ayats
     const randomAyats = getRandomAyats(initialAyatCount, difficulty)
     setAyats(randomAyats)
-    setCurrentAyatIndex(0)
-    setScore(0)
-    setGameCompleted(false)
 
     if (randomAyats.length > 0) {
       prepareAyat(randomAyats[0])
@@ -212,11 +202,11 @@ export default function MakeQuranicAyatsGame({ difficulty = "easy", initialAyatC
       {showInstructions && (
         <Card className="p-4 bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800">
           <div className="flex items-start">
-            <Info className="h-5 w-5 text-blue-500 mr-2 flex-shrink-0" />
+            <Info className="h-5 w-5 text-blue-500 mr-2 mt-0.5 flex-shrink-0" />
             <div>
               <h3 className="font-medium text-blue-700 dark:text-blue-300">How to Play</h3>
               <p className="text-sm text-blue-600 dark:text-blue-400 mt-1">
-                Rearrange the words to form the correct Quranic ayat (verse). Drag words to reorder them or double-tap
+                Rearrange the words to form the correct Quranic ayat (verse). Drag words to reorder them or double-click
                 to select. The ayat should read from right to left in Arabic.
               </p>
             </div>
@@ -246,10 +236,7 @@ export default function MakeQuranicAyatsGame({ difficulty = "easy", initialAyatC
         </div>
         <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
           <SortableContext items={words.map((word) => word.id)} strategy={horizontalListSortingStrategy}>
-            <div
-              className="flex flex-wrap justify-center p-4 min-h-[120px] border-2 border-dashed border-blue-300 dark:border-blue-700 rounded-lg dir-rtl bg-white dark:bg-gray-900/50"
-              style={{ touchAction: "none" }} // Prevent scroll/zoom on container
-            >
+            <div className="flex flex-wrap justify-center p-4 min-h-[120px] border-2 border-dashed border-blue-300 dark:border-blue-700 rounded-lg dir-rtl bg-white dark:bg-gray-900/50">
               {words.map((word) => (
                 <SortableItem key={word.id} id={word.id} word={word.text} />
               ))}

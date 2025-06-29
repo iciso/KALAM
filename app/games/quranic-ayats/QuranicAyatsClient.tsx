@@ -2,8 +2,8 @@
 
 import { useState } from "react"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
-import MakeQuranicAyatsGame from "@/components/MakeQuranicAyatsGame"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import MakeQuranicAyatsGame from "@/components/make-quranic-ayats-game"
 
 export default function QuranicAyatsClient() {
   const [difficulty, setDifficulty] = useState<"easy" | "medium" | "hard">("easy")
@@ -34,7 +34,7 @@ export default function QuranicAyatsClient() {
         </CardContent>
       </Card>
 
-      <Tabs defaultValue="easy" className="mb-8" onValueChange={(value) => setDifficulty(value as "easy" | "medium" | "hard")}>
+      <Tabs defaultValue="easy" className="mb-8" onValueChange={(value) => setDifficulty(value as any)}>
         <TabsList className="grid w-full grid-cols-3">
           <TabsTrigger value="easy">Easy</TabsTrigger>
           <TabsTrigger value="medium">Medium</TabsTrigger>
