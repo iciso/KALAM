@@ -254,7 +254,7 @@ export const quranicAyatsData: QuranicAyat[] = [
       { id: "17-1-8", text: "الْحَرَامِ", transliteration: "Al-Haram", translation: "the Sacred" },
       { id: "17-1-9", text: "إِلَىٰ", transliteration: "Ila", translation: "to" },
       { id: "17-1-10", text: "الْمَسْجِدِ", transliteration: "Al-Masjid", translation: "the Mosque" },
-      { id: "17-1-11", text: "ٱلۡأَقۡصَا", transliteration: "Al-Masjid", translation: "the Farthest" },
+      { id: "17-1-11", text: "ٱلۡأَقۡصَا", transliteration: "Al-Aqsa", translation: "the Farthest" },
     ],
     translation: "Exalted is He who took His Servant by night from the Sacred Mosque to the Farthest Mosque.",
   },
