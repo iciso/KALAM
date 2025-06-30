@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Shuffle, RefreshCw } from "lucide-react"
@@ -23,33 +23,31 @@ export default function DivineAttributesMatchingGame() {
   const namesPerSet = 5
   const maxSets = Math.floor(totalNames / namesPerSet) // 19 full sets + 1 partial set (20 sets total)
   const remainingNames = totalNames % namesPerSet // 4 names in the last set
+  const currentSetIndexRef = useRef<number>(0)
+  const usedSetIndicesRef = useRef<number[]>([0])
 
-  // Initialize game with dynamic sets using new names
   useEffect(() => {
     initializeGame()
   }, [setNumber])
 
   const initializeGame = () => {
-    console.log("Initializing game for set:", setNumber)
+    console.log("Initializing game for set:", setNumber, "Index:", currentSetIndexRef.current)
     setFlippedCards([])
     setMatchedPairs(0)
     setMoves(0)
     setGameComplete(false)
     setGameStarted(false)
 
-    // Determine the number of names for the current set
-    const namesToSelect = setNumber < maxSets ? namesPerSet : remainingNames || namesPerSet
-    const startIndex = (setNumber - 1) * namesPerSet
-    const endIndex = Math.min(startIndex + namesToSelect, totalNames) // Prevent index out of bounds
+    const namesToSelect = setNumber <= maxSets ? namesPerSet : remainingNames || namesPerSet
+    const startIndex = currentSetIndexRef.current * namesPerSet
+    const endIndex = Math.min(startIndex + namesToSelect, totalNames)
     const availableNames = divineNames.slice(startIndex, endIndex).sort(() => Math.random() - 0.5)
 
-    // Create card pairs (arabic and english) with baseId
     const cardPairs = availableNames.flatMap((name) => [
       { id: name.id * 2, baseId: name.id, content: name.arabic, type: "arabic", matched: false, flipped: false },
       { id: name.id * 2 + 1, baseId: name.id, content: name.english, type: "english", matched: false, flipped: false },
     ])
 
-    // Shuffle the cards
     const shuffledCards = [...cardPairs].sort(() => Math.random() - 0.5)
     setCards(shuffledCards)
     console.log("Cards initialized:", shuffledCards.map(c => ({ content: c.content, baseId: c.baseId })))
@@ -97,8 +95,7 @@ export default function DivineAttributesMatchingGame() {
         setFlippedCards([])
         console.log("Match updated: Score:", score + 10, "Matched pairs:", matchedPairs + 1)
 
-        // Check game completion based on current matchedPairs state
-        const totalPairs = setNumber < maxSets ? namesPerSet / 2 : remainingNames / 2 || namesPerSet / 2
+        const totalPairs = setNumber <= maxSets ? namesPerSet / 2 : remainingNames / 2 || namesPerSet / 2
         if (matchedPairs + 1 === totalPairs) {
           setGameComplete(true)
           console.log("Set complete")
@@ -119,9 +116,14 @@ export default function DivineAttributesMatchingGame() {
 
   const startNextSet = () => {
     if (setNumber < maxSets + (remainingNames > 0 ? 1 : 0)) {
-      setSetNumber((prev) => prev + 1)
-    } else {
-      alert("You have completed all sets! Great job mastering the 99 Names of Allah! Alhamdulillah!")
+      const nextIndex = currentSetIndexRef.current + 1
+      if (nextIndex < maxSets + (remainingNames > 0 ? 1 : 0)) {
+        currentSetIndexRef.current = nextIndex
+        usedSetIndicesRef.current.push(nextIndex)
+        setSetNumber((prev) => prev + 1)
+      } else {
+        alert("You have completed all sets! Great job mastering the 99 Names of Allah! Alhamdulillah!")
+      }
     }
   }
 
@@ -137,7 +139,7 @@ export default function DivineAttributesMatchingGame() {
         <CardContent>
           <div className="flex flex-wrap justify-center gap-4 mb-4">
             <div className="flex items-center gap-2">
-              <span className="font-bold">Pairs:</span> {matchedPairs}/{setNumber < maxSets ? 5 : remainingNames / 2 || 5}
+              <span className="font-bold">Pairs:</span> {matchedPairs}/{setNumber <= maxSets ? 5 : remainingNames / 2 || 5}
             </div>
             <div className="flex items-center gap-2">
               <span className="font-bold">Moves:</span> {moves}
@@ -199,7 +201,7 @@ export default function DivineAttributesMatchingGame() {
             <div className="mt-6 text-center">
               <div className="text-xl font-bold text-emerald-600 mb-2">Congratulations! Set {setNumber} Complete!</div>
               <div className="text-gray-600">
-                You found all {setNumber < maxSets ? 5 : remainingNames / 2 || 5} pairs in {moves} moves with a score of {score}.
+                You found all {setNumber <= maxSets ? 5 : remainingNames / 2 || 5} pairs in {moves} moves with a score of {score}.
               </div>
               <Button onClick={startNextSet} className="mt-4 bg-emerald-700 hover:bg-emerald-600">
                 Next Set
