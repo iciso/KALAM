@@ -21,10 +21,10 @@ export default function DivineAttributesMatchingGame() {
   const [setNumber, setSetNumber] = useState<number>(1)
   const totalNames = divineNames.length // 99 names
   const namesPerSet = 5
-  const maxSets = Math.floor(totalNames / namesPerSet) // 19 full sets + 1 partial set
+  const maxSets = Math.floor(totalNames / namesPerSet) // 19 full sets + 1 partial set (20 sets total)
   const remainingNames = totalNames % namesPerSet // 4 names in the last set
 
-  // Initialize game with dynamic sets
+  // Initialize game with dynamic sets without resetting score
   useEffect(() => {
     initializeGame()
   }, [setNumber])
@@ -35,7 +35,6 @@ export default function DivineAttributesMatchingGame() {
     setMatchedPairs(0)
     setMoves(0)
     setGameComplete(false)
-    setScore(0)
     setGameStarted(false)
 
     // Determine the number of names for the current set
@@ -149,7 +148,7 @@ export default function DivineAttributesMatchingGame() {
           </div>
 
           <div className="w-full max-w-md mx-auto mb-4">
-            <ImanOMeter score={score} maxScore={500} />
+            <ImanOMeter score={score} maxScore={1000} /> {/* Updated to 1000 for 20 sets */}
           </div>
 
           <div className="flex justify-center mb-4">
@@ -170,7 +169,7 @@ export default function DivineAttributesMatchingGame() {
               >
                 <motion.div
                   className="absolute inset-0 rounded-lg bg-emerald-600 flex items-center justify-center text-white p-2 backface-hidden"
-                  animate={{ rotateY: !card.matched && card.flipped ? 180 : 0 }} // Hide back only if not matched
+                  animate={{ rotateY: !card.matched && card.flipped ? 180 : 0 }}
                   transition={{ duration: 0.6 }}
                   style={{ backfaceVisibility: "hidden" }}
                 >
@@ -184,7 +183,7 @@ export default function DivineAttributesMatchingGame() {
                     card.type === "arabic" ? "bg-amber-100 text-amber-800" : "bg-blue-100 text-blue-800"
                   }`}
                   initial={{ rotateY: -180 }}
-                  animate={{ rotateY: card.matched ? 0 : card.flipped ? 0 : -180 }} // Show front if matched
+                  animate={{ rotateY: card.matched ? 0 : card.flipped ? 0 : -180 }}
                   transition={{ duration: 0.6 }}
                   style={{ backfaceVisibility: "hidden" }}
                 >
