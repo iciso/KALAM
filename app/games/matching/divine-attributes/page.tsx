@@ -98,7 +98,9 @@ export default function DivineAttributesMatchingGame() {
         setFlippedCards([])
         console.log("Match updated: Score:", score + 10, "Matched pairs:", matchedPairs + 1)
 
-        if (matchedPairs + 1 === (setNumber < maxSets ? namesPerSet / 2 : remainingNames / 2 || namesPerSet / 2)) {
+        // Check game completion based on current matchedPairs state
+        const totalPairs = setNumber < maxSets ? namesPerSet / 2 : remainingNames / 2 || namesPerSet / 2
+        if (matchedPairs + 1 === totalPairs) {
           setGameComplete(true)
           console.log("Set complete")
         }
@@ -168,7 +170,7 @@ export default function DivineAttributesMatchingGame() {
               >
                 <motion.div
                   className="absolute inset-0 rounded-lg bg-emerald-600 flex items-center justify-center text-white p-2 backface-hidden"
-                  animate={{ rotateY: card.flipped ? 180 : 0 }}
+                  animate={{ rotateY: !card.matched && card.flipped ? 180 : 0 }} // Hide back only if not matched
                   transition={{ duration: 0.6 }}
                   style={{ backfaceVisibility: "hidden" }}
                 >
@@ -182,7 +184,7 @@ export default function DivineAttributesMatchingGame() {
                     card.type === "arabic" ? "bg-amber-100 text-amber-800" : "bg-blue-100 text-blue-800"
                   }`}
                   initial={{ rotateY: -180 }}
-                  animate={{ rotateY: card.matched ? 0 : card.flipped ? 0 : -180 }} // Prioritize matched state
+                  animate={{ rotateY: card.matched ? 0 : card.flipped ? 0 : -180 }} // Show front if matched
                   transition={{ duration: 0.6 }}
                   style={{ backfaceVisibility: "hidden" }}
                 >
