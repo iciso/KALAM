@@ -40,7 +40,7 @@ export default function DivineAttributesMatchingGame() {
     // Determine the number of names for the current set
     const namesToSelect = setNumber < maxSets ? namesPerSet : remainingNames || namesPerSet
     const startIndex = (setNumber - 1) * namesPerSet
-    const endIndex = startIndex + namesToSelect
+    const endIndex = Math.min(startIndex + namesToSelect, totalNames) // Prevent index out of bounds
     const availableNames = divineNames.slice(startIndex, endIndex).sort(() => Math.random() - 0.5)
 
     // Create card pairs (arabic and english) with baseId
