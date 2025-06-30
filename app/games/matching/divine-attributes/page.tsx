@@ -24,7 +24,7 @@ export default function DivineAttributesMatchingGame() {
   const maxSets = Math.floor(totalNames / namesPerSet) // 19 full sets + 1 partial set (20 sets total)
   const remainingNames = totalNames % namesPerSet // 4 names in the last set
 
-  // Initialize game with dynamic sets without resetting score
+  // Initialize game with dynamic sets using new names
   useEffect(() => {
     initializeGame()
   }, [setNumber])
@@ -40,7 +40,7 @@ export default function DivineAttributesMatchingGame() {
     // Determine the number of names for the current set
     const namesToSelect = setNumber < maxSets ? namesPerSet : remainingNames || namesPerSet
     const startIndex = (setNumber - 1) * namesPerSet
-    const endIndex = setNumber * namesPerSet
+    const endIndex = startIndex + namesToSelect
     const availableNames = divineNames.slice(startIndex, endIndex).sort(() => Math.random() - 0.5)
 
     // Create card pairs (arabic and english) with baseId
@@ -52,7 +52,7 @@ export default function DivineAttributesMatchingGame() {
     // Shuffle the cards
     const shuffledCards = [...cardPairs].sort(() => Math.random() - 0.5)
     setCards(shuffledCards)
-    console.log("Cards initialized:", shuffledCards)
+    console.log("Cards initialized:", shuffledCards.map(c => ({ content: c.content, baseId: c.baseId })))
   }
 
   const handleCardClick = (index: number) => {
@@ -148,7 +148,7 @@ export default function DivineAttributesMatchingGame() {
           </div>
 
           <div className="w-full max-w-md mx-auto mb-4">
-            <ImanOMeter score={score} maxScore={1000} /> {/* Updated to 1000 for 20 sets */}
+            <ImanOMeter score={score} maxScore={1000} />
           </div>
 
           <div className="flex justify-center mb-4">
