@@ -115,7 +115,7 @@ export default function DivineAttributesMatchingGame() {
   }
 
   const startNextSet = () => {
-    console.log("Starting next set, current setNumber:", setNumber, "currentIndex:", currentSetIndexRef.current)
+    console.log("Button clicked - Starting next set, current setNumber:", setNumber, "currentIndex:", currentSetIndexRef.current)
     if (setNumber < maxSets + (remainingNames > 0 ? 1 : 0)) {
       const nextIndex = currentSetIndexRef.current + 1
       if (nextIndex < maxSets + (remainingNames > 0 ? 1 : 0)) {
@@ -126,6 +126,7 @@ export default function DivineAttributesMatchingGame() {
           console.log("Next set initialized, new setNumber:", newSetNumber, "newIndex:", nextIndex)
           return newSetNumber
         })
+        setTimeout(() => {}, 0) // Force re-render
       } else {
         alert("You have completed all sets! Great job mastering the 99 Names of Allah! Alhamdulillah!")
       }
@@ -202,22 +203,24 @@ export default function DivineAttributesMatchingGame() {
             ))}
           </div>
 
-          {gameComplete && (
-            <div className="mt-6 text-center">
-              <div className="text-xl font-bold text-emerald-600 mb-2">Congratulations! Set {setNumber} Complete!</div>
-              <div className="text-gray-600">
-                You found all {setNumber <= maxSets ? 5 : remainingNames / 2 || 5} pairs in {moves} moves with a score of {score}.
-              </div>
-              <Button onClick={startNextSet} className="mt-4 bg-emerald-700 hover:bg-emerald-600">
-                Next Set
-              </Button>
-              {setNumber === maxSets + (remainingNames > 0 ? 1 : 0) && (
-                <div className="mt-4 text-lg font-bold text-emerald-600">
-                  You have mastered all 99 Names of Allah! Alhamdulillah!
+          <div className="mt-6 text-center">
+            <Button onClick={startNextSet} className="mt-4 bg-emerald-700 hover:bg-emerald-600">
+              Next Set
+            </Button>
+            {gameComplete && (
+              <div>
+                <div className="text-xl font-bold text-emerald-600 mb-2">Congratulations! Set {setNumber} Complete!</div>
+                <div className="text-gray-600">
+                  You found all {setNumber <= maxSets ? 5 : remainingNames / 2 || 5} pairs in {moves} moves with a score of {score}.
                 </div>
-              )}
-            </div>
-          )}
+              </div>
+            )}
+            {setNumber === maxSets + (remainingNames > 0 ? 1 : 0) && (
+              <div className="mt-4 text-lg font-bold text-emerald-600">
+                You have mastered all 99 Names of Allah! Alhamdulillah!
+              </div>
+            )}
+          </div>
         </CardContent>
       </Card>
     </div>
