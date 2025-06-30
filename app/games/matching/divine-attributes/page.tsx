@@ -30,6 +30,7 @@ export default function DivineAttributesMatchingGame() {
   }, [setNumber])
 
   const initializeGame = () => {
+    console.log("Initializing game for set:", setNumber)
     setFlippedCards([])
     setMatchedPairs(0)
     setMoves(0)
@@ -39,10 +40,9 @@ export default function DivineAttributesMatchingGame() {
 
     // Determine the number of names for the current set
     const namesToSelect = setNumber < maxSets ? namesPerSet : remainingNames || namesPerSet
-    const availableNames = divineNames
-      .filter((name) => name.id <= totalNames)
-      .sort(() => Math.random() - 0.5)
-      .slice((setNumber - 1) * namesPerSet, setNumber * namesPerSet)
+    const startIndex = (setNumber - 1) * namesPerSet
+    const endIndex = setNumber * namesPerSet
+    const availableNames = divineNames.slice(startIndex, endIndex).sort(() => Math.random() - 0.5)
 
     // Create card pairs (arabic and english)
     const cardPairs = availableNames.flatMap((name) => [
@@ -53,48 +53,64 @@ export default function DivineAttributesMatchingGame() {
     // Shuffle the cards
     const shuffledCards = [...cardPairs].sort(() => Math.random() - 0.5)
     setCards(shuffledCards)
+    console.log("Cards initialized:", shuffledCards)
   }
 
   const handleCardClick = (index: number) => {
-    if (cards[index].flipped || cards[index].matched) return
-    if (flippedCards.length === 2) return
+    console.log("Card clicked at index:", index, "Content:", cards[index].content)
+    if (cards[index].flipped || cards[index].matched) {
+      console.log("Card already flipped or matched, skipping")
+      return
+    }
+    if (flippedCards.length === 2) {
+      console.log("Max 2 cards flipped, waiting for reset")
+      return
+    }
 
     if (!gameStarted) setGameStarted(true)
 
     const newCards = [...cards]
     newCards[index].flipped = true
     setCards(newCards)
+    console.log("Flipped card at index:", index)
 
     const newFlippedCards = [...flippedCards, index]
     setFlippedCards(newFlippedCards)
+    console.log("Flipped cards:", newFlippedCards)
 
     if (newFlippedCards.length === 2) {
       setMoves((prev) => prev + 1)
+      console.log("Two cards flipped, checking match")
 
       const firstCardId = Math.floor(cards[newFlippedCards[0]].id / 2)
       const secondCardId = Math.floor(cards[newFlippedCards[1]].id / 2)
+      console.log("Card IDs:", firstCardId, secondCardId)
+      console.log("Card types:", cards[newFlippedCards[0]].type, cards[newFlippedCards[1]].type)
 
       if (firstCardId === secondCardId && cards[newFlippedCards[0]].type !== cards[newFlippedCards[1]].type) {
         console.log("Match detected:", cards[newFlippedCards[0]].content, cards[newFlippedCards[1]].content)
-        setTimeout(() => {
-          const matchedCards = [...cards]
-          matchedCards[newFlippedCards[0]].matched = true
-          matchedCards[newFlippedCards[1]].matched = true
-          setCards(matchedCards)
-          setMatchedPairs((prev) => prev + 1)
-          setScore((prev) => prev + 10) // Ensure score increments
-          setFlippedCards([])
-          if (matchedPairs + 1 === (setNumber < maxSets ? namesPerSet / 2 : remainingNames / 2 || namesPerSet / 2)) {
-            setGameComplete(true)
-          }
-        }, 500)
+        const matchedCards = [...cards]
+        matchedCards[newFlippedCards[0]].matched = true
+        matchedCards[newFlippedCards[1]].matched = true
+        setCards(matchedCards)
+        setMatchedPairs((prev) => prev + 1)
+        setScore((prev) => prev + 10)
+        setFlippedCards([])
+        console.log("Match updated: Score:", score + 10, "Matched pairs:", matchedPairs + 1)
+
+        if (matchedPairs + 1 === (setNumber < maxSets ? namesPerSet / 2 : remainingNames / 2 || namesPerSet / 2)) {
+          setGameComplete(true)
+          console.log("Set complete")
+        }
       } else {
+        console.log("No match, resetting cards")
         setTimeout(() => {
           const resetCards = [...cards]
           resetCards[newFlippedCards[0]].flipped = false
           resetCards[newFlippedCards[1]].flipped = false
           setCards(resetCards)
           setFlippedCards([])
+          console.log("Cards reset")
         }, 1000)
       }
     }
@@ -166,7 +182,7 @@ export default function DivineAttributesMatchingGame() {
                     card.type === "arabic" ? "bg-amber-100 text-amber-800" : "bg-blue-100 text-blue-800"
                   }`}
                   initial={{ rotateY: -180 }}
-                  animate={{ rotateY: card.flipped || card.matched ? 0 : -180 }} // Stay flipped if matched
+                  animate={{ rotateY: card.matched ? 0 : card.flipped ? 0 : -180 }} // Prioritize matched state
                   transition={{ duration: 0.6 }}
                   style={{ backfaceVisibility: "hidden" }}
                 >
@@ -184,7 +200,7 @@ export default function DivineAttributesMatchingGame() {
               <div className="text-gray-600">
                 You found all {setNumber < maxSets ? 5 : remainingNames / 2 || 5} pairs in {moves} moves with a score of {score}.
               </div>
-              <Button onClick={startNextSet} className="mt-4 bg-emerald-600 hover:bg-emerald-700">
+              <Button onClick={startNextSet} className="mt-4 bg-emerald-700 hover:bg-emerald-600">
                 Next Set
               </Button>
               {setNumber === maxSets + (remainingNames > 0 ? 1 : 0) && (
