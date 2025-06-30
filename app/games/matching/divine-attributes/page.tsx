@@ -121,8 +121,11 @@ export default function DivineAttributesMatchingGame() {
       if (nextIndex < maxSets + (remainingNames > 0 ? 1 : 0)) {
         currentSetIndexRef.current = nextIndex
         usedSetIndicesRef.current.push(nextIndex)
-        setSetNumber((prev) => prev + 1)
-        console.log("Next set initialized, new setNumber:", setNumber + 1, "newIndex:", nextIndex)
+        setSetNumber((prev) => {
+          const newSetNumber = prev + 1
+          console.log("Next set initialized, new setNumber:", newSetNumber, "newIndex:", nextIndex)
+          return newSetNumber
+        })
       } else {
         alert("You have completed all sets! Great job mastering the 99 Names of Allah! Alhamdulillah!")
       }
