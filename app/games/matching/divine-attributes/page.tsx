@@ -10,7 +10,7 @@ import { divineNames } from "@/data/divine-names-data"
 
 export default function DivineAttributesMatchingGame() {
   const [cards, setCards] = useState<
-    Array<{ id: number; content: string; type: string; matched: boolean; flipped: boolean }>
+    Array<{ id: number; baseId: number; content: string; type: string; matched: boolean; flipped: boolean }>
   >([])
   const [flippedCards, setFlippedCards] = useState<number[]>([])
   const [matchedPairs, setMatchedPairs] = useState<number>(0)
@@ -44,10 +44,10 @@ export default function DivineAttributesMatchingGame() {
     const endIndex = setNumber * namesPerSet
     const availableNames = divineNames.slice(startIndex, endIndex).sort(() => Math.random() - 0.5)
 
-    // Create card pairs (arabic and english)
+    // Create card pairs (arabic and english) with baseId
     const cardPairs = availableNames.flatMap((name) => [
-      { id: name.id * 2 - 1, content: name.arabic, type: "arabic", matched: false, flipped: false },
-      { id: name.id * 2, content: name.english, type: "english", matched: false, flipped: false },
+      { id: name.id * 2, baseId: name.id, content: name.arabic, type: "arabic", matched: false, flipped: false },
+      { id: name.id * 2 + 1, baseId: name.id, content: name.english, type: "english", matched: false, flipped: false },
     ])
 
     // Shuffle the cards
@@ -82,12 +82,12 @@ export default function DivineAttributesMatchingGame() {
       setMoves((prev) => prev + 1)
       console.log("Two cards flipped, checking match")
 
-      const firstCardId = Math.floor(cards[newFlippedCards[0]].id / 2)
-      const secondCardId = Math.floor(cards[newFlippedCards[1]].id / 2)
-      console.log("Card IDs:", firstCardId, secondCardId)
+      const firstBaseId = cards[newFlippedCards[0]].baseId
+      const secondBaseId = cards[newFlippedCards[1]].baseId
+      console.log("Card base IDs:", firstBaseId, secondBaseId)
       console.log("Card types:", cards[newFlippedCards[0]].type, cards[newFlippedCards[1]].type)
 
-      if (firstCardId === secondCardId && cards[newFlippedCards[0]].type !== cards[newFlippedCards[1]].type) {
+      if (firstBaseId === secondBaseId && cards[newFlippedCards[0]].type !== cards[newFlippedCards[1]].type) {
         console.log("Match detected:", cards[newFlippedCards[0]].content, cards[newFlippedCards[1]].content)
         const matchedCards = [...cards]
         matchedCards[newFlippedCards[0]].matched = true
