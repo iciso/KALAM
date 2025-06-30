@@ -19,8 +19,12 @@ export default function DivineAttributesMatchingGame() {
   const [gameComplete, setGameComplete] = useState<boolean>(false)
   const [gameStarted, setGameStarted] = useState<boolean>(false)
   const [setNumber, setSetNumber] = useState<number>(1)
+  const totalNames = divineNames.length // 99 names
+  const namesPerSet = 5
+  const maxSets = Math.floor(totalNames / namesPerSet) // 19 full sets + 1 partial set
+  const remainingNames = totalNames % namesPerSet // 4 names in the last set
 
-  // Initialize game with 5 pairs (10 cards) from divineNames
+  // Initialize game with dynamic sets
   useEffect(() => {
     initializeGame()
   }, [setNumber])
@@ -33,8 +37,12 @@ export default function DivineAttributesMatchingGame() {
     setScore(0)
     setGameStarted(false)
 
-    // Select 5 random divine names from the first 100 (assuming 99 names + 1)
-    const availableNames = divineNames.filter((name) => name.id <= 100).sort(() => Math.random() - 0.5).slice(0, 5)
+    // Determine the number of names for the current set
+    const namesToSelect = setNumber < maxSets ? namesPerSet : remainingNames || namesPerSet
+    const availableNames = divineNames
+      .filter((name) => name.id <= totalNames)
+      .sort(() => Math.random() - 0.5)
+      .slice((setNumber - 1) * namesPerSet, setNumber * namesPerSet)
 
     // Create card pairs (arabic and english)
     const cardPairs = availableNames.flatMap((name) => [
@@ -67,16 +75,16 @@ export default function DivineAttributesMatchingGame() {
       const secondCardId = Math.floor(cards[newFlippedCards[1]].id / 2)
 
       if (firstCardId === secondCardId && cards[newFlippedCards[0]].type !== cards[newFlippedCards[1]].type) {
+        console.log("Match detected:", cards[newFlippedCards[0]].content, cards[newFlippedCards[1]].content)
         setTimeout(() => {
           const matchedCards = [...cards]
           matchedCards[newFlippedCards[0]].matched = true
           matchedCards[newFlippedCards[1]].matched = true
           setCards(matchedCards)
           setMatchedPairs((prev) => prev + 1)
-          setScore((prev) => prev + 10)
+          setScore((prev) => prev + 10) // Ensure score increments
           setFlippedCards([])
-
-          if (matchedPairs + 1 === 5) {
+          if (matchedPairs + 1 === (setNumber < maxSets ? namesPerSet / 2 : remainingNames / 2 || namesPerSet / 2)) {
             setGameComplete(true)
           }
         }, 500)
@@ -93,10 +101,10 @@ export default function DivineAttributesMatchingGame() {
   }
 
   const startNextSet = () => {
-    if (setNumber < 20) {
+    if (setNumber < maxSets + (remainingNames > 0 ? 1 : 0)) {
       setSetNumber((prev) => prev + 1)
     } else {
-      alert("You have completed all 20 sets! Great job!")
+      alert("You have completed all sets! Great job mastering the 99 Names of Allah! Alhamdulillah!")
     }
   }
 
@@ -105,14 +113,14 @@ export default function DivineAttributesMatchingGame() {
       <Card className="mb-6">
         <CardHeader>
           <CardTitle className="text-center text-2xl">Match Names of Allah - Set {setNumber}</CardTitle>
-          <CardDescription className="text-center">
+          <CardDescription className="text-center text-sm text-gray-500">
             Match the Arabic names of Allah with their English meanings
           </CardDescription>
         </CardHeader>
         <CardContent>
           <div className="flex flex-wrap justify-center gap-4 mb-4">
             <div className="flex items-center gap-2">
-              <span className="font-bold">Pairs:</span> {matchedPairs}/5
+              <span className="font-bold">Pairs:</span> {matchedPairs}/{setNumber < maxSets ? 5 : remainingNames / 2 || 5}
             </div>
             <div className="flex items-center gap-2">
               <span className="font-bold">Moves:</span> {moves}
@@ -123,7 +131,7 @@ export default function DivineAttributesMatchingGame() {
           </div>
 
           <div className="w-full max-w-md mx-auto mb-4">
-            <ImanOMeter score={score} maxScore={500} /> {/* Max score for 5 pairs x 10 */}
+            <ImanOMeter score={score} maxScore={500} />
           </div>
 
           <div className="flex justify-center mb-4">
@@ -158,7 +166,7 @@ export default function DivineAttributesMatchingGame() {
                     card.type === "arabic" ? "bg-amber-100 text-amber-800" : "bg-blue-100 text-blue-800"
                   }`}
                   initial={{ rotateY: -180 }}
-                  animate={{ rotateY: card.flipped ? 0 : -180 }}
+                  animate={{ rotateY: card.flipped || card.matched ? 0 : -180 }} // Stay flipped if matched
                   transition={{ duration: 0.6 }}
                   style={{ backfaceVisibility: "hidden" }}
                 >
@@ -174,14 +182,14 @@ export default function DivineAttributesMatchingGame() {
             <div className="mt-6 text-center">
               <div className="text-xl font-bold text-emerald-600 mb-2">Congratulations! Set {setNumber} Complete!</div>
               <div className="text-gray-600">
-                You found all 5 pairs in {moves} moves with a score of {score}.
+                You found all {setNumber < maxSets ? 5 : remainingNames / 2 || 5} pairs in {moves} moves with a score of {score}.
               </div>
               <Button onClick={startNextSet} className="mt-4 bg-emerald-600 hover:bg-emerald-700">
                 Next Set
               </Button>
-              {setNumber === 20 && (
+              {setNumber === maxSets + (remainingNames > 0 ? 1 : 0) && (
                 <div className="mt-4 text-lg font-bold text-emerald-600">
-                  You have mastered all 100 divine names! Alhamdulillah!
+                  You have mastered all 99 Names of Allah! Alhamdulillah!
                 </div>
               )}
             </div>
