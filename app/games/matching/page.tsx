@@ -40,51 +40,36 @@ export default function MatchingGame() {
   const [statsInfo, setStatsInfo] = useState<string>("")
 
   useEffect(() => {
-    // Set the words from our expanded database
     setAllWords(matchingGameWords)
-
-    // Calculate and display stats
-    const totalSets = Math.ceil(matchingGameWords.length / 6)
+    const totalSets = Math.ceil(matchingGameWords.length / 3)
     const totalWords = matchingGameWords.length
     setStatsInfo(`Total: ${totalSets} sets with ${totalWords} words`)
   }, [])
 
-  // Helper function to get a set of unique words at a specific index
   const getWordSetAtIndex = (index: number): WordData[] => {
-    const wordsPerSet = 3 // 3 unique pairs per set
+    const wordsPerSet = 3
     const startIndex = index * wordsPerSet
     const endIndex = Math.min(startIndex + wordsPerSet, allWords.length)
     return allWords.slice(startIndex, endIndex)
   }
 
-  // Helper function to determine how many sets are available
   const getTotalSets = (): number => {
     return Math.ceil(allWords.length / 3)
   }
 
-  // Redesigned set selection logic to ensure unique sets
   const selectNewWordSet = (): number => {
     const totalSets = getTotalSets()
-
-    // If we've used all sets, start over
     if (usedSetIndicesRef.current.length >= totalSets - 1) {
       usedSetIndicesRef.current = currentSetIndexRef.current >= 0 ? [currentSetIndexRef.current] : []
     }
-
-    // Get all possible set indices
     const allSetIndices = Array.from({ length: totalSets }, (_, i) => i)
-
-    // Filter out the indices we've already used and the current index
     const availableIndices = allSetIndices.filter(
       (index) => !usedSetIndicesRef.current.includes(index) && index !== currentSetIndexRef.current,
     )
-
-    // If no available indices, pick any except current
     if (availableIndices.length === 0) {
       const fallbackIndices = allSetIndices.filter((index) => index !== currentSetIndexRef.current)
       return fallbackIndices.length > 0 ? fallbackIndices[Math.floor(Math.random() * fallbackIndices.length)] : 0
     }
-
     const newIndex = availableIndices[Math.floor(Math.random() * availableIndices.length)]
     usedSetIndicesRef.current.push(newIndex)
     return newIndex
@@ -94,7 +79,6 @@ export default function MatchingGame() {
     let setIndex: number
 
     if (!gameStarted || !newSet) {
-      // First game or replay with same words
       if (currentSetIndexRef.current === -1) {
         setIndex = 0
         currentSetIndexRef.current = 0
@@ -103,20 +87,17 @@ export default function MatchingGame() {
         setIndex = currentSetIndexRef.current
       }
     } else {
-      // Select a new set of words
       setIndex = selectNewWordSet()
       currentSetIndexRef.current = setIndex
     }
 
-    // Get 3 unique words for the selected set
     const currentWords = getWordSetAtIndex(setIndex)
+    console.log("Selected words for set:", setIndex, currentWords.map(w => ({ id: w.id, arabic: w.arabic, english: w.english })))
 
-    // Update debug info
     setDebugInfo(
       `Set #${setIndex + 1} of ${getTotalSets()}. Used sets: [${usedSetIndicesRef.current.map((i) => i + 1).join(", ")}]`,
     )
 
-    // Create a shuffled array of 3 unique word pairs (6 tiles total)
     const arabicWords = currentWords.map((word) => ({
       id: word.id,
       text: word.arabic,
@@ -127,7 +108,7 @@ export default function MatchingGame() {
     }))
 
     const englishWords = currentWords.map((word) => ({
-      id: word.id + 1000, // Offset for unique IDs
+      id: word.id + 1000,
       text: word.english,
       type: "english" as const,
       originalId: word.id,
@@ -135,8 +116,8 @@ export default function MatchingGame() {
       matched: false,
     }))
 
-    // Combine and shuffle
     const gameWords = [...arabicWords, ...englishWords].sort(() => Math.random() - 0.5)
+    console.log("Generated tiles:", gameWords.map(w => ({ id: w.id, text: w.text, type: w.type })))
 
     setWords(gameWords)
     setSelectedWord(null)
@@ -221,15 +202,21 @@ export default function MatchingGame() {
             {gameCompleted ? (
               <div className="text-center mb-6">
                 <h3 className="text-xl font-bold text-green-600 mb-4">Congratulations!</h3>
-                <p className="mb-4">You've successfully matched all the words.</p>
+                <p className="mb-4">You've successfully matched all the pairs.</p>
                 <div className="flex flex-wrap justify-center gap-4">
                   <Button onClick={() => startGame(false)} className="bg-green-600 hover:bg-green-700 text-white">
                     Play Again (Same Words)
                   </Button>
                   <Button onClick={() => startGame(true)} className="bg-blue-600 hover:bg-blue-700 text-white">
-                    New Set of Words
+                    Next Set
                   </Button>
                 </div>
+                <p className="mt-2">Time: {Math.floor(matchedPairs * 30 / 60)}:{(matchedPairs * 30) % 60}</p>
+                <p>Moves: {matchedPairs * 2 + 2}</p>
+                <p>
+                  Your Progress: You've completed {currentSetIndexRef.current + 1} of {getTotalSets()} sets (
+                  {Math.round((currentSetIndexRef.current + 1) / getTotalSets() * 100)}%)
+                </p>
               </div>
             ) : (
               <>
@@ -257,9 +244,7 @@ export default function MatchingGame() {
                   ))}
                 </div>
                 <div className="text-center">
-                  <p>
-                    Matched pairs: {matchedPairs}/{getWordSetAtIndex(currentSetIndexRef.current).length}
-                  </p>
+                  <p>Pairs: {matchedPairs}/{getWordSetAtIndex(currentSetIndexRef.current).length}</p>
                 </div>
               </>
             )}
