@@ -1,4 +1,4 @@
-import { vocabularyService } from "@/services/vocabulary-service"
+import { vocabularyService } from "@/services/enhanced-vocabulary-service"
 import type { VocabularyWord } from "@/types/vocabulary"
 
 export interface MemoryMatchSet {
