@@ -29,14 +29,10 @@ export default function MatchingGame() {
   const [gameCompleted, setGameCompleted] = useState(false)
   const [allWords, setAllWords] = useState<WordData[]>([])
 
-  // Use refs to maintain state across renders more reliably
   const usedSetIndicesRef = useRef<number[]>([])
   const currentSetIndexRef = useRef<number>(-1)
 
-  // For debugging - display which set is currently being shown
   const [debugInfo, setDebugInfo] = useState<string>("")
-
-  // Display total sets and words
   const [statsInfo, setStatsInfo] = useState<string>("")
 
   useEffect(() => {
@@ -50,6 +46,7 @@ export default function MatchingGame() {
     const wordsPerSet = 3
     const startIndex = index * wordsPerSet
     const endIndex = Math.min(startIndex + wordsPerSet, allWords.length)
+    console.log(`Selecting words at index ${index}: ${startIndex} to ${endIndex}`)
     return allWords.slice(startIndex, endIndex)
   }
 
@@ -92,7 +89,7 @@ export default function MatchingGame() {
     }
 
     const currentWords = getWordSetAtIndex(setIndex)
-    console.log("Selected words for set:", setIndex, currentWords.map(w => ({ id: w.id, arabic: w.arabic, english: w.english })))
+    console.log("Selected words:", currentWords.map(w => ({ id: w.id, arabic: w.arabic, english: w.english })))
 
     setDebugInfo(
       `Set #${setIndex + 1} of ${getTotalSets()}. Used sets: [${usedSetIndicesRef.current.map((i) => i + 1).join(", ")}]`,
