@@ -49,9 +49,9 @@ export default function MatchingGame() {
     setStatsInfo(`Total: ${totalSets} sets with ${totalWords} words`)
   }, [])
 
-  // Helper function to get a set of words at a specific index
+  // Helper function to get a set of unique words at a specific index
   const getWordSetAtIndex = (index: number): WordData[] => {
-    const wordsPerSet = 6
+    const wordsPerSet = 3 // 3 unique pairs per set
     const startIndex = index * wordsPerSet
     const endIndex = Math.min(startIndex + wordsPerSet, allWords.length)
     return allWords.slice(startIndex, endIndex)
@@ -59,16 +59,15 @@ export default function MatchingGame() {
 
   // Helper function to determine how many sets are available
   const getTotalSets = (): number => {
-    return Math.ceil(allWords.length / 6)
+    return Math.ceil(allWords.length / 3)
   }
 
-  // Completely redesigned set selection logic
+  // Redesigned set selection logic to ensure unique sets
   const selectNewWordSet = (): number => {
     const totalSets = getTotalSets()
 
     // If we've used all sets, start over
     if (usedSetIndicesRef.current.length >= totalSets - 1) {
-      // Keep only the current set in the used list to prevent immediate repetition
       usedSetIndicesRef.current = currentSetIndexRef.current >= 0 ? [currentSetIndexRef.current] : []
     }
 
@@ -80,23 +79,14 @@ export default function MatchingGame() {
       (index) => !usedSetIndicesRef.current.includes(index) && index !== currentSetIndexRef.current,
     )
 
-    // If we somehow have no available indices (edge case), pick any except current
+    // If no available indices, pick any except current
     if (availableIndices.length === 0) {
       const fallbackIndices = allSetIndices.filter((index) => index !== currentSetIndexRef.current)
-      // If multiple sets exist, choose one; otherwise use the only one (edge case)
-      if (fallbackIndices.length > 0) {
-        const newIndex = fallbackIndices[Math.floor(Math.random() * fallbackIndices.length)]
-        return newIndex
-      }
-      return 0 // Ultra-fallback: just use the first set if nothing else is available
+      return fallbackIndices.length > 0 ? fallbackIndices[Math.floor(Math.random() * fallbackIndices.length)] : 0
     }
 
-    // Randomly select from available indices
     const newIndex = availableIndices[Math.floor(Math.random() * availableIndices.length)]
-
-    // Mark this index as used
     usedSetIndicesRef.current.push(newIndex)
-
     return newIndex
   }
 
@@ -106,12 +96,10 @@ export default function MatchingGame() {
     if (!gameStarted || !newSet) {
       // First game or replay with same words
       if (currentSetIndexRef.current === -1) {
-        // Very first game - choose set 0
         setIndex = 0
         currentSetIndexRef.current = 0
         usedSetIndicesRef.current = [0]
       } else {
-        // Replay with same words - use current set
         setIndex = currentSetIndexRef.current
       }
     } else {
@@ -120,7 +108,7 @@ export default function MatchingGame() {
       currentSetIndexRef.current = setIndex
     }
 
-    // Get words for the selected set
+    // Get 3 unique words for the selected set
     const currentWords = getWordSetAtIndex(setIndex)
 
     // Update debug info
@@ -128,7 +116,7 @@ export default function MatchingGame() {
       `Set #${setIndex + 1} of ${getTotalSets()}. Used sets: [${usedSetIndicesRef.current.map((i) => i + 1).join(", ")}]`,
     )
 
-    // Create a shuffled array of words with their translations
+    // Create a shuffled array of 3 unique word pairs (6 tiles total)
     const arabicWords = currentWords.map((word) => ({
       id: word.id,
       text: word.arabic,
@@ -139,7 +127,7 @@ export default function MatchingGame() {
     }))
 
     const englishWords = currentWords.map((word) => ({
-      id: word.id + 1000, // Add offset to create unique IDs
+      id: word.id + 1000, // Offset for unique IDs
       text: word.english,
       type: "english" as const,
       originalId: word.id,
@@ -158,25 +146,19 @@ export default function MatchingGame() {
   }
 
   const handleWordClick = (clickedWord: any) => {
-    // If the word is already matched or the same word is clicked again, do nothing
     if (clickedWord.matched || (selectedWord && clickedWord.id === selectedWord.id)) {
       return
     }
 
-    // Create a new array with the clicked word marked as selected
     const updatedWords = words.map((word) => (word.id === clickedWord.id ? { ...word, selected: true } : word))
 
     if (!selectedWord) {
-      // First selection
       setSelectedWord(clickedWord)
       setWords(updatedWords)
     } else {
-      // Second selection - check for a match
       setWords(updatedWords)
 
-      // Check if the words match (have the same originalId but different types)
       if (clickedWord.originalId === selectedWord.originalId && clickedWord.type !== selectedWord.type) {
-        // It's a match!
         setTimeout(() => {
           setWords(
             words.map((word) =>
@@ -188,14 +170,12 @@ export default function MatchingGame() {
           setSelectedWord(null)
           setMatchedPairs(matchedPairs + 1)
 
-          // Check if game is complete
           const currentWords = getWordSetAtIndex(currentSetIndexRef.current)
           if (matchedPairs + 1 === currentWords.length) {
             setGameCompleted(true)
           }
         }, 500)
       } else {
-        // Not a match, deselect after a delay
         setTimeout(() => {
           setWords(
             words.map((word) =>
@@ -226,9 +206,7 @@ export default function MatchingGame() {
             Test your knowledge of Quranic vocabulary by matching Arabic words with their correct meanings. Click on a
             word and then its matching translation to create a pair.
           </p>
-          {/* Display stats about total sets and words */}
           {statsInfo && <p className="text-sm text-green-600 font-semibold mt-2">{statsInfo}</p>}
-          {/* You can remove this in production, it's just for debugging */}
           {debugInfo && <p className="text-xs text-gray-500 mt-2">{debugInfo}</p>}
         </div>
 
