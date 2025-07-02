@@ -1,7 +1,7 @@
 "use client"
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import DSDQuranGame from "@/components/games/dsd-quran/DSDQuranGame";
+import DSDQuranGame from "@/games/dsd-quran/DSDQuranGame";
 
 export default function Home() {
   return (
