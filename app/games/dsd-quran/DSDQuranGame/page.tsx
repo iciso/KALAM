@@ -1,9 +1,9 @@
 "use client"
 
 import React, { useState, useEffect } from 'react';
-import DSDQuranQuestion from './DSDQuranQuestion';
-import DSDQuranModal from './DSDQuranModal';
-import dsdData from '../../data/dsd-quran-data.json';
+import DSDQuranQuestion from '@/DSDQuranQuestion';
+import DSDQuranModal from '@/DSDQuranModal';
+import dsdData from '@/data/dsd-quran-data.json';
 
 interface Ayah {
   surah: string;
