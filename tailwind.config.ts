@@ -92,3 +92,11 @@ const config = {
 } satisfies Config
 
 export default config
+
+module.exports = {
+  content: ['./src/**/*.{ts,tsx}'],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
