@@ -1,37 +1,91 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import DSDQuranModal from "../dsd-quran-modal"
+import { useState, useEffect } from "react";
+import DSDQuranModal from "../dsd-quran-modal";
+import { DSDQuestions } from "@/data/dsd-quran-data";
 
-type Question = {
-  id: number
-  text: string
-  options: string[]
-  correctAnswer: string
-}
+type DSDQuestion = {
+  surah: string;
+  verse: string;
+  text: string;
+  stage: string;
+  commentary: string;
+  tafsir: string;
+  historicalContext: string;
+  hadeeth: string;
+  comparativeReligion: string;
+  islamophobia: string;
+  significance: string;
+  answer: string;
+};
 
-const DSDQuranGame = () => {
-  const [questions, setQuestions] = useState<Question[]>([
-    {
-      id: 1,
-      text: "What is the first surah in the Quran?",
-      options: ["Al-Fatiha", "Al-Baqarah", "Al-Imran", "An-Nisa"],
-      correctAnswer: "Al-Fatiha",
-    },
-    {
-      id: 2,
-      text: "How many surahs are in the Quran?",
-      options: ["114", "113", "112", "111"],
-      correctAnswer: "114",
-    },
-  ])
+export default function DSDQuranGamePage() {
+  const [questions, setQuestions] = useState<DSDQuestion[]>(DSDQuestions);
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [userAnswer, setUserAnswer] = useState("");
+  const [showModal, setShowModal] = useState(false);
+  const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
+
+  const currentQuestion = questions[currentQuestionIndex];
+
+  const handleCheckAnswer = () => {
+    if (currentQuestion) {
+      const correct = userAnswer.trim().toLowerCase() === currentQuestion.answer.toLowerCase();
+      setIsCorrect(correct);
+      setShowModal(true);
+    }
+  };
+
+  const handleNextQuestion = () => {
+    setUserAnswer("");
+    setShowModal(false);
+    setIsCorrect(null);
+    if (currentQuestionIndex < questions.length - 1) {
+      setCurrentQuestionIndex(currentQuestionIndex + 1);
+    } else {
+      alert("Game Over! You've completed all questions. Alhamdulillah!");
+    }
+  };
+
+  if (!currentQuestion) return <div>Loading...</div>;
 
   return (
-    <div>
-      <h1>DSD Quran Game</h1>
-      <DSDQuranModal />
+    <div className="p-4 max-w-md mx-auto">
+      <h1 className="text-2xl font-bold mb-4">DSD Quran Game</h1>
+      <div className="mb-4">
+        <p className="text-lg">Question: {currentQuestion.text}</p>
+        <input
+          type="text"
+          value={userAnswer}
+          onChange={(e) => setUserAnswer(e.target.value)}
+          placeholder="Enter your answer"
+          className="w-full p-2 border rounded mt-2"
+        />
+      </div>
+      <button
+        onClick={handleCheckAnswer}
+        disabled={!userAnswer}
+        className="bg-blue-500 text-white px-4 py-2 rounded disabled:bg-gray-400"
+      >
+        Check Answer
+      </button>
+      {showModal && (
+        <DSDQuranModal
+          isCorrect={isCorrect}
+          onClose={handleNextQuestion}
+          correctAnswer={currentQuestion.answer}
+          surah={currentQuestion.surah}
+          verse={currentQuestion.verse}
+          stage={currentQuestion.stage}
+          commentary={currentQuestion.commentary}
+          tafsir={currentQuestion.tafsir}
+          historicalContext={currentQuestion.historicalContext}
+          hadeeth={currentQuestion.hadeeth}
+          comparativeReligion={currentQuestion.comparativeReligion}
+          islamophobia={currentQuestion.islamophobia}
+          significance={currentQuestion.significance}
+        />
+      )}
     </div>
-  )
+  );
 }
-
-export default DSDQuranGame
