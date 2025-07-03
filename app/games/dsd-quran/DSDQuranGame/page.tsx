@@ -17,6 +17,7 @@ type DSDQuestion = {
   islamophobia: string;
   significance: string;
   answer: string;
+  arabicVerse: string;
 };
 
 export default function DSDQuranGamePage() {
@@ -64,6 +65,9 @@ export default function DSDQuranGamePage() {
       <h1 className="text-2xl font-bold mb-4">DSD Quran Game</h1>
       <div className="mb-4">
         <p className="text-lg">Question: {currentQuestion.text}</p>
+        <p className="text-base mt-2 text-right dir-rtl" style={{ fontFamily: "Amiri, serif" }}>
+          {currentQuestion.arabicVerse}
+        </p>
         <p className="text-sm text-gray-600 mt-1">Hint: Tap the Allport stage that matches this event.</p>
         <div className="mt-2 grid grid-cols-2 gap-2">
           {allportStages.map((stage, index) => (
@@ -71,7 +75,7 @@ export default function DSDQuranGamePage() {
               key={index}
               onClick={() => setUserAnswer(stage)}
               className={`p-3 border rounded ${userAnswer === stage ? "bg-blue-500 text-white" : "bg-white text-black"}`}
-              style={{ minHeight: "44px" }} // Ensures minimum touch target size
+              style={{ minHeight: "44px" }}
             >
               {stage}
             </button>
