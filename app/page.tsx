@@ -32,8 +32,7 @@ export default function HomePage() {
               <span className="text-red-600 dark:text-red-400">M</span>irth
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
-              Experience the joy of learning Quranic Arabic naturally through games, interactive flashcards, and themed
-              quizzes. Transform memorization into discovery and connect with the words of Allah through fun activities
+              Experience the joy of learning the word of Allah (KALAM) through games, interactive timelines, and with fun activities
               rather than rote learning.
             </p>
           </div>

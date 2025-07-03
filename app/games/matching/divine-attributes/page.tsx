@@ -1,134 +1,130 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Shuffle, RefreshCw } from "lucide-react"
 import { motion } from "framer-motion"
 import { ImanOMeter } from "@/components/score"
-import { divineNames } from "@/data/divine-names-data"
+
+// Divine attributes data
+const divineAttributes = [
+  { arabic: "الرحمن", english: "The Most Merciful", id: 1 },
+  { arabic: "الرحيم", english: "The Most Compassionate", id: 2 },
+  { arabic: "الملك", english: "The King", id: 3 },
+  { arabic: "القدوس", english: "The Holy", id: 4 },
+  { arabic: "السلام", english: "The Source of Peace", id: 5 },
+  { arabic: "المؤمن", english: "The Granter of Security", id: 6 },
+  { arabic: "المهيمن", english: "The Guardian", id: 7 },
+  { arabic: "العزيز", english: "The Mighty", id: 8 },
+  { arabic: "الجبار", english: "The Compeller", id: 9 },
+  { arabic: "المتكبر", english: "The Greatest", id: 10 },
+  { arabic: "الخالق", english: "The Creator", id: 11 },
+  { arabic: "البارئ", english: "The Originator", id: 12 },
+  { arabic: "المصور", english: "The Fashioner", id: 13 },
+  { arabic: "الغفار", english: "The All-Forgiving", id: 14 },
+  { arabic: "القهار", english: "The Subduer", id: 15 },
+  { arabic: "الوهاب", english: "The Bestower", id: 16 },
+  { arabic: "الرزاق", english: "The Provider", id: 17 },
+  { arabic: "الفتاح", english: "The Opener", id: 18 },
+  { arabic: "العليم", english: "The All-Knowing", id: 19 },
+  { arabic: "القابض", english: "The Constrictor", id: 20 },
+]
 
 export default function DivineAttributesMatchingGame() {
   const [cards, setCards] = useState<
-    Array<{ id: number; baseId: number; content: string; type: string; matched: boolean; flipped: boolean }>
+    Array<{ id: number; content: string; type: string; matched: boolean; flipped: boolean }>
   >([])
   const [flippedCards, setFlippedCards] = useState<number[]>([])
   const [matchedPairs, setMatchedPairs] = useState<number>(0)
   const [moves, setMoves] = useState<number>(0)
-  const [score, setScore] = useState<number>(0)
   const [gameComplete, setGameComplete] = useState<boolean>(false)
+  const [score, setScore] = useState<number>(1000)
   const [gameStarted, setGameStarted] = useState<boolean>(false)
-  const [setNumber, setSetNumber] = useState<number>(1)
-  const totalNames = divineNames.length // 99 names
-  const namesPerSet = 5
-  const maxSets = Math.floor(totalNames / namesPerSet) // 19 full sets + 1 partial set (20 sets total)
-  const remainingNames = totalNames % namesPerSet // 4 names in the last set
-  const currentSetIndexRef = useRef<number>(0)
-  const usedSetIndicesRef = useRef<number[]>([0])
 
+  // Initialize game
   useEffect(() => {
     initializeGame()
-  }, [setNumber])
+  }, [])
 
   const initializeGame = () => {
-    console.log("Initializing game for set:", setNumber, "Index:", currentSetIndexRef.current)
+    // Reset game state
     setFlippedCards([])
     setMatchedPairs(0)
     setMoves(0)
     setGameComplete(false)
+    setScore(1000)
     setGameStarted(false)
 
-    const namesToSelect = setNumber <= maxSets ? namesPerSet : remainingNames || namesPerSet
-    const startIndex = currentSetIndexRef.current * namesPerSet
-    const endIndex = Math.min(startIndex + namesToSelect, totalNames)
-    const availableNames = divineNames.slice(startIndex, endIndex).sort(() => Math.random() - 0.5)
+    // Get a random subset of divine attributes (10 pairs)
+    const shuffledAttributes = [...divineAttributes].sort(() => Math.random() - 0.5).slice(0, 10)
 
-    const cardPairs = availableNames.flatMap((name) => [
-      { id: name.id * 2, baseId: name.id, content: name.arabic, type: "arabic", matched: false, flipped: false },
-      { id: name.id * 2 + 1, baseId: name.id, content: name.english, type: "english", matched: false, flipped: false },
+    // Create card pairs (arabic and english)
+    const cardPairs = shuffledAttributes.flatMap((attr) => [
+      { id: attr.id * 2 - 1, content: attr.arabic, type: "arabic", matched: false, flipped: false },
+      { id: attr.id * 2, content: attr.english, type: "english", matched: false, flipped: false },
     ])
 
+    // Shuffle the cards
     const shuffledCards = [...cardPairs].sort(() => Math.random() - 0.5)
     setCards(shuffledCards)
-    console.log("Cards initialized:", shuffledCards.map(c => ({ content: c.content, baseId: c.baseId })))
   }
 
   const handleCardClick = (index: number) => {
-    console.log("Card clicked at index:", index, "Content:", cards[index].content)
-    if (cards[index].flipped || cards[index].matched) {
-      console.log("Card already flipped or matched, skipping")
-      return
-    }
-    if (flippedCards.length === 2) {
-      console.log("Max 2 cards flipped, waiting for reset")
-      return
+    // Don't allow flipping if the card is already flipped or matched
+    if (cards[index].flipped || cards[index].matched) return
+
+    // Don't allow more than 2 cards to be flipped at once
+    if (flippedCards.length === 2) return
+
+    // Start the game on first card flip
+    if (!gameStarted) {
+      setGameStarted(true)
     }
 
-    if (!gameStarted) setGameStarted(true)
-
+    // Flip the card
     const newCards = [...cards]
     newCards[index].flipped = true
     setCards(newCards)
-    console.log("Flipped card at index:", index)
 
+    // Add to flipped cards
     const newFlippedCards = [...flippedCards, index]
     setFlippedCards(newFlippedCards)
-    console.log("Flipped cards:", newFlippedCards)
 
+    // If we have 2 flipped cards, check for a match
     if (newFlippedCards.length === 2) {
       setMoves((prev) => prev + 1)
-      console.log("Two cards flipped, checking match")
 
-      const firstBaseId = cards[newFlippedCards[0]].baseId
-      const secondBaseId = cards[newFlippedCards[1]].baseId
-      console.log("Card base IDs:", firstBaseId, secondBaseId)
-      console.log("Card types:", cards[newFlippedCards[0]].type, cards[newFlippedCards[1]].type)
+      const firstCardId = Math.floor(cards[newFlippedCards[0]].id / 2)
+      const secondCardId = Math.floor(cards[newFlippedCards[1]].id / 2)
 
-      if (firstBaseId === secondBaseId && cards[newFlippedCards[0]].type !== cards[newFlippedCards[1]].type) {
-        console.log("Match detected:", cards[newFlippedCards[0]].content, cards[newFlippedCards[1]].content)
-        const matchedCards = [...cards]
-        matchedCards[newFlippedCards[0]].matched = true
-        matchedCards[newFlippedCards[1]].matched = true
-        setCards(matchedCards)
-        setMatchedPairs((prev) => prev + 1)
-        setScore((prev) => prev + 10)
-        setFlippedCards([])
-        console.log("Match updated: Score:", score + 10, "Matched pairs:", matchedPairs + 1)
+      // Check if the cards match (same attribute but different types)
+      if (firstCardId === secondCardId && cards[newFlippedCards[0]].type !== cards[newFlippedCards[1]].type) {
+        // It's a match!
+        setTimeout(() => {
+          const matchedCards = [...cards]
+          matchedCards[newFlippedCards[0]].matched = true
+          matchedCards[newFlippedCards[1]].matched = true
+          setCards(matchedCards)
+          setMatchedPairs((prev) => prev + 1)
+          setFlippedCards([])
 
-        const totalPairs = setNumber <= maxSets ? namesPerSet / 2 : remainingNames / 2 || namesPerSet / 2
-        if (matchedPairs + 1 === totalPairs) {
-          setGameComplete(true)
-          console.log("Set complete")
-        }
+          // Check if game is complete
+          if (matchedPairs + 1 === 10) {
+            setGameComplete(true)
+          }
+        }, 500)
       } else {
-        console.log("No match, resetting cards")
+        // Not a match, flip cards back
         setTimeout(() => {
           const resetCards = [...cards]
           resetCards[newFlippedCards[0]].flipped = false
           resetCards[newFlippedCards[1]].flipped = false
           setCards(resetCards)
           setFlippedCards([])
-          console.log("Cards reset")
+          // Reduce score for wrong match
+          setScore((prev) => Math.max(0, prev - 20))
         }, 1000)
-      }
-    }
-  }
-
-  const startNextSet = () => {
-    console.log("Button clicked - Starting next set, current setNumber:", setNumber, "currentIndex:", currentSetIndexRef.current)
-    if (setNumber < maxSets + (remainingNames > 0 ? 1 : 0)) {
-      const nextIndex = currentSetIndexRef.current + 1
-      if (nextIndex < maxSets + (remainingNames > 0 ? 1 : 0)) {
-        currentSetIndexRef.current = nextIndex
-        usedSetIndicesRef.current.push(nextIndex)
-        setSetNumber((prev) => {
-          const newSetNumber = prev + 1
-          console.log("Next set initialized, new setNumber:", newSetNumber, "newIndex:", nextIndex)
-          return newSetNumber
-        })
-        setTimeout(() => {}, 0) // Force re-render
-      } else {
-        alert("You have completed all sets! Great job mastering the 99 Names of Allah! Alhamdulillah!")
       }
     }
   }
@@ -137,15 +133,15 @@ export default function DivineAttributesMatchingGame() {
     <div className="container mx-auto px-4 py-8">
       <Card className="mb-6">
         <CardHeader>
-          <CardTitle className="text-center text-2xl">Match Names of Allah - Set {setNumber}</CardTitle>
-          <CardDescription className="text-center text-sm text-gray-500">
+          <CardTitle className="text-center text-2xl">Match Names of Allah</CardTitle>
+          <CardDescription className="text-center">
             Match the Arabic names of Allah with their English meanings
           </CardDescription>
         </CardHeader>
         <CardContent>
           <div className="flex flex-wrap justify-center gap-4 mb-4">
             <div className="flex items-center gap-2">
-              <span className="font-bold">Pairs:</span> {matchedPairs}/{setNumber <= maxSets ? 5 : remainingNames / 2 || 5}
+              <span className="font-bold">Pairs:</span> {matchedPairs}/10
             </div>
             <div className="flex items-center gap-2">
               <span className="font-bold">Moves:</span> {moves}
@@ -177,7 +173,7 @@ export default function DivineAttributesMatchingGame() {
               >
                 <motion.div
                   className="absolute inset-0 rounded-lg bg-emerald-600 flex items-center justify-center text-white p-2 backface-hidden"
-                  animate={{ rotateY: !card.matched && card.flipped ? 180 : 0 }}
+                  animate={{ rotateY: card.flipped ? 180 : 0 }}
                   transition={{ duration: 0.6 }}
                   style={{ backfaceVisibility: "hidden" }}
                 >
@@ -191,7 +187,7 @@ export default function DivineAttributesMatchingGame() {
                     card.type === "arabic" ? "bg-amber-100 text-amber-800" : "bg-blue-100 text-blue-800"
                   }`}
                   initial={{ rotateY: -180 }}
-                  animate={{ rotateY: card.matched ? 0 : card.flipped ? 0 : -180 }}
+                  animate={{ rotateY: card.flipped ? 0 : -180 }}
                   transition={{ duration: 0.6 }}
                   style={{ backfaceVisibility: "hidden" }}
                 >
@@ -203,24 +199,17 @@ export default function DivineAttributesMatchingGame() {
             ))}
           </div>
 
-          <div className="mt-6 text-center">
-            <Button onClick={startNextSet} className="mt-4 bg-emerald-700 hover:bg-emerald-600">
-              Next Set
-            </Button>
-            {gameComplete && (
-              <div>
-                <div className="text-xl font-bold text-emerald-600 mb-2">Congratulations! Set {setNumber} Complete!</div>
-                <div className="text-gray-600">
-                  You found all {setNumber <= maxSets ? 5 : remainingNames / 2 || 5} pairs in {moves} moves with a score of {score}.
-                </div>
+          {gameComplete && (
+            <div className="mt-6 text-center">
+              <div className="text-xl font-bold text-emerald-600 mb-2">Congratulations! You completed the game!</div>
+              <div className="text-gray-600">
+                You found all pairs in {moves} moves with a score of {score}.
               </div>
-            )}
-            {setNumber === maxSets + (remainingNames > 0 ? 1 : 0) && (
-              <div className="mt-4 text-lg font-bold text-emerald-600">
-                You have mastered all 99 Names of Allah! Alhamdulillah!
-              </div>
-            )}
-          </div>
+              <Button onClick={initializeGame} className="mt-4 bg-emerald-600 hover:bg-emerald-700">
+                Play Again
+              </Button>
+            </div>
+          )}
         </CardContent>
       </Card>
     </div>

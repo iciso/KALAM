@@ -27,8 +27,10 @@ export default function MemoryGamePage() {
   const [gameCompleted, setGameCompleted] = useState(false)
   const [timer, setTimer] = useState(0)
 
+  // Track completed sets
   const completedSetsRef = useRef<Set<number>>(new Set())
 
+  // Stats
   const totalSets = memoryMatchSets.length
   const totalWords = getTotalUniqueWords()
   const vocabularySize = getTotalVocabularyWords()
@@ -38,6 +40,7 @@ export default function MemoryGamePage() {
       const interval = setInterval(() => {
         setTimer((prevTimer) => prevTimer + 1)
       }, 1000)
+
       return () => clearInterval(interval)
     }
   }, [gameStarted, gameCompleted])
@@ -45,6 +48,7 @@ export default function MemoryGamePage() {
   useEffect(() => {
     if (matchedPairs === memoryMatchSets[currentSetIndex].words.length) {
       setGameCompleted(true)
+      // Mark this set as completed
       completedSetsRef.current.add(currentSetIndex)
     }
   }, [matchedPairs, currentSetIndex])
@@ -52,6 +56,7 @@ export default function MemoryGamePage() {
   const initializeGame = () => {
     const currentSet = memoryMatchSets[currentSetIndex]
 
+    // Create pairs of cards (arabic and meaning)
     const initialCards: MatchingCard[] = []
 
     currentSet.words.forEach((word) => {
@@ -63,6 +68,7 @@ export default function MemoryGamePage() {
         isFlipped: false,
         isMatched: false,
       })
+
       initialCards.push({
         id: `meaning-${word.id}`,
         content: word.meaning,
@@ -73,6 +79,7 @@ export default function MemoryGamePage() {
       })
     })
 
+    // Shuffle the cards
     const shuffledCards = initialCards.sort(() => Math.random() - 0.5)
 
     setCards(shuffledCards)
@@ -86,44 +93,62 @@ export default function MemoryGamePage() {
 
   const changeSet = (direction: "next" | "prev") => {
     let newIndex = currentSetIndex
+
     if (direction === "next") {
       newIndex = (currentSetIndex + 1) % totalSets
     } else {
       newIndex = (currentSetIndex - 1 + totalSets) % totalSets
     }
+
     setCurrentSetIndex(newIndex)
     setGameStarted(false)
     setGameCompleted(false)
   }
 
   const handleCardClick = (clickedCard: MatchingCard) => {
+    // Ignore if the card is already flipped or matched
     if (clickedCard.isFlipped || clickedCard.isMatched) {
       return
     }
+
+    // Ignore if two cards are already flipped
     if (flippedCards.length === 2) {
       return
     }
+
+    // Flip the card
     const updatedCards = cards.map((card) => (card.id === clickedCard.id ? { ...card, isFlipped: true } : card))
+
     setCards(updatedCards)
+
+    // Add to flipped cards
     const newFlippedCards = [...flippedCards, clickedCard]
     setFlippedCards(newFlippedCards)
+
+    // If two cards are flipped, check for a match
     if (newFlippedCards.length === 2) {
       setMoves(moves + 1)
+
       const [firstCard, secondCard] = newFlippedCards
+
       if (firstCard.originalId === secondCard.originalId && firstCard.type !== secondCard.type) {
+        // It's a match!
         setTimeout(() => {
           const matchedCards = cards.map((card) =>
             card.originalId === firstCard.originalId ? { ...card, isMatched: true } : card,
           )
+
           setCards(matchedCards)
           setFlippedCards([])
           setMatchedPairs(matchedPairs + 1)
         }, 500)
       } else {
+        // Not a match, flip them back
         setTimeout(() => {
           const resetCards = cards.map((card) =>
             flippedCards.some((flipped) => flipped.id === card.id) ? { ...card, isFlipped: false } : card,
           )
+
           setCards(resetCards)
           setFlippedCards([])
         }, 1000)
@@ -266,7 +291,7 @@ export default function MemoryGamePage() {
                 </CardFooter>
               </Card>
             ) : (
-              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
                 {cards.map((card) => (
                   <div
                     key={card.id}

@@ -148,6 +148,26 @@ export default function GamesPage() {
         </Card>
 
         
+        {/* New DSD and Quranic Ayats Game Card */}
+        <Card className="border-purple-200 bg-purple-50">
+          <CardHeader>
+            <CardTitle className="text-purple-800">DSD in Quranic Ayats</CardTitle>
+            <CardDescription>Stage the Quranic verses on the Denial, Stigma, Discrimination (DSD) scale of Gordon Allport</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p>
+              Test your knowledge of DSD in the Quranic verses by selecting the correct stage in DSD scale as reflected in a specific verse from the Noble Quran.
+            </p>
+          </CardContent>
+          <CardFooter>
+            <Link href="/games/quranic-ayats" passHref>
+              <Button className="bg-purple-600 hover:bg-purple-700">Play Now</Button>
+            </Link>
+          </CardFooter>
+        </Card>
+
+
+          {/* Crossword Game Card */}
         <Card>
           <CardHeader>
             <CardTitle>Crossword</CardTitle>
@@ -163,6 +183,8 @@ export default function GamesPage() {
           </CardFooter>
         </Card>
 
+
+         {/* Word Jumble Game Card */}
         <Card>
           <CardHeader>
             <CardTitle>Word Jumble</CardTitle>
@@ -178,6 +200,8 @@ export default function GamesPage() {
           </CardFooter>
         </Card>
 
+
+         {/* FITB Game Card */}
         <Card>
           <CardHeader>
             <CardTitle>Fill in the Blanks</CardTitle>
@@ -193,6 +217,8 @@ export default function GamesPage() {
           </CardFooter>
         </Card>
 
+
+         {/* Mahram Game Card */}
         <Card className="border-amber-200 bg-amber-50">
           <CardHeader>
             <CardTitle className="text-amber-800">Knowing Your Mahram</CardTitle>
@@ -210,6 +236,9 @@ export default function GamesPage() {
           </CardFooter>
         </Card>
 
+
+
+         {/* Missing Letters Game Card */}
         <Card className="border-blue-200 bg-blue-50">
           <CardHeader>
             <CardTitle className="text-blue-800">Missing Letters</CardTitle>

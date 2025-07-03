@@ -24,7 +24,7 @@ KALAM is an open-source project dedicated to making Quranic Arabic vocabulary ac
 
 1. Clone the repository
    \`\`\`
-   git clone https://github.com/iciso/KALAM.git
+   git clone https://github.com/YOUR-USERNAME/kalam.git
    cd kalam
    \`\`\`
 

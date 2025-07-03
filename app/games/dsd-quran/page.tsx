@@ -1,8 +1,9 @@
-"use client"
+import DSDQuranGame from "./DSDQuranGame/page"
 
-// app/games/dsd-quran/page.tsx
-import DSDQuranGame from "@/games/dsd-quran/DSDQuranGame";
-
-export default function DSDQuranGamePage() {
-  return <DSDQuranGame />;
+export default function Page() {
+  return (
+    <div>
+      <DSDQuranGame />
+    </div>
+  )
 }
