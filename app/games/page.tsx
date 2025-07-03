@@ -160,7 +160,7 @@ export default function GamesPage() {
             </p>
           </CardContent>
           <CardFooter>
-            <Link href="/games/quranic-ayats" passHref>
+            <Link href="/games/dsd-quran" passHref>
               <Button className="bg-purple-600 hover:bg-purple-700">Play Now</Button>
             </Link>
           </CardFooter>
