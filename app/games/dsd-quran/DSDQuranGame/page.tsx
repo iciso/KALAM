@@ -30,10 +30,9 @@ export default function DSDQuranGamePage() {
 
   const handleCheckAnswer = () => {
     if (currentQuestion) {
-      const userInput = userAnswer.trim().toLowerCase();
-      const correctAnswer = currentQuestion.answer.toLowerCase();
       const correctStage = currentQuestion.stage.toLowerCase();
-      const isCorrectAnswer = userInput === correctAnswer || userInput === correctStage;
+      const userInput = userAnswer.trim().toLowerCase();
+      const isCorrectAnswer = userInput === correctStage;
       setIsCorrect(isCorrectAnswer);
       setShowModal(true);
     }
@@ -52,24 +51,37 @@ export default function DSDQuranGamePage() {
 
   if (!currentQuestion) return <div>Loading...</div>;
 
+  const allportStages = [
+    "Denial & Antilocution",
+    "Avoidance",
+    "Discrimination",
+    "Physical Attack",
+    "Extermination",
+  ];
+
   return (
     <div className="p-4 max-w-md mx-auto">
       <h1 className="text-2xl font-bold mb-4">DSD Quran Game</h1>
       <div className="mb-4">
         <p className="text-lg">Question: {currentQuestion.text}</p>
-        <p className="text-sm text-gray-600 mt-1">Hint: Enter the key event or stage (e.g., "mockery" or "Denial & Antilocution").</p>
-        <input
-          type="text"
-          value={userAnswer}
-          onChange={(e) => setUserAnswer(e.target.value)}
-          placeholder="Enter your answer"
-          className="w-full p-2 border rounded mt-2"
-        />
+        <p className="text-sm text-gray-600 mt-1">Hint: Tap the Allport stage that matches this event.</p>
+        <div className="mt-2 grid grid-cols-2 gap-2">
+          {allportStages.map((stage, index) => (
+            <button
+              key={index}
+              onClick={() => setUserAnswer(stage)}
+              className={`p-3 border rounded ${userAnswer === stage ? "bg-blue-500 text-white" : "bg-white text-black"}`}
+              style={{ minHeight: "44px" }} // Ensures minimum touch target size
+            >
+              {stage}
+            </button>
+          ))}
+        </div>
       </div>
       <button
         onClick={handleCheckAnswer}
         disabled={!userAnswer}
-        className="bg-blue-500 text-white px-4 py-2 rounded disabled:bg-gray-400"
+        className="bg-blue-500 text-white px-4 py-2 rounded mt-4 disabled:bg-gray-400"
       >
         Check Answer
       </button>
