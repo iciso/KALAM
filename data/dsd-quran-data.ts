@@ -10,7 +10,8 @@ export type DSDQuestion = {
   comparativeReligion: string;
   islamophobia: string;
   significance: string;
-  answer?: string; // Optional, derived from text or specified
+  answer: string;
+  arabicVerse: string;
 };
 
 export const DSDQuestions: DSDQuestion[] = [
@@ -26,7 +27,8 @@ export const DSDQuestions: DSDQuestion[] = [
     comparativeReligion: "Similar to early Christian communities facing Roman mockery, this reflects a universal pattern of verbal hostility toward emerging faiths.",
     islamophobia: "Modern parallels include derogatory language used to stereotype Muslims, often seen in media portrayals.",
     significance: "This teaches believers to remain steadfast despite ridicule, emphasizing resilience in faith.",
-    answer: "The disbelievers mock the believers" // Derived from text as the key fact
+    answer: "The disbelievers mock the believers",
+    arabicVerse: "إِنَّ الَّذِينَ اجْتَرَمُوا الْخَطِيئَةَ كَانُوا بِالَّذِينَ آمَنُوا يَضْحَكُونَ * وَإِذَا مَرُّوا بِهِمْ يَتَغَامَزُونَ * وَإِذَا انْقَلَبُوا إِلَىٰ أَهْلِهِمُ انْقَلَبُوا فَكِهِينَ * وَإِذَا رَأَوْهُمْ قَالُوا إِنَّ هَٰؤُلَاءِ لَضَالُّونَ"
   },
   {
     surah: "Al-Baqarah",
@@ -40,6 +42,7 @@ export const DSDQuestions: DSDQuestion[] = [
     comparativeReligion: "Comparable to genocidal acts in history, such as the Holocaust, targeting specific religious or ethnic groups.",
     islamophobia: "Reflects extreme Islamophobic actions where entire communities are targeted for their beliefs, as seen in historical and modern genocides.",
     significance: "Highlights the importance of resisting oppression and the divine promise of deliverance for the oppressed.",
-    answer: "Pharaoh's systematic slaughter of the sons of the Israelites" // Derived from text
+    answer: "Pharaoh's systematic slaughter of the sons of the Israelites",
+    arabicVerse: "وَإِذْ نَجَّيْنَاكُمْ مِنْ آلِ فِرْعَوْنَ يَسُومُونَكُمْ سُوءَ الْعَذَابِ يُذَبِّحُونَ أَبْنَاءَكُمْ وَيَسْتَحْيُونَ نِسَاءَكُمْ ۚ وَفِي ذَٰلِكُمْ بَلَاءٌ مِنْ رَبِّكُمْ عَظِيمٌ"
   }
 ];
