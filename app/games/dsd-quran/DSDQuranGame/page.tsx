@@ -30,8 +30,11 @@ export default function DSDQuranGamePage() {
 
   const handleCheckAnswer = () => {
     if (currentQuestion) {
-      const correct = userAnswer.trim().toLowerCase() === currentQuestion.answer.toLowerCase();
-      setIsCorrect(correct);
+      const userInput = userAnswer.trim().toLowerCase();
+      const correctAnswer = currentQuestion.answer.toLowerCase();
+      const correctStage = currentQuestion.stage.toLowerCase();
+      const isCorrectAnswer = userInput === correctAnswer || userInput === correctStage;
+      setIsCorrect(isCorrectAnswer);
       setShowModal(true);
     }
   };
@@ -54,6 +57,7 @@ export default function DSDQuranGamePage() {
       <h1 className="text-2xl font-bold mb-4">DSD Quran Game</h1>
       <div className="mb-4">
         <p className="text-lg">Question: {currentQuestion.text}</p>
+        <p className="text-sm text-gray-600 mt-1">Hint: Enter the key event or stage (e.g., "mockery" or "Denial & Antilocution").</p>
         <input
           type="text"
           value={userAnswer}
