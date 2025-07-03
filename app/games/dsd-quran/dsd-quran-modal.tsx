@@ -48,7 +48,7 @@ export default function DSDQuranModal({
         <p className={isCorrect ? "text-green-600" : "text-red-600"}>
           {isCorrect ? "Correct! Alhamdulillah!" : "Incorrect! Try again next time."}
         </p>
-        <p className="mt-2">Correct Answer: {correctAnswer}</p>
+        <p className="mt-2"><strong>Correct Answer:</strong> {correctAnswer}</p>
         <div className="mt-4 space-y-2 text-sm">
           <p><strong>Surah:</strong> {surah}</p>
           <p><strong>Verse:</strong> {verse}</p>
