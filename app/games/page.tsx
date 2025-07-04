@@ -51,6 +51,7 @@ export default function GamesPage() {
           </CardFooter>
         </Card>
 
+    
         <Card>
           <CardHeader>
             <CardTitle>Word Search</CardTitle>
@@ -62,6 +63,24 @@ export default function GamesPage() {
           <CardFooter>
             <Link href="/games/word-search" passHref>
               <Button>Play Now</Button>
+            </Link>
+          </CardFooter>
+        </Card>
+
+         {/* New Dua & Emotions Matching Game Card */}
+        <Card className="border-indigo-200 bg-indigo-50">
+          <CardHeader>
+            <CardTitle className="text-purple-800">Match Dua and Emotions</CardTitle>
+            <CardDescription>Match each emotion with their best fitting dua</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p>
+              Test your knowledge of Quranic and Hadith Duas by matching them with the diffferent emotions, and moods that we experience.
+            </p>
+          </CardContent>
+          <CardFooter>
+            <Link href="/games/dua-emotion-match" passHref>
+              <Button className="bg-purple-600 hover:bg-purple-700">Play Now</Button>
             </Link>
           </CardFooter>
         </Card>
