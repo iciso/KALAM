@@ -15,7 +15,7 @@ interface GameSet {
   emotions: { name: string; dua: Dua }[];
 }
 
-// Game data: 5 sets, 10 emotions each
+// Game data: 10 sets, 5 emotions each
 const gameSets: GameSet[] = [
   {
     id: 1,
@@ -25,6 +25,11 @@ const gameSets: GameSet[] = [
       { name: "Bored", dua: { arabic: "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ عِلْمٍ لاَ يَنْفَعُ، وَمِنْ قَلْبٍ لاَ يَخْشَعُ، وَمِنْ نَفْسٍ لاَ تَشْبَعُ، وَمِنْ دَعْوَةٍ لاَ يُسْتَجَابُ لَهَا", english: "O Allah, I seek refuge in You from knowledge that does not benefit, from a heart that does not humble itself, from a soul that is never satisfied, and from a supplication that is not answered.", source: "Sahih Muslim 2722a" } },
       { name: "Confident", dua: { arabic: "حَسْبُنَا اللَّهُ وَنِعْمَ الْوَكِيلُ", english: "Allah is sufficient for us, and He is the best Disposer of affairs.", source: "Quran 3:173, Sahih al-Bukhari 4563" } },
       { name: "Confused", dua: { arabic: "رَبِّ اشْرَحْ لِي صَدْرِي وَيَسِّرْ لِي أَمْرِي وَاحْلُلْ عُقْدَةً مِنْ لِسَانِي يَفْقَهُوا قَوْلِي", english: "My Lord, expand for me my breast [with assurance] and ease for me my task and untie the knot from my tongue that they may understand my speech.", source: "Quran 20:25-28" } },
+    ],
+  },
+  {
+    id: 2,
+    emotions: [
       { name: "Content", dua: { arabic: "رَضِيتُ بِاللَّهِ رَبًّا وَبِالإِسْلاَمِ دِينًا وَبِمُحَمَّدٍ نَبِيًّا", english: "I am content with Allah as my Lord, and with Islam as my religion, and with Muhammad as my Prophet.", source: "Sahih Muslim 1884b" } },
       { name: "Depressed", dua: { arabic: "اللَّهُمَّ رَحْمَتَكَ أَرْجُو فَلاَ تَكِلْنِي إِلَى نَفْسِي طَرْفَةَ عَيْنٍ، وَأَصْلِحْ لِي شَأْنِي كُلَّهُ لاَ إِلَهَ إِلاَّ أَنْتَ", english: "O Allah, I hope for Your Mercy. Do not abandon me to myself even for the blink of an eye. Rectify all my affairs. There is no god but You.", source: "Abu Dawud 5090" } },
       { name: "Doubtful", dua: { arabic: "اللَّهُمَّ مُصَرِّفَ الْقُلُوبِ صَرِّفْ قُلُوبَنَا عَلَى طَاعَتِكَ", english: "O Allah, Changer of the hearts, direct our hearts to Your obedience.", source: "Sahih Muslim 2654" } },
@@ -33,13 +38,18 @@ const gameSets: GameSet[] = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     emotions: [
       { name: "Guilty", dua: { arabic: "رَبَّنَا ظَلَمْنَا أَنفُسَنَا وَإِن لَّمْ تَغْفِرْ لَنَا وَتَرْحَمْنَا لَنَكُونَنَّ مِنَ الْخَاسِرِينَ", english: "Our Lord, we have wronged ourselves, and if You do not forgive us and have mercy upon us, we will surely be among the losers.", source: "Quran 7:23" } },
       { name: "Happy", dua: { arabic: "الْحَمْدُ لِلَّهِ الَّذِي بِنِعْمَتِهِ تَتِمُّ الصَّالِحَاتُ", english: "All praise is due to Allah, by whose favor good deeds are completed.", source: "Ibn Majah 3803" } },
       { name: "Hurt", dua: { arabic: "أَنِّي مَسَّنِيَ الضُّرُّ وَأَنْتَ أَرْحَمُ الرَّاحِمِينَ", english: "Indeed, adversity has touched me, and You are the Most Merciful of the merciful.", source: "Quran 21:83" } },
       { name: "Hypocritical", dua: { arabic: "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الشِّقَاقِ وَالنِّفَاقِ وَسُوءِ الأَخْلاقِ", english: "O Allah, I seek refuge in You from schism, hypocrisy, and bad manners.", source: "Abu Dawud 1546" } },
       { name: "Indecisive", dua: { arabic: "اللَّهُمَّ خِرْ لِي وَاخْتَرْ لِي", english: "O Allah, grant me the choice and choose for me.", source: "Tirmidhi 3567" } },
+    ],
+  },
+  {
+    id: 4,
+    emotions: [
       { name: "Jealous", dua: { arabic: "رَبَّنَا اغْفِرْ لَنَا وَلِإِخْوَانِنَا الَّذِينَ سَبَقُونَا بِالْإِيمَانِ وَلَا تَجْعَلْ فِي قُلُوبِنَا غِلًّا لِلَّذِينَ آمَنُوا رَبَّنَا إِنَّكَ رَءُوفٌ رَحِيمٌ", english: "Our Lord, forgive us and our brothers who preceded us in faith and put not in our hearts [any] resentment toward those who have believed. Our Lord, indeed You are Kind and Merciful.", source: "Quran 59:10" } },
       { name: "Lazy", dua: { arabic: "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ، وَالْعَجْزِ وَالْكَسَلِ، وَالْبُخْلِ وَالْجُبْنِ، وَضَلَعِ الدَّيْنِ وَغَلَبَةِ الرِّجَالِ", english: "O Allah, I seek refuge in You from anxiety and sorrow, weakness and laziness, miserliness and cowardice, the burden of debts and from being overpowered by men.", source: "Sahih al-Bukhari 6369" } },
       { name: "Lonely", dua: { arabic: "لَا إِلَٰهَ إِلَّا أَنْتَ سُبْحَانَكَ إِنِّي كُنْتُ مِنَ الظَّالِمِينَ", english: "There is no deity except You; exalted are You. Indeed, I have been of the wrongdoers.", source: "Quran 21:87" } },
@@ -48,13 +58,18 @@ const gameSets: GameSet[] = [
     ],
   },
   {
-    id: 3,
+    id: 5,
     emotions: [
       { name: "Overwhelmed", dua: { arabic: "يَا حَيُّ يَا قَيُّومُ بِرَحْمَتِكَ أَسْتَغِيثُ", english: "O Ever-Living, O Sustainer, by Your mercy I seek assistance.", source: "Tirmidhi 3522" } },
       { name: "Regret", dua: { arabic: "رَبَّنَا فَاغْفِرْ لَنَا ذُنُوبَنَا وَكَفِّرْ عَنَّا سَيِّئَاتِنَا وَتَوَفَّنَا مَعَ الأَبْرَارِ", english: "Our Lord, forgive us our sins and remove from us our evil deeds and take us in death with the righteous.", source: "Quran 3:193" } },
       { name: "Sad", dua: { arabic: "اللَّهُمَّ إِنِّي عَبْدُكَ ابْنُ عَبْدِكَ ابْنُ أَمَتِكَ نَاصِيَتِي بِيَدِكَ مَاضٍ فِيَّ حُكْمُكَ عَدْلٌ فِيَّ قَضَاؤُكَ أَسْأَلُكَ بِكُلِّ اسْمٍ هُوَ لَكَ سَمَّيْتَ بِهِ نَفْسَكَ أَوْ أَنْزَلْتَهُ فِي كِتَابِكَ أَوْ عَلَّمْتَهُ أَحَدًا مِنْ خَلْقِكَ أَوِ اسْتَأْثَرْتَ بِهِ فِي عِلْمِ الْغَيْبِ عِنْدَكَ أَنْ تَجْعَلَ الْقُرْآنَ رَبِيعَ قَلْبِي وَنُورَ صَدْرِي وَجِلاَءَ حُزْنِي وَذَهَابَ هَمِّي", english: "O Allah, I am Your slave, the son of Your male slave, the son of Your female slave. My forelock is in Your hand. Your command over me is forever executed and Your decree upon me is just. I ask You by every name belonging to You which You named Yourself with, or revealed in Your Book, or taught to one of Your creation, or kept unto Yourself in the knowledge of the unseen that is with You, to make the Quran the spring of my heart, the light of my chest, the reliever of my sadness, and the remover of my anxiety.", source: "Ahmad 1/391, Sahih by Al-Albani" } },
       { name: "Scared", dua: { arabic: "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْجُبْنِ وَالْبُخْلِ", english: "O Allah, I seek refuge in You from cowardice and miserliness.", source: "Sahih al-Bukhari 6369" } },
       { name: "Suicidal", dua: { arabic: "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَدْمِ، وَأَعُوذُ بِكَ مِنَ التَّرَدِّي، وَأَعُوذُ بِكَ مِنَ الْغَرَقِ، وَالْحَرَقِ، وَالْهَرَمِ، وَأَعُوذُ بِكَ أَنْ يَتَخَبَّطَنِي الشَّيْطَانُ عِنْدَ الْمَوْتِ، وَأَعُوذُ بِكَ أَنْ أَمُوتَ فِي سَبِيلِكَ مُدْبِرًا، وَأَعُوذُ بِكَ أَنْ أَمُوتَ لَدِيغًا", english: "O Allah, I seek refuge in You from being crushed beneath a falling wall, and I seek refuge in You from falling into a pit, and I seek refuge in You from drowning, and burning, and decrepitude. And I seek refuge in You lest Shaytan should make me lose my mind at the time of death, and I seek refuge in You lest I should die in Your path while fleeing (from the battlefield), and I seek refuge in You from dying from the sting of a poisonous creature.", source: "Nasa'i 5547" } },
+    ],
+  },
+  {
+    id: 6,
+    emotions: [
       { name: "Tired", dua: { arabic: "بِسْمِ اللَّهِ الَّذِي لاَ يَضُرُّ مَعَ اسْمِهِ شَىْءٌ فِي الأَرْضِ وَلاَ فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ", english: "In the Name of Allah, with Whose Name nothing can cause harm on earth or in the heavens, and He is the All-Hearing, the All-Knowing.", source: "Tirmidhi 3388" } },
       { name: "Unloved", dua: { arabic: "اللَّهُمَّ إِنِّي أَسْأَلُكَ حُبَّكَ وَحُبَّ مَنْ يُحِبُّكَ وَالْعَمَلَ الَّذِي يُبَلِّغُنِي حُبَّكَ", english: "O Allah, I ask You for Your love, the love of those who love You, and the love of deeds that will bring me closer to Your love.", source: "Tirmidhi 3490" } },
       { name: "Weak", dua: { arabic: "رَبَّنَا أَفْرِغْ عَلَيْنَا صَبْرًا وَثَبِّتْ أَقْدَامَنَا وَانصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ", english: "Our Lord, pour upon us patience and plant firmly our feet and give us victory over the disbelieving people.", source: "Quran 2:250" } },
@@ -63,13 +78,18 @@ const gameSets: GameSet[] = [
     ],
   },
   {
-    id: 4,
+    id: 7,
     emotions: [
       { name: "Curious", dua: { arabic: "رَبِّ زِدْنِي عِلْمًا", english: "My Lord, increase me in knowledge.", source: "Quran 20:114" } },
       { name: "Defeated", dua: { arabic: "حَسْبُنَا اللَّهُ وَنِعْمَ الْوَكِيلُ", english: "Allah is sufficient for us, and He is the best Disposer of affairs.", source: "Quran 3:173, Sahih al-Bukhari 4563" } },
       { name: "Desire", dua: { arabic: "اللَّهُمَّ إِنِّي أَسْأَلُكَ الْجَنَّةَ وَمَا قَرَّبَ إِلَيْهَا مِنْ قَوْلٍ أَوْ عَمَلٍ وَأَعُوذُ بِكَ مِنَ النَّارِ وَمَا قَرَّبَ إِلَيْهَا مِنْ قَوْلٍ أَوْ عَمَلٍ", english: "O Allah, I ask You for Paradise and what brings one closer to it of speech or action, and I seek refuge in You from the Hellfire and what brings one closer to it of speech or action.", source: "Ibn Majah 3846" } },
       { name: "Desperate", dua: { arabic: "لَا إِلَٰهَ إِلَّا أَنْتَ سُبْحَانَكَ إِنِّي كُنْتُ مِنَ الظَّالِمِينَ", english: "There is no deity except You; exalted are You. Indeed, I have been of the wrongdoers.", source: "Quran 21:87" } },
       { name: "Determined", dua: { arabic: "رَبَّنَا آتِنَا مِن لَّدُنكَ رَحْمَةً وَهَيِّئْ لَنَا مِنْ أَمْرِنَا رَشَدًا", english: "Our Lord, grant us from Yourself mercy and prepare for us from our affair right guidance.", source: "Quran 18:10" } },
+    ],
+  },
+  {
+    id: 8,
+    emotions: [
       { name: "Disbelief", dua: { arabic: "اللَّهُمَّ يَا مُقَلِّبَ الْقُلُوبِ ثَبِّتْ قَلْبِي عَلَى دِينِكَ", english: "O Allah, O Changer of the hearts, make my heart firm upon Your religion.", source: "Tirmidhi 2140" } },
       { name: "Envious", dua: { arabic: "رَبَّنَا اغْفِرْ لَنَا وَلِإِخْوَانِنَا الَّذِينَ سَبَقُونَا بِالْإِيمَانِ وَلَا تَجْعَلْ فِي قُلُوبِنَا غِلًّا لِلَّذِينَ آمَنُوا رَبَّنَا إِنَّكَ رَءُوفٌ رَحِيمٌ", english: "Our Lord, forgive us and our brothers who preceded us in faith and put not in our hearts [any] resentment toward those who have believed. Our Lord, indeed You are Kind and Merciful.", source: "Quran 59:10" } },
       { name: "Hatred", dua: { arabic: "اللَّهُمَّ أَلِّفْ بَيْنَ قُلُوبِنَا، وَأَصْلِحْ ذَاتَ بَيْنِنَا، وَاهْدِنَا سُبُلَ السَّلاَمِ", english: "O Allah, unite our hearts, mend our mutual relations, and guide us to the paths of peace.", source: "Abu Dawud 208" } },
@@ -78,13 +98,18 @@ const gameSets: GameSet[] = [
     ],
   },
   {
-    id: 5,
+    id: 9,
     emotions: [
       { name: "Insecure", dua: { arabic: "اللَّهُمَّ اكْفِنِي بِحَلاَلِكَ عَنْ حَرَامِكَ وَأَغْنِنِي بِفَضْلِكَ عَمَّنْ سِوَاكَ", english: "O Allah, make me self-sufficient with Your lawful provisions, keeping me away from the unlawful, and make me independent of all those besides You with Your bounty.", source: "Tirmidhi 3563" } },
       { name: "Irritated", dua: { arabic: "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْغَضَبِ", english: "O Allah, I seek refuge in You from anger.", source: "Abu Dawud 1546" } },
       { name: "Love", dua: { arabic: "اللَّهُمَّ إِنِّي أَسْأَلُكَ حُبَّكَ وَحُبَّ مَنْ يُحِبُّكَ وَالْعَمَلَ الَّذِي يُبَلِّغُنِي حُبَّكَ", english: "O Allah, I ask You for Your love, the love of those who love You, and the love of deeds that will bring me closer to Your love.", source: "Tirmidhi 3490" } },
       { name: "Nostalgic", dua: { arabic: "رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ", english: "Our Lord, give us in this world [that which is] good and in the Hereafter [that which is] good and protect us from the punishment of the Fire.", source: "Quran 2:201, Sahih al-Bukhari 6389" } },
       { name: "Offended", dua: { arabic: "رَبَّنَا اغْفِرْ لَنَا وَلِإِخْوَانِنَا الَّذِينَ سَبَقُونَا بِالْإِيمَانِ وَلَا تَجْعَلْ فِي قُلُوبِنَا غِلًّا لِلَّذِينَ آمَنُوا رَبَّنَا إِنَّكَ رَءُوفٌ رَحِيمٌ", english: "Our Lord, forgive us and our brothers who preceded us in faith and put not in our hearts [any] resentment toward those who have believed. Our Lord, indeed You are Kind and Merciful.", source: "Quran 59:10" } },
+    ],
+  },
+  {
+    id: 10,
+    emotions: [
       { name: "Peaceful", dua: { arabic: "اللَّهُمَّ أَنْتَ السَّلاَمُ وَمِنْكَ السَّلاَمُ تَبَارَكْتَ يَا ذَا الْجَلاَلِ وَالإِكْرَامِ", english: "O Allah, You are Peace, and from You is peace. Blessed are You, O Possessor of Majesty and Honor.", source: "Sahih Muslim 591" } },
       { name: "Rage", dua: { arabic: "أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ", english: "I seek refuge in Allah from Satan, the expelled.", source: "Sahih al-Bukhari 3297, Sahih Muslim 2610" } },
       { name: "Satisfied", dua: { arabic: "الْحَمْدُ لِلَّهِ الَّذِي بِنِعْمَتِهِ تَتِمُّ الصَّالِحَاتُ", english: "All praise is due to Allah, by whose favor good deeds are completed.", source: "Ibn Majah 3803" } },
@@ -176,11 +201,12 @@ const DuaEmotionMatch: React.FC = () => {
           <h2 className="text-2xl font-semibold mb-4">Set {currentSetId}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <h3 className="text-xl font-bold mb-2">Emotions</h3>
+              <h3 className="text-xl font-bold mb-2">Emotions & Correct Duas</h3>
               <ul className="space-y-4">
                 {currentSet!.emotions.map((emotion, index) => (
                   <li key={index} className="p-4 bg-white rounded shadow">
                     <p><strong>Emotion:</strong> {emotion.name}</p>
+                    <p><strong>Correct Dua:</strong> {emotion.dua.arabic} - {emotion.dua.english} ({emotion.dua.source})</p>
                     <p className="mt-2">
                       <strong>Selected Dua:</strong> {selectedAnswers[index] ? allDuas.find((d) => d.arabic === selectedAnswers[index])!.english : "None"}
                     </p>
@@ -189,7 +215,7 @@ const DuaEmotionMatch: React.FC = () => {
               </ul>
             </div>
             <div>
-              <h3 className="text-xl font-bold mb-2">Duas</h3>
+              <h3 className="text-xl font-bold mb-2">Select Duas</h3>
               <div className="flex flex-wrap gap-2 mb-4">
                 {allDuas.map((dua, idx) => (
                   <button
