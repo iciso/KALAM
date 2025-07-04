@@ -106,7 +106,7 @@ export default function GamesPage() {
             <CardDescription>Match Arabic words with their meanings</CardDescription>
           </CardHeader>
           <CardContent>
-            <p>Improve your memory and vocabulary by matching Arabic words with their English translations.</p>
+            <p>Improve your memory and vocabulary by flipping tiles and matching Arabic words with their English translations.</p>
           </CardContent>
           <CardFooter>
             <Link href="/games/memory" passHref>
@@ -121,7 +121,7 @@ export default function GamesPage() {
             <CardDescription>Connect Arabic words to their meanings</CardDescription>
           </CardHeader>
           <CardContent>
-            <p>Draw lines to connect Arabic words with their correct English translations.</p>
+            <p>Draw lines to connect Arabic words with their correct displayed English translations.</p>
           </CardContent>
           <CardFooter>
             <Link href="/games/matching" passHref>
