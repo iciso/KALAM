@@ -145,7 +145,7 @@ export default function HomePage() {
                 size="lg"
                 className="text-emerald-600 hover:text-emerald-700 border-emerald-600 hover:border-emerald-700"
               >
-                See all 12 games <ArrowRight className="ml-2 h-4 w-4" />
+                See all 15 games <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
           </div>
