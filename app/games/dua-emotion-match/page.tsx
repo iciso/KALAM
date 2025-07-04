@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 
 // Interfaces
@@ -119,18 +119,35 @@ const gameSets: GameSet[] = [
   },
 ];
 
-// All unique duas for selection
-const allDuas: Dua[] = gameSets.flatMap((set) => set.emotions.map((e) => e.dua));
+// Shuffle function
+const shuffleArray = (array: Dua[]) => {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+};
 
 const DuaEmotionMatch: React.FC = () => {
   const [currentSetId, setCurrentSetId] = useState<number>(1);
   const [selectedAnswers, setSelectedAnswers] = useState<Record<string, string>>({});
   const [showResults, setShowResults] = useState<boolean>(false);
   const [score, setScore] = useState<number>(0);
+  const [shuffledDuas, setShuffledDuas] = useState<Dua[]>([]);
 
   // Current game set
   const currentSet = gameSets.find((set) => set.id === currentSetId);
   const isSubmitEnabled = Object.keys(selectedAnswers).length === currentSet!.emotions.length;
+
+  // Initialize shuffled duas on set change
+  useEffect(() => {
+    const setDuas = currentSet!.emotions.map((e) => e.dua);
+    setShuffledDuas(shuffleArray(setDuas));
+    setSelectedAnswers({});
+    setShowResults(false);
+    setScore(0);
+  }, [currentSetId]);
 
   // Handle dua selection
   const handleDuaSelect = (emotionIndex: number, duaArabic: string) => {
@@ -141,7 +158,7 @@ const DuaEmotionMatch: React.FC = () => {
   const handleSubmit = (): void => {
     let correctCount = 0;
     currentSet!.emotions.forEach((emotion, index) => {
-      const selectedDua = allDuas.find((d) => d.arabic === selectedAnswers[index]);
+      const selectedDua = shuffledDuas.find((d) => d.arabic === selectedAnswers[index]);
       if (selectedDua && selectedDua.arabic === emotion.dua.arabic) {
         correctCount++;
       }
@@ -170,7 +187,7 @@ const DuaEmotionMatch: React.FC = () => {
                 <p><strong>Emotion:</strong> {emotion.name}</p>
                 <p><strong>Correct Dua:</strong> {emotion.dua.arabic} - {emotion.dua.english} ({emotion.dua.source})</p>
                 <p>
-                  <strong>Your Answer:</strong> {selectedAnswers[index] ? allDuas.find((d) => d.arabic === selectedAnswers[index])!.english : "None"}
+                  <strong>Your Answer:</strong> {selectedAnswers[index] ? shuffledDuas.find((d) => d.arabic === selectedAnswers[index])!.english : "None"}
                   {selectedAnswers[index] && selectedAnswers[index] === emotion.dua.arabic ? (
                     <span className="text-green-500"> ✓</span>
                   ) : (
@@ -201,14 +218,13 @@ const DuaEmotionMatch: React.FC = () => {
           <h2 className="text-2xl font-semibold mb-4">Set {currentSetId}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <h3 className="text-xl font-bold mb-2">Emotions & Correct Duas</h3>
+              <h3 className="text-xl font-bold mb-2">Emotions</h3>
               <ul className="space-y-4">
                 {currentSet!.emotions.map((emotion, index) => (
                   <li key={index} className="p-4 bg-white rounded shadow">
                     <p><strong>Emotion:</strong> {emotion.name}</p>
-                    <p><strong>Correct Dua:</strong> {emotion.dua.arabic} - {emotion.dua.english} ({emotion.dua.source})</p>
                     <p className="mt-2">
-                      <strong>Selected Dua:</strong> {selectedAnswers[index] ? allDuas.find((d) => d.arabic === selectedAnswers[index])!.english : "None"}
+                      <strong>Selected Dua:</strong> {selectedAnswers[index] ? shuffledDuas.find((d) => d.arabic === selectedAnswers[index])!.english : "None"}
                     </p>
                   </li>
                 ))}
@@ -217,7 +233,7 @@ const DuaEmotionMatch: React.FC = () => {
             <div>
               <h3 className="text-xl font-bold mb-2">Select Duas</h3>
               <div className="flex flex-wrap gap-2 mb-4">
-                {allDuas.map((dua, idx) => (
+                {shuffledDuas.map((dua, idx) => (
                   <button
                     key={idx}
                     onClick={() => {
