@@ -15,7 +15,6 @@ export type DSDQuestion = {
 };
 
 export const DSDQuestions: DSDQuestion[] = [
-  // Existing entries (kept for reference)
   {
     surah: "Al-Mutaffifin",
     verse: "83:29-33",
@@ -28,7 +27,7 @@ export const DSDQuestions: DSDQuestion[] = [
     comparativeReligion: "Similar to early Christian communities facing Roman mockery.",
     islamophobia: "Modern parallels include derogatory language used to stereotype Muslims.",
     significance: "Teaches believers to remain steadfast despite ridicule.",
-    answer: "The disbelievers mock the believers",
+    answer: "Denial & Antilocution",
     arabicVerse: "إِنَّ الَّذِينَ اجْتَرَمُوا الْخَطِيئَةَ كَانُوا بِالَّذِينَ آمَنُوا يَضْحَكُونَ * وَإِذَا مَرُّوا بِهِمْ يَتَغَامَزُونَ * وَإِذَا انْقَلَبُوا إِلَىٰ أَهْلِهِمُ انْقَلَبُوا فَكِهِينَ * وَإِذَا رَأَوْهُمْ قَالُوا إِنَّ هَٰؤُلَاءِ لَضَالُّونَ"
   },
   {
@@ -43,13 +42,9 @@ export const DSDQuestions: DSDQuestion[] = [
     comparativeReligion: "Comparable to genocidal acts like the Holocaust.",
     islamophobia: "Reflects extreme Islamophobic actions targeting entire communities.",
     significance: "Highlights divine promise of deliverance for the oppressed.",
-    answer: "Pharaoh's systematic slaughter of the sons of the Israelites",
+    answer: "Extermination",
     arabicVerse: "وَإِذْ نَجَّيْنَاكُمْ مِنْ آلِ فِرْعَوْنَ يَسُومُونَكُمْ سُوءَ الْعَذَابِ يُذَبِّحُونَ أَبْنَاءَكُمْ وَيَسْتَحْيُونَ نِسَاءَكُمْ ۚ وَفِي ذَٰلِكُمْ بَلَاءٌ مِنْ رَبِّكُمْ عَظِيمٌ"
   },
-
-  // === NEW ENTRIES (13 added) ===
-
-  // Stage 1: Denial & Antilocution
   {
     surah: "Al-Hijr",
     verse: "15:11-15",
@@ -62,7 +57,7 @@ export const DSDQuestions: DSDQuestion[] = [
     comparativeReligion: "Parallels Jesus being mocked by the Pharisees.",
     islamophobia: "Echoes modern mockery of religious figures in media.",
     significance: "Affirms that ridicule is a test of faith.",
-    answer: "Disbelievers ridiculing every messenger sent to them",
+    answer: "Denial & Antilocution",
     arabicVerse: "وَمَا يَأْتِيهِمْ مِنْ رَسُولٍ إِلَّا كَانُوا بِهِ يَسْتَهْزِئُونَ"
   },
   {
@@ -77,11 +72,9 @@ export const DSDQuestions: DSDQuestion[] = [
     comparativeReligion: "Like accusations against Moses of 'sorcery.'",
     islamophobia: "Mirrors modern Islamophobic tropes (e.g., 'terrorist' labeling).",
     significance: "Warns against false accusations harming communities.",
-    answer: "Disbelievers slandering the prophet as 'possessed'",
+    answer: "Denial & Antilocution",
     arabicVerse: "فَلَا تُطِعِ الْمُكَذِّبِينَ * وَدُّوا لَوْ تُدْهِنُ فَيُدْهِنُونَ * وَلَا تُطِعْ كُلَّ حَلَّافٍ مَهِينٍ * هَمَّازٍ مَشَّاءٍ بِنَمِيمٍ"
   },
-
-  // Stage 2: Stigma & Avoidance
   {
     surah: "Al-Masad",
     verse: "111:1-5",
@@ -94,7 +87,7 @@ export const DSDQuestions: DSDQuestion[] = [
     comparativeReligion: "Similar to caste-based ostracization in Hinduism.",
     islamophobia: "Like excluding Muslims from public spaces in some societies.",
     significance: "Shows how stigma fails against divine truth.",
-    answer: "Abu Lahab and his wife ostracizing the Prophet",
+    answer: "Stigma & Avoidance",
     arabicVerse: "تَبَّتْ يَدَا أَبِي لَهَبٍ وَتَبَّ * مَا أَغْنَىٰ عَنْهُ مَالُهُ وَمَا كَسَبَ * سَيَصْلَىٰ نَارًا ذَاتَ لَهَبٍ * وَامْرَأَتُهُ حَمَّالَةَ الْحَطَبِ * فِي جِيدِهَا حَبْلٌ مِنْ مَسَدٍ"
   },
   {
@@ -109,11 +102,9 @@ export const DSDQuestions: DSDQuestion[] = [
     comparativeReligion: "Like Pharisees avoiding 'sinners' in the Bible.",
     islamophobia: "Parallels elite disdain for marginalized Muslim groups.",
     significance: "Condemns class-based discrimination in faith.",
-    answer: "Wealthy disbelievers avoiding poor believers",
+    answer: "Stigma & Avoidance",
     arabicVerse: "وَاصْبِرْ نَفْسَكَ مَعَ الَّذِينَ يَدْعُونَ رَبَّهُمْ بِالْغَدَاةِ وَالْعَشِيِّ يُرِيدُونَ وَجْهَهُ ۖ وَلَا تَعْدُ عَيْنَاكَ عَنْهُمْ تُرِيدُ زِينَةَ الْحَيَاةِ الدُّنْيَا ۖ وَلَا تُطِعْ مَنْ أَغْفَلْنَا قَلْبَهُ عَنْ ذِكْرِنَا وَاتَّبَعَ هَوَاهُ وَكَانَ أَمْرُهُ فُرُطًا"
   },
-
-  // Stage 3: Discrimination (Systemic Oppression)
   {
     surah: "Hud",
     verse: "11:91",
@@ -126,7 +117,7 @@ export const DSDQuestions: DSDQuestion[] = [
     comparativeReligion: "Like Jerusalem elites rejecting Jesus for disrupting power.",
     islamophobia: "Resembles 'glass ceilings' for Muslims in workplaces.",
     significance: "Critiques corruption masked by tribal loyalty.",
-    answer: "Madyan elites threatening expulsion based on clan bias",
+    answer: "Discrimination",
     arabicVerse: "قَالُوا يَا شُعَيْبُ مَا نَفْقَهُ كَثِيرًا مِمَّا تَقُولُ وَإِنَّا لَنَرَاكَ فِينَا ضَعِيفًا ۖ وَلَوْلَا رَهْطُكَ لَرَجَمْنَاكَ ۖ وَمَا أَنْتَ عَلَيْنَا بِعَزِيزٍ"
   },
   {
@@ -141,11 +132,9 @@ export const DSDQuestions: DSDQuestion[] = [
     comparativeReligion: "Like Nazi propaganda against Jews.",
     islamophobia: "Echoes 'Muslim bans' based on security narratives.",
     significance: "Exposes how power distorts truth to oppress.",
-    answer: "Pharaoh's chiefs falsely accusing Moses' people",
+    answer: "Discrimination",
     arabicVerse: "فَلَمَّا جَاءَهُمْ بِالْحَقِّ مِنْ عِنْدِنَا قَالُوا اقْتُلُوا أَبْنَاءَ الَّذِينَ آمَنُوا مَعَهُ وَاسْتَحْيُوا نِسَاءَهُمْ ۚ وَمَا كَيْدُ الْكَافِرِينَ إِلَّا فِي ضَلَالٍ"
   },
-
-  // Stage 4: Physical Attack
   {
     surah: "Al-Buruj",
     verse: "85:4-10",
@@ -158,7 +147,7 @@ export const DSDQuestions: DSDQuestion[] = [
     comparativeReligion: "Like Roman persecution of Christians in arenas.",
     islamophobia: "Parallels modern burnings of mosques/madrasas.",
     significance: "Martyrs' faith withstands even extreme violence.",
-    answer: "People of the Ditch burning believers alive",
+    answer: "Physical Attack",
     arabicVerse: "قُتِلَ أَصْحَابُ الْأُخْدُودِ * النَّارِ ذَاتِ الْوَقُودِ * إِذْ هُمْ عَلَيْهَا قُعُودٌ * وَهُمْ عَلَىٰ مَا يَفْعَلُونَ بِالْمُؤْمِنِينَ شُهُودٌ * وَمَا نَقَمُوا مِنْهُمْ إِلَّا أَنْ يُؤْمِنُوا بِاللَّهِ الْعَزِيزِ الْحَمِيدِ"
   },
   {
@@ -173,11 +162,9 @@ export const DSDQuestions: DSDQuestion[] = [
     comparativeReligion: "Like medieval inquisitions torturing heretics.",
     islamophobia: "Mirrors ISIS-style executions of minorities.",
     significance: "Faith cannot be coerced by violence.",
-    answer: "Pharaoh threatening crucifixion to believers",
+    answer: "Physical Attack",
     arabicVerse: "قَالَ آمَنْتُمْ لَهُ قَبْلَ أَنْ آذَنَ لَكُمْ ۖ إِنَّهُ لَكَبِيرُكُمُ الَّذِي عَلَّمَكُمُ السِّحْرَ ۖ فَلَأُقَطِّعَنَّ أَيْدِيَكُمْ وَأَرْجُلَكُمْ مِنْ خِلَافٍ وَلَأُصَلِّبَنَّكُمْ فِي جُذُوعِ النَّخْلِ وَلَتَعْلَمُنَّ أَيُّنَا أَشَدُّ عَذَابًا وَأَبْقَىٰ"
   },
-
-  // Stage 5: Extermination
   {
     surah: "Al-A’raf",
     verse: "7:133-136",
@@ -190,7 +177,7 @@ export const DSDQuestions: DSDQuestion[] = [
     comparativeReligion: "Like Sodom’s destruction in the Bible.",
     islamophobia: "Symbolizes divine justice against oppressors.",
     significance: "Ultimate victory of truth over annihilation.",
-    answer: "Drowning of Pharaoh’s army",
+    answer: "Extermination",
     arabicVerse: "فَأَرْسَلْنَا عَلَيْهِمُ الطُّوفَانَ وَالْجَرَادَ وَالْقُمَّلَ وَالضَّفَادِعَ وَالدَّمَ آيَاتٍ مُفَصَّلَاتٍ فَاسْتَكْبَرُوا وَكَانُوا قَوْمًا مُجْرِمِينَ * وَلَمَّا وَقَعَ عَلَيْهِمُ الرِّجْزُ قَالُوا يَا مُوسَى ادْعُ لَنَا رَبَّكَ بِمَا عَهِدَ عِنْدَكَ ۖ لَئِنْ كَشَفْتَ عَنَّا الرِّجْزَ لَنُؤْمِنَنَّ لَكَ وَلَنُرْسِلَنَّ مَعَكَ بَنِي إِسْرَائِيلَ * فَلَمَّا كَشَفْنَا عَنْهُمُ الرِّجْزَ إِلَىٰ أَجَلٍ هُمْ بَالِغُوهُ إِذَا هُمْ يَنْكُثُونَ * فَانْتَقَمْنَا مِنْهُمْ فَأَغْرَقْنَاهُمْ فِي الْيَمِّ بِأَنَّهُمْ كَذَّبُوا بِآيَاتِنَا وَكَانُوا عَنْهَا غَافِلِينَ"
   },
   {
@@ -205,16 +192,14 @@ export const DSDQuestions: DSDQuestion[] = [
     comparativeReligion: "Like Pompeii’s destruction in Roman lore.",
     islamophobia: "Warns against societal collapse from normalized evil.",
     significance: "Collective crimes invite collective punishment.",
-    answer: "Destruction of the people of Lut",
+    answer: "Extermination",
     arabicVerse: "إِنَّا أَرْسَلْنَا عَلَيْهِمْ صَيْحَةً وَاحِدَةً فَكَانُوا كَهَشِيمِ الْمُحْتَظِرِ"
   },
-
-  // Subtle Nuances (Bonus)
   {
     surah: "Al-Baqarah",
     verse: "2:14-16",
     text: "Hypocrites deceive believers while secretly mocking them, hiding prejudice behind a facade.",
-    stage: "Subtle Prejudice (Hypocrisy)",
+    stage: "Denial & Antilocution",
     commentary: "Covert hostility masked by false allegiance.",
     tafsir: "Ibn Kathir describes munafiqun as 'wolves in sheep’s clothing.'",
     historicalContext: "Medinan hypocrites undermining Muslim unity.",
@@ -222,14 +207,14 @@ export const DSDQuestions: DSDQuestion[] = [
     comparativeReligion: "Like Judas betraying Jesus with a kiss.",
     islamophobia: "Mirrors 'friendly' Islamophobes in politics.",
     significance: "Warns against hidden enmity in communities.",
-    answer: "Hypocrites mocking believers secretly",
+    answer: "Denial & Antilocution",
     arabicVerse: "وَإِذَا لَقُوا الَّذِينَ آمَنُوا قَالُوا آمَنَّا وَإِذَا خَلَوْا إِلَىٰ شَيَاطِينِهِمْ قَالُوا إِنَّا مَعَكُمْ إِنَّمَا نَحْنُ مُسْتَهْزِئُونَ * اللَّهُ يَسْتَهْزِئُ بِهِمْ وَيَمُدُّهُمْ فِي طُغْيَانِهِمْ يَعْمَهُونَ * أُولَٰئِكَ الَّذِينَ اشْتَرَوُا الضَّلَالَةَ بِالْهُدَىٰ فَمَا رَبِحَتْ تِجَارَتُهُمْ وَمَا كَانُوا مُهْتَدِينَ"
   },
   {
     surah: "Abasa",
     verse: "80:1-12",
     text: "The Prophet (peace be upon him) is rebuked for momentarily ignoring a blind man in favor of wealthy elites.",
-    stage: "Subtle Prejudice (Classism)",
+    stage: "Stigma & Avoidance",
     commentary: "Unintentional bias toward social status.",
     tafsir: "Al-Tabari emphasizes Allah’s correction of this lapse.",
     historicalContext: "Early Makkan period, prioritizing dawah targets.",
@@ -237,7 +222,7 @@ export const DSDQuestions: DSDQuestion[] = [
     comparativeReligion: "Like Jesus criticizing Pharisees for neglecting the poor.",
     islamophobia: "Parallels 'respectability politics' in minority communities.",
     significance: "Islam rejects all forms of class hierarchy.",
-    answer: "Prioritizing elites over a blind believer",
+    answer: "Stigma & Avoidance",
     arabicVerse: "عَبَسَ وَتَوَلَّىٰ * أَنْ جَاءَهُ الْأَعْمَىٰ * وَمَا يُدْرِيكَ لَعَلَّهُ يَزَّكَّىٰ * أَوْ يَذَّكَّرُ فَتَنْفَعَهُ الذِّكْرَىٰ * أَمَّا مَنِ اسْتَغْنَىٰ * فَأَنْتَ لَهُ تَصَدَّىٰ * وَمَا عَلَيْكَ أَلَّا يَزَّكَّىٰ * وَأَمَّا مَنْ جَاءَكَ يَسْعَىٰ * وَهُوَ يَخْشَىٰ * فَأَنْتَ عَنْهُ تَلَهَّىٰ"
   }
 ];
