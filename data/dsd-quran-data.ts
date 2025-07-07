@@ -147,7 +147,7 @@ export const DSDQuestions: DSDQuestion[] = [
     comparativeReligion: "Like Roman persecution of Christians in arenas.",
     islamophobia: "Parallels modern burnings of mosques/madrasas.",
     significance: "Martyrs' faith withstands even extreme violence.",
-    answer: "Physical Attack",
+    answer: "Extermination",
     arabicVerse: "قُتِلَ أَصْحَابُ الْأُخْدُودِ * النَّارِ ذَاتِ الْوَقُودِ * إِذْ هُمْ عَلَيْهَا قُعُودٌ * وَهُمْ عَلَىٰ مَا يَفْعَلُونَ بِالْمُؤْمِنِينَ شُهُودٌ * وَمَا نَقَمُوا مِنْهُمْ إِلَّا أَنْ يُؤْمِنُوا بِاللَّهِ الْعَزِيزِ الْحَمِيدِ"
   },
   {
