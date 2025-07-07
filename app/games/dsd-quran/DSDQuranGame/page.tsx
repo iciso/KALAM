@@ -54,7 +54,7 @@ export default function DSDQuranGamePage() {
 
   const allportStages = [
     "Denial & Antilocution",
-    "Avoidance",
+    "Stigma & Avoidance",
     "Discrimination",
     "Physical Attack",
     "Extermination",
