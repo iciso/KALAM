@@ -58,13 +58,13 @@ export default function DSDQuranGamePage() {
     setShowModal(false);
     setIsCorrect(null);
     const nextIndex = currentQuestionIndex + 1;
-    if (nextIndex < questions.length && (nextIndex % questionsPerSet === 0)) {
-      setShowTransitionCard(true); // Show transition card instead of alert
+    if (nextIndex >= questions.length) {
+      setShowTransitionCard(true); // Show final stats
+    } else if (nextIndex % questionsPerSet === 0) {
+      setShowTransitionCard(true); // Show transition card for set end
     }
     if (nextIndex < questions.length) {
       setCurrentQuestionIndex(nextIndex);
-    } else {
-      setShowTransitionCard(true); // Show final stats
     }
   };
 
@@ -77,6 +77,17 @@ export default function DSDQuranGamePage() {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     }
   };
+
+  if (!currentQuestion && currentQuestionIndex >= questions.length) {
+    return (
+      <div className="p-4 max-w-md mx-auto">
+        <h1 className="text-2xl font-bold mb-4">Game Over! Alhamdulillah!</h1>
+        <p>Final Score: {score} / {totalQuestions * 10}</p>
+        <p>Correct Answers: {correctAnswers} / {totalQuestions}</p>
+        <p>Accuracy: {totalQuestions > 0 ? ((correctAnswers / totalQuestions) * 100).toFixed(1) : 0}%</p>
+      </div>
+    );
+  }
 
   if (!currentQuestion) return <div>Loading...</div>;
 
