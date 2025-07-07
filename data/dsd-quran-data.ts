@@ -242,19 +242,19 @@ export const DSDQuestions: DSDQuestion[] = [
     arabicVerse: "وَإِذَا رَأَوْكَ إِنْ يَتَّخِذُونَكَ إِلَّا هُزُوًا أَهَٰذَا الَّذِي بَعَثَ اللَّهُ رَسُولًا * إِنْ كَادَ لَيُضِلُّنَا عَنْ آلِهَتِنَا لَوْلَا أَنْ صَبَرْنَا عَلَيْهَا ۚ وَسَوْفَ يَعْلَمُونَ حِينَ يَرَوْنَ الْعَذَابَ مَنْ أَضَلُّ سَبِيلًا"
   },
   {
-    surah: "Al-Anfal",
-    verse: "8:22",
-    text: "The worst of creatures are described as those who are deaf and dumb to divine guidance.",
-    stage: "Stigma & Avoidance",
-    commentary: "Dehumanizing label to justify social exclusion.",
-    tafsir: "Al-Tabari interprets this as a critique of willful ignorance.",
-    historicalContext: "Refers to Makkan disbelievers rejecting the Quran.",
-    hadeeth: "The Prophet (peace be upon him) said, 'Seek knowledge, even unto China.' (Sunan Ibn Majah)",
-    comparativeReligion: "Like biblical parables labeling sinners as lost sheep.",
-    islamophobia: "Echoes stereotypes of Muslims as ignorant.",
-    significance: "Encourages seeking understanding to avoid stigma.",
-    answer: "Stigma & Avoidance",
-    arabicVerse: "إِنَّ شَرَّ الدَّوَابِّ عِندَ اللَّهِ الصُّمُّ الْبُكْمُ الَّذِينَ لَا يَعْقِلُونَ"
+  surah: "Yaseen",
+  verse: "20-29",
+  text: "A man from the farthest part of the city, Habib, supports the prophets, but his people mock and kill him; he is then admitted to Paradise while his people face destruction.",
+  stage: "Physical Attack",
+  commentary: "Escalation to violence with Habib’s murder, reflecting Allport's fourth stage, though initial mockery aligns with Denial & Antilocution.",
+  tafsir: "Ibn Kathir identifies Habib as a believer martyred for his faith, with his people’s destruction as divine justice.",
+  historicalContext: "A historical account of a community rejecting prophets, leading to their annihilation.",
+  hadeeth: "The Prophet (peace be upon him) said, 'The martyr is forgiven with the first drop of blood.' (Sahih Bukhari)",
+  comparativeReligion: "Similar to Stephen’s stoning in the New Testament.",
+  islamophobia: "Mirrors targeted killings of Muslim advocates today.",
+  significance: "Faith and martyrdom lead to divine reward despite persecution.",
+  answer: "Physical Attack",
+  arabicVerse: "وَجَاءَ مِنْ أَقْصَى الْمَدِينَةِ رَجُلٌ يَسْعَىٰ قَالَ يَا قَوْمِ اتَّبِعُوا الْمُرْسَلِينَ * اتَّبِعُوا مَنْ لَا يَسْأَلُكُمْ أَجْرًا وَهُمْ مُهْتَدُونَ * وَمَا لِيَ لَا أَعْبُدُ الَّذِي فَطَرَنِي وَإِلَيْهِ تُرْجَعُونَ * أَأَتَّخِذُ مِنْ دُونِهِ آلِهَةً إِنْ يُرِدْنِ الرَّحْمَٰنُ بِضُرٍّ لَا تُغْنِ عَنِّي شَفَاعَتُهُمْ شَيْئًا وَلَا يُنْقِذُونِ * إِنِّي إِذًا لَفِي ضَلَالٍ مُبِينٍ * إِنِّي آمَنْتُ بِرَبِّكُمْ فَاسْمَعُونِ * قِيلَ ادْخُلِ الْجَنَّةَ ۚ قَالَ يَا لَيْتَ قَوْمِي يَعْلَمُونَ * بِمَا غَفَرَ لِي رَبِّي وَجَعَلَنِي مِنَ الْمُكْرَمِينَ * وَمَا أَنْزَلْنَا عَلَىٰ قَوْمِهِ مِنْ بَعْدِهِ مِنْ جُندٍ مِنَ السَّمَاءِ وَمَا كُنَّا مُنْزِلِينَ * إِنْ كَانَتْ إِلَّا صَيْحَةً وَاحِدَةً فَإِذَا هُمْ خَامِدُونَ"
   },
   {
     surah: "Al-Ma’idah",
