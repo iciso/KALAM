@@ -26,6 +26,8 @@ export default function DSDQuranGamePage() {
   const [userAnswer, setUserAnswer] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
+  const [currentSet, setCurrentSet] = useState(0); // Track current set (0 to 3)
+  const questionsPerSet = 5;
 
   const currentQuestion = questions[currentQuestionIndex];
 
@@ -43,8 +45,13 @@ export default function DSDQuranGamePage() {
     setUserAnswer("");
     setShowModal(false);
     setIsCorrect(null);
-    if (currentQuestionIndex < questions.length - 1) {
-      setCurrentQuestionIndex(currentQuestionIndex + 1);
+    const nextIndex = currentQuestionIndex + 1;
+    if (nextIndex < questions.length && (nextIndex % questionsPerSet === 0)) {
+      setCurrentSet(currentSet + 1); // Move to next set
+      alert(`Set ${currentSet + 1} completed! Reflect on the ayats and their congruity with Allport's scale. Click OK to start Set ${currentSet + 2}.`);
+    }
+    if (nextIndex < questions.length) {
+      setCurrentQuestionIndex(nextIndex);
     } else {
       alert("Game Over! You've completed all questions. Alhamdulillah!");
     }
@@ -64,7 +71,7 @@ export default function DSDQuranGamePage() {
     <div className="p-4 max-w-md mx-auto">
       <h1 className="text-2xl font-bold mb-4">DSD Quran Game</h1>
       <div className="mb-4">
-        <p className="text-lg">Question: {currentQuestion.text}</p>
+        <p className="text-lg">Set {currentSet + 1} - Question {currentQuestionIndex % questionsPerSet + 1}: {currentQuestion.text}</p>
         <p className="text-base mt-2 text-right dir-rtl" style={{ fontFamily: "Amiri, serif" }}>
           {currentQuestion.arabicVerse}
         </p>
