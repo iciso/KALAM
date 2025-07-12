@@ -155,13 +155,52 @@ const sentenceSets: SentenceSet[] = [
 
 const FillInTheBlanks: React.FC = () => {
   const router = useRouter();
-  const [currentSetIndex, setCurrentSetIndex] = useState(0);
+  const [currentSetIndex, setCurrentSetIndex] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const savedSetIndex = localStorage.getItem('currentSetIndex');
+      return savedSetIndex ? parseInt(savedSetIndex, 10) : 0;
+    }
+    return 0;
+  });
   const [currentSentenceIndex, setCurrentSentenceIndex] = useState(0);
   const [score, setScore] = useState(0);
+  const [totalScore, setTotalScore] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const savedTotalScore = localStorage.getItem('totalScore');
+      return savedTotalScore ? parseInt(savedTotalScore, 10) : 0;
+    }
+    return 0;
+  });
   const [selectedWord, setSelectedWord] = useState('');
   const [feedback, setFeedback] = useState('');
   const [showTranslation, setShowTranslation] = useState(false);
   const [showHint, setShowHint] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const setFromUrl = params.get('set');
+      if (setFromUrl) {
+        const setIndex = parseInt(setFromUrl, 10) - 1;
+        if (setIndex >= 0 && setIndex < sentenceSets.length) {
+          setCurrentSetIndex(setIndex);
+          localStorage.setItem('currentSetIndex', setIndex.toString());
+        }
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('currentSetIndex', currentSetIndex.toString());
+    }
+  }, [currentSetIndex]);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('totalScore', totalScore.toString());
+    }
+  }, [totalScore]);
 
   const currentSet = sentenceSets[currentSetIndex];
   const currentSentence = currentSet.sentences[currentSentenceIndex];
@@ -170,6 +209,7 @@ const FillInTheBlanks: React.FC = () => {
     setSelectedWord(word);
     if (word === currentSentence.correctAnswer) {
       setScore(score + 10);
+      setTotalScore(totalScore + 10);
       setFeedback('Correct! Well done!');
     } else {
       setFeedback('Incorrect. Try again!');
@@ -185,11 +225,20 @@ const FillInTheBlanks: React.FC = () => {
         setShowTranslation(false);
         setShowHint(false);
       } else {
-        // Navigate to results page
-        router.push(`/results?score=${score + 10}&set=${currentSet.id}`);
+        // Navigate to results page with set score and total score
+        router.push(`/results?score=${score + 10}&set=${currentSet.id}&totalScore=${totalScore + 10}`);
         // Move to next set if available
         if (currentSetIndex < sentenceSets.length - 1) {
           setCurrentSetIndex(currentSetIndex + 1);
+          setCurrentSentenceIndex(0);
+          setScore(0);
+          setSelectedWord('');
+          setFeedback('');
+          setShowTranslation(false);
+          setShowHint(false);
+        } else {
+          // Reset to first set when all sets are completed
+          setCurrentSetIndex(0);
           setCurrentSentenceIndex(0);
           setScore(0);
           setSelectedWord('');
@@ -218,7 +267,7 @@ const FillInTheBlanks: React.FC = () => {
               {new Date().toLocaleTimeString()}
             </div>
             <div className="text-lg sm:text-xl font-semibold">
-              Score: {score}
+              Score: {score} (Total: {totalScore})
             </div>
           </div>
           <div className="text-base sm:text-lg font-medium mb-2">
