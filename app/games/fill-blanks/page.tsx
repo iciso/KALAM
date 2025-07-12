@@ -12,6 +12,7 @@ import { Timer, RefreshCw, HelpCircle, ArrowRight, CheckCircle, BookOpen, XCircl
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 import { fillBlanksService, type FillBlankSentence } from "@/services/fill-blanks-service"
 
+
 interface Sentence {
   id: number;
   surah: string;
@@ -50,9 +51,7 @@ const sentenceSets: SentenceSet[] = [
         modifiedText: 'ٱهْدِنَا ٱلصِّرَٰطَ ٱلْ___َ',
         translation: 'Guide us to the straight path.',
         correctAnswer: 'مُسْتَقِيم',
-        wordBank: ['مَلَك', 'الوكيل', 'الهادي', 'نَبِيّ',while (true) {
-  console.log("This is an infinite loop!");
-} 'رَحِيم', 'القوي', 'العظيم', 'رَسُول', 'مُسْتَقِيم'],
+        wordBank: ['مَلَك', 'الوكيل', 'الهادي', 'نَبِيّ', 'رَحِيم', 'القوي', 'العظيم', 'رَسُول', 'مُسْتَقِيم'],
       },
       {
         id: 3,
@@ -86,11 +85,9 @@ const sentenceSets: SentenceSet[] = [
       },
     ],
   },
-  // Add more sets as needed
   {
     id: 2,
     sentences: [
-      // Additional set for demonstration; can be expanded
       {
         id: 1,
         surah: 'Al-Asr',
@@ -101,7 +98,46 @@ const sentenceSets: SentenceSet[] = [
         correctAnswer: 'حَقّ',
         wordBank: ['مَلَك', 'الوكيل', 'الهادي', 'نَبِيّ', 'رَحِيم', 'القوي', 'العظيم', 'رَسُول', 'حَقّ'],
       },
-      // Add more sentences for Set 2 as needed
+      {
+        id: 2,
+        surah: 'Al-Sharh',
+        ayah: 5,
+        originalText: 'فَإِنَّ مَعَ ٱلْعُسْرِ يُسْرًا',
+        modifiedText: 'فَإِنَّ مَعَ ٱلْ___ِ يُسْرًا',
+        translation: 'For indeed, with hardship [will be] ease.',
+        correctAnswer: 'عُسْر',
+        wordBank: ['مَلَك', 'الوكيل', 'الهادي', 'نَبِيّ', 'رَحِيم', 'القوي', 'العظيم', 'رَسُول', 'عُسْر'],
+      },
+      {
+        id: 3,
+        surah: 'Al-Tin',
+        ayah: 4,
+        originalText: 'لَقَدْ خَلَقْنَا ٱلْإِنسَٰنَ فِىٓ أَحْسَنِ تَقْوِيمٍ',
+        modifiedText: 'لَقَدْ خَلَقْنَا ٱلْإِنسَٰنَ فِىٓ أَحْسَنِ ___ٍ',
+        translation: 'We have certainly created man in the best of stature.',
+        correctAnswer: 'تَقْوِيم',
+        wordBank: ['مَلَك', 'الوكيل', 'الهادي', 'نَبِيّ', 'رَحِيم', 'القوي', 'العظيم', 'رَسُول', 'تَقْوِيم'],
+      },
+      {
+        id: 4,
+        surah: 'Al-Qadr',
+        ayah: 1,
+        originalText: 'إِنَّآ أَنزَلْنَٰهُ فِى لَيْلَةِ ٱلْقَدْرِ',
+        modifiedText: 'إِنَّآ أَنزَلْنَٰهُ فِى لَيْلَةِ ٱلْ___ِ',
+        translation: 'Indeed, We sent it down during the Night of Decree.',
+        correctAnswer: 'قَدْر',
+        wordBank: ['مَلَك', 'الوكيل', 'الهادي', 'نَبِيّ', 'رَحِيم', 'القوي', 'العظيم', 'رَسُول', 'قَدْر'],
+      },
+      {
+        id: 5,
+        surah: 'Al-Nas',
+        ayah: 1,
+        originalText: 'قُلْ أَعُوذُ بِرَبِّ ٱلنَّاسِ',
+        modifiedText: 'قُلْ أَعُوذُ بِرَبِّ ٱلْ___ِ',
+        translation: 'Say, "I seek refuge in the Lord of mankind."',
+        correctAnswer: 'نَّاس',
+        wordBank: ['مَلَك', 'الوكيل', 'الهادي', 'نَبِيّ', 'رَحِيم', 'القوي', 'العظيم', 'رَسُول', 'نَّاس'],
+      },
     ],
   },
 ];
@@ -137,7 +173,7 @@ const FillInTheBlanks: React.FC = () => {
         setShowTranslation(false);
         setShowHint(false);
       } else {
-        // Export score to results page and move to next set
+        // Export score to results page
         window.location.href = `/results?score=${score + 10}&set=${currentSet.id}`;
         if (currentSetIndex < sentenceSets.length - 1) {
           setCurrentSetIndex(currentSetIndex + 1);
@@ -173,7 +209,7 @@ const FillInTheBlanks: React.FC = () => {
             </div>
           </div>
           <div className="text-base sm:text-lg font-medium mb-2">
-            Sentence: {currentSentenceIndex + 1}/{currentSet.sentences.length}
+            Sentence: {currentSentenceIndex + 1}/{currentSet.sentences.length} (Set {currentSet.id})
           </div>
           <div className="text-base sm:text-lg font-medium mb-4">
             {currentSentence.surah}, Ayah {currentSentence.ayah}
@@ -215,7 +251,17 @@ const FillInTheBlanks: React.FC = () => {
                 ? 'eternity'
                 : currentSentence.correctAnswer === 'ٱللَّه'
                 ? 'divinity'
-                : 'honor'}
+                : currentSentence.correctAnswer === 'إِكْرَام'
+                ? 'honor'
+                : currentSentence.correctAnswer === 'حَقّ'
+                ? 'truth'
+                : currentSentence.correctAnswer === 'عُسْر'
+                ? 'hardship'
+                : currentSentence.correctAnswer === 'تَقْوِيم'
+                ? 'stature'
+                : currentSentence.correctAnswer === 'قَدْر'
+                ? 'decree'
+                : 'mankind'}
             </div>
           )}
 
