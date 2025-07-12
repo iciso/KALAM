@@ -81,8 +81,8 @@ const sentenceSets: SentenceSet[] = [
         originalText: 'قُل لَّوْ كَانَ ٱلْبَحْرُ مِدَادًا لِّكَلِمَٰتِ رَبِّى لَنَفِدَ ٱلْبَحْرُ قَبْلَ أَن تَنفَدَ كَلِمَٰتُ ٱللَّهِ',
         modifiedText: 'قُل لَّوْ كَانَ ٱلْبَحْرُ مِدَادًا لِّكَلِمَٰتِ رَبِّى لَنَفِدَ ٱلْبَحْرُ قَبْلَ أَن تَنفَدَ كَلِمَٰتُ ___ِ',
         translation: 'Say, "If the sea were ink for [writing] the words of my Lord, the sea would be exhausted before the words of my Lord were exhausted."',
-        correctAnswer: 'ٱللَّه',
-        wordBank: shuffleArray(['مَلَك', 'الوكيل', 'الهادي', 'نَبِيّ', 'رَحِيم', 'القوي', 'العظيم', 'رَسُول', 'ٱللَّه']),
+        correctAnswer: 'رَبِّي',
+        wordBank: shuffleArray(['رَبِّي', 'الوكيل', 'الهادي', 'نَبِيّ', 'رَحِيم', 'القوي', 'العظيم', 'رَسُول', 'ٱللَّه']),
       },
       {
         id: 5,
