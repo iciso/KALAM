@@ -13,7 +13,6 @@ import { Timer, RefreshCw, HelpCircle, ArrowRight, CheckCircle, BookOpen, XCircl
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 import { fillBlanksService, type FillBlankSentence } from "@/services/fill-blanks-service"
 
-
 interface Sentence {
   id: number;
   surah: string;
@@ -35,7 +34,7 @@ const shuffleArray = <T>(array: T[]): T[] => {
   const shuffled = [...array];
   for (let i = shuffled.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    [shuffled[i], shuffled[j] = [shuffled[j], shuffled[i]];
   }
   return shuffled;
 };
@@ -151,7 +150,7 @@ const sentenceSets: SentenceSet[] = [
       },
     ],
   },
-        {
+  {
     id: 3,
     sentences: [
       {
@@ -327,7 +326,7 @@ const sentenceSets: SentenceSet[] = [
         modifiedText: "وَالْ____",
         translation: "By time,",
         correctAnswer: "عَصْرِ",
-        wordBank: ["عَصْرِ", "لَيْلِ", "فَجْرِ", "شَمْسِ"],
+        wordBank: ["عَصْرِ", "لَيْلِ", "فَجْرِ", "شَمْسِ", "قَمَرِ", "رَبِيعِ", "صَيْفِ", "شِتَاءِ", "بَحْرِ"],
       },
       {
         id: 2,
@@ -337,7 +336,7 @@ const sentenceSets: SentenceSet[] = [
         modifiedText: "إِنَّ الْإِنسَانَ لَفِي ____",
         translation: "Indeed, mankind is in loss,",
         correctAnswer: "خُسْرٍ",
-        wordBank: ["خُسْرٍ", "نِعْمَةٍ", "رَاحَةٍ", "فَوْزٍ"],
+        wordBank: ["خُسْرٍ", "نِعْمَةٍ", "رَاحَةٍ", "فَوْزٍ", "سَعَادَةٍ", "قُوَّةٍ", "عِزٍّ", "رِفْعَةٍ", "ثَرَاءٍ"],
       },
       {
         id: 3,
@@ -347,7 +346,7 @@ const sentenceSets: SentenceSet[] = [
         modifiedText: "إِلَّا الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ وَتَوَاصَوْا بِالْحَقِّ وَتَوَاصَوْا بِ____",
         translation: "Except for those who have believed and done righteous deeds and advised each other to truth and advised each other to patience.",
         correctAnswer: "الصَّبْرِ",
-        wordBank: ["الصَّبْرِ", "الْخَيْرِ", "الْحِكْمَةِ", "الْإِحْسَانِ"],
+        wordBank: ["الصَّبْرِ", "الْخَيْرِ", "الْحِكْمَةِ", "الْإِحْسَانِ", "الْعَدْلِ", "الرَّحْمَةِ", "الْوَفَاءِ", "الْأَمَلِ", "الْقُوَّةِ"],
       },
       {
         id: 4,
@@ -357,7 +356,7 @@ const sentenceSets: SentenceSet[] = [
         modifiedText: "أَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ بِأَصْحَابِ ____",
         translation: "Have you not considered, [O Muhammad], how your Lord dealt with the companions of the elephant?",
         correctAnswer: "الْفِيلِ",
-        wordBank: ["الْفِيلِ", "الْخَيْلِ", "النَّارِ", "الْبَحْرِ"],
+        wordBank: ["الْفِيلِ", "الْخَيْلِ", "النَّارِ", "الْبَحْرِ", "الرِّيحِ", "الْجِبَالِ", "الْأَنْهَارِ", "الْغَيْمِ", "الطُّيُورِ"],
       },
       {
         id: 5,
@@ -367,7 +366,7 @@ const sentenceSets: SentenceSet[] = [
         modifiedText: "إِذَا جَاءَ نَصْرُ اللَّهِ وَالْ____",
         translation: "When the victory of Allah has come and the conquest,",
         correctAnswer: "الْفَتْحُ",
-        wordBank: ["الْفَتْحُ", "النَّصْرُ", "الْعِلْمُ", "الرِّزْقُ"],
+        wordBank: ["الْفَتْحُ", "النَّصْرُ", "الْعِلْمُ", "الرِّزْقُ", "الْهُدَى", "الْعَفْوُ", "الْمَغْفِرَةُ", "السَّلَامُ", "الْبَرَكَةُ"],
       },
     ],
   },
@@ -382,7 +381,7 @@ const sentenceSets: SentenceSet[] = [
         modifiedText: "قُلْ أَعُوذُ بِرَبِّ ____",
         translation: "Say, 'I seek refuge in the Lord of daybreak'",
         correctAnswer: "الْفَلَقِ",
-        wordBank: ["الْفَلَقِ", "النَّاسِ", "الْخَلْقِ", "الْمَلِكِ"],
+        wordBank: ["الْفَلَقِ", "النَّاسِ", "الْخَلْقِ", "الْمَلِكِ", "الرَّحْمَنِ", "الْقَدِيرِ", "الْعَلِيمِ", "الْحَكِيمِ", "الْجَبَّارِ"],
       },
       {
         id: 2,
@@ -392,7 +391,7 @@ const sentenceSets: SentenceSet[] = [
         modifiedText: "مِن شَرِّ مَا ____",
         translation: "From the evil of that which He created",
         correctAnswer: "خَلَقَ",
-        wordBank: ["خَلَقَ", "رَزَقَ", "سَمِعَ", "عَلِمَ"],
+        wordBank: ["خَلَقَ", "رَزَقَ", "سَمِعَ", "عَلِمَ", "أَرْسَلَ", "هَدَى", "عَفَا", "غَفَرَ", "أَنْعَمَ"],
       },
       {
         id: 3,
@@ -402,7 +401,7 @@ const sentenceSets: SentenceSet[] = [
         modifiedText: "قُلْ أَعُوذُ بِرَبِّ ____",
         translation: "Say, 'I seek refuge in the Lord of mankind,'",
         correctAnswer: "النَّاسِ",
-        wordBank: ["النَّاسِ", "الْكَوْنِ", "الْجِنِّ", "الشَّيْطَانِ"],
+        wordBank: ["النَّاسِ", "الْكَوْنِ", "الْجِنِّ", "الشَّيْطَانِ", "الْمَلَائِكَةِ", "الْأَنْبِيَاءِ", "الْعَرْشِ", "الْكُرْسِيِّ", "السَّمَاءِ"],
       },
       {
         id: 4,
@@ -412,7 +411,7 @@ const sentenceSets: SentenceSet[] = [
         modifiedText: "مَلِكِ ____",
         translation: "The Sovereign of mankind,",
         correctAnswer: "النَّاسِ",
-        wordBank: ["النَّاسِ", "الْإِنْسِ", "الْجِنِّ", "الْمُلْكِ"],
+        wordBank: ["النَّاسِ", "الْإِنْسِ", "الْجِنِّ", "الْمُلْكِ", "السَّمَاوَاتِ", "الْأَرْضِ", "الْجَنَّةِ", "النَّارِ", "الْقُدْسِ"],
       },
       {
         id: 5,
@@ -422,7 +421,7 @@ const sentenceSets: SentenceSet[] = [
         modifiedText: "إِلَٰهِ ____",
         translation: "The God of mankind,",
         correctAnswer: "النَّاسِ",
-        wordBank: ["النَّاسِ", "الْعَالَمِينَ", "الْخَلْقِ", "الْكَوْنِ"],
+        wordBank: ["النَّاسِ", "الْعَالَمِينَ", "الْخَلْقِ", "الْكَوْنِ", "الْأَرْضِ", "السَّمَاءِ", "الْجِبَالِ", "البَحَارِ", "النُّجُومِ"],
       },
     ],
   },
@@ -437,7 +436,7 @@ const sentenceSets: SentenceSet[] = [
         modifiedText: "اهْدِنَا الصِّرَاطَ ____",
         translation: "Guide us to the straight path—",
         correctAnswer: "الْمُسْتَقِيمَ",
-        wordBank: ["الْمُسْتَقِيمَ", "الْقَوِيمَ", "الْهَدَى", "الْمُبِينِ"],
+        wordBank: ["الْمُسْتَقِيمَ", "الْقَوِيمَ", "الْهَدَى", "الْمُبِينِ", "النُّورِ", "الْفَضْلِ", "الرَّحْمَةِ", "الْعِزَّةِ", "الْكَمَالِ"],
       },
       {
         id: 2,
@@ -447,7 +446,7 @@ const sentenceSets: SentenceSet[] = [
         modifiedText: "صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا ____",
         translation: "The path of those upon whom You have bestowed favor, not of those who have evoked [Your] anger or of those who are astray.",
         correctAnswer: "الضَّالِّينَ",
-        wordBank: ["الضَّالِّينَ", "الْفَاسِقِينَ", "الْمُنَافِقِينَ", "الْكَافِرِينَ"],
+        wordBank: ["الضَّالِّينَ", "الْفَاسِقِينَ", "الْمُنَافِقِينَ", "الْكَافِرِينَ", "الْمُتَقِينَ", "الصِّدِّيقِينَ", "الشُّهَدَاءِ", "الصَّالِحِينَ", "الْمُؤْمِنِينَ"],
       },
       {
         id: 3,
@@ -457,7 +456,7 @@ const sentenceSets: SentenceSet[] = [
         modifiedText: "اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا ____ ۚ",
         translation: "Allah - there is no deity except Him, the Ever-Living, the Sustainer of [all] existence. Neither slumber nor sleep overtakes Him.",
         correctAnswer: "نَوْمٌ",
-        wordBank: ["نَوْمٌ", "غَفْلَةٌ", "نِسْيَانٌ", "إِرْهَاقٌ"],
+        wordBank: ["نَوْمٌ", "غَفْلَةٌ", "نِسْيَانٌ", "إِرْهَاقٌ", "ضَعْفٌ", "حَاجَةٌ", "عَجْزٌ", "تَعْبٌ", "هَمٌّ"],
       },
       {
         id: 4,
@@ -467,7 +466,7 @@ const sentenceSets: SentenceSet[] = [
         modifiedText: "لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَن ذَا الَّذِي يَشْفَعُ عِندَهُ إِلَّا بِ____ ۚ",
         translation: "To Him belongs whatever is in the heavens and whatever is on the earth. Who is there that can intercede with Him except by His permission?",
         correctAnswer: "إِذْنِهِ",
-        wordBank: ["إِذْنِهِ", "عِلْمِهِ", "قُدْرَتِهِ", "حِكْمَتِهِ"],
+        wordBank: ["إِذْنِهِ", "عِلْمِهِ", "قُدْرَتِهِ", "حِكْمَتِهِ", "رَحْمَتِهِ", "عَدْلِهِ", "سُلْطَانِهِ", "مَجْدِهِ", "نُورِهِ"],
       },
       {
         id: 5,
@@ -477,7 +476,117 @@ const sentenceSets: SentenceSet[] = [
         modifiedText: "وَلَا يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ ____ السَّمَاوَاتِ وَالْأَرْضَ ۖ",
         translation: "And they encompass not a thing of His knowledge except for what He wills. His Kursi (Throne) extends over the heavens and the earth.",
         correctAnswer: "كُرْسِيُّهُ",
-        wordBank: ["كُرْسِيُّهُ", "عَرْشُهُ", "مُلْكُهُ", "جَنَّتُهُ"],
+        wordBank: ["كُرْسِيُّهُ", "عَرْشُهُ", "مُلْكُهُ", "جَنَّتُهُ", "نُورُهُ", "قُدْسُهُ", "عَزَمَتُهُ", "رَحْمَتُهُ", "حِكْمَتُهُ"],
+      },
+    ],
+  },
+  {
+    id: 9,
+    sentences: [
+      {
+        id: 1,
+        surah: "Al-Asr",
+        ayah: 2,
+        originalText: "إِنَّ الْإِنسَانَ لَفِي خُسْرٍ",
+        modifiedText: "إِنَّ الْإِنسَانَ لَفِي ____",
+        translation: "Indeed, mankind is in loss,",
+        correctAnswer: "خُسْرٍ",
+        wordBank: ["خُسْرٍ", "نِعْمَةٍ", "رَاحَةٍ", "فَوْزٍ", "سَعَادَةٍ", "قُوَّةٍ", "عِزٍّ", "رِفْعَةٍ", "ثَرَاءٍ"],
+      },
+      {
+        id: 2,
+        surah: "Al-Asr",
+        ayah: 3,
+        originalText: "إِلَّا الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ وَتَوَاصَوْا بِالْحَقِّ وَتَوَاصَوْا بِالصَّبْرِ",
+        modifiedText: "إِلَّا الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ وَتَوَاصَوْا بِالْحَقِّ وَتَوَاصَوْا بِ____",
+        translation: "Except for those who have believed and done righteous deeds and advised each other to truth and advised each other to patience.",
+        correctAnswer: "الصَّبْرِ",
+        wordBank: ["الصَّبْرِ", "الْخَيْرِ", "الْحِكْمَةِ", "الْإِحْسَانِ", "الْعَدْلِ", "الرَّحْمَةِ", "الْوَفَاءِ", "الْأَمَلِ", "الْقُوَّةِ"],
+      },
+      {
+        id: 3,
+        surah: "Al-Nas",
+        ayah: 2,
+        originalText: "مَلِكِ النَّاسِ",
+        modifiedText: "مَلِكِ ____",
+        translation: "The Sovereign of mankind,",
+        correctAnswer: "النَّاسِ",
+        wordBank: ["النَّاسِ", "الْإِنْسِ", "الْجِنِّ", "الْمُلْكِ", "السَّمَاوَاتِ", "الْأَرْضِ", "الْجَنَّةِ", "النَّارِ", "الْقُدْسِ"],
+      },
+      {
+        id: 4,
+        surah: "Al-Nas",
+        ayah: 3,
+        originalText: "إِلَٰهِ النَّاسِ",
+        modifiedText: "إِلَٰهِ ____",
+        translation: "The God of mankind,",
+        correctAnswer: "النَّاسِ",
+        wordBank: ["النَّاسِ", "الْعَالَمِينَ", "الْخَلْقِ", "الْكَوْنِ", "الْأَرْضِ", "السَّمَاءِ", "الْجِبَالِ", "البَحَارِ", "النُّجُومِ"],
+      },
+      {
+        id: 5,
+        surah: "Al-Fatihah",
+        ayah: 7,
+        originalText: "صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ",
+        modifiedText: "صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا ____",
+        translation: "The path of those upon whom You have bestowed favor, not of those who have evoked [Your] anger or of those who are astray.",
+        correctAnswer: "الضَّالِّينَ",
+        wordBank: ["الضَّالِّينَ", "الْفَاسِقِينَ", "الْمُنَافِقِينَ", "الْكَافِرِينَ", "الْمُتَقِينَ", "الصِّدِّيقِينَ", "الشُّهَدَاءِ", "الصَّالِحِينَ", "الْمُؤْمِنِينَ"],
+      },
+    ],
+  },
+  {
+    id: 10,
+    sentences: [
+      {
+        id: 1,
+        surah: "Al-Baqarah",
+        ayah: 255,
+        originalText: "اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ",
+        modifiedText: "اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا ____ ۚ",
+        translation: "Allah - there is no deity except Him, the Ever-Living, the Sustainer of [all] existence. Neither slumber nor sleep overtakes Him.",
+        correctAnswer: "نَوْمٌ",
+        wordBank: ["نَوْمٌ", "غَفْلَةٌ", "نِسْيَانٌ", "إِرْهَاقٌ", "ضَعْفٌ", "حَاجَةٌ", "عَجْزٌ", "تَعْبٌ", "هَمٌّ"],
+      },
+      {
+        id: 2,
+        surah: "Al-Baqarah",
+        ayah: 255,
+        originalText: "لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَن ذَا الَّذِي يَشْفَعُ عِندَهُ إِلَّا بِإِذْنِهِ ۚ",
+        modifiedText: "لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَن ذَا الَّذِي يَشْفَعُ عِندَهُ إِلَّا بِ____ ۚ",
+        translation: "To Him belongs whatever is in the heavens and whatever is on the earth. Who is there that can intercede with Him except by His permission?",
+        correctAnswer: "إِذْنِهِ",
+        wordBank: ["إِذْنِهِ", "عِلْمِهِ", "قُدْرَتِهِ", "حِكْمَتِهِ", "رَحْمَتِهِ", "عَدْلِهِ", "سُلْطَانِهِ", "مَجْدِهِ", "نُورِهِ"],
+      },
+      {
+        id: 3,
+        surah: "Al-Baqarah",
+        ayah: 255,
+        originalText: "وَلَا يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۖ",
+        modifiedText: "وَلَا يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ ____ السَّمَاوَاتِ وَالْأَرْضَ ۖ",
+        translation: "And they encompass not a thing of His knowledge except for what He wills. His Kursi (Throne) extends over the heavens and the earth.",
+        correctAnswer: "كُرْسِيُّهُ",
+        wordBank: ["كُرْسِيُّهُ", "عَرْشُهُ", "مُلْكُهُ", "جَنَّتُهُ", "نُورُهُ", "قُدْسُهُ", "عَزَمَتُهُ", "رَحْمَتُهُ", "حِكْمَتُهُ"],
+      },
+      {
+        id: 4,
+        surah: "Al-Nasr",
+        ayah: 1,
+        originalText: "إِذَا جَاءَ نَصْرُ اللَّهِ وَالْفَتْحُ",
+        modifiedText: "إِذَا جَاءَ نَصْرُ اللَّهِ وَالْ____",
+        translation: "When the victory of Allah has come and the conquest,",
+        correctAnswer: "الْفَتْحُ",
+        wordBank: ["الْفَتْحُ", "النَّصْرُ", "الْعِلْمُ", "الرِّزْقُ", "الْهُدَى", "الْعَفْوُ", "الْمَغْفِرَةُ", "السَّلَامُ", "الْبَرَكَةُ"],
+      },
+      {
+        id: 5,
+        surah: "Al-Asr",
+        ayah: 1,
+        originalText: "وَالْعَصْرِ",
+        modifiedText: "وَالْ____",
+        translation: "By time,",
+        correctAnswer: "عَصْرِ",
+        wordBank: ["عَصْرِ", "لَيْلِ", "فَجْرِ", "شَمْسِ", "قَمَرِ", "رَبِيعِ", "صَيْفِ", "شِتَاءِ", "بَحْرِ"],
       },
     ],
   },
@@ -677,6 +786,34 @@ const FillInTheBlanks: React.FC = () => {
                 ? 'sovereign'
                 : currentSentence.correctAnswer === 'مَالِك'
                 ? 'master'
+                : currentSentence.correctAnswer === 'سِنَة'
+                ? 'tiredness'
+                : currentSentence.correctAnswer === 'رَبِّي'
+                ? 'my Lord'
+                : currentSentence.correctAnswer === 'نَّاس'
+                ? 'mankind'
+                : currentSentence.correctAnswer === 'عَصْرِ'
+                ? 'time'
+                : currentSentence.correctAnswer === 'خُسْرٍ'
+                ? 'loss'
+                : currentSentence.correctAnswer === 'الصَّبْرِ'
+                ? 'patience'
+                : currentSentence.correctAnswer === 'الْفَتْحُ'
+                ? 'conquest'
+                : currentSentence.correctAnswer === 'خَلَقَ'
+                ? 'created'
+                : currentSentence.correctAnswer === 'النَّاسِ'
+                ? 'mankind'
+                : currentSentence.correctAnswer === 'الْمُسْتَقِيمَ'
+                ? 'straight'
+                : currentSentence.correctAnswer === 'الضَّالِّينَ'
+                ? 'astray'
+                : currentSentence.correctAnswer === 'نَوْمٌ'
+                ? 'sleep'
+                : currentSentence.correctAnswer === 'إِذْنِهِ'
+                ? 'permission'
+                : currentSentence.correctAnswer === 'كُرْسِيُّهُ'
+                ? 'throne'
                 : 'mankind'}
             </div>
           )}
