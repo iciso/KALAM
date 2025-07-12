@@ -290,8 +290,8 @@ const sentenceSets: SentenceSet[] = [
         originalText: 'مَلِكِ ٱلنَّاسِ',
         modifiedText: '___ ٱلنَّاسِ',
         translation: 'Sovereign of mankind.',
-        correctAnswer: 'مَلِك',
-        wordBank: shuffleArray(['مَلَك', 'الوكيل', 'الهادي', 'نَبِيّ', 'رَحِيم', 'القوي', 'العظيم', 'رَسُول', 'مَلِك']),
+        correctAnswer: 'إِلَٰهِ',
+        wordBank: shuffleArray(['إِلَٰهِ', 'الوكيل', 'الهادي', 'نَبِيّ', 'رَحِيم', 'القوي', 'العظيم', 'رَسُول', 'مَلِك']),
       },
       {
         id: 4,
@@ -301,7 +301,7 @@ const sentenceSets: SentenceSet[] = [
         modifiedText: '___ يَوْمِ ٱلدِّينِ',
         translation: 'Master of the Day of Judgment.',
         correctAnswer: 'مَالِك',
-        wordBank: shuffleArray(['مَلَك', 'الوكيل', 'الهادي', 'نَبِيّ', 'رَحِيم', 'القوي', 'العظيم', 'رَسُول', 'مَالِك']),
+        wordBank: shuffleArray(['إِلَٰهِ', 'الوكيل', 'الهادي', 'نَبِيّ', 'رَحِيم', 'القوي', 'العظيم', 'رَسُول', 'مَالِك']),
       },
       {
         id: 5,
