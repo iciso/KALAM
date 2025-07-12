@@ -151,8 +151,173 @@ const sentenceSets: SentenceSet[] = [
       },
     ],
   },
-  {
+        {
     id: 3,
+    sentences: [
+      {
+        id: 1,
+        surah: 'Al-Falaq',
+        ayah: 1,
+        originalText: 'قُلْ أَعُوذُ بِرَبِّ ٱلْفَلَقِ',
+        modifiedText: 'قُلْ أَعُوذُ بِرَبِّ ٱلْ___ِ',
+        translation: 'Say, "I seek refuge in the Lord of daybreak."',
+        correctAnswer: 'فَلَق',
+        wordBank: shuffleArray(['مَلَك', 'الوكيل', 'الهادي', 'نَبِيّ', 'رَحِيم', 'القوي', 'العظيم', 'رَسُول', 'فَلَق']),
+      },
+      {
+        id: 2,
+        surah: 'Al-Ikhlas',
+        ayah: 3,
+        originalText: 'لَمْ يَلِدْ وَلَمْ يُولَدْ',
+        modifiedText: 'لَمْ يَلِدْ وَلَمْ ___',
+        translation: 'He neither begets nor is born.',
+        correctAnswer: 'يُولَد',
+        wordBank: shuffleArray(['مَلَك', 'الوكيل', 'الهادي', 'نَبِيّ', 'رَحِيم', 'القوي', 'العظيم', 'رَسُول', 'يُولَد']),
+      },
+      {
+        id: 3,
+        surah: 'Al-Nasr',
+        ayah: 1,
+        originalText: 'إِذَا جَاءَ نَصْرُ ٱللَّهِ وَٱلْفَتْحُ',
+        modifiedText: 'إِذَا جَاءَ نَصْرُ ___ وَٱلْفَتْحُ',
+        translation: 'When the victory of Allah and conquest comes.',
+        correctAnswer: 'ٱللَّه',
+        wordBank: shuffleArray(['مَلَك', 'الوكيل', 'الهادي', 'نَبِيّ', 'رَحِيم', 'القوي', 'العظيم', 'رَسُول', 'ٱللَّه']),
+      },
+      {
+        id: 4,
+        surah: 'Al-Kafirun',
+        ayah: 2,
+        originalText: 'لَا أَعْبُدُ مَا تَعْبُدُونَ',
+        modifiedText: 'لَا أَعْبُدُ مَا ___',
+        translation: 'I do not worship what you worship.',
+        correctAnswer: 'تَعْبُدُون',
+        wordBank: shuffleArray(['مَلَك', 'الوكيل', 'الهادي', 'نَبِيّ', 'رَحِيم', 'القوي', 'العظيم', 'رَسُول', 'تَعْبُدُون']),
+      },
+      {
+        id: 5,
+        surah: 'Al-Masad',
+        ayah: 1,
+        originalText: 'تَبَّتْ يَدَآ أَبِى لَهَبٍ وَتَبَّ',
+        modifiedText: 'تَبَّتْ يَدَآ أَبِى لَهَبٍ ___',
+        translation: 'Perish the hands of Abu Lahab, and perish he!',
+        correctAnswer: 'وَتَبَّ',
+        wordBank: shuffleArray(['مَلَك', 'الوكيل', 'الهادي', 'نَبِيّ', 'رَحِيم', 'القوي', 'العظيم', 'رَسُول', 'وَتَبَّ']),
+      },
+    ],
+  },
+  {
+    id: 4,
+    sentences: [
+      {
+        id: 1,
+        surah: 'Al-Fil',
+        ayah: 1,
+        originalText: 'أَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ بِأَصْحَابِ ٱلْفِيلِ',
+        modifiedText: 'أَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ بِأَصْحَابِ ___',
+        translation: 'Have you not seen how your Lord dealt with the companions of the elephant?',
+        correctAnswer: 'ٱلْفِيل',
+        wordBank: shuffleArray(['مَلَك', 'الوكيل', 'الهادي', 'نَبِيّ', 'رَحِيم', 'القوي', 'العظيم', 'رَسُول', 'ٱلْفِيل']),
+      },
+      {
+        id: 2,
+        surah: 'Al-Quraish',
+        ayah: 1,
+        originalText: 'لِإِيلَٰفِ قُرَيْشٍ',
+        modifiedText: 'لِإِيلَٰفِ ___',
+        translation: 'For the accustomed security of the Quraysh.',
+        correctAnswer: 'قُرَيْشٍ',
+        wordBank: shuffleArray(['مَلَك', 'الوكيل', 'الهادي', 'نَبِيّ', 'رَحِيم', 'القوي', 'العظيم', 'رَسُول', 'قُرَيْشٍ']),
+      },
+      {
+        id: 3,
+        surah: 'Al-Maun',
+        ayah: 1,
+        originalText: 'أَرَأَيْتَ ٱلَّذِى يُكَذِّبُ بِٱلدِّينِ',
+        modifiedText: 'أَرَأَيْتَ ٱلَّذِى يُكَذِّبُ ___',
+        translation: 'Have you seen the one who denies the religion?',
+        correctAnswer: 'بِٱلدِّين',
+        wordBank: shuffleArray(['مَلَك', 'الوكيل', 'الهادي', 'نَبِيّ', 'رَحِيم', 'القوي', 'العظيم', 'رَسُول', 'بِٱلدِّين']),
+      },
+      {
+        id: 4,
+        surah: 'Al-Kawthar',
+        ayah: 1,
+        originalText: 'إِنَّآ أَعْطَيْنَٰكَ ٱلْكَوْثَرَ',
+        modifiedText: 'إِنَّآ أَعْطَيْنَٰكَ ___',
+        translation: 'Indeed, We have granted you, [O Muhammad], the abundant good.',
+        correctAnswer: 'ٱلْكَوْثَر',
+        wordBank: shuffleArray(['مَلَك', 'الوكيل', 'الهادي', 'نَبِيّ', 'رَحِيم', 'القوي', 'العظيم', 'رَسُول', 'ٱلْكَوْثَر']),
+      },
+      {
+        id: 5,
+        surah: 'Al-Kafirun',
+        ayah: 6,
+        originalText: 'لَكُمْ دِينُكُمْ وَلِىَ دِينِ',
+        modifiedText: 'لَكُمْ دِينُكُمْ وَلِىَ ___',
+        translation: 'For you is your religion, and for me is my religion.',
+        correctAnswer: 'دِين',
+        wordBank: shuffleArray(['مَلَك', 'الوكيل', 'الهادي', 'نَبِيّ', 'رَحِيم', 'القوي', 'العظيم', 'رَسُول', 'دِين']),
+      },
+    ],
+  },
+  {
+    id: 5,
+    sentences: [
+      {
+        id: 1,
+        surah: 'Al-Ihlas',
+        ayah: 4,
+        originalText: 'وَلَمْ يَكُن لَّهُۥ كُفُوًا أَحَدٌ',
+        modifiedText: 'وَلَمْ يَكُن لَّهُۥ كُفُوًا ___',
+        translation: 'And there is none comparable to Him.',
+        correctAnswer: 'أَحَد',
+        wordBank: shuffleArray(['مَلَك', 'الوكيل', 'الهادي', 'نَبِيّ', 'رَحِيم', 'القوي', 'العظيم', 'رَسُول', 'أَحَد']),
+      },
+      {
+        id: 2,
+        surah: 'Al-Falaq',
+        ayah: 2,
+        originalText: 'مِن شَرِّ مَا خَلَقَ',
+        modifiedText: 'مِن شَرِّ ___',
+        translation: 'From the evil of what He created.',
+        correctAnswer: 'مَا خَلَق',
+        wordBank: shuffleArray(['مَلَك', 'الوكيل', 'الهادي', 'نَبِيّ', 'رَحِيم', 'القوي', 'العظيم', 'رَسُول', 'مَا خَلَق']),
+      },
+      {
+        id: 3,
+        surah: 'Al-Nas',
+        ayah: 3,
+        originalText: 'مَلِكِ ٱلنَّاسِ',
+        modifiedText: '___ ٱلنَّاسِ',
+        translation: 'Sovereign of mankind.',
+        correctAnswer: 'مَلِك',
+        wordBank: shuffleArray(['مَلَك', 'الوكيل', 'الهادي', 'نَبِيّ', 'رَحِيم', 'القوي', 'العظيم', 'رَسُول', 'مَلِك']),
+      },
+      {
+        id: 4,
+        surah: 'Al-Fatiha',
+        ayah: 4,
+        originalText: 'مَالِكِ يَوْمِ ٱلدِّينِ',
+        modifiedText: '___ يَوْمِ ٱلدِّينِ',
+        translation: 'Master of the Day of Judgment.',
+        correctAnswer: 'مَالِك',
+        wordBank: shuffleArray(['مَلَك', 'الوكيل', 'الهادي', 'نَبِيّ', 'رَحِيم', 'القوي', 'العظيم', 'رَسُول', 'مَالِك']),
+      },
+      {
+        id: 5,
+        surah: 'Al-Baqarah',
+        ayah: 255,
+        originalText: 'ٱلَّذِى لَا تَأْخُذُهُۥ سِنَةٌ وَلَا نَوْمٌ',
+        modifiedText: 'ٱلَّذِى لَا تَأْخُذُهُۥ ___ وَلَا نَوْمٌ',
+        translation: 'He who does not tire or sleep.',
+        correctAnswer: 'سِنَة',
+        wordBank: shuffleArray(['مَلَك', 'الوكيل', 'الهادي', 'نَبِيّ', 'رَحِيم', 'القوي', 'العظيم', 'رَسُول', 'سِنَة']),
+      },
+    ],
+  },
+  {
+    id: 6,
     sentences: [
       {
         id: 1,
@@ -207,7 +372,7 @@ const sentenceSets: SentenceSet[] = [
     ],
   },
   {
-    id: 4,
+    id: 7,
     sentences: [
       {
         id: 1,
@@ -262,7 +427,7 @@ const sentenceSets: SentenceSet[] = [
     ],
   },
   {
-    id: 5,
+    id: 8,
     sentences: [
       {
         id: 1,
@@ -390,8 +555,8 @@ const FillInTheBlanks: React.FC = () => {
         setShowTranslation(false);
         setShowHint(false);
       } else {
-        // Navigate to results page with set score and total score
-        router.push(`/results?score=${score + 10}&set=${currentSet.id}&totalScore=${totalScore + 10}`);
+        // Navigate to results page with current score and total score
+        router.push(`/results?score=${score}&set=${currentSet.id}&totalScore=${totalScore}`);
         // Move to next set if available
         if (currentSetIndex < sentenceSets.length - 1) {
           setCurrentSetIndex(currentSetIndex + 1);
@@ -488,10 +653,33 @@ const FillInTheBlanks: React.FC = () => {
                 ? 'stature'
                 : currentSentence.correctAnswer === 'قَدْر'
                 ? 'decree'
+                : currentSentence.correctAnswer === 'فَلَق'
+                ? 'daybreak'
+                : currentSentence.correctAnswer === 'يُولَد'
+                ? 'birth'
+                : currentSentence.correctAnswer === 'وَتَبَّ'
+                ? 'perish'
+                : currentSentence.correctAnswer === 'ٱلْفِيل'
+                ? 'elephant'
+                : currentSentence.correctAnswer === 'قُرَيْشٍ'
+                ? 'Quraysh'
+                : currentSentence.correctAnswer === 'بِٱلدِّين'
+                ? 'religion'
+                : currentSentence.correctAnswer === 'ٱلْكَوْثَر'
+                ? 'abundant good'
+                : currentSentence.correctAnswer === 'دِين'
+                ? 'religion'
+                : currentSentence.correctAnswer === 'أَحَد'
+                ? 'one'
+                : currentSentence.correctAnswer === 'مَا خَلَق'
+                ? 'what He created'
+                : currentSentence.correctAnswer === 'مَلِك'
+                ? 'sovereign'
+                : currentSentence.correctAnswer === 'مَالِك'
+                ? 'master'
                 : 'mankind'}
             </div>
           )}
-
           {/* Feedback */}
           {feedback && (
             <div className={`text-sm sm:text-base mb-4 ${feedback.includes('Correct') ? 'text-green-600' : 'text-red-600'}`}>
