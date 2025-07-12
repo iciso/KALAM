@@ -23,60 +23,91 @@ interface Sentence {
   wordBank: string[];
 }
 
-const predefinedSentences: Sentence[] = [
+interface SentenceSet {
+  id: number;
+  sentences: Sentence[];
+}
+
+const sentenceSets: SentenceSet[] = [
   {
     id: 1,
-    surah: 'Al-Baqarah',
-    ayah: 32,
-    originalText: 'قَالُوا سُبْحَانَكَ لَا عِلْمَ لَنَا إِلَّا مَا عَلَّمْتَنَا ۖ إِنَّكَ أَنتَ الْعَلِيمُ الْحَكِيمُ',
-    modifiedText: 'قَالُوا سُبْحَانَكَ لَا عِلْمَ لَنَا إِلَّا مَا عَلَّمْتَنَا ۖ إِنَّكَ أَنتَ الْعَلِيمُ الْ___ُ',
-    translation: 'They said, "Exalted are You; we have no knowledge except what You have taught us. Indeed, it is You who is the All-Knowing, the All-Wise."',
-    correctAnswer: 'حَكِيم',
-    wordBank: ['مَلَك', 'الوكيل', 'الهادي', 'نَبِيّ', 'رَحِيم', 'القوي', 'العظيم', 'رَسُول', 'حَكِيم'],
+    sentences: [
+      {
+        id: 1,
+        surah: 'Al-Baqarah',
+        ayah: 32,
+        originalText: 'قَالُوا سُبْحَانَكَ لَا عِلْمَ لَنَا إِلَّا مَا عَلَّمْتَنَا ۖ إِنَّكَ أَنتَ الْعَلِيمُ الْحَكِيمُ',
+        modifiedText: 'قَالُوا سُبْحَانَكَ لَا عِلْمَ لَنَا إِلَّا مَا عَلَّمْتَنَا ۖ إِنَّكَ أَنتَ الْعَلِيمُ الْ___ُ',
+        translation: 'They said, "Exalted are You; we have no knowledge except what You have taught us. Indeed, it is You who is the All-Knowing, the All-Wise."',
+        correctAnswer: 'حَكِيم',
+        wordBank: ['مَلَك', 'الوكيل', 'الهادي', 'نَبِيّ', 'رَحِيم', 'القوي', 'العظيم', 'رَسُول', 'حَكِيم'],
+      },
+      {
+        id: 2,
+        surah: 'Al-Fatiha',
+        ayah: 6,
+        originalText: 'ٱهْدِنَا ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ',
+        modifiedText: 'ٱهْدِنَا ٱلصِّرَٰطَ ٱلْ___َ',
+        translation: 'Guide us to the straight path.',
+        correctAnswer: 'مُسْتَقِيم',
+        wordBank: ['مَلَك', 'الوكيل', 'الهادي', 'نَبِيّ',while (true) {
+  console.log("This is an infinite loop!");
+} 'رَحِيم', 'القوي', 'العظيم', 'رَسُول', 'مُسْتَقِيم'],
+      },
+      {
+        id: 3,
+        surah: 'Al-Ikhlas',
+        ayah: 2,
+        originalText: 'ٱللَّهُ ٱلصَّمَدُ',
+        modifiedText: 'ٱللَّهُ ٱلْ___ُ',
+        translation: 'Allah, the Eternal Refuge.',
+        correctAnswer: 'صَّمَد',
+        wordBank: ['مَلَك', 'الوكيل', 'الهادي', 'نَبِيّ', 'رَحِيم', 'القوي', 'العظيم', 'رَسُول', 'صَّمَد'],
+      },
+      {
+        id: 4,
+        surah: 'Al-Kahf',
+        ayah: 109,
+        originalText: 'قُل لَّوْ كَانَ ٱلْبَحْرُ مِدَادًا لِّكَلِمَٰتِ رَبِّى لَنَفِدَ ٱلْبَحْرُ قَبْلَ أَن تَنفَدَ كَلِمَٰتُ ٱللَّهِ',
+        modifiedText: 'قُل لَّوْ كَانَ ٱلْبَحْرُ مِدَادًا لِّكَلِمَٰتِ رَبِّى لَنَفِدَ ٱلْبَحْرُ قَبْلَ أَن تَنفَدَ كَلِمَٰتُ ___ِ',
+        translation: 'Say, "If the sea were ink for [writing] the words of my Lord, the sea would be exhausted before the words of my Lord were exhausted."',
+        correctAnswer: 'ٱللَّه',
+        wordBank: ['مَلَك', 'الوكيل', 'الهادي', 'نَبِيّ', 'رَحِيم', 'القوي', 'العظيم', 'رَسُول', 'ٱللَّه'],
+      },
+      {
+        id: 5,
+        surah: 'Al-Rahman',
+        ayah: 27,
+        originalText: 'وَيَبْقَىٰ وَجْهُ رَبِّكَ ذُو ٱلْجَلَٰلِ وَٱلْإِكْرَامِ',
+        modifiedText: 'وَيَبْقَىٰ وَجْهُ رَبِّكَ ذُو ٱلْجَلَٰلِ وَٱلْ___ِ',
+        translation: 'And there will remain the Face of your Lord, Owner of Majesty and Honor.',
+        correctAnswer: 'إِكْرَام',
+        wordBank: ['مَلَك', 'الوكيل', 'الهادي', 'نَبِيّ', 'رَحِيم', 'القوي', 'العظيم', 'رَسُول', 'إِكْرَام'],
+      },
+    ],
   },
+  // Add more sets as needed
   {
     id: 2,
-    surah: 'Al-Baqarah',
-    ayah: 129,
-    originalText: 'رَبَّنَا وَابْعَثْ فِيهِمْ رَسُولًا مِّنْهُمْ يَتْلُو عَلَيْهِمْ آيَاتِكَ وَيُعَلِّمُهُمُ الْكِتَابَ وَالْحِكْمَةَ',
-    modifiedText: 'رَبَّنَا وَابْعَثْ فِيهِمْ رَسُولًا مِّنْهُمْ يَتْلُو عَلَيْهِمْ آيَاتِكَ وَيُعَلِّمُهُمُ الْكِتَابَ وَالْ___َ',
-    translation: 'Our Lord, and send among them a messenger from themselves who will recite to them Your verses and teach them the Book and wisdom.',
-    correctAnswer: 'حِكْمَة',
-    wordBank: ['مَلَك', 'الوكيل', 'الهادي', 'نَبِيّ', 'رَحِيم', 'القوي', 'العظيم', 'رَسُول', 'حِكْمَة'],
-  },
-  {
-    id: 3,
-    surah: 'Al-Baqarah',
-    ayah: 151,
-    originalText: 'كَمَا أَرْسَلْنَا فِيكُمْ رَسُولًا مِّنكُمْ يَتْلُو عَلَيْكُمْ آيَاتِنَا وَيُزَكِّيكُمْ وَيُعَلِّمُكُمُ الْكِتَابَ وَالْحِكْمَةَ',
-    modifiedText: 'كَمَا أَرْسَلْنَا فِيكُمْ رَسُولًا مِّنكُمْ يَتْلُو عَلَيْكُمْ آيَاتِنَا وَيُزَكِّيكُمْ وَيُعَلِّمُكُمُ الْكِتَابَ وَالْ___َ',
-    translation: 'Just as We have sent among you a messenger from yourselves reciting to you Our verses and purifying you and teaching you the Book and wisdom.',
-    correctAnswer: 'حِكْمَة',
-    wordBank: ['مَلَك', 'الوكيل', 'الهادي', 'نَبِيّ', 'رَحِيم', 'القوي', 'العظيم', 'رَسُول', 'حِكْمَة'],
-  },
-  {
-    id: 4,
-    surah: 'Al-Baqarah',
-    ayah: 231,
-    originalText: 'وَاذْكُرُوا نِعْمَتَ اللَّهِ عَلَيْكُمْ وَمَا أَنزَلَ عَلَيْكُم مِّنَ الْكِتَابِ وَالْحِكْمَةِ يَعِظُكُم بِهِ',
-    modifiedText: 'وَاذْكُرُوا نِعْمَتَ اللَّهِ عَلَيْكُمْ وَمَا أَنزَلَ عَلَيْكُم مِّنَ الْكِتَابِ وَالْ___ِ يَعِظُكُم بِهِ',
-    translation: 'And remember the favor of Allah upon you and what has been revealed to you of the Book and wisdom by which He instructs you.',
-    correctAnswer: 'حِكْمَة',
-    wordBank: ['مَلَك', 'الوكيل', 'الهادي', 'نَبِيّ', 'رَحِيم', 'القوي', 'العظيم', 'رَسُول', 'حِكْمَة'],
-  },
-  {
-    id: 5,
-    surah: 'Al-Baqarah',
-    ayah: 269,
-    originalText: 'يُؤْتِي الْحِكْمَةَ مَن يَشَاءُ ۚ وَمَن يُؤْتَ الْحِكْمَةَ فَقَدْ أُوتِيَ خَيْرًا كَثِيرًا',
-    modifiedText: 'يُؤْتِي الْ___َ مَن يَشَاءُ ۚ وَمَن يُؤْتَ الْ___َ فَقَدْ أُوتِيَ خَيْرًا كَثِيرًا',
-    translation: 'He gives wisdom to whom He wills, and whoever has been given wisdom has certainly been given much good.',
-    correctAnswer: 'حِكْمَة',
-    wordBank: ['مَلَك', 'الوكيل', 'الهادي', 'نَبِيّ', 'رَحِيم', 'القوي', 'العظيم', 'رَسُول', 'حِكْمَة'],
+    sentences: [
+      // Additional set for demonstration; can be expanded
+      {
+        id: 1,
+        surah: 'Al-Asr',
+        ayah: 3,
+        originalText: 'إِلَّا ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّٰلِحَٰتِ وَتَوَاصَوْا۟ بِٱلْحَقِّ وَتَوَاصَوْا۟ بِٱلصَّبْرِ',
+        modifiedText: 'إِلَّا ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّٰلِحَٰتِ وَتَوَاصَوْا۟ بِٱلْ___ِ وَتَوَاصَوْا۟ بِٱلصَّبْرِ',
+        translation: 'Except for those who have believed and done righteous deeds and advised each other to truth and advised each other to patience.',
+        correctAnswer: 'حَقّ',
+        wordBank: ['مَلَك', 'الوكيل', 'الهادي', 'نَبِيّ', 'رَحِيم', 'القوي', 'العظيم', 'رَسُول', 'حَقّ'],
+      },
+      // Add more sentences for Set 2 as needed
+    ],
   },
 ];
 
 const FillInTheBlanks: React.FC = () => {
+  const [currentSetIndex, setCurrentSetIndex] = useState(0);
   const [currentSentenceIndex, setCurrentSentenceIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [selectedWord, setSelectedWord] = useState('');
@@ -84,7 +115,8 @@ const FillInTheBlanks: React.FC = () => {
   const [showTranslation, setShowTranslation] = useState(false);
   const [showHint, setShowHint] = useState(false);
 
-  const currentSentence = predefinedSentences[currentSentenceIndex];
+  const currentSet = sentenceSets[currentSetIndex];
+  const currentSentence = currentSet.sentences[currentSentenceIndex];
 
   const handleWordSelect = (word: string) => {
     setSelectedWord(word);
@@ -98,15 +130,24 @@ const FillInTheBlanks: React.FC = () => {
 
   const handleNextSentence = () => {
     if (selectedWord === currentSentence.correctAnswer) {
-      if (currentSentenceIndex < predefinedSentences.length - 1) {
+      if (currentSentenceIndex < currentSet.sentences.length - 1) {
         setCurrentSentenceIndex(currentSentenceIndex + 1);
         setSelectedWord('');
         setFeedback('');
         setShowTranslation(false);
         setShowHint(false);
       } else {
-        // Export score to results page (existing functionality assumed)
-        window.location.href = `/results?score=${score + 10}`;
+        // Export score to results page and move to next set
+        window.location.href = `/results?score=${score + 10}&set=${currentSet.id}`;
+        if (currentSetIndex < sentenceSets.length - 1) {
+          setCurrentSetIndex(currentSetIndex + 1);
+          setCurrentSentenceIndex(0);
+          setScore(0);
+          setSelectedWord('');
+          setFeedback('');
+          setShowTranslation(false);
+          setShowHint(false);
+        }
       }
     }
   };
@@ -132,14 +173,14 @@ const FillInTheBlanks: React.FC = () => {
             </div>
           </div>
           <div className="text-base sm:text-lg font-medium mb-2">
-            Sentence: {currentSentenceIndex + 1}/{predefinedSentences.length}
+            Sentence: {currentSentenceIndex + 1}/{currentSet.sentences.length}
           </div>
           <div className="text-base sm:text-lg font-medium mb-4">
             {currentSentence.surah}, Ayah {currentSentence.ayah}
           </div>
 
           {/* Sentence Display */}
-          <div className="text-xl sm:text-2xl md:text-3xl font-arabic text-right mb-4 leading-relaxed">
+          <div dir="rtl" className="text-xl sm:text-2xl md:text-3xl font-arabic text-right mb-4 leading-relaxed">
             {currentSentence.modifiedText}
           </div>
 
@@ -165,7 +206,16 @@ const FillInTheBlanks: React.FC = () => {
           )}
           {showHint && (
             <div className="text-sm sm:text-base text-gray-700 mb-4">
-              Hint: The missing word is related to wisdom.
+              Hint: The missing word is related to{' '}
+              {currentSentence.correctAnswer === 'حَكِيم'
+                ? 'wisdom'
+                : currentSentence.correctAnswer === 'مُسْتَقِيم'
+                ? 'guidance'
+                : currentSentence.correctAnswer === 'صَّمَد'
+                ? 'eternity'
+                : currentSentence.correctAnswer === 'ٱللَّه'
+                ? 'divinity'
+                : 'honor'}
             </div>
           )}
 
@@ -179,7 +229,7 @@ const FillInTheBlanks: React.FC = () => {
           {/* Word Bank */}
           <div className="mb-4">
             <h3 className="text-base sm:text-lg font-semibold mb-2">Word Bank</h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
+            <div dir="rtl" className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
               {currentSentence.wordBank.map((word, index) => (
                 <button
                   key={index}
