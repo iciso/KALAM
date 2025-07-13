@@ -154,14 +154,12 @@ export function NavBar() {
             ))}
 
             <FontSizeControls />
-            <AuthButtons />
           </div>
 
           {/* Hamburger Menu Button - Always visible on all screen sizes */}
           <div className="flex items-center space-x-2">
             <div className="md:hidden">
               <FontSizeControls />
-              <AuthButtons />
             </div>
             <button
               onClick={toggleMenu}
