@@ -76,6 +76,21 @@ export const DSDQuestions: DSDQuestion[] = [
     arabicVerse: "فَلَا تُطِعِ الْمُكَذِّبِينَ * وَدُّوا لَوْ تُدْهِنُ فَيُدْهِنُونَ * وَلَا تُطِعْ كُلَّ حَلَّافٍ مَهِينٍ * هَمَّازٍ مَشَّاءٍ بِنَمِيمٍ"
   },
   {
+  surah: "Al-Hashr",
+  verse: "59:2",
+  text: "The people of a town were expelled from their homes due to their enmity and plotting against the believers.",
+  stage: "Discrimination",
+  commentary: "This verse highlights systemic expulsion as a form of organized discrimination against a religious group.",
+  tafsir: "Ibn Kathir explains this as the Banu Nadir’s removal from Medina for their treachery against the Prophet (peace be upon him).",
+  historicalContext: "Refers to the expulsion of the Banu Nadir tribe in 4 AH after they plotted against the Muslim community.",
+  hadeeth: "The Prophet (peace be upon him) said, 'Do not wrong the people of the covenant.' (Sunan Abu Dawud)",
+  comparativeReligion: "Similar to the forced displacement of Jews during the Spanish Inquisition.",
+  islamophobia: "Mirrors modern policies targeting Muslim communities for expulsion or exclusion.",
+  significance: "Emphasizes justice in dealing with those who undermine peace.",
+  answer: "Discrimination",
+  arabicVerse: "هُوَ الَّذِي أَخْرَجَ الَّذِينَ كَفَرُوا مِنْ أَهْلِ الْكِتَابِ مِنْ دِيَارِهِمْ لِأَوَّلِ الْحَشْرِ ۚ مَا ظَنَنْتُمْ أَنْ يَخْرُجُوا وَظَنُّوا أَنَّهُمْ مَانِعَتُهُمْ حُصُونُهُمْ مِنَ اللَّهِ فَأَتَاهُمُ اللَّهُ مِنْ حَيْثُ لَمْ يَحْتَسِبُوا وَقَذَفَ فِي قُلُوبِهِمُ الرُّعْبَ يُخْرِبُونَ بُيُوتَهُمْ بِأَيْدِيهِمْ وَأَيْدِي الْمُؤْمِنِينَ"
+  },
+  {
     surah: "Al-Masad",
     verse: "111:1-5",
     text: "Abu Lahab and his wife openly oppose and ostracize the Prophet (peace be upon him), symbolized by carrying thorny firewood.",
