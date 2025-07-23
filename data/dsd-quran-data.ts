@@ -18,7 +18,7 @@ export const DSDQuestions: DSDQuestion[] = [
   {
     surah: "Al-Mutaffifin",
     verse: "83:29-33",
-    text: "The disbelievers mock the believers, laughing at them and exchanging sarcastic glances, calling them 'astray.'",
+    text: "The disbelievers mock the believers, laughing at them and exchanging sarcastic glances, calling them 'astray.'", 
     stage: "Denial & Antilocution",
     commentary: "This verse illustrates verbal hostility and mockery, key characteristics of Allport's first stage of prejudice.",
     tafsir: "Tafsir Ibn Kathir explains this as the behavior of disbelievers mocking believers for their faith.",
