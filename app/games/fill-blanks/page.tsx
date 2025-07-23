@@ -265,7 +265,7 @@ const sentenceSets: SentenceSet[] = [
     sentences: [
       {
         id: 1,
-        surah: 'Al-Ihlas',
+        surah: 'Al-Ikhlas',
         ayah: 4,
         originalText: 'وَلَمْ يَكُن لَّهُۥ كُفُوًا أَحَدٌ',
         modifiedText: 'وَلَمْ يَكُن لَّهُۥ كُفُوًا ___',
