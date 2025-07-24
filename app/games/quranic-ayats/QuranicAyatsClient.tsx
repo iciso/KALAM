@@ -12,7 +12,7 @@ interface WordItem {
 }
 
 interface GameProps {
-  difficulty: "easy" | "medium" | "hard"
+  difficulty: "easy" | "medium" | "hard" 
   initialAyatCount: number
   isMobile?: boolean
 }
