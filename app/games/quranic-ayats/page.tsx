@@ -8,3 +8,12 @@ import QuranicAyatsClient from "./QuranicAyatsClient"
 export default function QuranicAyatsPage() {
   return <QuranicAyatsClient />
 }
+
+
+import { QuranicAyatsWrapper } from "./QuranicAyatsClient"
+
+export default function QuranicAyatsPage() {
+  return <QuranicAyatsWrapper difficulty="easy" initialAyatCount={5} />
+}
+
+export const dynamic = 'force-dynamic' // Important for Next.js
