@@ -4,7 +4,7 @@ jobs:
   install-deps:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v4 
     - uses: pnpm/action-setup@v2
       with:
         version: 8
