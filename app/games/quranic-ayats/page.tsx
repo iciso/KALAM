@@ -3,13 +3,6 @@ export const metadata = {
   description: "Arrange words to form Quranic verses in this interactive game",
 }
 
-import QuranicAyatsClient from "./QuranicAyatsClient"
-
-export default function QuranicAyatsPage() {
-  return <QuranicAyatsClient />
-}
-
-
 import { QuranicAyatsWrapper } from "./QuranicAyatsClient"
 
 export default function QuranicAyatsPage() {
