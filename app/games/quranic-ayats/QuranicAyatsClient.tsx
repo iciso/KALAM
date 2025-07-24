@@ -18,7 +18,7 @@ interface GameProps {
 }
 
 export default function MakeQuranicAyatsGame({ difficulty, initialAyatCount, isMobile = false }: GameProps) {
-  // Existing state and logic...
+  // Existing state and logic... try
   
   return (
     <DndProvider backend={isMobile ? TouchBackend : HTML5Backend} options={{
