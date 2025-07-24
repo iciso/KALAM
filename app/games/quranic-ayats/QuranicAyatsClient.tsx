@@ -1,12 +1,14 @@
 "use client"  
 
-import { useState, useRef, useEffect } from "react"
+import { useState, useEffect } from "react"
 import { useDrag, useDrop } from "react-dnd"
 import { HTML5Backend } from "react-dnd-html5-backend"
 import { TouchBackend } from "react-dnd-touch-backend"
 import { DndProvider } from "react-dnd"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+
+// ... (keep all your existing interfaces)
 
 interface WordItem {
   id: string
@@ -45,14 +47,40 @@ const useMobileDetect = () => {
   return isMobile
 }
 
+
 // Main game component
-export default function MakeQuranicAyatsGame({ difficulty, initialAyatCount }: GameProps) {
+export function MakeQuranicAyatsGame({ difficulty, initialAyatCount }: GameProps) {
   const isMobile = useMobileDetect()
   const [wordPool, setWordPool] = useState<WordItem[]>([])
   const [arrangedWords, setArrangedWords] = useState<WordItem[]>([])
   const [difficultyLevel, setDifficultyLevel] = useState(difficulty)
   const [score, setScore] = useState(0)
   const [feedback, setFeedback] = useState("")
+
+
+export function QuranicAyatsWrapper({ difficulty, initialAyatCount }: GameProps) {
+  const isMobile = useMobileDetect()
+  const [isMounted, setIsMounted] = useState(false)
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
+
+  if (!isMounted) {
+    return <div className="text-center py-8">Loading game...</div>
+  }
+
+  return (
+    <DndProvider backend={isMobile ? TouchBackend : HTML5Backend} options={{
+      enableMouseEvents: true,
+      delayTouchStart: 150,
+      delay: 0,
+      touchSlop: 5
+    }}>
+      <MakeQuranicAyatsGame difficulty={difficulty} initialAyatCount={initialAyatCount} />
+    </DndProvider>
+  )
+}
 
   // Initialize words based on difficulty
   useEffect(() => {
