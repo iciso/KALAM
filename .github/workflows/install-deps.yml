@@ -1,0 +1,16 @@
+name: Install Dependencies
+on: push
+jobs:
+  install-deps:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: pnpm/action-setup@v2
+      with:
+        version: 8
+    - run: pnpm install react-dnd react-dnd-html5-backend react-dnd-touch-backend
+    - run: git config --global user.name "GitHub Actions"
+    - run: git config --global user.email "actions@github.com"
+    - run: git add package.json pnpm-lock.yaml
+    - run: git commit -m "Add drag-and-drop dependencies" || echo "No changes to commit"
+    - run: git push
