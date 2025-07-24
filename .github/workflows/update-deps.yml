@@ -1,0 +1,14 @@
+name: Update Dependencies
+on:
+  workflow_dispatch:
+jobs:
+  update-deps:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v2
+      - run: pnpm install
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Update dependencies"
+          file_pattern: "pnpm-lock.yaml package.json"
