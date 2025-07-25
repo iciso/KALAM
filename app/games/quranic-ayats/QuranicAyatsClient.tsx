@@ -140,8 +140,8 @@ function MakeQuranicAyatsGame({ difficulty, initialAyatCount }: GameProps) {
                      words.every((word, index) => word.id === correctOrder[index])
     
     if (isCorrect) {
-      setScore(score + 1)
-      setFeedback("Correct! Well done.")
+      setScore(score + 5)
+      setFeedback("Correct! Masha Allah! Well done.")
       
       setTimeout(() => {
         const nextAyahIndex = currentAyahIndex + 1
@@ -154,7 +154,7 @@ function MakeQuranicAyatsGame({ difficulty, initialAyatCount }: GameProps) {
           setArrangedWords([])
         } else {
           if (difficultyLevel === 'hard') {
-            setFeedback(`Congratulations! Final Score: ${score + 1}`)
+            setFeedback(`Masha Allah! Congratulations! Final Score: ${score + 5}`)
             setTimeout(() => {
               setScore(0)
               setDifficultyLevel('easy')
@@ -168,7 +168,7 @@ function MakeQuranicAyatsGame({ difficulty, initialAyatCount }: GameProps) {
               difficultyLevel === 'easy' ? 'medium' : 
               difficultyLevel === 'medium' ? 'hard' : 'easy'
             
-            setFeedback(`Level Complete! Score: ${score + 1}. Moving to ${nextDifficulty} level.`)
+            setFeedback(`Level Complete! Alhamdulilah! Score: ${score + 5}. Moving to ${nextDifficulty} level.`)
             setTimeout(() => {
               setDifficultyLevel(nextDifficulty)
               setCurrentAyahIndex(0)
