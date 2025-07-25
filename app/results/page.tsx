@@ -11,12 +11,14 @@ const ResultsContent: React.FC = () => {
   const score = searchParams.get('score') || '0';
   const set = searchParams.get('set') || '1';
   const totalScore = searchParams.get('totalScore') || '0';
+  const setTotal = searchParams.get('setTotal') || '50'; // Default to 50 if not provided
 
   const handleContinue = () => {
     const nextSet = parseInt(set, 10) + 1;
     router.push(`/games/fill-blanks?set=${nextSet}`);
   };
 
+  // Replaced the const handleReset on 25 Jul 2025
   const handleReset = () => {
     if (typeof window !== 'undefined') {
       localStorage.setItem('currentSetIndex', '0');
@@ -27,10 +29,23 @@ const ResultsContent: React.FC = () => {
 
   return (
     <div className="w-full max-w-3xl bg-white rounded-lg shadow-lg p-4 sm:p-6">
-      <h1 className="text-xl sm:text-2xl font-semibold mb-4">Results</h1>
-      <p className="text-base sm:text-lg mb-4">
-        Set {set} Completed! Set Score: {score} | Total Score: {totalScore}
-      </p>
+      <h1 className="text-xl sm:text-2xl font-semibold mb-4">Set {set} Results</h1>
+      
+      <div className="mb-6">
+        <div className="flex justify-between mb-2">
+          <span>Set Score:</span>
+          <span className="font-medium">{score}/{setTotal}</span>
+        </div>
+        <Progress value={(parseInt(score)/parseInt(setTotal))*100} />
+      </div>
+      
+      <div className="mb-6">
+        <div className="flex justify-between mb-2">
+          <span>Total Score:</span>
+          <span className="font-medium">{totalScore}</span>
+        </div>
+      </div>
+
       <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
         <button
           onClick={handleContinue}
@@ -48,6 +63,7 @@ const ResultsContent: React.FC = () => {
     </div>
   );
 };
+
 
 const Results: React.FC = () => {
   return (
