@@ -4,6 +4,7 @@ import React, { Suspense } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/navigation';
 import { useSearchParams } from 'next/navigation';
+import { Progress } from "@/components/ui/progress"; // Make sure this import exists
 
 const ResultsContent: React.FC = () => {
   const router = useRouter();
@@ -11,14 +12,13 @@ const ResultsContent: React.FC = () => {
   const score = searchParams.get('score') || '0';
   const set = searchParams.get('set') || '1';
   const totalScore = searchParams.get('totalScore') || '0';
-  const setTotal = searchParams.get('setTotal') || '50'; // Default to 50 if not provided
+  const setTotal = searchParams.get('setTotal') || '50';
 
   const handleContinue = () => {
     const nextSet = parseInt(set, 10) + 1;
     router.push(`/games/fill-blanks?set=${nextSet}`);
   };
 
-  // Replaced the const handleReset on 25 Jul 2025
   const handleReset = () => {
     if (typeof window !== 'undefined') {
       localStorage.setItem('currentSetIndex', '0');
@@ -36,7 +36,7 @@ const ResultsContent: React.FC = () => {
           <span>Set Score:</span>
           <span className="font-medium">{score}/{setTotal}</span>
         </div>
-        <Progress value={(parseInt(score)/parseInt(setTotal))*100} />
+        <Progress value={(parseInt(score)/parseInt(setTotal))*100} className="h-2" />
       </div>
       
       <div className="mb-6">
@@ -64,13 +64,11 @@ const ResultsContent: React.FC = () => {
   );
 };
 
-
 const Results: React.FC = () => {
   return (
     <>
       <Head>
         <title>Results - KALAM</title>
-        <script src="https://cdn.tailwindcss.com"></script>
       </Head>
       <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4 sm:p-6 font-sans">
         <Suspense fallback={<div className="text-base sm:text-lg">Loading results...</div>}>
