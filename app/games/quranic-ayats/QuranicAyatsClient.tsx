@@ -46,6 +46,42 @@ const useMobileDetect = () => {
   return isMobile
 }
 
+// Word component
+function Word({ word, isMobile, onClick, onTouchEnd }: WordProps) {
+  const [{ isDragging }, drag] = useDrag(() => ({
+    type: "WORD",
+    item: { id: word.id },
+    collect: (monitor) => ({
+      isDragging: !!monitor.isDragging(),
+    }),
+  }))
+
+  return (
+    <div
+      ref={drag}
+      onClick={onClick}
+      onTouchEnd={onTouchEnd}
+      className={`
+        cursor-move select-none
+        ${isDragging ? 'opacity-50' : 'opacity-100'}
+        ${isMobile ? 'py-3 px-4 text-lg' : 'py-2 px-3 text-2xl w-full text-center'}
+        bg-white dark:bg-gray-800 rounded-lg shadow-md
+        border border-gray-200 dark:border-gray-700
+        active:scale-95 transition-transform
+        arabic-text
+      `}
+      style={{
+        touchAction: 'none',
+        userSelect: 'none',
+        fontFamily: "'Amiri', serif",
+        direction: 'rtl'
+      }}
+    >
+      {word.text}
+    </div>
+  )
+}
+
 // Main game component
 function MakeQuranicAyatsGame({ difficulty, initialAyatCount }: GameProps) {
   const isMobile = useMobileDetect()
@@ -69,7 +105,6 @@ function MakeQuranicAyatsGame({ difficulty, initialAyatCount }: GameProps) {
     const levelData = quranicAyatsGameData[mode as keyof typeof quranicAyatsGameData]
     if (!levelData || !levelData[currentAyahIndex]) return []
     
-    // Return words for current ayah
     return shuffleArray([...levelData[currentAyahIndex]])
   }
 
@@ -107,20 +142,42 @@ function MakeQuranicAyatsGame({ difficulty, initialAyatCount }: GameProps) {
     if (isCorrect) {
       setScore(score + 1)
       setFeedback("Correct! Well done.")
+      
       setTimeout(() => {
-        // Move to next ayah or reset if completed all
         const nextAyahIndex = currentAyahIndex + 1
-        if (nextAyahIndex < quranicAyatsGameData[difficultyLevel].length) {
+        const currentLevel = quranicAyatsGameData[difficultyLevel]
+        
+        if (nextAyahIndex < currentLevel.length) {
           setCurrentAyahIndex(nextAyahIndex)
           const newWords = generateInitialWords(difficultyLevel)
           setWordPool(newWords)
           setArrangedWords([])
         } else {
-          // Completed all ayahs for this difficulty
-          const newWords = generateInitialWords(difficultyLevel)
-          setWordPool(newWords)
-          setArrangedWords([])
-          setCurrentAyahIndex(0)
+          if (difficultyLevel === 'hard') {
+            setFeedback(`Congratulations! Final Score: ${score + 1}`)
+            setTimeout(() => {
+              setScore(0)
+              setDifficultyLevel('easy')
+              setCurrentAyahIndex(0)
+              const newWords = generateInitialWords('easy')
+              setWordPool(newWords)
+              setArrangedWords([])
+            }, 3000)
+          } else {
+            const nextDifficulty = 
+              difficultyLevel === 'easy' ? 'medium' : 
+              difficultyLevel === 'medium' ? 'hard' : 'easy'
+            
+            setFeedback(`Level Complete! Score: ${score + 1}. Moving to ${nextDifficulty} level.`)
+            setTimeout(() => {
+              setDifficultyLevel(nextDifficulty)
+              setCurrentAyahIndex(0)
+              const newWords = generateInitialWords(nextDifficulty)
+              setWordPool(newWords)
+              setArrangedWords([])
+              setScore(0)
+            }, 3000)
+          }
         }
         setFeedback("")
       }, 1500)
@@ -183,26 +240,23 @@ function MakeQuranicAyatsGame({ difficulty, initialAyatCount }: GameProps) {
         </div>
         
         <div className="arrangement-area" ref={drop}>
-  <h2 className="text-xl font-semibold mb-4">Your Arrangement</h2>
-  <div 
-    dir="rtl"
-    className="flex flex-col gap-2 min-h-32 border-2 border-dashed p-4 rounded-lg"
-  >
-    {arrangedWords.length > 0 ? (
-      arrangedWords.map((word) => (
-        <Word 
-          key={word.id} 
-          word={word} 
-          isMobile={isMobile}
-          onClick={() => handleWordClick(word)}
-          onTouchEnd={() => handleWordTouchEnd(word)}
-        />
-      ))
-    ) : (
-      <p className="text-gray-400">Drag words here to arrange them</p>
-    )}
-  </div>
-</div>
+          <h2 className="text-xl font-semibold mb-4">Your Arrangement</h2>
+          <div dir="rtl" className="flex flex-col gap-2 min-h-32 border-2 border-dashed p-4 rounded-lg">
+            {arrangedWords.length > 0 ? (
+              arrangedWords.map((word) => (
+                <Word 
+                  key={word.id} 
+                  word={word} 
+                  isMobile={isMobile}
+                  onClick={() => handleWordClick(word)}
+                  onTouchEnd={() => handleWordTouchEnd(word)}
+                />
+              ))
+            ) : (
+              <p className="text-gray-400">Drag words here to arrange them</p>
+            )}
+          </div>
+        </div>
 
         {feedback && (
           <div className={`mt-4 p-3 rounded-md text-center ${
@@ -212,96 +266,25 @@ function MakeQuranicAyatsGame({ difficulty, initialAyatCount }: GameProps) {
           </div>
         )}
 
-        // Update the checkAnswer function to handle game progression
-const checkAnswer = (words: WordItem[]) => {
-  const correctOrder = quranicAyatsGameData.correctOrders[difficultyLevel][currentAyahIndex];
-  const isCorrect = words.length === correctOrder.length && 
-                   words.every((word, index) => word.id === correctOrder[index]);
+        <div className="flex gap-4 mt-8">
+          <button 
+            className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg flex-1"
+            onClick={() => checkAnswer(arrangedWords)}
+          >
+            Check Answer
+          </button>
+          <button 
+            className="bg-gray-600 hover:bg-gray-700 text-white font-bold py-3 px-6 rounded-lg flex-1"
+            onClick={resetGame}
+          >
+            Reset
+          </button>
+        </div>
 
-  if (isCorrect) {
-    setScore(score + 1);
-    setFeedback("Correct! Well done.");
-    
-    setTimeout(() => {
-      const nextAyahIndex = currentAyahIndex + 1;
-      const currentLevel = quranicAyatsGameData[difficultyLevel];
-      
-      // Check if we've completed all ayahs in current difficulty
-      if (nextAyahIndex < currentLevel.length) {
-        setCurrentAyahIndex(nextAyahIndex);
-        const newWords = generateInitialWords(difficultyLevel);
-        setWordPool(newWords);
-        setArrangedWords([]);
-      } else {
-        // Check if we've completed all difficulties
-        if (difficultyLevel === 'hard') {
-          // Game completed
-          setFeedback(`Congratulations! Final Score: ${score + 1}`);
-          setTimeout(() => {
-            setScore(0);
-            setDifficultyLevel('easy');
-            setCurrentAyahIndex(0);
-            const newWords = generateInitialWords('easy');
-            setWordPool(newWords);
-            setArrangedWords([]);
-          }, 3000);
-        } else {
-          // Move to next difficulty
-          const nextDifficulty = 
-            difficultyLevel === 'easy' ? 'medium' : 
-            difficultyLevel === 'medium' ? 'hard' : 'easy';
-          
-          setFeedback(`Level Complete! Score: ${score + 1}. Moving to ${nextDifficulty} level.`);
-          setTimeout(() => {
-            setDifficultyLevel(nextDifficulty);
-            setCurrentAyahIndex(0);
-            const newWords = generateInitialWords(nextDifficulty);
-            setWordPool(newWords);
-            setArrangedWords([]);
-            setScore(0);
-          }, 3000);
-        }
-      }
-      setFeedback("");
-    }, 1500);
-  } else {
-    setFeedback("Not quite right. Try again!");
-  }
-};
-
-
-// Update the Word component styling for consistent layout
-function Word({ word, isMobile, onClick, onTouchEnd }: WordProps) {
-  const [{ isDragging }, drag] = useDrag(() => ({
-    type: "WORD",
-    item: { id: word.id },
-    collect: (monitor) => ({
-      isDragging: !!monitor.isDragging(),
-    }),
-  }))
-
-  return (
-    <div
-      ref={drag}
-      onClick={onClick}
-      onTouchEnd={onTouchEnd}
-      className={`
-        cursor-move select-none
-        ${isDragging ? 'opacity-50' : 'opacity-100'}
-        ${isMobile ? 'py-3 px-4 text-lg' : 'py-2 px-3 text-2xl w-full text-center'}
-        bg-white dark:bg-gray-800 rounded-lg shadow-md
-        border border-gray-200 dark:border-gray-700
-        active:scale-95 transition-transform
-        arabic-text
-      `}
-      style={{
-        touchAction: 'none',
-        userSelect: 'none',
-        fontFamily: "'Amiri', serif",
-        direction: 'rtl'
-      }}
-    >
-      {word.text}
+        <div className="mt-4 text-center font-semibold">
+          Score: {score}
+        </div>
+      </div>
     </div>
   )
 }
