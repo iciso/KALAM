@@ -7,6 +7,7 @@ import { TouchBackend } from "react-dnd-touch-backend"
 import { DndProvider } from "react-dnd"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { quranicAyatsGameData } from "@/data/quranic-ayats-game-data"
 
 interface WordItem {
   id: string
@@ -63,34 +64,9 @@ function MakeQuranicAyatsGame({ difficulty, initialAyatCount }: GameProps) {
   }, [difficultyLevel, initialAyatCount])
 
   const generateInitialWords = (mode: string, count: number): WordItem[] => {
-    const easyWords = [
-      { id: '1', text: 'بسم' },
-      { id: '2', text: 'الله' },
-      { id: '3', text: 'الرحمن' },
-      { id: '4', text: 'الرحيم' }
-    ]
-    
-    const mediumWords = [...easyWords, 
-      { id: '5', text: 'الحمد' },
-      { id: '6', text: 'لله' },
-      { id: '7', text: 'رب' },
-      { id: '8', text: 'العالمين' }
-    ]
-    
-    const hardWords = [...mediumWords,
-      { id: '9', text: 'الرحمن' },
-      { id: '10', text: 'الرحيم' },
-      { id: '11', text: 'مالك' },
-      { id: '12', text: 'يوم' },
-      { id: '13', text: 'الدين' }
-    ]
-
-    switch(mode) {
-      case 'easy': return shuffleArray([...easyWords])
-      case 'medium': return shuffleArray([...mediumWords])
-      case 'hard': return shuffleArray([...hardWords])
-      default: return shuffleArray([...easyWords])
-    }
+    // Get words from imported data file
+    const wordsData = quranicAyatsGameData[mode as keyof typeof quranicAyatsGameData]
+    return shuffleArray([...wordsData])
   }
 
   const shuffleArray = (array: WordItem[]) => {
@@ -120,7 +96,7 @@ function MakeQuranicAyatsGame({ difficulty, initialAyatCount }: GameProps) {
   })
 
   const checkAnswer = (words: WordItem[]) => {
-    const correctOrder = ['1', '2', '3', '4']
+    const correctOrder = quranicAyatsGameData.correctOrder
     const isCorrect = words.every((word, index) => word.id === correctOrder[index])
     
     if (isCorrect) {
@@ -192,7 +168,7 @@ function MakeQuranicAyatsGame({ difficulty, initialAyatCount }: GameProps) {
         
         <div className="arrangement-area" ref={drop}>
           <h2 className="text-xl font-semibold mb-4">Your Arrangement</h2>
-          <div className={`flex ${isMobile ? 'flex-col' : 'flex-row'} gap-2 min-h-32 border-2 border-dashed p-4 rounded-lg`}>
+          <div dir="rtl" className={`flex ${isMobile ? 'flex-col' : 'flex-row-reverse'} gap-2 min-h-32 border-2 border-dashed p-4 rounded-lg`}>
             {arrangedWords.length > 0 ? (
               arrangedWords.map((word) => (
                 <Word 
@@ -258,14 +234,17 @@ function Word({ word, isMobile, onClick, onTouchEnd }: WordProps) {
       className={`
         cursor-move select-none
         ${isDragging ? 'opacity-50' : 'opacity-100'}
-        ${isMobile ? 'py-3 px-4 text-lg' : 'py-2 px-3'}
+        ${isMobile ? 'py-3 px-4 text-lg' : 'py-2 px-3 text-2xl'}
         bg-white dark:bg-gray-800 rounded-lg shadow-md
         border border-gray-200 dark:border-gray-700
         active:scale-95 transition-transform
+        arabic-text
       `}
       style={{
         touchAction: 'none',
         userSelect: 'none',
+        fontFamily: "'Amiri', serif",
+        direction: 'rtl'
       }}
     >
       {word.text}
