@@ -54,19 +54,23 @@ function MakeQuranicAyatsGame({ difficulty, initialAyatCount }: GameProps) {
   const [difficultyLevel, setDifficultyLevel] = useState(difficulty)
   const [score, setScore] = useState(0)
   const [feedback, setFeedback] = useState("")
+  const [currentAyahIndex, setCurrentAyahIndex] = useState(0)
 
   // Initialize words based on difficulty
   useEffect(() => {
-    const initialWords = generateInitialWords(difficultyLevel, initialAyatCount)
+    const initialWords = generateInitialWords(difficultyLevel)
     setWordPool(initialWords)
     setArrangedWords([])
     setFeedback("")
-  }, [difficultyLevel, initialAyatCount])
+    setCurrentAyahIndex(0)
+  }, [difficultyLevel])
 
-  const generateInitialWords = (mode: string, count: number): WordItem[] => {
-    // Get words from imported data file
-    const wordsData = quranicAyatsGameData[mode as keyof typeof quranicAyatsGameData]
-    return shuffleArray([...wordsData])
+  const generateInitialWords = (mode: string): WordItem[] => {
+    const levelData = quranicAyatsGameData[mode as keyof typeof quranicAyatsGameData]
+    if (!levelData || !levelData[currentAyahIndex]) return []
+    
+    // Return words for current ayah
+    return shuffleArray([...levelData[currentAyahIndex]])
   }
 
   const shuffleArray = (array: WordItem[]) => {
@@ -96,16 +100,28 @@ function MakeQuranicAyatsGame({ difficulty, initialAyatCount }: GameProps) {
   })
 
   const checkAnswer = (words: WordItem[]) => {
-    const correctOrder = quranicAyatsGameData.correctOrder
-    const isCorrect = words.every((word, index) => word.id === correctOrder[index])
+    const correctOrder = quranicAyatsGameData.correctOrders[difficultyLevel][currentAyahIndex]
+    const isCorrect = words.length === correctOrder.length && 
+                     words.every((word, index) => word.id === correctOrder[index])
     
     if (isCorrect) {
       setScore(score + 1)
       setFeedback("Correct! Well done.")
       setTimeout(() => {
-        const newWords = generateInitialWords(difficultyLevel, initialAyatCount)
-        setWordPool(newWords)
-        setArrangedWords([])
+        // Move to next ayah or reset if completed all
+        const nextAyahIndex = currentAyahIndex + 1
+        if (nextAyahIndex < quranicAyatsGameData[difficultyLevel].length) {
+          setCurrentAyahIndex(nextAyahIndex)
+          const newWords = generateInitialWords(difficultyLevel)
+          setWordPool(newWords)
+          setArrangedWords([])
+        } else {
+          // Completed all ayahs for this difficulty
+          const newWords = generateInitialWords(difficultyLevel)
+          setWordPool(newWords)
+          setArrangedWords([])
+          setCurrentAyahIndex(0)
+        }
         setFeedback("")
       }, 1500)
     } else {
@@ -114,7 +130,7 @@ function MakeQuranicAyatsGame({ difficulty, initialAyatCount }: GameProps) {
   }
 
   const resetGame = () => {
-    const newWords = generateInitialWords(difficultyLevel, initialAyatCount)
+    const newWords = generateInitialWords(difficultyLevel)
     setWordPool(newWords)
     setArrangedWords([])
     setFeedback("")
