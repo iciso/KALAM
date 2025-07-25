@@ -277,7 +277,7 @@ function MakeQuranicAyatsGame({ difficulty, initialAyatCount }: GameProps) {
             className="bg-gray-600 hover:bg-gray-700 text-white font-bold py-3 px-6 rounded-lg flex-1"
             onClick={resetGame}
           >
-            Reset
+            Next
           </button>
         </div>
 
