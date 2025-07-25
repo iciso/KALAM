@@ -655,39 +655,34 @@ const FillInTheBlanks: React.FC = () => {
     }
   };
 
-  const handleNextSentence = () => {
-    if (selectedWord === currentSentence.correctAnswer) {
-      if (currentSentenceIndex < currentSet.sentences.length - 1) {
-        setCurrentSentenceIndex(currentSentenceIndex + 1);
-        setSelectedWord('');
-        setFeedback('');
-        setShowTranslation(false);
-        setShowHint(false);
+  // Replace the current handleNextSentence function done on 25 Jul:
+const handleNextSentence = () => {
+  if (selectedWord === currentSentence.correctAnswer) {
+    if (currentSentenceIndex < currentSet.sentences.length - 1) {
+      setCurrentSentenceIndex(currentSentenceIndex + 1);
+      setSelectedWord('');
+      setFeedback('');
+      setShowTranslation(false);
+      setShowHint(false);
+    } else {
+      // Calculate total possible score for this set
+      const setTotalScore = currentSet.sentences.length * 10;
+      
+      // Navigate to results page with all parameters
+      router.push(`/results?score=${score}&set=${currentSet.id}&totalScore=${totalScore}&setTotal=${setTotalScore}`);
+      
+      // Reset for next set
+      if (currentSetIndex < sentenceSets.length - 1) {
+        setCurrentSetIndex(currentSetIndex + 1);
       } else {
-        // Navigate to results page with current score and total score
-        router.push(`/results?score=${score}&set=${currentSet.id}&totalScore=${totalScore}`);
-        // Move to next set if available
-        if (currentSetIndex < sentenceSets.length - 1) {
-          setCurrentSetIndex(currentSetIndex + 1);
-          setCurrentSentenceIndex(0);
-          setScore(0);
-          setSelectedWord('');
-          setFeedback('');
-          setShowTranslation(false);
-          setShowHint(false);
-        } else {
-          // Reset to first set when all sets are completed
-          setCurrentSetIndex(0);
-          setCurrentSentenceIndex(0);
-          setScore(0);
-          setSelectedWord('');
-          setFeedback('');
-          setShowTranslation(false);
-          setShowHint(false);
-        }
+        setCurrentSetIndex(0); // Loop back to first set
       }
+      setCurrentSentenceIndex(0);
+      setScore(0);
     }
-  };
+  }
+};
+
 
   const toggleTranslation = () => setShowTranslation(!showTranslation);
   const toggleHint = () => setShowHint(!showHint);
