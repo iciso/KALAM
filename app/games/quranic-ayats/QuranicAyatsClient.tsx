@@ -1,3 +1,5 @@
+"use client"
+
 import { useState, useEffect } from "react"
 import { useDrag, useDrop } from "react-dnd"
 import { HTML5Backend } from "react-dnd-html5-backend"
@@ -28,7 +30,6 @@ interface WordProps {
   isInPool: boolean
 }
 
-// Corrected mobile detection hook - FIXED
 const useMobileDetect = () => {
   const [isMobile, setIsMobile] = useState(false)
 
@@ -48,7 +49,6 @@ const useMobileDetect = () => {
   return isMobile
 }
 
-// Word component with improved styling and feedback
 function Word({ word, isMobile, onClick, onTouchEnd, isInPool }: WordProps) {
   const [{ isDragging }, drag] = useDrag(() => ({
     type: "WORD",
@@ -87,7 +87,6 @@ function Word({ word, isMobile, onClick, onTouchEnd, isInPool }: WordProps) {
   )
 }
 
-// Main game component with enhanced UX
 function MakeQuranicAyatsGame({ difficulty, initialAyatCount }: GameProps) {
   const isMobile = useMobileDetect()
   const [wordPool, setWordPool] = useState<WordItem[]>([])
@@ -100,12 +99,10 @@ function MakeQuranicAyatsGame({ difficulty, initialAyatCount }: GameProps) {
   const [isChecking, setIsChecking] = useState(false)
   const [gameComplete, setGameComplete] = useState(false)
 
-  // Get current ayah data
   const currentAyahData = quranicAyatsGameData[difficultyLevel][currentSetIndex]?.[currentAyahIndex]
   const currentAyahTranslation = quranicAyatsGameData.translations[difficultyLevel][currentSetIndex]?.[currentAyahIndex]
   const correctOrder = quranicAyatsGameData.correctOrders[difficultyLevel][currentSetIndex]?.[currentAyahIndex]
 
-  // Initialize words based on difficulty
   useEffect(() => {
     resetGameState()
   }, [difficultyLevel, currentSetIndex, currentAyahIndex])
@@ -129,11 +126,9 @@ function MakeQuranicAyatsGame({ difficulty, initialAyatCount }: GameProps) {
 
   const handleWordClick = (word: WordItem) => {
     if (wordPool.includes(word)) {
-      // Move from pool to arrangement
       setWordPool(wordPool.filter(w => w.id !== word.id))
       setArrangedWords([...arrangedWords, word])
     } else {
-      // Move from arrangement back to pool
       setArrangedWords(arrangedWords.filter(w => w.id !== word.id))
       setWordPool([...wordPool, word])
     }
@@ -407,7 +402,6 @@ function MakeQuranicAyatsGame({ difficulty, initialAyatCount }: GameProps) {
   )
 }
 
-// Wrapper component with DnD provider
 export default function QuranicAyatsWrapper({ difficulty, initialAyatCount }: GameProps) {
   const [isMounted, setIsMounted] = useState(false)
   const isMobile = useMobileDetect()
