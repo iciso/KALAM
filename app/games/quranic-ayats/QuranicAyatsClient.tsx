@@ -243,7 +243,7 @@ const checkAnswer = (words: WordItem[]) => {
           </div>
         </div>
         
-                // Add translation display (place near the arrangement area)
+
           {showTranslation && (
           <div className="mt-4 p-3 bg-blue-50 rounded-md text-center text-blue-800">
           <p className="font-semibold">Translation:</p>
@@ -280,7 +280,6 @@ const checkAnswer = (words: WordItem[]) => {
         )}
 
         <div className="flex gap-4 mt-8">
-              // Add hint button to the UI (place near the check answer button)
               <button 
                 className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg flex-1"
                 onClick={() => setShowTranslation(!showTranslation)}
