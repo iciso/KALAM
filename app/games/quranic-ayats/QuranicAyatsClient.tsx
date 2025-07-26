@@ -30,14 +30,17 @@ interface WordProps {
   isInPool: boolean
 }
 
+// Corrected mobile detection hook - FINAL FIX
 const useMobileDetect = () => {
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
     const checkIfMobile = () => {
-      setIsMobile(
+      const isMobileDevice = (
         window.innerWidth <= 768 ||
         /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+      )
+      setIsMobile(isMobileDevice)
     }
     
     checkIfMobile()
@@ -48,6 +51,7 @@ const useMobileDetect = () => {
 
   return isMobile
 }
+
 
 function Word({ word, isMobile, onClick, onTouchEnd, isInPool }: WordProps) {
   const [{ isDragging }, drag] = useDrag(() => ({
