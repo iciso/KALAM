@@ -11,18 +11,37 @@ import { Button } from "@/components/ui/button"
 import { Check, RefreshCw, Eye, EyeOff, ChevronRight } from "lucide-react"
 import { toast } from "sonner"
 
-// Default data structure
-const defaultGameData = {
-  easy: [] as any[],
-  medium: [] as any[],
-  hard: [] as any[],
-  translations: {} as Record<string, any>,
-  correctOrders: {} as Record<string, any>
-}
-
-interface WordItem {
+// Type definitions matching your data structure
+type WordItem = {
   id: string
   text: string
+}
+
+type GameData = {
+  easy: WordItem[][]
+  medium: WordItem[][]
+  hard: WordItem[][]
+  correctOrders: {
+    easy: string[][]
+    medium: string[][]
+    hard: string[][]
+  }
+  translations?: {
+    easy?: string[]
+    medium?: string[]
+    hard?: string[]
+  }
+}
+
+const defaultGameData: GameData = {
+  easy: [[{ id: 'default', text: 'Loading...' }]],
+  medium: [[{ id: 'default', text: 'Loading...' }]],
+  hard: [[{ id: 'default', text: 'Loading...' }]],
+  correctOrders: {
+    easy: [['default']],
+    medium: [['default']],
+    hard: [['default']]
+  }
 }
 
 interface GameProps {
@@ -43,11 +62,10 @@ const useMobileDetect = () => {
 
   useEffect(() => {
     const checkIfMobile = () => {
-      const isMobileDevice = (
+      setIsMobile(
         window.innerWidth <= 768 ||
         /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
       )
-      setIsMobile(isMobileDevice)
     }
     
     checkIfMobile()
@@ -98,18 +116,33 @@ function Word({ word, isMobile, onClick, onTouchEnd, isInPool }: WordProps) {
 }
 
 function MakeQuranicAyatsGame({ difficulty, initialAyatCount }: GameProps) {
-  const [gameData, setGameData] = useState(defaultGameData)
+  const [gameData, setGameData] = useState<GameData>(defaultGameData)
   const [dataLoaded, setDataLoaded] = useState(false)
+  const [dataError, setDataError] = useState(false)
   const isMobile = useMobileDetect()
 
   useEffect(() => {
     const loadGameData = async () => {
       try {
         const module = await import("@/data/quranic-ayats-game-data")
+        
+        if (!module.quranicAyatsGameData) {
+          throw new Error("Game data module is missing")
+        }
+
+        // Validate the loaded data
+        const requiredKeys = ['easy', 'medium', 'hard', 'correctOrders']
+        const isValid = requiredKeys.every(key => key in module.quranicAyatsGameData)
+        
+        if (!isValid) {
+          throw new Error("Game data structure is invalid")
+        }
+
         setGameData(module.quranicAyatsGameData)
         setDataLoaded(true)
       } catch (error) {
-        console.error("Failed to load game data:", error)
+        console.error("Data loading failed:", error)
+        setDataError(true)
         toast.error("Failed to load game data. Please refresh the page.")
       }
     }
@@ -130,10 +163,27 @@ function MakeQuranicAyatsGame({ difficulty, initialAyatCount }: GameProps) {
 
   // Initialize words based on difficulty
   useEffect(() => {
-    if (dataLoaded) {
+    if (dataLoaded && !dataError) {
       resetGameState()
     }
-  }, [difficultyLevel, currentSetIndex, currentAyahIndex, dataLoaded])
+  }, [difficultyLevel, currentSetIndex, currentAyahIndex, dataLoaded, dataError])
+
+  if (dataError) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <div className="text-center p-6 bg-red-50 rounded-lg">
+          <h2 className="text-2xl font-bold text-red-600 mb-4">Error Loading Game</h2>
+          <p className="mb-4">Failed to load Quranic verses data.</p>
+          <Button 
+            onClick={() => window.location.reload()}
+            variant="destructive"
+          >
+            Refresh Page
+          </Button>
+        </div>
+      </div>
+    )
+  }
 
   if (!dataLoaded) {
     return (
@@ -146,9 +196,10 @@ function MakeQuranicAyatsGame({ difficulty, initialAyatCount }: GameProps) {
     )
   }
 
-  const currentAyahData = gameData[difficultyLevel][currentSetIndex]?.[currentAyahIndex]
-  const currentAyahTranslation = gameData.translations[difficultyLevel][currentSetIndex]?.[currentAyahIndex]
-  const correctOrder = gameData.correctOrders[difficultyLevel][currentSetIndex]?.[currentAyahIndex]
+  // Safely get current ayah data
+  const currentAyahData = gameData[difficultyLevel]?.[currentSetIndex] || []
+  const currentAyahTranslation = gameData.translations?.[difficultyLevel]?.[currentSetIndex] || ''
+  const correctOrder = gameData.correctOrders[difficultyLevel]?.[currentSetIndex] || []
 
   const resetGameState = () => {
     const initialWords = generateInitialWords()
@@ -159,7 +210,7 @@ function MakeQuranicAyatsGame({ difficulty, initialAyatCount }: GameProps) {
   }
 
   const generateInitialWords = (): WordItem[] => {
-    if (!currentAyahData) return []
+    if (!currentAyahData || currentAyahData.length === 0) return []
     return shuffleArray([...currentAyahData])
   }
 
@@ -190,7 +241,7 @@ function MakeQuranicAyatsGame({ difficulty, initialAyatCount }: GameProps) {
   })
 
   const checkAnswer = () => {
-    if (!correctOrder) return
+    if (!correctOrder || correctOrder.length === 0) return
     
     setIsChecking(true)
     const isCorrect = arrangedWords.length === correctOrder.length && 
@@ -219,7 +270,7 @@ function MakeQuranicAyatsGame({ difficulty, initialAyatCount }: GameProps) {
 
   const moveToNextAyah = () => {
     const nextAyahIndex = currentAyahIndex + 1
-    const currentSet = gameData[difficultyLevel][currentSetIndex]
+    const currentSet = gameData[difficultyLevel]
     
     if (nextAyahIndex < currentSet.length) {
       setCurrentAyahIndex(nextAyahIndex)
