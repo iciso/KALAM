@@ -102,29 +102,6 @@ export const quranicAyatsGameData = {
       { id: 'h5-4', text: 'قليلا' }
     ]
   ],
-  translations: {
-  easy: [
-    "In the name of Allah, the Entirely Merciful, the Especially Merciful",
-    "[All] praise is [due] to Allah, Lord of the worlds",
-    "The Entirely Merciful, the Especially Merciful",
-    "Sovereign of the Day of Recompense",
-    "It is You we worship and You we ask for help"
-  ],
-  medium: [
-    "Allah - there is no deity except Him",
-    "the Ever-Living, the Sustainer of existence",
-    "Neither drowsiness overtakes Him nor sleep",
-    "Say, 'He is Allah, [who is] One'",
-    "Allah, the Eternal Refuge"
-  ],
-  hard: [
-    "And when My servants ask you concerning Me",
-    "then indeed I am near",
-    "I respond to the invocation of the supplicant",
-    "O you who wraps himself [in clothing]",
-    "Stand [in prayer] by night, except for a little"
-  ]
-}
   correctOrders: {
     easy: [
       ['1-1', '1-2', '1-3', '1-4'], // Bismillah
@@ -147,5 +124,28 @@ export const quranicAyatsGameData = {
       ['h4-1', 'h4-2', 'h4-3'],          // Ya ayyuhal-muzzammil
       ['h5-1', 'h5-2', 'h5-3', 'h5-4']   // Qumil-layla illa qaleela
     ]
+    ],
+  translations: {
+  easy: [
+    "In the name of Allah, the Entirely Merciful, the Especially Merciful",
+    "[All] praise is [due] to Allah, Lord of the worlds",
+    "The Entirely Merciful, the Especially Merciful",
+    "Sovereign of the Day of Recompense",
+    "It is You we worship and You we ask for help"
+  ],
+  medium: [
+    "Allah - there is no deity except Him",
+    "the Ever-Living, the Sustainer of existence",
+    "Neither drowsiness overtakes Him nor sleep",
+    "Say, 'He is Allah, [who is] One'",
+    "Allah, the Eternal Refuge"
+  ],
+  hard: [
+    "And when My servants ask you concerning Me",
+    "then indeed I am near",
+    "I respond to the invocation of the supplicant",
+    "O you who wraps himself [in clothing]",
+    "Stand [in prayer] by night, except for a little"
+  ]
   }
 }
