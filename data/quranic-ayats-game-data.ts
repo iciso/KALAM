@@ -102,29 +102,29 @@ export const quranicAyatsGameData = {
       { id: 'h5-4', text: 'قليلا' }
     ]
   ],
-  correctOrders: {
-    easy: [
-      ['1-1', '1-2', '1-3', '1-4'], // Bismillah
-      ['2-1', '2-2', '2-3', '2-4'], // Alhamdulillah
-      ['3-1', '3-2'],                // Ar-Rahmanir-Raheem
-      ['4-1', '4-2', '4-3'],         // Maaliki yawmid-deen
-      ['5-1', '5-2', '5-3', '5-4']   // Iyyaka na'budu
-    ],
-    medium: [
-      ['m1-1', 'm1-2', 'm1-3', 'm1-4', 'm1-5'], // Allahu la ilaha illa huwa
-      ['m2-1', 'm2-2'],                          // Al-Hayyul Qayyum
-      ['m3-1', 'm3-2', 'm3-3', 'm3-4', 'm3-5'],  // La ta'khudhuhu sinatun wa la nawm
-      ['m4-1', 'm4-2', 'm4-3', 'm4-4'],          // Qul huwa Allahu ahad
-      ['m5-1', 'm5-2']                           // Allahus-Samad
-    ],
-    hard: [
-      ['h1-1', 'h1-2', 'h1-3', 'h1-4'], // Wa idha sa'alaka
-      ['h2-1', 'h2-2'],                  // Fa inni qareeb
-      ['h3-1', 'h3-2', 'h3-3'],          // Ujeebu da'watad-da'i
-      ['h4-1', 'h4-2', 'h4-3'],          // Ya ayyuhal-muzzammil
-      ['h5-1', 'h5-2', 'h5-3', 'h5-4']   // Qumil-layla illa qaleela
-    ]
-    ],
+ correctOrders: {
+  easy: [
+    ['1-1', '1-2', '1-3', '1-4'],
+    ['2-1', '2-2', '2-3', '2-4'],
+    ['3-1', '3-2'],
+    ['4-1', '4-2', '4-3'],
+    ['5-1', '5-2', '5-3', '5-4']
+  ],
+  medium: [
+    ['m1-1', 'm1-2', 'm1-3', 'm1-4', 'm1-5'],
+    ['m2-1', 'm2-2'],
+    ['m3-1', 'm3-2', 'm3-3', 'm3-4', 'm3-5'],
+    ['m4-1', 'm4-2', 'm4-3', 'm4-4'],
+    ['m5-1', 'm5-2']
+  ],
+  hard: [  // Removed extra comma after this array
+    ['h1-1', 'h1-2', 'h1-3', 'h1-4'],
+    ['h2-1', 'h2-2'],
+    ['h3-1', 'h3-2', 'h3-3'],
+    ['h4-1', 'h4-2', 'h4-3'],
+    ['h5-1', 'h5-2', 'h5-3', 'h5-4']
+  ]  // This was the line with extra comma
+},
   translations: {
   easy: [
     "In the name of Allah, the Entirely Merciful, the Especially Merciful",
