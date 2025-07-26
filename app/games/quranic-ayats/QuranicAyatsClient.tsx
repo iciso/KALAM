@@ -410,30 +410,21 @@ function MakeQuranicAyatsGame({ difficulty, initialAyatCount }: GameProps) {
 }
 
 // Wrapper component with DnD provider
-export default function QuranicAyatsWrapper({ difficulty, initialAyatCount }: GameProps) {
-  const [isMounted, setIsMounted] = useState(false)
-  const isMobile = useMobileDetect()
+const useMobileDetect = () => {
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
-    setIsMounted(true)
+    const checkIfMobile = () => {
+      setIsMobile(
+        window.innerWidth <= 768 ||
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+    }
+    
+    checkIfMobile()
+    window.addEventListener('resize', checkIfMobile)
+    
+    return () => window.removeEventListener('resize', checkIfMobile)
   }, [])
 
-  if (!isMounted) {
-    return (
-      <div className="container mx-auto py-8 text-center">
-        Loading game components...
-      </div>
-    )
-  }
-
-  return (
-    <DndProvider backend={isMobile ? TouchBackend : HTML5Backend} options={{
-      enableMouseEvents: true,
-      delayTouchStart: 150,
-      delay: 0,
-      touchSlop: 5
-    }}>
-      <MakeQuranicAyatsGame difficulty={difficulty} initialAyatCount={initialAyatCount} />
-    </DndProvider>
-  )
+  return isMobile
 }
