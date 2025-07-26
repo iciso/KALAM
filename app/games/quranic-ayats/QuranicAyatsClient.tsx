@@ -138,7 +138,7 @@ const [currentSetIndex, setCurrentSetIndex] = useState(0);
     },
   })
 
-  / Update the checkAnswer function
+  // Update the checkAnswer function
 const checkAnswer = (words: WordItem[]) => {
   const correctOrder = quranicAyatsGameData.correctOrders[difficultyLevel][currentSetIndex][currentAyahIndex];
   const isCorrect = words.length === correctOrder.length && 
