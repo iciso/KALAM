@@ -1,4 +1,4 @@
-// app/data/quranic-ayats-game-data.ts
+// app/data/quranic-ayats-game-data.ts 
 export const quranicAyatsGameData = {
   easy: [
     // 1st Ayah (Bismillah)
