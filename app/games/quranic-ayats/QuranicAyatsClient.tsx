@@ -92,6 +92,10 @@ function MakeQuranicAyatsGame({ difficulty, initialAyatCount }: GameProps) {
   const [feedback, setFeedback] = useState("")
   const [currentAyahIndex, setCurrentAyahIndex] = useState(0)
 
+    // Add these new state variables
+const [showTranslation, setShowTranslation] = useState(false);
+const [currentSetIndex, setCurrentSetIndex] = useState(0);
+
   // Initialize words based on difficulty
   useEffect(() => {
     const initialWords = generateInitialWords(difficultyLevel)
@@ -134,58 +138,58 @@ function MakeQuranicAyatsGame({ difficulty, initialAyatCount }: GameProps) {
     },
   })
 
-  const checkAnswer = (words: WordItem[]) => {
-    const correctOrder = quranicAyatsGameData.correctOrders[difficultyLevel][currentAyahIndex]
-    const isCorrect = words.length === correctOrder.length && 
-                     words.every((word, index) => word.id === correctOrder[index])
+  / Update the checkAnswer function
+const checkAnswer = (words: WordItem[]) => {
+  const correctOrder = quranicAyatsGameData.correctOrders[difficultyLevel][currentSetIndex][currentAyahIndex];
+  const isCorrect = words.length === correctOrder.length && 
+                   words.every((word, index) => word.id === correctOrder[index]);
+  
+  if (isCorrect) {
+    setScore(score + 5); // 5 points per correct answer
+    setFeedback("Correct! Well done.");
+    setShowTranslation(true); // Show translation on correct answer
     
-    if (isCorrect) {
-      setScore(score + 5)
-      setFeedback("Correct! Masha Allah! Well done.")
+    setTimeout(() => {
+      const nextAyahIndex = currentAyahIndex + 1;
+      const currentSet = quranicAyatsGameData[difficultyLevel][currentSetIndex];
       
-      setTimeout(() => {
-        const nextAyahIndex = currentAyahIndex + 1
-        const currentLevel = quranicAyatsGameData[difficultyLevel]
-        
-        if (nextAyahIndex < currentLevel.length) {
-          setCurrentAyahIndex(nextAyahIndex)
-          const newWords = generateInitialWords(difficultyLevel)
-          setWordPool(newWords)
-          setArrangedWords([])
+      if (nextAyahIndex < currentSet.length) {
+        setCurrentAyahIndex(nextAyahIndex);
+        const newWords = generateInitialWords(difficultyLevel);
+        setWordPool(newWords);
+        setArrangedWords([]);
+        setShowTranslation(false);
+      } else {
+        // Move to next set or difficulty
+        const nextSetIndex = currentSetIndex + 1;
+        if (nextSetIndex < quranicAyatsGameData[difficultyLevel].length) {
+          setCurrentSetIndex(nextSetIndex);
+          setCurrentAyahIndex(0);
+          const newWords = generateInitialWords(difficultyLevel);
+          setWordPool(newWords);
         } else {
+          // Completed all sets in this difficulty
           if (difficultyLevel === 'hard') {
-            setFeedback(`Masha Allah! Congratulations! Final Score: ${score + 5}`)
-            setTimeout(() => {
-              setScore(0)
-              setDifficultyLevel('easy')
-              setCurrentAyahIndex(0)
-              const newWords = generateInitialWords('easy')
-              setWordPool(newWords)
-              setArrangedWords([])
-            }, 3000)
+            setFeedback(`Congratulations! Final Score: ${score + 5}`);
           } else {
+            // Move to next difficulty
             const nextDifficulty = 
-              difficultyLevel === 'easy' ? 'medium' : 
-              difficultyLevel === 'medium' ? 'hard' : 'easy'
-            
-            setFeedback(`Level Complete! Alhamdulilah! Score: ${score + 5}. Moving to ${nextDifficulty} level.`)
-            setTimeout(() => {
-              setDifficultyLevel(nextDifficulty)
-              setCurrentAyahIndex(0)
-              const newWords = generateInitialWords(nextDifficulty)
-              setWordPool(newWords)
-              setArrangedWords([])
-              setScore(0)
-            }, 3000)
+              difficultyLevel === 'easy' ? 'medium' : 'hard';
+            setDifficultyLevel(nextDifficulty);
+            setCurrentSetIndex(0);
+            setCurrentAyahIndex(0);
           }
         }
-        setFeedback("")
-      }, 1500)
-    } else {
-      setFeedback("Not quite right. Try again!")
-    }
+        setArrangedWords([]);
+      }
+      setFeedback("");
+    }, 1500);
+  } else {
+    setFeedback("Not quite right. Try again!");
   }
+};
 
+//Reset Game
   const resetGame = () => {
     const newWords = generateInitialWords(difficultyLevel)
     setWordPool(newWords)
@@ -239,6 +243,15 @@ function MakeQuranicAyatsGame({ difficulty, initialAyatCount }: GameProps) {
           </div>
         </div>
         
+                // Add translation display (place near the arrangement area)
+          {showTranslation && (
+          <div className="mt-4 p-3 bg-blue-50 rounded-md text-center text-blue-800">
+          <p className="font-semibold">Translation:</p>
+          <p>{currentAyahTranslation}</p>
+          </div>
+          )}
+
+
         <div className="arrangement-area" ref={drop}>
           <h2 className="text-xl font-semibold mb-4">Your Arrangement</h2>
           <div dir="rtl" className="flex flex-col gap-2 min-h-32 border-2 border-dashed p-4 rounded-lg">
@@ -267,6 +280,15 @@ function MakeQuranicAyatsGame({ difficulty, initialAyatCount }: GameProps) {
         )}
 
         <div className="flex gap-4 mt-8">
+              // Add hint button to the UI (place near the check answer button)
+              <button 
+                className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg flex-1"
+                onClick={() => setShowTranslation(!showTranslation)}
+                >
+              {showTranslation ? 'Hide Translation' : 'Show Hint'}
+            </button>
+
+
           <button 
             className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg flex-1"
             onClick={() => checkAnswer(arrangedWords)}
