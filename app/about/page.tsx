@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { KalamAcronym } from "@/components/kalam-acronym"
 
 /*
-KALAM To do list:
+KALAM To do list: 
 Acknowledge all other AI contributors like Grok, DeepSeek, and Gemini
 Make all Games, quizzes, and pages Mobile Responsive one by one
 Maintain uniform UI and UX as if one AI did the entire project
