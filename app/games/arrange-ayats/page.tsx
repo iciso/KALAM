@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from 'react';
-import { render } from 'react-dom';
 import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 
@@ -30,7 +29,6 @@ const ayatData = {
     { id: 13, passage: ["إِنَّ مَعَ ٱلْعُسْرِ يُسْرًا", "فَإِذَا فَرَغْتَ فَٱنصَبْ", "وَإِلَىٰ رَبِّكَ فَٱرْغَبْ", "إِنَّ مَعَ ٱلْعُسْرِ يُسْرًا"] },
     { id: 14, passage: ["قُلْ أَعُوذُ بِرَبِّ ٱلْفَلَقِ", "مِن شَرِّ مَا خَلَقَ", "وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ", "وَمِن شَرِّ ٱلنَّفَّٰثَٰتِ فِي ٱلْعُقَدِ"] },
     { id: 15, passage: ["قُلْ أَعُوذُ بِرَبِّ ٱلنَّاسِ", "مَلِكِ ٱلنَّاسِ", "إِلَٰهِ ٱلنَّاسِ", "مِن شَرِّ ٱلْوَسْوَاسِ ٱلْخَنَّاسِ"] }
-  ],
 };
 
 const AyatItem = ({ id, text, index, moveAyat }) => {
@@ -117,10 +115,4 @@ const Game = () => {
   );
 };
 
-const root = document.getElementById('root');
-render(
-  <DndProvider backend={HTML5Backend}>
-    <Game />
-  </DndProvider>,
-  root
-);
+export default Game;
