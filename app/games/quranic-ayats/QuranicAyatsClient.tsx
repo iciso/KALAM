@@ -15,6 +15,7 @@ import { quranicAyatsGameData } from "@/data/quranic-ayats-game-data"
 interface WordItem {
   id: string
   text: string
+  translation: string
 }
 
 interface GameProps {
@@ -30,12 +31,10 @@ const useMobileDetect = () => {
       setIsMobile(
         window.innerWidth <= 768 ||
         /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
-      )
     }
     
     checkIfMobile()
     window.addEventListener('resize', checkIfMobile)
-    
     return () => window.removeEventListener('resize', checkIfMobile)
   }, [])
 
@@ -61,16 +60,13 @@ function Word({ word, isMobile, onClick, onTouchEnd }: {
       ref={drag}
       onClick={onClick}
       onTouchEnd={onTouchEnd}
-      className={`
-        cursor-move select-none
+      className={`cursor-move select-none
         ${isDragging ? 'opacity-50 scale-95' : 'opacity-100'}
         ${isMobile ? 'py-3 px-4 text-lg' : 'py-2 px-4 text-xl'}
         bg-white dark:bg-gray-800 rounded-lg shadow-md
         border border-gray-200 dark:border-gray-700
         active:scale-95 transition-all duration-150
-        arabic-text
-        flex items-center justify-center
-      `}
+        arabic-text flex items-center justify-center`}
       style={{
         touchAction: 'none',
         userSelect: 'none',
@@ -97,11 +93,18 @@ function MakeQuranicAyatsGame({ difficulty, initialAyatCount }: GameProps) {
   const [gameComplete, setGameComplete] = useState(false)
   const [dataError, setDataError] = useState<Error | null>(null)
 
+  // Get full translation for current ayah
+  const getCurrentAyahTranslation = () => {
+    const currentAyah = quranicAyatsGameData[difficultyLevel]?.[currentSetIndex]
+    if (!currentAyah) return ""
+    return currentAyah.map(word => word.translation).join(" ")
+  }
+
   const generateInitialWords = (): WordItem[] => {
     try {
-      const currentAyah = quranicAyatsGameData[difficultyLevel]?.[currentSetIndex]?.[currentAyahIndex]
+      const currentAyah = quranicAyatsGameData[difficultyLevel]?.[currentSetIndex]
       if (!currentAyah || !Array.isArray(currentAyah)) {
-        throw new Error(`Invalid ayah data at ${difficultyLevel}[${currentSetIndex}][${currentAyahIndex}]`)
+        throw new Error(`Invalid ayah data at ${difficultyLevel}[${currentSetIndex}]`)
       }
       return shuffleArray([...currentAyah])
     } catch (error) {
@@ -137,7 +140,7 @@ function MakeQuranicAyatsGame({ difficulty, initialAyatCount }: GameProps) {
       console.error('Data validation failed:', error)
       setDataError(error instanceof Error ? error : new Error('Invalid game data'))
     }
-  }, [difficultyLevel, currentSetIndex, currentAyahIndex])
+  }, [difficultyLevel, currentSetIndex])
 
   const handleWordClick = (word: WordItem) => {
     if (wordPool.includes(word)) {
@@ -161,8 +164,7 @@ function MakeQuranicAyatsGame({ difficulty, initialAyatCount }: GameProps) {
     },
   })
 
-  const currentAyahTranslation = quranicAyatsGameData.translations[difficultyLevel]?.[currentSetIndex]?.[currentAyahIndex]
-  const correctOrder = quranicAyatsGameData.correctOrders[difficultyLevel]?.[currentSetIndex]?.[currentAyahIndex]
+  const correctOrder = quranicAyatsGameData.correctOrders[difficultyLevel]?.[currentSetIndex]
 
   const checkAnswer = () => {
     if (!correctOrder) {
@@ -189,25 +191,13 @@ function MakeQuranicAyatsGame({ difficulty, initialAyatCount }: GameProps) {
   }
 
   const moveToNextAyah = () => {
-    const nextAyahIndex = currentAyahIndex + 1
-    const currentSet = quranicAyatsGameData[difficultyLevel][currentSetIndex]
-    
-    if (nextAyahIndex < currentSet.length) {
-      setCurrentAyahIndex(nextAyahIndex)
-    } else {
-      moveToNextSet()
-    }
-    resetGameState()
-  }
-
-  const moveToNextSet = () => {
     const nextSetIndex = currentSetIndex + 1
     if (nextSetIndex < quranicAyatsGameData[difficultyLevel].length) {
       setCurrentSetIndex(nextSetIndex)
-      setCurrentAyahIndex(0)
     } else {
       completeGame()
     }
+    resetGameState()
   }
 
   const completeGame = () => {
@@ -221,7 +211,6 @@ function MakeQuranicAyatsGame({ difficulty, initialAyatCount }: GameProps) {
       const nextDifficulty = difficultyLevel === 'easy' ? 'medium' : 'hard'
       setDifficultyLevel(nextDifficulty)
       setCurrentSetIndex(0)
-      setCurrentAyahIndex(0)
       toast.info(`Moving to ${nextDifficulty} level!`, { duration: 2000 })
     }
   }
@@ -241,9 +230,7 @@ function MakeQuranicAyatsGame({ difficulty, initialAyatCount }: GameProps) {
       <div className="container mx-auto py-8 text-center">
         <h2 className="text-2xl font-bold text-red-600 mb-4">Error Loading Game</h2>
         <p className="text-lg mb-6">{dataError.message}</p>
-        <Button onClick={() => window.location.reload()}>
-          Reload Page
-        </Button>
+        <Button onClick={() => window.location.reload()}>Reload Page</Button>
       </div>
     )
   }
@@ -261,7 +248,6 @@ function MakeQuranicAyatsGame({ difficulty, initialAyatCount }: GameProps) {
           onClick={() => {
             setDifficultyLevel('easy')
             setCurrentSetIndex(0)
-            setCurrentAyahIndex(0)
             setScore(0)
             resetGameState()
           }}
@@ -294,7 +280,6 @@ function MakeQuranicAyatsGame({ difficulty, initialAyatCount }: GameProps) {
               onValueChange={(value) => {
                 setDifficultyLevel(value as "easy" | "medium" | "hard")
                 setCurrentSetIndex(0)
-                setCurrentAyahIndex(0)
                 setScore(0)
               }}
               className="w-[300px]"
@@ -361,10 +346,10 @@ function MakeQuranicAyatsGame({ difficulty, initialAyatCount }: GameProps) {
             </Button>
           </div>
           
-          {showTranslation && currentAyahTranslation && (
+          {showTranslation && (
             <div className="mt-4 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-md text-center">
               <p className="font-semibold text-blue-800 dark:text-blue-200">Translation:</p>
-              <p className="text-blue-700 dark:text-blue-300">{currentAyahTranslation}</p>
+              <p className="text-blue-700 dark:text-blue-300">{getCurrentAyahTranslation()}</p>
             </div>
           )}
         </CardContent>
@@ -441,11 +426,7 @@ export default function QuranicAyatsWrapper({ difficulty, initialAyatCount }: Ga
   }, [])
 
   if (!isMounted) {
-    return (
-      <div className="container mx-auto py-8 text-center">
-        Loading game components...
-      </div>
-    )
+    return <div className="container mx-auto py-8 text-center">Loading game components...</div>
   }
 
   return (
