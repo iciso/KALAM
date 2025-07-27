@@ -1,6 +1,5 @@
 import Link from "next/link" 
-import { Album, ArrowLeft, Github } from "lucide-react"
-import { MessageSquare } from "lucide-react"
+import { ArrowRight, ArrowLeft, Github, BookOpen, Database, Album, Users, Clock, Trophy, Gamepad2, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button"
 import { KalamAcronym } from "@/components/kalam-acronym"
 
