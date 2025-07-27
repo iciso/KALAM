@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowLeft, Github } from "lucide-react"
+import { Album, ArrowLeft, Github } from "lucide-react"
 import { MessageSquare } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { KalamAcronym } from "@/components/kalam-acronym"
