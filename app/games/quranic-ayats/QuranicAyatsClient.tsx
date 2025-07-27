@@ -1,382 +1,127 @@
-"use client"  
+"use client"
 
-import { useState, useEffect } from "react"
-import { useDrag, useDrop } from "react-dnd"
-import { HTML5Backend } from "react-dnd-html5-backend"
-import { TouchBackend } from "react-dnd-touch-backend"
-import { DndProvider } from "react-dnd"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { useState } from "react"
+import MakeQuranicAyatsGame from "@/components/make-quranic-ayats-game"
 import { Button } from "@/components/ui/button"
-import { Check, RefreshCw, Eye, EyeOff, ChevronRight } from "lucide-react"
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Info, ChevronRight, Eye, EyeOff } from "lucide-react"
 import { toast } from "sonner"
 
-// Type definitions matching your data structure
-type WordItem = {
-  id: string
-  text: string
-}
-
-type GameData = {
-  easy: WordItem[][]
-  medium: WordItem[][]
-  hard: WordItem[][]
-  correctOrders: {
-    easy: string[][]
-    medium: string[][]
-    hard: string[][]
-  }
-  translations?: {
-    easy?: string[]
-    medium?: string[]
-    hard?: string[]
-  }
-}
-
-const defaultGameData: GameData = {
-  easy: [[{ id: 'default', text: 'Loading...' }]],
-  medium: [[{ id: 'default', text: 'Loading...' }]],
-  hard: [[{ id: 'default', text: 'Loading...' }]],
-  correctOrders: {
-    easy: [['default']],
-    medium: [['default']],
-    hard: [['default']]
-  }
-}
-
-interface GameProps {
-  difficulty: "easy" | "medium" | "hard"
-  initialAyatCount: number
-}
-
-interface WordProps {
-  word: WordItem
-  isMobile: boolean
-  onClick: () => void
-  onTouchEnd: () => void
-  isInPool: boolean
-}
-
-const useMobileDetect = () => {
-  const [isMobile, setIsMobile] = useState(false)
-
-  useEffect(() => {
-    const checkIfMobile = () => {
-      setIsMobile(
-        window.innerWidth <= 768 ||
-        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
-      )
-    }
-    
-    checkIfMobile()
-    window.addEventListener('resize', checkIfMobile)
-    
-    return () => window.removeEventListener('resize', checkIfMobile)
-  }, [])
-
-  return isMobile
-}
-
-function Word({ word, isMobile, onClick, onTouchEnd, isInPool }: WordProps) {
-  const [{ isDragging }, drag] = useDrag(() => ({
-    type: "WORD",
-    item: { id: word.id },
-    collect: (monitor) => ({
-      isDragging: !!monitor.isDragging(),
-    }),
-  }))
-
-  return (
-    <div
-      ref={drag}
-      onClick={onClick}
-      onTouchEnd={onTouchEnd}
-      className={`
-        cursor-move select-none
-        ${isDragging ? 'opacity-50 scale-95' : 'opacity-100'}
-        ${isMobile ? 'py-3 px-4 text-lg' : 'py-2 px-4 text-xl'}
-        ${isInPool ? 'bg-white dark:bg-gray-800' : 'bg-emerald-50 dark:bg-emerald-900/50'}
-        rounded-lg shadow-md
-        border ${isInPool ? 'border-gray-200 dark:border-gray-700' : 'border-emerald-200 dark:border-emerald-800'}
-        active:scale-95 transition-all duration-150
-        arabic-text
-        flex items-center justify-center
-      `}
-      style={{
-        touchAction: 'none',
-        userSelect: 'none',
-        fontFamily: "'Amiri', serif",
-        direction: 'rtl',
-        minWidth: isMobile ? '80px' : '100px'
-      }}
-    >
-      {word.text}
-    </div>
-  )
-}
-
-function MakeQuranicAyatsGame({ difficulty, initialAyatCount }: GameProps) {
-  const [gameData, setGameData] = useState<GameData>(defaultGameData)
-  const [dataLoaded, setDataLoaded] = useState(false)
-  const [dataError, setDataError] = useState(false)
-  const isMobile = useMobileDetect()
-
-  useEffect(() => {
-    const loadGameData = async () => {
-      try {
-        const module = await import("@/data/quranic-ayats-game-data")
-        
-        if (!module.quranicAyatsGameData) {
-          throw new Error("Game data module is missing")
-        }
-
-        // Validate the loaded data
-        const requiredKeys = ['easy', 'medium', 'hard', 'correctOrders']
-        const isValid = requiredKeys.every(key => key in module.quranicAyatsGameData)
-        
-        if (!isValid) {
-          throw new Error("Game data structure is invalid")
-        }
-
-        setGameData(module.quranicAyatsGameData)
-        setDataLoaded(true)
-      } catch (error) {
-        console.error("Data loading failed:", error)
-        setDataError(true)
-        toast.error("Failed to load game data. Please refresh the page.")
-      }
-    }
-
-    loadGameData()
-  }, [])
-
-  // Game state
-  const [wordPool, setWordPool] = useState<WordItem[]>([])
-  const [arrangedWords, setArrangedWords] = useState<WordItem[]>([])
-  const [difficultyLevel, setDifficultyLevel] = useState(difficulty)
-  const [score, setScore] = useState(0)
-  const [currentAyahIndex, setCurrentAyahIndex] = useState(0)
-  const [currentSetIndex, setCurrentSetIndex] = useState(0)
+export default function QuranicAyatsClient() {
+  const [difficulty, setDifficulty] = useState<"easy" | "medium" | "hard">("easy")
+  const [ayatCount, setAyatCount] = useState(3)
   const [showTranslation, setShowTranslation] = useState(false)
-  const [isChecking, setIsChecking] = useState(false)
-  const [gameComplete, setGameComplete] = useState(false)
 
-  // Initialize words based on difficulty
-  useEffect(() => {
-    if (dataLoaded && !dataError) {
-      resetGameState()
-    }
-  }, [difficultyLevel, currentSetIndex, currentAyahIndex, dataLoaded, dataError])
-
-  if (dataError) {
-    return (
-      <div className="flex justify-center items-center h-screen">
-        <div className="text-center p-6 bg-red-50 rounded-lg">
-          <h2 className="text-2xl font-bold text-red-600 mb-4">Error Loading Game</h2>
-          <p className="mb-4">Failed to load Quranic verses data.</p>
-          <Button 
-            onClick={() => window.location.reload()}
-            variant="destructive"
-          >
-            Refresh Page
-          </Button>
-        </div>
-      </div>
-    )
-  }
-
-  if (!dataLoaded) {
-    return (
-      <div className="flex justify-center items-center h-screen">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-emerald-500 mx-auto mb-4"></div>
-          <p>Loading Quranic verses...</p>
-        </div>
-      </div>
-    )
-  }
-
-  // Safely get current ayah data
-  const currentAyahData = gameData[difficultyLevel]?.[currentSetIndex] || []
-  const currentAyahTranslation = gameData.translations?.[difficultyLevel]?.[currentSetIndex] || ''
-  const correctOrder = gameData.correctOrders[difficultyLevel]?.[currentSetIndex] || []
-
-  const resetGameState = () => {
-    const initialWords = generateInitialWords()
-    setWordPool(initialWords)
-    setArrangedWords([])
-    setShowTranslation(false)
-    setGameComplete(false)
-  }
-
-  const generateInitialWords = (): WordItem[] => {
-    if (!currentAyahData || currentAyahData.length === 0) return []
-    return shuffleArray([...currentAyahData])
-  }
-
-  const shuffleArray = (array: WordItem[]) => {
-    return [...array].sort(() => Math.random() - 0.5)
-  }
-
-  const handleWordClick = (word: WordItem) => {
-    if (wordPool.includes(word)) {
-      setWordPool(wordPool.filter(w => w.id !== word.id))
-      setArrangedWords([...arrangedWords, word])
-    } else {
-      setArrangedWords(arrangedWords.filter(w => w.id !== word.id))
-      setWordPool([...wordPool, word])
-    }
-  }
-
-  const handleWordTouchEnd = (word: WordItem) => {
-    handleWordClick(word)
-  }
-
-  const [, drop] = useDrop({
-    accept: "WORD",
-    drop: (item: { id: string }) => {
-      const word = [...wordPool, ...arrangedWords].find(w => w.id === item.id)
-      if (word) handleWordClick(word)
-    },
-  })
-
-  const checkAnswer = () => {
-    if (!correctOrder || correctOrder.length === 0) return
-    
-    setIsChecking(true)
-    const isCorrect = arrangedWords.length === correctOrder.length && 
-                     arrangedWords.every((word, index) => word.id === correctOrder[index])
-    
-    if (isCorrect) {
-      setScore(score + 5)
-      toast.success("Correct! Well done.", {
-        description: "You've arranged the ayah perfectly.",
-        duration: 2000
-      })
-      setShowTranslation(true)
-      
-      setTimeout(() => {
-        moveToNextAyah()
-        setIsChecking(false)
-      }, 2000)
-    } else {
-      toast.error("Not quite right", {
-        description: "Try rearranging the words.",
-        duration: 1500
-      })
-      setIsChecking(false)
-    }
-  }
-
-  const moveToNextAyah = () => {
-    const nextAyahIndex = currentAyahIndex + 1
-    const currentSet = gameData[difficultyLevel]
-    
-    if (nextAyahIndex < currentSet.length) {
-      setCurrentAyahIndex(nextAyahIndex)
-    } else {
-      moveToNextSet()
-    }
-  }
-
-  const moveToNextSet = () => {
-    const nextSetIndex = currentSetIndex + 1
-    if (nextSetIndex < gameData[difficultyLevel].length) {
-      setCurrentSetIndex(nextSetIndex)
-      setCurrentAyahIndex(0)
-    } else {
-      completeGame()
-    }
-  }
-
-  const completeGame = () => {
-    if (difficultyLevel === 'hard') {
-      setGameComplete(true)
-      toast.success("Masha'Allah! You've completed all levels.", {
-        description: `Final Score: ${score + 5}`,
-        duration: 4000
-      })
-    } else {
-      const nextDifficulty = difficultyLevel === 'easy' ? 'medium' : 'hard'
-      setDifficultyLevel(nextDifficulty)
-      setCurrentSetIndex(0)
-      setCurrentAyahIndex(0)
-      toast.info(`Moving to ${nextDifficulty} level!`, {
-        duration: 2000
-      })
-    }
-  }
-
-  const resetGame = () => {
-    resetGameState()
-    toast.info("Game reset", {
-      description: "Words have been reshuffled.",
+  const handleDifficultyChange = (value: string) => {
+    setDifficulty(value as "easy" | "medium" | "hard")
+    toast.info(`Difficulty set to ${value}`, {
+      description: "Starting new game with selected difficulty",
       duration: 1500
     })
   }
 
-  const skipToNext = () => {
-    moveToNextAyah()
-    toast.info("Skipped to next ayah", {
+  const handleAyatCountChange = (count: number) => {
+    setAyatCount(count)
+    toast.info(`Set to ${count} ayahs per game`, {
       duration: 1500
     })
   }
 
   return (
-    <div className="container mx-auto py-8 px-4 max-w-4xl">
-      <div className="text-center mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">Make Quranic Ayats</h1>
-        <p className="text-lg text-gray-600 dark:text-gray-400">
-          Arrange the words to form complete Quranic verses
-        </p>
-        <div className="mt-4 text-xl font-semibold text-emerald-600 dark:text-emerald-400">
-          Score: {score}
-        </div>
+    <div className="container mx-auto p-4 max-w-6xl">
+      <div className="flex justify-between items-center mb-6">
+        <h1 className="text-3xl font-bold text-green-700 dark:text-green-500">Quranic Ayats Game</h1>
+        <Dialog>
+          <DialogTrigger asChild>
+            <Button variant="outline" size="sm">
+              <Info className="h-4 w-4 mr-2" /> How to Play
+            </Button>
+          </DialogTrigger>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>How to Play the Quranic Ayats Game</DialogTitle>
+            </DialogHeader>
+            <div className="space-y-4">
+              <p className="text-sm">
+                Arrange the Arabic words to form the correct Quranic verse. The game helps you learn Quranic verses 
+                while practicing Arabic reading from right to left.
+              </p>
+              <ul className="list-disc pl-5 space-y-2 text-sm">
+                <li>Drag and drop words to rearrange them</li>
+                <li>Double-click on a word to select it</li>
+                <li>Check your answer when you think it's correct</li>
+                <li>Higher difficulties give more points</li>
+                <li>Complete all ayahs to finish the game</li>
+              </ul>
+              <p className="text-xs text-muted-foreground">
+                Note: The game uses actual Quranic verses from the Mushaf.
+              </p>
+            </div>
+          </DialogContent>
+        </Dialog>
       </div>
 
-      <Card className="mb-8">
+      <Card className="mb-6">
         <CardHeader>
-          <CardTitle className="flex items-center justify-between">
-            <span>Game Controls</span>
-            <Tabs 
-              defaultValue={difficulty} 
-              onValueChange={(value) => {
-                setDifficultyLevel(value as "easy" | "medium" | "hard")
-                setCurrentSetIndex(0)
-                setCurrentAyahIndex(0)
-                setScore(0)
-              }}
-              className="w-[300px]"
-            >
-              <TabsList className="grid w-full grid-cols-3">
-                <TabsTrigger value="easy">Easy</TabsTrigger>
-                <TabsTrigger value="medium">Medium</TabsTrigger>
-                <TabsTrigger value="hard">Hard</TabsTrigger>
-              </TabsList>
-            </Tabs>
-          </CardTitle>
-          <CardDescription>
-            {difficultyLevel === 'easy' ? 'Short verses' : 
-             difficultyLevel === 'medium' ? 'Medium length verses' : 
-             'Long verses with more complexity'}
-          </CardDescription>
+          <CardTitle className="text-lg">Game Settings</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="flex flex-wrap gap-3 mb-4">
-            <Button 
-              onClick={checkAnswer}
-              disabled={arrangedWords.length === 0 || isChecking}
-              className="flex-1 min-w-[150px]"
-              variant="success"
-            >
-              <Check className="mr-2 h-4 w-4" />
-              Check Answer
-            </Button>
-            
-            <Button 
-              onClick={() => setShowTranslation(!showTranslation)}
-              className="flex-1 min-w-[150px]"
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h3 className="font-medium mb-3">Difficulty Level</h3>
+              <Tabs 
+                value={difficulty} 
+                onValueChange={handleDifficultyChange}
+                className="w-full"
+              >
+                <TabsList className="grid w-full grid-cols-3">
+                  <TabsTrigger value="easy">Easy</TabsTrigger>
+                  <TabsTrigger value="medium">Medium</TabsTrigger>
+                  <TabsTrigger value="hard">Hard</TabsTrigger>
+                </TabsList>
+              </Tabs>
+              <p className="text-sm text-muted-foreground mt-2">
+                {difficulty === "easy" 
+                  ? "Short verses with common words" 
+                  : difficulty === "medium" 
+                  ? "Medium length verses" 
+                  : "Longer verses with complex arrangements"}
+              </p>
+            </div>
+
+            <div>
+              <h3 className="font-medium mb-3">Number of Ayahs</h3>
+              <div className="flex gap-2">
+                {[3, 5, 7].map((count) => (
+                  <Button
+                    key={count}
+                    variant={ayatCount === count ? "default" : "outline"}
+                    onClick={() => handleAyatCountChange(count)}
+                    className="flex-1"
+                  >
+                    {count}
+                  </Button>
+                ))}
+              </div>
+              <p className="text-sm text-muted-foreground mt-2">
+                Number of verses to complete in one game session
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-4 flex gap-2">
+            <Button
               variant="secondary"
+              onClick={() => setShowTranslation(!showTranslation)}
+              className="flex-1"
             >
               {showTranslation ? (
                 <>
@@ -386,140 +131,22 @@ function MakeQuranicAyatsGame({ difficulty, initialAyatCount }: GameProps) {
               ) : (
                 <>
                   <Eye className="mr-2 h-4 w-4" />
-                  Show Hint
+                  Show Translation
                 </>
               )}
             </Button>
-            
-            <Button 
-              onClick={resetGame}
-              className="flex-1 min-w-[150px]"
-              variant="outline"
-            >
-              <RefreshCw className="mr-2 h-4 w-4" />
-              Reset
-            </Button>
-            
-            <Button 
-              onClick={skipToNext}
-              className="flex-1 min-w-[150px]"
-              variant="ghost"
-            >
+            <Button variant="ghost" className="flex-1">
               <ChevronRight className="mr-2 h-4 w-4" />
-              Skip
+              Skip Ayah
             </Button>
           </div>
-          
-          {showTranslation && currentAyahTranslation && (
-            <div className="mt-4 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-md text-center">
-              <p className="font-semibold text-blue-800 dark:text-blue-200">Translation:</p>
-              <p className="text-blue-700 dark:text-blue-300">{currentAyahTranslation}</p>
-            </div>
-          )}
         </CardContent>
       </Card>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-        <div className="word-pool">
-          <h2 className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">
-            Word Pool ({wordPool.length})
-          </h2>
-          <div className="flex flex-wrap gap-3 p-4 bg-gray-50 dark:bg-gray-800/50 rounded-lg min-h-[120px]">
-            {wordPool.length > 0 ? (
-              wordPool.map((word) => (
-                <Word 
-                  key={word.id} 
-                  word={word} 
-                  isMobile={isMobile}
-                  onClick={() => handleWordClick(word)}
-                  onTouchEnd={() => handleWordTouchEnd(word)}
-                  isInPool={true}
-                />
-              ))
-            ) : (
-              <p className="text-gray-400 m-auto">All words in use</p>
-            )}
-          </div>
-        </div>
-
-        <div className="arrangement-area" ref={drop}>
-          <h2 className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">
-            Your Arrangement ({arrangedWords.length}/{correctOrder?.length || 0})
-          </h2>
-          <div 
-            dir="rtl" 
-            className="flex flex-wrap gap-3 p-4 bg-gray-50 dark:bg-gray-800/50 rounded-lg min-h-[120px] border-2 border-dashed border-gray-300 dark:border-gray-700"
-          >
-            {arrangedWords.length > 0 ? (
-              arrangedWords.map((word) => (
-                <Word 
-                  key={word.id} 
-                  word={word} 
-                  isMobile={isMobile}
-                  onClick={() => handleWordClick(word)}
-                  onTouchEnd={() => handleWordTouchEnd(word)}
-                  isInPool={false}
-                />
-              ))
-            ) : (
-              <p className="text-gray-400 m-auto">
-                {isMobile ? 'Tap and drag words here' : 'Drag words here to arrange them'}
-              </p>
-            )}
-          </div>
-        </div>
-      </div>
-
-      {gameComplete && (
-        <div className="text-center py-8">
-          <h2 className="text-2xl font-bold text-emerald-600 dark:text-emerald-400 mb-4">
-            Masha'Allah! Game Complete
-          </h2>
-          <p className="text-lg mb-6">
-            You've successfully arranged all Quranic verses across all difficulty levels.
-          </p>
-          <Button 
-            onClick={() => {
-              setDifficultyLevel('easy')
-              setCurrentSetIndex(0)
-              setCurrentAyahIndex(0)
-              setScore(0)
-              resetGameState()
-            }}
-            size="lg"
-          >
-            Play Again
-          </Button>
-        </div>
-      )}
+      <MakeQuranicAyatsGame 
+        difficulty={difficulty} 
+        initialAyatCount={ayatCount} 
+      />
     </div>
-  )
-}
-
-export default function QuranicAyatsWrapper({ difficulty, initialAyatCount }: GameProps) {
-  const [isMounted, setIsMounted] = useState(false)
-  const isMobile = useMobileDetect()
-
-  useEffect(() => {
-    setIsMounted(true)
-  }, [])
-
-  if (!isMounted) {
-    return (
-      <div className="container mx-auto py-8 text-center">
-        Loading game components...
-      </div>
-    )
-  }
-
-  return (
-    <DndProvider backend={isMobile ? TouchBackend : HTML5Backend} options={{
-      enableMouseEvents: true,
-      delayTouchStart: 150,
-      delay: 0,
-      touchSlop: 5
-    }}>
-      <MakeQuranicAyatsGame difficulty={difficulty} initialAyatCount={initialAyatCount} />
-    </DndProvider>
   )
 }
