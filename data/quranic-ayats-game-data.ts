@@ -1,5 +1,22 @@
-// app/data/quranic-ayats-game-data.ts 
-export const quranicAyatsGameData = {
+// app/data/quranic-ayats-game-data.ts
+interface QuranicAyahPart {
+  id: string;
+  text: string;
+  translation: string;
+}
+
+interface QuranicGameData {
+  easy: QuranicAyahPart[][];
+  medium: QuranicAyahPart[][];
+  hard: QuranicAyahPart[][];
+  correctOrders: {
+    easy: string[][];
+    medium: string[][];
+    hard: string[][];
+  };
+}
+
+const quranicAyatsGameData: QuranicGameData = {
   easy: [
     // 1st Ayah (Bismillah)
     [
