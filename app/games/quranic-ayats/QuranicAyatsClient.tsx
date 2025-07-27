@@ -31,10 +31,12 @@ const useMobileDetect = () => {
       setIsMobile(
         window.innerWidth <= 768 ||
         /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+      )
     }
     
     checkIfMobile()
     window.addEventListener('resize', checkIfMobile)
+    
     return () => window.removeEventListener('resize', checkIfMobile)
   }, [])
 
@@ -60,13 +62,16 @@ function Word({ word, isMobile, onClick, onTouchEnd }: {
       ref={drag}
       onClick={onClick}
       onTouchEnd={onTouchEnd}
-      className={`cursor-move select-none
+      className={`
+        cursor-move select-none
         ${isDragging ? 'opacity-50 scale-95' : 'opacity-100'}
         ${isMobile ? 'py-3 px-4 text-lg' : 'py-2 px-4 text-xl'}
         bg-white dark:bg-gray-800 rounded-lg shadow-md
         border border-gray-200 dark:border-gray-700
         active:scale-95 transition-all duration-150
-        arabic-text flex items-center justify-center`}
+        arabic-text
+        flex items-center justify-center
+      `}
       style={{
         touchAction: 'none',
         userSelect: 'none',
@@ -93,7 +98,6 @@ function MakeQuranicAyatsGame({ difficulty, initialAyatCount }: GameProps) {
   const [gameComplete, setGameComplete] = useState(false)
   const [dataError, setDataError] = useState<Error | null>(null)
 
-  // Get full translation for current ayah
   const getCurrentAyahTranslation = () => {
     const currentAyah = quranicAyatsGameData[difficultyLevel]?.[currentSetIndex]
     if (!currentAyah) return ""
@@ -230,7 +234,9 @@ function MakeQuranicAyatsGame({ difficulty, initialAyatCount }: GameProps) {
       <div className="container mx-auto py-8 text-center">
         <h2 className="text-2xl font-bold text-red-600 mb-4">Error Loading Game</h2>
         <p className="text-lg mb-6">{dataError.message}</p>
-        <Button onClick={() => window.location.reload()}>Reload Page</Button>
+        <Button onClick={() => window.location.reload()}>
+          Reload Page
+        </Button>
       </div>
     )
   }
@@ -426,7 +432,11 @@ export default function QuranicAyatsWrapper({ difficulty, initialAyatCount }: Ga
   }, [])
 
   if (!isMounted) {
-    return <div className="container mx-auto py-8 text-center">Loading game components...</div>
+    return (
+      <div className="container mx-auto py-8 text-center">
+        Loading game components...
+      </div>
+    )
   }
 
   return (
