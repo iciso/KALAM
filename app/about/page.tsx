@@ -175,7 +175,7 @@ export default function AboutPage() {
               </a>{" "}
               for their contributions to crafting engaging and meaningful content for KALAM, enhancing the learning experience for users worldwide, Alhamdulillah.
                 <div className="mt-2">
-                  <img src="/gemini.svg" alt="Gemini Logo" className="h-8 w-auto inline-block hover:scale-105 transition-transform dark:invert" />
+                  <img src="/Gemini.svg" alt="Gemini Logo" className="h-8 w-auto inline-block hover:scale-105 transition-transform dark:invert" />
                   </div>
               </li>
             <li>
