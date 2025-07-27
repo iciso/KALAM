@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { render } from 'react-dom';
 import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
-import './styles.css';
+import '../styles/global.css';
 
 const ItemTypes = {
   AYAT: 'ayat'
