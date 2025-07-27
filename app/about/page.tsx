@@ -4,6 +4,18 @@ import { MessageSquare } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { KalamAcronym } from "@/components/kalam-acronym"
 
+/*
+KALAM To do list:
+Acknowledge all other AI contributors like Grok, DeepSeek, and Gemini
+Make all Games, quizzes, and pages Mobile Responsive one by one
+Maintain uniform UI and UX as if one AI did the entire project
+For Games, use pre-defined data especially for vocabulary to avoid doubles
+Create an open-access single KALAM Leaderboard for all games & quizzes
+Cross-link IQRA & KALAM to guide users who want or do not want challenges
+New games like Dawah Game, Hajj Game, Salah Game, 
+Expand and Complete Surah Quizzes -> 1 to 114
+*/
+
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
