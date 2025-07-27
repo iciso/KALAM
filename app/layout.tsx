@@ -1,15 +1,15 @@
-import type React from "react"
-import { Inter } from "next/font/google"
-import "./globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
-import { NavBar } from "@/components/nav-bar"
-import { FontSizeProvider } from "@/contexts/font-size-context"
-import { AuthProvider } from "@/contexts/auth-context"
+import type React from "react";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
+import { NavBar } from "@/components/nav-bar";
+import { FontSizeProvider } from "@/contexts/font-size-context";
+import { AuthProvider } from "@/contexts/auth-context";
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
- metadataBase: new URL('https://v0-kalam.vercel.app/'),
+  metadataBase: new URL('https://v0-kalam.vercel.app/'),
   title: "KALAM: Know Allah by Lighting up Activities of Mirth",
   description:
     "Experience the joy of learning Quranic Arabic naturally through games, interactive flashcards, and themed quizzes. KALAM transforms memorization into discovery, helping you connect with the words of Allah, namely the Quran through fun activities rather than rote learning.",
@@ -37,12 +37,12 @@ export const metadata = {
     apple: { url: "/apple-touch-icon.png", sizes: "180x180" },
   },
   generator: "v0.dev",
-}
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en" className="light" style={{ colorScheme: "light" }}>
@@ -63,5 +63,5 @@ export default function RootLayout({
         </ThemeProvider>
       </body>
     </html>
-  )
+  );
 }
