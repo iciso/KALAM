@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import {
   DndContext,
   closestCenter,
@@ -22,6 +22,15 @@ import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Check, RefreshCw, Award, HelpCircle, Info } from "lucide-react"
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { toast } from "sonner"
 
 interface AyatWord {
   id: string
@@ -35,183 +44,285 @@ interface QuranicAyat {
   translation: string
 }
 
-// Default data in case import fails
-const defaultAyats: Record<string, QuranicAyat[]> = {
-easy: [
-    // 1st Ayah (Bismillah)
-    [
-      { id: '1-1', text: 'بسم' },
-      { id: '1-2', text: 'الله' },
-      { id: '1-3', text: 'الرحمن' },
-      { id: '1-4', text: 'الرحيم' }
-    ],
-    // 2nd Ayah (Al-Fatiha 1:2)
-    [
-      { id: '2-1', text: 'الحمد' },
-      { id: '2-2', text: 'لله' },
-      { id: '2-3', text: 'رب' },
-      { id: '2-4', text: 'العالمين' }
-    ],
-    // 3rd Ayah (Al-Fatiha 1:3)
-    [
-      { id: '3-1', text: 'الرحمن' },
-      { id: '3-2', text: 'الرحيم' }
-    ],
-    // 4th Ayah (Al-Fatiha 1:4)
-    [
-      { id: '4-1', text: 'مالك' },
-      { id: '4-2', text: 'يوم' },
-      { id: '4-3', text: 'الدين' }
-    ],
-    // 5th Ayah (Al-Fatiha 1:5)
-    [
-      { id: '5-1', text: 'إياك' },
-      { id: '5-2', text: 'نعبد' },
-      { id: '5-3', text: 'وإياك' },
-      { id: '5-4', text: 'نستعين' }
-    ]
-  ],
-  medium: [
-    // 1st Ayah (Al-Baqarah 2:255 - Ayatul Kursi part 1)
-    [
-      { id: 'm1-1', text: 'الله' },
-      { id: 'm1-2', text: 'لا' },
-      { id: 'm1-3', text: 'إله' },
-      { id: 'm1-4', text: 'إلا' },
-      { id: 'm1-5', text: 'هو' }
-    ],
-    // 2nd Ayah (Ayatul Kursi part 2)
-    [
-      { id: 'm2-1', text: 'الحي' },
-      { id: 'm2-2', text: 'القيوم' }
-    ],
-    // 3rd Ayah (Ayatul Kursi part 3)
-    [
-      { id: 'm3-1', text: 'لا' },
-      { id: 'm3-2', text: 'تأخذه' },
-      { id: 'm3-3', text: 'سنة' },
-      { id: 'm3-4', text: 'ولا' },
-      { id: 'm3-5', text: 'نوم' }
-    ],
-    // 4th Ayah (Al-Ikhlas 112:1)
-    [
-      { id: 'm4-1', text: 'قل' },
-      { id: 'm4-2', text: 'هو' },
-      { id: 'm4-3', text: 'الله' },
-      { id: 'm4-4', text: 'أحد' }
-    ],
-    // 5th Ayah (Al-Ikhlas 112:2)
-    [
-      { id: 'm5-1', text: 'الله' },
-      { id: 'm5-2', text: 'الصمد' }
-    ]
-  ],
-  hard: [
-    // 1st Ayah (Al-Baqarah 2:186)
-    [
-      { id: 'h1-1', text: 'وإذا' },
-      { id: 'h1-2', text: 'سألك' },
-      { id: 'h1-3', text: 'عبادي' },
-      { id: 'h1-4', text: 'عني' }
-    ],
-    // 2nd Ayah (continued)
-    [
-      { id: 'h2-1', text: 'فإني' },
-      { id: 'h2-2', text: 'قريب' }
-    ],
-    // 3rd Ayah (continued)
-    [
-      { id: 'h3-1', text: 'أجيب' },
-      { id: 'h3-2', text: 'دعوة' },
-      { id: 'h3-3', text: 'الداع' }
-    ],
-    // 4th Ayah (Al-Muzzammil 73:1)
-    [
-      { id: 'h4-1', text: 'يا' },
-      { id: 'h4-2', text: 'أيها' },
-      { id: 'h4-3', text: 'المزمل' }
-    ],
-    // 5th Ayah (Al-Muzzammil 73:2)
-    [
-      { id: 'h5-1', text: 'قم' },
-      { id: 'h5-2', text: 'الليل' },
-      { id: 'h5-3', text: 'إلا' },
-      { id: 'h5-4', text: 'قليلا' }
-    ]
-  ],
-  correctOrders: {
-    easy: [
-      ['1-1', '1-2', '1-3', '1-4'], // Bismillah
-      ['2-1', '2-2', '2-3', '2-4'], // Alhamdulillah
-      ['3-1', '3-2'],                // Ar-Rahmanir-Raheem
-      ['4-1', '4-2', '4-3'],         // Maaliki yawmid-deen
-      ['5-1', '5-2', '5-3', '5-4']   // Iyyaka na'budu
-    ],
-    medium: [
-      ['m1-1', 'm1-2', 'm1-3', 'm1-4', 'm1-5'], // Allahu la ilaha illa huwa
-      ['m2-1', 'm2-2'],                          // Al-Hayyul Qayyum
-      ['m3-1', 'm3-2', 'm3-3', 'm3-4', 'm3-5'],  // La ta'khudhuhu sinatun wa la nawm
-      ['m4-1', 'm4-2', 'm4-3', 'm4-4'],          // Qul huwa Allahu ahad
-      ['m5-1', 'm5-2']                           // Allahus-Samad
-    ],
-    hard: [
-      ['h1-1', 'h1-2', 'h1-3', 'h1-4'], // Wa idha sa'alaka
-      ['h2-1', 'h2-2'],                  // Fa inni qareeb
-      ['h3-1', 'h3-2', 'h3-3'],          // Ujeebu da'watad-da'i
-      ['h4-1', 'h4-2', 'h4-3'],          // Ya ayyuhal-muzzammil
-      ['h5-1', 'h5-2', 'h5-3', 'h5-4']   // Qumil-layla illa qaleela
-    ]
-    ],
-  translations: {
+// Default data structure
+const defaultGameData = {
   easy: [
-    "In the name of Allah, the Entirely Merciful, the Especially Merciful",
-    "[All] praise is [due] to Allah, Lord of the worlds",
-    "The Entirely Merciful, the Especially Merciful",
-    "Sovereign of the Day of Recompense",
-    "It is You we worship and You we ask for help"
+    {
+      surah: "Al-Fatiha",
+      ayat: "1",
+      words: [
+        { id: "1-1", text: "بسم" },
+        { id: "1-2", text: "الله" },
+        { id: "1-3", text: "الرحمن" },
+        { id: "1-4", text: "الرحيم" }
+      ],
+      translation: "In the name of Allah, the Entirely Merciful, the Especially Merciful."
+    },
+    {
+      surah: "Al-Fatiha",
+      ayat: "2",
+      words: [
+        { id: "2-1", text: "الحمد" },
+        { id: "2-2", text: "لله" },
+        { id: "2-3", text: "رب" },
+        { id: "2-4", text: "العالمين" }
+      ],
+      translation: "[All] praise is [due] to Allah, Lord of the worlds"
+    }
   ],
   medium: [
-    "Allah - there is no deity except Him",
-    "the Ever-Living, the Sustainer of existence",
-    "Neither drowsiness overtakes Him nor sleep",
-    "Say, 'He is Allah, [who is] One'",
-    "Allah, the Eternal Refuge"
+    {
+      surah: "Al-Baqarah",
+      ayat: "255",
+      words: [
+        { id: "m1-1", text: "الله" },
+        { id: "m1-2", text: "لا" },
+        { id: "m1-3", text: "إله" },
+        { id: "m1-4", text: "إلا" },
+        { id: "m1-5", text: "هو" }
+      ],
+      translation: "Allah - there is no deity except Him"
+    }
   ],
   hard: [
-    "And when My servants ask you concerning Me",
-    "then indeed I am near",
-    "I respond to the invocation of the supplicant",
-    "O you who wraps himself [in clothing]",
-    "Stand [in prayer] by night, except for a little"
+    {
+      surah: "Al-Baqarah",
+      ayat: "186",
+      words: [
+        { id: "h1-1", text: "وإذا" },
+        { id: "h1-2", text: "سألك" },
+        { id: "h1-3", text: "عبادي" },
+        { id: "h1-4", text: "عني" }
+      ],
+      translation: "And when My servants ask you concerning Me"
+    }
   ]
+}
+
+const getRandomAyats = (count: number, difficulty: "easy" | "medium" | "hard"): QuranicAyat[] => {
+  const ayats = defaultGameData[difficulty] || defaultGameData.easy
+  return ayats.slice(0, Math.min(count, ayats.length))
+}
+
+function MakeQuranicAyatsGame({ difficulty = "easy", initialAyatCount = 3 }: { 
+  difficulty?: "easy" | "medium" | "hard"; 
+  initialAyatCount?: number 
+}) {
+  const [ayats, setAyats] = useState<QuranicAyat[]>([])
+  const [currentAyatIndex, setCurrentAyatIndex] = useState(0)
+  const [words, setWords] = useState<AyatWord[]>([])
+  const [score, setScore] = useState(0)
+  const [feedback, setFeedback] = useState("")
+  const [isCorrect, setIsCorrect] = useState(false)
+  const [showTranslation, setShowTranslation] = useState(false)
+  const [gameCompleted, setGameCompleted] = useState(false)
+  const [showInstructions, setShowInstructions] = useState(true)
+
+  const sensors = useSensors(
+    useSensor(PointerSensor),
+    useSensor(KeyboardSensor, {
+      coordinateGetter: sortableKeyboardCoordinates,
+    }),
+  )
+
+  useEffect(() => {
+    const randomAyats = getRandomAyats(initialAyatCount, difficulty)
+    setAyats(randomAyats)
+    if (randomAyats.length > 0) {
+      prepareAyat(randomAyats[0])
+    }
+  }, [difficulty, initialAyatCount])
+
+  const prepareAyat = (ayat: QuranicAyat) => {
+    const shuffledWords = [...ayat.words].sort(() => Math.random() - 0.5)
+    setWords(shuffledWords)
+    setFeedback("")
+    setIsCorrect(false)
+    setShowTranslation(false)
   }
-}
 
-const getRandomAyats = (count: number, difficulty: string): QuranicAyat[] => {
-  const ayats = defaultAyats[difficulty] || defaultAyats.easy
-  return [...ayats].slice(0, count)
-}
+  const handleDragEnd = (event: DragEndEvent) => {
+    const { active, over } = event
+    if (!over) return
 
+    if (active.id !== over.id) {
+      setWords((items) => {
+        const oldIndex = items.findIndex((item) => item.id === active.id)
+        const newIndex = items.findIndex((item) => item.id === over.id)
+        return arrayMove(items, oldIndex, newIndex)
+      })
+    }
+  }
+
+  const checkAnswer = () => {
+    const currentAyat = ayats[currentAyatIndex]
+    const isCorrectOrder = words.every((word, index) => 
+      word.id === currentAyat.words[index].id
+    )
+
+    if (isCorrectOrder) {
+      const difficultyMultiplier = difficulty === "easy" ? 1 : difficulty === "medium" ? 2 : 3
+      setScore(score + 10 * difficultyMultiplier)
+      setFeedback("Excellent! You arranged the ayat correctly.")
+      setIsCorrect(true)
+      setShowTranslation(true)
+      toast.success("Correct! Well done.")
+    } else {
+      setFeedback("The arrangement is not correct. Try again!")
+      setIsCorrect(false)
+      toast.error("Not quite right. Try rearranging the words.")
+    }
+  }
+
+  const nextAyat = () => {
+    if (currentAyatIndex < ayats.length - 1) {
+      const nextIndex = currentAyatIndex + 1
+      setCurrentAyatIndex(nextIndex)
+      prepareAyat(ayats[nextIndex])
+    } else {
+      setGameCompleted(true)
+      toast.success("Masha'Allah! You've completed all ayahs.")
+    }
+  }
+
+  const restartGame = () => {
+    const randomAyats = getRandomAyats(initialAyatCount, difficulty)
+    setAyats(randomAyats)
+    setCurrentAyatIndex(0)
+    setScore(0)
+    setGameCompleted(false)
+    if (randomAyats.length > 0) {
+      prepareAyat(randomAyats[0])
+    }
+    toast.info("Game reset. Words have been reshuffled.")
+  }
+
+  if (gameCompleted) {
+    return (
+      <div className="flex flex-col items-center justify-center p-6 space-y-6">
+        <div className="text-4xl font-bold text-green-600 flex items-center">
+          <Award className="mr-2 h-10 w-10" />
+          Game Completed!
+        </div>
+        <Card className="w-full max-w-md p-6 text-center">
+          <h2 className="text-2xl font-bold mb-4">Your Final Score</h2>
+          <p className="text-5xl font-bold text-green-600 mb-6">{score}</p>
+          <p className="mb-4">You successfully arranged {ayats.length} Quranic ayats!</p>
+          <Button onClick={restartGame} className="w-full">
+            <RefreshCw className="mr-2 h-4 w-4" /> Play Again
+          </Button>
+        </Card>
+      </div>
+    )
+  }
+
+  if (ayats.length === 0) {
+    return <div className="text-center py-8">Loading ayats...</div>
+  }
+
+  const currentAyat = ayats[currentAyatIndex]
+
+  return (
+    <div className="flex flex-col space-y-6 p-4">
+      <div className="flex justify-between items-center">
+        <div>
+          <Badge variant="outline" className="text-lg">
+            Surah {currentAyat.surah}, Ayat {currentAyat.ayat}
+          </Badge>
+          <Badge
+            className={`ml-2 ${
+              difficulty === "easy" ? "bg-green-500" : 
+              difficulty === "medium" ? "bg-yellow-500" : "bg-red-500"
+            }`}
+          >
+            {difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}
+          </Badge>
+        </div>
+        <div className="text-xl font-bold">Score: {score}</div>
+      </div>
+
+      {showInstructions && (
+        <Card className="p-4 bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800">
+          <div className="flex items-start">
+            <Info className="h-5 w-5 text-blue-500 mr-2 mt-0.5 flex-shrink-0" />
+            <div>
+              <h3 className="font-medium text-blue-700 dark:text-blue-300">How to Play</h3>
+              <p className="text-sm text-blue-600 dark:text-blue-400 mt-1">
+                Rearrange the words to form the correct Quranic ayat (verse). 
+                Drag words to reorder them or double-click to select. 
+                The ayat should read from right to left in Arabic.
+              </p>
+            </div>
+          </div>
+          <Button
+            variant="outline"
+            size="sm"
+            className="mt-2 text-blue-600 border-blue-300 hover:bg-blue-100 dark:text-blue-300 dark:border-blue-700 dark:hover:bg-blue-900/40"
+            onClick={() => setShowInstructions(false)}
+          >
+            Got it
+          </Button>
+        </Card>
+      )}
+
+      <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+        <div className="flex justify-between items-center mb-2">
+          <h3 className="text-lg font-medium">Arrange the Ayat (Right to Left)</h3>
+          <Button
+            variant="ghost"
+            size="sm"
+            className="text-blue-600 hover:bg-blue-100 dark:text-blue-300 dark:hover:bg-blue-900/40"
+            onClick={() => setShowInstructions(true)}
+          >
+            <HelpCircle className="h-4 w-4 mr-1" /> Help
+          </Button>
+        </div>
+        <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
+          <SortableContext items={words.map((word) => word.id)} strategy={horizontalListSortingStrategy}>
+            <div className="flex flex-wrap justify-center p-4 min-h-[120px] border-2 border-dashed border-blue-300 dark:border-blue-700 rounded-lg dir-rtl bg-white dark:bg-gray-900/50">
+              {words.map((word) => (
+                <div
+                  key={word.id}
+                  className="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md p-3 m-1 cursor-grab shadow-sm hover:shadow-md transition-shadow font-arabic text-xl text-center min-w-[80px] select-none"
+                >
+                  {word.text}
+                </div>
+              ))}
+            </div>
+          </SortableContext>
+        </DndContext>
+      </div>
+
+      {feedback && (
+        <div className={`p-4 rounded-lg ${
+          isCorrect ? "bg-green-100 dark:bg-green-900/20 text-green-800 dark:text-green-200" : 
+          "bg-red-100 dark:bg-red-900/20 text-red-800 dark:text-red-200"
+        }`}>
+          {feedback}
+          {showTranslation && <div className="mt-2 font-medium">Translation: {currentAyat.translation}</div>}
+        </div>
+      )}
+
+      <div className="flex justify-center space-x-4">
+        <Button onClick={checkAnswer} disabled={isCorrect}>
+          Check Answer
+        </Button>
+        {isCorrect && (
+          <Button onClick={nextAyat} variant="outline" className="bg-green-500 text-white hover:bg-green-600">
+            <Check className="mr-2 h-4 w-4" /> Next Ayat
+          </Button>
+        )}
+        <Button onClick={restartGame} variant="outline">
+          <RefreshCw className="mr-2 h-4 w-4" /> Restart
+        </Button>
+      </div>
+    </div>
+  )
+}
 
 export default function QuranicAyatsClient() {
   const [difficulty, setDifficulty] = useState<"easy" | "medium" | "hard">("easy")
   const [ayatCount, setAyatCount] = useState(3)
-  const [showTranslation, setShowTranslation] = useState(false)
-
-  const handleDifficultyChange = (value: string) => {
-    setDifficulty(value as "easy" | "medium" | "hard")
-    toast.info(`Difficulty set to ${value}`, {
-      description: "Starting new game with selected difficulty",
-      duration: 1500
-    })
-  }
-
-  const handleAyatCountChange = (count: number) => {
-    setAyatCount(count)
-    toast.info(`Set to ${count} ayahs per game`, {
-      duration: 1500
-    })
-  }
 
   return (
     <div className="container mx-auto p-4 max-w-6xl">
@@ -257,7 +368,7 @@ export default function QuranicAyatsClient() {
               <h3 className="font-medium mb-3">Difficulty Level</h3>
               <Tabs 
                 value={difficulty} 
-                onValueChange={handleDifficultyChange}
+                onValueChange={(value) => setDifficulty(value as "easy" | "medium" | "hard")}
                 className="w-full"
               >
                 <TabsList className="grid w-full grid-cols-3">
@@ -282,7 +393,7 @@ export default function QuranicAyatsClient() {
                   <Button
                     key={count}
                     variant={ayatCount === count ? "default" : "outline"}
-                    onClick={() => handleAyatCountChange(count)}
+                    onClick={() => setAyatCount(count)}
                     className="flex-1"
                   >
                     {count}
@@ -293,30 +404,6 @@ export default function QuranicAyatsClient() {
                 Number of verses to complete in one game session
               </p>
             </div>
-          </div>
-
-          <div className="mt-4 flex gap-2">
-            <Button
-              variant="secondary"
-              onClick={() => setShowTranslation(!showTranslation)}
-              className="flex-1"
-            >
-              {showTranslation ? (
-                <>
-                  <EyeOff className="mr-2 h-4 w-4" />
-                  Hide Translation
-                </>
-              ) : (
-                <>
-                  <Eye className="mr-2 h-4 w-4" />
-                  Show Translation
-                </>
-              )}
-            </Button>
-            <Button variant="ghost" className="flex-1">
-              <ChevronRight className="mr-2 h-4 w-4" />
-              Skip Ayah
-            </Button>
           </div>
         </CardContent>
       </Card>
