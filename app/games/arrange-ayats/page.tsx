@@ -29,7 +29,7 @@ const ayatData = {
     { id: 13, passage: ["إِنَّ مَعَ ٱلْعُسْرِ يُسْرًا", "فَإِذَا فَرَغْتَ فَٱنصَبْ", "وَإِلَىٰ رَبِّكَ فَٱرْغَبْ", "إِنَّ مَعَ ٱلْعُسْرِ يُسْرًا"] },
     { id: 14, passage: ["قُلْ أَعُوذُ بِرَبِّ ٱلْفَلَقِ", "مِن شَرِّ مَا خَلَقَ", "وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ", "وَمِن شَرِّ ٱلنَّفَّٰثَٰتِ فِي ٱلْعُقَدِ"] },
     { id: 15, passage: ["قُلْ أَعُوذُ بِرَبِّ ٱلنَّاسِ", "مَلِكِ ٱلنَّاسِ", "إِلَٰهِ ٱلنَّاسِ", "مِن شَرِّ ٱلْوَسْوَاسِ ٱلْخَنَّاسِ"] },
-  ], // Added comma here
+  ],
 };
 
 const AyatItem = ({ id, text, index, moveAyat }) => {
@@ -93,26 +93,28 @@ const Game = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Ayat Arranging Game</h1>
-      <div className="mb-4">
-        <label className="mr-2">Level: </label>
-        <select value={level} onChange={(e) => setLevel(e.target.value)} className="p-1 border rounded">
-          <option value="easy">Easy</option>
-          <option value="medium">Medium</option>
-          <option value="difficult">Difficult</option>
-        </select>
+    <DndProvider backend={HTML5Backend}>
+      <div className="container mx-auto p-4">
+        <h1 className="text-2xl font-bold mb-4">Ayat Arranging Game</h1>
+        <div className="mb-4">
+          <label className="mr-2">Level: </label>
+          <select value={level} onChange={(e) => setLevel(e.target.value)} className="p-1 border rounded">
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="difficult">Difficult</option>
+          </select>
+        </div>
+        <div className="mb-4">
+          <h2 className="text-xl">Arrange the Ayats</h2>
+          {arrangedAyats.map((ayat, index) => (
+            <AyatItem key={index} id={index} text={ayat} index={index} moveAyat={moveAyat} />
+          ))}
+        </div>
+        <button onClick={checkAnswer} className="bg-blue-500 text-white p-2 rounded mb-2">Check Answer</button>
+        <div>Score: {score}</div>
+        <div className="text-green-500">{feedback}</div>
       </div>
-      <div className="mb-4">
-        <h2 className="text-xl">Arrange the Ayats</h2>
-        {arrangedAyats.map((ayat, index) => (
-          <AyatItem key={index} id={index} text={ayat} index={index} moveAyat={moveAyat} />
-        ))}
-      </div>
-      <button onClick={checkAnswer} className="bg-blue-500 text-white p-2 rounded mb-2">Check Answer</button>
-      <div>Score: {score}</div>
-      <div className="text-green-500">{feedback}</div>
-    </div>
+    </DndProvider>
   );
 };
 
