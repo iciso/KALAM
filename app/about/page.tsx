@@ -77,7 +77,7 @@ export default function AboutPage() {
 
          <section className="mb-12">
           <h2 className="text-2xl font-bold mb-4">Technology</h2>
-          <p className="mb-4 text-gray-600 dark:text-gray-300">IQRA is built using modern web technologies:</p>
+          <p className="mb-4 text-gray-600 dark:text-gray-300">KALAM is built using modern web technologies:</p>
           <ul className="list-disc pl-6 space-y-2 text-gray-600 dark:text-gray-300">
             <li>Next.js - React framework for server-rendered applications</li>
             <li>TypeScript - For type safety and better developer experience</li>
@@ -94,7 +94,7 @@ export default function AboutPage() {
         <section className="mb-12">
           <h2 className="text-2xl font-bold mb-4">Acknowledgments</h2>
           <p className="mb-4 text-gray-600 dark:text-gray-300">
-            All praise and thanks are due to Allah <span className="text-3xl font-normal align-middle">ﷻ</span>, The Entirely Merciful, The Entirely Generous. IQRA is a labor of love, made possible through the blessings of Allah and the contributions of many, Ameen, Summa Ameen.
+            All praise and thanks are due to Allah <span className="text-3xl font-normal align-middle">ﷻ</span>, The Entirely Merciful, The Entirely Generous. KALAM is a labor of love, made possible through the blessings of Allah and the contributions of many, Ameen, Summa Ameen.
           </p>
           <ul className="list-disc pl-6 space-y-4 text-gray-600 dark:text-gray-300">
             <li>
@@ -106,7 +106,7 @@ export default function AboutPage() {
                 className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 underline"
               >
                 Mohamed Essa Rafique
-              </a>, whose vision and dedication brought IQRA to life, Alhamdulillah. May Allah <span className="text-3xl font-normal align-middle">ﷻ</span> reward{" "}
+              </a>, whose vision and dedication brought KALAM to life, Alhamdulillah. May Allah <span className="text-3xl font-normal align-middle">ﷻ</span> reward{" "}
               <a
                 href="https://zettabyteincorp.com/"
                 target="_blank"
@@ -127,7 +127,7 @@ export default function AboutPage() {
               >
                 Vercel
               </a>{" "}
-              and their innovative v0 platform. The seamless deployment and scaling of IQRA owe much to Vercel’s robust infrastructure.
+              and their innovative v0 platform. The seamless deployment and scaling of KALAM owe much to Vercel’s robust infrastructure.
               <div className="mt-2">
                 <img src="https://assets.vercel.com/image/upload/v1662130559/nextjs/Icon_light_background.png" alt="Vercel Logo" className="h-8 w-auto inline-block hover:scale-105 transition-transform dark:invert" />
               </div>
@@ -159,7 +159,7 @@ export default function AboutPage() {
               >
                 DeepSeek
               </a>{" "}
-              for their invaluable assistance in structuring data and curating Islamic content, ensuring IQRA’s knowledge base is accurate and accessible, Alhamdulillah.
+              for their invaluable assistance in structuring data and curating Islamic content, ensuring KALAM’s knowledge base is accurate and accessible, Alhamdulillah.
               <div className="mt-2">
                   <img src="/deepseek.svg" alt="DeepSeek Logo" className="h-8 w-auto inline-block hover:scale-105 transition-transform dark:invert" />
                   </div>
@@ -174,7 +174,7 @@ export default function AboutPage() {
               >
                 Gemini
               </a>{" "}
-              for their contributions to crafting engaging and meaningful content for IQRA, enhancing the learning experience for users worldwide, Alhamdulillah.
+              for their contributions to crafting engaging and meaningful content for KALAM, enhancing the learning experience for users worldwide, Alhamdulillah.
                 <div className="mt-2">
                   <img src="/gemini.svg" alt="Gemini Logo" className="h-8 w-auto inline-block hover:scale-105 transition-transform dark:invert" />
                   </div>
@@ -189,7 +189,7 @@ export default function AboutPage() {
               >
                 Meta
               </a>{" "}
-          all our future open-source contributors, Quran scholars, Arabic linguists, and community members who would provide feedback, questions, and support to make IQRA a global platform for Islamic learning. Shout out to our prospective members who would join our yet to start Groups and Channels in WhatsApp, and Community pages in Fb and other Meta platforms. May Allah <span className="text-3xl font-normal align-middle">ﷻ</span> accept their efforts.
+          all our future open-source contributors, Quran scholars, Arabic linguists, and community members who would provide feedback, questions, and support to make KALAM a global platform for Islamic learning. Shout out to our prospective members who would join our yet to start Groups and Channels in WhatsApp, and Community pages in Fb and other Meta platforms. May Allah <span className="text-3xl font-normal align-middle">ﷻ</span> accept their efforts.
                 <div className="flex flex-wrap gap-4 mt-4 justify-center">
                   <div className="mt-2">
                   <img src="/meta.png" alt="Meta WhatsApp Logo" className="h-8 w-auto inline-block hover:scale-105 transition-transform dark:invert" />
