@@ -22,7 +22,7 @@ interface GameProps {
   initialAyatCount: number
 }
 
-// Mobile detection hook
+// Mobile detection hook with fixed syntax
 const useMobileDetect = () => {
   const [isMobile, setIsMobile] = useState(false)
 
