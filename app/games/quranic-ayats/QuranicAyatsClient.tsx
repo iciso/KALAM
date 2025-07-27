@@ -22,7 +22,6 @@ interface GameProps {
   initialAyatCount: number
 }
 
-// Corrected mobile detection hook
 const useMobileDetect = () => {
   const [isMobile, setIsMobile] = useState(false)
 
@@ -43,7 +42,6 @@ const useMobileDetect = () => {
   return isMobile
 }
 
-// Word component with improved mobile touch handling
 function Word({ word, isMobile, onClick, onTouchEnd }: {
   word: WordItem
   isMobile: boolean
@@ -86,7 +84,6 @@ function Word({ word, isMobile, onClick, onTouchEnd }: {
   )
 }
 
-// Main game component with mobile optimizations
 function MakeQuranicAyatsGame({ difficulty, initialAyatCount }: GameProps) {
   const isMobile = useMobileDetect()
   const [wordPool, setWordPool] = useState<WordItem[]>([])
@@ -98,11 +95,25 @@ function MakeQuranicAyatsGame({ difficulty, initialAyatCount }: GameProps) {
   const [showTranslation, setShowTranslation] = useState(false)
   const [feedback, setFeedback] = useState("")
   const [gameComplete, setGameComplete] = useState(false)
+  const [dataError, setDataError] = useState<Error | null>(null)
 
-  // Initialize words based on difficulty
-  useEffect(() => {
-    resetGameState()
-  }, [difficultyLevel, currentSetIndex, currentAyahIndex])
+  const generateInitialWords = (): WordItem[] => {
+    try {
+      const currentAyah = quranicAyatsGameData[difficultyLevel]?.[currentSetIndex]?.[currentAyahIndex]
+      if (!currentAyah || !Array.isArray(currentAyah)) {
+        throw new Error(`Invalid ayah data at ${difficultyLevel}[${currentSetIndex}][${currentAyahIndex}]`)
+      }
+      return shuffleArray([...currentAyah])
+    } catch (error) {
+      console.error('Error generating words:', error)
+      setDataError(error instanceof Error ? error : new Error('Failed to load game data'))
+      return []
+    }
+  }
+
+  const shuffleArray = (array: WordItem[]) => {
+    return [...array].sort(() => Math.random() - 0.5)
+  }
 
   const resetGameState = () => {
     const initialWords = generateInitialWords()
@@ -113,18 +124,20 @@ function MakeQuranicAyatsGame({ difficulty, initialAyatCount }: GameProps) {
     setFeedback("")
   }
 
-  const generateInitialWords = (): WordItem[] => {
-    if (!quranicAyatsGameData[difficultyLevel] || 
-        !quranicAyatsGameData[difficultyLevel][currentSetIndex] || 
-        !quranicAyatsGameData[difficultyLevel][currentSetIndex][currentAyahIndex]) {
-      return []
+  useEffect(() => {
+    try {
+      if (!quranicAyatsGameData || 
+          !quranicAyatsGameData.easy || 
+          !quranicAyatsGameData.medium || 
+          !quranicAyatsGameData.hard) {
+        throw new Error('Invalid game data structure')
+      }
+      resetGameState()
+    } catch (error) {
+      console.error('Data validation failed:', error)
+      setDataError(error instanceof Error ? error : new Error('Invalid game data'))
     }
-    return shuffleArray([...quranicAyatsGameData[difficultyLevel][currentSetIndex][currentAyahIndex]])
-  }
-
-  const shuffleArray = (array: WordItem[]) => {
-    return [...array].sort(() => Math.random() - 0.5)
-  }
+  }, [difficultyLevel, currentSetIndex, currentAyahIndex])
 
   const handleWordClick = (word: WordItem) => {
     if (wordPool.includes(word)) {
@@ -152,7 +165,10 @@ function MakeQuranicAyatsGame({ difficulty, initialAyatCount }: GameProps) {
   const correctOrder = quranicAyatsGameData.correctOrders[difficultyLevel]?.[currentSetIndex]?.[currentAyahIndex]
 
   const checkAnswer = () => {
-    if (!correctOrder) return
+    if (!correctOrder) {
+      toast.error("No correct order defined for this ayah")
+      return
+    }
     
     const isCorrect = arrangedWords.length === correctOrder.length && 
                      arrangedWords.every((word, index) => word.id === correctOrder[index])
@@ -218,6 +234,18 @@ function MakeQuranicAyatsGame({ difficulty, initialAyatCount }: GameProps) {
   const skipToNext = () => {
     moveToNextAyah()
     toast.info("Skipped to next ayah", { duration: 1500 })
+  }
+
+  if (dataError) {
+    return (
+      <div className="container mx-auto py-8 text-center">
+        <h2 className="text-2xl font-bold text-red-600 mb-4">Error Loading Game</h2>
+        <p className="text-lg mb-6">{dataError.message}</p>
+        <Button onClick={() => window.location.reload()}>
+          Reload Page
+        </Button>
+      </div>
+    )
   }
 
   if (gameComplete) {
