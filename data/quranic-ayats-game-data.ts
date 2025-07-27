@@ -126,3 +126,6 @@ export const quranicAyatsGameData = {
     ]
   }
 };
+
+export { quranicAyatsGameData };
+export default quranicAyatsGameData;
