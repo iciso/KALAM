@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useState } from 'react';
 import { render } from 'react-dom';
 import { DndProvider, useDrag, useDrop } from 'react-dnd';
