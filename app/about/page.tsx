@@ -1,4 +1,4 @@
-import Link from "next/link"
+import Link from "next/link" 
 import { Album, ArrowLeft, Github } from "lucide-react"
 import { MessageSquare } from "lucide-react"
 import { Button } from "@/components/ui/button"
