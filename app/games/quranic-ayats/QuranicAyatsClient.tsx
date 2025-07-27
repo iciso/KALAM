@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import {
   DndContext,
   closestCenter,
@@ -19,7 +19,7 @@ import {
 } from "@dnd-kit/sortable"
 import { CSS } from "@dnd-kit/utilities"
 import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
+import { Card, CardHeader, CardContent, CardTitle, CardDescription } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Check, RefreshCw, Award, HelpCircle, Info } from "lucide-react"
 import {
@@ -44,7 +44,7 @@ interface QuranicAyat {
   translation: string
 }
 
-// Default data structure
+// Default data
 const defaultGameData = {
   easy: [
     {
@@ -102,6 +102,29 @@ const defaultGameData = {
 const getRandomAyats = (count: number, difficulty: "easy" | "medium" | "hard"): QuranicAyat[] => {
   const ayats = defaultGameData[difficulty] || defaultGameData.easy
   return ayats.slice(0, Math.min(count, ayats.length))
+}
+
+function SortableItem({ id, word, onDoubleClick }: { id: string; word: string; onDoubleClick?: () => void }) {
+  const { attributes, listeners, setNodeRef, transform, transition } = useSortable({ id })
+
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+  }
+
+  return (
+    <div
+      ref={setNodeRef}
+      style={style}
+      {...attributes}
+      {...listeners}
+      onDoubleClick={onDoubleClick}
+      className="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md p-3 m-1 cursor-grab shadow-sm hover:shadow-md transition-shadow font-arabic text-xl text-center min-w-[80px] select-none"
+      title="Drag to rearrange or double-click to select"
+    >
+      {word}
+    </div>
+  )
 }
 
 function MakeQuranicAyatsGame({ difficulty = "easy", initialAyatCount = 3 }: { 
@@ -205,12 +228,16 @@ function MakeQuranicAyatsGame({ difficulty = "easy", initialAyatCount = 3 }: {
           Game Completed!
         </div>
         <Card className="w-full max-w-md p-6 text-center">
-          <h2 className="text-2xl font-bold mb-4">Your Final Score</h2>
-          <p className="text-5xl font-bold text-green-600 mb-6">{score}</p>
-          <p className="mb-4">You successfully arranged {ayats.length} Quranic ayats!</p>
-          <Button onClick={restartGame} className="w-full">
-            <RefreshCw className="mr-2 h-4 w-4" /> Play Again
-          </Button>
+          <CardHeader>
+            <CardTitle className="text-2xl font-bold mb-4">Your Final Score</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-5xl font-bold text-green-600 mb-6">{score}</p>
+            <p className="mb-4">You successfully arranged {ayats.length} Quranic ayats!</p>
+            <Button onClick={restartGame} className="w-full">
+              <RefreshCw className="mr-2 h-4 w-4" /> Play Again
+            </Button>
+          </CardContent>
         </Card>
       </div>
     )
@@ -243,25 +270,27 @@ function MakeQuranicAyatsGame({ difficulty = "easy", initialAyatCount = 3 }: {
 
       {showInstructions && (
         <Card className="p-4 bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800">
-          <div className="flex items-start">
-            <Info className="h-5 w-5 text-blue-500 mr-2 mt-0.5 flex-shrink-0" />
-            <div>
-              <h3 className="font-medium text-blue-700 dark:text-blue-300">How to Play</h3>
-              <p className="text-sm text-blue-600 dark:text-blue-400 mt-1">
-                Rearrange the words to form the correct Quranic ayat (verse). 
-                Drag words to reorder them or double-click to select. 
-                The ayat should read from right to left in Arabic.
-              </p>
+          <CardContent>
+            <div className="flex items-start">
+              <Info className="h-5 w-5 text-blue-500 mr-2 mt-0.5 flex-shrink-0" />
+              <div>
+                <CardTitle className="font-medium text-blue-700 dark:text-blue-300">How to Play</CardTitle>
+                <CardDescription className="text-sm text-blue-600 dark:text-blue-400 mt-1">
+                  Rearrange the words to form the correct Quranic ayat (verse). 
+                  Drag words to reorder them or double-click to select. 
+                  The ayat should read from right to left in Arabic.
+                </CardDescription>
+              </div>
             </div>
-          </div>
-          <Button
-            variant="outline"
-            size="sm"
-            className="mt-2 text-blue-600 border-blue-300 hover:bg-blue-100 dark:text-blue-300 dark:border-blue-700 dark:hover:bg-blue-900/40"
-            onClick={() => setShowInstructions(false)}
-          >
-            Got it
-          </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              className="mt-2 text-blue-600 border-blue-300 hover:bg-blue-100 dark:text-blue-300 dark:border-blue-700 dark:hover:bg-blue-900/40"
+              onClick={() => setShowInstructions(false)}
+            >
+              Got it
+            </Button>
+          </CardContent>
         </Card>
       )}
 
@@ -281,12 +310,7 @@ function MakeQuranicAyatsGame({ difficulty = "easy", initialAyatCount = 3 }: {
           <SortableContext items={words.map((word) => word.id)} strategy={horizontalListSortingStrategy}>
             <div className="flex flex-wrap justify-center p-4 min-h-[120px] border-2 border-dashed border-blue-300 dark:border-blue-700 rounded-lg dir-rtl bg-white dark:bg-gray-900/50">
               {words.map((word) => (
-                <div
-                  key={word.id}
-                  className="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md p-3 m-1 cursor-grab shadow-sm hover:shadow-md transition-shadow font-arabic text-xl text-center min-w-[80px] select-none"
-                >
-                  {word.text}
-                </div>
+                <SortableItem key={word.id} id={word.id} word={word.text} />
               ))}
             </div>
           </SortableContext>
