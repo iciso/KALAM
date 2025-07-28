@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 
@@ -61,6 +61,15 @@ const Game = () => {
   const [arrangedAyats, setArrangedAyats] = useState([...ayatData[level].find(p => p.id === currentPassageId).passage].sort(() => Math.random() - 0.5));
   const [score, setScore] = useState(0);
   const [feedback, setFeedback] = useState('');
+
+  // Sync currentPassageId and arrangedAyats when level changes
+  useEffect(() => {
+    const firstPassage = ayatData[level][0]; // Get the first passage of the new level
+    if (firstPassage) {
+      setCurrentPassageId(firstPassage.id);
+      setArrangedAyats([...firstPassage.passage].sort(() => Math.random() - 0.5));
+    }
+  }, [level]);
 
   const moveAyat = (fromIndex: number, toIndex: number) => {
     const updatedAyats = [...arrangedAyats];
