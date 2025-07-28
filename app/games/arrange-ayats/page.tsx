@@ -58,7 +58,10 @@ const AyatItem = ({ id, text, index, moveAyat }) => {
 const Game = () => {
   const [level, setLevel] = useState('easy');
   const [currentPassageId, setCurrentPassageId] = useState(1);
-  const [arrangedAyats, setArrangedAyats] = useState([...ayatData[level].find(p => p.id === currentPassageId).passage].sort(() => Math.random() - 0.5));
+  const [arrangedAyats, setArrangedAyats] = useState(() => {
+    const initialPassage = ayatData['easy'].find(p => p.id === 1);
+    return initialPassage ? [...initialPassage.passage].sort(() => Math.random() - 0.5) : [];
+  });
   const [score, setScore] = useState(0);
   const [feedback, setFeedback] = useState('');
 
@@ -79,8 +82,8 @@ const Game = () => {
   };
 
   const checkAnswer = () => {
-    const correctPassage = ayatData[level].find(p => p.id === currentPassageId).passage;
-    if (JSON.stringify(arrangedAyats) === JSON.stringify(correctPassage)) {
+    const correctPassage = ayatData[level].find(p => p.id === currentPassageId)?.passage;
+    if (correctPassage && JSON.stringify(arrangedAyats) === JSON.stringify(correctPassage)) {
       setScore(score + 5);
       setFeedback('Correct! +5 marks');
       setTimeout(() => {
