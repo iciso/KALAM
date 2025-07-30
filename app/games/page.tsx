@@ -85,6 +85,25 @@ export default function GamesPage() {
           </CardFooter>
         </Card>
 
+
+         {/* Correct Ayat Order Game Card */}
+        <Card className="border-amber-200 bg-cyan-50">
+          <CardHeader>
+            <CardTitle className="text-cyan-800">Correct the Ayat Order</CardTitle>
+            <CardDescription>Rearrange Ayats in correct order</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p>
+              Drag and drop Ayats to the correct order as in Quranic passages.
+            </p>
+          </CardContent>
+          <CardFooter>
+            <Link href="/games/arrange-ayats" passHref>
+              <Button className="bg-cyan-600 hover:bg-cyan-700">Play Now</Button>
+            </Link>
+          </CardFooter>
+        </Card>
+
         <Card>
           <CardHeader>
             <CardTitle>Hangman</CardTitle>
