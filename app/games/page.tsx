@@ -89,12 +89,12 @@ export default function GamesPage() {
          {/* Correct Ayat Order Game Card */}
         <Card className="border-amber-200 bg-cyan-50">
           <CardHeader>
-            <CardTitle className="text-cyan-800">Correct the Ayat Order</CardTitle>
+            <CardTitle className="text-cyan-800">Ayat Arranging Game</CardTitle>
             <CardDescription>Rearrange Ayats in correct order</CardDescription>
           </CardHeader>
           <CardContent>
             <p>
-              Drag and drop Ayats to the correct order as in Quranic passages.
+              Drag and drop Ayats to the correct order as in Quranic passages. Fun way to memorize entire Quranic passages!
             </p>
           </CardContent>
           <CardFooter>
