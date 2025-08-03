@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import { ArrowLeft, Home, BookOpen, Check, X, HelpCircle, ChevronRight, ChevronLeft } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -25,27 +25,57 @@ export default function SurahQuiz({ quizData }: SurahQuizProps) {
   const [score, setScore] = useState(0)
   const [quizCompleted, setQuizCompleted] = useState(false)
   const [showIntroduction, setShowIntroduction] = useState(true)
+  const [answeredQuestions, setAnsweredQuestions] = useState(new Set<string>())
+  const [userAnswers, setUserAnswers] = useState<Map<string, string>>(new Map())
 
   const currentQuestion = quizData.questions[currentQuestionIndex]
 
+  // Function to shuffle options
+  const shuffleArray = <T>(array: T[]): T[] => {
+    const shuffled = [...array]
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1))
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+    }
+    return shuffled
+  }
+
+  // Shuffle options for the current question
+  const shuffledOptions = shuffleArray(currentQuestion.options)
+
+  // Restore previous answer when navigating to a question
+  useEffect(() => {
+    const previousAnswer = userAnswers.get(currentQuestion.id)
+    if (previousAnswer) {
+      setSelectedOption(previousAnswer)
+      const selectedOptionObj = currentQuestion.options.find((option) => option.id === previousAnswer)
+      setIsCorrect(selectedOptionObj?.isCorrect || false)
+      setShowExplanation(answeredQuestions.has(currentQuestion.id))
+    } else {
+      setSelectedOption(null)
+      setIsCorrect(null)
+      setShowExplanation(false)
+    }
+  }, [currentQuestion.id, userAnswers, answeredQuestions])
+
   const handleOptionSelect = (optionId: string) => {
-    if (selectedOption !== null) return // Prevent changing answer after selection
+    if (selectedOption !== null) return // Prevent changing answer in current view
+    if (answeredQuestions.has(currentQuestion.id)) return // Prevent re-answering
 
     setSelectedOption(optionId)
+    setUserAnswers((prev) => new Map(prev).set(currentQuestion.id, optionId))
     const selectedOptionObj = currentQuestion.options.find((option) => option.id === optionId)
     const correct = selectedOptionObj?.isCorrect || false
     setIsCorrect(correct)
     if (correct) {
-      setScore(score + 1)
+      setScore((prev) => prev + 1)
     }
+    setAnsweredQuestions((prev) => new Set(prev).add(currentQuestion.id))
   }
 
   const handleNextQuestion = () => {
     if (currentQuestionIndex < quizData.questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1)
-      setSelectedOption(null)
-      setIsCorrect(null)
-      setShowExplanation(false)
     } else {
       setQuizCompleted(true)
     }
@@ -54,9 +84,6 @@ export default function SurahQuiz({ quizData }: SurahQuizProps) {
   const handlePreviousQuestion = () => {
     if (currentQuestionIndex > 0) {
       setCurrentQuestionIndex(currentQuestionIndex - 1)
-      setSelectedOption(null)
-      setIsCorrect(null)
-      setShowExplanation(false)
     }
   }
 
@@ -68,6 +95,8 @@ export default function SurahQuiz({ quizData }: SurahQuizProps) {
     setScore(0)
     setQuizCompleted(false)
     setShowIntroduction(true)
+    setAnsweredQuestions(new Set())
+    setUserAnswers(new Map())
   }
 
   const startQuiz = () => {
@@ -317,13 +346,12 @@ export default function SurahQuiz({ quizData }: SurahQuizProps) {
                     <CardDescription>Surah {quizData.surahName} Vocabulary Quiz</CardDescription>
                   </div>
                   <div className="text-sm font-medium">
-                    Score: {score}/{currentQuestionIndex + (isCorrect !== null ? 1 : 0)}
+                    Score: {score}/{answeredQuestions.size}
                   </div>
-                </div>
-              </CardHeader>
+                </CardHeader>
               <CardContent>
                 <div className="mb-6">
-                  <h3 className="text-lg font-medium mb-2">What is the meaning of:</h3>
+                  <h3 className="text-lg font-medium mb-2">{currentQuestion.question}</h3>
                   <div className="text-center">
                     <p className="text-3xl font-arabic mb-2">{currentQuestion.arabic}</p>
                     {currentQuestion.rootLetters && (
@@ -335,7 +363,7 @@ export default function SurahQuiz({ quizData }: SurahQuizProps) {
                 </div>
 
                 <div className="space-y-3">
-                  {currentQuestion.options.map((option) => (
+                  {shuffledOptions.map((option) => (
                     <button
                       key={option.id}
                       onClick={() => handleOptionSelect(option.id)}
@@ -346,7 +374,7 @@ export default function SurahQuiz({ quizData }: SurahQuizProps) {
                             : "bg-red-100 border-red-300 dark:bg-red-900/30 dark:border-red-700"
                           : "bg-white border-gray-200 hover:bg-gray-50 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-750"
                       }`}
-                      disabled={selectedOption !== null}
+                      disabled={answeredQuestions.has(currentQuestion.id)}
                     >
                       <div className="flex justify-between items-center">
                         <span>
