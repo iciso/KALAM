@@ -275,7 +275,7 @@ const surahs = [
     {
     id: 106,
     name: "Al-Quraysh",
-    arabicName: "قُرَيْشٍ‎",
+    arabicName: "قُرَيْشٍ",
     verses: 4,
     type: "Meccan",
     vocabularyCount: 17,
