@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import Link from "next/link"
 import { ArrowLeft, Home, BookOpen, Check, X, HelpCircle, ChevronRight, ChevronLeft } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -138,7 +138,7 @@ export default function SurahQuiz({ quizData }: SurahQuizProps) {
     }
   }
 
-  // Function to render theological significance for Surah Al-Ikhlas
+  // Function to render theological significance for specific surahs
   const renderTheologicalSignificance = () => {
     if (quizData.surahId === 112) {
       return (
@@ -348,7 +348,8 @@ export default function SurahQuiz({ quizData }: SurahQuizProps) {
                   <div className="text-sm font-medium">
                     Score: {score}/{answeredQuestions.size}
                   </div>
-                </CardHeader>
+                </div>
+              </CardHeader>
               <CardContent>
                 <div className="mb-6">
                   <h3 className="text-lg font-medium mb-2">{currentQuestion.question}</h3>
