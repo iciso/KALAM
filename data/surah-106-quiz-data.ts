@@ -189,8 +189,8 @@ export const alQurayshQuizData: SurahQuizData = {
     },
     {
       id: "quraysh-8",
-      question: "How is Surah Al-Quraysh connected to Surah Al-Fil?",
-      arabic: "الماعون",
+      question: "How is Surah Al-Quraysh by its last verse connected to Surah Al-Fil?",
+      arabic: "ٱلَّذِىٓ أَطْعَمَهُم مِّن جُوعٍ وَءَامَنَهُم مِّنْ خَوْفٍۭ",
       options: [
         { id: "a", text: "It highlights the Quraysh’s security after the Kaaba’s protection", isCorrect: true },
         { id: "b", text: "It describes the same historical event", isCorrect: false },
