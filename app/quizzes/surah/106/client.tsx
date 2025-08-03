@@ -1,6 +1,6 @@
 "use client"
 
-import { alQurayshQuizData } from "@/data/surah-quiz-data"
+import { alQurayshQuizData } from "@/data/surah-106-quiz-data"
 import dynamic from "next/dynamic"
 
 // Use dynamic import to avoid hydration issues with client components
