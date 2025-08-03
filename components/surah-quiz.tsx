@@ -27,6 +27,38 @@ export default function SurahQuiz({ quizData }: SurahQuizProps) {
   const [showIntroduction, setShowIntroduction] = useState(true)
   const [answeredQuestions, setAnsweredQuestions] = useState(new Set<string>())
   const [userAnswers, setUserAnswers] = useState<Map<string, string>>(new Map())
+  const [error, setError] = useState<string | null>(null)
+
+  // Log quizData for debugging
+  useEffect(() => {
+    console.log("Quiz Data:", quizData)
+    console.log("Questions Length:", quizData.questions.length)
+  }, [quizData])
+
+  // Handle errors in quizData access
+  if (!quizData || !quizData.questions || quizData.questions.length === 0) {
+    console.error("Invalid quiz data:", quizData)
+    return (
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 p-4">
+        <div className="container mx-auto max-w-2xl">
+          <Card>
+            <CardHeader>
+              <CardTitle>Error</CardTitle>
+              <CardDescription>Unable to load quiz data for Surah {quizData?.surahName || "Unknown"}.</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p>Please try again later or contact support.</p>
+            </CardContent>
+            <CardFooter>
+              <Link href="/quizzes/surah">
+                <Button>Back to Surah Quizzes</Button>
+              </Link>
+            </CardFooter>
+          </Card>
+        </div>
+      </div>
+    )
+  }
 
   const currentQuestion = quizData.questions[currentQuestionIndex]
 
@@ -62,15 +94,21 @@ export default function SurahQuiz({ quizData }: SurahQuizProps) {
     if (selectedOption !== null) return // Prevent changing answer in current view
     if (answeredQuestions.has(currentQuestion.id)) return // Prevent re-answering
 
-    setSelectedOption(optionId)
-    setUserAnswers((prev) => new Map(prev).set(currentQuestion.id, optionId))
-    const selectedOptionObj = currentQuestion.options.find((option) => option.id === optionId)
-    const correct = selectedOptionObj?.isCorrect || false
-    setIsCorrect(correct)
-    if (correct) {
-      setScore((prev) => prev + 1)
+    try {
+      setSelectedOption(optionId)
+      setUserAnswers((prev) => new Map(prev).set(currentQuestion.id, optionId))
+      const selectedOptionObj = currentQuestion.options.find((option) => option.id === optionId)
+      const correct = selectedOptionObj?.isCorrect || false
+      setIsCorrect(correct)
+      if (correct) {
+        setScore((prev) => prev + 1)
+      }
+      setAnsweredQuestions((prev) => new Set(prev).add(currentQuestion.id))
+      console.log(`Selected option ${optionId} for question ${currentQuestion.id}, Score: ${score + (correct ? 1 : 0)}`)
+    } catch (err) {
+      console.error("Error in handleOptionSelect:", err)
+      setError("An error occurred while processing your answer. Please try again.")
     }
-    setAnsweredQuestions((prev) => new Set(prev).add(currentQuestion.id))
   }
 
   const handleNextQuestion = () => {
@@ -97,6 +135,7 @@ export default function SurahQuiz({ quizData }: SurahQuizProps) {
     setShowIntroduction(true)
     setAnsweredQuestions(new Set())
     setUserAnswers(new Map())
+    setError(null)
   }
 
   const startQuiz = () => {
@@ -201,6 +240,32 @@ export default function SurahQuiz({ quizData }: SurahQuizProps) {
       )
     }
     return null
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 p-4">
+        <div className="container mx-auto max-w-2xl">
+          <Card>
+            <CardHeader>
+              <CardTitle>Error</CardTitle>
+              <CardDescription>An error occurred in the Surah {quizData.surahName} quiz.</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p>{error}</p>
+            </CardContent>
+            <CardFooter>
+              <Button variant="outline" onClick={resetQuiz}>
+                Restart Quiz
+              </Button>
+              <Link href="/quizzes/surah">
+                <Button>Back to Surah Quizzes</Button>
+              </Link>
+            </CardFooter>
+          </Card>
+        </div>
+      </div>
+    )
   }
 
   return (
