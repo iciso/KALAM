@@ -233,7 +233,7 @@ className={`w-full h-3 bg-gradient-to-r ${factor.color} rounded-lg appearance-no
             This interactive model demonstrates how different spiritual factors influence your state based on Islamic teachings.
           </p>
           <p className="text-gray-600">
-            <strong>Note:</strong> This is a simplified demonstration. True spiritual states are known only to Allah.
+            <strong>Disclaimer:</strong> This is a simplified demo for understanding. True spiritual states are known only to Allah, The knower of The Unseen or Ghayab.
           </p>
         </div>
       </div>
