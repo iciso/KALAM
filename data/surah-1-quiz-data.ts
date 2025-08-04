@@ -23,7 +23,7 @@ export interface SurahQuizData {
     explanation?: string
   }[]
 }
-
+ 
 export const alFatihahQuizData: SurahQuizData = {
   surahId: 1,
   surahName: "Al-Fatihah",
