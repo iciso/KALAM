@@ -154,7 +154,7 @@ const SpiritualModel = () => {
             max="100"
             value={imanLevel}
             onChange={(e) => setImanLevel(parseInt(e.target.value))}
-            className={`w-full h-3 bg-gradient-to-r from-red-400 via-yellow-400 to-green-500 rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:shadow-md`}
+            className={`w-full h-3 bg-gradient-to-r from-red-400 via-yellow-400 to-green-500 rounded-lg cursor-pointer range-thumb-white`}
           />
           <div className="flex justify-between text-xs text-gray-500 mt-1">
             <span>Weak</span>
