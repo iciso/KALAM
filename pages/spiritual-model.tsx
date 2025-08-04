@@ -1,9 +1,11 @@
 // File: pages/spiritual-model.tsx
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
- 
+
+// Add this CSS import at the top
+import '../styles/globals.css'; // Or create a specific CSS file for this component
+
 const SpiritualModel = () => {
-  // Define types for our model
   type SpiritualFactor = {
     name: string;
     value: number;
@@ -12,10 +14,10 @@ const SpiritualModel = () => {
     step: number;
     coefficient: number;
     color: string;
+    thumbColor: string;
     description: string;
   };
 
-  // Initial state with Islamic spiritual factors
   const [factors, setFactors] = useState<SpiritualFactor[]>([
     {
       name: 'Ruh (Soul)',
@@ -23,8 +25,9 @@ const SpiritualModel = () => {
       min: 0,
       max: 10,
       step: 0.1,
-      coefficient: 0.6, // Strong positive impact
-      color: 'bg-blue-500',
+      coefficient: 0.6,
+      color: 'from-blue-400 to-blue-600',
+      thumbColor: 'bg-blue-600',
       description: 'The divine spirit that connects us to Allah'
     },
     {
@@ -33,8 +36,9 @@ const SpiritualModel = () => {
       min: 0,
       max: 10,
       step: 0.1,
-      coefficient: -0.4, // Negative impact when uncontrolled
-      color: 'bg-red-500',
+      coefficient: -0.4,
+      color: 'from-red-400 to-red-600',
+      thumbColor: 'bg-red-600',
       description: 'The lower self that needs purification'
     },
     {
@@ -43,8 +47,9 @@ const SpiritualModel = () => {
       min: 0,
       max: 10,
       step: 0.1,
-      coefficient: 0.3, // Positive but secondary to Ruh
-      color: 'bg-green-500',
+      coefficient: 0.3,
+      color: 'from-green-400 to-green-600',
+      thumbColor: 'bg-green-600',
       description: 'The God-given wisdom to discern truth'
     },
     {
@@ -53,47 +58,74 @@ const SpiritualModel = () => {
       min: 0,
       max: 10,
       step: 0.1,
-      coefficient: 0.5, // Strong positive when purified
-      color: 'bg-purple-500',
+      coefficient: 0.5,
+      color: 'from-purple-400 to-purple-600',
+      thumbColor: 'bg-purple-600',
       description: 'The spiritual heart that feels love and mercy'
     }
   ]);
 
-  const [imanLevel, setImanLevel] = useState<number>(50); // 0-100 scale
-  const [predictedState, setPredictedState] = useState<number>(50); // 0-100 scale
+  const [imanLevel, setImanLevel] = useState<number>(50);
+  const [predictedState, setPredictedState] = useState<number>(50);
 
-  // Calculate the spiritual state using logistic regression
   const calculateSpiritualState = () => {
-    // Start with a base value representing Allah's mercy
     let z = 1.0; // Base representing divine mercy
     
-    // Add each factor's contribution
     factors.forEach(factor => {
       z += factor.coefficient * factor.value;
     });
 
-    // Add iman's influence (quadratic relationship)
-    z += 0.02 * imanLevel + 0.0001 * Math.pow(imanLevel, 2);
+    // Enhanced iman influence
+    z += 0.03 * imanLevel + 0.00015 * Math.pow(imanLevel, 2);
 
-    // Sigmoid function to get probability between 0-1
     const probability = 1 / (1 + Math.exp(-z));
-
-    // Scale to 0-100 for display
     const spiritualState = Math.round(probability * 100);
     setPredictedState(spiritualState);
   };
 
-  // Update calculation when any factor changes
   useEffect(() => {
     calculateSpiritualState();
   }, [factors, imanLevel]);
 
-  // Handle slider changes
   const handleFactorChange = (index: number, value: number) => {
     const newFactors = [...factors];
     newFactors[index].value = parseFloat(value.toFixed(1));
     setFactors(newFactors);
   };
+
+  const getStateDescription = (score: number) => {
+    if (score < 30) {
+      return {
+        label: 'Struggling',
+        color: 'bg-red-500',
+        text: 'Focus on strengthening your connection with Allah through dhikr and salah',
+        emoji: '🤲'
+      };
+    } else if (score < 60) {
+      return {
+        label: 'Developing',
+        color: 'bg-yellow-500',
+        text: 'Continue your spiritual growth with consistent good deeds and learning',
+        emoji: '📖'
+      };
+    } else if (score < 80) {
+      return {
+        label: 'Strong',
+        color: 'bg-blue-500',
+        text: 'Your spiritual state is strong - maintain consistency and increase in charity',
+        emoji: '💪'
+      };
+    } else {
+      return {
+        label: 'Exemplary',
+        color: 'bg-green-500',
+        text: 'MashaAllah! You are in an excellent spiritual state - share your light with others',
+        emoji: '🌟'
+      };
+    }
+  };
+
+  const stateInfo = getStateDescription(predictedState);
 
   return (
     <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
@@ -122,7 +154,7 @@ const SpiritualModel = () => {
             max="100"
             value={imanLevel}
             onChange={(e) => setImanLevel(parseInt(e.target.value))}
-            className="w-full h-3 bg-gradient-to-r from-red-400 via-yellow-400 to-green-500 rounded-lg appearance-none cursor-pointer"
+            className={`w-full h-3 bg-gradient-to-r from-red-400 via-yellow-400 to-green-500 rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:shadow-md`}
           />
           <div className="flex justify-between text-xs text-gray-500 mt-1">
             <span>Weak</span>
@@ -138,7 +170,7 @@ const SpiritualModel = () => {
               <label htmlFor={`${factor.name}-slider`} className="block text-md font-medium text-gray-700">
                 {factor.name}: <span className="font-bold">{factor.value}</span>
               </label>
-              <span className={`px-2 py-1 text-xs rounded-full text-white ${factor.color}`}>
+              <span className={`px-2 py-1 text-xs rounded-full text-white ${factor.thumbColor}`}>
                 {factor.coefficient > 0 ? 'Positive' : 'Negative'} Influence
               </span>
             </div>
@@ -150,44 +182,36 @@ const SpiritualModel = () => {
               step={factor.step}
               value={factor.value}
               onChange={(e) => handleFactorChange(index, parseFloat(e.target.value))}
-              className={`w-full h-3 ${factor.color} rounded-lg appearance-none cursor-pointer`}
+              className={`w-full h-3 bg-gradient-to-r ${factor.color} rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:${factor.thumbColor} [&::-webkit-slider-thumb]:shadow-md`}
             />
             <p className="text-sm text-gray-500 mt-1">{factor.description}</p>
           </div>
         ))}
 
-        {/* Predicted Spiritual State */}
+        {/* Predicted Spiritual State - Now Interactive */}
         <div className="mt-10 p-6 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg border border-gray-200">
           <h2 className="text-xl font-semibold text-center text-gray-800 mb-4">
             Current Spiritual State
           </h2>
-          <div className="relative pt-1">
-            <div className="flex items-center justify-between mb-2">
-              <div>
-                <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-white bg-gradient-to-r from-red-500 to-green-500">
-                  {predictedState < 30 ? 'Struggling' : 
-                   predictedState < 60 ? 'Developing' : 
-                   predictedState < 80 ? 'Strong' : 'Exemplary'}
-                </span>
-              </div>
-              <div className="text-right">
-                <span className="text-xs font-semibold inline-block text-gray-600">
-                  {predictedState}/100
-                </span>
-              </div>
-            </div>
-            <div className="overflow-hidden h-4 mb-4 text-xs flex rounded bg-gray-200">
-              <div
-                style={{ width: `${predictedState}%` }}
-                className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-gradient-to-r from-green-400 to-blue-500"
-              ></div>
-            </div>
+          
+          <div className="flex items-center justify-center mb-3">
+            <span className={`text-lg mr-2 ${stateInfo.color} text-white px-3 py-1 rounded-full flex items-center`}>
+              {stateInfo.emoji} {stateInfo.label}
+            </span>
+            <span className="text-xl font-bold text-gray-700">
+              {predictedState}/100
+            </span>
           </div>
+          
+          <div className="w-full bg-gray-200 rounded-full h-4 mb-4">
+            <div
+              className={`h-4 rounded-full ${stateInfo.color}`}
+              style={{ width: `${predictedState}%` }}
+            ></div>
+          </div>
+          
           <p className="text-center text-gray-600 italic mt-2">
-            {predictedState < 30 ? 'Focus on strengthening your connection with Allah through dhikr and salah' :
-             predictedState < 60 ? 'Continue your spiritual growth with consistent good deeds and learning' :
-             predictedState < 80 ? 'Your spiritual state is strong - maintain consistency and increase in charity' :
-             'MashaAllah! You are in an excellent spiritual state - share your light with others'}
+            {stateInfo.text}
           </p>
         </div>
 
@@ -195,22 +219,10 @@ const SpiritualModel = () => {
         <div className="mt-10 p-6 bg-gray-50 rounded-lg border border-gray-200">
           <h3 className="text-lg font-medium text-gray-800 mb-3">About This Spiritual Model</h3>
           <p className="text-gray-600 mb-3">
-            This model demonstrates how different spiritual factors (Ruh, Nafs, Aql, Qalb) interact with Iman
-            to influence one's overall spiritual state, based on Islamic teachings.
+            This interactive model demonstrates how different spiritual factors influence your state based on Islamic teachings.
           </p>
-          <p className="text-gray-600 mb-3">
-            The calculation uses a logistic regression approach where each factor has a specific weight:
-          </p>
-          <ul className="list-disc pl-5 text-gray-600 mb-3">
-            {factors.map(factor => (
-              <li key={factor.name} className="mb-1">
-                <span className="font-medium">{factor.name}:</span> Coefficient = {factor.coefficient} ({factor.coefficient > 0 ? 'positive' : 'negative'} impact)
-              </li>
-            ))}
-          </ul>
           <p className="text-gray-600">
-            Remember that in reality, Allah's mercy is boundless and cannot be fully captured by any model.
-            This is merely a simplified demonstration for educational purposes.
+            <strong>Note:</strong> This is a simplified demonstration. True spiritual states are known only to Allah.
           </p>
         </div>
       </div>
