@@ -1,7 +1,7 @@
 // File: pages/spiritual-model.tsx
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
-
+ 
 const SpiritualModel = () => {
   // Define types for our model
   type SpiritualFactor = {
