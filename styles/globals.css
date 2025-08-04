@@ -99,7 +99,7 @@ body {
   @apply border border-border p-2 mb-2 rounded cursor-move bg-muted;
 }
 
-/* styles/globals.css added for sliders  removed: transform: translateY(-50%);*/
+/* styles/globals.css added for sliders */
 input[type="range"] {
   -webkit-appearance: none;
   height: 8px;
@@ -114,9 +114,9 @@ input[type="range"]::-webkit-slider-thumb {
   box-shadow: 0 2px 4px rgba(0,0,0,0.2);
   position: relative;
   z-index: 10;
-  transform: translateY(-50%);
   margin-top: -6px; /* Centers the thumb vertically */
 }
+/* removed: transform: translateY(-50%); as it is redundant with margin-top */
 
 /* Firefox specific styles */
 input[type="range"]::-moz-range-thumb {
