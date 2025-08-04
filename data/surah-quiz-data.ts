@@ -112,7 +112,7 @@ export const alKafirunQuizData: SurahQuizData = {
       arabic: "لَا أَعْبُدُ مَا تَعْبُدُونَ",
       rootLetters: "ع ب د",
       options: [
-        { id: "a", text: "I do not worship what you worship", isCorrect: false },
+        { id: "a", text: "I do not do what you do", isCorrect: false },
         { id: "b", text: "I will not follow what you follow", isCorrect: false },
         { id: "c", text: "I cannot accept what you accept", isCorrect: false },
         { id: "d", text: "I do not worship what you worship", isCorrect: true },
