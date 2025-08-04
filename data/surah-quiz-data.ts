@@ -206,11 +206,7 @@ export const alFatihahQuizData: SurahQuizData = {
       arabic: "غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ",
       rootLetters: "غ ض ب",
       options: [
-        {
-          id: "a",
-          text: "Not of those who have earned Your anger, nor of those who have gone astray",
-          isCorrect: true,
-        },
+        { id: "a", text: "Not of those who have earned Your anger, nor of those who have gone astray", isCorrect: true, },
         { id: "b", text: "Not of those who have been cursed, nor of those who are lost", isCorrect: false },
         { id: "c", text: "Not of those who have been rejected, nor of those who are misguided", isCorrect: false },
         { id: "d", text: "Not of those who have been punished, nor of those who are confused", isCorrect: false },
