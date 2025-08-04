@@ -155,3 +155,10 @@ input[type="range"]::-moz-range-thumb {
 .range-thumb-purple-600::-moz-range-thumb {
   background: #9333ea;
 }
+
+.range-thumb-white::-webkit-slider-thumb {
+  background: white;
+}
+.range-thumb-white::-moz-range-thumb {
+  background: white;
+}
