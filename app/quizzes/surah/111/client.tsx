@@ -1,8 +1,11 @@
 "use client"
 
-import SurahQuiz from "@/components/surah-quiz"
-import { surahMasadQuizData } from "@/data/surah-quiz-data"
+import { alMasadQuizData } from "@/data/surah-111-quiz-data"
+import dynamic from "next/dynamic"
 
-export default function SurahMasadQuizClient() {
-  return <SurahQuiz quizData={surahMasadQuizData} />
+// Use dynamic import to avoid hydration issues with client components
+const SurahQuiz = dynamic(() => import("@/components/surah-quiz"), { ssr: false })
+
+export default function AlMasadQuizClient() {
+  return <SurahQuiz quizData={alMasadQuizData} />
 }
