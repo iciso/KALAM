@@ -25,7 +25,7 @@ const SpiritualModel = () => {
       min: 0,
       max: 10,
       step: 0.1,
-      coefficient: 0.6,
+      coefficient: 0.5,
       color: 'from-blue-400 to-blue-600',
       thumbColor: 'bg-blue-600',
       description: 'The divine spirit that connects us to Allah'
@@ -36,7 +36,7 @@ const SpiritualModel = () => {
       min: 0,
       max: 10,
       step: 0.1,
-      coefficient: -0.4,
+      coefficient: -0.8,
       color: 'from-red-400 to-red-600',
       thumbColor: 'bg-red-600',
       description: 'The lower self that needs purification'
@@ -182,7 +182,18 @@ const SpiritualModel = () => {
               step={factor.step}
               value={factor.value}
               onChange={(e) => handleFactorChange(index, parseFloat(e.target.value))}
-              className={`w-full h-3 bg-gradient-to-r ${factor.color} rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:${factor.thumbColor} [&::-webkit-slider-thumb]:shadow-md`}
+              // Replace the existing input className for all sliders (except Iman) with this:
+className={`w-full h-3 bg-gradient-to-r ${factor.color} rounded-lg appearance-none cursor-pointer 
+           [&::-webkit-slider-thumb]:appearance-none 
+           [&::-webkit-slider-thumb]:h-5 
+           [&::-webkit-slider-thumb]:w-5 
+           [&::-webkit-slider-thumb]:rounded-full 
+           [&::-webkit-slider-thumb]:${factor.thumbColor} 
+           [&::-webkit-slider-thumb]:border-2 
+           [&::-webkit-slider-thumb]:border-white 
+           [&::-webkit-slider-thumb]:shadow-lg 
+           [&::-webkit-slider-thumb]:relative 
+           [&::-webkit-slider-thumb]:z-10`}
             />
             <p className="text-sm text-gray-500 mt-1">{factor.description}</p>
           </div>
