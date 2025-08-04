@@ -98,3 +98,9 @@ body {
 .ayat-item {
   @apply border border-border p-2 mb-2 rounded cursor-move bg-muted;
 }
+
+input[type="range"]::-webkit-slider-thumb {
+  position: relative;
+  z-index: 10;
+  transform: translateY(-50%);
+}
