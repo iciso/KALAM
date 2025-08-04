@@ -127,3 +127,31 @@ input[type="range"]::-moz-range-thumb {
   position: relative;
   z-index: 10;
 }
+
+/* Thumb colors */
+.range-thumb-blue-600::-webkit-slider-thumb {
+  background: #2563eb;
+}
+.range-thumb-red-600::-webkit-slider-thumb {
+  background: #dc2626;
+}
+.range-thumb-green-600::-webkit-slider-thumb {
+  background: #16a34a;
+}
+.range-thumb-purple-600::-webkit-slider-thumb {
+  background: #9333ea;
+}
+
+/* Firefox thumb colors */
+.range-thumb-blue-600::-moz-range-thumb {
+  background: #2563eb;
+}
+.range-thumb-red-600::-moz-range-thumb {
+  background: #dc2626;
+}
+.range-thumb-green-600::-moz-range-thumb {
+  background: #16a34a;
+}
+.range-thumb-purple-600::-moz-range-thumb {
+  background: #9333ea;
+}
