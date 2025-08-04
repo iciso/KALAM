@@ -30,7 +30,7 @@ export const alFatihahQuizData: SurahQuizData = {
   surahArabicName: "الفاتحة",
   totalVerses: 7,
   type: "Meccan",
-  difficulty: "Beginner",
+  difficulty: "Beginner", 
   introduction:
     "Surah Al-Fatihah (The Opening) is the first chapter of the Quran and is recited in every unit (rak'ah) of the daily prayers. It is known as 'Umm al-Kitab' (The Mother of the Book) and 'Sab'a al-Mathani' (The Seven Oft-Repeated Verses) due to its central importance in Islamic worship and theology.",
   additionalContextElements: [
