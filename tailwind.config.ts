@@ -24,6 +24,9 @@ const config = {
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
+        backgroundImage: {
+        'gradient-slider': 'linear-gradient(to right, var(--tw-gradient-stops))',
+      }
         foreground: "hsl(var(--foreground))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
