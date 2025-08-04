@@ -1,4 +1,4 @@
-"use client"
+"use client" 
 
 import { alFatihahQuizData } from "@/data/surah-1-quiz-data"
 import dynamic from "next/dynamic"
