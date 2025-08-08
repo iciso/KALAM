@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
-import { alKafirunQuizData } from "@/data/surah-quiz-data"
+import { alKafirunQuizData } from "@/data/surah-109-quiz-data"
 
 export function SurahQuizClient() {
   const quizData = alKafirunQuizData
