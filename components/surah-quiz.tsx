@@ -28,7 +28,6 @@ export default function SurahQuiz({ quizData }: SurahQuizProps) {
   const [answeredQuestions, setAnsweredQuestions] = useState(new Set<string>());
   const [userAnswers, setUserAnswers] = useState<Map<string, string>>(new Map());
   const [error, setError] = useState<string | null>(null);
-  const [shuffledOptions, setShuffledOptions] = useState<{ id: string; text: string; isCorrect: boolean }[]>([]);
 
   // Log quizData for debugging
   useEffect(() => {
@@ -62,30 +61,6 @@ export default function SurahQuiz({ quizData }: SurahQuizProps) {
   }
 
   const currentQuestion = quizData.questions[currentQuestionIndex];
-
-  // Function to shuffle option text and isCorrect while keeping IDs fixed
-  const shuffleArray = (options: { id: string; text: string; isCorrect: boolean }[]) => {
-    console.log("Original options:", options);
-    const contents = options.map((opt) => ({ text: opt.text, isCorrect: opt.isCorrect }));
-    console.log("Contents before shuffle:", contents);
-    for (let i = contents.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [contents[i], contents[j]] = [contents[j], contents[i]];
-    }
-    console.log("Contents after shuffle:", contents);
-    const shuffled = options.map((opt, index) => ({
-      id: opt.id,
-      text: contents[index].text,
-      isCorrect: contents[index].isCorrect,
-    }));
-    console.log("Shuffled options:", shuffled);
-    return shuffled;
-  };
-
-  // Shuffle options when question changes or quiz starts/restarts
-  useEffect(() => {
-    setShuffledOptions(shuffleArray(currentQuestion.options));
-  }, [currentQuestion.id]);
 
   // Restore previous answer when navigating to a question
   useEffect(() => {
@@ -150,7 +125,6 @@ export default function SurahQuiz({ quizData }: SurahQuizProps) {
     setQuizCompleted(false);
     setAnsweredQuestions(new Set());
     setUserAnswers(new Map());
-    setShuffledOptions(shuffleArray(quizData.questions[0].options));
     console.log("Quiz restarted, score reset to 0");
   };
 
@@ -216,7 +190,7 @@ export default function SurahQuiz({ quizData }: SurahQuizProps) {
                 )}
               </div>
               <div className="space-y-2">
-                {shuffledOptions.map((option) => (
+                {currentQuestion.options.map((option) => (
                   <button
                     key={option.id}
                     onClick={() => handleOptionSelect(option.id)}
