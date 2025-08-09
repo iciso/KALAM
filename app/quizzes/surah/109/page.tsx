@@ -1,5 +1,5 @@
-import { SurahQuizClient } from "./client"
+import AlKafirunQuizClient from "./client"
 
-export default function SurahKafirunQuizPage() {
-  return <SurahQuizClient />
+export default function AlKafirunQuizPage() {
+  return <AlKafirunQuizClient />
 }
