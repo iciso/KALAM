@@ -28,6 +28,7 @@ export default function SurahQuiz({ quizData }: SurahQuizProps) {
   const [answeredQuestions, setAnsweredQuestions] = useState(new Set<string>());
   const [userAnswers, setUserAnswers] = useState<Map<string, string>>(new Map());
   const [error, setError] = useState<string | null>(null);
+  const [shuffledOptions, setShuffledOptions] = useState<{ id: string; text: string; isCorrect: boolean }[]>([]);
 
   // Log quizData for debugging
   useEffect(() => {
@@ -62,25 +63,29 @@ export default function SurahQuiz({ quizData }: SurahQuizProps) {
 
   const currentQuestion = quizData.questions[currentQuestionIndex];
 
-  // Function to shuffle option content while keeping IDs fixed
-  const shuffleOptionContent = (options: { id: string; text: string; isCorrect: boolean }[]) => {
-    // Extract text and isCorrect fields
-    const content = options.map(({ text, isCorrect }) => ({ text, isCorrect }));
-    // Shuffle content
-    for (let i = content.length - 1; i > 0; i--) {
+  // Function to shuffle option text and isCorrect while keeping IDs fixed
+  const shuffleArray = (options: { id: string; text: string; isCorrect: boolean }[]) => {
+    console.log("Original options:", options);
+    const contents = options.map((opt) => ({ text: opt.text, isCorrect: opt.isCorrect }));
+    console.log("Contents before shuffle:", contents);
+    for (let i = contents.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
-      [content[i], content[j]] = [content[j], content[i]];
+      [contents[i], contents[j]] = [contents[j], contents[i]];
     }
-    // Reassign shuffled content to fixed IDs
-    return options.map((option, index) => ({
-      id: option.id,
-      text: content[index].text,
-      isCorrect: content[index].isCorrect,
+    console.log("Contents after shuffle:", contents);
+    const shuffled = options.map((opt, index) => ({
+      id: opt.id,
+      text: contents[index].text,
+      isCorrect: contents[index].isCorrect,
     }));
+    console.log("Shuffled options:", shuffled);
+    return shuffled;
   };
 
-  // Apply shuffled content for the current question
-  const shuffledOptions = shuffleOptionContent(currentQuestion.options);
+  // Shuffle options when question changes or quiz starts/restarts
+  useEffect(() => {
+    setShuffledOptions(shuffleArray(currentQuestion.options));
+  }, [currentQuestion.id]);
 
   // Restore previous answer when navigating to a question
   useEffect(() => {
@@ -132,6 +137,7 @@ export default function SurahQuiz({ quizData }: SurahQuizProps) {
     setQuizCompleted(false);
     setAnsweredQuestions(new Set());
     setUserAnswers(new Map());
+    setShuffledOptions(shuffleArray(quizData.questions[0].options));
   };
 
   return (
