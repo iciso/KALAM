@@ -94,7 +94,7 @@ export const alKafirunQuizData: SurahQuizData = {
     },
     {
       id: "kafirun-2",
-      question: "What is the meaning of this opening command?",
+      question: "What is the meaning of this opening line?",
       arabic: "قُلْ يَا أَيُّهَا الْكَافِرُونَ",
       rootLetters: "ق و ل",
       options: [
@@ -140,13 +140,13 @@ export const alKafirunQuizData: SurahQuizData = {
       arabic: "وَلَا أَنَا عَابِدٌ مَّا عَبَدتُّمْ",
       rootLetters: "ع ب د",
       options: [
-        { id: "a", text: "And I will not worship what you have worshipped", isCorrect: false },
-        { id: "b", text: "And I am not a worshipper of what you have worshipped", isCorrect: true },
+        { id: "a", text: "And I will not follow you in your worship", isCorrect: false },
+        { id: "b", text: "And I will never worship what you worship", isCorrect: true },
         { id: "c", text: "And I cannot worship what you have worshipped", isCorrect: false },
         { id: "d", text: "And I do not accept what you have accepted", isCorrect: false },
       ],
       explanation:
-        "Wa la ana 'abidun ma 'abadtum means 'And I am not a worshipper of what you have worshipped.' This reinforces the previous statement with emphasis on the Prophet's ﷺ identity as someone who fundamentally rejects polytheistic worship, both in the present and as a permanent characteristic.",
+        "Wa la ana 'abidun ma 'abadtum means 'And I will never worship what you worship.' This reinforces the previous statement with emphasis on the Prophet's ﷺ identity as someone who fundamentally rejects polytheistic worship, both in the present and as a permanent characteristic.",
     },
     {
       id: "kafirun-6",
@@ -154,13 +154,13 @@ export const alKafirunQuizData: SurahQuizData = {
       arabic: "وَلَا أَنتُمْ عَابِدُونَ مَا أَعْبُدُ",
       rootLetters: "ع ب د",
       options: [
-        { id: "a", text: "And you will never worship what I worship", isCorrect: false },
+        { id: "a", text: "And you will not worship like I worship", isCorrect: false },
         { id: "b", text: "And you do not follow what I follow", isCorrect: false },
-        { id: "c", text: "And you are not worshippers of what I worship", isCorrect: true },
+        { id: "c", text: "And you will not worship what I worship", isCorrect: true },
         { id: "d", text: "And you cannot understand what I understand", isCorrect: false },
       ],
       explanation:
-        "Wa la antum 'abiduna ma a'bud means 'And you are not worshippers of what I worship.' This final repetition emphasizes the permanent and fundamental nature of the religious divide. It acknowledges that the disbelievers are not, by their very nature and choice, worshippers of Allah alone.",
+        "Wa la antum 'abiduna ma a'bud means 'And you will not worship what I worship.' This final repetition emphasizes the permanent and fundamental nature of the religious divide. It acknowledges that the disbelievers are not, by their very nature and choice, worshippers of Allah alone.",
     },
     {
       id: "kafirun-7",
@@ -168,7 +168,7 @@ export const alKafirunQuizData: SurahQuizData = {
       arabic: "لَكُمْ دِينُكُمْ وَلِيَ دِينِ",
       rootLetters: "د ي ن",
       options: [
-        { id: "a", text: "To you your religion, and to me mine", isCorrect: false },
+        { id: "a", text: "To you your path, and to me mine", isCorrect: false },
         { id: "b", text: "You have your faith, and I have mine", isCorrect: false },
         { id: "c", text: "Your way is yours, and my way is mine", isCorrect: false },
         { id: "d", text: "To you your religion, and to me mine", isCorrect: true },
