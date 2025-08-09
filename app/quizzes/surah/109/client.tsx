@@ -7,5 +7,5 @@ import dynamic from "next/dynamic"
 const SurahQuiz = dynamic(() => import("@/components/surah-quiz"), { ssr: false })
 
 export default function AlKafirunQuizClient() {
-  return <SurahQuiz quizData={alNasQuizData} />
+  return <SurahQuiz quizData={alKafirunQuizData} />
 }
