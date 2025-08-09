@@ -103,15 +103,28 @@ export default function SurahQuiz({ quizData }: SurahQuizProps) {
   }, [currentQuestion.id, userAnswers, answeredQuestions]);
 
   const handleOptionSelect = (optionId: string) => {
-    setSelectedOption(optionId);
+    console.log(`Selected option ID: ${optionId} for question ${currentQuestion.id}`);
     const selectedOptionObj = currentQuestion.options.find((option) => option.id === optionId);
     const isOptionCorrect = selectedOptionObj?.isCorrect || false;
-    setIsCorrect(isOptionCorrect);
-    setAnsweredQuestions((prev) => new Set(prev).add(currentQuestion.id));
-    setUserAnswers((prev) => new Map(prev).set(currentQuestion.id, optionId));
-    if (isOptionCorrect) {
-      setScore((prev) => prev + 1);
+    console.log(`Is option correct: ${isOptionCorrect}, Selected option:`, selectedOptionObj);
+
+    // Only update score if the question hasn't been answered before
+    if (!answeredQuestions.has(currentQuestion.id)) {
+      setAnsweredQuestions((prev) => new Set(prev).add(currentQuestion.id));
+      setUserAnswers((prev) => new Map(prev).set(currentQuestion.id, optionId));
+      if (isOptionCorrect) {
+        setScore((prev) => {
+          const newScore = prev + 1;
+          console.log(`Incrementing score to: ${newScore}`);
+          return newScore;
+        });
+      }
+    } else {
+      console.log(`Question ${currentQuestion.id} already answered, not incrementing score`);
     }
+
+    setSelectedOption(optionId);
+    setIsCorrect(isOptionCorrect);
   };
 
   const handleNextQuestion = () => {
@@ -138,6 +151,7 @@ export default function SurahQuiz({ quizData }: SurahQuizProps) {
     setAnsweredQuestions(new Set());
     setUserAnswers(new Map());
     setShuffledOptions(shuffleArray(quizData.questions[0].options));
+    console.log("Quiz restarted, score reset to 0");
   };
 
   return (
