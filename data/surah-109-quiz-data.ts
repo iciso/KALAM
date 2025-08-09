@@ -23,7 +23,7 @@ export interface SurahQuizData {
     explanation?: string
   }[]
 }
-
+ 
 export const alKafirunQuizData: SurahQuizData = {
   surahId: 109,
   surahName: "Al-Kafirun",
