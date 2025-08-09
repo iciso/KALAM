@@ -62,18 +62,25 @@ export default function SurahQuiz({ quizData }: SurahQuizProps) {
 
   const currentQuestion = quizData.questions[currentQuestionIndex];
 
-  // Function to shuffle options (removed generic type)
-  const shuffleArray = (array: { id: string; text: string; isCorrect: boolean }[]) => {
-    const shuffled = [...array];
-    for (let i = shuffled.length - 1; i > 0; i--) {
+  // Function to shuffle option content while keeping IDs fixed
+  const shuffleOptionContent = (options: { id: string; text: string; isCorrect: boolean }[]) => {
+    // Extract text and isCorrect fields
+    const content = options.map(({ text, isCorrect }) => ({ text, isCorrect }));
+    // Shuffle content
+    for (let i = content.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
-      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      [content[i], content[j]] = [content[j], content[i]];
     }
-    return shuffled;
+    // Reassign shuffled content to fixed IDs
+    return options.map((option, index) => ({
+      id: option.id,
+      text: content[index].text,
+      isCorrect: content[index].isCorrect,
+    }));
   };
 
-  // Shuffle options for the current question
-  const shuffledOptions = shuffleArray(currentQuestion.options);
+  // Apply shuffled content for the current question
+  const shuffledOptions = shuffleOptionContent(currentQuestion.options);
 
   // Restore previous answer when navigating to a question
   useEffect(() => {
