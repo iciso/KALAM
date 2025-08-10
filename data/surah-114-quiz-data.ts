@@ -168,9 +168,9 @@ export const alNasQuizData: SurahQuizData = {
       arabic: "مِنَ الْجِنَّةِ وَالنَّاسِ",
       rootLetters: "ج ن ن",
       options: [
-        { id: "a", text: "From the jinn and mankind", isCorrect: true },
+        { id: "a", text: "From the heavens and the earth", isCorrect: false },
         { id: "b", text: "From the angels and mankind", isCorrect: false },
-        { id: "c", text: "From the heavens and the earth", isCorrect: false },
+        { id: "c", text: "From the jinn and mankind", isCorrect: true },
         { id: "d", text: "From the seen and the unseen", isCorrect: false },
       ],
       explanation:
@@ -195,10 +195,10 @@ export const alNasQuizData: SurahQuizData = {
       arabic: "الْخَنَّاسِ",
       rootLetters: "خ ن س",
       options: [
-        { id: "a", text: "The whisperer is weak and retreats when Allah is remembered", isCorrect: true },
+        { id: "a", text: "The whisperer is stronger than human will", isCorrect: false },
         { id: "b", text: "The whisperer is always present and never leaves", isCorrect: false },
         { id: "c", text: "The whisperer only comes at night", isCorrect: false },
-        { id: "d", text: "The whisperer is stronger than human will", isCorrect: false },
+        { id: "d", text: "The whisperer is weak and retreats when Allah is remembered", isCorrect: true },
       ],
       explanation:
         "Al-Khannas (the retreating one) from the root خ ن س teaches us that the whisperer is actually weak and cowardly. When a person remembers Allah, seeks His protection, or engages in worship, the whisperer retreats and withdraws. This shows that divine remembrance is our most powerful weapon against evil whispers.",
@@ -208,13 +208,9 @@ export const alNasQuizData: SurahQuizData = {
       question: "How does this surah complement Surah Al-Falaq?",
       arabic: "مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ",
       options: [
-        {
-          id: "a",
-          text: "Al-Falaq protects from external evils, An-Nas protects from internal whispers",
-          isCorrect: true,
-        },
+        { id: "a", text: "An-Nas is more important than Al-Falaq", isCorrect: false, },
         { id: "b", text: "Both surahs protect from the same types of evil", isCorrect: false },
-        { id: "c", text: "An-Nas is more important than Al-Falaq", isCorrect: false },
+        { id: "c", text: "Al-Falaq protects from external evils, An-Nas protects from internal whispers", isCorrect: true },
         { id: "d", text: "They should never be recited together", isCorrect: false },
       ],
       explanation:
