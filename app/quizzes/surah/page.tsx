@@ -454,7 +454,7 @@ const getImplementationStatus = (status: ImplementationStatus) => {
 // Function to get the appropriate link for a surah
 const getSurahLink = (surahId: number) => {
   // List of implemented surahs
-  const implementedSurahs = [1, 106, 107, 108, 109, 110, 111, 112, 113, 114]
+  const implementedSurahs = [1, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114]
 
   if (implementedSurahs.includes(surahId)) {
     return `/quizzes/surah/${surahId}`
