@@ -24,32 +24,37 @@ export const anNasrQuizData: SurahQuizData = {
           </div>
         </div>
       `,
-    },
-    {
-      title: "A Sign of Completion",
-      content: `
-        <div class="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-100 dark:border-blue-800">
-          <h3 class="text-lg font-semibold text-blue-800 dark:text-blue-300 mb-2">The Prophet's Understanding</h3>
-          <p class="text-blue-700 dark:text-blue-200 mb-3">
-            When this surah was revealed, the Prophet ﷺ understood it as a sign that his mission was complete and his time in this world was coming to an end. He began to prepare for his departure.
-          </p>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-            <div class="bg-white dark:bg-gray-800 p-3 rounded shadow-sm">
-              <h4 class="font-medium text-blue-700 dark:text-blue-300 mb-1">Increased Worship</h4>
+    },       
+          {
+          title: "Prophetic Farewell",
+          content: `
+          <div class="mt-6 p-4 bg-amber-50 dark:bg-amber-900/20 rounded-lg border border-amber-100 dark:border-amber-800">
+            <h3 class="text-lg font-semibold text-amber-800 dark:text-amber-300 mb-2">Prophetic Farewell</h3>
+            <p class="text-amber-700 dark:text-amber-200 mb-3">
+              This surah holds special significance as it subtly indicated the approaching end of Prophet Muhammad's ﷺ mission and life.
+            </p>
+            <div class="bg-white dark:bg-gray-800 p-3 rounded shadow-sm mb-3">
+              <h4 class="font-medium text-amber-700 dark:text-amber-300 mb-1">Ibn Abbas's Understanding</h4>
               <p class="text-sm text-gray-600 dark:text-gray-300">
-                After this revelation, the Prophet ﷺ increased his prayers and remembrance of Allah.
+                Ibn Abbas (may Allah be pleased with him), the Prophet's cousin and renowned Quranic scholar, understood this surah as 
+                signaling the Prophet's approaching death. When Umar ibn Al-Khattab asked him about this interpretation, Ibn Abbas explained 
+                that the surah indicated the completion of the Prophet's mission, which implied his time in this world was coming to an end.
               </p>
             </div>
             <div class="bg-white dark:bg-gray-800 p-3 rounded shadow-sm">
-              <h4 class="font-medium text-blue-700 dark:text-blue-300 mb-1">Seeking Forgiveness</h4>
+              <h4 class="font-medium text-amber-700 dark:text-amber-300 mb-1">Authenticated Evidence</h4>
               <p class="text-sm text-gray-600 dark:text-gray-300">
-                He frequently sought Allah's forgiveness, following the command in this surah.
+                Imam Bukhari narrates that after the revelation of this surah, the Prophet ﷺ increased his recitation of 
+                "Subhan Allah wa bihamdihi, Astaghfirullah wa atubu ilayh" (Glory and praise be to Allah, I seek Allah's forgiveness 
+                and turn to Him in repentance). When Aisha asked him about this change, he confirmed that he had been informed of his 
+                approaching death through this surah, saying: "When the victory of Allah has come and the conquest, and you see the people 
+                entering into the religion of Allah in multitudes, then exalt with praise of your Lord and ask forgiveness of Him. Indeed, 
+                He is ever Accepting of repentance."
               </p>
             </div>
           </div>
-        </div>
-      `,
-    },
+          `,
+        },
   ],
   questions: [
     {
