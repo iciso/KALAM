@@ -78,9 +78,9 @@ export const alIkhlasQuizData: SurahQuizData = {
       arabic: "قُلْ هُوَ اللَّهُ أَحَدٌ",
       rootLetters: "أ ح د",
       options: [
-        { id: "a", text: "Say: He is Allah, the One", isCorrect: true },
+        { id: "a", text: "Say: He is Allah, the Only", isCorrect: false },
         { id: "b", text: "Say: He is Allah, the First", isCorrect: false },
-        { id: "c", text: "Say: He is Allah, the Only", isCorrect: false },
+        { id: "c", text: "Say: He is Allah, the One", isCorrect: true },
         { id: "d", text: "Say: He is Allah, the Unique", isCorrect: false },
       ],
       explanation:
@@ -92,8 +92,8 @@ export const alIkhlasQuizData: SurahQuizData = {
       arabic: "اللَّهُ الصَّمَدُ",
       rootLetters: "ص م د",
       options: [
-        { id: "a", text: "Allah, the Eternal, Absolute", isCorrect: true },
-        { id: "b", text: "Allah, the Merciful, Compassionate", isCorrect: false },
+        { id: "a", text: "Allah, the Merciful, Compassionate", isCorrect: false },
+        { id: "b", text: "Allah, the Eternal, Absolute", isCorrect: true },
         { id: "c", text: "Allah, the Powerful, Mighty", isCorrect: false },
         { id: "d", text: "Allah, the Wise, All-Knowing", isCorrect: false },
       ],
@@ -133,10 +133,10 @@ export const alIkhlasQuizData: SurahQuizData = {
       question: "What does the word 'Ahad' specifically emphasize about Allah's oneness?",
       arabic: "أَحَدٌ",
       options: [
-        { id: "a", text: "Absolute, indivisible oneness", isCorrect: true },
+        { id: "a", text: "Unique in creation", isCorrect: false },
         { id: "b", text: "First in sequence", isCorrect: false },
         { id: "c", text: "Single in number", isCorrect: false },
-        { id: "d", text: "Unique in creation", isCorrect: false },
+        { id: "d", text: "Absolute, indivisible oneness", isCorrect: true },
       ],
       explanation:
         "The word 'Ahad' emphasizes absolute, indivisible oneness. Unlike 'Wahid' (one), which can imply 'one among many,' 'Ahad' denotes absolute unity that cannot be divided, multiplied, or counted. It represents Allah's essence as completely unique and incomparable.",
@@ -146,10 +146,10 @@ export const alIkhlasQuizData: SurahQuizData = {
       question: "What does 'As-Samad' tell us about Allah's relationship with creation?",
       arabic: "الصَّمَدُ",
       options: [
-        { id: "a", text: "All creation depends on Him, but He depends on nothing", isCorrect: true },
+        { id: "a", text: "He controls all creation directly", isCorrect: false },
         { id: "b", text: "He is separate from all creation", isCorrect: false },
         { id: "c", text: "He is present in all creation", isCorrect: false },
-        { id: "d", text: "He controls all creation directly", isCorrect: false },
+        { id: "d", text: "All creation depends on Him, but He depends on nothing", isCorrect: true },
       ],
       explanation:
         "As-Samad indicates that all creation depends entirely on Allah for their existence, sustenance, and needs, while Allah is completely self-sufficient and depends on nothing. He is the ultimate source and destination of all needs, the One to whom all turn in times of necessity.",
@@ -172,9 +172,9 @@ export const alIkhlasQuizData: SurahQuizData = {
       question: "What does the phrase 'none comparable to Him' establish about Allah?",
       arabic: "كُفُوًا",
       options: [
-        { id: "a", text: "Allah is beyond all comparison and analogy", isCorrect: true },
+        { id: "a", text: "Allah is different from His creation", isCorrect: false },
         { id: "b", text: "Allah is the greatest among all beings", isCorrect: false },
-        { id: "c", text: "Allah is different from His creation", isCorrect: false },
+        { id: "c", text: "Allah is beyond all comparison and analogy", isCorrect: true },
         { id: "d", text: "Allah is the most powerful", isCorrect: false },
       ],
       explanation:
@@ -185,8 +185,8 @@ export const alIkhlasQuizData: SurahQuizData = {
       question: "Why is this surah considered equivalent to one-third of the Quran?",
       arabic: "قُلْ هُوَ اللَّهُ أَحَدٌ",
       options: [
-        { id: "a", text: "It contains the complete doctrine of Allah's oneness", isCorrect: true },
-        { id: "b", text: "It has special spiritual power", isCorrect: false },
+        { id: "a", text: "It has special spiritual power", isCorrect: false },
+        { id: "b", text: "It contains the complete doctrine of Allah's oneness", isCorrect: true },
         { id: "c", text: "It was revealed in a special way", isCorrect: false },
         { id: "d", text: "It contains the most important prayer", isCorrect: false },
       ],
