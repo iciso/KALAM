@@ -156,7 +156,9 @@ export const alAsrQuizData: SurahQuizData = {
       },
        {
       id: "q9",
-      question: "What is one quality exempted from loss in Surah Al-Asr?",
+      question: "What is one quality exempted from loss or in Arabic خُسْر  in Surah Al-Asr?",
+      arabic: "خُسْر",
+      rootLetters: "خ س ر",
       options: [
         { id: "a", text: "Faith (iman)", isCorrect: true },
         { id: "b", text: "Slander", isCorrect: false },
@@ -167,14 +169,16 @@ export const alAsrQuizData: SurahQuizData = {
     },
     {
       id: "q10",
-      question: "What does 'haqq' refer to in Surah Al-Asr?",
+      question: "According to Tafsir Al-Jalalayn, why is mutual exhortation or  تَوَاصَوْا tawasaw important in Surah Al-Asr?",
+      arabic: "تَوَاصَوْا",
+      rootLetters: "و ص ي",
       options: [
-        { id: "a", text: "Wealth", isCorrect: false },
-        { id: "b", text: "Power", isCorrect: false },
-        { id: "c", text: "Truth", isCorrect: true },
-        { id: "d", text: "Fame", isCorrect: false },
+        { id: "a", text: "To build wealth", isCorrect: false },
+        { id: "b", text: "To gain leadership", isCorrect: false },
+        { id: "c", text: "To compete in knowledge", isCorrect: false },
+        { id: "d", text: "To foster a righteous community", isCorrect: true },
       ],
-      explanation: "'Haqq' refers to truth, one of the qualities believers are urged to exhort one another towards in Surah Al-Asr.",
+      explanation: "Tafsir Al-Jalalayn highlights that mutual exhortation to truth and patience fosters a strong, righteous community, essential for success.",
     },
     ],
   };
