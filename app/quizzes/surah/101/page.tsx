@@ -1,4 +1,4 @@
-import AlQariahQuizClient from "./client";
+import AlQariahQuizClient from "./client"; 
 
 export const metadata = {
   title: "Surah Al-Qariah Quiz | KALAM",
