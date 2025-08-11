@@ -74,7 +74,7 @@ export const alAsrQuizData: SurahQuizData = {
           { id: "c", text: "Truth", isCorrect: false },
           { id: "d", text: "Righteous deeds", isCorrect: false },
         ],
-        explanation: "The word 'خُسْر' or khusr means 'loss,' derived from the root خ-س-ر. In Surah Al-Asr, the word "loss" or khusr in Arabic, signifies a state of spiritual and eternal failure, encompassing both worldly and afterlife consequences. It's not merely a temporary setback or financial loss but a fundamental lack of true success in life's journey. This loss is contrasted with the state of those who have faith, do good deeds, and encourage each other in truth and patience. ",
+        explanation: "The word خُسْر or khusr means loss, derived from the root خ-س-ر. In Surah Al-Asr, the word loss or khusr in Arabic, signifies a state of spiritual and eternal failure, encompassing both worldly and afterlife consequences. It's not merely a temporary setback or financial loss but a fundamental lack of true success in life's journey. This loss is contrasted with the state of those who have faith, do good deeds, and encourage each other in truth and patience. ",
       },
       {
         id: "q3",
@@ -87,7 +87,7 @@ export const alAsrQuizData: SurahQuizData = {
           { id: "c", text: "Mutual gains", isCorrect: false },
           { id: "d", text: "Knowledge", isCorrect: false },
         ],
-        explanation: "'إِيمَان' (iman) means faith, from the root ء-م-ن. In Surah Al-'Asr, Iman or faith signifies a deep, unwavering belief in God and His messenger, coupled with a commitment to righteous actions and encouraging others to do the same. It's not merely lip service but a conviction that shapes one's behavior and interactions with the world, leading to success in this life and the hereafter, according to Islamic texts. ",
+        explanation: "إِيمَان or iman means faith, from the root ء-م-ن. In Surah Al-'Asr, Iman or faith signifies a deep, unwavering belief in God and His messenger, coupled with a commitment to righteous actions and encouraging others to do the same. It's not merely lip service but a conviction that shapes one's behavior and interactions with the world, leading to success in this life and the hereafter, according to Islamic texts. ",
       },
       {
         id: "q4",
