@@ -143,7 +143,7 @@ export const atTakathurQuizData: SurahQuizData = {
     },
     {
       id: "q8",
-      question: "What does the Arabic word 'مَالُكَ' in the Hadeeth of this Surah At-Takathur refer to?",
+      question: "What type of wealth does the Arabic word 'مَالُكَ' in the Hadeeth of this Surah At-Takathur refer to?",
       arabic: "مَالُكَ",
       rootLetters: "م و ل",
       options: [
