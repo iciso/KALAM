@@ -1,4 +1,4 @@
-export const alQariyahQuizData: SurahQuizData = {
+export const alQariahQuizData: SurahQuizData = {
   surahId: 101,
   surahName: "Al-Qari'ah",
   surahArabicName: "القارعة",
