@@ -42,7 +42,7 @@ export const alFilQuizData: SurahQuizData = {
           <div class="bg-white dark:bg-gray-800 p-3 rounded shadow-sm">
             <h4 class="font-medium text-amber-700 dark:text-amber-300 mb-1">Historical Significance</h4>
             <p class="text-sm text-gray-600 dark:text-gray-300">
-              This event strengthened the Quraysh’s prestige as custodians of the Kaaba and highlighted the Kaaba’s sanctity, setting the stage for the Prophet’s ﷺ mission. Narrations from Tafsir Ibn Kathir and Seerah accounts emphasize Abdul Muttalib’s faith and the miraculous nature of the event, which left a lasting impact on the Arabs.
+              This event strengthened the Quraysh’s prestige as custodians of the Kaaba and highlighted the Kaaba’s sanctity, setting the stage for the Prophet’s ﷺ mission. Narrations from Tafsir Ibn Kathir and Seerah accounts emphasize Abdul Muttalib’s faith and the miraculous nature of the event.
             </p>
           </div>
         </div>
@@ -53,6 +53,8 @@ export const alFilQuizData: SurahQuizData = {
     {
       id: "q1",
       question: "What is the main event described in Surah Al-Fil?",
+      arabic: "أَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ بِأَصْحَابِ الْفِيلِ",
+      rootLetters: "ف ع ل",
       options: [
         { id: "a", text: "The birth of Prophet Muhammad ﷺ", isCorrect: false },
         { id: "b", text: "The conquest of Mecca", isCorrect: false },
@@ -86,13 +88,15 @@ export const alFilQuizData: SurahQuizData = {
     {
       id: "q4",
       question: "How did Allah protect the Kaaba in Surah Al-Fil?",
+      arabic: "فَأَرْسَلَ عَلَيْهِمْ طَيْرًا أَبَابِيلَ",
+      rootLetters: "ط ي ر",
       options: [
         { id: "a", text: "By sending an earthquake", isCorrect: false },
         { id: "b", text: "By sending birds with stones of baked clay", isCorrect: true },
         { id: "c", text: "By flooding the area", isCorrect: false },
         { id: "d", text: "By inspiring the Quraysh to fight", isCorrect: false },
       ],
-      explanation: "Allah sent flocks of birds (ababil) that pelted Abraha’s army with stones of baked clay (sijjil), destroying them.",
+      explanation: "Allah sent flocks of birds (ababil) that pelted Abraha’s army with stones of baked clay (sijjil), causing their defeat.",
     },
     {
       id: "q5",
@@ -130,6 +134,8 @@ export const alFilQuizData: SurahQuizData = {
     {
       id: "q8",
       question: "What animals were part of Abraha’s army?",
+      arabic: "أَصْحَابِ الْفِيلِ",
+      rootLetters: "ف ي ل",
       options: [
         { id: "a", text: "Horses", isCorrect: false },
         { id: "b", text: "Camels", isCorrect: false },
@@ -152,6 +158,8 @@ export const alFilQuizData: SurahQuizData = {
     {
       id: "q10",
       question: "What lesson does Surah Al-Fil teach about Allah’s power?",
+      arabic: "فَجَعَلَهُمْ كَعَصْفٍ مَّأْكُولٍ",
+      rootLetters: "ع ص ف",
       options: [
         { id: "a", text: "Allah rewards those who fight for Him.", isCorrect: false },
         { id: "b", text: "Allah protects His Sacred House against any threat.", isCorrect: true },
@@ -163,6 +171,8 @@ export const alFilQuizData: SurahQuizData = {
     {
       id: "q11",
       question: "What were the ‘ababil’ in Surah Al-Fil?",
+      arabic: "طَيْرًا أَبَابِيلَ",
+      rootLetters: "ط ي ر",
       options: [
         { id: "a", text: "Angels sent by Allah", isCorrect: false },
         { id: "b", text: "Flocks of birds", isCorrect: true },
