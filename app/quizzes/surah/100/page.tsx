@@ -6,5 +6,5 @@ export const metadata = {
 }
 
 export default function AlAdiyatQuizPage() {
-  return <AtTakathurQuizClient />;
+  return <AlAdiyatQuizClient />;
 }
