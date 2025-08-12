@@ -275,7 +275,7 @@ const surahs = [
     {
     id: 100,
     name: "Al-Adiyat",
-    arabicName: "العاديات"
+    arabicName: "العاديات",
     verses: 11,
     type: "Meccan",
     vocabularyCount: 46,
