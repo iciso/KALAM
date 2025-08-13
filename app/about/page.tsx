@@ -69,7 +69,7 @@ export default function AboutPage() {
                 مَثَلُ الَّذِينَ يُنفِقُونَ أَمْوَالَهُمْ فِي سَبِيلِ اللَّهِ كَمَثَلِ حَبَّةٍ أَنبَتَتْ سَبْعَ سَنَابِلَ فِي كُلِّ سُنۢبُلَةٍ مِّا۟ئَةُ حَبَّةٍ ۗ وَاللَّهُ يُضَٰعِفُ لِمَن يَشَآءُ ۗ وَاللَّهُ وَٰسِعٌ عَلِيمٌ
             </p>
              <p class="text-amber-700 dark:text-amber-200 mb-3">
-            "The example of those who spend their wealth in the way of Allah is like a seed [of grain] which grows seven spikes; in each spike is a hundred grains. And Allah multiplies [His reward] for whom He wills. And Allah is all-Encompassing and Knowing." 
+            "The example of those who spend their wealth in the way of Allah is like a seed [of grain] which grows seven spikes; in each spike is a hundred grains. And Allah multiplies [His reward] for whom He wills. And Allah is all-Encompassing and Knowing. -Surah Al-Baqarah 2:261" 
               </p>
             </div> 
           <div className="flex flex-col sm:flex-row gap-4 mt-6">
@@ -106,11 +106,12 @@ export default function AboutPage() {
         </section>
 
         <section className="mb-12">
-          <h2 className="text-2xl font-bold mb-4">Acknowledgments</h2>
-          <p className="mb-4 text-gray-600 dark:text-gray-300">
+         <div class="mt-6 p-4 bg-magenta-50 dark:bg-magenta-900/20 rounded-lg border border-magenta-100 dark:border-magenta-800">
+          <h2 className="text-2xl text-magenta-800 dark:text-magenta-300 font-bold mb-4">Acknowledgments</h2>
+          <p class="text-magenta-700 dark:text-magenta-200 mb-3">
             All praise and thanks are due to Allah <span className="text-3xl font-normal align-middle">ﷻ</span>, The Entirely Merciful, The Entirely Generous. KALAM is a labor of love, made possible through the blessings of Allah and the contributions of many, Ameen, Summa Ameen.
           </p>
-          <ul className="list-disc pl-6 space-y-4 text-gray-600 dark:text-gray-300">
+         <ul class="list-disc pl-5 space-y-2 text-magenta-700 dark:text-magenta-300">
             <li>
               <strong>Concept, Design & Demo Version:</strong> By{" "}
               <a
@@ -217,6 +218,7 @@ export default function AboutPage() {
                 </div>
             </li>
           </ul>
+         </div>
         </section>
 
         <section className="mb-12">
