@@ -199,7 +199,7 @@ export const alZalzalahQuizData: SurahQuizData = {
       rootLetters: "خ ب ر",
       options: [
         { id: "a", text: "The All-Hearing", isCorrect: false },
-        { id: "b", text: "The All-Knowing", isCorrect: true },
+        { id: "b", text: "The All-Aware", isCorrect: true },
         { id: "c", text: "The All-Powerful", isCorrect: false },
         { id: "d", text: "The All-Forgiving", isCorrect: false },
       ],
