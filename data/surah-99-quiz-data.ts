@@ -123,7 +123,7 @@ export const alZalzalahQuizData: SurahQuizData = {
         { id: "a", text: "The earth will eject its treasures", isCorrect: false },
         { id: "b", text: "The earth will split apart", isCorrect: false },
         { id: "c", text: "The earth will shine brightly", isCorrect: false },
-        { id: "b", text: "The earth will release its burdens", isCorrect: true },
+        { id: "d", text: "The earth will release its burdens", isCorrect: true },
       ],
       explanation: "وَأَخْرَجَتِ الْأَرْضُ أَثْقَالَهَا means 'the earth will cast out its burdens' (roots: أ-ر-ض and ث-ق-ل).",
     },
