@@ -11,7 +11,8 @@ Maintain uniform UI and UX as if one AI did the entire project
 For Games, use pre-defined data especially for vocabulary to avoid doubles
 Create an open-access single KALAM Leaderboard for all games & quizzes
 Cross-link IQRA & KALAM to guide users who want or do not want challenges
-New games like Dawah Game, Hajj Game, Salah Game, 
+New games like Dawah Game, Hajj Game, Salah Game, Allah's Attributes' game,
+Charity game,
 Expand and Complete Surah Quizzes -> 1 to 114
 */
 
@@ -59,6 +60,12 @@ export default function AboutPage() {
             KALAM is completely open-source and free to use. We welcome contributions from developers, Arabic linguists,
             Quran scholars, and anyone passionate about making Quranic knowledge more accessible.
           </p>
+            <p className="mb-4 text-gray-600 dark:text-gray-300">
+                مَثَلُ الَّذِينَ يُنفِقُونَ أَمْوَالَهُمْ فِي سَبِيلِ اللَّهِ كَمَثَلِ حَبَّةٍ أَنبَتَتْ سَبْعَ سَنَابِلَ فِي كُلِّ سُنۢبُلَةٍ مِّا۟ئَةُ حَبَّةٍ ۗ وَاللَّهُ يُضَٰعِفُ لِمَن يَشَآءُ ۗ وَاللَّهُ وَٰسِعٌ عَلِيمٌ
+            </p>
+            <p className="mb-4 text-gray-600 dark:text-gray-300">
+            "The example of those who spend their wealth in the way of Allah is like a seed [of grain] which grows seven spikes; in each spike is a hundred grains. And Allah multiplies [His reward] for whom He wills. And Allah is all-Encompassing and Knowing." 
+              </p>
           <div className="flex flex-col sm:flex-row gap-4 mt-6">
             <Link href="https://github.com/iciso/KALAM" target="_blank" rel="noopener noreferrer">
               <Button className="w-full sm:w-auto">
