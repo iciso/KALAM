@@ -106,12 +106,12 @@ export default function AboutPage() {
         </section>
 
         <section className="mb-12">
-         <div class="mt-6 p-4 bg-magenta-50 dark:bg-magenta-900/20 rounded-lg border border-magenta-100 dark:border-magenta-800">
-          <h2 className="text-2xl text-magenta-800 dark:text-magenta-300 font-bold mb-4">Acknowledgments</h2>
-          <p class="text-magenta-700 dark:text-magenta-200 mb-3">
+         <div class="mt-6 p-4 bg-pink-50 dark:bg-pink-900/20 rounded-lg border border-pink-100 dark:border-pink-800">
+          <h2 className="text-2xl text-pink-800 dark:text-pink-300 font-bold mb-4">Acknowledgments</h2>
+          <p class="text-pink-700 dark:text-pink-200 mb-3">
             All praise and thanks are due to Allah <span className="text-3xl font-normal align-middle">ﷻ</span>, The Entirely Merciful, The Entirely Generous. KALAM is a labor of love, made possible through the blessings of Allah and the contributions of many, Ameen, Summa Ameen.
           </p>
-         <ul class="list-disc pl-5 space-y-2 text-magenta-700 dark:text-magenta-300">
+         <ul class="list-disc pl-5 space-y-2 text-pink-700 dark:text-pink-300">
             <li>
               <strong>Concept, Design & Demo Version:</strong> By{" "}
               <a
