@@ -71,6 +71,7 @@ export default function AboutPage() {
              <p class="text-amber-700 dark:text-amber-200 mb-3">
             "The example of those who spend their wealth in the way of Allah is like a seed [of grain] which grows seven spikes; in each spike is a hundred grains. And Allah multiplies [His reward] for whom He wills. And Allah is all-Encompassing and Knowing." 
               </p>
+            </div> 
           <div className="flex flex-col sm:flex-row gap-4 mt-6">
             <Link href="https://github.com/iciso/KALAM" target="_blank" rel="noopener noreferrer">
               <Button className="w-full sm:w-auto">
