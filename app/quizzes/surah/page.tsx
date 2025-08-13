@@ -273,6 +273,18 @@ const surahs = [
     sections: [],
   },
       {
+    id: 98,
+    name: "Al-Bayyinah",
+    arabicName: "البينة‎",
+    verses: 8,
+    type: "Meccan",
+    vocabularyCount: 94,
+    difficulty: "Beginner",
+    implementationStatus: "available" as ImplementationStatus,
+    implementationPhase: 1,
+    sections: [],
+  },
+      {
     id: 99,
     name: "Al-Zalzalah",
     arabicName: "الزلزلة‎",
@@ -526,7 +538,7 @@ const getImplementationStatus = (status: ImplementationStatus) => {
 // Function to get the appropriate link for a surah
 const getSurahLink = (surahId: number) => {
   // List of implemented surahs
-  const implementedSurahs = [1, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114]
+  const implementedSurahs = [1, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114]
 
   if (implementedSurahs.includes(surahId)) {
     return `/quizzes/surah/${surahId}`
