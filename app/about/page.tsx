@@ -235,6 +235,7 @@ export default function AboutPage() {
               </Button>
             </Link>
           </div>
+          </div>
          </section>
 
       <section className="mb-12">
