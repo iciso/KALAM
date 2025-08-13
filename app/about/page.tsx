@@ -235,6 +235,9 @@ export default function AboutPage() {
               </Button>
             </Link>
           </div>
+         </section>
+
+      <section className="mb-12">
        <div class="mt-6 p-4 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg border border-indigo-100 dark:border-indigo-800">
           <p class="text-indogo-700 dark:text-indigo-200 mb-3">
             IQRA and KALAM apps are built without charity, zakat, or donations – a practice aligned with the true Sunnah of the Noble Prophets, and the Righteous.
