@@ -65,7 +65,7 @@ export default function AboutPage() {
             KALAM is completely open-source and free to use. We welcome contributions from developers, Arabic linguists,
             Quran scholars, and anyone passionate about making Quranic knowledge more accessible.
           </p>
-            <p className="mb-4 text-amber-600 dark:text-amber-300 text-3xl font-bold">
+            <p className="mb-4 text-amber-600 dark:text-amber-300 text-3xl">
                 مَثَلُ الَّذِينَ يُنفِقُونَ أَمْوَالَهُمْ فِي سَبِيلِ اللَّهِ كَمَثَلِ حَبَّةٍ أَنبَتَتْ سَبْعَ سَنَابِلَ فِي كُلِّ سُنۢبُلَةٍ مِّا۟ئَةُ حَبَّةٍ ۗ وَاللَّهُ يُضَٰعِفُ لِمَن يَشَآءُ ۗ وَاللَّهُ وَٰسِعٌ عَلِيمٌ
             </p>
              <p class="text-amber-700 dark:text-amber-200 mb-3">
@@ -88,15 +88,17 @@ export default function AboutPage() {
         </section>
 
          <section className="mb-12">
-          <h2 className="text-2xl font-bold mb-4">Technology</h2>
-          <p className="mb-4 text-gray-600 dark:text-gray-300">KALAM is built using modern web technologies:</p>
-          <ul className="list-disc pl-6 space-y-2 text-gray-600 dark:text-gray-300">
+          <div class="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-100 dark:border-blue-800">
+          <h2 className="text-2xl text-blue-800 dark:text-blue-300 font-bold mb-4">Technology</h2>
+           <p class="text-blue-700 dark:text-blue-200 mb-3">KALAM is built using modern web technologies:</p>
+          <ul class="list-disc pl-5 space-y-2 text-blue-700 dark:text-blue-300">
             <li>Next.js - React framework for server-rendered applications</li>
             <li>TypeScript - For type safety and better developer experience</li>
             <li>Tailwind CSS - For responsive and customizable styling</li>
             <li>Supabase - For authentication and real-time database</li>
             <li>Vercel - For deployment and hosting</li>
           </ul>
+           </div>
           <div className="flex flex-wrap gap-4 mt-4 justify-center">
             <img src="https://supabase.com/images/logo-dark.png" alt="Supabase Logo" className="h-10 w-auto hover:scale-105 transition-transform dark:invert" />
             <img src="https://assets.vercel.com/image/upload/v1662130559/nextjs/Icon_light_background.png" alt="Vercel Logo" className="h-10 w-auto hover:scale-105 transition-transform dark:invert" />
