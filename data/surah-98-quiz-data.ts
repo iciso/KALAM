@@ -108,7 +108,7 @@ export const alBayyinahQuizData: SurahQuizData = {
         { id: "a", text: "Collectively", isCorrect: false },
         { id: "b", text: "Occasionally", isCorrect: false },
         { id: "c", text: "Publicly", isCorrect: false },
-        { id: "b", text: "Sincerely upright", isCorrect: true },
+        { id: "d", text: "Sincerely upright", isCorrect: true },
       ],
       explanation: "حُنَفَاءَ means 'sincerely upright' in worship (root: ح-ن-ف), free from shirk.",
     },
