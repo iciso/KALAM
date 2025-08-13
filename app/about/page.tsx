@@ -30,7 +30,8 @@ export default function AboutPage() {
           <div className="flex justify-center mb-8">
             <KalamAcronym size="md" />
           </div>
-          <h2 className="text-2xl font-bold mb-4">Our Mission</h2>
+        <div class="mt-6 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border border-purple-100 dark:border-purple-800">
+          <h2 className="text-2xl text-purple-800 dark:text-purple-300 font-bold mb-4">Our Mission</h2>
           <p className="mb-4 text-gray-600 dark:text-gray-300">
             KALAM (Know Allah by Lovely Activities of Mirth) is an open-source Demo project dedicated to making Quranic Arabic or the words of Allah comprehensible to everyone. Our mission is to help Muslims and Arabic language enthusiasts
             develop a deeper connection with the Quran through gaming and other interactive learning tools.
@@ -40,6 +41,7 @@ export default function AboutPage() {
             more profound connection to the text. By creating engaging, gaming and interactive tools for vocabulary acquisition, we
             hope to make this journey fun-filled, enjoyable and effective.
           </p>
+           </div>
         </section>
 
         <section className="mb-12">
