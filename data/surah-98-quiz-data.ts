@@ -49,7 +49,7 @@ export const alBayyinahQuizData: SurahQuizData = {
     },
     {
       id: "q4",
-      question: "What does the Arabic term رَسُولٌ مِّنَ اللَّهِ refer to in the surah?",
+      question: "Whom does the Arabic term رَسُولٌ مِّنَ اللَّهِ refer to in the surah?",
       arabic: "رَسُولٌ مِّنَ اللَّهِ",
       rootLetters: "ر س ل | ل ه",
       options: [
