@@ -7,7 +7,25 @@ export const alBayyinahQuizData: SurahQuizData = {
   difficulty: "Intermediate",
   introduction:
     "Surah Al-Bayyinah (The Clear Proof) establishes the truth of Islam as the final revelation and distinguishes between believers and disbelievers. It emphasizes the importance of sincere worship and righteous deeds, warning of the consequences for those who reject the clear signs.",
-        additionalContextElements: [
+         additionalContextElements: [
+    {
+      title: "Key Words/Difficult Terms",
+      content: `
+        <div class="mt-6 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border border-purple-100 dark:border-purple-800">
+          <h3 class="text-lg font-semibold text-purple-800 dark:text-purple-300 mb-2">Arabic Terms from the Surah</h3>
+          <ul class="list-disc pl-5 space-y-2 text-purple-700 dark:text-purple-200">
+            <li><strong>البينة</strong> (Al-Bayyinah): <em>The Clear Proof</em> – Root: <span class="font-mono">ب ي ن</span></li>
+            <li><strong>الكتاب</strong> (Al-Kitab): <em>The Scripture</em> – Root: <span class="font-mono">ك ت ب</span></li>
+            <li><strong>المشركون</strong> (Al-Mushrikoon): <em>The Polytheists</em> – Root: <span class="font-mono">ش ر ك</span></li>
+            <li><strong>أبرار</strong> (Abrar): <em>The Righteous</em> – Root: <span class="font-mono">ب ر ر</span></li>
+            <li><strong>الصلاة</strong> (As-Salah): <em>Prayer</em> – Root: <span class="font-mono">ص ل و</span></li>
+            <li><strong>الزكاة</strong> (Az-Zakah): <em>Charity</em> – Root: <span class="font-mono">ز ك و</span></li>
+            <li><strong>الخلود</strong> (Al-Khulood): <em>Eternity</em> – Root: <span class="font-mono">خ ل د</span></li>
+            <li><strong>غساق</strong> (Ghasaaq): <em>Pus/Discharge</em> (referring to Hell's punishment) – Root: <span class="font-mono">غ س ق</span></li>
+          </ul>
+        </div>
+      `,
+    },
     {
       title: "The Clear Proof",
       content: `
