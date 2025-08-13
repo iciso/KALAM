@@ -32,11 +32,11 @@ export default function AboutPage() {
           </div>
         <div class="mt-6 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border border-purple-100 dark:border-purple-800">
           <h2 className="text-2xl text-purple-800 dark:text-purple-300 font-bold mb-4">Our Mission</h2>
-          <p className="mb-4 text-gray-600 dark:text-gray-300">
+           <p class="text-purple-700 dark:text-purple-200 mb-3">
             KALAM (Know Allah by Lovely Activities of Mirth) is an open-source Demo project dedicated to making Quranic Arabic or the words of Allah comprehensible to everyone. Our mission is to help Muslims and Arabic language enthusiasts
             develop a deeper connection with the Quran through gaming and other interactive learning tools.
           </p>
-          <p className="text-gray-600 dark:text-gray-300">
+          <p class="text-purple-700 dark:text-purple-200 mb-3">
             Muslims believe that understanding the language of the Quran enhances one's spiritual experience and provides a
             more profound connection to the text. By creating engaging, gaming and interactive tools for vocabulary acquisition, we
             hope to make this journey fun-filled, enjoyable and effective.
@@ -45,8 +45,9 @@ export default function AboutPage() {
         </section>
 
         <section className="mb-12">
-          <h2 className="text-2xl font-bold mb-4">Features</h2>
-          <ul className="list-disc pl-6 space-y-2 text-gray-600 dark:text-gray-300">
+          <div class="mt-6 p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg border border-emerald-100 dark:border-emerald-800">
+           <h2 className="text-2xl text-emerald-800 dark:text-emerald-300 font-bold mb-4">Features</h2>
+          <ul class="list-disc pl-5 space-y-2 text-purple-700 dark:text-purple-300">
             <li>Interactive flashcards with Quranic vocabulary</li>
             <li>Quizzes to test and reinforce learning</li>
             <li>Vocabulary matching games</li>
@@ -54,6 +55,7 @@ export default function AboutPage() {
             <li>Examples from the Quran for context</li>
             <li>Responsive design for desktop and mobile use</li>
           </ul>
+          </div>
         </section>
 
         <section className="mb-12">
