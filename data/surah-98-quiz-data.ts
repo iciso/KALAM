@@ -7,7 +7,49 @@ export const alBayyinahQuizData: SurahQuizData = {
   difficulty: "Intermediate",
   introduction:
     "Surah Al-Bayyinah (The Clear Proof) establishes the truth of Islam as the final revelation and distinguishes between believers and disbelievers. It emphasizes the importance of sincere worship and righteous deeds, warning of the consequences for those who reject the clear signs.",
-  questions: [
+        additionalContextElements: [
+    {
+      title: "The Clear Proof",
+      content: `
+        <div class="mt-6 p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg border border-emerald-100 dark:border-emerald-800">
+          <h3 class="text-lg font-semibold text-emerald-800 dark:text-emerald-300 mb-2">Divine Revelation as Guidance</h3>
+          <p class="text-emerald-700 dark:text-emerald-200 mb-3">
+            The surah opens by highlighting that the People of the Book (Jews and Christians) and polytheists would not abandon their ways until they received the "Bayyinah" (clear proof)—the Quran and the Prophet Muhammad (ﷺ). This proof separates truth from falsehood decisively.
+          </p>
+          <div class="bg-white dark:bg-gray-800 p-3 rounded shadow-sm mb-3">
+            <h4 class="font-medium text-emerald-700 dark:text-emerald-300 mb-1">Tafsir Insight</h4>
+            <p class="text-sm text-gray-600 dark:text-gray-300">
+              Ibn Kathir explains that "Bayyinah" refers to the undeniable evidence of the Quran’s divine origin and the Prophet’s mission, which left no excuse for rejection. The surah rebukes those who demanded miracles while ignoring this ultimate proof.
+            </p>
+          </div>
+        </div>
+      `,
+    },
+    {
+      title: "The Eternal Criterion",
+      content: `
+        <div class="mt-6 p-4 bg-amber-50 dark:bg-amber-900/20 rounded-lg border border-amber-100 dark:border-amber-800">
+          <h3 class="text-lg font-semibold text-amber-800 dark:text-amber-300 mb-2">Reward of the Righteous</h3>
+          <p class="text-amber-700 dark:text-amber-200 mb-3">
+            The surah concludes by describing the eternal reward of the righteous: Gardens of Paradise beneath which rivers flow, where they will abide forever, pleasing to Allah. This is contrasted with the fate of disbelievers, who will face the Hellfire.
+          </p>
+          <div class="bg-white dark:bg-gray-800 p-3 rounded shadow-sm mb-3">
+            <h4 class="font-medium text-amber-700 dark:text-amber-300 mb-1">Key Theme</h4>
+            <p class="text-sm text-gray-600 dark:text-gray-300">
+              Tafsir Al-Jalalayn notes that the surah’s closing verses underscore the absolute justice of Allah—rewarding sincerity and punishing obstinacy. The "Bayyinah" thus serves as the eternal criterion for this judgment.
+            </p>
+          </div>
+          <div class="bg-white dark:bg-gray-800 p-3 rounded shadow-sm">
+            <h4 class="font-medium text-amber-700 dark:text-amber-300 mb-1">Prophetic Connection</h4>
+            <p class="text-sm text-gray-600 dark:text-gray-300">
+              A hadith in Sahih Muslim states that the Prophet (ﷺ) said, <span class="arabic">"مَنْ قَرَأَ سُورَةَ الْبَيِّنَةِ كَانَ شَهِيدًا يَوْمَ الْقِيَامَةِ"</span> ("Whoever recites Surah Al-Bayyinah will be a witness on the Day of Resurrection"). This reflects its weight in affirming the truth.
+            </p>
+          </div>
+        </div>
+      `,
+    },
+  ],  
+questions: [
     {
       id: "q1",
       question: "What does the Arabic term الْبَيِّنَةُ in the surah's title refer to?",
