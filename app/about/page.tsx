@@ -70,8 +70,7 @@ export default function AboutPage() {
             </p>
              <p class="text-amber-700 dark:text-amber-200 mb-3">
             "The example of those who spend their wealth in the way of Allah is like a seed [of grain] which grows seven spikes; in each spike is a hundred grains. And Allah multiplies [His reward] for whom He wills. And Allah is all-Encompassing and Knowing. -Surah Al-Baqarah 2:261" 
-              </p>
-            </div> 
+              </p> 
           <div className="flex flex-col sm:flex-row gap-4 mt-6">
             <Link href="https://github.com/iciso/KALAM" target="_blank" rel="noopener noreferrer">
               <Button className="w-full sm:w-auto">
@@ -84,6 +83,7 @@ export default function AboutPage() {
                 How to Contribute
               </Button>
             </Link>
+          </div>
           </div>
         </section>
 
@@ -98,11 +98,11 @@ export default function AboutPage() {
             <li>Supabase - For authentication and real-time database</li>
             <li>Vercel - For deployment and hosting</li>
           </ul>
-           </div>
           <div className="flex flex-wrap gap-4 mt-4 justify-center">
             <img src="https://supabase.com/images/logo-dark.png" alt="Supabase Logo" className="h-10 w-auto hover:scale-105 transition-transform dark:invert" />
             <img src="https://assets.vercel.com/image/upload/v1662130559/nextjs/Icon_light_background.png" alt="Vercel Logo" className="h-10 w-auto hover:scale-105 transition-transform dark:invert" />
           </div>
+        </div>
         </section>
 
         <section className="mb-12">
@@ -222,8 +222,9 @@ export default function AboutPage() {
         </section>
 
         <section className="mb-12">
-          <h2 className="text-2xl font-bold mb-4">IQRA Papers</h2>
-          <p className="mb-4 text-gray-600 dark:text-gray-300">
+         <div class="mt-6 p-4 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg border border-indigo-100 dark:border-indigo-800">
+          <h2 className="text-2xl text-indigo-800 dark:text-indigo-300 font-bold mb-4">IQRA Papers</h2>
+          <p class="text-indigo-700 dark:text-indigo-200 mb-3">
             This document provides the Policy, Proposal, & Plans (PPP) for the future to continue this ongoing charity for the sake of Allah <span className="text-3xl font-normal align-middle">ﷻ</span>, The Entirely Merciful, The Entirely Generous.
           </p>
            <div className="flex flex-wrap gap-4 mt-4 justify-center">
@@ -235,16 +236,17 @@ export default function AboutPage() {
             </Link>
           </div>
         <div className="flex flex-wrap gap-4 mt-4 justify-center">
-          <p className="mb-4 text-gray-600 dark:text-gray-300">
+          <p class="text-indogo-700 dark:text-indigo-200 mb-3">
             IQRA and KALAM apps are built without charity, zakat, or donations – a practice aligned with the true Sunnah of the Noble Prophets, and the Righteous.
           </p>
-           <p className="mb-4 text-gray-600 dark:text-gray-300">
+           <p className="mb-4 text-indigo-600 dark:text-indigo-300 text-3xl">
             قُلْ مَا أَسْأَلُكُمْ عَلَيْهِ مِنْ أَجْرٍ وَمَا أَنَا مِنَ الْمُتَكَلِّفِينَ
             </p>
-             <p className="mb-4 text-gray-600 dark:text-gray-300">
-          Say, "I do not ask you for this any payment, and I am not of the pretentious..
+             <p className="mb-4 text-indigo-600 dark:text-indigo-300">
+          Say, "I do not ask you for this any payment, and I am not of the pretentious - Surah Sad 38:86. 
           </p>
        </div>
+          </div>
         </section>
 
         <div className="flex justify-center mt-8">
@@ -254,8 +256,9 @@ export default function AboutPage() {
               Back to Home
             </Button>
           </Link>
-        </div>
+       </div>
       </main>
+
       <div className="border-t border-gray-200 p-4 text-center text-sm text-gray-700 bg-gray-50 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-300 w-full mt-8 rounded-lg">
         <div className="flex items-center justify-center mb-1">
           <MessageSquare className="h-4 w-4 mr-1 text-gray-600 dark:text-gray-400" />
