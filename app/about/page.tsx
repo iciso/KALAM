@@ -47,7 +47,7 @@ export default function AboutPage() {
         <section className="mb-12">
           <div class="mt-6 p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg border border-emerald-100 dark:border-emerald-800">
            <h2 className="text-2xl text-emerald-800 dark:text-emerald-300 font-bold mb-4">Features</h2>
-          <ul class="list-disc pl-5 space-y-2 text-purple-700 dark:text-purple-300">
+          <ul class="list-disc pl-5 space-y-2 text-emerald-700 dark:text-emerald-300">
             <li>Interactive flashcards with Quranic vocabulary</li>
             <li>Quizzes to test and reinforce learning</li>
             <li>Vocabulary matching games</li>
@@ -59,15 +59,16 @@ export default function AboutPage() {
         </section>
 
         <section className="mb-12">
-          <h2 className="text-2xl font-bold mb-4">Open Source</h2>
-          <p className="mb-4 text-gray-600 dark:text-gray-300">
+        <div class="mt-6 p-4 bg-amber-50 dark:bg-amber-900/20 rounded-lg border border-amber-100 dark:border-amber-800">
+         <h2 className="text-2xl text-amber-800 dark:text-amber-300 font-bold mb-4">Open Source</h2>
+          <p class="text-amber-700 dark:text-amber-200 mb-3">
             KALAM is completely open-source and free to use. We welcome contributions from developers, Arabic linguists,
             Quran scholars, and anyone passionate about making Quranic knowledge more accessible.
           </p>
-            <p className="mb-4 text-gray-600 dark:text-gray-300">
+            <p className="mb-4 text-amber-600 dark:text-amber-300 text-3xl font-bold">
                 مَثَلُ الَّذِينَ يُنفِقُونَ أَمْوَالَهُمْ فِي سَبِيلِ اللَّهِ كَمَثَلِ حَبَّةٍ أَنبَتَتْ سَبْعَ سَنَابِلَ فِي كُلِّ سُنۢبُلَةٍ مِّا۟ئَةُ حَبَّةٍ ۗ وَاللَّهُ يُضَٰعِفُ لِمَن يَشَآءُ ۗ وَاللَّهُ وَٰسِعٌ عَلِيمٌ
             </p>
-            <p className="mb-4 text-gray-600 dark:text-gray-300">
+             <p class="text-amber-700 dark:text-amber-200 mb-3">
             "The example of those who spend their wealth in the way of Allah is like a seed [of grain] which grows seven spikes; in each spike is a hundred grains. And Allah multiplies [His reward] for whom He wills. And Allah is all-Encompassing and Knowing." 
               </p>
           <div className="flex flex-col sm:flex-row gap-4 mt-6">
