@@ -217,6 +217,17 @@ export default function AboutPage() {
               </Button>
             </Link>
           </div>
+        <div className="flex flex-wrap gap-4 mt-4 justify-center">
+          <p className="mb-4 text-gray-600 dark:text-gray-300">
+            IQRA and KALAM apps are built without charity, zakat, or donations – a practice aligned with the true Sunnah of the Noble Prophets, and the Righteous.
+          </p>
+           <p className="mb-4 text-gray-600 dark:text-gray-300">
+            قُلْ مَا أَسْأَلُكُمْ عَلَيْهِ مِنْ أَجْرٍ وَمَا أَنَا مِنَ الْمُتَكَلِّفِينَ
+            </p>
+             <p className="mb-4 text-gray-600 dark:text-gray-300">
+          Say, "I do not ask you for this any payment, and I am not of the pretentious..
+          </p>
+       </div>
         </section>
 
         <div className="flex justify-center mt-8">
