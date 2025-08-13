@@ -249,7 +249,6 @@ export default function AboutPage() {
           Say, "I do not ask you for this any payment, and I am not of the pretentious - Surah Sad 38:86. 
           </p>
        </div>
-          </div>
         </section>
 
         <div className="flex justify-center mt-8">
