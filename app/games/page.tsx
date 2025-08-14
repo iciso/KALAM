@@ -51,7 +51,24 @@ export default function GamesPage() {
           </CardFooter>
         </Card>
 
-    
+             {/* Match Verse & Attribute Game */}
+        <Card>
+          <CardHeader>
+            <CardTitle>Match Verse & Attribute</CardTitle>
+            <CardDescription>Match Allah's Attributes with the Quranic verses where they occur.</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p>Test your knowledge of Allah's Attributes by finding out the verses where Allah, The Most Wise placed them in His Noble Quran.</p>
+          </CardContent>
+          <CardFooter>
+            <Link href="/games/attributes" passHref>
+              <Button>Play Now</Button>where 
+            </Link>
+          </CardFooter>
+        </Card>
+
+
+         {/* Word Search Game */}
         <Card>
           <CardHeader>
             <CardTitle>Word Search</CardTitle>
