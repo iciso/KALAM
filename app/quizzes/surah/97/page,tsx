@@ -1,4 +1,4 @@
-import AlQadrQuizClient from "./client";
+import AlQadrQuizClient from "./client"; 
 
 export const metadata = {
   title: "Surah Al-Qadr Quiz | KALAM",
