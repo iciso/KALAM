@@ -55,10 +55,10 @@ export default function GamesPage() {
          <Card className="border-emerald-200 bg-purple-50">
           <CardHeader>
              <CardTitle className="text-emerald-800">Match Verse & Attribute</CardTitle>
-            <CardDescription>Match Allah's Attributes with the Quranic verses where they occur.</CardDescription>
+            <CardDescription>Match Allah's Attributes with the Quranic verses</CardDescription>
           </CardHeader>
           <CardContent>
-            <p>Test your knowledge of Allah's Attributes by finding out the verses where Allah, The Most Wise placed them in His Noble Quran.</p>
+            <p>Test your knowledge of Allah's Attributes by finding out the verses where Allah, The Most Wise, placed them in His Noble Quran.</p>
           </CardContent>
           <CardFooter>
             <Link href="/games/attributes" passHref>
@@ -69,9 +69,9 @@ export default function GamesPage() {
 
 
          {/* Word Search Game */}
-        <Card>
+        <Card className="border-emerald-200 bg-blue-50">
           <CardHeader>
-            <CardTitle>Word Search</CardTitle>
+            <CardTitle className="text-blue-800">Word Search</CardTitle>
             <CardDescription>Find Arabic words from the Quran in a grid</CardDescription>
           </CardHeader>
           <CardContent>
@@ -79,7 +79,7 @@ export default function GamesPage() {
           </CardContent>
           <CardFooter>
             <Link href="/games/word-search" passHref>
-              <Button>Play Now</Button>
+              <Button className="bg-blue-600 hover:bg-blue-700">Play Now</Button>
             </Link>
           </CardFooter>
         </Card>
