@@ -62,7 +62,7 @@ export default function GamesPage() {
           </CardContent>
           <CardFooter>
             <Link href="/games/attributes" passHref>
-              <Button>Play Now</Button>where 
+              <Button>Play Now</Button>
             </Link>
           </CardFooter>
         </Card>
