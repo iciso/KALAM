@@ -52,9 +52,9 @@ export default function GamesPage() {
         </Card>
 
              {/* Match Verse & Attribute Game */}
-        <Card>
+         <Card className="border-emerald-200 bg-purple-50">
           <CardHeader>
-            <CardTitle>Match Verse & Attribute</CardTitle>
+             <CardTitle className="text-emerald-800">Match Verse & Attribute</CardTitle>
             <CardDescription>Match Allah's Attributes with the Quranic verses where they occur.</CardDescription>
           </CardHeader>
           <CardContent>
@@ -62,7 +62,7 @@ export default function GamesPage() {
           </CardContent>
           <CardFooter>
             <Link href="/games/attributes" passHref>
-              <Button>Play Now</Button>
+              <Button className="bg-emerald-600 hover:bg-emerald-700">Play Now</Button>
             </Link>
           </CardFooter>
         </Card>
