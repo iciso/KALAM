@@ -1,0 +1,10 @@
+import AlQadrQuizClient from "./client";
+
+export const metadata = {
+  title: "Surah Al-Qadr Quiz | KALAM",
+  description: "Test your knowledge of vocabulary from Surah Al-Qadr (The Night of Decree)",
+}
+
+export default function AlQadrQuizPage() {
+  return <AlQadrQuizClient />;
+}
