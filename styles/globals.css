@@ -9,7 +9,8 @@ body {
 }
 .font-arabic {
   font-family: 'Traditional Arabic', 'Arial Unicode MS', sans-serif;
-  line-height: 2;
+  font-size: 1.5rem;
+  line-height: 2.5rem;
 }
 @layer utilities {
   .text-balance {
