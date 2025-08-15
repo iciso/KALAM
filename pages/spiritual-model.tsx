@@ -87,6 +87,7 @@ const SpiritualModel = () => {
     calculateSpiritualState();
   }, [factors, imanLevel]);
 
+  
   const handleFactorChange = (index: number, value: number) => {
     const newFactors = [...factors];
     newFactors[index].value = parseFloat(value.toFixed(1));
@@ -124,6 +125,48 @@ const SpiritualModel = () => {
       };
     }
   };
+
+      const MeezanScales = ({ score }: { score: number }) => {
+  // Calculate tilt angle based on score (0-100)
+  const tilt = (score - 50) * 0.9; // -45° to +45° range
+  
+  return (
+    <div className="relative h-64 w-full flex justify-center items-end">
+      {/* Base Stand */}
+      <div className="absolute bottom-0 h-8 w-2 bg-amber-800 rounded-t-full"></div>
+      
+      {/* Horizontal Beam */}
+      <div className="absolute bottom-8 h-2 w-48 bg-amber-800 rounded-full"></div>
+      
+      {/* Central Pivot */}
+      <div className="absolute bottom-6 h-6 w-6 bg-amber-900 rounded-full z-10"></div>
+      
+      {/* Scales - animated based on score */}
+      <div 
+        className="absolute bottom-6 w-40 h-1 bg-amber-700 origin-bottom"
+        style={{ transform: `rotate(${tilt}deg)` }}
+      >
+        {/* Left Scale (Good Deeds) */}
+        <div className="absolute -left-20 -top-8 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white font-bold">
+          حسنات
+        </div>
+        
+        {/* Right Scale (Current State) */}
+        <div className="absolute -right-20 -top-8 w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">
+          حال
+        </div>
+      </div>
+      
+      {/* Quranic Verse */}
+      <div className="absolute -bottom-10 text-center text-xs text-gray-600">
+        {score > 50 ? 
+          "فَأَمَّا مَن ثَقُلَتْ مَوَازِينُهُۥ ﴿٦﴾ فَهُوَ فِى عِيشَةٍ رَّاضِيَةٍ ﴿٧﴾" :
+          "وَأَمَّا مَنْ خَفَّتْ مَوَازِينُهُۥ ﴿٨﴾ فَأُمُّهُۥ هَاوِيَةٌ ﴿٩﴾"}
+      </div>
+    </div>
+  );
+};
+
 
   const stateInfo = getStateDescription(predictedState);
 
@@ -213,6 +256,22 @@ const SpiritualModel = () => {
     )}
   </p>
 </div>
+
+
+      
+ <div className="w-full bg-gray-200 rounded-full h-4 mb-4">
+            <div
+              className={`h-4 rounded-full ${stateInfo.color}`}
+              style={{ width: `${predictedState}%` }}
+            ></div>
+          </div>
+          
+          <p className="text-center text-gray-600 italic mt-2">
+            {stateInfo.text}
+          </p>
+        </div>
+
+
 
         {/* Model Explanation */}
         <div className="mt-10 p-6 bg-gray-50 rounded-lg border border-gray-200">
