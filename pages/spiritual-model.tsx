@@ -260,27 +260,46 @@ const SpiritualModel = () => {
 
         {/* Model Explanation */}
         <div className="mt-10 p-6 bg-gray-50 rounded-lg border border-gray-200">
-          <h3 className="text-lg font-medium text-gray-800 mb-3">About This Spiritual Model</h3>
-          <p className="text-gray-600 mb-3">
-            This interactive model demonstrates how different spiritual factors influence your state based on Surah Al-Qariah, verses 6-9, which describes the fate of those whose deeds are weighed on the Day of Judgment. 
-            Those whose good deeds outweigh their bad deeds will live in a pleasant life, while those whose bad deeds are heavier will be cast into the abyss (Hāwiyah), which is hellfire.
-          </p>
-           
-          <p className="text-lg text-gray-600">
-          فَهُوَ فِي عِيشَةٖ رَّاضِيَةٖ   فَأَمَّا مَن ثَقُلَتۡ مَوَٰزِينُهُۥ
-           </p>
-          <p className="text-gray-600 mb-3">
-            Then as for him whose scales are heavy. He will be in a pleasant life.
-             </p>
-            <p className="text-lg text-gray-600">
-          وَأَمَّا مَنۡ خَفَّتۡ مَوَٰزِينُهُۥ   فَأُمُّهُۥ هَاوِيَةٞۥ
-           </p>
-         <p className="text-gray-600 mb-3">
-            But as for one whose scales are light, His refuge will be an abyss.
-             </p>
-            <strong>Disclaimer:</strong> This is a simplified demo for understanding. True spiritual states are known only to Allah, The knower of The Unseen or Ghayab.
-          </p>
-        </div>
+  <h3 className="text-lg font-medium text-gray-800 mb-3">About This Spiritual Model</h3>
+  <p className="text-gray-600 mb-3">
+    This interactive model demonstrates how different spiritual factors influence your state based on Surah Al-Qariah, verses 6-9, which describes the fate of those whose deeds are weighed on the Day of Judgment.
+    Those whose good deeds outweigh their bad deeds will live in a pleasant life, while those whose bad deeds are heavier will be cast into the abyss (Hāwiyah), which is hellfire.
+  </p>
+
+  <div className="my-4">
+    <p className="text-lg text-gray-600 font-arabic text-right">
+      فَأَمَّا مَن ثَقُلَتۡ مَوَٰزِينُهُۥ
+    </p>
+    <p className="text-gray-600">
+      "Then as for him whose scales are heavy"
+    </p>
+    <p className="text-lg text-gray-600 font-arabic text-right mt-2">
+      فَهُوَ فِي عِيشَةٖ رَّاضِيَةٖ
+    </p>
+    <p className="text-gray-600">
+      "He will be in a pleasant life"
+    </p>
+  </div>
+
+  <div className="my-4">
+    <p className="text-lg text-gray-600 font-arabic text-right">
+      وَأَمَّا مَنۡ خَفَّتۡ مَوَٰزِينُهُۥ
+    </p>
+    <p className="text-gray-600">
+      "But as for one whose scales are light"
+    </p>
+    <p className="text-lg text-gray-600 font-arabic text-right mt-2">
+      فَأُمُّهُۥ هَاوِيَةٞۥ
+    </p>
+    <p className="text-gray-600">
+      "His refuge will be an abyss"
+    </p>
+  </div>
+
+  <p className="text-gray-600">
+    <strong>Disclaimer:</strong> This is a simplified demo for understanding. True spiritual states are known only to Allah, The knower of The Unseen or Ghayab.
+  </p>
+</div>
       </div>
     </div>
   );
