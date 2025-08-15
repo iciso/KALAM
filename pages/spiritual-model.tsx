@@ -146,14 +146,14 @@ const SpiritualModel = () => {
         className="absolute bottom-6 w-40 h-1 bg-amber-700 origin-bottom"
         style={{ transform: `rotate(${tilt}deg)` }}
       >
-        {/* Left Scale (Good Deeds) */}
-        <div className="absolute -left-20 -top-8 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white font-bold">
-          حسنات
+        {/* Left Scale (Bad Deeds) */}
+        <div className="absolute -left-20 -top-8 w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">
+         حال 
         </div>
         
         {/* Right Scale (Current State) */}
-        <div className="absolute -right-20 -top-8 w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">
-          حال
+        <div className="absolute -right-20 -top-8 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white font-bold">
+          حسنات
         </div>
       </div>
       
@@ -179,7 +179,7 @@ const SpiritualModel = () => {
 
       <div className="max-w-3xl mx-auto bg-white rounded-xl shadow-md overflow-hidden p-6">
         <h1 className="text-3xl font-bold text-center text-gray-800 mb-2">
-          Spiritual State Regression Model
+          Spiritual State Model
         </h1>
         <p className="text-center text-gray-600 mb-8">
           Adjust the sliders to see how different spiritual factors influence your state
@@ -248,7 +248,11 @@ const SpiritualModel = () => {
   </div>
   
   <MeezanScales score={predictedState} />
-  
+   <p className="text-center text-gray-600 italic mt-4 pt-4 border-t border-gray-200">
+    &nbsp;
+ <!-- This comment within is to push the paragraph below a little down -->
+    &nbsp;
+  </p>
   <p className="text-center text-gray-600 italic mt-4 pt-4 border-t border-gray-200">
     {stateInfo.text}
   </p>
