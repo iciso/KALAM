@@ -7,7 +7,10 @@
 body {
   font-family: 'Amiri', Arial, Helvetica, sans-serif;
 }
-
+.font-arabic {
+  font-family: 'Traditional Arabic', 'Arial Unicode MS', sans-serif;
+  line-height: 2;
+}
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -173,4 +176,10 @@ input[type="range"]::-moz-range-thumb {
 
 .scale-glow {
   animation: scaleGlow 2s infinite;
+}
+
+/* Ensure scales appear above text */
+.relative {
+  position: relative;
+  z-index: 1;
 }
