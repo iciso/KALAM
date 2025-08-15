@@ -135,9 +135,9 @@ const SpiritualModel = () => {
 
         {/* Quranic Verse */}
       <div className="absolute top-0 text-center text-2xl text-black-600">
-        {score > 50 ? 
-          "فَأَمَّا مَن ثَقُلَتْ مَوَازِينُهُۥ ﴿٦﴾ فَهُوَ فِى عِيشَةٍ رَّاضِيَةٍ ﴿٧﴾" :
-          "وَأَمَّا مَنْ خَفَّتْ مَوَازِينُهُۥ ﴿٨﴾ فَأُمُّهُۥ هَاوِيَةٌ ﴿٩﴾"}
+         {score > 50 ? 
+          "فَهُوَ فِي عِيشَةٖ رَّاضِيَةٖ    فَأَمَّا مَن ثَقُلَتۡ مَوَٰزِينُهُۥ" :
+          "فَأُمُّهُۥ هَاوِيَةٞۥ    وَأَمَّا مَنۡ خَفَّتۡ مَوَٰزِينُهُ"}
       </div>
 
       {/* Base Stand */}
@@ -267,13 +267,13 @@ const SpiritualModel = () => {
   </p>
 
   <div className="my-4">
-    <p className="text-lg text-gray-600 font-arabic text-right">
+    <p className="text-2xl text-black-600 font-arabic text-right">
       فَأَمَّا مَن ثَقُلَتۡ مَوَٰزِينُهُۥ
     </p>
     <p className="text-gray-600">
       "Then as for him whose scales are heavy"
     </p>
-    <p className="text-lg text-gray-600 font-arabic text-right mt-2">
+    <p className="text-2xl text-black-600 font-arabic text-right">
       فَهُوَ فِي عِيشَةٖ رَّاضِيَةٖ
     </p>
     <p className="text-gray-600">
@@ -282,13 +282,13 @@ const SpiritualModel = () => {
   </div>
 
   <div className="my-4">
-    <p className="text-lg text-gray-600 font-arabic text-right">
+    <p className="text-2xl text-black-600 font-arabic text-right">
       وَأَمَّا مَنۡ خَفَّتۡ مَوَٰزِينُهُۥ
     </p>
     <p className="text-gray-600">
       "But as for one whose scales are light"
     </p>
-    <p className="text-lg text-gray-600 font-arabic text-right mt-2">
+    <p className="text-2xl text-black-600 font-arabic text-right">
       فَأُمُّهُۥ هَاوِيَةٞۥ
     </p>
     <p className="text-gray-600">
