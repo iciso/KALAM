@@ -232,46 +232,30 @@ const SpiritualModel = () => {
           </div>
         ))}
 
-        {/* Predicted Spiritual State - Now Interactive */}
+         {/* Predicted Spiritual State - Single Section */}
         <div className="mt-10 p-6 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg border border-gray-200">
-  <h2 className="text-xl font-semibold text-center text-gray-800 mb-4">
-    Mizan al-Ruh (Balance of the Soul)
-  </h2>
-  
-  <div className="flex items-center justify-center mb-3">
-    <span className={`text-lg mr-2 ${stateInfo.color} text-white px-3 py-1 rounded-full flex items-center ${predictedState > 70 ? 'scale-glow' : ''}`}>
-      {stateInfo.emoji} {stateInfo.label}
-    </span>
-    <span className="text-xl font-bold text-gray-700">
-      {predictedState}/100
-    </span>
-  </div>
-  
-  <MeezanScales score={predictedState} />
-  
-  <p className="text-center text-gray-600 italic mt-6">
-    {stateInfo.text}
-    {predictedState > 70 && (
-      <span className="block mt-2 text-amber-600">"So he will be in a pleasant life" (Quran 101:7)</span>
-    )}
-  </p>
-</div>
-
-
-      
- <div className="w-full bg-gray-200 rounded-full h-4 mb-4">
-            <div
-              className={`h-4 rounded-full ${stateInfo.color}`}
-              style={{ width: `${predictedState}%` }}
-            ></div>
+          <h2 className="text-xl font-semibold text-center text-gray-800 mb-4">
+            Mizan al-Ruh (Balance of the Soul)
+          </h2>
+          
+          <div className="flex items-center justify-center mb-3">
+            <span className={`text-lg mr-2 ${stateInfo.color} text-white px-3 py-1 rounded-full flex items-center ${predictedState > 70 ? 'scale-glow' : ''}`}>
+              {stateInfo.emoji} {stateInfo.label}
+            </span>
+            <span className="text-xl font-bold text-gray-700">
+              {predictedState}/100
+            </span>
           </div>
           
-          <p className="text-center text-gray-600 italic mt-2">
+          <MeezanScales score={predictedState} />
+          
+          <p className="text-center text-gray-600 italic mt-6">
             {stateInfo.text}
+            {predictedState > 70 && (
+              <span className="block mt-2 text-amber-600">"So he will be in a pleasant life" (Quran 101:7)</span>
+            )}
           </p>
         </div>
-
-
 
         {/* Model Explanation */}
         <div className="mt-10 p-6 bg-gray-50 rounded-lg border border-gray-200">
