@@ -134,10 +134,10 @@ const SpiritualModel = () => {
     <div className="relative h-64 w-full flex justify-center items-end">
 
         {/* Quranic Verse */}
-      <div className="absolute top-0 text-center text-2xl text-black-600">
+      <div className="absolute top-0 text-center text-2xl text-black-600 font-arabic">
          {score > 50 ? 
-          "فَهُوَ فِي عِيشَةٖ رَّاضِيَةٖ    فَأَمَّا مَن ثَقُلَتۡ مَوَٰزِينُهُۥ" :
-          "فَأُمُّهُۥ هَاوِيَةٞۥ    وَأَمَّا مَنۡ خَفَّتۡ مَوَٰزِينُهُ"}
+          "فَأَمَّا مَن ثَقُلَتۡ مَوَٰزِينُهُ   فَهُوَ فِي عِيشَةٖ رَّاضِيَةٖۥ" :
+          "وَأَمَّا مَنۡ خَفَّتۡ مَوَٰزِينُهُ   فَأُمُّهُۥ هَاوِيَةٞۥ"}
       </div>
 
       {/* Base Stand */}
