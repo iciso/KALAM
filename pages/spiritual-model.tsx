@@ -132,7 +132,16 @@ const SpiritualModel = () => {
   
   return (
     <div className="relative h-64 w-full flex justify-center items-end">
-    
+        {/* Quranic Verse */}
+      <div className="relative -top-0 text-center text-xs text-gray-600">
+        {score > 50 ? 
+          "فَأَمَّا مَن ثَقُلَتْ مَوَازِينُهُۥ ﴿٦﴾ فَهُوَ فِى عِيشَةٍ رَّاضِيَةٍ ﴿٧﴾" :
+          "وَأَمَّا مَنْ خَفَّتْ مَوَازِينُهُۥ ﴿٨﴾ فَأُمُّهُۥ هَاوِيَةٌ ﴿٩﴾"}
+      </div>
+
+      {/* Base Stand */}
+      <div className="absolute bottom-0 h-8 w-2 bg-amber-800 rounded-t-full"></div>    
+
       {/* Central Pivot */}
       <div className="absolute bottom-6 h-6 w-6 bg-amber-900 rounded-full z-10"></div>
       
@@ -152,12 +161,6 @@ const SpiritualModel = () => {
         </div>
       </div>
       
-      {/* Quranic Verse */}
-      <div className="relative -bottom-30 text-center text-xs text-gray-600">
-        {score > 50 ? 
-          "فَأَمَّا مَن ثَقُلَتْ مَوَازِينُهُۥ ﴿٦﴾ فَهُوَ فِى عِيشَةٍ رَّاضِيَةٍ ﴿٧﴾" :
-          "وَأَمَّا مَنْ خَفَّتْ مَوَازِينُهُۥ ﴿٨﴾ فَأُمُّهُۥ هَاوِيَةٌ ﴿٩﴾"}
-      </div>
     </div>
   );
 };
