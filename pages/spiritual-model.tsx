@@ -146,7 +146,7 @@ const SpiritualModel = () => {
         className="absolute bottom-6 w-40 h-1 bg-amber-700 origin-bottom"
         style={{ transform: `rotate(${tilt}deg)` }}
       >
-        {/* Left Scale (Bad Deeds) */}
+        {/* Left Scale (Good Deeds) */}
         <div className="absolute -left-20 -top-8 w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">
          حال 
         </div>
@@ -250,7 +250,7 @@ const SpiritualModel = () => {
   <MeezanScales score={predictedState} />
    <p className="text-center text-gray-600 italic mt-4 pt-4 border-t border-gray-200">
     &nbsp;
- <!-- This comment within is to push the paragraph below a little down -->
+ 
     &nbsp;
   </p>
   <p className="text-center text-gray-600 italic mt-4 pt-4 border-t border-gray-200">
