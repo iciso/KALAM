@@ -163,3 +163,14 @@ input[type="range"]::-moz-range-thumb {
 .range-thumb-white::-moz-range-thumb {
   background: white;
 }
+
+/* Meezan in pages/spiritual-model */
+@keyframes scaleGlow {
+  0% { filter: drop-shadow(0 0 2px rgba(210, 168, 50, 0)); }
+  50% { filter: drop-shadow(0 0 8px rgba(210, 168, 50, 0.7)); }
+  100% { filter: drop-shadow(0 0 2px rgba(210, 168, 50, 0)); }
+}
+
+.scale-glow {
+  animation: scaleGlow 2s infinite;
+}
