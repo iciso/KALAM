@@ -213,18 +213,6 @@ const SpiritualModel = () => {
     )}
   </p>
 </div>
-          
-          <div className="w-full bg-gray-200 rounded-full h-4 mb-4">
-            <div
-              className={`h-4 rounded-full ${stateInfo.color}`}
-              style={{ width: `${predictedState}%` }}
-            ></div>
-          </div>
-          
-          <p className="text-center text-gray-600 italic mt-2">
-            {stateInfo.text}
-          </p>
-        </div>
 
         {/* Model Explanation */}
         <div className="mt-10 p-6 bg-gray-50 rounded-lg border border-gray-200">
