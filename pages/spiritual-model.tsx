@@ -132,12 +132,7 @@ const SpiritualModel = () => {
   
   return (
     <div className="relative h-64 w-full flex justify-center items-end">
-      {/* Base Stand */}
-      <div className="absolute bottom-0 h-8 w-2 bg-amber-800 rounded-t-full"></div>
-      
-      {/* Horizontal Beam */}
-      <div className="absolute bottom-8 h-2 w-48 bg-amber-800 rounded-full"></div>
-      
+    
       {/* Central Pivot */}
       <div className="absolute bottom-6 h-6 w-6 bg-amber-900 rounded-full z-10"></div>
       
