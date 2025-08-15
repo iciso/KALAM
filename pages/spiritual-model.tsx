@@ -147,8 +147,8 @@ const SpiritualModel = () => {
         style={{ transform: `rotate(${tilt}deg)` }}
       >
         {/* Left Scale (Good Deeds) */}
-        <div className="absolute -left-20 -top-8 w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">
-         حال 
+        <div className="absolute -left-20 -top-8 w-16 h-16 bg-red-500 rounded-full flex items-center justify-center text-white font-bold">
+         سيئات 
         </div>
         
         {/* Right Scale (Current State) */}
@@ -158,7 +158,7 @@ const SpiritualModel = () => {
       </div>
       
       {/* Quranic Verse */}
-      <div className="absolute -bottom-10 text-center text-xs text-gray-600">
+      <div className="absolute -bottom-30 text-center text-xs text-gray-600">
         {score > 50 ? 
           "فَأَمَّا مَن ثَقُلَتْ مَوَازِينُهُۥ ﴿٦﴾ فَهُوَ فِى عِيشَةٍ رَّاضِيَةٍ ﴿٧﴾" :
           "وَأَمَّا مَنْ خَفَّتْ مَوَازِينُهُۥ ﴿٨﴾ فَأُمُّهُۥ هَاوِيَةٌ ﴿٩﴾"}
