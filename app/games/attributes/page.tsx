@@ -1,9 +1,12 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { attributes, Attribute } from "@/data/attributesData"; // Adjust path if needed
+import { attributes, Attribute } from "@/data/attributesData";
 
 export default function AttributesGame() {
+  const [currentSet, setCurrentSet] = useState(1);
+  const attributesPerSet = 10;
+  const totalSets = Math.ceil(attributes.length / attributesPerSet);
   const [shuffledVerses, setShuffledVerses] = useState<string[]>([]);
   const [selectedAttribute, setSelectedAttribute] = useState<Attribute | null>(null);
   const [selectedVerse, setSelectedVerse] = useState<string | null>(null);
@@ -11,16 +14,28 @@ export default function AttributesGame() {
   const [score, setScore] = useState(0);
   const [matchedIds, setMatchedIds] = useState<number[]>([]);
 
+  // Get attributes for the current set
+  const currentAttributes = attributes.slice(
+    (currentSet - 1) * attributesPerSet,
+    currentSet * attributesPerSet
+  );
+
   useEffect(() => {
-    // Shuffle verses on load
-    const verses = attributes.map((attr) => attr.verse);
+    // Shuffle verses for the current set
+    const verses = currentAttributes.map((attr) => attr.verse);
     setShuffledVerses(verses.sort(() => Math.random() - 0.5));
-  }, []);
+    // Reset game state when changing sets
+    setScore(0);
+    setMatchedIds([]);
+    setSelectedAttribute(null);
+    setSelectedVerse(null);
+    setDetails("");
+  }, [currentSet]);
 
   const handleAttributeClick = (attr: Attribute) => {
-    if (matchedIds.includes(attr.id)) return; // Already matched
+    if (matchedIds.includes(attr.id)) return;
     setSelectedAttribute(attr);
-    setDetails(""); // Clear previous details
+    setDetails("");
   };
 
   const handleVerseClick = (verse: string) => {
@@ -38,7 +53,6 @@ export default function AttributesGame() {
       } else {
         setDetails("Incorrect match. Try again!");
       }
-      // Clear selections after check
       setTimeout(() => {
         setSelectedAttribute(null);
         setSelectedVerse(null);
@@ -46,12 +60,24 @@ export default function AttributesGame() {
     }
   }, [selectedAttribute, selectedVerse]);
 
+  const handleNextSet = () => {
+    if (currentSet < totalSets) {
+      setCurrentSet(currentSet + 1);
+    }
+  };
+
+  const handlePreviousSet = () => {
+    if (currentSet > 1) {
+      setCurrentSet(currentSet - 1);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gray-100 p-8">
       <header className="text-center mb-8">
         <h1 className="text-4xl font-bold text-green-800">Allah's Attributes Matching Game</h1>
         <p className="mt-4 text-lg text-gray-700">
-          Match each attribute of Allah SWT to its correct Surah:Verse from the Quran. On correct match, learn more from Quran, Hadith, and Tafsir.
+          Match each attribute of Allah SWT to its correct Surah and Verse from the Quran. On correct match, learn more from Quran, Hadith, and Tafsir. Set {currentSet} of {totalSets}.
         </p>
       </header>
 
@@ -60,7 +86,7 @@ export default function AttributesGame() {
         <div>
           <h2 className="text-2xl font-semibold mb-4">Attributes</h2>
           <div className="grid grid-cols-1 gap-4">
-            {attributes.map((attr) => (
+            {currentAttributes.map((attr) => (
               <button
                 key={attr.id}
                 onClick={() => handleAttributeClick(attr)}
@@ -79,7 +105,7 @@ export default function AttributesGame() {
 
         {/* Verses Column */}
         <div>
-          <h2 className="text-2xl font-semibold mb-4">Surah:Verse</h2>
+          <h2 className="text-2xl font-semibold mb-4">Surah and Verse</h2>
           <div className="grid grid-cols-1 gap-4">
             {shuffledVerses.map((verse, index) => (
               <button
@@ -104,8 +130,26 @@ export default function AttributesGame() {
 
       {/* Footer */}
       <footer className="mt-8 text-center">
-        <p className="text-xl">Score: {score} / 10</p>
-        {score === 10 && <p className="text-green-600 font-bold">Well done! All matched. Proceed to next set?</p>}
+        <p className="text-xl">Score: {score} / {currentAttributes.length}</p>
+        {score === currentAttributes.length && (
+          <p className="text-green-600 font-bold">Well done! All matched for Set {currentSet}.</p>
+        )}
+        <div className="mt-4 flex justify-center gap-4">
+          <button
+            onClick={handlePreviousSet}
+            disabled={currentSet === 1}
+            className="px-4 py-2 bg-blue-600 text-white rounded-lg disabled:bg-gray-400"
+          >
+            Previous Set
+          </button>
+          <button
+            onClick={handleNextSet}
+            disabled={currentSet === totalSets}
+            className="px-4 py-2 bg-blue-600 text-white rounded-lg disabled:bg-gray-400"
+          >
+            Next Set
+          </button>
+        </div>
       </footer>
     </div>
   );
