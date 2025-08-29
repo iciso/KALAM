@@ -15,12 +15,12 @@ export const ashSharhQuizData: SurahQuizData = {
         <div class="mt-6 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border border-purple-100 dark:border-purple-800">
           <h3 class="text-lg font-semibold text-purple-800 dark:text-purple-300 mb-2">The Event of Shatr As-Sadr</h3>
           <p class="text-purple-700 dark:text-purple-200 mb-3">
-            The first verse refers to the miraculous event when angels opened and purified the Prophet's chest during his childhood. This occurred twice: once when he was 4 years old while playing with other children, and again during the Night Journey (Isra' and Mi'raj).
+            The first verse refers to the miraculous event when Arch Angel Gabriel opened and purified the Prophet's chest during his childhood. This occurred twice: once when he was 4 years old while playing with other children, and again during the Night Journey (Isra' and Mi'raj).
           </p>
           <div class="bg-white dark:bg-gray-800 p-3 rounded shadow-sm mb-3">
             <h4 class="font-medium text-purple-700 dark:text-purple-300 mb-1">Hadith Reference</h4>
             <p class="text-sm text-gray-600 dark:text-gray-300">
-              Anas ibn Malik reported: "The Messenger of Allah ﷺ came to you while you were playing with other boys. He took hold of me and laid me down on the ground and opened my chest and took out my heart from which he extracted a clot of blood and said: 'This was Satan's portion of you.' Then he washed it in a golden basin with Zamzam water..." (Muslim 162).
+              Anas ibn Malik reported: "The Messenger of Allah ﷺ reported that Gabriel came to him while he was playing with other boys. He took hold of me and laid me down on the ground and opened my chest and took out my heart from which he extracted a clot of blood and said: 'This was Satan's portion of you.' Then he washed it in a golden basin with Zamzam water..." (Muslim 162).
             </p>
           </div>
         </div>
