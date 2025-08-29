@@ -1,4 +1,4 @@
-import AshSharhQuizClient from "./client";
+import AshSharhQuizClient from "./client"; 
 
 export const metadata = {
   title: "Surah Ash-Sharh Quiz | KALAM",
