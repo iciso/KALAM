@@ -1,4 +1,4 @@
-import AdDuhaQuizClient from "./client";
+import AdDuhaQuizClient from "./client"; 
 
 export const metadata = {
   title: "Surah Al-Duha Quiz | KALAM",
