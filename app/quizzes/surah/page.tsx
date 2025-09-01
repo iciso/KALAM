@@ -236,6 +236,18 @@ const surahs = [
     implementationPhase: 1,
     sections: [],
   },
+    {
+    id: 92,
+    name: "Al-Lail",
+    arabicName: "الليل",
+    verses: 21,
+    type: "Meccan",
+    vocabularyCount: 71,
+    difficulty: "Beginner",
+    implementationStatus: "available" as ImplementationStatus,
+    implementationPhase: 1,
+    sections: [],
+  },
   {
     id: 93,
     name: "Ad-Duha",
@@ -244,7 +256,7 @@ const surahs = [
     type: "Meccan",
     vocabularyCount: 40,
     difficulty: "Beginner",
-    implementationStatus: "coming-soon" as ImplementationStatus,
+    implementationStatus: "available" as ImplementationStatus,
     implementationPhase: 1,
     sections: [],
   },
@@ -562,7 +574,7 @@ const getImplementationStatus = (status: ImplementationStatus) => {
 // Function to get the appropriate link for a surah
 const getSurahLink = (surahId: number) => {
   // List of implemented surahs
-  const implementedSurahs = [1, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114]
+  const implementedSurahs = [1, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114]
 
   if (implementedSurahs.includes(surahId)) {
     return `/quizzes/surah/${surahId}`
