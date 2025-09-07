@@ -6,38 +6,44 @@ export const ashShamsQuizData: SurahQuizData = {
   type: "Meccan",
   difficulty: "Intermediate",
   introduction:
-    "Surah Ash-Shams (The Sun) is the 91st chapter of the Quran. It opens with a series of powerful oaths by natural phenomena that demonstrate Allah's creative power and wisdom, then reveals the central theme of human responsibility: success comes to those who purify their souls, while failure awaits those who corrupt them. The surah concludes with the cautionary tale of the Thamud people who rejected their prophet and faced destruction.",
+    "Surah Ash-Shams (The Sun) is the 91st chapter of the Quran. It opens with a series of powerful oaths by natural phenomena that demonstrate Allah's creative power and wisdom, then presents the fundamental choice every soul faces: to purify itself through faith and righteousness or corrupt itself through disbelief and evil. The surah concludes with the cautionary tale of the Thamud people who rejected their prophet and faced destruction.",
 
   additionalContextElements: [
     {
       title: "The Oaths and Their Significance",
       content: `
         <div class="mt-6 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border border-purple-100 dark:border-purple-800">
-          <h3 class="text-lg font-semibold text-purple-800 dark:text-purple-300 mb-2">Divine Testimony Through Creation</h3>
+          <h3 class="text-lg font-semibold text-purple-800 dark:text-purple-300 mb-2">Cosmic Testimony to Moral Truth</h3>
           <p class="text-purple-700 dark:text-purple-200 mb-3">
-            The surah begins with eleven oaths by various aspects of creation: the sun, moon, day, night, sky, earth, and the human soul. These oaths serve as witnesses to the fundamental truth that follows—that Allah has inspired the human soul with knowledge of good and evil, and success depends on heeding this moral compass.
+            The surah begins with eleven oaths by various aspects of creation: the sun, moon, day, night, sky, earth, and the human soul. These oaths serve as witnesses to the fundamental truth that follows—that success or failure depends on whether one purifies or corrupts their soul.
           </p>
           <div class="bg-white dark:bg-gray-800 p-3 rounded shadow-sm mb-3">
             <h4 class="font-medium text-purple-700 dark:text-purple-300 mb-1">Tafsir Insight</h4>
             <p class="text-sm text-gray-600 dark:text-gray-300">
-              Tafsir Ibn Kathir explains that these oaths by celestial and terrestrial phenomena emphasize the perfect order and balance in Allah's creation, which contrasts with the moral disorder humans create when they deviate from their innate nature (fitrah). The succession of day and night, the sun and moon's precise orbits, all testify to the Creator's wisdom.
+              Tafsir Ibn Kathir explains that these oaths by celestial and terrestrial phenomena emphasize the perfect order and balance in Allah's creation, which testifies to the moral order He has established for humanity. Just as these creations follow their ordained patterns, humans too have a natural disposition (fitrah) toward recognizing truth.
+            </p>
+          </div>
+          <div class="bg-white dark:bg-gray-800 p-3 rounded shadow-sm">
+            <h4 class="font-medium text-purple-700 dark:text-purple-300 mb-1">Connecting Creation to Morality</h4>
+            <p class="text-sm text-gray-600 dark:text-gray-300">
+              The sequential oaths move from cosmic phenomena (sun, moon) to earthly ones (day, night, sky, earth) and finally to the human soul, creating a powerful rhetorical progression that connects the macrocosm to the microcosm of human moral choice.
             </p>
           </div>
         </div>
       `,
     },
     {
-      title: "The Human Soul and Its Purification",
+      title: "The Choice of Self-Purification",
       content: `
         <div class="mt-6 p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg border border-emerald-100 dark:border-emerald-800">
-          <h3 class="text-lg font-semibold text-emerald-800 dark:text-emerald-300 mb-2">Moral Responsibility</h3>
+          <h3 class="text-lg font-semibold text-emerald-800 dark:text-emerald-300 mb-2">The Fundamental Human Decision</h3>
           <p class="text-emerald-700 dark:text-emerald-200 mb-3">
-            Verses 7-10 contain one of the Quran's most profound statements about human nature and responsibility: "By the soul and He who proportioned it. And inspired it with discernment of its wickedness and its righteousness. He has succeeded who purifies it. And he has failed who corrupts it."
+            Verses 7-10 present the core message: Allah has inspired the human soul with knowledge of good and evil, and ultimate success or failure depends on whether one purifies this soul through faith and righteousness or corrupts it through disbelief and sin.
           </p>
           <div class="bg-white dark:bg-gray-800 p-3 rounded shadow-sm">
-            <h4 class="font-medium text-emerald-700 dark:text-emerald-300 mb-1">Prophetic Explanation</h4>
+            <h4 class="font-medium text-emerald-700 dark:text-emerald-300 mb-1">Prophetic Guidance on Self-Purification</h4>
             <p class="text-sm text-gray-600 dark:text-gray-300">
-              The Prophet ﷺ said: "Righteousness is good character, and sin is that which wavers in your soul and you dislike people finding out about it." (Muslim 2553). This relates to the concept of the soul being inspired with knowledge of good and evil mentioned in the surah.
+              The Prophet ﷺ said: "Indeed, in the body there is a piece of flesh which, if it is sound, the whole body is sound, and if it is corrupt, the whole body is corrupt. Indeed, it is the heart." (Bukhari 52). This complements the surah's message about the crucial importance of purifying one's inner state.
             </p>
           </div>
         </div>
@@ -47,20 +53,20 @@ export const ashShamsQuizData: SurahQuizData = {
       title: "The Story of Thamud",
       content: `
         <div class="mt-6 p-4 bg-amber-50 dark:bg-amber-900/20 rounded-lg border border-amber-100 dark:border-amber-800">
-          <h3 class="text-lg font-semibold text-amber-800 dark:text-amber-300 mb-2">A Warning from History</h3>
+          <h3 class="text-lg font-semibold text-amber-800 dark:text-amber-300 mb-2">A Cautionary Tale of Destruction</h3>
           <p class="text-amber-700 dark:text-amber-200 mb-3">
-            The final verses (11-15) recount the story of the Thamud people who rejected their prophet Salih and hamstrung the she-camel that Allah sent as a miraculous sign. This story serves as a concrete example of soul corruption and its catastrophic consequences.
+            The final verses (11-15) recount the story of the Thamud people who rejected their prophet Salih and hamstrung the miraculous she-camel that Allah sent as a sign. This story serves as an example of those who corrupt their souls and face divine punishment.
           </p>
           <div class="bg-white dark:bg-gray-800 p-3 rounded shadow-sm mb-3">
             <h4 class="font-medium text-amber-700 dark:text-amber-300 mb-1">Historical Context</h4>
             <p class="text-sm text-gray-600 dark:text-gray-300">
-              The Thamud were an ancient Arabian tribe known for their skill in carving homes into mountains. They were given the miracle of a she-camel that emerged from rock as a sign, but their arrogance led them to kill it, defying Prophet Salih's warning. Their destruction came through an earthquake and cry from heaven.
+              The Thamud were an ancient Arabian tribe known for their advanced architecture, carving homes into mountains. Despite their civilization, they became arrogant and rejected prophetic guidance. Their story is mentioned in multiple Quranic passages (7:73-79, 11:61-68, 26:141-159, 54:23-31) as a warning to later generations.
             </p>
           </div>
           <div class="bg-white dark:bg-gray-800 p-3 rounded shadow-sm">
-            <h4 class="font-medium text-amber-700 dark:text-amber-300 mb-1">Cross-References</h4>
+            <h4 class="font-medium text-amber-700 dark:text-amber-300 mb-1">The She-Camel as Divine Test</h4>
             <p class="text-sm text-gray-600 dark:text-gray-300">
-              The story of Thamud is mentioned in several Quranic chapters including Al-A'raf (7:73-79), Hud (11:61-68), Al-Hijr (15:80-84), and Al-Qamar (54:23-31). The most detailed account is in Surah Ash-Shu'ara (26:141-159) where Prophet Salih's mission is described.
+              According to Tafsir, the she-camel was a miraculous sign from Allah that would drink from their water source on alternate days, leaving the water for the Thamud on other days. This test revealed their arrogance when they hamstrung it rather than sharing resources as instructed.
             </p>
           </div>
         </div>
@@ -70,14 +76,14 @@ export const ashShamsQuizData: SurahQuizData = {
       title: "Relevance to the Meccan Context",
       content: `
         <div class="mt-6 p-4 bg-rose-50 dark:bg-rose-900/20 rounded-lg border border-rose-100 dark:border-rose-800">
-          <h3 class="text-lg font-semibold text-rose-800 dark:text-rose-300 mb-2">Contemporary Application</h3>
+          <h3 class="text-lg font-semibold text-rose-800 dark:text-rose-300 mb-2">Message for the First Audience</h3>
           <p class="text-rose-700 dark:text-rose-200 mb-3">
-            This surah was revealed during the difficult Meccan period when the early Muslims faced intense persecution. The story of Thamud served as a warning to the Quraysh leaders who opposed Prophet Muhammad ﷺ, reminding them that previous nations who rejected their prophets faced destruction.
+            This surah was revealed during the difficult Meccan period when the Prophet Muhammad ﷺ faced intense opposition from the Quraysh. The story of Thamud served as a powerful warning to those who rejected his message while encouraging the believers to remain steadfast.
           </p>
           <div class="bg-white dark:bg-gray-800 p-3 rounded shadow-sm">
-            <h4 class="font-medium text-rose-700 dark:text-rose-300 mb-1">Reason for Revelation</h4>
+            <h4 class="font-medium text-rose-700 dark:text-rose-300 mb-1">Contemporary Application</h4>
             <p class="text-sm text-gray-600 dark:text-gray-300">
-              According to Tafsir Al-Jalalayn, this surah was revealed to console the Prophet ﷺ and warn his opponents. The reference to "the most wicked among them" who hamstrung the she-camel (verse 12) was seen by some commentators as an allusion to Abu Jahl, one of the most vehement opponents of Islam.
+              The Quran frequently draws parallels between the fate of earlier nations and the choice facing the Quraysh. Just as Thamud faced destruction for rejecting Salih, the Meccan polytheists risked similar consequences for rejecting Muhammad ﷺ, while those who purified their souls would attain success.
             </p>
           </div>
         </div>
@@ -92,12 +98,12 @@ export const ashShamsQuizData: SurahQuizData = {
       arabic: "وَالشَّمْسِ وَضُحَاهَا",
       rootLetters: "ش م س | ض ح و",
       options: [
-        { id: "a", text: "By the sun and its heat", isCorrect: false },
-        { id: "b", text: "By the sun and its light", isCorrect: false },
-        { id: "c", text: "By the sun and its brightness", isCorrect: false },
-        { id: "d", text: "By the sun and its morning brightness", isCorrect: true },
+        { id: "a", text: "The sun and its heat", isCorrect: false },
+        { id: "b", text: "The sun and its light", isCorrect: false },
+        { id: "c", text: "The sun and its brightness", isCorrect: false },
+        { id: "d", text: "The sun and its morning brightness", isCorrect: true },
       ],
-      explanation: "وَالشَّمْسِ وَضُحَاهَا means 'By the sun and its morning brightness' (roots: ش-م-س and ض-ح-و), referring to the sun's radiant light.",
+      explanation: "وَالشَّمْسِ وَضُحَاهَا means 'By the sun and its morning brightness' (roots: ش-م-س and ض-ح-و), the first of several oaths in the surah.",
     },
     {
       id: "q2",
@@ -105,12 +111,12 @@ export const ashShamsQuizData: SurahQuizData = {
       arabic: "وَالْقَمَرِ إِذَا تَلَاهَا",
       rootLetters: "ق م ر | ت ل و",
       options: [
-        { id: "a", text: "And the moon when it follows it", isCorrect: false },
-        { id: "b", text: "And the moon when it reflects it", isCorrect: false },
-        { id: "c", text: "And the moon when it follows it", isCorrect: true },
-        { id: "d", text: "And the moon when it replaces it", isCorrect: false },
+        { id: "a", text: "The moon when it flouts it", isCorrect: false },
+        { id: "b", text: "The moon when it reflects it", isCorrect: false },
+        { id: "c", text: "The moon when it follows it (the sun)", isCorrect: true },
+        { id: "d", text: "The moon when it replaces it", isCorrect: false },
       ],
-      explanation: "وَالْقَمَرِ إِذَا تَلَاهَا means 'And the moon when it follows it' (roots: ق-م-ر and ت-ل-و), referring to the moon appearing after sunset.",
+      explanation: "وَالْقَمَرِ إِذَا تَلَاهَا means 'And the moon when it follows it' (roots: ق-م-ر and ت-ل-و), referring to the moon following the sun in appearance.",
     },
     {
       id: "q3",
@@ -118,29 +124,29 @@ export const ashShamsQuizData: SurahQuizData = {
       arabic: "وَالنَّهَارِ إِذَا جَلَّاهَا",
       rootLetters: "ن ه ر | ج ل و",
       options: [
-        { id: "a", text: "And the day when it reveals it", isCorrect: false },
-        { id: "b", text: "And the day when it illuminates it", isCorrect: false },
-        { id: "c", text: "And the day when it brightens it", isCorrect: false },
-        { id: "d", text: "And the day when it displays it", isCorrect: true },
+        { id: "a", text: "The day when it conceals it", isCorrect: false },
+        { id: "b", text: "The day when it illuminates it", isCorrect: false },
+        { id: "c", text: "The day when it brightens it", isCorrect: false },
+        { id: "d", text: "The day when it displays it (the world)", isCorrect: true },
       ],
       explanation: "وَالنَّهَارِ إِذَا جَلَّاهَا means 'And the day when it displays it' (roots: ن-ه-ر and ج-ل-و), referring to daylight revealing the world.",
     },
     {
       id: "q4",
-      question: "What does the Arabic term وَاللَّيْلِ إِذَا يَغْشَاهَا mean?",
+      question: "What does the Arabic expression وَاللَّيْلِ إِذَا يَغْشَاهَا refer to?",
       arabic: "وَاللَّيْلِ إِذَا يَغْشَاهَا",
       rootLetters: "ل ي ل | غ ش و",
       options: [
-        { id: "a", text: "And the night when it covers it", isCorrect: false },
-        { id: "b", text: "And the night when it envelops it", isCorrect: true },
-        { id: "c", text: "And the night when it conceals it", isCorrect: false },
-        { id: "d", text: "And the night when it darkens it", isCorrect: false },
+        { id: "a", text: "The night when it hides it", isCorrect: false },
+        { id: "b", text: "The night when it covers it (the world)", isCorrect: true },
+        { id: "c", text: "The night when it envelops it", isCorrect: false },
+        { id: "d", text: "The night when it conceals it", isCorrect: false },
       ],
-      explanation: "وَاللَّيْلِ إِذَا يَغْشَاهَا means 'And the night when it covers it' (roots: ل-ي-ل and غ-ش-و), referring to night's encompassing darkness.",
+      explanation: "وَاللَّيْلِ إِذَا يَغْشَاهَا means 'And the night when it covers it' (roots: ل-ي-ل and غ-ش-و), referring to night covering the world in darkness.",
     },
     {
       id: "q5",
-      question: "What does the Arabic phrase وَالسَّمَاءِ وَمَا بَنَاهَا refer to?",
+      question: "What does the Arabic phrase وَالسَّمَاءِ وَمَا بَنَاهَا mean?",
       arabic: "وَالسَّمَاءِ وَمَا بَنَاهَا",
       rootLetters: "س م و | ب ن ي",
       options: [
@@ -149,33 +155,33 @@ export const ashShamsQuizData: SurahQuizData = {
         { id: "c", text: "And the sky and its height", isCorrect: false },
         { id: "d", text: "And the sky and its expanse", isCorrect: false },
       ],
-      explanation: "وَالسَّمَاءِ وَمَا بَنَاهَا means 'And the sky and He who constructed it' (roots: س-م-و and ب-ن-ي), emphasizing Allah as the Builder.",
+      explanation: "وَالسَّمَاءِ وَمَا بَنَاهَا means 'And the sky and He who built it' (roots: س-م-و and ب-ن-ي), emphasizing Allah as the Creator of the skies or Heavens.",
     },
     {
       id: "q6",
-      question: "What does the Arabic term وَالْأَرْضِ وَمَا طَحَاهَا mean?",
+      question: "What does the Arabic term وَالْأَرْضِ وَمَا طَحَاهَا refer to?",
       arabic: "وَالْأَرْضِ وَمَا طَحَاهَا",
       rootLetters: "أ ر ض | ط ح و",
       options: [
-        { id: "a", text: "And the earth and He who spread it", isCorrect: false },
-        { id: "b", text: "And the earth and He who expanded it", isCorrect: true },
-        { id: "c", text: "And the earth and its vastness", isCorrect: false },
-        { id: "d", text: "And the earth and its foundation", isCorrect: false },
+        { id: "a", text: "And the earth and its expanse", isCorrect: false },
+        { id: "b", text: "And the earth and He who spread it", isCorrect: true },
+        { id: "c", text: "And the earth and its foundation", isCorrect: false },
+        { id: "d", text: "And the earth and its stability", isCorrect: false },
       ],
-      explanation: "وَالْأَرْضِ وَمَا طَحَاهَا means 'And the earth and He who spread it out' (roots: أ-ر-ض and ط-ح-و), referring to Allah flattening the earth for habitation.",
+      explanation: "وَالْأَرْضِ وَمَا طَحَاهَا means 'And the earth and He who spread it' (roots: أ-ر-ض and ط-ح-و), again emphasizing Allah's creative power.",
     },
     {
       id: "q7",
-      question: "What does the Arabic phrase وَنَفْسٍ وَمَا سَوَّاهَا reveal about human creation?",
+      question: "What does the Arabic phrase وَنَفْسٍ وَمَا سَوَّاهَا reveal about humanity?",
       arabic: "وَنَفْسٍ وَمَا سَوَّاهَا",
       rootLetters: "ن ف س | س و ي",
       options: [
-        { id: "a", text: "And the soul and He who created it", isCorrect: false },
-        { id: "b", text: "And the soul and He who formed it", isCorrect: false },
-        { id: "c", text: "And the soul and its nature", isCorrect: false },
-        { id: "d", text: "And the soul and He who proportioned it", isCorrect: true },
+        { id: "a", text: "And a soul and its perfection", isCorrect: false },
+        { id: "b", text: "And a soul and its Creator", isCorrect: false },
+        { id: "c", text: "And a soul and its nature", isCorrect: false },
+        { id: "d", text: "And a soul and He who proportioned it", isCorrect: true },
       ],
-      explanation: "وَنَفْسٍ وَمَا سَوَّاهَا means 'And the soul and He who proportioned it' (roots: ن-ف-س and س-و-ي), referring to Allah's perfect creation of the human soul.",
+      explanation: "وَنَفْسٍ وَمَا سَوَّاهَا means 'And a soul and He who proportioned it' (roots: ن-ف-س and س-و-ي), referring to Allah's perfect creation of the human soul.",
     },
     {
       id: "q8",
@@ -183,12 +189,12 @@ export const ashShamsQuizData: SurahQuizData = {
       arabic: "فَأَلْهَمَهَا فُجُورَهَا وَتَقْوَاهَا",
       rootLetters: "ل ه م | ف ج ر | ت ق و",
       options: [
-        { id: "a", text: "And inspired it with its wickedness and its righteousness", isCorrect: true },
+        { id: "a", text: "And inspired it (with discernment of) its wickedness and its righteousness", isCorrect: true },
         { id: "b", text: "And taught it its evil and its good", isCorrect: false },
-        { id: "c", text: "And showed it its corruption and its piety", isCorrect: false },
-        { id: "d", text: "And guided it to sin and righteousness", isCorrect: false },
+        { id: "c", text: "And showed it its sin and its piety", isCorrect: false },
+        { id: "d", text: "And guided it to wrong and right", isCorrect: false },
       ],
-      explanation: "This phrase means 'And inspired it with discernment of its wickedness and its righteousness' (roots: ل-ه-م, ف-ج-ر, ت-ق-و), indicating innate moral knowledge.",
+      explanation: "This phrase means 'And inspired it (with discernment of) its wickedness and its righteousness' (roots: ل-ه-م, ف-ج-ر, ت-ق-و), referring to innate moral knowledge.",
     },
     {
       id: "q9",
@@ -196,51 +202,51 @@ export const ashShamsQuizData: SurahQuizData = {
       arabic: "قَدْ أَفْلَحَ مَن زَكَّاهَا",
       rootLetters: "ف ل ح | ز ك و",
       options: [
-        { id: "a", text: "He has succeeded who purifies it", isCorrect: false },
-        { id: "b", text: "He has prospered who cleanses it", isCorrect: false },
-        { id: "c", text: "He has succeeded who purifies it", isCorrect: true },
-        { id: "d", text: "He has won who purifies it", isCorrect: false },
+        { id: "a", text: "He has succeeded who follows it", isCorrect: false },
+        { id: "b", text: "He has succeeded who grows it", isCorrect: false },
+        { id: "c", text: "He has succeeded who purifies it (the soul)", isCorrect: true },
+        { id: "d", text: "He has succeeded who protects it", isCorrect: false },
       ],
-      explanation: "قَدْ أَفْلَحَ مَن زَكَّاهَا means 'He has succeeded who purifies it' (roots: ف-ل-ح and ز-ك-و), referring to spiritual success through soul purification.",
+      explanation: "قَدْ أَفْلَحَ مَن زَكَّاهَا means 'He has succeeded who purifies it' (roots: ف-ل-ح and ز-ك-و), referring to spiritual success through self-purification.",
     },
     {
       id: "q10",
-      question: "What does the Arabic term وَقَدْ خَابَ مَن دَسَّاهَا warn?",
+      question: "What does the Arabic term وَقَدْ خَابَ مَن دَسَّاهَا warn against?",
       arabic: "وَقَدْ خَابَ مَن دَسَّاهَا",
       rootLetters: "خ ي ب | د س س",
       options: [
-        { id: "a", text: "And he has failed who corrupts it", isCorrect: false },
-        { id: "b", text: "And he has lost who neglects it", isCorrect: false },
-        { id: "c", text: "And he has failed who corrupts it", isCorrect: true },
-        { id: "d", text: "And he has ruined who abuses it", isCorrect: false },
+        { id: "a", text: "And he has failed who conceals it", isCorrect: false },
+        { id: "b", text: "And he has failed who neglects it", isCorrect: false },
+        { id: "c", text: "And he has failed who buries it (in corruption)", isCorrect: true },
+        { id: "d", text: "And he has failed who destroys it", isCorrect: false },
       ],
-      explanation: "وَقَدْ خَابَ مَن دَسَّاهَا means 'And he has failed who corrupts it' (roots: خ-ي-ب and د-س-س), warning against soul corruption.",
+      explanation: "وَقَدْ خَابَ مَن دَسَّاهَا means 'And he has failed who buries it (in corruption)' (roots: خ-ي-ب and د-س-س), warning against spiritual corruption.",
     },
     {
       id: "q11",
-      question: "What does the Arabic phrase كَذَّبَتْ ثَمُودُ بِطَغْوَاهَا refer to?",
+      question: "What does the Arabic phrase كَذَّبَتْ ثَمُودُ بِطَغْوَاهَا refer to historically?",
       arabic: "كَذَّبَتْ ثَمُودُ بِطَغْوَاهَا",
       rootLetters: "ك ذ ب | ط غ و",
       options: [
         { id: "a", text: "Thamud denied with their arrogance", isCorrect: false },
         { id: "b", text: "Thamud denied in their transgression", isCorrect: true },
-        { id: "c", text: "Thamud rejected with their rebellion", isCorrect: false },
-        { id: "d", text: "Thamud disbelieved in their pride", isCorrect: false },
+        { id: "c", text: "Thamud denied with their pride", isCorrect: false },
+        { id: "d", text: "Thamud denied in their stubbornness", isCorrect: false },
       ],
-      explanation: "كَذَّبَتْ ثَمُودُ بِطَغْوَاهَا means 'Thamud denied in their transgression' (roots: ك-ذ-ب and ط-غ-و), describing their arrogant rejection.",
+      explanation: "كَذَّبَتْ ثَمُودُ بِطَغْوَاهَا means 'Thamud denied in their transgression' (roots: ك-ذ-ب and ط-غ-و), introducing their story of rejection.",
     },
     {
       id: "q12",
-      question: "What does the Arabic expression فَعَقَرُوا النَّاقَةَ describe?",
+      question: "What does the Arabic expression فَعَقَرُوا النَّاقَةَ describe about Thamud's action?",
       arabic: "فَعَقَرُوا النَّاقَةَ",
       rootLetters: "ع ق ر | ن و ق",
       options: [
-        { id: "a", text: "So they hamstrung the she-camel", isCorrect: false },
+        { id: "a", text: "So they tied up the she-camel", isCorrect: false },
         { id: "b", text: "So they killed the she-camel", isCorrect: false },
         { id: "c", text: "So they hamstrung the she-camel", isCorrect: true },
         { id: "d", text: "So they rejected the she-camel", isCorrect: false },
       ],
-      explanation: "فَعَقَرُوا النَّاقَةَ means 'So they hamstrung the she-camel' (roots: ع-ق-ر and ن-و-ق), referring to the Thamud's fatal act of defiance.",
+      explanation: "فَعَقَرُوا النَّاقَةَ means 'So they hamstrung the she-camel' (roots: ع-ق-ر and ن-و-ق), describing their defiant act against Allah's sign.",
     },
   ],
 };
