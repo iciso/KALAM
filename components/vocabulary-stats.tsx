@@ -1,101 +1,119 @@
 "use client"
 
-import { useEffect, useState } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { enhancedVocabularyService } from "../services/enhanced-vocabulary-service"
-// Remove or comment out the original import
-// import { vocabularyService } from "../services/vocabulary-service"
-import { Difficulty } from "../types/vocabulary"
 import { Progress } from "@/components/ui/progress"
-import { Info } from "lucide-react"
+import { enhancedVocabularyService } from "@/services/enhanced-vocabulary-service"
+import { Difficulty } from "@/types/vocabulary"
+import { useMemo } from "react"
 
 export function VocabularyStats() {
-  const [totalWords, setTotalWords] = useState(0)
-  const [beginnerWords, setBeginnerWords] = useState(0)
-  const [intermediateWords, setIntermediateWords] = useState(0)
-  const [advancedWords, setAdvancedWords] = useState(0)
-  const [categoriesCount, setCategoriesCount] = useState(0)
-  const [mostFrequentWord, setMostFrequentWord] = useState<string>("")
-  const [surahNamesCount] = useState(114) // Hardcoded count of Surah names
+  const stats = useMemo(() => {
+    const totalWords = enhancedVocabularyService.getTotalWordCount()
+    const wordsWithSurah = enhancedVocabularyService.getWordsWithSurahCount()
+    const coverage = enhancedVocabularyService.getSurahCoveragePercentage()
+    const difficultyCount = enhancedVocabularyService.getWordsCountByDifficulty()
+    const totalSurahs = enhancedVocabularyService.getAllSurahs().length
 
-  useEffect(() => {
-    const allWords = enhancedVocabularyService.getAllWords()
-    // Add Surah names to the total
-    setTotalWords(allWords.length + surahNamesCount)
-
-    setBeginnerWords(enhancedVocabularyService.getWordsByDifficulty(Difficulty.Beginner).length)
-    setIntermediateWords(enhancedVocabularyService.getWordsByDifficulty(Difficulty.Intermediate).length)
-    setAdvancedWords(enhancedVocabularyService.getWordsByDifficulty(Difficulty.Advanced).length)
-
-    setCategoriesCount(enhancedVocabularyService.getAllCategories().length)
-
-    const mostFrequent = enhancedVocabularyService.getMostFrequentWords(1)[0]
-    if (mostFrequent) {
-      setMostFrequentWord(
-        `${mostFrequent.arabic} (${mostFrequent.transliteration}): ${mostFrequent.frequency} occurrences`,
-      )
+    return {
+      totalWords,
+      wordsWithSurah,
+      coverage,
+      difficultyCount,
+      totalSurahs,
     }
-  }, [surahNamesCount])
+  }, [])
+
+  const maxDifficultyCount = Math.max(
+    stats.difficultyCount[Difficulty.Beginner],
+    stats.difficultyCount[Difficulty.Intermediate],
+    stats.difficultyCount[Difficulty.Advanced],
+  )
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+    <div className="space-y-6">
+      <div className="text-center">
+        <h2 className="text-3xl font-bold tracking-tight">Reference and Study Tools</h2>
+        <p className="text-muted-foreground">Comprehensive vocabulary statistics and learning resources</p>
+      </div>
+
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Total Words in Dictionary</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">{stats.totalWords}</div>
+            <p className="text-xs text-muted-foreground">
+              Including {stats.wordsWithSurah} Quranic words + {stats.totalSurahs} Surah names
+            </p>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Surah Coverage</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">{stats.coverage.toFixed(1)}%</div>
+            <p className="text-xs text-muted-foreground">Words with Quranic references</p>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Active Surahs</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">{stats.totalSurahs}</div>
+            <p className="text-xs text-muted-foreground">Surahs with vocabulary words</p>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Learning Progress</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">
+              {((stats.difficultyCount[Difficulty.Beginner] / stats.totalWords) * 100).toFixed(0)}%
+            </div>
+            <p className="text-xs text-muted-foreground">Beginner-friendly words</p>
+          </CardContent>
+        </Card>
+      </div>
+
       <Card>
-        <CardHeader className="pb-2">
-          <CardTitle className="text-2xl">{totalWords}</CardTitle>
-          <CardDescription>Total Words in Dictionary</CardDescription>
+        <CardHeader>
+          <CardTitle>Difficulty Distribution</CardTitle>
+          <CardDescription>Difficulty bars below are for {stats.wordsWithSurah} Quranic words only</CardDescription>
         </CardHeader>
-        <CardContent>
+        <CardContent className="space-y-4">
           <div className="space-y-2">
-            <div className="text-sm text-gray-500 mb-2">
-              <span className="block text-xs text-emerald-600">Including 289 Quranic words + 114 Surah names</span>
+            <div className="flex items-center justify-between">
+              <span className="text-sm font-medium">Beginner</span>
+              <span className="text-sm text-muted-foreground">{stats.difficultyCount[Difficulty.Beginner]}</span>
             </div>
-            <div className="flex items-center mb-2 text-xs text-gray-500">
-              <Info className="h-3 w-3 mr-1" />
-              <span>Difficulty bars below are for 289 Quranic words only</span>
-            </div>
-            <div className="text-sm text-gray-500">
-              <div className="flex justify-between mb-1">
-                <span>Beginner:</span>
-                <span>{beginnerWords}</span>
-              </div>
-              <Progress value={(beginnerWords / (totalWords - surahNamesCount)) * 100} className="h-1 mb-2" />
-            </div>
-            <div className="text-sm text-gray-500">
-              <div className="flex justify-between mb-1">
-                <span>Intermediate:</span>
-                <span>{intermediateWords}</span>
-              </div>
-              <Progress value={(intermediateWords / (totalWords - surahNamesCount)) * 100} className="h-1 mb-2" />
-            </div>
-            <div className="text-sm text-gray-500">
-              <div className="flex justify-between mb-1">
-                <span>Advanced:</span>
-                <span>{advancedWords}</span>
-              </div>
-              <Progress value={(advancedWords / (totalWords - surahNamesCount)) * 100} className="h-1 mb-2" />
-            </div>
+            <Progress value={(stats.difficultyCount[Difficulty.Beginner] / maxDifficultyCount) * 100} className="h-2" />
           </div>
-        </CardContent>
-      </Card>
 
-      <Card>
-        <CardHeader className="pb-2">
-          <CardTitle className="text-2xl">{categoriesCount}</CardTitle>
-          <CardDescription>Word Categories</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <p className="text-sm text-gray-500">Words organized into thematic categories for easier learning</p>
-          <div className="mt-2 text-xs text-emerald-600">+4 new categories in Phase 4</div>
-        </CardContent>
-      </Card>
+          <div className="space-y-2">
+            <div className="flex items-center justify-between">
+              <span className="text-sm font-medium">Intermediate</span>
+              <span className="text-sm text-muted-foreground">{stats.difficultyCount[Difficulty.Intermediate]}</span>
+            </div>
+            <Progress
+              value={(stats.difficultyCount[Difficulty.Intermediate] / maxDifficultyCount) * 100}
+              className="h-2"
+            />
+          </div>
 
-      <Card>
-        <CardHeader className="pb-2">
-          <CardTitle className="text-lg">Most Frequent Word</CardTitle>
-          <CardDescription>Based on Quranic occurrences</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <p className="text-sm font-arabic">{mostFrequentWord}</p>
+          <div className="space-y-2">
+            <div className="flex items-center justify-between">
+              <span className="text-sm font-medium">Advanced</span>
+              <span className="text-sm text-muted-foreground">{stats.difficultyCount[Difficulty.Advanced]}</span>
+            </div>
+            <Progress value={(stats.difficultyCount[Difficulty.Advanced] / maxDifficultyCount) * 100} className="h-2" />
+          </div>
         </CardContent>
       </Card>
     </div>
