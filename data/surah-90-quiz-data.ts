@@ -144,7 +144,7 @@ export const alBaladQuizData: SurahQuizData = {
         { id: "c", text: "I have earned abundant wealth", isCorrect: false },
         { id: "d", text: "I have spent abundant wealth", isCorrect: true },
       ],
-      explanation: "أَنفَقْتُ مَالًا لُّبَدًا (Anfaqtu malan lubada) means 'I have spent abundant wealth,' roots ن-ف-ق (spend), م-و-ل (wealth), ل-ب-د (abundant).",
+      explanation: " أَهۡلَكۡتُ مَالٗا لُّبَدًا (Ahlaktu malan lubada) means 'I have spent abundant wealth,' roots ن-ف-ق (spend), م-و-ل (wealth), ل-ب-د (abundant).",
     },
     {
       id: "q7",
