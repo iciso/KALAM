@@ -135,8 +135,8 @@ export const alBaladQuizData: SurahQuizData = {
     },
     {
       id: "q6",
-      question: "What does the Arabic phrase 'أَنفَقْتُ مَالًا لُّبَدًا' mean?",
-      arabic: "أَنفَقْتُ مَالًا لُّبَدًا",
+      question: "What does the Arabic phrase 'أَهۡلَكۡتُ مَالٗا لُّبَدًا' mean?",
+      arabic: "أَهۡلَكۡتُ مَالٗا لُّبَدًا",
       rootLetters: "ن ف ق | م و ل | ل ب د",
       options: [
         { id: "a", text: "I have saved abundant wealth", isCorrect: false },
