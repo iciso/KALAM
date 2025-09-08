@@ -237,8 +237,8 @@ export const ashShamsQuizData: SurahQuizData = {
     },
     {
       id: "q12",
-      question: "What does the Arabic expression فَعَقَرُوا النَّاقَةَ describe about Thamud's action?",
-      arabic: "فَعَقَرُوا النَّاقَةَ",
+      question: "What does the Arabic expression فَعَقَرُوهَا describe about Thamud's action?",
+      arabic: "فَعَقَرُوهَا",
       rootLetters: "ع ق ر | ن و ق",
       options: [
         { id: "a", text: "So they tied up the she-camel", isCorrect: false },
@@ -246,7 +246,7 @@ export const ashShamsQuizData: SurahQuizData = {
         { id: "c", text: "So they hamstrung the she-camel", isCorrect: true },
         { id: "d", text: "So they rejected the she-camel", isCorrect: false },
       ],
-      explanation: "فَعَقَرُوا النَّاقَةَ means 'So they hamstrung the she-camel' (roots: ع-ق-ر and ن-و-ق), describing their defiant act against Allah's sign.",
+      explanation: "فَعَقَرُوهَا means 'So they hamstrung the she-camel' (roots: ع-ق-ر and ن-و-ق), describing their defiant act against Allah's sign.",
     },
   ],
 };
