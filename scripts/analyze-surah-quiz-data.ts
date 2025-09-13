@@ -1,5 +1,5 @@
-import fs from "fs"
-import path from "path"
+import * as fs from "fs"
+import * as path from "path"
 
 interface QuizQuestion {
   question: string
@@ -12,43 +12,45 @@ interface QuizQuestion {
 }
 
 interface SurahQuizData {
-  surahNumber: number
-  surahName: string
   questions: QuizQuestion[]
+  surahInfo?: {
+    number: number
+    name: string
+    arabicName: string
+    englishName: string
+    numberOfAyahs: number
+    revelationType: string
+  }
 }
 
-async function analyzeQuizData() {
+async function analyzeSurahQuizData() {
   console.log("Analyzing Surah quiz data...")
 
   const dataDir = path.join(process.cwd(), "data")
   const files = fs.readdirSync(dataDir)
 
-  const quizFiles = files
-    .filter((file) => file.startsWith("surah-") && file.endsWith("-quiz-data.ts") && file !== "surah-quiz-types.ts")
-    .sort((a, b) => {
-      const numA = Number.parseInt(a.match(/surah-(\d+)-/)?.[1] || "0")
-      const numB = Number.parseInt(b.match(/surah-(\d+)-/)?.[1] || "0")
-      return numA - numB
-    })
+  const surahQuizFiles = files.filter(
+    (file) => file.startsWith("surah-") && file.endsWith("-quiz-data.ts") && file !== "surah-quiz-types.ts",
+  )
 
-  console.log(`Found ${quizFiles.length} Surah quiz files:`)
-  quizFiles.forEach((file) => console.log(`- ${file}`))
+  console.log(`Found ${surahQuizFiles.length} Surah quiz files:`)
+  surahQuizFiles.forEach((file) => console.log(`- ${file}`))
 
   console.log("\nVocabulary extraction opportunities:")
 
   let totalQuestions = 0
   let totalArabicTexts = 0
 
-  for (const file of quizFiles) {
+  for (const file of surahQuizFiles) {
     try {
       const filePath = path.join(dataDir, file)
       const content = fs.readFileSync(filePath, "utf-8")
 
       // Extract Surah number from filename
-      const surahMatch = file.match(/surah-(\d+)-/)
+      const surahMatch = file.match(/surah-(\d+)-quiz-data\.ts/)
       const surahNumber = surahMatch ? Number.parseInt(surahMatch[1]) : 0
 
-      // Count questions by looking for question objects
+      // Count questions by looking for question patterns
       const questionMatches = content.match(/question:\s*["'`]/g) || []
       const questionCount = questionMatches.length
 
@@ -61,20 +63,13 @@ async function analyzeQuizData() {
       totalQuestions += questionCount
       totalArabicTexts += arabicCount
     } catch (error) {
-      console.warn(`Error analyzing ${file}:`, error.message)
+      console.error(`Error processing ${file}:`, error)
     }
   }
 
   console.log(
-    `\nTotal: ${totalQuestions} questions, ${totalArabicTexts} Arabic texts across ${quizFiles.length} Surahs`,
+    `\nTotal: ${totalQuestions} questions, ${totalArabicTexts} Arabic texts across ${surahQuizFiles.length} Surahs`,
   )
-
-  return {
-    totalFiles: quizFiles.length,
-    totalQuestions,
-    totalArabicTexts,
-    files: quizFiles,
-  }
 }
 
-analyzeQuizData().catch(console.error)
+analyzeSurahQuizData().catch(console.error)

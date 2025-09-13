@@ -28,6 +28,7 @@ let quizExtractedVocabulary: VocabularyWord[] = []
 try {
   const quizData = require("@/data/vocabulary-data-quiz-extracted")
   quizExtractedVocabulary = quizData.quizExtractedVocabulary || []
+  console.log(`Loaded ${quizExtractedVocabulary.length} quiz-extracted words`)
 } catch (error) {
   console.warn("Quiz-extracted vocabulary data not found, continuing without it")
 }
@@ -57,6 +58,8 @@ class EnhancedVocabularyService {
       ...quizExtractedVocabulary, // Add the new quiz-extracted vocabulary
     ]
 
+    console.log(`Total raw words before processing: ${rawWords.length}`)
+
     // Ensure all words have proper structure
     this.allWords = rawWords.map((word) => ({
       ...word,
@@ -64,6 +67,8 @@ class EnhancedVocabularyService {
       tags: Array.isArray(word.tags) ? word.tags : [],
       meanings: Array.isArray(word.meanings) ? word.meanings : [],
     }))
+
+    console.log(`Total processed words: ${this.allWords.length}`)
 
     // Create map of surahs
     this.surahMap = new Map()
