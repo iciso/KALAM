@@ -2,7 +2,7 @@ import { SurahVocabularyGenerator } from "../utils/surah-vocabulary-generator"
 import path from "path"
 
 /**
- * Script to generate Surah-segregated vocabulary data
+ * Script to generate Surah-segregated vocabulary data -  four mnths old script
  */
 async function main() {
   console.log("Starting Surah vocabulary generation...")
