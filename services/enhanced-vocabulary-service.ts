@@ -28,7 +28,7 @@ let quizExtractedVocabulary: VocabularyWord[] = []
 try {
   const quizData = require("@/data/vocabulary-data-quiz-extracted")
   quizExtractedVocabulary = quizData.quizExtractedVocabulary || []
-  console.log(`Loaded ${quizExtractedVocabulary.length} quiz-extracted words`)
+  console.log(`✅ Loaded ${quizExtractedVocabulary.length} quiz-extracted words`)
 } catch (error) {
   console.warn("Quiz-extracted vocabulary data not found, continuing without it")
 }
@@ -36,6 +36,7 @@ try {
 class EnhancedVocabularyService {
   private allWords: VocabularyWord[]
   private surahMap: Map<number, { name: string; wordCount: number }>
+  private categoryMap: Map<string, VocabularyWord[]>
 
   constructor() {
     // Combine all vocabulary data and ensure all words have proper structure
@@ -58,7 +59,7 @@ class EnhancedVocabularyService {
       ...quizExtractedVocabulary, // Add the new quiz-extracted vocabulary
     ]
 
-    console.log(`Total raw words before processing: ${rawWords.length}`)
+    console.log(`📊 Total raw words before processing: ${rawWords.length}`)
 
     // Ensure all words have proper structure
     this.allWords = rawWords.map((word) => ({
@@ -66,16 +67,22 @@ class EnhancedVocabularyService {
       examples: Array.isArray(word.examples) ? word.examples : [],
       tags: Array.isArray(word.tags) ? word.tags : [],
       meanings: Array.isArray(word.meanings) ? word.meanings : [],
+      category: word.category || "General Quranic Vocabulary", // Ensure every word has a category
     }))
 
-    console.log(`Total processed words: ${this.allWords.length}`)
+    console.log(`✅ Total processed words: ${this.allWords.length}`)
 
-    // Create map of surahs
+    // Create maps
     this.surahMap = new Map()
+    this.categoryMap = new Map()
     this.initSurahMap()
+    this.initCategoryMap()
 
     // Ensure all words have Surah associations
     this.ensureAllWordsHaveSurahAssociations()
+
+    // Log category distribution
+    this.logCategoryDistribution()
   }
 
   // Initialize surah map
@@ -118,6 +125,27 @@ class EnhancedVocabularyService {
     }
   }
 
+  // Initialize category map
+  private initCategoryMap() {
+    for (const word of this.allWords) {
+      const category = word.category || "General Quranic Vocabulary"
+      if (!this.categoryMap.has(category)) {
+        this.categoryMap.set(category, [])
+      }
+      this.categoryMap.get(category)!.push(word)
+    }
+  }
+
+  // Log category distribution for debugging
+  private logCategoryDistribution() {
+    console.log("\n📈 Category Distribution:")
+    const sortedCategories = Array.from(this.categoryMap.entries()).sort(([, a], [, b]) => b.length - a.length)
+
+    sortedCategories.forEach(([category, words]) => {
+      console.log(`   - ${category}: ${words.length} words`)
+    })
+  }
+
   // Ensure all words have Surah associations
   private ensureAllWordsHaveSurahAssociations() {
     // Get all words without Surah examples
@@ -127,6 +155,8 @@ class EnhancedVocabularyService {
 
     // If there are words without Surah associations, assign them
     if (wordsWithoutSurah.length > 0) {
+      console.log(`⚠️  Found ${wordsWithoutSurah.length} words without Surah associations, assigning defaults...`)
+
       // Get a default Surah to assign words to (Al-Fatihah)
       const defaultSurah = {
         id: "default-example",
@@ -169,6 +199,18 @@ class EnhancedVocabularyService {
   // Get words by difficulty
   getWordsByDifficulty(difficulty: Difficulty): VocabularyWord[] {
     return this.allWords.filter((word) => word.difficulty === difficulty)
+  }
+
+  // Get words by category
+  getWordsByCategory(category: string): VocabularyWord[] {
+    return this.categoryMap.get(category) || []
+  }
+
+  // Get all categories with word counts
+  getAllCategoriesWithCounts(): Array<{ name: string; count: number }> {
+    return Array.from(this.categoryMap.entries())
+      .map(([name, words]) => ({ name, count: words.length }))
+      .sort((a, b) => b.count - a.count)
   }
 
   // Get words by surah
@@ -245,6 +287,11 @@ class EnhancedVocabularyService {
         return true
       }
 
+      // Search in category
+      if (word.category && word.category.toLowerCase().includes(lowercaseQuery)) {
+        return true
+      }
+
       // Search in root letters
       if (word.rootLetters && word.rootLetters.includes(query)) {
         return true
@@ -278,17 +325,27 @@ class EnhancedVocabularyService {
 
   // Get family relationship words
   getFamilyRelationshipWords(): VocabularyWord[] {
-    return this.allWords.filter((word) => Array.isArray(word.tags) && word.tags.includes("family"))
+    return this.allWords.filter(
+      (word) =>
+        Array.isArray(word.tags) && (word.tags.includes("family") || word.tags.includes("family-relationships")),
+    )
   }
 
   // Get divine attribute words
   getDivineAttributeWords(): VocabularyWord[] {
-    return this.allWords.filter((word) => Array.isArray(word.tags) && word.tags.includes("asma-ul-husna"))
+    return this.allWords.filter(
+      (word) =>
+        Array.isArray(word.tags) &&
+        (word.tags.includes("asma-ul-husna") || word.tags.includes("divine-names-attributes")),
+    )
   }
 
   // Get prophets words
   getProphets(): VocabularyWord[] {
-    return this.allWords.filter((word) => Array.isArray(word.tags) && word.tags.includes("prophets"))
+    return this.allWords.filter(
+      (word) =>
+        Array.isArray(word.tags) && (word.tags.includes("prophets") || word.tags.includes("prophets-messengers")),
+    )
   }
 
   // Get quiz-extracted words
@@ -312,13 +369,41 @@ class EnhancedVocabularyService {
     const category = vocabularyCategories.find((c) => c.id === categoryId)
     if (!category) return []
 
-    // If it's the prophets category, return all words with the prophets tag
-    if (categoryId === "prophets") {
-      return this.getProphets()
+    // Map category IDs to actual category names
+    const categoryMappings: { [key: string]: string[] } = {
+      "divine-names-attributes": ["Divine Names & Attributes", "Divine Attributes"],
+      "prayer-worship": ["Prayer & Worship", "Worship"],
+      "faith-belief": ["Faith & Belief"],
+      "afterlife-judgment": ["Afterlife & Judgment", "Afterlife"],
+      "prophets-messengers": ["Prophets & Messengers", "Prophets"],
+      "family-relationships": ["Family & Relationships", "Family Relations"],
+      "time-seasons": ["Time & Seasons"],
+      "nature-creation": ["Nature & Creation"],
+      "actions-verbs": ["Actions & Verbs"],
+      "emotions-states": ["Emotions & States"],
+      "knowledge-wisdom": ["Knowledge & Wisdom"],
+      "morality-ethics": ["Morality & Ethics"],
+      "opening-chapter": ["Opening Chapter (Al-Fatihah)"],
+      "short-chapters": ["Short Chapters (Juz Amma)"],
+      "long-chapters": ["Long Chapters"],
+      "general-quranic": ["General Quranic Vocabulary"],
+      prophets: ["Prophets & Messengers", "Prophets"],
+      virtues: ["Islamic Virtues"],
+      afterlife: ["Afterlife & Judgment", "Afterlife"],
+      worship: ["Prayer & Worship", "Worship"],
+      "divine-attributes": ["Divine Names & Attributes", "Divine Attributes"],
+      family: ["Family & Relationships", "Family Relations"],
+      "asma-ul-husna": ["Divine Names & Attributes", "Asma ul-Husna"],
     }
 
-    // For other categories, use the existing logic
+    const possibleCategoryNames = categoryMappings[categoryId] || [category.name]
+
     return this.allWords.filter((word) => {
+      // Check if the word's category matches any of the possible names
+      if (possibleCategoryNames.includes(word.category)) {
+        return true
+      }
+
       // Check if the word has the category tag
       if (Array.isArray(word.tags) && word.tags.includes(categoryId)) {
         return true
@@ -374,6 +459,28 @@ class EnhancedVocabularyService {
       quizExtractedCount: quizExtracted.length,
       quizExtractedPercentage: (quizExtracted.length / this.getTotalWordCount()) * 100,
     }
+  }
+
+  // Get detailed statistics
+  getDetailedStats() {
+    const totalWords = this.getTotalWordCount()
+    const categoriesWithCounts = this.getAllCategoriesWithCounts()
+    const difficultyStats = this.getWordsCountByDifficulty()
+    const quizExtracted = this.getQuizExtractedWords()
+
+    return {
+      totalWords,
+      categories: categoriesWithCounts,
+      difficulties: difficultyStats,
+      quizExtracted: quizExtracted.length,
+      surahCoverage: this.getSurahNumbers().length,
+      wordsWithAudio: this.getWordsWithAudio().length,
+    }
+  }
+
+  // Get Surah numbers that have vocabulary
+  getSurahNumbers(): number[] {
+    return Array.from(this.surahMap.keys()).sort((a, b) => a - b)
   }
 }
 
