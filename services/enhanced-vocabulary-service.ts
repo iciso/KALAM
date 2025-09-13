@@ -9,9 +9,10 @@ import { vocabularyDataExpansionPhase6 } from "../data/vocabulary-data-expansion
 import { vocabularyDataExpansionPhase7 } from "../data/vocabulary-data-expansion-phase7"
 import { vocabularyDataExpansionPhase8 } from "../data/vocabulary-data-expansion-phase8"
 import { vocabularyDataExpansionPhase9 } from "../data/vocabulary-data-expansion-phase9"
-import { vocabularyDataExpansionPhase10 } from "../data/vocabulary-data-expansion-phase10"
+import { familyRelationshipsVocabulary, divineAttributesVocabulary } from "../data/vocabulary-data-expansion-phase10"
 import { vocabularyDataExpansionPhase11 } from "../data/vocabulary-data-expansion-phase11"
 import { vocabularyDataProphets } from "../data/vocabulary-data-prophets"
+
 // Import quiz-extracted vocabulary if it exists
 let quizExtractedVocabulary: VocabularyWord[] = []
 try {
@@ -52,7 +53,8 @@ export class EnhancedVocabularyService {
       ...vocabularyDataExpansionPhase7,
       ...vocabularyDataExpansionPhase8,
       ...vocabularyDataExpansionPhase9,
-      ...vocabularyDataExpansionPhase10,
+      ...familyRelationshipsVocabulary,
+      ...divineAttributesVocabulary,
       ...vocabularyDataExpansionPhase11,
       ...vocabularyDataProphets,
       ...quizExtractedVocabulary,
