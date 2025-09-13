@@ -102,7 +102,7 @@ export const alAlaQuizData: SurahQuizData = {
       options: [
         { id: "a", text: "Who destined and guided", isCorrect: false },
         { id: "b", text: "Who brought out the pasture", isCorrect: false },
-        { id: "c", text: "Who created and proportioned", isCorrect: false },
+        { id: "c", text: "Who created and brought out", isCorrect: false },
         { id: "d", text: "Who created and proportioned", isCorrect: true },
       ],
       explanation: "الَّذِي خَلَقَ فَسَوَّى (Alladhi khalaqa fa-sawwa) means 'Who created and proportioned,' roots خ-ل-ق (create) and س-و-ي (proportion).",
@@ -139,7 +139,7 @@ export const alAlaQuizData: SurahQuizData = {
       arabic: "سَنُقْرِئُكَ فَلَا تَنسَى",
       rootLetters: "ق ر ء | ن س ي",
       options: [
-        { id: "a", text: "We will make you recite, and you will not forget", isCorrect: false },
+        { id: "a", text: "We will make you recite, and you will know of a certainity", isCorrect: false },
         { id: "b", text: "We will ease you toward difficulty", isCorrect: false },
         { id: "c", text: "We will make you recite, and you will not forget", isCorrect: true },
         { id: "d", text: "We will remind you of what is hidden", isCorrect: false },
@@ -191,7 +191,7 @@ export const alAlaQuizData: SurahQuizData = {
       arabic: "سَيَذَّكَّرُ مَنْ يَخْشَى",
       rootLetters: "ذ ك ر | خ ش ي",
       options: [
-        { id: "a", text: "He who fears [Allah] will be reminded", isCorrect: false },
+        { id: "a", text: "He who fears [Allah] will be told", isCorrect: false },
         { id: "b", text: "He who forgets will be guided", isCorrect: false },
         { id: "c", text: "He who creates will proportion", isCorrect: false },
         { id: "d", text: "He who fears [Allah] will be reminded", isCorrect: true },
@@ -204,7 +204,7 @@ export const alAlaQuizData: SurahQuizData = {
       arabic: "قَدْ أَفْلَحَ مَنْ تَزَكَّى",
       rootLetters: "ف ل ح | ز ك و",
       options: [
-        { id: "a", text: "He has certainly succeeded who purifies himself", isCorrect: false },
+        { id: "a", text: "He has certainly succeeded who fears Allah", isCorrect: false },
         { id: "b", text: "He has failed who remembers his Lord", isCorrect: false },
         { id: "c", text: "He has certainly succeeded who purifies himself", isCorrect: true },
         { id: "d", text: "He has erred who avoids the reminder", isCorrect: false },
@@ -217,7 +217,7 @@ export const alAlaQuizData: SurahQuizData = {
       arabic: "وَذَكَرَ اسْمَ رَبِّهِ فَصَلَّى",
       rootLetters: "ذ ك ر | ر ب ب | ص ل و",
       options: [
-        { id: "a", text: "And remembers the name of his Lord and prays", isCorrect: false },
+        { id: "a", text: "And remembers the name of his Lord and does good deeds", isCorrect: false },
         { id: "b", text: "And remembers the name of his Lord and prays", isCorrect: true },
         { id: "c", text: "And forgets the name of his Creator and sins", isCorrect: false },
         { id: "d", text: "And glorifies the name of the Most High and forgets", isCorrect: false },
