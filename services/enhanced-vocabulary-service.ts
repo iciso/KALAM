@@ -14,13 +14,22 @@ import { prophetsVocabulary } from "@/data/vocabulary-data-prophets"
 import { type VocabularyWord, Difficulty } from "@/types/vocabulary"
 import { vocabularyCategories } from "@/data/vocabulary-categories"
 
-// Try to import the generated surah vocabulary data, but handle if it doesn't exist
+// Try to import the generated surah vocabulary data
 let surahVocabularyData: VocabularyWord[] = []
 try {
   const surahData = require("@/data/surah-vocabulary-data")
   surahVocabularyData = surahData.surahVocabularyData || []
 } catch (error) {
   console.warn("Surah vocabulary data not found, continuing without it")
+}
+
+// Try to import the quiz-extracted vocabulary data
+let quizExtractedVocabularyData: VocabularyWord[] = []
+try {
+  const quizData = require("@/data/vocabulary-data-quiz-extracted")
+  quizExtractedVocabularyData = quizData.quizExtractedVocabularyData || []
+} catch (error) {
+  console.warn("Quiz-extracted vocabulary data not found, continuing without it")
 }
 
 class EnhancedVocabularyService {
@@ -45,6 +54,7 @@ class EnhancedVocabularyService {
       ...phase11VocabularyData,
       ...prophetsVocabulary,
       ...surahVocabularyData,
+      ...quizExtractedVocabularyData, // Add the new quiz-extracted vocabulary
     ]
 
     // Ensure all words have proper structure
@@ -276,6 +286,11 @@ class EnhancedVocabularyService {
     return this.allWords.filter((word) => Array.isArray(word.tags) && word.tags.includes("prophets"))
   }
 
+  // Get quiz-extracted words
+  getQuizExtractedWords(): VocabularyWord[] {
+    return this.allWords.filter((word) => Array.isArray(word.tags) && word.tags.includes("quiz-extracted"))
+  }
+
   // Get all categories
   getAllCategories() {
     // Return the full category objects, not just the names
@@ -344,6 +359,16 @@ class EnhancedVocabularyService {
     const totalWords = this.getTotalWordCount()
     if (totalWords === 0) return 0
     return (this.getWordsWithSurahCount() / totalWords) * 100
+  }
+
+  // Get extraction statistics
+  getExtractionStats() {
+    const quizExtracted = this.getQuizExtractedWords()
+    return {
+      totalWords: this.getTotalWordCount(),
+      quizExtractedCount: quizExtracted.length,
+      quizExtractedPercentage: (quizExtracted.length / this.getTotalWordCount()) * 100,
+    }
   }
 }
 
