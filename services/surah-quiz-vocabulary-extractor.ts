@@ -1,112 +1,181 @@
-import { type VocabularyWord, Difficulty, PartOfSpeech } from "@/types/vocabulary"
+import fs from "fs"
+import path from "path"
+import { Difficulty, PartOfSpeech } from "../types/vocabulary"
 
-interface SurahQuizQuestion {
+interface ExtractedWord {
   id: string
-  question: string
-  options: string[]
-  correctAnswerIndex: number
-  explanation?: string
-  arabicText?: string
-  transliteration?: string
-  meaning?: string
-}
-
-interface SurahQuizData {
-  surahId: number
+  arabic: string
+  transliteration: string
+  meanings: string[]
+  partOfSpeech: PartOfSpeech
+  difficulty: Difficulty
+  frequency: number
+  tags: string[]
+  examples: Array<{
+    id: string
+    surahNumber: number
+    surahName: string
+    ayahNumber: number
+    arabicText: string
+    translationText: string
+    wordLocation: {
+      startIndex: number
+      endIndex: number
+    }
+    hasAudio: boolean
+  }>
+  surahNumber: number
   surahName: string
-  surahArabicName: string
-  questions: SurahQuizQuestion[]
+  source: string
 }
 
 export class SurahQuizVocabularyExtractor {
-  private extractedWords: VocabularyWord[] = []
+  private extractedWords: ExtractedWord[] = []
   private wordIdCounter = 1
 
-  /**
-   * Extract vocabulary from Surah quiz data
-   */
-  extractFromQuizData(quizData: SurahQuizData): VocabularyWord[] {
-    const words: VocabularyWord[] = []
+  async extractFromAllQuizzes(): Promise<ExtractedWord[]> {
+    const dataDir = path.join(process.cwd(), "data")
+    const files = fs.readdirSync(dataDir)
 
-    for (const question of quizData.questions) {
-      // Extract from question text
-      const questionWords = this.extractWordsFromText(question.question, quizData.surahId, quizData.surahName)
-      words.push(...questionWords)
+    const quizFiles = files.filter(
+      (file) => file.startsWith("surah-") && file.endsWith("-quiz-data.ts") && file !== "surah-quiz-types.ts",
+    )
 
-      // Extract from explanation if available
-      if (question.explanation) {
-        const explanationWords = this.extractWordsFromText(question.explanation, quizData.surahId, quizData.surahName)
-        words.push(...explanationWords)
-      }
+    console.log(`Processing ${quizFiles.length} quiz files...`)
 
-      // Extract from options
-      for (const option of question.options) {
-        const optionWords = this.extractWordsFromText(option, quizData.surahId, quizData.surahName)
-        words.push(...optionWords)
+    for (const file of quizFiles) {
+      try {
+        const filePath = path.join(dataDir, file)
+        await this.extractFromFile(filePath)
+      } catch (error) {
+        console.warn(`Error processing ${file}:`, error.message)
       }
     }
 
     // Remove duplicates based on Arabic text
-    const uniqueWords = this.removeDuplicates(words)
-    this.extractedWords.push(...uniqueWords)
+    this.removeDuplicates()
 
-    return uniqueWords
+    return this.extractedWords
   }
 
-  /**
-   * Extract Arabic words from text
-   */
-  private extractWordsFromText(text: string, surahNumber: number, surahName: string): VocabularyWord[] {
-    const words: VocabularyWord[] = []
+  private async extractFromFile(filePath: string): Promise<void> {
+    const content = fs.readFileSync(filePath, "utf-8")
+    const fileName = path.basename(filePath)
 
-    // Regex to find Arabic text patterns
-    const arabicPattern = /[\u0600-\u06FF]+/g
-    const matches = text.match(arabicPattern)
+    // Extract Surah number and name from filename
+    const surahMatch = fileName.match(/surah-(\d+)-/)
+    const surahNumber = surahMatch ? Number.parseInt(surahMatch[1]) : 1
+    const surahName = this.getSurahName(surahNumber)
 
-    if (matches) {
-      for (const arabicText of matches) {
-        // Skip very short words (likely particles)
-        if (arabicText.length < 2) continue
+    console.log(`Processing ${fileName} (Surah ${surahNumber}: ${surahName})...`)
 
-        // Create vocabulary word
-        const word: VocabularyWord = {
-          id: `quiz-extracted-${this.wordIdCounter++}`,
-          arabic: arabicText,
-          transliteration: this.generateTransliteration(arabicText),
-          meanings: this.extractMeaningFromContext(text, arabicText),
-          partOfSpeech: this.guessPartOfSpeech(arabicText),
-          difficulty: this.guessDifficulty(arabicText),
-          frequency: 1,
-          tags: ["quiz-extracted", `surah-${surahNumber}`],
-          examples: [
-            {
-              id: `example-${this.wordIdCounter}`,
-              surahNumber: surahNumber,
-              surahName: surahName,
-              ayahNumber: 1, // Default, would need actual ayah context
-              arabicText: text,
-              translationText: this.extractTranslation(text),
-              wordLocation: {
-                startIndex: text.indexOf(arabicText),
-                endIndex: text.indexOf(arabicText) + arabicText.length,
-              },
-              hasAudio: false,
-            },
-          ],
-          hasAudio: false,
+    // Extract Arabic text patterns from the file content
+    const arabicTexts = this.extractArabicTexts(content)
+
+    console.log(`  Found ${arabicTexts.length} Arabic texts`)
+
+    // Process each Arabic text
+    for (const arabicText of arabicTexts) {
+      if (this.isValidWord(arabicText)) {
+        const word = this.createWordFromArabic(arabicText, surahNumber, surahName)
+        if (word) {
+          this.extractedWords.push(word)
         }
+      }
+    }
+  }
 
-        words.push(word)
+  private extractArabicTexts(content: string): string[] {
+    // Match Arabic text in various contexts
+    const patterns = [
+      // Direct Arabic text in strings
+      /["'`]([\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF\s]+)["'`]/g,
+      // Arabic text in template literals
+      /`([^`]*[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF][^`]*)`/g,
+      // Arabic text in object properties
+      /arabicText:\s*["'`]([\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF\s]+)["'`]/g,
+    ]
+
+    const arabicTexts: string[] = []
+
+    for (const pattern of patterns) {
+      let match
+      while ((match = pattern.exec(content)) !== null) {
+        const text = match[1].trim()
+        if (text && text.length > 0) {
+          // Split by spaces to get individual words
+          const words = text
+            .split(/\s+/)
+            .filter(
+              (word) =>
+                word.length > 0 && /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]/.test(word),
+            )
+          arabicTexts.push(...words)
+        }
       }
     }
 
-    return words
+    return [...new Set(arabicTexts)] // Remove duplicates
   }
 
-  /**
-   * Generate basic transliteration (simplified)
-   */
-  private generateTransliteration(arabicText: string): string {
+  private isValidWord(arabicText: string): boolean {
+    // Filter out very short words, numbers, and common particles
+    if (arabicText.length < 2) return false
+
+    // Remove diacritics for checking
+    const cleanText = arabicText.replace(/[\u064B-\u0652\u0670\u0640]/g, "")
+
+    // Skip very common particles and prepositions
+    const commonParticles = ["في", "من", "إلى", "على", "عن", "مع", "لا", "ما", "هذا", "هذه", "ذلك", "تلك"]
+    if (commonParticles.includes(cleanText)) return false
+
+    // Must contain Arabic letters
+    return /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]/.test(arabicText)
+  }
+
+  private createWordFromArabic(arabicText: string, surahNumber: number, surahName: string): ExtractedWord | null {
+    // Clean the Arabic text
+    const cleanArabic = arabicText.trim()
+
+    // Generate a basic transliteration (placeholder)
+    const transliteration = this.generateTransliteration(cleanArabic)
+
+    // Generate basic meaning (placeholder - needs manual review)
+    const meaning = this.generateMeaning(cleanArabic)
+
+    const word: ExtractedWord = {
+      id: `quiz-word-${this.wordIdCounter++}`,
+      arabic: cleanArabic,
+      transliteration: transliteration,
+      meanings: [meaning],
+      partOfSpeech: PartOfSpeech.Noun, // Default, needs manual review
+      difficulty: this.determineDifficulty(cleanArabic),
+      frequency: 1,
+      tags: ["quiz-extracted", `surah-${surahNumber}`],
+      examples: [
+        {
+          id: `example-${this.wordIdCounter}`,
+          surahNumber: surahNumber,
+          surahName: surahName,
+          ayahNumber: 1, // Placeholder
+          arabicText: cleanArabic,
+          translationText: meaning,
+          wordLocation: {
+            startIndex: 0,
+            endIndex: cleanArabic.length,
+          },
+          hasAudio: false,
+        },
+      ],
+      surahNumber: surahNumber,
+      surahName: surahName,
+      source: "quiz-extraction",
+    }
+
+    return word
+  }
+
+  private generateTransliteration(arabic: string): string {
     // Basic Arabic to Latin transliteration mapping
     const transliterationMap: { [key: string]: string } = {
       ا: "a",
@@ -126,7 +195,7 @@ export class SurahQuizVocabularyExtractor {
       ض: "d",
       ط: "t",
       ظ: "z",
-      ع: "'",
+      ع: "a",
       غ: "gh",
       ف: "f",
       ق: "q",
@@ -137,109 +206,115 @@ export class SurahQuizVocabularyExtractor {
       ه: "h",
       و: "w",
       ي: "y",
+      ة: "h",
+      ء: "a",
     }
 
-    let transliteration = ""
-    for (const char of arabicText) {
-      transliteration += transliterationMap[char] || char
+    let result = ""
+    for (const char of arabic) {
+      result += transliterationMap[char] || char
     }
 
-    return transliteration || "unknown"
+    return result || "transliteration-needed"
   }
 
-  /**
-   * Extract meaning from context
-   */
-  private extractMeaningFromContext(text: string, arabicWord: string): string[] {
-    // Look for patterns like "means", "refers to", etc.
-    const meaningPatterns = [/means?\s+([^.]+)/i, /refers?\s+to\s+([^.]+)/i, /is\s+([^.]+)/i]
-
-    for (const pattern of meaningPatterns) {
-      const match = text.match(pattern)
-      if (match && match[1]) {
-        return [match[1].trim()]
-      }
+  private generateMeaning(arabic: string): string {
+    // Basic word meaning mapping (very limited - needs expansion)
+    const basicMeanings: { [key: string]: string } = {
+      الله: "Allah",
+      رب: "Lord",
+      إله: "God",
+      كتاب: "book",
+      قرآن: "Quran",
+      صلاة: "prayer",
+      زكاة: "charity",
+      حج: "pilgrimage",
+      صوم: "fasting",
+      إيمان: "faith",
+      إسلام: "Islam",
+      مسلم: "Muslim",
+      نبي: "prophet",
+      رسول: "messenger",
     }
 
-    return ["meaning to be determined"]
+    // Remove diacritics for lookup
+    const cleanArabic = arabic.replace(/[\u064B-\u0652\u0670\u0640]/g, "")
+
+    return basicMeanings[cleanArabic] || `[Translation needed for: ${arabic}]`
   }
 
-  /**
-   * Extract translation from text
-   */
-  private extractTranslation(text: string): string {
-    // Look for quoted text or parenthetical translations
-    const translationPatterns = [/"([^"]+)"/, /$$([^)]+)$$/, /means?\s+([^.]+)/i]
+  private determineDifficulty(arabic: string): Difficulty {
+    // Simple heuristic based on word length and complexity
+    const cleanLength = arabic.replace(/[\u064B-\u0652\u0670\u0640]/g, "").length
 
-    for (const pattern of translationPatterns) {
-      const match = text.match(pattern)
-      if (match && match[1]) {
-        return match[1].trim()
-      }
-    }
-
-    return text.substring(0, 100) + "..."
+    if (cleanLength <= 3) return Difficulty.Beginner
+    if (cleanLength <= 6) return Difficulty.Intermediate
+    return Difficulty.Advanced
   }
 
-  /**
-   * Guess part of speech based on Arabic patterns
-   */
-  private guessPartOfSpeech(arabicText: string): PartOfSpeech {
-    // Basic heuristics for part of speech
-    if (arabicText.startsWith("ال")) {
-      return PartOfSpeech.Noun
+  private getSurahName(surahNumber: number): string {
+    const surahNames: { [key: number]: string } = {
+      1: "Al-Fatihah",
+      92: "Al-Layl",
+      93: "Ad-Duha",
+      94: "Ash-Sharh",
+      95: "At-Tin",
+      96: "Al-Alaq",
+      97: "Al-Qadr",
+      98: "Al-Bayyinah",
+      99: "Az-Zalzalah",
+      100: "Al-Adiyat",
+      101: "Al-Qari'ah",
+      102: "At-Takathur",
+      103: "Al-Asr",
+      104: "Al-Humazah",
+      105: "Al-Fil",
+      106: "Quraysh",
+      107: "Al-Ma'un",
+      108: "Al-Kawthar",
+      109: "Al-Kafirun",
+      110: "An-Nasr",
+      111: "Al-Masad",
+      112: "Al-Ikhlas",
+      113: "Al-Falaq",
+      114: "An-Nas",
     }
-    if (arabicText.length >= 3) {
-      return PartOfSpeech.Verb
-    }
-    return PartOfSpeech.Other
+
+    return surahNames[surahNumber] || `Surah ${surahNumber}`
   }
 
-  /**
-   * Guess difficulty based on word length and complexity
-   */
-  private guessDifficulty(arabicText: string): Difficulty {
-    if (arabicText.length <= 3) {
-      return Difficulty.Beginner
-    } else if (arabicText.length <= 6) {
-      return Difficulty.Intermediate
-    } else {
-      return Difficulty.Advanced
-    }
-  }
-
-  /**
-   * Remove duplicate words based on Arabic text
-   */
-  private removeDuplicates(words: VocabularyWord[]): VocabularyWord[] {
+  private removeDuplicates(): void {
     const seen = new Set<string>()
-    return words.filter((word) => {
-      if (seen.has(word.arabic)) {
+    this.extractedWords = this.extractedWords.filter((word) => {
+      const key = word.arabic.replace(/[\u064B-\u0652\u0670\u0640]/g, "") // Remove diacritics for comparison
+      if (seen.has(key)) {
         return false
       }
-      seen.add(word.arabic)
+      seen.add(key)
       return true
     })
   }
 
-  /**
-   * Get all extracted words
-   */
-  getAllExtractedWords(): VocabularyWord[] {
-    return this.extractedWords
-  }
+  generateDataFile(words: ExtractedWord[]): string {
+    const imports = `import { VocabularyWord, Difficulty, PartOfSpeech } from "../types/vocabulary"`
 
-  /**
-   * Get statistics
-   */
-  getStats() {
-    return {
-      totalExtracted: this.extractedWords.length,
-      byDifficulty: {
-        beginner: this.extractedWords.filter((w) => w.difficulty === Difficulty.Beginner).length,
-        intermediate: this.extractedWords.filter((w) => w.difficulty === Difficulty.Intermediate).length,
-        advanced: this.extractedWords.filter((w) => w.difficulty === Difficulty.Advanced).length,
-      },
-    }
+    const wordsJson = JSON.stringify(words, null, 2)
+      .replace(/"Difficulty\.(\w+)"/g, "Difficulty.$1")
+      .replace(/"PartOfSpeech\.(\w+)"/g, "PartOfSpeech.$1")
+
+    return `${imports}
+
+// Auto-generated vocabulary from Surah quiz data
+// Generated on: ${new Date().toISOString()}
+// Total words: ${words.length}
+// 
+// ⚠️  IMPORTANT: This is auto-generated content that needs manual review!
+// - Transliterations are basic and may need correction
+// - Meanings are placeholders and need proper translation
+// - Part of speech assignments need verification
+// - Difficulty levels are estimated and may need adjustment
+
+export const quizExtractedVocabulary: VocabularyWord[] = ${wordsJson}
+`
   }
 }

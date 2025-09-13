@@ -24,10 +24,10 @@ try {
 }
 
 // Try to import the quiz-extracted vocabulary data
-let quizExtractedVocabularyData: VocabularyWord[] = []
+let quizExtractedVocabulary: VocabularyWord[] = []
 try {
   const quizData = require("@/data/vocabulary-data-quiz-extracted")
-  quizExtractedVocabularyData = quizData.quizExtractedVocabularyData || []
+  quizExtractedVocabulary = quizData.quizExtractedVocabulary || []
 } catch (error) {
   console.warn("Quiz-extracted vocabulary data not found, continuing without it")
 }
@@ -54,7 +54,7 @@ class EnhancedVocabularyService {
       ...phase11VocabularyData,
       ...prophetsVocabulary,
       ...surahVocabularyData,
-      ...quizExtractedVocabularyData, // Add the new quiz-extracted vocabulary
+      ...quizExtractedVocabulary, // Add the new quiz-extracted vocabulary
     ]
 
     // Ensure all words have proper structure

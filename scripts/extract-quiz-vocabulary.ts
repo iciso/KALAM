@@ -1,100 +1,65 @@
-import { SurahQuizVocabularyExtractor } from "../services/surah-quiz-vocabulary-extractor"
 import fs from "fs"
 import path from "path"
+import { SurahQuizVocabularyExtractor } from "../services/surah-quiz-vocabulary-extractor"
 
-/**
- * Main script to extract vocabulary from all Surah quiz data
- */
 async function extractQuizVocabulary() {
-  console.log("Starting vocabulary extraction from Surah quizzes...")
+  console.log("🚀 Starting Surah Quiz Vocabulary Extraction\n")
 
-  const extractor = new SurahQuizVocabularyExtractor()
-  const dataDir = path.join(process.cwd(), "data")
+  try {
+    const extractor = new SurahQuizVocabularyExtractor()
+    const extractedWords = await extractor.extractFromAllQuizzes()
 
-  // List of known Surah quiz files
-  const surahQuizFiles = [
-    "surah-1-quiz-data.ts",
-    "surah-92-quiz-data.ts",
-    "surah-93-quiz-data.ts",
-    "surah-94-quiz-data.ts",
-    "surah-95-quiz-data.ts",
-    "surah-96-quiz-data.ts",
-    "surah-97-quiz-data.ts",
-    "surah-98-quiz-data.ts",
-    "surah-99-quiz-data.ts",
-    "surah-100-quiz-data.ts",
-    "surah-101-quiz-data.ts",
-    "surah-102-quiz-data.ts",
-    "surah-103-quiz-data.ts",
-    "surah-104-quiz-data.ts",
-    "surah-105-quiz-data.ts",
-    "surah-106-quiz-data.ts",
-    "surah-107-quiz-data.ts",
-    "surah-108-quiz-data.ts",
-    "surah-109-quiz-data.ts",
-    "surah-110-quiz-data.ts",
-    "surah-111-quiz-data.ts",
-    "surah-112-quiz-data.ts",
-    "surah-113-quiz-data.ts",
-    "surah-114-quiz-data.ts",
-  ]
-
-  let totalExtracted = 0
-
-  for (const fileName of surahQuizFiles) {
-    const filePath = path.join(dataDir, fileName)
-
-    if (fs.existsSync(filePath)) {
-      try {
-        // Dynamically import the quiz data
-        const quizModule = await import(filePath)
-        const quizData = quizModule.default || quizModule.surahQuizData
-
-        if (quizData) {
-          console.log(`Processing ${fileName}...`)
-          const extractedWords = extractor.extractFromQuizData(quizData)
-          totalExtracted += extractedWords.length
-          console.log(`  Extracted ${extractedWords.length} words`)
-        }
-      } catch (error) {
-        console.warn(`Could not process ${fileName}:`, error.message)
-      }
-    } else {
-      console.warn(`File not found: ${fileName}`)
+    if (extractedWords.length === 0) {
+      console.log("⚠️  No vocabulary words were extracted.")
+      console.log("   This might be because:")
+      console.log("   - Quiz files don't contain Arabic text")
+      console.log("   - Arabic text format is different than expected")
+      return
     }
+
+    // Generate the data file
+    const fileContent = extractor.generateDataFile(extractedWords)
+    const outputPath = path.join(process.cwd(), "data", "vocabulary-data-quiz-extracted.ts")
+
+    fs.writeFileSync(outputPath, fileContent, "utf-8")
+
+    console.log(`\n📁 Generated vocabulary file: ${outputPath}`)
+    console.log(`📊 Statistics:`)
+    console.log(`   - Total words extracted: ${extractedWords.length}`)
+
+    // Count by difficulty
+    const difficulties = extractedWords.reduce(
+      (acc, word) => {
+        acc[word.difficulty] = (acc[word.difficulty] || 0) + 1
+        return acc
+      },
+      {} as Record<string, number>,
+    )
+
+    console.log(`   - Beginner: ${difficulties.beginner || 0}`)
+    console.log(`   - Intermediate: ${difficulties.intermediate || 0}`)
+    console.log(`   - Advanced: ${difficulties.advanced || 0}`)
+
+    // Count by category
+    const categories = extractedWords.reduce(
+      (acc, word) => {
+        acc[word.category] = (acc[word.category] || 0) + 1
+        return acc
+      },
+      {} as Record<string, number>,
+    )
+
+    console.log(`\n📚 Categories:`)
+    Object.entries(categories).forEach(([category, count]) => {
+      console.log(`   - ${category}: ${count}`)
+    })
+
+    console.log("\n✅ Vocabulary extraction completed successfully!")
+    console.log("   The new words will be automatically included in your dictionary.")
+    console.log("   You may want to review and improve the translations manually.")
+  } catch (error) {
+    console.error("❌ Error during vocabulary extraction:", error)
   }
-
-  // Get final statistics
-  const stats = extractor.getStats()
-  console.log("\n=== Extraction Complete ===")
-  console.log(`Total words extracted: ${stats.totalExtracted}`)
-  console.log(`Beginner: ${stats.byDifficulty.beginner}`)
-  console.log(`Intermediate: ${stats.byDifficulty.intermediate}`)
-  console.log(`Advanced: ${stats.byDifficulty.advanced}`)
-
-  // Generate the vocabulary data file
-  const outputPath = path.join(dataDir, "vocabulary-data-quiz-extracted.ts")
-  generateVocabularyFile(extractor.getAllExtractedWords(), outputPath)
-
-  console.log(`\nVocabulary file generated: ${outputPath}`)
-
-  return stats
 }
 
-/**
- * Generate TypeScript vocabulary data file
- */
-function generateVocabularyFile(words: any[], outputPath: string) {
-  const fileContent = `// Auto-generated vocabulary from Surah quiz data
-// Generated on: ${new Date().toISOString()}
-
-import { VocabularyWord, Difficulty, PartOfSpeech } from '@/types/vocabulary'
-
-export const quizExtractedVocabularyData: VocabularyWord[] = ${JSON.stringify(words, null, 2)}
-`
-
-  fs.writeFileSync(outputPath, fileContent, "utf-8")
-}
-
-// Run the extraction
-extractQuizVocabulary().catch(console.error)
+extractQuizVocabulary()
