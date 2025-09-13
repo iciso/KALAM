@@ -1,5 +1,5 @@
 // Auto-generated vocabulary from Surah quiz data
-// Generated on: 2025-09-13T16:17:02.409Z
+// Generated on: 2025-09-13T16:42:51.104Z
 // Total words: 613
 
 import { VocabularyWord, Difficulty } from "../types/vocabulary"
