@@ -237,6 +237,66 @@ const surahs = [
     sections: [],
   },
     {
+    id: 87,
+    name: "Al-A'la",
+    arabicName: "ٱلْأَعْلَىٰ",
+    verses: 19,
+    type: "Meccan",
+    vocabularyCount: 72,
+    difficulty: "Intermediate",
+    implementationStatus: "available" as ImplementationStatus,
+    implementationPhase: 1,
+    sections: [],
+  },  
+          {
+    id: 88,
+    name: "Al-Ghashiyah",
+    arabicName: "الغاشية",
+    verses: 26,
+    type: "Meccan",
+    vocabularyCount: 92,
+    difficulty: "Intermediate",
+    implementationStatus: "available" as ImplementationStatus,
+    implementationPhase: 1,
+    sections: [],
+  },  
+       {
+    id: 89,
+    name: "Al-Fajr",
+    arabicName: "الفجر",
+    verses: 30,
+    type: "Meccan",
+    vocabularyCount: 139,
+    difficulty: "Intermediate",
+    implementationStatus: "available" as ImplementationStatus,
+    implementationPhase: 1,
+    sections: [],
+  },  
+       {
+    id: 90,
+    name: "Al-Balad",
+    arabicName: "البلد",
+    verses: 20,
+    type: "Meccan",
+    vocabularyCount: 82,
+    difficulty: "Intermediate",
+    implementationStatus: "available" as ImplementationStatus,
+    implementationPhase: 1,
+    sections: [],
+  },  
+    {
+    id: 91,
+    name: "Ash-Shams",
+    arabicName: "الشمس",
+    verses: 15,
+    type: "Meccan",
+    vocabularyCount: 54,
+    difficulty: "Intermediate",
+    implementationStatus: "available" as ImplementationStatus,
+    implementationPhase: 1,
+    sections: [],
+  },
+    {
     id: 92,
     name: "Al-Lail",
     arabicName: "الليل",
@@ -574,7 +634,7 @@ const getImplementationStatus = (status: ImplementationStatus) => {
 // Function to get the appropriate link for a surah
 const getSurahLink = (surahId: number) => {
   // List of implemented surahs
-  const implementedSurahs = [1, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114]
+  const implementedSurahs = [1, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114]
 
   if (implementedSurahs.includes(surahId)) {
     return `/quizzes/surah/${surahId}`
