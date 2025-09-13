@@ -1,148 +1,170 @@
-import type { VocabularyCategory } from "@/types/vocabulary"
+export interface VocabularyCategory {
+  id: string
+  name: string
+  description: string
+  icon: string
+  color: string
+  difficulty: "Beginner" | "Intermediate" | "Advanced" | "Mixed"
+  estimatedWords: number
+}
 
 export const vocabularyCategories: VocabularyCategory[] = [
-  {
-    id: "basic",
-    name: "Basic Vocabulary",
-    description: "Essential words for beginners",
-    wordIds: [],
-  },
   {
     id: "divine-names-attributes",
     name: "Divine Names & Attributes",
     description: "Names and attributes of Allah mentioned in the Quran",
-    wordIds: [],
+    icon: "✨",
+    color: "bg-gradient-to-r from-purple-500 to-pink-500",
+    difficulty: "Intermediate",
+    estimatedWords: 50,
   },
   {
     id: "prayer-worship",
     name: "Prayer & Worship",
-    description: "Words related to Islamic worship, prayer, and rituals",
-    wordIds: [],
+    description: "Words related to prayer, worship, and religious practices",
+    icon: "🤲",
+    color: "bg-gradient-to-r from-blue-500 to-cyan-500",
+    difficulty: "Beginner",
+    estimatedWords: 75,
   },
   {
     id: "faith-belief",
     name: "Faith & Belief",
-    description: "Words related to faith, belief, and Islamic creed",
-    wordIds: [],
+    description: "Terms related to faith, belief, and Islamic creed",
+    icon: "💫",
+    color: "bg-gradient-to-r from-green-500 to-emerald-500",
+    difficulty: "Intermediate",
+    estimatedWords: 60,
   },
   {
     id: "afterlife-judgment",
     name: "Afterlife & Judgment",
-    description: "Words related to the Day of Judgment, paradise, and hell",
-    wordIds: [],
+    description: "Words about the Day of Judgment, Paradise, and Hell",
+    icon: "⚖️",
+    color: "bg-gradient-to-r from-orange-500 to-red-500",
+    difficulty: "Advanced",
+    estimatedWords: 80,
   },
   {
     id: "prophets-messengers",
     name: "Prophets & Messengers",
     description: "Names and stories of prophets mentioned in the Quran",
-    wordIds: [],
+    icon: "👨‍🏫",
+    color: "bg-gradient-to-r from-indigo-500 to-purple-500",
+    difficulty: "Beginner",
+    estimatedWords: 40,
   },
   {
     id: "family-relationships",
     name: "Family & Relationships",
-    description: "Words related to family relationships and social bonds",
-    wordIds: [],
+    description: "Terms for family members and social relationships",
+    icon: "👨‍👩‍👧‍👦",
+    color: "bg-gradient-to-r from-pink-500 to-rose-500",
+    difficulty: "Beginner",
+    estimatedWords: 35,
   },
   {
     id: "time-seasons",
     name: "Time & Seasons",
-    description: "Words related to time, days, nights, and seasons",
-    wordIds: [],
+    description: "Words related to time, days, months, and seasons",
+    icon: "🕐",
+    color: "bg-gradient-to-r from-yellow-500 to-orange-500",
+    difficulty: "Beginner",
+    estimatedWords: 45,
   },
   {
     id: "nature-creation",
     name: "Nature & Creation",
-    description: "Words describing Allah's creation and natural phenomena",
-    wordIds: [],
+    description: "Words about the natural world and Allah's creation",
+    icon: "🌍",
+    color: "bg-gradient-to-r from-green-500 to-blue-500",
+    difficulty: "Intermediate",
+    estimatedWords: 70,
   },
   {
     id: "actions-verbs",
     name: "Actions & Verbs",
     description: "Common verbs and action words from the Quran",
-    wordIds: [],
+    icon: "⚡",
+    color: "bg-gradient-to-r from-red-500 to-pink-500",
+    difficulty: "Mixed",
+    estimatedWords: 90,
   },
   {
     id: "emotions-states",
     name: "Emotions & States",
     description: "Words describing emotions, feelings, and spiritual states",
-    wordIds: [],
+    icon: "💝",
+    color: "bg-gradient-to-r from-purple-500 to-indigo-500",
+    difficulty: "Intermediate",
+    estimatedWords: 55,
   },
   {
     id: "knowledge-wisdom",
     name: "Knowledge & Wisdom",
-    description: "Words related to knowledge, learning, and wisdom",
-    wordIds: [],
+    description: "Terms related to knowledge, learning, and wisdom",
+    icon: "📚",
+    color: "bg-gradient-to-r from-blue-500 to-purple-500",
+    difficulty: "Advanced",
+    estimatedWords: 65,
   },
   {
     id: "morality-ethics",
     name: "Morality & Ethics",
-    description: "Words related to moral values and ethical conduct",
-    wordIds: [],
+    description: "Words about good and evil, right and wrong",
+    icon: "⚖️",
+    color: "bg-gradient-to-r from-emerald-500 to-teal-500",
+    difficulty: "Intermediate",
+    estimatedWords: 50,
   },
   {
     id: "opening-chapter",
     name: "Opening Chapter (Al-Fatihah)",
     description: "Vocabulary from Surah Al-Fatihah",
-    wordIds: [],
+    icon: "🌟",
+    color: "bg-gradient-to-r from-gold-500 to-yellow-500",
+    difficulty: "Beginner",
+    estimatedWords: 15,
   },
   {
     id: "short-chapters",
     name: "Short Chapters (Juz Amma)",
     description: "Vocabulary from the short chapters (Surah 92-114)",
-    wordIds: [],
+    icon: "📖",
+    color: "bg-gradient-to-r from-cyan-500 to-blue-500",
+    difficulty: "Beginner",
+    estimatedWords: 120,
   },
   {
     id: "long-chapters",
     name: "Long Chapters",
-    description: "Vocabulary from the longer chapters of the Quran",
-    wordIds: [],
+    description: "Vocabulary from longer chapters of the Quran",
+    icon: "📜",
+    color: "bg-gradient-to-r from-slate-500 to-gray-500",
+    difficulty: "Advanced",
+    estimatedWords: 200,
   },
   {
     id: "general-quranic",
     name: "General Quranic Vocabulary",
-    description: "General vocabulary words from various parts of the Quran",
-    wordIds: [],
-  },
-  {
-    id: "prophets",
-    name: "Prophets",
-    description: "Words related to prophets mentioned in the Quran",
-    wordIds: [],
-  },
-  {
-    id: "virtues",
-    name: "Islamic Virtues",
-    description: "Words describing Islamic virtues and character traits",
-    wordIds: [],
-  },
-  {
-    id: "afterlife",
-    name: "Afterlife",
-    description: "Words related to paradise, hell, and the hereafter",
-    wordIds: [],
-  },
-  {
-    id: "worship",
-    name: "Worship",
-    description: "Words related to Islamic worship and rituals",
-    wordIds: [],
-  },
-  {
-    id: "divine-attributes",
-    name: "Divine Attributes",
-    description: "Words describing the attributes of Allah",
-    wordIds: [],
-  },
-  {
-    id: "family",
-    name: "Family Relations",
-    description: "Words related to family relationships",
-    wordIds: [],
-  },
-  {
-    id: "asma-ul-husna",
-    name: "Asma ul-Husna",
-    description: "The Beautiful Names of Allah",
-    wordIds: [],
+    description: "Common words and phrases from throughout the Quran",
+    icon: "📝",
+    color: "bg-gradient-to-r from-gray-500 to-slate-500",
+    difficulty: "Mixed",
+    estimatedWords: 150,
   },
 ]
+
+export function getCategoryById(id: string): VocabularyCategory | undefined {
+  return vocabularyCategories.find((category) => category.id === id)
+}
+
+export function getCategoryByName(name: string): VocabularyCategory | undefined {
+  return vocabularyCategories.find((category) => category.name === name)
+}
+
+export function getCategoriesByDifficulty(
+  difficulty: "Beginner" | "Intermediate" | "Advanced" | "Mixed",
+): VocabularyCategory[] {
+  return vocabularyCategories.filter((category) => category.difficulty === difficulty)
+}
