@@ -1,4 +1,4 @@
-import type { VocabularyWord, Difficulty } from "../types/vocabulary"
+import type { VocabularyWord, Difficulty } from "../types/vocabulary" 
 import { vocabularyData } from "../data/vocabulary-data"
 import { additionalVocabularyData } from "../data/vocabulary-data-expansion"
 import { vocabularyDataExpansionPhase2 } from "../data/vocabulary-data-expansion-phase2"
