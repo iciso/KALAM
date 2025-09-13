@@ -1,6 +1,6 @@
-import type { VocabularyWord } from "../types/vocabulary"
+import type { VocabularyWord, Difficulty } from "../types/vocabulary"
 import { vocabularyData } from "../data/vocabulary-data"
-import { vocabularyDataExpansion } from "../data/vocabulary-data-expansion"
+import { additionalVocabularyData } from "../data/vocabulary-data-expansion"
 import { vocabularyDataExpansionPhase2 } from "../data/vocabulary-data-expansion-phase2"
 import { vocabularyDataExpansionPhase3 } from "../data/vocabulary-data-expansion-phase3"
 import { vocabularyDataExpansionPhase4 } from "../data/vocabulary-data-expansion-phase4"
@@ -12,7 +12,6 @@ import { vocabularyDataExpansionPhase9 } from "../data/vocabulary-data-expansion
 import { vocabularyDataExpansionPhase10 } from "../data/vocabulary-data-expansion-phase10"
 import { vocabularyDataExpansionPhase11 } from "../data/vocabulary-data-expansion-phase11"
 import { vocabularyDataProphets } from "../data/vocabulary-data-prophets"
-
 // Import quiz-extracted vocabulary if it exists
 let quizExtractedVocabulary: VocabularyWord[] = []
 try {
@@ -30,6 +29,13 @@ export interface VocabularyStats {
   tagCounts: { [tag: string]: number }
 }
 
+export interface DetailedStats {
+  totalWords: number
+  surahCoverage: number
+  wordsWithAudio: number
+  categoryCounts: { [category: string]: number }
+}
+
 export class EnhancedVocabularyService {
   private allVocabulary: VocabularyWord[]
 
@@ -37,7 +43,7 @@ export class EnhancedVocabularyService {
     // Combine all vocabulary sources
     this.allVocabulary = [
       ...vocabularyData,
-      ...vocabularyDataExpansion,
+      ...additionalVocabularyData,
       ...vocabularyDataExpansionPhase2,
       ...vocabularyDataExpansionPhase3,
       ...vocabularyDataExpansionPhase4,
@@ -70,6 +76,71 @@ export class EnhancedVocabularyService {
 
   getAllVocabulary(): VocabularyWord[] {
     return this.allVocabulary
+  }
+
+  getTotalWordCount(): number {
+    return this.allVocabulary.length
+  }
+
+  getWordsWithSurahCount(): number {
+    return this.allVocabulary.filter((word) => word.examples && word.examples.length > 0).length
+  }
+
+  getSurahCoveragePercentage(): number {
+    const wordsWithSurah = this.getWordsWithSurahCount()
+    const total = this.getTotalWordCount()
+    return total > 0 ? (wordsWithSurah / total) * 100 : 0
+  }
+
+  getAllSurahs(): Array<{ surahNumber: number; count: number }> {
+    const surahCounts: { [key: number]: number } = {}
+
+    this.allVocabulary.forEach((word) => {
+      if (word.examples) {
+        word.examples.forEach((example) => {
+          surahCounts[example.surahNumber] = (surahCounts[example.surahNumber] || 0) + 1
+        })
+      }
+    })
+
+    return Object.entries(surahCounts)
+      .map(([surah, count]) => ({ surahNumber: Number.parseInt(surah), count }))
+      .sort((a, b) => a.surahNumber - b.surahNumber)
+  }
+
+  getWordsCountByDifficulty(): { [key in Difficulty]: number } {
+    const counts: { [key in Difficulty]: number } = {
+      Beginner: 0,
+      Intermediate: 0,
+      Advanced: 0,
+    }
+
+    this.allVocabulary.forEach((word) => {
+      if (word.difficulty in counts) {
+        counts[word.difficulty]++
+      }
+    })
+
+    return counts
+  }
+
+  getDetailedStats(): DetailedStats {
+    const totalWords = this.getTotalWordCount()
+    const surahCoverage = this.getAllSurahs().length
+    const wordsWithAudio = this.allVocabulary.filter((word) => word.hasAudio).length
+
+    const categoryCounts: { [category: string]: number } = {}
+    this.allVocabulary.forEach((word) => {
+      const category = word.category || "Uncategorized"
+      categoryCounts[category] = (categoryCounts[category] || 0) + 1
+    })
+
+    return {
+      totalWords,
+      surahCoverage,
+      wordsWithAudio,
+      categoryCounts,
+    }
   }
 
   getVocabularyByCategory(category: string): VocabularyWord[] {

@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Progress } from "@/components/ui/progress"
 import { Badge } from "@/components/ui/badge"
 import { enhancedVocabularyService } from "@/services/enhanced-vocabulary-service"
+import { Difficulty } from "@/types/vocabulary"
 import { BookOpen, Target, TrendingUp, Award } from "lucide-react"
 
 export function VocabularyStats() {
@@ -15,9 +16,10 @@ export function VocabularyStats() {
   const wordsWithAudio = stats.wordsWithAudio
 
   // Calculate percentages for difficulty distribution
-  const beginnerPercentage = totalWords > 0 ? Math.round((difficultyStats.Beginner / totalWords) * 100) : 0
-  const intermediatePercentage = totalWords > 0 ? Math.round((difficultyStats.Intermediate / totalWords) * 100) : 0
-  const advancedPercentage = totalWords > 0 ? Math.round((difficultyStats.Advanced / totalWords) * 100) : 0
+  const beginnerPercentage = totalWords > 0 ? Math.round((difficultyStats[Difficulty.Beginner] / totalWords) * 100) : 0
+  const intermediatePercentage =
+    totalWords > 0 ? Math.round((difficultyStats[Difficulty.Intermediate] / totalWords) * 100) : 0
+  const advancedPercentage = totalWords > 0 ? Math.round((difficultyStats[Difficulty.Advanced] / totalWords) * 100) : 0
 
   // Calculate coverage percentage (assuming 100% since we have Surah associations)
   const coveragePercentage = 100
@@ -97,7 +99,7 @@ export function VocabularyStats() {
                     Beginner
                   </Badge>
                   <span className="text-sm text-muted-foreground">
-                    {difficultyStats.Beginner.toLocaleString()} words
+                    {difficultyStats[Difficulty.Beginner].toLocaleString()} words
                   </span>
                 </div>
                 <span className="text-sm font-medium">{beginnerPercentage}%</span>
@@ -116,7 +118,7 @@ export function VocabularyStats() {
                     Intermediate
                   </Badge>
                   <span className="text-sm text-muted-foreground">
-                    {difficultyStats.Intermediate.toLocaleString()} words
+                    {difficultyStats[Difficulty.Intermediate].toLocaleString()} words
                   </span>
                 </div>
                 <span className="text-sm font-medium">{intermediatePercentage}%</span>
@@ -132,7 +134,7 @@ export function VocabularyStats() {
                     Advanced
                   </Badge>
                   <span className="text-sm text-muted-foreground">
-                    {difficultyStats.Advanced.toLocaleString()} words
+                    {difficultyStats[Difficulty.Advanced].toLocaleString()} words
                   </span>
                 </div>
                 <span className="text-sm font-medium">{advancedPercentage}%</span>
@@ -145,15 +147,15 @@ export function VocabularyStats() {
           <div className="mt-6 pt-4 border-t">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
               <div>
-                <div className="text-2xl font-bold text-green-600">{difficultyStats.Beginner}</div>
+                <div className="text-2xl font-bold text-green-600">{difficultyStats[Difficulty.Beginner]}</div>
                 <div className="text-xs text-muted-foreground">Beginner</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-yellow-600">{difficultyStats.Intermediate}</div>
+                <div className="text-2xl font-bold text-yellow-600">{difficultyStats[Difficulty.Intermediate]}</div>
                 <div className="text-xs text-muted-foreground">Intermediate</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-red-600">{difficultyStats.Advanced}</div>
+                <div className="text-2xl font-bold text-red-600">{difficultyStats[Difficulty.Advanced]}</div>
                 <div className="text-xs text-muted-foreground">Advanced</div>
               </div>
               <div>
