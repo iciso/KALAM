@@ -442,7 +442,7 @@ export default function HomePage() {
         </section>
       </main>
 
-      <footer className="bg-gray-100 dark:bg-gray-800 py-6">
+      <footer className="border-t border-green-200 p-4 sm:p-6 text-center text-sm text-green-800 bg-green-50 dark:bg-green-900/20 dark:border-green-700/30 dark:text-green-300 w-screen mt-8 mx-0">
        <div className="flex items-center justify-center mb-2 sm:mb-3">
             <MessageSquare className="h-4 w-4 sm:h-5 sm:w-5 mr-1 text-green-600 dark:text-green-400" />
             <span>
