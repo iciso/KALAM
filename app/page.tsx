@@ -425,6 +425,21 @@ export default function HomePage() {
             </Card>
           </div>
         </section>
+
+           <section className="mb-12">
+       <div class="mt-6 p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg border border-emerald-100 dark:border-emerald-800">
+          <h2 className="text-2xl text-emerald-800 dark:text-emerald-300 font-bold mb-4">No Donations & Charity</h2>
+          <p class="text-emerald-700 dark:text-emerald-200 mb-3">
+            IQRA and KALAM apps are built without charity, zakat, or donations – a practice aligned with the true Sunnah of the Noble Prophets, and the Righteous.
+          </p>
+           <p className="mb-4 text-emerald-600 dark:text-emerald-300 text-3xl">
+            قُلْ مَا أَسْأَلُكُمْ عَلَيْهِ مِنْ أَجْرٍ وَمَا أَنَا مِنَ الْمُتَكَلِّفِينَ
+            </p>
+             <p className="mb-4 text-emerald-600 dark:text-emerald-300">
+          Say, "I do not ask you for this any payment, and I am not of the pretentious - Surah Sad 38:86. 
+          </p>
+       </div>
+        </section>
       </main>
 
       <footer className="bg-gray-100 dark:bg-gray-800 py-6">
