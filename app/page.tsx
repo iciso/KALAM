@@ -457,6 +457,7 @@ export default function HomePage() {
               </a>{" "}
               at +91 7558845528
             </span>
+             </div>
           <div className="flex justify-center space-x-4 mt-4">
             <Link href="/about" className="text-emerald-600 hover:text-emerald-700">
               About
@@ -467,7 +468,7 @@ export default function HomePage() {
             <Link href="https://github.com/iciso/KALAM" className="text-emerald-600 hover:text-emerald-700">
               GitHub
             </Link>
-          </div>
+         
         </div>
       </footer>
     </div>
