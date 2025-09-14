@@ -7,7 +7,7 @@ import { FontSizeProvider } from "@/contexts/font-size-context";
 import { AuthProvider } from "@/contexts/auth-context";
 
 const inter = Inter({ subsets: ["latin"] });
-
+ 
 export const metadata = {
   metadataBase: new URL('https://v0-kalam.vercel.app/'),
   title: "KALAM: Know Allah by Lighting up Activities of Mirth",
