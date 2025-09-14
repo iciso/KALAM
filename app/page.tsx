@@ -443,10 +443,20 @@ export default function HomePage() {
       </main>
 
       <footer className="bg-gray-100 dark:bg-gray-800 py-6">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-gray-600 dark:text-gray-300">
-            KALAM - Know Allah by Lighting up Activities of Mirth | Open Source Project
-          </p>
+       <div className="flex items-center justify-center mb-2 sm:mb-3">
+            <MessageSquare className="h-4 w-4 sm:h-5 sm:w-5 mr-1 text-green-600 dark:text-green-400" />
+            <span>
+              For suggestions, WhatsApp{" "}
+              <a
+                href="https://cvemrafi.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-green-700 hover:text-green-900 dark:text-green-400 dark:hover:text-green-300 underline"
+              >
+                Rafique
+              </a>{" "}
+              at +91 7558845528
+            </span>
           <div className="flex justify-center space-x-4 mt-4">
             <Link href="/about" className="text-emerald-600 hover:text-emerald-700">
               About
