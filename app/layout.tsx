@@ -14,7 +14,7 @@ export const metadata = {
   description:
     "Experience the joy of learning Quranic Arabic naturally through games, interactive flashcards, and themed quizzes. KALAM transforms memorization into discovery, helping you connect with the words of Allah, namely the Quran through fun activities rather than rote learning.",
   keywords:
-    "Quran vocabulary, Arabic learning, interactive games, Islamic education, Quranic words, language learning, Arabic flashcards, Surah vocabulary",
+    "Quran vocabulary, Arabic learning, interactive games, Islamic education, Quranic words, language learning, Arabic flashcards, Infographic, Quiz, Surah vocabulary",
   openGraph: {
     title: "KALAM: Know Allah by Lighting up Activities of Mirth",
     description:
