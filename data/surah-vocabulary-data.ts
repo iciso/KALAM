@@ -1,6 +1,6 @@
 
 // Auto-generated Surah vocabulary data
-// Generated on: 2025-09-13T16:42:22.644Z
+// Generated on: 2025-09-14T03:19:42.820Z
 
 export const surahVocabularyData = [
   {
@@ -377,6 +377,1140 @@ export const surahVocabularyData = [
             "wordLocation": {
               "startIndex": 6,
               "endIndex": 13
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
+            },
+            "hasAudio": false
+          }
+        ]
+      },
+      {
+        "meanings": [],
+        "examples": [
+          {
+            "id": "default-example",
+            "surahNumber": 1,
+            "surahName": "Al-Fatihah",
+            "ayahNumber": 1,
+            "arabicText": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+            "translationText": "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
+            "wordLocation": {
+              "startIndex": 0,
+              "endIndex": 10
             },
             "hasAudio": false
           }
