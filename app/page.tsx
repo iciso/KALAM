@@ -475,7 +475,7 @@ export default function HomePage() {
                 href="https://creativecommons.org/licenses/by/4.0/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-green-700 hover:text-green-900 dark:text-green-400 dark:hover:text-green-300 underline"
+                className="text-green-700 hover:text-green-900 dark:text-green-400 dark:hover:text-green-300"
               >
                 License 4.0
               </a>
@@ -487,8 +487,16 @@ export default function HomePage() {
             </Link>
             <Link href="https://github.com/iciso/KALAM" className="text-emerald-600 hover:text-emerald-700">
               GitHub
-            </Link>
-               • Iqra 💡 Team AI
+            </Link>{" "}
+                <a
+                href="/about"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-green-700 hover:text-green-900 dark:text-green-400 dark:hover:text-green-300"
+              >
+                • Iqra 💡 Team AI
+              </a>
+               
             
         </div>
       </footer>
