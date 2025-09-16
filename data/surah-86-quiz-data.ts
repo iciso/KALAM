@@ -77,9 +77,9 @@ export const atTariqQuizData: SurahQuizData = {
         { id: "a", text: "The Dawn", isCorrect: false },
         { id: "b", text: "The Overwhelming", isCorrect: false },
         { id: "c", text: "The Most High", isCorrect: false },
-        { id: "d", text: "The Knocking Visitor", isCorrect: true },
+        { id: "d", text: "The Night Visitor", isCorrect: true },
       ],
-      explanation: "الطارق (At-Tariq) means 'The Knocking Visitor,' derived from the root ط-ر-ق, referring to a star that appears suddenly like a knocker.",
+      explanation: "الطارق (At-Tariq) means 'The Night Visitor,' derived from the root ط-ر-ق, referring to a star that appears suddenly and brightly in the night sky.",
     },
     {
       id: "q2",
