@@ -165,7 +165,7 @@ export const atTariqQuizData: SurahQuizData = {
       arabic: "إِنَّهُ عَلَىٰ رَجْعِهِ لَقَادِرٌ",
       rootLetters: "ر ج ع | ق د ر",
       options: [
-        { id: "a", text: "Indeed, He is over its return [to life] powerful", isCorrect: false },
+        { id: "a", text: "Indeed, He is able to return [to a death] powerful", isCorrect: false },
         { id: "b", text: "Indeed, He is unaware of its creation", isCorrect: false },
         { id: "c", text: "Indeed, He is over its return [to life] powerful", isCorrect: true },
         { id: "d", text: "Indeed, He is unable to resurrect it", isCorrect: false },
@@ -191,7 +191,7 @@ export const atTariqQuizData: SurahQuizData = {
       arabic: "فَمَا لَهُ مِنْ قُوَّةٍ وَلَا نَاصِرٍ",
       rootLetters: "ق و ء | ن ص ر",
       options: [
-        { id: "a", text: "So he will have no power or any helper", isCorrect: false },
+        { id: "a", text: "So he will have all power but no helper", isCorrect: false },
         { id: "b", text: "So he will have full strength and support", isCorrect: false },
         { id: "c", text: "So he will have no power or any helper", isCorrect: true },
         { id: "d", text: "So he will have divine aid and victory", isCorrect: false },
@@ -204,7 +204,7 @@ export const atTariqQuizData: SurahQuizData = {
       arabic: "إِنَّهُمْ يَكِيدُونَ كَيْدًا",
       rootLetters: "ك ي د",
       options: [
-        { id: "a", text: "Indeed, they are plotting a plot", isCorrect: false },
+        { id: "a", text: "Indeed, they are abusing the believers", isCorrect: false },
         { id: "b", text: "Indeed, they are seeking guidance", isCorrect: false },
         { id: "c", text: "Indeed, they are forgetting the truth", isCorrect: false },
         { id: "d", text: "Indeed, they are plotting a plot", isCorrect: true },
@@ -213,16 +213,16 @@ export const atTariqQuizData: SurahQuizData = {
     },
     {
       id: "q12",
-      question: "What does the Arabic phrase 'كِتَابٌ مُرَقَّمٌ' mean?",
-      arabic: "كِتَابٌ مُرَقَّمٌ",
+      question: "What does the Arabic phrase 'إِنَّهُۥ لَقَوۡلٞ فَصۡلٞ' mean?",
+      arabic: "إِنَّهُۥ لَقَوۡلٞ فَصۡلٞ",
       rootLetters: "ك ت ب | ر ق م",
       options: [
-        { id: "a", text: "A registered book", isCorrect: true },
-        { id: "b", text: "A forgotten scripture", isCorrect: false },
-        { id: "c", text: "A hidden decree", isCorrect: false },
-        { id: "d", text: "A temporary message", isCorrect: false },
+        { id: "a", text: "Indeed, the Qur’an is a decisive statement", isCorrect: true },
+        { id: "b", text: "Indeed, the Qur’an is a forgotten scripture", isCorrect: false },
+        { id: "c", text: "Indeed, the Qur’an is a hidden decree", isCorrect: false },
+        { id: "d", text: "Indeed, the Qur’an is a temporary message", isCorrect: false },
       ],
-      explanation: "كِتَابٌ مُرَقَّمٌ (Kitabun murqam) means 'A registered book,' roots ك-ت-ب (book) and ر-ق-م (registered).",
+      explanation: "إِنَّهُۥ لَقَوۡلٞ فَصۡلٞ (Innahoo laqawlun fasl) means 'Indeed, the Qur’an is a decisive statement,,' roots ك-ت-ب (book) and ر-ق-م (registered).",
     },
   ],
 };
