@@ -148,8 +148,8 @@ export const atTariqQuizData: SurahQuizData = {
     },
     {
       id: "q7",
-      question: "What does the Arabic phrase 'يَأْتِي مِنْ بَيْنِ الصُّلْبِ وَالتَّرَائِبِ' mean?",
-      arabic: "يَأْتِي مِنْ بَيْنِ الصُّلْبِ وَالتَّرَائِبِ",
+      question: "What does the Arabic phrase 'يَخۡرُجُ مِنۢ بَيۡنِ ٱلصُّلۡبِ وَٱلتَّرَآئِبِ' mean?",
+      arabic: "يَخۡرُجُ مِنۢ بَيۡنِ ٱلصُّلۡبِ وَٱلتَّرَآئِبِ",
       rootLetters: "أ ت ي | ص ل ب | ر ء ب",
       options: [
         { id: "a", text: "It comes from between the backbone and the ribs", isCorrect: false },
@@ -157,7 +157,7 @@ export const atTariqQuizData: SurahQuizData = {
         { id: "c", text: "It emerges from the heart and mind", isCorrect: false },
         { id: "d", text: "It flows from the earth and sky", isCorrect: false },
       ],
-      explanation: "يَأْتِي مِنْ بَيْنِ الصُّلْبِ وَالتَّرَائِبِ (Ya'ti min baynis-sulbi wat-tara'ib) means 'It comes from between the backbone and the ribs,' roots أ-ت-ي (come), ص-ل-ب (backbone), ر-ء-ب (ribs).",
+      explanation: "يَخۡرُجُ مِنۢ بَيۡنِ ٱلصُّلۡبِ وَٱلتَّرَآئِبِ (Yakhruju mim bainissulbi wat taraaa’ib) means 'It comes from between the backbone and the ribs,' roots أ-ت-ي (come), ص-ل-ب (backbone), ر-ء-ب (ribs).",
     },
     {
       id: "q8",
