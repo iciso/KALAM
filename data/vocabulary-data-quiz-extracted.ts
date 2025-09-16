@@ -1,6 +1,6 @@
 // Auto-generated vocabulary from Surah quiz data
-// Generated on: 2025-09-14T03:20:03.475Z
-// Total words: 613
+// Generated on: 2025-09-16T15:19:10.592Z
+// Total words: 637
 
 import { VocabularyWord, Difficulty } from "../types/vocabulary"
 
@@ -583,6 +583,1158 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
   },
   {
     "id": "quiz-extracted-19",
+    "arabic": "الطارق",
+    "transliteration": "altarq",
+    "meanings": [
+      "[Translation needed for: الطارق]"
+    ],
+    "difficulty": "Intermediate",
+    "category": "Quranic Vocabulary",
+    "tags": [
+      "quiz-extracted",
+      "surah-86",
+      "quranic-vocabulary"
+    ],
+    "examples": [
+      {
+        "id": "example-19",
+        "surahNumber": 86,
+        "surahName": "Surah 86",
+        "ayahNumber": 1,
+        "arabicText": "الطارق",
+        "translationText": "[Translation needed for: الطارق]",
+        "wordLocation": {
+          "startIndex": 0,
+          "endIndex": 6
+        },
+        "hasAudio": false
+      }
+    ],
+    "hasAudio": false,
+    "frequency": 1
+  },
+  {
+    "id": "quiz-extracted-20",
+    "arabic": "ط ر ق",
+    "transliteration": "t r q",
+    "meanings": [
+      "[Translation needed for: ط ر ق]"
+    ],
+    "difficulty": "Intermediate",
+    "category": "Quranic Vocabulary",
+    "tags": [
+      "quiz-extracted",
+      "surah-86",
+      "quranic-vocabulary"
+    ],
+    "examples": [
+      {
+        "id": "example-20",
+        "surahNumber": 86,
+        "surahName": "Surah 86",
+        "ayahNumber": 1,
+        "arabicText": "ط ر ق",
+        "translationText": "[Translation needed for: ط ر ق]",
+        "wordLocation": {
+          "startIndex": 0,
+          "endIndex": 5
+        },
+        "hasAudio": false
+      }
+    ],
+    "hasAudio": false,
+    "frequency": 1
+  },
+  {
+    "id": "quiz-extracted-21",
+    "arabic": "والسماء والطارق",
+    "transliteration": "walsma' waltarq",
+    "meanings": [
+      "[Translation needed for: والسماء والطارق]"
+    ],
+    "difficulty": "Advanced",
+    "category": "Quranic Vocabulary",
+    "tags": [
+      "quiz-extracted",
+      "surah-86",
+      "quranic-vocabulary"
+    ],
+    "examples": [
+      {
+        "id": "example-21",
+        "surahNumber": 86,
+        "surahName": "Surah 86",
+        "ayahNumber": 1,
+        "arabicText": "والسماء والطارق",
+        "translationText": "[Translation needed for: والسماء والطارق]",
+        "wordLocation": {
+          "startIndex": 0,
+          "endIndex": 15
+        },
+        "hasAudio": false
+      }
+    ],
+    "hasAudio": false,
+    "frequency": 1
+  },
+  {
+    "id": "quiz-extracted-22",
+    "arabic": "س م و",
+    "transliteration": "s m w",
+    "meanings": [
+      "[Translation needed for: س م و]"
+    ],
+    "difficulty": "Intermediate",
+    "category": "Quranic Vocabulary",
+    "tags": [
+      "quiz-extracted",
+      "surah-86",
+      "quranic-vocabulary"
+    ],
+    "examples": [
+      {
+        "id": "example-22",
+        "surahNumber": 86,
+        "surahName": "Surah 86",
+        "ayahNumber": 1,
+        "arabicText": "س م و",
+        "translationText": "[Translation needed for: س م و]",
+        "wordLocation": {
+          "startIndex": 0,
+          "endIndex": 5
+        },
+        "hasAudio": false
+      }
+    ],
+    "hasAudio": false,
+    "frequency": 1
+  },
+  {
+    "id": "quiz-extracted-23",
+    "arabic": "النجم الثاقب",
+    "transliteration": "alnjm althaqb",
+    "meanings": [
+      "[Translation needed for: النجم الثاقب]"
+    ],
+    "difficulty": "Advanced",
+    "category": "Quranic Vocabulary",
+    "tags": [
+      "quiz-extracted",
+      "surah-86",
+      "quranic-vocabulary"
+    ],
+    "examples": [
+      {
+        "id": "example-23",
+        "surahNumber": 86,
+        "surahName": "Surah 86",
+        "ayahNumber": 1,
+        "arabicText": "النجم الثاقب",
+        "translationText": "[Translation needed for: النجم الثاقب]",
+        "wordLocation": {
+          "startIndex": 0,
+          "endIndex": 12
+        },
+        "hasAudio": false
+      }
+    ],
+    "hasAudio": false,
+    "frequency": 1
+  },
+  {
+    "id": "quiz-extracted-24",
+    "arabic": "ن ج م",
+    "transliteration": "n j m",
+    "meanings": [
+      "[Translation needed for: ن ج م]"
+    ],
+    "difficulty": "Intermediate",
+    "category": "Quranic Vocabulary",
+    "tags": [
+      "quiz-extracted",
+      "surah-86",
+      "quranic-vocabulary"
+    ],
+    "examples": [
+      {
+        "id": "example-24",
+        "surahNumber": 86,
+        "surahName": "Surah 86",
+        "ayahNumber": 1,
+        "arabicText": "ن ج م",
+        "translationText": "[Translation needed for: ن ج م]",
+        "wordLocation": {
+          "startIndex": 0,
+          "endIndex": 5
+        },
+        "hasAudio": false
+      }
+    ],
+    "hasAudio": false,
+    "frequency": 1
+  },
+  {
+    "id": "quiz-extracted-25",
+    "arabic": "ث ق ب",
+    "transliteration": "th q b",
+    "meanings": [
+      "[Translation needed for: ث ق ب]"
+    ],
+    "difficulty": "Intermediate",
+    "category": "Quranic Vocabulary",
+    "tags": [
+      "quiz-extracted",
+      "surah-86",
+      "quranic-vocabulary"
+    ],
+    "examples": [
+      {
+        "id": "example-25",
+        "surahNumber": 86,
+        "surahName": "Surah 86",
+        "ayahNumber": 1,
+        "arabicText": "ث ق ب",
+        "translationText": "[Translation needed for: ث ق ب]",
+        "wordLocation": {
+          "startIndex": 0,
+          "endIndex": 5
+        },
+        "hasAudio": false
+      }
+    ],
+    "hasAudio": false,
+    "frequency": 1
+  },
+  {
+    "id": "quiz-extracted-26",
+    "arabic": "إن كل نفس لما عليها حافظ",
+    "transliteration": "إn kl nfs lma 'lyha hafz",
+    "meanings": [
+      "[Translation needed for: إن كل نفس لما عليها حافظ]"
+    ],
+    "difficulty": "Advanced",
+    "category": "Quranic Vocabulary",
+    "tags": [
+      "quiz-extracted",
+      "surah-86",
+      "quranic-vocabulary"
+    ],
+    "examples": [
+      {
+        "id": "example-26",
+        "surahNumber": 86,
+        "surahName": "Surah 86",
+        "ayahNumber": 1,
+        "arabicText": "إن كل نفس لما عليها حافظ",
+        "translationText": "[Translation needed for: إن كل نفس لما عليها حافظ]",
+        "wordLocation": {
+          "startIndex": 0,
+          "endIndex": 24
+        },
+        "hasAudio": false
+      }
+    ],
+    "hasAudio": false,
+    "frequency": 1
+  },
+  {
+    "id": "quiz-extracted-27",
+    "arabic": "ن ف س",
+    "transliteration": "n f s",
+    "meanings": [
+      "[Translation needed for: ن ف س]"
+    ],
+    "difficulty": "Intermediate",
+    "category": "Quranic Vocabulary",
+    "tags": [
+      "quiz-extracted",
+      "surah-86",
+      "quranic-vocabulary"
+    ],
+    "examples": [
+      {
+        "id": "example-27",
+        "surahNumber": 86,
+        "surahName": "Surah 86",
+        "ayahNumber": 1,
+        "arabicText": "ن ف س",
+        "translationText": "[Translation needed for: ن ف س]",
+        "wordLocation": {
+          "startIndex": 0,
+          "endIndex": 5
+        },
+        "hasAudio": false
+      }
+    ],
+    "hasAudio": false,
+    "frequency": 1
+  },
+  {
+    "id": "quiz-extracted-28",
+    "arabic": "ح ف ظ",
+    "transliteration": "h f z",
+    "meanings": [
+      "[Translation needed for: ح ف ظ]"
+    ],
+    "difficulty": "Intermediate",
+    "category": "Quranic Vocabulary",
+    "tags": [
+      "quiz-extracted",
+      "surah-86",
+      "quranic-vocabulary"
+    ],
+    "examples": [
+      {
+        "id": "example-28",
+        "surahNumber": 86,
+        "surahName": "Surah 86",
+        "ayahNumber": 1,
+        "arabicText": "ح ف ظ",
+        "translationText": "[Translation needed for: ح ف ظ]",
+        "wordLocation": {
+          "startIndex": 0,
+          "endIndex": 5
+        },
+        "hasAudio": false
+      }
+    ],
+    "hasAudio": false,
+    "frequency": 1
+  },
+  {
+    "id": "quiz-extracted-29",
+    "arabic": "فلينظر الإنسان مم خلق",
+    "transliteration": "flynzr alإnsan mm khlq",
+    "meanings": [
+      "[Translation needed for: فلينظر الإنسان مم خلق]"
+    ],
+    "difficulty": "Advanced",
+    "category": "Quranic Vocabulary",
+    "tags": [
+      "quiz-extracted",
+      "surah-86",
+      "quranic-vocabulary"
+    ],
+    "examples": [
+      {
+        "id": "example-29",
+        "surahNumber": 86,
+        "surahName": "Surah 86",
+        "ayahNumber": 1,
+        "arabicText": "فلينظر الإنسان مم خلق",
+        "translationText": "[Translation needed for: فلينظر الإنسان مم خلق]",
+        "wordLocation": {
+          "startIndex": 0,
+          "endIndex": 21
+        },
+        "hasAudio": false
+      }
+    ],
+    "hasAudio": false,
+    "frequency": 1
+  },
+  {
+    "id": "quiz-extracted-30",
+    "arabic": "ن ظ ر",
+    "transliteration": "n z r",
+    "meanings": [
+      "[Translation needed for: ن ظ ر]"
+    ],
+    "difficulty": "Intermediate",
+    "category": "Quranic Vocabulary",
+    "tags": [
+      "quiz-extracted",
+      "surah-86",
+      "quranic-vocabulary"
+    ],
+    "examples": [
+      {
+        "id": "example-30",
+        "surahNumber": 86,
+        "surahName": "Surah 86",
+        "ayahNumber": 1,
+        "arabicText": "ن ظ ر",
+        "translationText": "[Translation needed for: ن ظ ر]",
+        "wordLocation": {
+          "startIndex": 0,
+          "endIndex": 5
+        },
+        "hasAudio": false
+      }
+    ],
+    "hasAudio": false,
+    "frequency": 1
+  },
+  {
+    "id": "quiz-extracted-31",
+    "arabic": "أ ن س",
+    "transliteration": "أ n s",
+    "meanings": [
+      "[Translation needed for: أ ن س]"
+    ],
+    "difficulty": "Intermediate",
+    "category": "Quranic Vocabulary",
+    "tags": [
+      "quiz-extracted",
+      "surah-86",
+      "quranic-vocabulary"
+    ],
+    "examples": [
+      {
+        "id": "example-31",
+        "surahNumber": 86,
+        "surahName": "Surah 86",
+        "ayahNumber": 1,
+        "arabicText": "أ ن س",
+        "translationText": "[Translation needed for: أ ن س]",
+        "wordLocation": {
+          "startIndex": 0,
+          "endIndex": 5
+        },
+        "hasAudio": false
+      }
+    ],
+    "hasAudio": false,
+    "frequency": 1
+  },
+  {
+    "id": "quiz-extracted-32",
+    "arabic": "خ ل ق",
+    "transliteration": "kh l q",
+    "meanings": [
+      "[Translation needed for: خ ل ق]"
+    ],
+    "difficulty": "Intermediate",
+    "category": "Quranic Vocabulary",
+    "tags": [
+      "quiz-extracted",
+      "surah-86",
+      "quranic-vocabulary"
+    ],
+    "examples": [
+      {
+        "id": "example-32",
+        "surahNumber": 86,
+        "surahName": "Surah 86",
+        "ayahNumber": 1,
+        "arabicText": "خ ل ق",
+        "translationText": "[Translation needed for: خ ل ق]",
+        "wordLocation": {
+          "startIndex": 0,
+          "endIndex": 5
+        },
+        "hasAudio": false
+      }
+    ],
+    "hasAudio": false,
+    "frequency": 1
+  },
+  {
+    "id": "quiz-extracted-33",
+    "arabic": "خلق من ماء دافق",
+    "transliteration": "khlq mn ma' dafq",
+    "meanings": [
+      "[Translation needed for: خلق من ماء دافق]"
+    ],
+    "difficulty": "Advanced",
+    "category": "Quranic Vocabulary",
+    "tags": [
+      "quiz-extracted",
+      "surah-86",
+      "quranic-vocabulary"
+    ],
+    "examples": [
+      {
+        "id": "example-33",
+        "surahNumber": 86,
+        "surahName": "Surah 86",
+        "ayahNumber": 1,
+        "arabicText": "خلق من ماء دافق",
+        "translationText": "[Translation needed for: خلق من ماء دافق]",
+        "wordLocation": {
+          "startIndex": 0,
+          "endIndex": 15
+        },
+        "hasAudio": false
+      }
+    ],
+    "hasAudio": false,
+    "frequency": 1
+  },
+  {
+    "id": "quiz-extracted-34",
+    "arabic": "م و ء",
+    "transliteration": "m w '",
+    "meanings": [
+      "[Translation needed for: م و ء]"
+    ],
+    "difficulty": "Intermediate",
+    "category": "Quranic Vocabulary",
+    "tags": [
+      "quiz-extracted",
+      "surah-86",
+      "quranic-vocabulary"
+    ],
+    "examples": [
+      {
+        "id": "example-34",
+        "surahNumber": 86,
+        "surahName": "Surah 86",
+        "ayahNumber": 1,
+        "arabicText": "م و ء",
+        "translationText": "[Translation needed for: م و ء]",
+        "wordLocation": {
+          "startIndex": 0,
+          "endIndex": 5
+        },
+        "hasAudio": false
+      }
+    ],
+    "hasAudio": false,
+    "frequency": 1
+  },
+  {
+    "id": "quiz-extracted-35",
+    "arabic": "د ف ق",
+    "transliteration": "d f q",
+    "meanings": [
+      "[Translation needed for: د ف ق]"
+    ],
+    "difficulty": "Intermediate",
+    "category": "Quranic Vocabulary",
+    "tags": [
+      "quiz-extracted",
+      "surah-86",
+      "quranic-vocabulary"
+    ],
+    "examples": [
+      {
+        "id": "example-35",
+        "surahNumber": 86,
+        "surahName": "Surah 86",
+        "ayahNumber": 1,
+        "arabicText": "د ف ق",
+        "translationText": "[Translation needed for: د ف ق]",
+        "wordLocation": {
+          "startIndex": 0,
+          "endIndex": 5
+        },
+        "hasAudio": false
+      }
+    ],
+    "hasAudio": false,
+    "frequency": 1
+  },
+  {
+    "id": "quiz-extracted-36",
+    "arabic": "يخۡرج منۢ بيۡن ٱلصلۡب وٱلترآئب",
+    "transliteration": "ykhۡrj mnۢ byۡn ٱlslۡb wٱltraٓئb",
+    "meanings": [
+      "[Translation needed for: يخۡرج منۢ بيۡن ٱلصلۡب وٱلترآئب]"
+    ],
+    "difficulty": "Advanced",
+    "category": "Prayer & Worship",
+    "tags": [
+      "quiz-extracted",
+      "surah-86",
+      "prayer-&-worship"
+    ],
+    "examples": [
+      {
+        "id": "example-36",
+        "surahNumber": 86,
+        "surahName": "Surah 86",
+        "ayahNumber": 1,
+        "arabicText": "يخۡرج منۢ بيۡن ٱلصلۡب وٱلترآئب",
+        "translationText": "[Translation needed for: يخۡرج منۢ بيۡن ٱلصلۡب وٱلترآئب]",
+        "wordLocation": {
+          "startIndex": 0,
+          "endIndex": 31
+        },
+        "hasAudio": false
+      }
+    ],
+    "hasAudio": false,
+    "frequency": 1
+  },
+  {
+    "id": "quiz-extracted-37",
+    "arabic": "أ ت ي",
+    "transliteration": "أ t y",
+    "meanings": [
+      "[Translation needed for: أ ت ي]"
+    ],
+    "difficulty": "Intermediate",
+    "category": "Quranic Vocabulary",
+    "tags": [
+      "quiz-extracted",
+      "surah-86",
+      "quranic-vocabulary"
+    ],
+    "examples": [
+      {
+        "id": "example-37",
+        "surahNumber": 86,
+        "surahName": "Surah 86",
+        "ayahNumber": 1,
+        "arabicText": "أ ت ي",
+        "translationText": "[Translation needed for: أ ت ي]",
+        "wordLocation": {
+          "startIndex": 0,
+          "endIndex": 5
+        },
+        "hasAudio": false
+      }
+    ],
+    "hasAudio": false,
+    "frequency": 1
+  },
+  {
+    "id": "quiz-extracted-38",
+    "arabic": "ص ل ب",
+    "transliteration": "s l b",
+    "meanings": [
+      "[Translation needed for: ص ل ب]"
+    ],
+    "difficulty": "Intermediate",
+    "category": "Quranic Vocabulary",
+    "tags": [
+      "quiz-extracted",
+      "surah-86",
+      "quranic-vocabulary"
+    ],
+    "examples": [
+      {
+        "id": "example-38",
+        "surahNumber": 86,
+        "surahName": "Surah 86",
+        "ayahNumber": 1,
+        "arabicText": "ص ل ب",
+        "translationText": "[Translation needed for: ص ل ب]",
+        "wordLocation": {
+          "startIndex": 0,
+          "endIndex": 5
+        },
+        "hasAudio": false
+      }
+    ],
+    "hasAudio": false,
+    "frequency": 1
+  },
+  {
+    "id": "quiz-extracted-39",
+    "arabic": "ر ء ب",
+    "transliteration": "r ' b",
+    "meanings": [
+      "[Translation needed for: ر ء ب]"
+    ],
+    "difficulty": "Intermediate",
+    "category": "Quranic Vocabulary",
+    "tags": [
+      "quiz-extracted",
+      "surah-86",
+      "quranic-vocabulary"
+    ],
+    "examples": [
+      {
+        "id": "example-39",
+        "surahNumber": 86,
+        "surahName": "Surah 86",
+        "ayahNumber": 1,
+        "arabicText": "ر ء ب",
+        "translationText": "[Translation needed for: ر ء ب]",
+        "wordLocation": {
+          "startIndex": 0,
+          "endIndex": 5
+        },
+        "hasAudio": false
+      }
+    ],
+    "hasAudio": false,
+    "frequency": 1
+  },
+  {
+    "id": "quiz-extracted-40",
+    "arabic": "إنه على رجعه لقادر",
+    "transliteration": "إnh 'la rj'h lqadr",
+    "meanings": [
+      "[Translation needed for: إنه على رجعه لقادر]"
+    ],
+    "difficulty": "Advanced",
+    "category": "Quranic Vocabulary",
+    "tags": [
+      "quiz-extracted",
+      "surah-86",
+      "quranic-vocabulary"
+    ],
+    "examples": [
+      {
+        "id": "example-40",
+        "surahNumber": 86,
+        "surahName": "Surah 86",
+        "ayahNumber": 1,
+        "arabicText": "إنه على رجعه لقادر",
+        "translationText": "[Translation needed for: إنه على رجعه لقادر]",
+        "wordLocation": {
+          "startIndex": 0,
+          "endIndex": 18
+        },
+        "hasAudio": false
+      }
+    ],
+    "hasAudio": false,
+    "frequency": 1
+  },
+  {
+    "id": "quiz-extracted-41",
+    "arabic": "ر ج ع",
+    "transliteration": "r j '",
+    "meanings": [
+      "[Translation needed for: ر ج ع]"
+    ],
+    "difficulty": "Intermediate",
+    "category": "Quranic Vocabulary",
+    "tags": [
+      "quiz-extracted",
+      "surah-86",
+      "quranic-vocabulary"
+    ],
+    "examples": [
+      {
+        "id": "example-41",
+        "surahNumber": 86,
+        "surahName": "Surah 86",
+        "ayahNumber": 1,
+        "arabicText": "ر ج ع",
+        "translationText": "[Translation needed for: ر ج ع]",
+        "wordLocation": {
+          "startIndex": 0,
+          "endIndex": 5
+        },
+        "hasAudio": false
+      }
+    ],
+    "hasAudio": false,
+    "frequency": 1
+  },
+  {
+    "id": "quiz-extracted-42",
+    "arabic": "ق د ر",
+    "transliteration": "q d r",
+    "meanings": [
+      "[Translation needed for: ق د ر]"
+    ],
+    "difficulty": "Intermediate",
+    "category": "Quranic Vocabulary",
+    "tags": [
+      "quiz-extracted",
+      "surah-86",
+      "quranic-vocabulary"
+    ],
+    "examples": [
+      {
+        "id": "example-42",
+        "surahNumber": 86,
+        "surahName": "Surah 86",
+        "ayahNumber": 1,
+        "arabicText": "ق د ر",
+        "translationText": "[Translation needed for: ق د ر]",
+        "wordLocation": {
+          "startIndex": 0,
+          "endIndex": 5
+        },
+        "hasAudio": false
+      }
+    ],
+    "hasAudio": false,
+    "frequency": 1
+  },
+  {
+    "id": "quiz-extracted-43",
+    "arabic": "يوم تبلى السرائر",
+    "transliteration": "ywm tbla alsraئr",
+    "meanings": [
+      "[Translation needed for: يوم تبلى السرائر]"
+    ],
+    "difficulty": "Advanced",
+    "category": "Afterlife",
+    "tags": [
+      "quiz-extracted",
+      "surah-86",
+      "afterlife"
+    ],
+    "examples": [
+      {
+        "id": "example-43",
+        "surahNumber": 86,
+        "surahName": "Surah 86",
+        "ayahNumber": 1,
+        "arabicText": "يوم تبلى السرائر",
+        "translationText": "[Translation needed for: يوم تبلى السرائر]",
+        "wordLocation": {
+          "startIndex": 0,
+          "endIndex": 16
+        },
+        "hasAudio": false
+      }
+    ],
+    "hasAudio": false,
+    "frequency": 1
+  },
+  {
+    "id": "quiz-extracted-44",
+    "arabic": "ي و م",
+    "transliteration": "y w m",
+    "meanings": [
+      "[Translation needed for: ي و م]"
+    ],
+    "difficulty": "Intermediate",
+    "category": "Quranic Vocabulary",
+    "tags": [
+      "quiz-extracted",
+      "surah-86",
+      "quranic-vocabulary"
+    ],
+    "examples": [
+      {
+        "id": "example-44",
+        "surahNumber": 86,
+        "surahName": "Surah 86",
+        "ayahNumber": 1,
+        "arabicText": "ي و م",
+        "translationText": "[Translation needed for: ي و م]",
+        "wordLocation": {
+          "startIndex": 0,
+          "endIndex": 5
+        },
+        "hasAudio": false
+      }
+    ],
+    "hasAudio": false,
+    "frequency": 1
+  },
+  {
+    "id": "quiz-extracted-45",
+    "arabic": "ب ل و",
+    "transliteration": "b l w",
+    "meanings": [
+      "[Translation needed for: ب ل و]"
+    ],
+    "difficulty": "Intermediate",
+    "category": "Quranic Vocabulary",
+    "tags": [
+      "quiz-extracted",
+      "surah-86",
+      "quranic-vocabulary"
+    ],
+    "examples": [
+      {
+        "id": "example-45",
+        "surahNumber": 86,
+        "surahName": "Surah 86",
+        "ayahNumber": 1,
+        "arabicText": "ب ل و",
+        "translationText": "[Translation needed for: ب ل و]",
+        "wordLocation": {
+          "startIndex": 0,
+          "endIndex": 5
+        },
+        "hasAudio": false
+      }
+    ],
+    "hasAudio": false,
+    "frequency": 1
+  },
+  {
+    "id": "quiz-extracted-46",
+    "arabic": "س ر ر",
+    "transliteration": "s r r",
+    "meanings": [
+      "[Translation needed for: س ر ر]"
+    ],
+    "difficulty": "Intermediate",
+    "category": "Quranic Vocabulary",
+    "tags": [
+      "quiz-extracted",
+      "surah-86",
+      "quranic-vocabulary"
+    ],
+    "examples": [
+      {
+        "id": "example-46",
+        "surahNumber": 86,
+        "surahName": "Surah 86",
+        "ayahNumber": 1,
+        "arabicText": "س ر ر",
+        "translationText": "[Translation needed for: س ر ر]",
+        "wordLocation": {
+          "startIndex": 0,
+          "endIndex": 5
+        },
+        "hasAudio": false
+      }
+    ],
+    "hasAudio": false,
+    "frequency": 1
+  },
+  {
+    "id": "quiz-extracted-47",
+    "arabic": "فما له من قوة ولا ناصر",
+    "transliteration": "fma lh mn qwh wla nasr",
+    "meanings": [
+      "[Translation needed for: فما له من قوة ولا ناصر]"
+    ],
+    "difficulty": "Advanced",
+    "category": "Quranic Vocabulary",
+    "tags": [
+      "quiz-extracted",
+      "surah-86",
+      "quranic-vocabulary"
+    ],
+    "examples": [
+      {
+        "id": "example-47",
+        "surahNumber": 86,
+        "surahName": "Surah 86",
+        "ayahNumber": 1,
+        "arabicText": "فما له من قوة ولا ناصر",
+        "translationText": "[Translation needed for: فما له من قوة ولا ناصر]",
+        "wordLocation": {
+          "startIndex": 0,
+          "endIndex": 22
+        },
+        "hasAudio": false
+      }
+    ],
+    "hasAudio": false,
+    "frequency": 1
+  },
+  {
+    "id": "quiz-extracted-48",
+    "arabic": "ق و ء",
+    "transliteration": "q w '",
+    "meanings": [
+      "[Translation needed for: ق و ء]"
+    ],
+    "difficulty": "Intermediate",
+    "category": "Quranic Vocabulary",
+    "tags": [
+      "quiz-extracted",
+      "surah-86",
+      "quranic-vocabulary"
+    ],
+    "examples": [
+      {
+        "id": "example-48",
+        "surahNumber": 86,
+        "surahName": "Surah 86",
+        "ayahNumber": 1,
+        "arabicText": "ق و ء",
+        "translationText": "[Translation needed for: ق و ء]",
+        "wordLocation": {
+          "startIndex": 0,
+          "endIndex": 5
+        },
+        "hasAudio": false
+      }
+    ],
+    "hasAudio": false,
+    "frequency": 1
+  },
+  {
+    "id": "quiz-extracted-49",
+    "arabic": "ن ص ر",
+    "transliteration": "n s r",
+    "meanings": [
+      "[Translation needed for: ن ص ر]"
+    ],
+    "difficulty": "Intermediate",
+    "category": "Quranic Vocabulary",
+    "tags": [
+      "quiz-extracted",
+      "surah-86",
+      "quranic-vocabulary"
+    ],
+    "examples": [
+      {
+        "id": "example-49",
+        "surahNumber": 86,
+        "surahName": "Surah 86",
+        "ayahNumber": 1,
+        "arabicText": "ن ص ر",
+        "translationText": "[Translation needed for: ن ص ر]",
+        "wordLocation": {
+          "startIndex": 0,
+          "endIndex": 5
+        },
+        "hasAudio": false
+      }
+    ],
+    "hasAudio": false,
+    "frequency": 1
+  },
+  {
+    "id": "quiz-extracted-50",
+    "arabic": "إنهم يكيدون كيدا",
+    "transliteration": "إnhm ykydwn kyda",
+    "meanings": [
+      "[Translation needed for: إنهم يكيدون كيدا]"
+    ],
+    "difficulty": "Advanced",
+    "category": "Quranic Vocabulary",
+    "tags": [
+      "quiz-extracted",
+      "surah-86",
+      "quranic-vocabulary"
+    ],
+    "examples": [
+      {
+        "id": "example-50",
+        "surahNumber": 86,
+        "surahName": "Surah 86",
+        "ayahNumber": 1,
+        "arabicText": "إنهم يكيدون كيدا",
+        "translationText": "[Translation needed for: إنهم يكيدون كيدا]",
+        "wordLocation": {
+          "startIndex": 0,
+          "endIndex": 16
+        },
+        "hasAudio": false
+      }
+    ],
+    "hasAudio": false,
+    "frequency": 1
+  },
+  {
+    "id": "quiz-extracted-51",
+    "arabic": "ك ي د",
+    "transliteration": "k y d",
+    "meanings": [
+      "[Translation needed for: ك ي د]"
+    ],
+    "difficulty": "Intermediate",
+    "category": "Quranic Vocabulary",
+    "tags": [
+      "quiz-extracted",
+      "surah-86",
+      "quranic-vocabulary"
+    ],
+    "examples": [
+      {
+        "id": "example-51",
+        "surahNumber": 86,
+        "surahName": "Surah 86",
+        "ayahNumber": 1,
+        "arabicText": "ك ي د",
+        "translationText": "[Translation needed for: ك ي د]",
+        "wordLocation": {
+          "startIndex": 0,
+          "endIndex": 5
+        },
+        "hasAudio": false
+      }
+    ],
+    "hasAudio": false,
+    "frequency": 1
+  },
+  {
+    "id": "quiz-extracted-52",
+    "arabic": "إنهۥ لقوۡلٞ فصۡلٞ",
+    "transliteration": "إnhۥ lqwۡlٞ fsۡlٞ",
+    "meanings": [
+      "[Translation needed for: إنهۥ لقوۡلٞ فصۡلٞ]"
+    ],
+    "difficulty": "Advanced",
+    "category": "Quranic Vocabulary",
+    "tags": [
+      "quiz-extracted",
+      "surah-86",
+      "quranic-vocabulary"
+    ],
+    "examples": [
+      {
+        "id": "example-52",
+        "surahNumber": 86,
+        "surahName": "Surah 86",
+        "ayahNumber": 1,
+        "arabicText": "إنهۥ لقوۡلٞ فصۡلٞ",
+        "translationText": "[Translation needed for: إنهۥ لقوۡلٞ فصۡلٞ]",
+        "wordLocation": {
+          "startIndex": 0,
+          "endIndex": 17
+        },
+        "hasAudio": false
+      }
+    ],
+    "hasAudio": false,
+    "frequency": 1
+  },
+  {
+    "id": "quiz-extracted-53",
+    "arabic": "ك ت ب",
+    "transliteration": "k t b",
+    "meanings": [
+      "[Translation needed for: ك ت ب]"
+    ],
+    "difficulty": "Intermediate",
+    "category": "Quranic Vocabulary",
+    "tags": [
+      "quiz-extracted",
+      "surah-86",
+      "quranic-vocabulary"
+    ],
+    "examples": [
+      {
+        "id": "example-53",
+        "surahNumber": 86,
+        "surahName": "Surah 86",
+        "ayahNumber": 1,
+        "arabicText": "ك ت ب",
+        "translationText": "[Translation needed for: ك ت ب]",
+        "wordLocation": {
+          "startIndex": 0,
+          "endIndex": 5
+        },
+        "hasAudio": false
+      }
+    ],
+    "hasAudio": false,
+    "frequency": 1
+  },
+  {
+    "id": "quiz-extracted-54",
+    "arabic": "ر ق م",
+    "transliteration": "r q m",
+    "meanings": [
+      "[Translation needed for: ر ق م]"
+    ],
+    "difficulty": "Intermediate",
+    "category": "Quranic Vocabulary",
+    "tags": [
+      "quiz-extracted",
+      "surah-86",
+      "quranic-vocabulary"
+    ],
+    "examples": [
+      {
+        "id": "example-54",
+        "surahNumber": 86,
+        "surahName": "Surah 86",
+        "ayahNumber": 1,
+        "arabicText": "ر ق م",
+        "translationText": "[Translation needed for: ر ق م]",
+        "wordLocation": {
+          "startIndex": 0,
+          "endIndex": 5
+        },
+        "hasAudio": false
+      }
+    ],
+    "hasAudio": false,
+    "frequency": 1
+  },
+  {
+    "id": "quiz-extracted-55",
     "arabic": "الأعلى",
     "transliteration": "alأ'la",
     "meanings": [
@@ -597,7 +1749,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-19",
+        "id": "example-55",
         "surahNumber": 87,
         "surahName": "Surah 87",
         "ayahNumber": 1,
@@ -614,7 +1766,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-20",
+    "id": "quiz-extracted-56",
     "arabic": "ع ل و",
     "transliteration": "' l w",
     "meanings": [
@@ -629,7 +1781,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-20",
+        "id": "example-56",
         "surahNumber": 87,
         "surahName": "Surah 87",
         "ayahNumber": 1,
@@ -646,7 +1798,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-21",
+    "id": "quiz-extracted-57",
     "arabic": "سبح اسم ربك الأعلى",
     "transliteration": "sbh asm rbk alأ'la",
     "meanings": [
@@ -661,7 +1813,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-21",
+        "id": "example-57",
         "surahNumber": 87,
         "surahName": "Surah 87",
         "ayahNumber": 1,
@@ -678,7 +1830,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-22",
+    "id": "quiz-extracted-58",
     "arabic": "س ب ح",
     "transliteration": "s b h",
     "meanings": [
@@ -693,7 +1845,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-22",
+        "id": "example-58",
         "surahNumber": 87,
         "surahName": "Surah 87",
         "ayahNumber": 1,
@@ -710,7 +1862,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-23",
+    "id": "quiz-extracted-59",
     "arabic": "ر ب ب",
     "transliteration": "r b b",
     "meanings": [
@@ -725,7 +1877,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-23",
+        "id": "example-59",
         "surahNumber": 87,
         "surahName": "Surah 87",
         "ayahNumber": 1,
@@ -742,7 +1894,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-24",
+    "id": "quiz-extracted-60",
     "arabic": "الذي خلق فسوى",
     "transliteration": "aldhy khlq fswa",
     "meanings": [
@@ -757,7 +1909,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-24",
+        "id": "example-60",
         "surahNumber": 87,
         "surahName": "Surah 87",
         "ayahNumber": 1,
@@ -774,39 +1926,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-25",
-    "arabic": "خ ل ق",
-    "transliteration": "kh l q",
-    "meanings": [
-      "[Translation needed for: خ ل ق]"
-    ],
-    "difficulty": "Intermediate",
-    "category": "Quranic Vocabulary",
-    "tags": [
-      "quiz-extracted",
-      "surah-87",
-      "quranic-vocabulary"
-    ],
-    "examples": [
-      {
-        "id": "example-25",
-        "surahNumber": 87,
-        "surahName": "Surah 87",
-        "ayahNumber": 1,
-        "arabicText": "خ ل ق",
-        "translationText": "[Translation needed for: خ ل ق]",
-        "wordLocation": {
-          "startIndex": 0,
-          "endIndex": 5
-        },
-        "hasAudio": false
-      }
-    ],
-    "hasAudio": false,
-    "frequency": 1
-  },
-  {
-    "id": "quiz-extracted-26",
+    "id": "quiz-extracted-61",
     "arabic": "س و ي",
     "transliteration": "s w y",
     "meanings": [
@@ -821,7 +1941,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-26",
+        "id": "example-61",
         "surahNumber": 87,
         "surahName": "Surah 87",
         "ayahNumber": 1,
@@ -838,7 +1958,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-27",
+    "id": "quiz-extracted-62",
     "arabic": "والذي قدر فهدى",
     "transliteration": "waldhy qdr fhda",
     "meanings": [
@@ -853,7 +1973,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-27",
+        "id": "example-62",
         "surahNumber": 87,
         "surahName": "Surah 87",
         "ayahNumber": 1,
@@ -870,39 +1990,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-28",
-    "arabic": "ق د ر",
-    "transliteration": "q d r",
-    "meanings": [
-      "[Translation needed for: ق د ر]"
-    ],
-    "difficulty": "Intermediate",
-    "category": "Quranic Vocabulary",
-    "tags": [
-      "quiz-extracted",
-      "surah-87",
-      "quranic-vocabulary"
-    ],
-    "examples": [
-      {
-        "id": "example-28",
-        "surahNumber": 87,
-        "surahName": "Surah 87",
-        "ayahNumber": 1,
-        "arabicText": "ق د ر",
-        "translationText": "[Translation needed for: ق د ر]",
-        "wordLocation": {
-          "startIndex": 0,
-          "endIndex": 5
-        },
-        "hasAudio": false
-      }
-    ],
-    "hasAudio": false,
-    "frequency": 1
-  },
-  {
-    "id": "quiz-extracted-29",
+    "id": "quiz-extracted-63",
     "arabic": "فجعله غثاء أحوى",
     "transliteration": "fj'lh ghtha' أhwa",
     "meanings": [
@@ -917,7 +2005,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-29",
+        "id": "example-63",
         "surahNumber": 87,
         "surahName": "Surah 87",
         "ayahNumber": 1,
@@ -934,7 +2022,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-30",
+    "id": "quiz-extracted-64",
     "arabic": "ج ع ل",
     "transliteration": "j ' l",
     "meanings": [
@@ -949,7 +2037,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-30",
+        "id": "example-64",
         "surahNumber": 87,
         "surahName": "Surah 87",
         "ayahNumber": 1,
@@ -966,7 +2054,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-31",
+    "id": "quiz-extracted-65",
     "arabic": "غ ث و",
     "transliteration": "gh th w",
     "meanings": [
@@ -981,7 +2069,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-31",
+        "id": "example-65",
         "surahNumber": 87,
         "surahName": "Surah 87",
         "ayahNumber": 1,
@@ -998,7 +2086,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-32",
+    "id": "quiz-extracted-66",
     "arabic": "ح و ي",
     "transliteration": "h w y",
     "meanings": [
@@ -1013,7 +2101,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-32",
+        "id": "example-66",
         "surahNumber": 87,
         "surahName": "Surah 87",
         "ayahNumber": 1,
@@ -1030,7 +2118,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-33",
+    "id": "quiz-extracted-67",
     "arabic": "سنقرئك فلا تنسى",
     "transliteration": "snqrئk fla tnsa",
     "meanings": [
@@ -1045,7 +2133,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-33",
+        "id": "example-67",
         "surahNumber": 87,
         "surahName": "Surah 87",
         "ayahNumber": 1,
@@ -1062,7 +2150,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-34",
+    "id": "quiz-extracted-68",
     "arabic": "ق ر ء",
     "transliteration": "q r '",
     "meanings": [
@@ -1077,7 +2165,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-34",
+        "id": "example-68",
         "surahNumber": 87,
         "surahName": "Surah 87",
         "ayahNumber": 1,
@@ -1094,7 +2182,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-35",
+    "id": "quiz-extracted-69",
     "arabic": "ن س ي",
     "transliteration": "n s y",
     "meanings": [
@@ -1109,7 +2197,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-35",
+        "id": "example-69",
         "surahNumber": 87,
         "surahName": "Surah 87",
         "ayahNumber": 1,
@@ -1126,7 +2214,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-36",
+    "id": "quiz-extracted-70",
     "arabic": "إلا ما شاء الله إنه يعلم الجهر وما يخفى",
     "transliteration": "إla ma sha' allh إnh y'lm aljhr wma ykhfa",
     "meanings": [
@@ -1141,7 +2229,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-36",
+        "id": "example-70",
         "surahNumber": 87,
         "surahName": "Surah 87",
         "ayahNumber": 1,
@@ -1158,7 +2246,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-37",
+    "id": "quiz-extracted-71",
     "arabic": "ش ي ء",
     "transliteration": "sh y '",
     "meanings": [
@@ -1173,7 +2261,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-37",
+        "id": "example-71",
         "surahNumber": 87,
         "surahName": "Surah 87",
         "ayahNumber": 1,
@@ -1190,7 +2278,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-38",
+    "id": "quiz-extracted-72",
     "arabic": "ع ل م",
     "transliteration": "' l m",
     "meanings": [
@@ -1205,7 +2293,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-38",
+        "id": "example-72",
         "surahNumber": 87,
         "surahName": "Surah 87",
         "ayahNumber": 1,
@@ -1222,7 +2310,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-39",
+    "id": "quiz-extracted-73",
     "arabic": "ج ه ر",
     "transliteration": "j h r",
     "meanings": [
@@ -1237,7 +2325,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-39",
+        "id": "example-73",
         "surahNumber": 87,
         "surahName": "Surah 87",
         "ayahNumber": 1,
@@ -1254,7 +2342,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-40",
+    "id": "quiz-extracted-74",
     "arabic": "خ ف ي",
     "transliteration": "kh f y",
     "meanings": [
@@ -1269,7 +2357,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-40",
+        "id": "example-74",
         "surahNumber": 87,
         "surahName": "Surah 87",
         "ayahNumber": 1,
@@ -1286,7 +2374,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-41",
+    "id": "quiz-extracted-75",
     "arabic": "ونيسرك لليسرى",
     "transliteration": "wnysrk llysra",
     "meanings": [
@@ -1301,7 +2389,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-41",
+        "id": "example-75",
         "surahNumber": 87,
         "surahName": "Surah 87",
         "ayahNumber": 1,
@@ -1318,7 +2406,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-42",
+    "id": "quiz-extracted-76",
     "arabic": "ي س ر",
     "transliteration": "y s r",
     "meanings": [
@@ -1333,7 +2421,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-42",
+        "id": "example-76",
         "surahNumber": 87,
         "surahName": "Surah 87",
         "ayahNumber": 1,
@@ -1350,7 +2438,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-43",
+    "id": "quiz-extracted-77",
     "arabic": "فذكر إن نفعت الذكرى",
     "transliteration": "fdhkr إn nf't aldhkra",
     "meanings": [
@@ -1365,7 +2453,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-43",
+        "id": "example-77",
         "surahNumber": 87,
         "surahName": "Surah 87",
         "ayahNumber": 1,
@@ -1382,7 +2470,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-44",
+    "id": "quiz-extracted-78",
     "arabic": "ذ ك ر",
     "transliteration": "dh k r",
     "meanings": [
@@ -1397,7 +2485,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-44",
+        "id": "example-78",
         "surahNumber": 87,
         "surahName": "Surah 87",
         "ayahNumber": 1,
@@ -1414,7 +2502,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-45",
+    "id": "quiz-extracted-79",
     "arabic": "ن ف ع",
     "transliteration": "n f '",
     "meanings": [
@@ -1429,7 +2517,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-45",
+        "id": "example-79",
         "surahNumber": 87,
         "surahName": "Surah 87",
         "ayahNumber": 1,
@@ -1446,7 +2534,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-46",
+    "id": "quiz-extracted-80",
     "arabic": "سيذكر من يخشى",
     "transliteration": "sydhkr mn ykhsha",
     "meanings": [
@@ -1461,7 +2549,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-46",
+        "id": "example-80",
         "surahNumber": 87,
         "surahName": "Surah 87",
         "ayahNumber": 1,
@@ -1478,7 +2566,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-47",
+    "id": "quiz-extracted-81",
     "arabic": "خ ش ي",
     "transliteration": "kh sh y",
     "meanings": [
@@ -1493,7 +2581,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-47",
+        "id": "example-81",
         "surahNumber": 87,
         "surahName": "Surah 87",
         "ayahNumber": 1,
@@ -1510,7 +2598,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-48",
+    "id": "quiz-extracted-82",
     "arabic": "قد أفلح من تزكى",
     "transliteration": "qd أflh mn tzka",
     "meanings": [
@@ -1525,7 +2613,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-48",
+        "id": "example-82",
         "surahNumber": 87,
         "surahName": "Surah 87",
         "ayahNumber": 1,
@@ -1542,7 +2630,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-49",
+    "id": "quiz-extracted-83",
     "arabic": "ف ل ح",
     "transliteration": "f l h",
     "meanings": [
@@ -1557,7 +2645,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-49",
+        "id": "example-83",
         "surahNumber": 87,
         "surahName": "Surah 87",
         "ayahNumber": 1,
@@ -1574,7 +2662,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-50",
+    "id": "quiz-extracted-84",
     "arabic": "ز ك و",
     "transliteration": "z k w",
     "meanings": [
@@ -1589,7 +2677,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-50",
+        "id": "example-84",
         "surahNumber": 87,
         "surahName": "Surah 87",
         "ayahNumber": 1,
@@ -1606,7 +2694,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-51",
+    "id": "quiz-extracted-85",
     "arabic": "وذكر اسم ربه فصلى",
     "transliteration": "wdhkr asm rbh fsla",
     "meanings": [
@@ -1621,7 +2709,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-51",
+        "id": "example-85",
         "surahNumber": 87,
         "surahName": "Surah 87",
         "ayahNumber": 1,
@@ -1638,7 +2726,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-52",
+    "id": "quiz-extracted-86",
     "arabic": "ص ل و",
     "transliteration": "s l w",
     "meanings": [
@@ -1653,7 +2741,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-52",
+        "id": "example-86",
         "surahNumber": 87,
         "surahName": "Surah 87",
         "ayahNumber": 1,
@@ -1670,7 +2758,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-53",
+    "id": "quiz-extracted-87",
     "arabic": "الغاشية",
     "transliteration": "alghashyh",
     "meanings": [
@@ -1685,7 +2773,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-53",
+        "id": "example-87",
         "surahNumber": 88,
         "surahName": "Surah 88",
         "ayahNumber": 1,
@@ -1702,7 +2790,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-54",
+    "id": "quiz-extracted-88",
     "arabic": "غ ش و",
     "transliteration": "gh sh w",
     "meanings": [
@@ -1717,7 +2805,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-54",
+        "id": "example-88",
         "surahNumber": 88,
         "surahName": "Surah 88",
         "ayahNumber": 1,
@@ -1734,7 +2822,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-55",
+    "id": "quiz-extracted-89",
     "arabic": "هل أتاك حديث الغاشية",
     "transliteration": "hl أtak hdyth alghashyh",
     "meanings": [
@@ -1749,7 +2837,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-55",
+        "id": "example-89",
         "surahNumber": 88,
         "surahName": "Surah 88",
         "ayahNumber": 1,
@@ -1766,39 +2854,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-56",
-    "arabic": "أ ت ي",
-    "transliteration": "أ t y",
-    "meanings": [
-      "[Translation needed for: أ ت ي]"
-    ],
-    "difficulty": "Intermediate",
-    "category": "Quranic Vocabulary",
-    "tags": [
-      "quiz-extracted",
-      "surah-88",
-      "quranic-vocabulary"
-    ],
-    "examples": [
-      {
-        "id": "example-56",
-        "surahNumber": 88,
-        "surahName": "Surah 88",
-        "ayahNumber": 1,
-        "arabicText": "أ ت ي",
-        "translationText": "[Translation needed for: أ ت ي]",
-        "wordLocation": {
-          "startIndex": 0,
-          "endIndex": 5
-        },
-        "hasAudio": false
-      }
-    ],
-    "hasAudio": false,
-    "frequency": 1
-  },
-  {
-    "id": "quiz-extracted-57",
+    "id": "quiz-extracted-90",
     "arabic": "ح د ث",
     "transliteration": "h d th",
     "meanings": [
@@ -1813,7 +2869,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-57",
+        "id": "example-90",
         "surahNumber": 88,
         "surahName": "Surah 88",
         "ayahNumber": 1,
@@ -1830,7 +2886,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-58",
+    "id": "quiz-extracted-91",
     "arabic": "وجوه يومئذ خاشعة",
     "transliteration": "wjwh ywmئdh khash'h",
     "meanings": [
@@ -1845,7 +2901,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-58",
+        "id": "example-91",
         "surahNumber": 88,
         "surahName": "Surah 88",
         "ayahNumber": 1,
@@ -1862,7 +2918,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-59",
+    "id": "quiz-extracted-92",
     "arabic": "و ج ه",
     "transliteration": "w j h",
     "meanings": [
@@ -1877,7 +2933,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-59",
+        "id": "example-92",
         "surahNumber": 88,
         "surahName": "Surah 88",
         "ayahNumber": 1,
@@ -1894,39 +2950,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-60",
-    "arabic": "ي و م",
-    "transliteration": "y w m",
-    "meanings": [
-      "[Translation needed for: ي و م]"
-    ],
-    "difficulty": "Intermediate",
-    "category": "Quranic Vocabulary",
-    "tags": [
-      "quiz-extracted",
-      "surah-88",
-      "quranic-vocabulary"
-    ],
-    "examples": [
-      {
-        "id": "example-60",
-        "surahNumber": 88,
-        "surahName": "Surah 88",
-        "ayahNumber": 1,
-        "arabicText": "ي و م",
-        "translationText": "[Translation needed for: ي و م]",
-        "wordLocation": {
-          "startIndex": 0,
-          "endIndex": 5
-        },
-        "hasAudio": false
-      }
-    ],
-    "hasAudio": false,
-    "frequency": 1
-  },
-  {
-    "id": "quiz-extracted-61",
+    "id": "quiz-extracted-93",
     "arabic": "خ ش ع",
     "transliteration": "kh sh '",
     "meanings": [
@@ -1941,7 +2965,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-61",
+        "id": "example-93",
         "surahNumber": 88,
         "surahName": "Surah 88",
         "ayahNumber": 1,
@@ -1958,7 +2982,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-62",
+    "id": "quiz-extracted-94",
     "arabic": "عاملة ناصبة",
     "transliteration": "'amlh nasbh",
     "meanings": [
@@ -1973,7 +2997,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-62",
+        "id": "example-94",
         "surahNumber": 88,
         "surahName": "Surah 88",
         "ayahNumber": 1,
@@ -1990,7 +3014,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-63",
+    "id": "quiz-extracted-95",
     "arabic": "ع م ل",
     "transliteration": "' m l",
     "meanings": [
@@ -2005,7 +3029,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-63",
+        "id": "example-95",
         "surahNumber": 88,
         "surahName": "Surah 88",
         "ayahNumber": 1,
@@ -2022,7 +3046,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-64",
+    "id": "quiz-extracted-96",
     "arabic": "ن ص ب",
     "transliteration": "n s b",
     "meanings": [
@@ -2037,7 +3061,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-64",
+        "id": "example-96",
         "surahNumber": 88,
         "surahName": "Surah 88",
         "ayahNumber": 1,
@@ -2054,7 +3078,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-65",
+    "id": "quiz-extracted-97",
     "arabic": "تصلى نارا حامية",
     "transliteration": "tsla nara hamyh",
     "meanings": [
@@ -2069,7 +3093,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-65",
+        "id": "example-97",
         "surahNumber": 88,
         "surahName": "Surah 88",
         "ayahNumber": 1,
@@ -2086,7 +3110,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-66",
+    "id": "quiz-extracted-98",
     "arabic": "ص ل ي",
     "transliteration": "s l y",
     "meanings": [
@@ -2101,7 +3125,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-66",
+        "id": "example-98",
         "surahNumber": 88,
         "surahName": "Surah 88",
         "ayahNumber": 1,
@@ -2118,7 +3142,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-67",
+    "id": "quiz-extracted-99",
     "arabic": "ن و ر",
     "transliteration": "n w r",
     "meanings": [
@@ -2133,7 +3157,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-67",
+        "id": "example-99",
         "surahNumber": 88,
         "surahName": "Surah 88",
         "ayahNumber": 1,
@@ -2150,7 +3174,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-68",
+    "id": "quiz-extracted-100",
     "arabic": "ح م ي",
     "transliteration": "h m y",
     "meanings": [
@@ -2165,7 +3189,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-68",
+        "id": "example-100",
         "surahNumber": 88,
         "surahName": "Surah 88",
         "ayahNumber": 1,
@@ -2182,7 +3206,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-69",
+    "id": "quiz-extracted-101",
     "arabic": "تسقى من عين آنية",
     "transliteration": "tsqa mn 'yn آnyh",
     "meanings": [
@@ -2197,7 +3221,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-69",
+        "id": "example-101",
         "surahNumber": 88,
         "surahName": "Surah 88",
         "ayahNumber": 1,
@@ -2214,7 +3238,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-70",
+    "id": "quiz-extracted-102",
     "arabic": "س ق ي",
     "transliteration": "s q y",
     "meanings": [
@@ -2229,7 +3253,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-70",
+        "id": "example-102",
         "surahNumber": 88,
         "surahName": "Surah 88",
         "ayahNumber": 1,
@@ -2246,7 +3270,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-71",
+    "id": "quiz-extracted-103",
     "arabic": "ع ي ن",
     "transliteration": "' y n",
     "meanings": [
@@ -2261,7 +3285,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-71",
+        "id": "example-103",
         "surahNumber": 88,
         "surahName": "Surah 88",
         "ayahNumber": 1,
@@ -2278,7 +3302,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-72",
+    "id": "quiz-extracted-104",
     "arabic": "أ ن ي",
     "transliteration": "أ n y",
     "meanings": [
@@ -2293,7 +3317,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-72",
+        "id": "example-104",
         "surahNumber": 88,
         "surahName": "Surah 88",
         "ayahNumber": 1,
@@ -2310,7 +3334,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-73",
+    "id": "quiz-extracted-105",
     "arabic": "ليس لهم طعام إلا من ضريع",
     "transliteration": "lys lhm t'am إla mn dry'",
     "meanings": [
@@ -2325,7 +3349,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-73",
+        "id": "example-105",
         "surahNumber": 88,
         "surahName": "Surah 88",
         "ayahNumber": 1,
@@ -2342,7 +3366,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-74",
+    "id": "quiz-extracted-106",
     "arabic": "ط ع م",
     "transliteration": "t ' m",
     "meanings": [
@@ -2357,7 +3381,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-74",
+        "id": "example-106",
         "surahNumber": 88,
         "surahName": "Surah 88",
         "ayahNumber": 1,
@@ -2374,7 +3398,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-75",
+    "id": "quiz-extracted-107",
     "arabic": "ض ر ع",
     "transliteration": "d r '",
     "meanings": [
@@ -2389,7 +3413,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-75",
+        "id": "example-107",
         "surahNumber": 88,
         "surahName": "Surah 88",
         "ayahNumber": 1,
@@ -2406,7 +3430,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-76",
+    "id": "quiz-extracted-108",
     "arabic": "وجوه يومئذ ناعمة",
     "transliteration": "wjwh ywmئdh na'mh",
     "meanings": [
@@ -2421,7 +3445,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-76",
+        "id": "example-108",
         "surahNumber": 88,
         "surahName": "Surah 88",
         "ayahNumber": 1,
@@ -2438,7 +3462,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-77",
+    "id": "quiz-extracted-109",
     "arabic": "لسعيها راضية",
     "transliteration": "ls'yha radyh",
     "meanings": [
@@ -2453,7 +3477,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-77",
+        "id": "example-109",
         "surahNumber": 88,
         "surahName": "Surah 88",
         "ayahNumber": 1,
@@ -2470,7 +3494,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-78",
+    "id": "quiz-extracted-110",
     "arabic": "س ع ي",
     "transliteration": "s ' y",
     "meanings": [
@@ -2485,7 +3509,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-78",
+        "id": "example-110",
         "surahNumber": 88,
         "surahName": "Surah 88",
         "ayahNumber": 1,
@@ -2502,7 +3526,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-79",
+    "id": "quiz-extracted-111",
     "arabic": "ر ض و",
     "transliteration": "r d w",
     "meanings": [
@@ -2517,7 +3541,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-79",
+        "id": "example-111",
         "surahNumber": 88,
         "surahName": "Surah 88",
         "ayahNumber": 1,
@@ -2534,7 +3558,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-80",
+    "id": "quiz-extracted-112",
     "arabic": "في جنة عالية",
     "transliteration": "fy jnh 'alyh",
     "meanings": [
@@ -2549,7 +3573,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-80",
+        "id": "example-112",
         "surahNumber": 88,
         "surahName": "Surah 88",
         "ayahNumber": 1,
@@ -2566,7 +3590,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-81",
+    "id": "quiz-extracted-113",
     "arabic": "ج ن ن",
     "transliteration": "j n n",
     "meanings": [
@@ -2581,7 +3605,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-81",
+        "id": "example-113",
         "surahNumber": 88,
         "surahName": "Surah 88",
         "ayahNumber": 1,
@@ -2598,7 +3622,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-82",
+    "id": "quiz-extracted-114",
     "arabic": "أفلا ينظرون إلى الإبل كيف خلقت",
     "transliteration": "أfla ynzrwn إla alإbl kyf khlqt",
     "meanings": [
@@ -2613,7 +3637,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-82",
+        "id": "example-114",
         "surahNumber": 88,
         "surahName": "Surah 88",
         "ayahNumber": 1,
@@ -2630,39 +3654,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-83",
-    "arabic": "ن ظ ر",
-    "transliteration": "n z r",
-    "meanings": [
-      "[Translation needed for: ن ظ ر]"
-    ],
-    "difficulty": "Intermediate",
-    "category": "Quranic Vocabulary",
-    "tags": [
-      "quiz-extracted",
-      "surah-88",
-      "quranic-vocabulary"
-    ],
-    "examples": [
-      {
-        "id": "example-83",
-        "surahNumber": 88,
-        "surahName": "Surah 88",
-        "ayahNumber": 1,
-        "arabicText": "ن ظ ر",
-        "translationText": "[Translation needed for: ن ظ ر]",
-        "wordLocation": {
-          "startIndex": 0,
-          "endIndex": 5
-        },
-        "hasAudio": false
-      }
-    ],
-    "hasAudio": false,
-    "frequency": 1
-  },
-  {
-    "id": "quiz-extracted-84",
+    "id": "quiz-extracted-115",
     "arabic": "أ ب ل",
     "transliteration": "أ b l",
     "meanings": [
@@ -2677,7 +3669,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-84",
+        "id": "example-115",
         "surahNumber": 88,
         "surahName": "Surah 88",
         "ayahNumber": 1,
@@ -2694,7 +3686,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-85",
+    "id": "quiz-extracted-116",
     "arabic": "فذكر إنما أنت مذكر",
     "transliteration": "fdhkr إnma أnt mdhkr",
     "meanings": [
@@ -2709,7 +3701,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-85",
+        "id": "example-116",
         "surahNumber": 88,
         "surahName": "Surah 88",
         "ayahNumber": 1,
@@ -2726,7 +3718,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-86",
+    "id": "quiz-extracted-117",
     "arabic": "الفجر",
     "transliteration": "alfjr",
     "meanings": [
@@ -2741,7 +3733,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-86",
+        "id": "example-117",
         "surahNumber": 89,
         "surahName": "Surah 89",
         "ayahNumber": 1,
@@ -2758,7 +3750,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-87",
+    "id": "quiz-extracted-118",
     "arabic": "ف ج ر",
     "transliteration": "f j r",
     "meanings": [
@@ -2773,7 +3765,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-87",
+        "id": "example-118",
         "surahNumber": 89,
         "surahName": "Surah 89",
         "ayahNumber": 1,
@@ -2790,7 +3782,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-88",
+    "id": "quiz-extracted-119",
     "arabic": "وليال عشر",
     "transliteration": "wlyal 'shr",
     "meanings": [
@@ -2805,7 +3797,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-88",
+        "id": "example-119",
         "surahNumber": 89,
         "surahName": "Surah 89",
         "ayahNumber": 1,
@@ -2822,7 +3814,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-89",
+    "id": "quiz-extracted-120",
     "arabic": "ل ي ل",
     "transliteration": "l y l",
     "meanings": [
@@ -2837,7 +3829,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-89",
+        "id": "example-120",
         "surahNumber": 89,
         "surahName": "Surah 89",
         "ayahNumber": 1,
@@ -2854,7 +3846,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-90",
+    "id": "quiz-extracted-121",
     "arabic": "ع ش ر",
     "transliteration": "' sh r",
     "meanings": [
@@ -2869,7 +3861,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-90",
+        "id": "example-121",
         "surahNumber": 89,
         "surahName": "Surah 89",
         "ayahNumber": 1,
@@ -2886,7 +3878,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-91",
+    "id": "quiz-extracted-122",
     "arabic": "والشفع والوتر",
     "transliteration": "walshf' walwtr",
     "meanings": [
@@ -2901,7 +3893,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-91",
+        "id": "example-122",
         "surahNumber": 89,
         "surahName": "Surah 89",
         "ayahNumber": 1,
@@ -2918,7 +3910,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-92",
+    "id": "quiz-extracted-123",
     "arabic": "ش ف ع",
     "transliteration": "sh f '",
     "meanings": [
@@ -2933,7 +3925,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-92",
+        "id": "example-123",
         "surahNumber": 89,
         "surahName": "Surah 89",
         "ayahNumber": 1,
@@ -2950,7 +3942,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-93",
+    "id": "quiz-extracted-124",
     "arabic": "و ت ر",
     "transliteration": "w t r",
     "meanings": [
@@ -2965,7 +3957,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-93",
+        "id": "example-124",
         "surahNumber": 89,
         "surahName": "Surah 89",
         "ayahNumber": 1,
@@ -2982,7 +3974,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-94",
+    "id": "quiz-extracted-125",
     "arabic": "والليل إذا يسر",
     "transliteration": "wallyl إdha ysr",
     "meanings": [
@@ -2997,7 +3989,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-94",
+        "id": "example-125",
         "surahNumber": 89,
         "surahName": "Surah 89",
         "ayahNumber": 1,
@@ -3014,7 +4006,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-95",
+    "id": "quiz-extracted-126",
     "arabic": "س ر ي",
     "transliteration": "s r y",
     "meanings": [
@@ -3029,7 +4021,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-95",
+        "id": "example-126",
         "surahNumber": 89,
         "surahName": "Surah 89",
         "ayahNumber": 1,
@@ -3046,7 +4038,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-96",
+    "id": "quiz-extracted-127",
     "arabic": "إرم ذات العماد",
     "transliteration": "إrm dhat al'mad",
     "meanings": [
@@ -3061,7 +4053,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-96",
+        "id": "example-127",
         "surahNumber": 89,
         "surahName": "Surah 89",
         "ayahNumber": 1,
@@ -3078,7 +4070,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-97",
+    "id": "quiz-extracted-128",
     "arabic": "ع م د",
     "transliteration": "' m d",
     "meanings": [
@@ -3093,7 +4085,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-97",
+        "id": "example-128",
         "surahNumber": 89,
         "surahName": "Surah 89",
         "ayahNumber": 1,
@@ -3110,7 +4102,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-98",
+    "id": "quiz-extracted-129",
     "arabic": "الذين جابوا الصخر بالواد",
     "transliteration": "aldhyn jabwa alskhr balwad",
     "meanings": [
@@ -3125,7 +4117,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-98",
+        "id": "example-129",
         "surahNumber": 89,
         "surahName": "Surah 89",
         "ayahNumber": 1,
@@ -3142,7 +4134,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-99",
+    "id": "quiz-extracted-130",
     "arabic": "ج و ب",
     "transliteration": "j w b",
     "meanings": [
@@ -3157,7 +4149,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-99",
+        "id": "example-130",
         "surahNumber": 89,
         "surahName": "Surah 89",
         "ayahNumber": 1,
@@ -3174,7 +4166,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-100",
+    "id": "quiz-extracted-131",
     "arabic": "ص خ ر",
     "transliteration": "s kh r",
     "meanings": [
@@ -3189,7 +4181,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-100",
+        "id": "example-131",
         "surahNumber": 89,
         "surahName": "Surah 89",
         "ayahNumber": 1,
@@ -3206,7 +4198,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-101",
+    "id": "quiz-extracted-132",
     "arabic": "و د ي",
     "transliteration": "w d y",
     "meanings": [
@@ -3221,7 +4213,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-101",
+        "id": "example-132",
         "surahNumber": 89,
         "surahName": "Surah 89",
         "ayahNumber": 1,
@@ -3238,7 +4230,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-102",
+    "id": "quiz-extracted-133",
     "arabic": "ذي الأوتاد",
     "transliteration": "dhy alأwtad",
     "meanings": [
@@ -3253,7 +4245,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-102",
+        "id": "example-133",
         "surahNumber": 89,
         "surahName": "Surah 89",
         "ayahNumber": 1,
@@ -3270,7 +4262,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-103",
+    "id": "quiz-extracted-134",
     "arabic": "و ت د",
     "transliteration": "w t d",
     "meanings": [
@@ -3285,7 +4277,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-103",
+        "id": "example-134",
         "surahNumber": 89,
         "surahName": "Surah 89",
         "ayahNumber": 1,
@@ -3302,7 +4294,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-104",
+    "id": "quiz-extracted-135",
     "arabic": "فأما الإنسان إذا ما ابتلاه ربه",
     "transliteration": "fأma alإnsan إdha ma abtlah rbh",
     "meanings": [
@@ -3317,7 +4309,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-104",
+        "id": "example-135",
         "surahNumber": 89,
         "surahName": "Surah 89",
         "ayahNumber": 1,
@@ -3334,71 +4326,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-105",
-    "arabic": "أ ن س",
-    "transliteration": "أ n s",
-    "meanings": [
-      "[Translation needed for: أ ن س]"
-    ],
-    "difficulty": "Intermediate",
-    "category": "Quranic Vocabulary",
-    "tags": [
-      "quiz-extracted",
-      "surah-89",
-      "quranic-vocabulary"
-    ],
-    "examples": [
-      {
-        "id": "example-105",
-        "surahNumber": 89,
-        "surahName": "Surah 89",
-        "ayahNumber": 1,
-        "arabicText": "أ ن س",
-        "translationText": "[Translation needed for: أ ن س]",
-        "wordLocation": {
-          "startIndex": 0,
-          "endIndex": 5
-        },
-        "hasAudio": false
-      }
-    ],
-    "hasAudio": false,
-    "frequency": 1
-  },
-  {
-    "id": "quiz-extracted-106",
-    "arabic": "ب ل و",
-    "transliteration": "b l w",
-    "meanings": [
-      "[Translation needed for: ب ل و]"
-    ],
-    "difficulty": "Intermediate",
-    "category": "Quranic Vocabulary",
-    "tags": [
-      "quiz-extracted",
-      "surah-89",
-      "quranic-vocabulary"
-    ],
-    "examples": [
-      {
-        "id": "example-106",
-        "surahNumber": 89,
-        "surahName": "Surah 89",
-        "ayahNumber": 1,
-        "arabicText": "ب ل و",
-        "translationText": "[Translation needed for: ب ل و]",
-        "wordLocation": {
-          "startIndex": 0,
-          "endIndex": 5
-        },
-        "hasAudio": false
-      }
-    ],
-    "hasAudio": false,
-    "frequency": 1
-  },
-  {
-    "id": "quiz-extracted-107",
+    "id": "quiz-extracted-136",
     "arabic": "لا يحض على طعام المسكين",
     "transliteration": "la yhd 'la t'am almskyn",
     "meanings": [
@@ -3413,7 +4341,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-107",
+        "id": "example-136",
         "surahNumber": 89,
         "surahName": "Surah 89",
         "ayahNumber": 1,
@@ -3430,7 +4358,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-108",
+    "id": "quiz-extracted-137",
     "arabic": "ح ض ض",
     "transliteration": "h d d",
     "meanings": [
@@ -3445,7 +4373,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-108",
+        "id": "example-137",
         "surahNumber": 89,
         "surahName": "Surah 89",
         "ayahNumber": 1,
@@ -3462,7 +4390,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-109",
+    "id": "quiz-extracted-138",
     "arabic": "س ك ن",
     "transliteration": "s k n",
     "meanings": [
@@ -3477,7 +4405,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-109",
+        "id": "example-138",
         "surahNumber": 89,
         "surahName": "Surah 89",
         "ayahNumber": 1,
@@ -3494,7 +4422,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-110",
+    "id": "quiz-extracted-139",
     "arabic": "كلا بل لا تكرمون اليتيم",
     "transliteration": "kla bl la tkrmwn alytym",
     "meanings": [
@@ -3509,7 +4437,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-110",
+        "id": "example-139",
         "surahNumber": 89,
         "surahName": "Surah 89",
         "ayahNumber": 1,
@@ -3526,7 +4454,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-111",
+    "id": "quiz-extracted-140",
     "arabic": "ك ر م",
     "transliteration": "k r m",
     "meanings": [
@@ -3541,7 +4469,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-111",
+        "id": "example-140",
         "surahNumber": 89,
         "surahName": "Surah 89",
         "ayahNumber": 1,
@@ -3558,7 +4486,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-112",
+    "id": "quiz-extracted-141",
     "arabic": "ي ت م",
     "transliteration": "y t m",
     "meanings": [
@@ -3573,7 +4501,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-112",
+        "id": "example-141",
         "surahNumber": 89,
         "surahName": "Surah 89",
         "ayahNumber": 1,
@@ -3590,7 +4518,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-113",
+    "id": "quiz-extracted-142",
     "arabic": "يا أيتها النفس المطمئنة",
     "transliteration": "ya أytha alnfs almtmئnh",
     "meanings": [
@@ -3605,7 +4533,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-113",
+        "id": "example-142",
         "surahNumber": 89,
         "surahName": "Surah 89",
         "ayahNumber": 1,
@@ -3622,39 +4550,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-114",
-    "arabic": "ن ف س",
-    "transliteration": "n f s",
-    "meanings": [
-      "[Translation needed for: ن ف س]"
-    ],
-    "difficulty": "Intermediate",
-    "category": "Quranic Vocabulary",
-    "tags": [
-      "quiz-extracted",
-      "surah-89",
-      "quranic-vocabulary"
-    ],
-    "examples": [
-      {
-        "id": "example-114",
-        "surahNumber": 89,
-        "surahName": "Surah 89",
-        "ayahNumber": 1,
-        "arabicText": "ن ف س",
-        "translationText": "[Translation needed for: ن ف س]",
-        "wordLocation": {
-          "startIndex": 0,
-          "endIndex": 5
-        },
-        "hasAudio": false
-      }
-    ],
-    "hasAudio": false,
-    "frequency": 1
-  },
-  {
-    "id": "quiz-extracted-115",
+    "id": "quiz-extracted-143",
     "arabic": "ط م أ",
     "transliteration": "t m أ",
     "meanings": [
@@ -3669,7 +4565,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-115",
+        "id": "example-143",
         "surahNumber": 89,
         "surahName": "Surah 89",
         "ayahNumber": 1,
@@ -3686,7 +4582,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-116",
+    "id": "quiz-extracted-144",
     "arabic": "ارجعي إلى ربك راضية مرضية",
     "transliteration": "arj'y إla rbk radyh mrdyh",
     "meanings": [
@@ -3701,7 +4597,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-116",
+        "id": "example-144",
         "surahNumber": 89,
         "surahName": "Surah 89",
         "ayahNumber": 1,
@@ -3718,39 +4614,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-117",
-    "arabic": "ر ج ع",
-    "transliteration": "r j '",
-    "meanings": [
-      "[Translation needed for: ر ج ع]"
-    ],
-    "difficulty": "Intermediate",
-    "category": "Quranic Vocabulary",
-    "tags": [
-      "quiz-extracted",
-      "surah-89",
-      "quranic-vocabulary"
-    ],
-    "examples": [
-      {
-        "id": "example-117",
-        "surahNumber": 89,
-        "surahName": "Surah 89",
-        "ayahNumber": 1,
-        "arabicText": "ر ج ع",
-        "translationText": "[Translation needed for: ر ج ع]",
-        "wordLocation": {
-          "startIndex": 0,
-          "endIndex": 5
-        },
-        "hasAudio": false
-      }
-    ],
-    "hasAudio": false,
-    "frequency": 1
-  },
-  {
-    "id": "quiz-extracted-118",
+    "id": "quiz-extracted-145",
     "arabic": "البلد",
     "transliteration": "albld",
     "meanings": [
@@ -3765,7 +4629,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-118",
+        "id": "example-145",
         "surahNumber": 90,
         "surahName": "Surah 90",
         "ayahNumber": 1,
@@ -3782,7 +4646,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-119",
+    "id": "quiz-extracted-146",
     "arabic": "ب ل د",
     "transliteration": "b l d",
     "meanings": [
@@ -3797,7 +4661,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-119",
+        "id": "example-146",
         "surahNumber": 90,
         "surahName": "Surah 90",
         "ayahNumber": 1,
@@ -3814,7 +4678,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-120",
+    "id": "quiz-extracted-147",
     "arabic": "لا أقسم بهذا البلد",
     "transliteration": "la أqsm bhdha albld",
     "meanings": [
@@ -3829,7 +4693,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-120",
+        "id": "example-147",
         "surahNumber": 90,
         "surahName": "Surah 90",
         "ayahNumber": 1,
@@ -3846,7 +4710,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-121",
+    "id": "quiz-extracted-148",
     "arabic": "ق س م",
     "transliteration": "q s m",
     "meanings": [
@@ -3861,7 +4725,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-121",
+        "id": "example-148",
         "surahNumber": 90,
         "surahName": "Surah 90",
         "ayahNumber": 1,
@@ -3878,7 +4742,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-122",
+    "id": "quiz-extracted-149",
     "arabic": "وأنت حل بهذا البلد",
     "transliteration": "wأnt hl bhdha albld",
     "meanings": [
@@ -3893,7 +4757,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-122",
+        "id": "example-149",
         "surahNumber": 90,
         "surahName": "Surah 90",
         "ayahNumber": 1,
@@ -3910,7 +4774,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-123",
+    "id": "quiz-extracted-150",
     "arabic": "ح ل ل",
     "transliteration": "h l l",
     "meanings": [
@@ -3925,7 +4789,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-123",
+        "id": "example-150",
         "surahNumber": 90,
         "surahName": "Surah 90",
         "ayahNumber": 1,
@@ -3942,7 +4806,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-124",
+    "id": "quiz-extracted-151",
     "arabic": "لقد خلقنا الإنسان في كبد",
     "transliteration": "lqd khlqna alإnsan fy kbd",
     "meanings": [
@@ -3957,7 +4821,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-124",
+        "id": "example-151",
         "surahNumber": 90,
         "surahName": "Surah 90",
         "ayahNumber": 1,
@@ -3974,7 +4838,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-125",
+    "id": "quiz-extracted-152",
     "arabic": "ك ب د",
     "transliteration": "k b d",
     "meanings": [
@@ -3989,7 +4853,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-125",
+        "id": "example-152",
         "surahNumber": 90,
         "surahName": "Surah 90",
         "ayahNumber": 1,
@@ -4006,7 +4870,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-126",
+    "id": "quiz-extracted-153",
     "arabic": "أيحسب أن لن يقدر عليه أحد",
     "transliteration": "أyhsb أn ln yqdr 'lyh أhd",
     "meanings": [
@@ -4021,7 +4885,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-126",
+        "id": "example-153",
         "surahNumber": 90,
         "surahName": "Surah 90",
         "ayahNumber": 1,
@@ -4038,7 +4902,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-127",
+    "id": "quiz-extracted-154",
     "arabic": "ح س ب",
     "transliteration": "h s b",
     "meanings": [
@@ -4053,7 +4917,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-127",
+        "id": "example-154",
         "surahNumber": 90,
         "surahName": "Surah 90",
         "ayahNumber": 1,
@@ -4070,7 +4934,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-128",
+    "id": "quiz-extracted-155",
     "arabic": "أهۡلكۡت مالٗا لبدا",
     "transliteration": "أhۡlkۡt malٗa lbda",
     "meanings": [
@@ -4085,7 +4949,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-128",
+        "id": "example-155",
         "surahNumber": 90,
         "surahName": "Surah 90",
         "ayahNumber": 1,
@@ -4102,7 +4966,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-129",
+    "id": "quiz-extracted-156",
     "arabic": "ن ف ق",
     "transliteration": "n f q",
     "meanings": [
@@ -4117,7 +4981,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-129",
+        "id": "example-156",
         "surahNumber": 90,
         "surahName": "Surah 90",
         "ayahNumber": 1,
@@ -4134,7 +4998,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-130",
+    "id": "quiz-extracted-157",
     "arabic": "م و ل",
     "transliteration": "m w l",
     "meanings": [
@@ -4149,7 +5013,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-130",
+        "id": "example-157",
         "surahNumber": 90,
         "surahName": "Surah 90",
         "ayahNumber": 1,
@@ -4166,7 +5030,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-131",
+    "id": "quiz-extracted-158",
     "arabic": "ل ب د",
     "transliteration": "l b d",
     "meanings": [
@@ -4181,7 +5045,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-131",
+        "id": "example-158",
         "surahNumber": 90,
         "surahName": "Surah 90",
         "ayahNumber": 1,
@@ -4198,7 +5062,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-132",
+    "id": "quiz-extracted-159",
     "arabic": "ألم نجعل له عينين",
     "transliteration": "أlm nj'l lh 'ynyn",
     "meanings": [
@@ -4213,7 +5077,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-132",
+        "id": "example-159",
         "surahNumber": 90,
         "surahName": "Surah 90",
         "ayahNumber": 1,
@@ -4230,7 +5094,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-133",
+    "id": "quiz-extracted-160",
     "arabic": "ولسانا وشفتين",
     "transliteration": "wlsana wshftyn",
     "meanings": [
@@ -4245,7 +5109,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-133",
+        "id": "example-160",
         "surahNumber": 90,
         "surahName": "Surah 90",
         "ayahNumber": 1,
@@ -4262,7 +5126,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-134",
+    "id": "quiz-extracted-161",
     "arabic": "ل س ن",
     "transliteration": "l s n",
     "meanings": [
@@ -4277,7 +5141,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-134",
+        "id": "example-161",
         "surahNumber": 90,
         "surahName": "Surah 90",
         "ayahNumber": 1,
@@ -4294,7 +5158,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-135",
+    "id": "quiz-extracted-162",
     "arabic": "ش ف و",
     "transliteration": "sh f w",
     "meanings": [
@@ -4309,7 +5173,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-135",
+        "id": "example-162",
         "surahNumber": 90,
         "surahName": "Surah 90",
         "ayahNumber": 1,
@@ -4326,7 +5190,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-136",
+    "id": "quiz-extracted-163",
     "arabic": "فلا اقتحم العقبة",
     "transliteration": "fla aqthm al'qbh",
     "meanings": [
@@ -4341,7 +5205,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-136",
+        "id": "example-163",
         "surahNumber": 90,
         "surahName": "Surah 90",
         "ayahNumber": 1,
@@ -4358,7 +5222,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-137",
+    "id": "quiz-extracted-164",
     "arabic": "ق ح م",
     "transliteration": "q h m",
     "meanings": [
@@ -4373,7 +5237,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-137",
+        "id": "example-164",
         "surahNumber": 90,
         "surahName": "Surah 90",
         "ayahNumber": 1,
@@ -4390,7 +5254,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-138",
+    "id": "quiz-extracted-165",
     "arabic": "ع ق ب",
     "transliteration": "' q b",
     "meanings": [
@@ -4405,7 +5269,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-138",
+        "id": "example-165",
         "surahNumber": 90,
         "surahName": "Surah 90",
         "ayahNumber": 1,
@@ -4422,7 +5286,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-139",
+    "id": "quiz-extracted-166",
     "arabic": "فك رقبة",
     "transliteration": "fk rqbh",
     "meanings": [
@@ -4437,7 +5301,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-139",
+        "id": "example-166",
         "surahNumber": 90,
         "surahName": "Surah 90",
         "ayahNumber": 1,
@@ -4454,7 +5318,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-140",
+    "id": "quiz-extracted-167",
     "arabic": "ف ك ك",
     "transliteration": "f k k",
     "meanings": [
@@ -4469,7 +5333,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-140",
+        "id": "example-167",
         "surahNumber": 90,
         "surahName": "Surah 90",
         "ayahNumber": 1,
@@ -4486,7 +5350,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-141",
+    "id": "quiz-extracted-168",
     "arabic": "ر ق ب",
     "transliteration": "r q b",
     "meanings": [
@@ -4501,7 +5365,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-141",
+        "id": "example-168",
         "surahNumber": 90,
         "surahName": "Surah 90",
         "ayahNumber": 1,
@@ -4518,7 +5382,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-142",
+    "id": "quiz-extracted-169",
     "arabic": "أو إطعام في يوم ذي مسغبة",
     "transliteration": "أw إt'am fy ywm dhy msghbh",
     "meanings": [
@@ -4533,7 +5397,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-142",
+        "id": "example-169",
         "surahNumber": 90,
         "surahName": "Surah 90",
         "ayahNumber": 1,
@@ -4550,7 +5414,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-143",
+    "id": "quiz-extracted-170",
     "arabic": "س غ ب",
     "transliteration": "s gh b",
     "meanings": [
@@ -4565,7 +5429,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-143",
+        "id": "example-170",
         "surahNumber": 90,
         "surahName": "Surah 90",
         "ayahNumber": 1,
@@ -4582,7 +5446,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-144",
+    "id": "quiz-extracted-171",
     "arabic": "أولئك أصحاب الميمنة",
     "transliteration": "أwlئk أshab almymnh",
     "meanings": [
@@ -4597,7 +5461,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-144",
+        "id": "example-171",
         "surahNumber": 90,
         "surahName": "Surah 90",
         "ayahNumber": 1,
@@ -4614,7 +5478,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-145",
+    "id": "quiz-extracted-172",
     "arabic": "ص ح ب",
     "transliteration": "s h b",
     "meanings": [
@@ -4629,7 +5493,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-145",
+        "id": "example-172",
         "surahNumber": 90,
         "surahName": "Surah 90",
         "ayahNumber": 1,
@@ -4646,7 +5510,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-146",
+    "id": "quiz-extracted-173",
     "arabic": "ي م ن",
     "transliteration": "y m n",
     "meanings": [
@@ -4661,7 +5525,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-146",
+        "id": "example-173",
         "surahNumber": 90,
         "surahName": "Surah 90",
         "ayahNumber": 1,
@@ -4678,7 +5542,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-147",
+    "id": "quiz-extracted-174",
     "arabic": "الشمس",
     "transliteration": "alshms",
     "meanings": [
@@ -4693,7 +5557,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-147",
+        "id": "example-174",
         "surahNumber": 91,
         "surahName": "Surah 91",
         "ayahNumber": 1,
@@ -4710,7 +5574,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-148",
+    "id": "quiz-extracted-175",
     "arabic": "والشمس وضحاها",
     "transliteration": "walshms wdhaha",
     "meanings": [
@@ -4725,7 +5589,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-148",
+        "id": "example-175",
         "surahNumber": 91,
         "surahName": "Surah 91",
         "ayahNumber": 1,
@@ -4742,7 +5606,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-149",
+    "id": "quiz-extracted-176",
     "arabic": "ش م س",
     "transliteration": "sh m s",
     "meanings": [
@@ -4757,7 +5621,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-149",
+        "id": "example-176",
         "surahNumber": 91,
         "surahName": "Surah 91",
         "ayahNumber": 1,
@@ -4774,7 +5638,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-150",
+    "id": "quiz-extracted-177",
     "arabic": "ض ح و",
     "transliteration": "d h w",
     "meanings": [
@@ -4789,7 +5653,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-150",
+        "id": "example-177",
         "surahNumber": 91,
         "surahName": "Surah 91",
         "ayahNumber": 1,
@@ -4806,7 +5670,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-151",
+    "id": "quiz-extracted-178",
     "arabic": "والقمر إذا تلاها",
     "transliteration": "walqmr إdha tlaha",
     "meanings": [
@@ -4821,7 +5685,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-151",
+        "id": "example-178",
         "surahNumber": 91,
         "surahName": "Surah 91",
         "ayahNumber": 1,
@@ -4838,7 +5702,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-152",
+    "id": "quiz-extracted-179",
     "arabic": "ق م ر",
     "transliteration": "q m r",
     "meanings": [
@@ -4853,7 +5717,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-152",
+        "id": "example-179",
         "surahNumber": 91,
         "surahName": "Surah 91",
         "ayahNumber": 1,
@@ -4870,7 +5734,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-153",
+    "id": "quiz-extracted-180",
     "arabic": "ت ل و",
     "transliteration": "t l w",
     "meanings": [
@@ -4885,7 +5749,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-153",
+        "id": "example-180",
         "surahNumber": 91,
         "surahName": "Surah 91",
         "ayahNumber": 1,
@@ -4902,7 +5766,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-154",
+    "id": "quiz-extracted-181",
     "arabic": "والنهار إذا جلاها",
     "transliteration": "walnhar إdha jlaha",
     "meanings": [
@@ -4917,7 +5781,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-154",
+        "id": "example-181",
         "surahNumber": 91,
         "surahName": "Surah 91",
         "ayahNumber": 1,
@@ -4934,7 +5798,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-155",
+    "id": "quiz-extracted-182",
     "arabic": "ن ه ر",
     "transliteration": "n h r",
     "meanings": [
@@ -4949,7 +5813,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-155",
+        "id": "example-182",
         "surahNumber": 91,
         "surahName": "Surah 91",
         "ayahNumber": 1,
@@ -4966,7 +5830,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-156",
+    "id": "quiz-extracted-183",
     "arabic": "ج ل و",
     "transliteration": "j l w",
     "meanings": [
@@ -4981,7 +5845,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-156",
+        "id": "example-183",
         "surahNumber": 91,
         "surahName": "Surah 91",
         "ayahNumber": 1,
@@ -4998,7 +5862,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-157",
+    "id": "quiz-extracted-184",
     "arabic": "والليل إذا يغشاها",
     "transliteration": "wallyl إdha yghshaha",
     "meanings": [
@@ -5013,7 +5877,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-157",
+        "id": "example-184",
         "surahNumber": 91,
         "surahName": "Surah 91",
         "ayahNumber": 1,
@@ -5030,7 +5894,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-158",
+    "id": "quiz-extracted-185",
     "arabic": "والسماء وما بناها",
     "transliteration": "walsma' wma bnaha",
     "meanings": [
@@ -5045,7 +5909,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-158",
+        "id": "example-185",
         "surahNumber": 91,
         "surahName": "Surah 91",
         "ayahNumber": 1,
@@ -5062,39 +5926,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-159",
-    "arabic": "س م و",
-    "transliteration": "s m w",
-    "meanings": [
-      "[Translation needed for: س م و]"
-    ],
-    "difficulty": "Intermediate",
-    "category": "Quranic Vocabulary",
-    "tags": [
-      "quiz-extracted",
-      "surah-91",
-      "quranic-vocabulary"
-    ],
-    "examples": [
-      {
-        "id": "example-159",
-        "surahNumber": 91,
-        "surahName": "Surah 91",
-        "ayahNumber": 1,
-        "arabicText": "س م و",
-        "translationText": "[Translation needed for: س م و]",
-        "wordLocation": {
-          "startIndex": 0,
-          "endIndex": 5
-        },
-        "hasAudio": false
-      }
-    ],
-    "hasAudio": false,
-    "frequency": 1
-  },
-  {
-    "id": "quiz-extracted-160",
+    "id": "quiz-extracted-186",
     "arabic": "ب ن ي",
     "transliteration": "b n y",
     "meanings": [
@@ -5109,7 +5941,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-160",
+        "id": "example-186",
         "surahNumber": 91,
         "surahName": "Surah 91",
         "ayahNumber": 1,
@@ -5126,7 +5958,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-161",
+    "id": "quiz-extracted-187",
     "arabic": "والأرض وما طحاها",
     "transliteration": "walأrd wma thaha",
     "meanings": [
@@ -5141,7 +5973,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-161",
+        "id": "example-187",
         "surahNumber": 91,
         "surahName": "Surah 91",
         "ayahNumber": 1,
@@ -5158,7 +5990,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-162",
+    "id": "quiz-extracted-188",
     "arabic": "أ ر ض",
     "transliteration": "أ r d",
     "meanings": [
@@ -5173,7 +6005,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-162",
+        "id": "example-188",
         "surahNumber": 91,
         "surahName": "Surah 91",
         "ayahNumber": 1,
@@ -5190,7 +6022,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-163",
+    "id": "quiz-extracted-189",
     "arabic": "ط ح و",
     "transliteration": "t h w",
     "meanings": [
@@ -5205,7 +6037,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-163",
+        "id": "example-189",
         "surahNumber": 91,
         "surahName": "Surah 91",
         "ayahNumber": 1,
@@ -5222,7 +6054,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-164",
+    "id": "quiz-extracted-190",
     "arabic": "ونفس وما سواها",
     "transliteration": "wnfs wma swaha",
     "meanings": [
@@ -5237,7 +6069,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-164",
+        "id": "example-190",
         "surahNumber": 91,
         "surahName": "Surah 91",
         "ayahNumber": 1,
@@ -5254,7 +6086,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-165",
+    "id": "quiz-extracted-191",
     "arabic": "فألهمها فجورها وتقواها",
     "transliteration": "fأlhmha fjwrha wtqwaha",
     "meanings": [
@@ -5269,7 +6101,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-165",
+        "id": "example-191",
         "surahNumber": 91,
         "surahName": "Surah 91",
         "ayahNumber": 1,
@@ -5286,7 +6118,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-166",
+    "id": "quiz-extracted-192",
     "arabic": "ل ه م",
     "transliteration": "l h m",
     "meanings": [
@@ -5301,7 +6133,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-166",
+        "id": "example-192",
         "surahNumber": 91,
         "surahName": "Surah 91",
         "ayahNumber": 1,
@@ -5318,7 +6150,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-167",
+    "id": "quiz-extracted-193",
     "arabic": "ت ق و",
     "transliteration": "t q w",
     "meanings": [
@@ -5333,7 +6165,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-167",
+        "id": "example-193",
         "surahNumber": 91,
         "surahName": "Surah 91",
         "ayahNumber": 1,
@@ -5350,7 +6182,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-168",
+    "id": "quiz-extracted-194",
     "arabic": "قد أفلح من زكاها",
     "transliteration": "qd أflh mn zkaha",
     "meanings": [
@@ -5365,7 +6197,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-168",
+        "id": "example-194",
         "surahNumber": 91,
         "surahName": "Surah 91",
         "ayahNumber": 1,
@@ -5382,7 +6214,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-169",
+    "id": "quiz-extracted-195",
     "arabic": "وقد خاب من دساها",
     "transliteration": "wqd khab mn dsaha",
     "meanings": [
@@ -5397,7 +6229,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-169",
+        "id": "example-195",
         "surahNumber": 91,
         "surahName": "Surah 91",
         "ayahNumber": 1,
@@ -5414,7 +6246,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-170",
+    "id": "quiz-extracted-196",
     "arabic": "خ ي ب",
     "transliteration": "kh y b",
     "meanings": [
@@ -5429,7 +6261,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-170",
+        "id": "example-196",
         "surahNumber": 91,
         "surahName": "Surah 91",
         "ayahNumber": 1,
@@ -5446,7 +6278,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-171",
+    "id": "quiz-extracted-197",
     "arabic": "د س س",
     "transliteration": "d s s",
     "meanings": [
@@ -5461,7 +6293,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-171",
+        "id": "example-197",
         "surahNumber": 91,
         "surahName": "Surah 91",
         "ayahNumber": 1,
@@ -5478,7 +6310,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-172",
+    "id": "quiz-extracted-198",
     "arabic": "كذبت ثمود بطغواها",
     "transliteration": "kdhbt thmwd btghwaha",
     "meanings": [
@@ -5493,7 +6325,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-172",
+        "id": "example-198",
         "surahNumber": 91,
         "surahName": "Surah 91",
         "ayahNumber": 1,
@@ -5510,7 +6342,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-173",
+    "id": "quiz-extracted-199",
     "arabic": "ك ذ ب",
     "transliteration": "k dh b",
     "meanings": [
@@ -5525,7 +6357,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-173",
+        "id": "example-199",
         "surahNumber": 91,
         "surahName": "Surah 91",
         "ayahNumber": 1,
@@ -5542,7 +6374,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-174",
+    "id": "quiz-extracted-200",
     "arabic": "ط غ و",
     "transliteration": "t gh w",
     "meanings": [
@@ -5557,7 +6389,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-174",
+        "id": "example-200",
         "surahNumber": 91,
         "surahName": "Surah 91",
         "ayahNumber": 1,
@@ -5574,7 +6406,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-175",
+    "id": "quiz-extracted-201",
     "arabic": "فعقروها",
     "transliteration": "f'qrwha",
     "meanings": [
@@ -5589,7 +6421,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-175",
+        "id": "example-201",
         "surahNumber": 91,
         "surahName": "Surah 91",
         "ayahNumber": 1,
@@ -5606,7 +6438,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-176",
+    "id": "quiz-extracted-202",
     "arabic": "ع ق ر",
     "transliteration": "' q r",
     "meanings": [
@@ -5621,7 +6453,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-176",
+        "id": "example-202",
         "surahNumber": 91,
         "surahName": "Surah 91",
         "ayahNumber": 1,
@@ -5638,7 +6470,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-177",
+    "id": "quiz-extracted-203",
     "arabic": "ن و ق",
     "transliteration": "n w q",
     "meanings": [
@@ -5653,7 +6485,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-177",
+        "id": "example-203",
         "surahNumber": 91,
         "surahName": "Surah 91",
         "ayahNumber": 1,
@@ -5670,7 +6502,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-178",
+    "id": "quiz-extracted-204",
     "arabic": "الليل",
     "transliteration": "allyl",
     "meanings": [
@@ -5685,7 +6517,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-178",
+        "id": "example-204",
         "surahNumber": 92,
         "surahName": "Al-Layl",
         "ayahNumber": 1,
@@ -5702,7 +6534,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-179",
+    "id": "quiz-extracted-205",
     "arabic": "والليل إذا يغشى",
     "transliteration": "wallyl إdha yghsha",
     "meanings": [
@@ -5717,7 +6549,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-179",
+        "id": "example-205",
         "surahNumber": 92,
         "surahName": "Al-Layl",
         "ayahNumber": 1,
@@ -5734,7 +6566,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-180",
+    "id": "quiz-extracted-206",
     "arabic": "والنهار إذا تجلى",
     "transliteration": "walnhar إdha tjla",
     "meanings": [
@@ -5749,7 +6581,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-180",
+        "id": "example-206",
         "surahNumber": 92,
         "surahName": "Al-Layl",
         "ayahNumber": 1,
@@ -5766,7 +6598,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-181",
+    "id": "quiz-extracted-207",
     "arabic": "وما خلق الذكر والأنثى",
     "transliteration": "wma khlq aldhkr walأntha",
     "meanings": [
@@ -5781,7 +6613,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-181",
+        "id": "example-207",
         "surahNumber": 92,
         "surahName": "Al-Layl",
         "ayahNumber": 1,
@@ -5798,7 +6630,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-182",
+    "id": "quiz-extracted-208",
     "arabic": "أ ن ث",
     "transliteration": "أ n th",
     "meanings": [
@@ -5813,7 +6645,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-182",
+        "id": "example-208",
         "surahNumber": 92,
         "surahName": "Al-Layl",
         "ayahNumber": 1,
@@ -5830,7 +6662,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-183",
+    "id": "quiz-extracted-209",
     "arabic": "إن سعيكم لشتى",
     "transliteration": "إn s'ykm lshta",
     "meanings": [
@@ -5845,7 +6677,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-183",
+        "id": "example-209",
         "surahNumber": 92,
         "surahName": "Al-Layl",
         "ayahNumber": 1,
@@ -5862,7 +6694,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-184",
+    "id": "quiz-extracted-210",
     "arabic": "ش ت ت",
     "transliteration": "sh t t",
     "meanings": [
@@ -5877,7 +6709,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-184",
+        "id": "example-210",
         "surahNumber": 92,
         "surahName": "Al-Layl",
         "ayahNumber": 1,
@@ -5894,7 +6726,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-185",
+    "id": "quiz-extracted-211",
     "arabic": "فأما من أعطى واتقى",
     "transliteration": "fأma mn أ'ta watqa",
     "meanings": [
@@ -5909,7 +6741,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-185",
+        "id": "example-211",
         "surahNumber": 92,
         "surahName": "Al-Layl",
         "ayahNumber": 1,
@@ -5926,7 +6758,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-186",
+    "id": "quiz-extracted-212",
     "arabic": "أ ع ط و",
     "transliteration": "أ ' t w",
     "meanings": [
@@ -5941,7 +6773,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-186",
+        "id": "example-212",
         "surahNumber": 92,
         "surahName": "Al-Layl",
         "ayahNumber": 1,
@@ -5958,7 +6790,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-187",
+    "id": "quiz-extracted-213",
     "arabic": "وصدق بالحسنى",
     "transliteration": "wsdq balhsna",
     "meanings": [
@@ -5973,7 +6805,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-187",
+        "id": "example-213",
         "surahNumber": 92,
         "surahName": "Al-Layl",
         "ayahNumber": 1,
@@ -5990,7 +6822,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-188",
+    "id": "quiz-extracted-214",
     "arabic": "ص د ق",
     "transliteration": "s d q",
     "meanings": [
@@ -6005,7 +6837,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-188",
+        "id": "example-214",
         "surahNumber": 92,
         "surahName": "Al-Layl",
         "ayahNumber": 1,
@@ -6022,7 +6854,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-189",
+    "id": "quiz-extracted-215",
     "arabic": "ح س ن",
     "transliteration": "h s n",
     "meanings": [
@@ -6037,7 +6869,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-189",
+        "id": "example-215",
         "surahNumber": 92,
         "surahName": "Al-Layl",
         "ayahNumber": 1,
@@ -6054,7 +6886,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-190",
+    "id": "quiz-extracted-216",
     "arabic": "فسنيسره لليسرى",
     "transliteration": "fsnysrh llysra",
     "meanings": [
@@ -6069,7 +6901,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-190",
+        "id": "example-216",
         "surahNumber": 92,
         "surahName": "Al-Layl",
         "ayahNumber": 1,
@@ -6086,7 +6918,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-191",
+    "id": "quiz-extracted-217",
     "arabic": "وأما من بخل واستغنى",
     "transliteration": "wأma mn bkhl wastghna",
     "meanings": [
@@ -6101,7 +6933,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-191",
+        "id": "example-217",
         "surahNumber": 92,
         "surahName": "Al-Layl",
         "ayahNumber": 1,
@@ -6118,7 +6950,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-192",
+    "id": "quiz-extracted-218",
     "arabic": "ب خ ل",
     "transliteration": "b kh l",
     "meanings": [
@@ -6133,7 +6965,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-192",
+        "id": "example-218",
         "surahNumber": 92,
         "surahName": "Al-Layl",
         "ayahNumber": 1,
@@ -6150,7 +6982,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-193",
+    "id": "quiz-extracted-219",
     "arabic": "غ ن ي",
     "transliteration": "gh n y",
     "meanings": [
@@ -6165,7 +6997,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-193",
+        "id": "example-219",
         "surahNumber": 92,
         "surahName": "Al-Layl",
         "ayahNumber": 1,
@@ -6182,7 +7014,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-194",
+    "id": "quiz-extracted-220",
     "arabic": "وكذب بالحسنى",
     "transliteration": "wkdhb balhsna",
     "meanings": [
@@ -6197,7 +7029,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-194",
+        "id": "example-220",
         "surahNumber": 92,
         "surahName": "Al-Layl",
         "ayahNumber": 1,
@@ -6214,7 +7046,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-195",
+    "id": "quiz-extracted-221",
     "arabic": "فسنيسره للعسرى",
     "transliteration": "fsnysrh ll'sra",
     "meanings": [
@@ -6229,7 +7061,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-195",
+        "id": "example-221",
         "surahNumber": 92,
         "surahName": "Al-Layl",
         "ayahNumber": 1,
@@ -6246,7 +7078,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-196",
+    "id": "quiz-extracted-222",
     "arabic": "ع س ر",
     "transliteration": "' s r",
     "meanings": [
@@ -6261,7 +7093,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-196",
+        "id": "example-222",
         "surahNumber": 92,
         "surahName": "Al-Layl",
         "ayahNumber": 1,
@@ -6278,7 +7110,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-197",
+    "id": "quiz-extracted-223",
     "arabic": "وما يغني عنه ماله إذا تردى",
     "transliteration": "wma yghny 'nh malh إdha trda",
     "meanings": [
@@ -6293,7 +7125,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-197",
+        "id": "example-223",
         "surahNumber": 92,
         "surahName": "Al-Layl",
         "ayahNumber": 1,
@@ -6310,7 +7142,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-198",
+    "id": "quiz-extracted-224",
     "arabic": "م ل ل",
     "transliteration": "m l l",
     "meanings": [
@@ -6325,7 +7157,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-198",
+        "id": "example-224",
         "surahNumber": 92,
         "surahName": "Al-Layl",
         "ayahNumber": 1,
@@ -6342,7 +7174,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-199",
+    "id": "quiz-extracted-225",
     "arabic": "ت ر د ي",
     "transliteration": "t r d y",
     "meanings": [
@@ -6357,7 +7189,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-199",
+        "id": "example-225",
         "surahNumber": 92,
         "surahName": "Al-Layl",
         "ayahNumber": 1,
@@ -6374,7 +7206,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-200",
+    "id": "quiz-extracted-226",
     "arabic": "إن علينا للهدى",
     "transliteration": "إn 'lyna llhda",
     "meanings": [
@@ -6389,7 +7221,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-200",
+        "id": "example-226",
         "surahNumber": 92,
         "surahName": "Al-Layl",
         "ayahNumber": 1,
@@ -6406,7 +7238,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-201",
+    "id": "quiz-extracted-227",
     "arabic": "ع ل ي",
     "transliteration": "' l y",
     "meanings": [
@@ -6421,7 +7253,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-201",
+        "id": "example-227",
         "surahNumber": 92,
         "surahName": "Al-Layl",
         "ayahNumber": 1,
@@ -6438,7 +7270,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-202",
+    "id": "quiz-extracted-228",
     "arabic": "الضحى",
     "transliteration": "aldha",
     "meanings": [
@@ -6453,7 +7285,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-202",
+        "id": "example-228",
         "surahNumber": 93,
         "surahName": "Ad-Duha",
         "ayahNumber": 1,
@@ -6470,7 +7302,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-203",
+    "id": "quiz-extracted-229",
     "arabic": "والضحى",
     "transliteration": "waldha",
     "meanings": [
@@ -6485,7 +7317,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-203",
+        "id": "example-229",
         "surahNumber": 93,
         "surahName": "Ad-Duha",
         "ayahNumber": 1,
@@ -6502,7 +7334,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-204",
+    "id": "quiz-extracted-230",
     "arabic": "والليل إذا سجى",
     "transliteration": "wallyl إdha sja",
     "meanings": [
@@ -6517,7 +7349,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-204",
+        "id": "example-230",
         "surahNumber": 93,
         "surahName": "Ad-Duha",
         "ayahNumber": 1,
@@ -6534,7 +7366,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-205",
+    "id": "quiz-extracted-231",
     "arabic": "س ج و",
     "transliteration": "s j w",
     "meanings": [
@@ -6549,7 +7381,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-205",
+        "id": "example-231",
         "surahNumber": 93,
         "surahName": "Ad-Duha",
         "ayahNumber": 1,
@@ -6566,7 +7398,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-206",
+    "id": "quiz-extracted-232",
     "arabic": "ما ودعك ربك وما قلى",
     "transliteration": "ma wd'k rbk wma qla",
     "meanings": [
@@ -6581,7 +7413,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-206",
+        "id": "example-232",
         "surahNumber": 93,
         "surahName": "Ad-Duha",
         "ayahNumber": 1,
@@ -6598,7 +7430,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-207",
+    "id": "quiz-extracted-233",
     "arabic": "و د ع",
     "transliteration": "w d '",
     "meanings": [
@@ -6613,7 +7445,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-207",
+        "id": "example-233",
         "surahNumber": 93,
         "surahName": "Ad-Duha",
         "ayahNumber": 1,
@@ -6630,7 +7462,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-208",
+    "id": "quiz-extracted-234",
     "arabic": "ق ل و",
     "transliteration": "q l w",
     "meanings": [
@@ -6645,7 +7477,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-208",
+        "id": "example-234",
         "surahNumber": 93,
         "surahName": "Ad-Duha",
         "ayahNumber": 1,
@@ -6662,7 +7494,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-209",
+    "id": "quiz-extracted-235",
     "arabic": "وللآخرة خير لك من الأولى",
     "transliteration": "wllآkhrh khyr lk mn alأwla",
     "meanings": [
@@ -6677,7 +7509,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-209",
+        "id": "example-235",
         "surahNumber": 93,
         "surahName": "Ad-Duha",
         "ayahNumber": 1,
@@ -6694,7 +7526,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-210",
+    "id": "quiz-extracted-236",
     "arabic": "ء خ ر",
     "transliteration": "' kh r",
     "meanings": [
@@ -6709,7 +7541,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-210",
+        "id": "example-236",
         "surahNumber": 93,
         "surahName": "Ad-Duha",
         "ayahNumber": 1,
@@ -6726,7 +7558,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-211",
+    "id": "quiz-extracted-237",
     "arabic": "خ ي ر",
     "transliteration": "kh y r",
     "meanings": [
@@ -6741,7 +7573,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-211",
+        "id": "example-237",
         "surahNumber": 93,
         "surahName": "Ad-Duha",
         "ayahNumber": 1,
@@ -6758,7 +7590,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-212",
+    "id": "quiz-extracted-238",
     "arabic": "أ و ل",
     "transliteration": "أ w l",
     "meanings": [
@@ -6773,7 +7605,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-212",
+        "id": "example-238",
         "surahNumber": 93,
         "surahName": "Ad-Duha",
         "ayahNumber": 1,
@@ -6790,7 +7622,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-213",
+    "id": "quiz-extracted-239",
     "arabic": "ووجدك ضالا فهدى",
     "transliteration": "wwjdk dala fhda",
     "meanings": [
@@ -6805,7 +7637,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-213",
+        "id": "example-239",
         "surahNumber": 93,
         "surahName": "Ad-Duha",
         "ayahNumber": 1,
@@ -6822,7 +7654,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-214",
+    "id": "quiz-extracted-240",
     "arabic": "و ج د",
     "transliteration": "w j d",
     "meanings": [
@@ -6837,7 +7669,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-214",
+        "id": "example-240",
         "surahNumber": 93,
         "surahName": "Ad-Duha",
         "ayahNumber": 1,
@@ -6854,7 +7686,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-215",
+    "id": "quiz-extracted-241",
     "arabic": "ض ل ل",
     "transliteration": "d l l",
     "meanings": [
@@ -6869,7 +7701,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-215",
+        "id": "example-241",
         "surahNumber": 93,
         "surahName": "Ad-Duha",
         "ayahNumber": 1,
@@ -6886,7 +7718,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-216",
+    "id": "quiz-extracted-242",
     "arabic": "ووجدك عائلا فأغنى",
     "transliteration": "wwjdk 'aئla fأghna",
     "meanings": [
@@ -6901,7 +7733,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-216",
+        "id": "example-242",
         "surahNumber": 93,
         "surahName": "Ad-Duha",
         "ayahNumber": 1,
@@ -6918,7 +7750,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-217",
+    "id": "quiz-extracted-243",
     "arabic": "ع و ل",
     "transliteration": "' w l",
     "meanings": [
@@ -6933,7 +7765,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-217",
+        "id": "example-243",
         "surahNumber": 93,
         "surahName": "Ad-Duha",
         "ayahNumber": 1,
@@ -6950,7 +7782,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-218",
+    "id": "quiz-extracted-244",
     "arabic": "فأما اليتيم فلا تقهر",
     "transliteration": "fأma alytym fla tqhr",
     "meanings": [
@@ -6965,7 +7797,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-218",
+        "id": "example-244",
         "surahNumber": 93,
         "surahName": "Ad-Duha",
         "ayahNumber": 1,
@@ -6982,7 +7814,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-219",
+    "id": "quiz-extracted-245",
     "arabic": "ق ه ر",
     "transliteration": "q h r",
     "meanings": [
@@ -6997,7 +7829,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-219",
+        "id": "example-245",
         "surahNumber": 93,
         "surahName": "Ad-Duha",
         "ayahNumber": 1,
@@ -7014,7 +7846,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-220",
+    "id": "quiz-extracted-246",
     "arabic": "وأما السائل فلا تنهر",
     "transliteration": "wأma alsaئl fla tnhr",
     "meanings": [
@@ -7029,7 +7861,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-220",
+        "id": "example-246",
         "surahNumber": 93,
         "surahName": "Ad-Duha",
         "ayahNumber": 1,
@@ -7046,7 +7878,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-221",
+    "id": "quiz-extracted-247",
     "arabic": "س أ ل",
     "transliteration": "s أ l",
     "meanings": [
@@ -7061,7 +7893,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-221",
+        "id": "example-247",
         "surahNumber": 93,
         "surahName": "Ad-Duha",
         "ayahNumber": 1,
@@ -7078,7 +7910,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-222",
+    "id": "quiz-extracted-248",
     "arabic": "وأما بنعمة ربك فحدث",
     "transliteration": "wأma bn'mh rbk fhdth",
     "meanings": [
@@ -7093,7 +7925,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-222",
+        "id": "example-248",
         "surahNumber": 93,
         "surahName": "Ad-Duha",
         "ayahNumber": 1,
@@ -7110,7 +7942,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-223",
+    "id": "quiz-extracted-249",
     "arabic": "تسلية للنبي ﷺ",
     "transliteration": "tslyh llnby ﷺ",
     "meanings": [
@@ -7125,7 +7957,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-223",
+        "id": "example-249",
         "surahNumber": 93,
         "surahName": "Ad-Duha",
         "ayahNumber": 1,
@@ -7142,7 +7974,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-224",
+    "id": "quiz-extracted-250",
     "arabic": "س ل ي",
     "transliteration": "s l y",
     "meanings": [
@@ -7157,7 +7989,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-224",
+        "id": "example-250",
         "surahNumber": 93,
         "surahName": "Ad-Duha",
         "ayahNumber": 1,
@@ -7174,7 +8006,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-225",
+    "id": "quiz-extracted-251",
     "arabic": "الضال",
     "transliteration": "aldal",
     "meanings": [
@@ -7189,7 +8021,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-225",
+        "id": "example-251",
         "surahNumber": 93,
         "surahName": "Ad-Duha",
         "ayahNumber": 1,
@@ -7206,7 +8038,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-226",
+    "id": "quiz-extracted-252",
     "arabic": "ضالا",
     "transliteration": "dala",
     "meanings": [
@@ -7221,7 +8053,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-226",
+        "id": "example-252",
         "surahNumber": 93,
         "surahName": "Ad-Duha",
         "ayahNumber": 1,
@@ -7238,7 +8070,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-227",
+    "id": "quiz-extracted-253",
     "arabic": "العائل",
     "transliteration": "al'aئl",
     "meanings": [
@@ -7253,7 +8085,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-227",
+        "id": "example-253",
         "surahNumber": 93,
         "surahName": "Ad-Duha",
         "ayahNumber": 1,
@@ -7270,7 +8102,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-228",
+    "id": "quiz-extracted-254",
     "arabic": "عائلا",
     "transliteration": "'aئla",
     "meanings": [
@@ -7285,7 +8117,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-228",
+        "id": "example-254",
         "surahNumber": 93,
         "surahName": "Ad-Duha",
         "ayahNumber": 1,
@@ -7302,7 +8134,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-229",
+    "id": "quiz-extracted-255",
     "arabic": "الشرح",
     "transliteration": "alshrh",
     "meanings": [
@@ -7317,7 +8149,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-229",
+        "id": "example-255",
         "surahNumber": 94,
         "surahName": "Ash-Sharh",
         "ayahNumber": 1,
@@ -7334,7 +8166,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-230",
+    "id": "quiz-extracted-256",
     "arabic": "ألم نشرح لك صدرك",
     "transliteration": "أlm nshrh lk sdrk",
     "meanings": [
@@ -7349,7 +8181,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-230",
+        "id": "example-256",
         "surahNumber": 94,
         "surahName": "Ash-Sharh",
         "ayahNumber": 1,
@@ -7366,7 +8198,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-231",
+    "id": "quiz-extracted-257",
     "arabic": "ش ر ح",
     "transliteration": "sh r h",
     "meanings": [
@@ -7381,7 +8213,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-231",
+        "id": "example-257",
         "surahNumber": 94,
         "surahName": "Ash-Sharh",
         "ayahNumber": 1,
@@ -7398,7 +8230,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-232",
+    "id": "quiz-extracted-258",
     "arabic": "ص د ر",
     "transliteration": "s d r",
     "meanings": [
@@ -7413,7 +8245,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-232",
+        "id": "example-258",
         "surahNumber": 94,
         "surahName": "Ash-Sharh",
         "ayahNumber": 1,
@@ -7430,7 +8262,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-233",
+    "id": "quiz-extracted-259",
     "arabic": "ووضعنا عنك وزرك",
     "transliteration": "wwd'na 'nk wzrk",
     "meanings": [
@@ -7445,7 +8277,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-233",
+        "id": "example-259",
         "surahNumber": 94,
         "surahName": "Ash-Sharh",
         "ayahNumber": 1,
@@ -7462,7 +8294,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-234",
+    "id": "quiz-extracted-260",
     "arabic": "و ض ع",
     "transliteration": "w d '",
     "meanings": [
@@ -7477,7 +8309,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-234",
+        "id": "example-260",
         "surahNumber": 94,
         "surahName": "Ash-Sharh",
         "ayahNumber": 1,
@@ -7494,7 +8326,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-235",
+    "id": "quiz-extracted-261",
     "arabic": "و ز ر",
     "transliteration": "w z r",
     "meanings": [
@@ -7509,7 +8341,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-235",
+        "id": "example-261",
         "surahNumber": 94,
         "surahName": "Ash-Sharh",
         "ayahNumber": 1,
@@ -7526,7 +8358,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-236",
+    "id": "quiz-extracted-262",
     "arabic": "الذي أنقض ظهرك",
     "transliteration": "aldhy أnqd zhrk",
     "meanings": [
@@ -7541,7 +8373,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-236",
+        "id": "example-262",
         "surahNumber": 94,
         "surahName": "Ash-Sharh",
         "ayahNumber": 1,
@@ -7558,7 +8390,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-237",
+    "id": "quiz-extracted-263",
     "arabic": "ن ق ض",
     "transliteration": "n q d",
     "meanings": [
@@ -7573,7 +8405,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-237",
+        "id": "example-263",
         "surahNumber": 94,
         "surahName": "Ash-Sharh",
         "ayahNumber": 1,
@@ -7590,7 +8422,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-238",
+    "id": "quiz-extracted-264",
     "arabic": "ظ ه ر",
     "transliteration": "z h r",
     "meanings": [
@@ -7605,7 +8437,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-238",
+        "id": "example-264",
         "surahNumber": 94,
         "surahName": "Ash-Sharh",
         "ayahNumber": 1,
@@ -7622,7 +8454,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-239",
+    "id": "quiz-extracted-265",
     "arabic": "ورفعنا لك ذكرك",
     "transliteration": "wrf'na lk dhkrk",
     "meanings": [
@@ -7637,7 +8469,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-239",
+        "id": "example-265",
         "surahNumber": 94,
         "surahName": "Ash-Sharh",
         "ayahNumber": 1,
@@ -7654,7 +8486,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-240",
+    "id": "quiz-extracted-266",
     "arabic": "ر ف ع",
     "transliteration": "r f '",
     "meanings": [
@@ -7669,7 +8501,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-240",
+        "id": "example-266",
         "surahNumber": 94,
         "surahName": "Ash-Sharh",
         "ayahNumber": 1,
@@ -7686,7 +8518,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-241",
+    "id": "quiz-extracted-267",
     "arabic": "فإن مع العسر يسرا",
     "transliteration": "fإn m' al'sr ysra",
     "meanings": [
@@ -7701,7 +8533,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-241",
+        "id": "example-267",
         "surahNumber": 94,
         "surahName": "Ash-Sharh",
         "ayahNumber": 1,
@@ -7718,7 +8550,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-242",
+    "id": "quiz-extracted-268",
     "arabic": "العسر",
     "transliteration": "al'sr",
     "meanings": [
@@ -7733,7 +8565,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-242",
+        "id": "example-268",
         "surahNumber": 94,
         "surahName": "Ash-Sharh",
         "ayahNumber": 1,
@@ -7750,7 +8582,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-243",
+    "id": "quiz-extracted-269",
     "arabic": "يسرا",
     "transliteration": "ysra",
     "meanings": [
@@ -7765,7 +8597,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-243",
+        "id": "example-269",
         "surahNumber": 94,
         "surahName": "Ash-Sharh",
         "ayahNumber": 1,
@@ -7782,7 +8614,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-244",
+    "id": "quiz-extracted-270",
     "arabic": "إن مع العسر يسرا",
     "transliteration": "إn m' al'sr ysra",
     "meanings": [
@@ -7797,7 +8629,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-244",
+        "id": "example-270",
         "surahNumber": 94,
         "surahName": "Ash-Sharh",
         "ayahNumber": 1,
@@ -7814,7 +8646,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-245",
+    "id": "quiz-extracted-271",
     "arabic": "فإذا فرغت فانصب",
     "transliteration": "fإdha frght fansb",
     "meanings": [
@@ -7829,7 +8661,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-245",
+        "id": "example-271",
         "surahNumber": 94,
         "surahName": "Ash-Sharh",
         "ayahNumber": 1,
@@ -7846,7 +8678,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-246",
+    "id": "quiz-extracted-272",
     "arabic": "ف ر غ",
     "transliteration": "f r gh",
     "meanings": [
@@ -7861,7 +8693,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-246",
+        "id": "example-272",
         "surahNumber": 94,
         "surahName": "Ash-Sharh",
         "ayahNumber": 1,
@@ -7878,7 +8710,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-247",
+    "id": "quiz-extracted-273",
     "arabic": "وإلى ربك فارغب",
     "transliteration": "wإla rbk farghb",
     "meanings": [
@@ -7893,7 +8725,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-247",
+        "id": "example-273",
         "surahNumber": 94,
         "surahName": "Ash-Sharh",
         "ayahNumber": 1,
@@ -7910,7 +8742,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-248",
+    "id": "quiz-extracted-274",
     "arabic": "ر غ ب",
     "transliteration": "r gh b",
     "meanings": [
@@ -7925,7 +8757,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-248",
+        "id": "example-274",
         "surahNumber": 94,
         "surahName": "Ash-Sharh",
         "ayahNumber": 1,
@@ -7942,7 +8774,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-249",
+    "id": "quiz-extracted-275",
     "arabic": "الذكر",
     "transliteration": "aldhkr",
     "meanings": [
@@ -7957,7 +8789,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-249",
+        "id": "example-275",
         "surahNumber": 94,
         "surahName": "Ash-Sharh",
         "ayahNumber": 1,
@@ -7974,7 +8806,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-250",
+    "id": "quiz-extracted-276",
     "arabic": "ذكر",
     "transliteration": "dhkr",
     "meanings": [
@@ -7989,7 +8821,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-250",
+        "id": "example-276",
         "surahNumber": 94,
         "surahName": "Ash-Sharh",
         "ayahNumber": 1,
@@ -8006,7 +8838,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-251",
+    "id": "quiz-extracted-277",
     "arabic": "التين",
     "transliteration": "altyn",
     "meanings": [
@@ -8021,7 +8853,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-251",
+        "id": "example-277",
         "surahNumber": 95,
         "surahName": "At-Tin",
         "ayahNumber": 1,
@@ -8038,7 +8870,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-252",
+    "id": "quiz-extracted-278",
     "arabic": "والتين والزيتون",
     "transliteration": "waltyn walzytwn",
     "meanings": [
@@ -8053,7 +8885,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-252",
+        "id": "example-278",
         "surahNumber": 95,
         "surahName": "At-Tin",
         "ayahNumber": 1,
@@ -8070,7 +8902,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-253",
+    "id": "quiz-extracted-279",
     "arabic": "ت ي ن",
     "transliteration": "t y n",
     "meanings": [
@@ -8085,7 +8917,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-253",
+        "id": "example-279",
         "surahNumber": 95,
         "surahName": "At-Tin",
         "ayahNumber": 1,
@@ -8102,7 +8934,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-254",
+    "id": "quiz-extracted-280",
     "arabic": "ز ي ت",
     "transliteration": "z y t",
     "meanings": [
@@ -8117,7 +8949,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-254",
+        "id": "example-280",
         "surahNumber": 95,
         "surahName": "At-Tin",
         "ayahNumber": 1,
@@ -8134,7 +8966,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-255",
+    "id": "quiz-extracted-281",
     "arabic": "طور سينين",
     "transliteration": "twr synyn",
     "meanings": [
@@ -8149,7 +8981,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-255",
+        "id": "example-281",
         "surahNumber": 95,
         "surahName": "At-Tin",
         "ayahNumber": 1,
@@ -8166,7 +8998,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-256",
+    "id": "quiz-extracted-282",
     "arabic": "ط و ر",
     "transliteration": "t w r",
     "meanings": [
@@ -8181,7 +9013,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-256",
+        "id": "example-282",
         "surahNumber": 95,
         "surahName": "At-Tin",
         "ayahNumber": 1,
@@ -8198,7 +9030,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-257",
+    "id": "quiz-extracted-283",
     "arabic": "س ي ن",
     "transliteration": "s y n",
     "meanings": [
@@ -8213,7 +9045,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-257",
+        "id": "example-283",
         "surahNumber": 95,
         "surahName": "At-Tin",
         "ayahNumber": 1,
@@ -8230,7 +9062,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-258",
+    "id": "quiz-extracted-284",
     "arabic": "وهذا البلد الأمين",
     "transliteration": "whdha albld alأmyn",
     "meanings": [
@@ -8245,7 +9077,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-258",
+        "id": "example-284",
         "surahNumber": 95,
         "surahName": "At-Tin",
         "ayahNumber": 1,
@@ -8262,7 +9094,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-259",
+    "id": "quiz-extracted-285",
     "arabic": "لقد خلقنا الإنسان في أحسن تقويم",
     "transliteration": "lqd khlqna alإnsan fy أhsn tqwym",
     "meanings": [
@@ -8277,7 +9109,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-259",
+        "id": "example-285",
         "surahNumber": 95,
         "surahName": "At-Tin",
         "ayahNumber": 1,
@@ -8294,7 +9126,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-260",
+    "id": "quiz-extracted-286",
     "arabic": "ق و م",
     "transliteration": "q w m",
     "meanings": [
@@ -8309,7 +9141,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-260",
+        "id": "example-286",
         "surahNumber": 95,
         "surahName": "At-Tin",
         "ayahNumber": 1,
@@ -8326,7 +9158,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-261",
+    "id": "quiz-extracted-287",
     "arabic": "أحسن تقويم",
     "transliteration": "أhsn tqwym",
     "meanings": [
@@ -8341,7 +9173,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-261",
+        "id": "example-287",
         "surahNumber": 95,
         "surahName": "At-Tin",
         "ayahNumber": 1,
@@ -8358,7 +9190,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-262",
+    "id": "quiz-extracted-288",
     "arabic": "ثم رددناه أسفل سافلين",
     "transliteration": "thm rddnah أsfl saflyn",
     "meanings": [
@@ -8373,7 +9205,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-262",
+        "id": "example-288",
         "surahNumber": 95,
         "surahName": "At-Tin",
         "ayahNumber": 1,
@@ -8390,7 +9222,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-263",
+    "id": "quiz-extracted-289",
     "arabic": "ر د د",
     "transliteration": "r d d",
     "meanings": [
@@ -8405,7 +9237,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-263",
+        "id": "example-289",
         "surahNumber": 95,
         "surahName": "At-Tin",
         "ayahNumber": 1,
@@ -8422,7 +9254,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-264",
+    "id": "quiz-extracted-290",
     "arabic": "س ف ل",
     "transliteration": "s f l",
     "meanings": [
@@ -8437,7 +9269,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-264",
+        "id": "example-290",
         "surahNumber": 95,
         "surahName": "At-Tin",
         "ayahNumber": 1,
@@ -8454,7 +9286,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-265",
+    "id": "quiz-extracted-291",
     "arabic": "سافلين",
     "transliteration": "saflyn",
     "meanings": [
@@ -8469,7 +9301,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-265",
+        "id": "example-291",
         "surahNumber": 95,
         "surahName": "At-Tin",
         "ayahNumber": 1,
@@ -8486,7 +9318,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-266",
+    "id": "quiz-extracted-292",
     "arabic": "إلا الذين آمنوا وعملوا الصالحات",
     "transliteration": "إla aldhyn آmnwa w'mlwa alsalhat",
     "meanings": [
@@ -8501,7 +9333,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-266",
+        "id": "example-292",
         "surahNumber": 95,
         "surahName": "At-Tin",
         "ayahNumber": 1,
@@ -8518,7 +9350,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-267",
+    "id": "quiz-extracted-293",
     "arabic": "ء م ن",
     "transliteration": "' m n",
     "meanings": [
@@ -8533,7 +9365,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-267",
+        "id": "example-293",
         "surahNumber": 95,
         "surahName": "At-Tin",
         "ayahNumber": 1,
@@ -8550,7 +9382,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-268",
+    "id": "quiz-extracted-294",
     "arabic": "ص ل ح",
     "transliteration": "s l h",
     "meanings": [
@@ -8565,7 +9397,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-268",
+        "id": "example-294",
         "surahNumber": 95,
         "surahName": "At-Tin",
         "ayahNumber": 1,
@@ -8582,7 +9414,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-269",
+    "id": "quiz-extracted-295",
     "arabic": "فلهم أجر غير ممنون",
     "transliteration": "flhm أjr ghyr mmnwn",
     "meanings": [
@@ -8597,7 +9429,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-269",
+        "id": "example-295",
         "surahNumber": 95,
         "surahName": "At-Tin",
         "ayahNumber": 1,
@@ -8614,7 +9446,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-270",
+    "id": "quiz-extracted-296",
     "arabic": "أ ج ر",
     "transliteration": "أ j r",
     "meanings": [
@@ -8629,7 +9461,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-270",
+        "id": "example-296",
         "surahNumber": 95,
         "surahName": "At-Tin",
         "ayahNumber": 1,
@@ -8646,7 +9478,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-271",
+    "id": "quiz-extracted-297",
     "arabic": "م ن ن",
     "transliteration": "m n n",
     "meanings": [
@@ -8661,7 +9493,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-271",
+        "id": "example-297",
         "surahNumber": 95,
         "surahName": "At-Tin",
         "ayahNumber": 1,
@@ -8678,7 +9510,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-272",
+    "id": "quiz-extracted-298",
     "arabic": "ممنون",
     "transliteration": "mmnwn",
     "meanings": [
@@ -8693,7 +9525,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-272",
+        "id": "example-298",
         "surahNumber": 95,
         "surahName": "At-Tin",
         "ayahNumber": 1,
@@ -8710,7 +9542,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-273",
+    "id": "quiz-extracted-299",
     "arabic": "أليس الله بأحكم الحاكمين",
     "transliteration": "أlys allh bأhkm alhakmyn",
     "meanings": [
@@ -8725,7 +9557,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-273",
+        "id": "example-299",
         "surahNumber": 95,
         "surahName": "At-Tin",
         "ayahNumber": 1,
@@ -8742,7 +9574,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-274",
+    "id": "quiz-extracted-300",
     "arabic": "ح ك م",
     "transliteration": "h k m",
     "meanings": [
@@ -8757,7 +9589,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-274",
+        "id": "example-300",
         "surahNumber": 95,
         "surahName": "At-Tin",
         "ayahNumber": 1,
@@ -8774,7 +9606,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-275",
+    "id": "quiz-extracted-301",
     "arabic": "الحاكمين",
     "transliteration": "alhakmyn",
     "meanings": [
@@ -8789,7 +9621,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-275",
+        "id": "example-301",
         "surahNumber": 95,
         "surahName": "At-Tin",
         "ayahNumber": 1,
@@ -8806,7 +9638,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-276",
+    "id": "quiz-extracted-302",
     "arabic": "العلق",
     "transliteration": "al'lq",
     "meanings": [
@@ -8821,7 +9653,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-276",
+        "id": "example-302",
         "surahNumber": 96,
         "surahName": "Al-Alaq",
         "ayahNumber": 1,
@@ -8838,7 +9670,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-277",
+    "id": "quiz-extracted-303",
     "arabic": "أول ما بدئ به رسول الله ﷺ من الوحي الرؤيا الصالحة في النوم، فكان لا يرى رؤيا إلا جاءت مثل فلق الصبح",
     "transliteration": "أwl ma bdئ bh rswl allh ﷺ mn alwhy alrؤya alsalhh fy alnwm، fkan la yra rؤya إla ja't mthl flq alsbh",
     "meanings": [
@@ -8853,7 +9685,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-277",
+        "id": "example-303",
         "surahNumber": 96,
         "surahName": "Al-Alaq",
         "ayahNumber": 1,
@@ -8870,7 +9702,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-278",
+    "id": "quiz-extracted-304",
     "arabic": "اقرأ باسم ربك الذي خلق",
     "transliteration": "aqrأ basm rbk aldhy khlq",
     "meanings": [
@@ -8885,7 +9717,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-278",
+        "id": "example-304",
         "surahNumber": 96,
         "surahName": "Al-Alaq",
         "ayahNumber": 1,
@@ -8902,7 +9734,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-279",
+    "id": "quiz-extracted-305",
     "arabic": "ما أنا بقارئ",
     "transliteration": "ma أna bqarئ",
     "meanings": [
@@ -8917,7 +9749,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-279",
+        "id": "example-305",
         "surahNumber": 96,
         "surahName": "Al-Alaq",
         "ayahNumber": 1,
@@ -8934,7 +9766,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-280",
+    "id": "quiz-extracted-306",
     "arabic": "كان النبي ﷺ يصلي، فجاءه أبو جهل فقال",
     "transliteration": "kan alnby ﷺ ysly، fja'h أbw jhl fqal",
     "meanings": [
@@ -8949,7 +9781,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-280",
+        "id": "example-306",
         "surahNumber": 96,
         "surahName": "Al-Alaq",
         "ayahNumber": 1,
@@ -8966,7 +9798,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-281",
+    "id": "quiz-extracted-307",
     "arabic": "ألم أنهك عن هذا؟ فأنزل الله",
     "transliteration": "أlm أnhk 'n hdha؟ fأnzl allh",
     "meanings": [
@@ -8981,7 +9813,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-281",
+        "id": "example-307",
         "surahNumber": 96,
         "surahName": "Al-Alaq",
         "ayahNumber": 1,
@@ -8998,7 +9830,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-282",
+    "id": "quiz-extracted-308",
     "arabic": "أرأيت الذي ينهى عبدا إذا صلى",
     "transliteration": "أrأyt aldhy ynha 'bda إdha sla",
     "meanings": [
@@ -9013,7 +9845,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-282",
+        "id": "example-308",
         "surahNumber": 96,
         "surahName": "Al-Alaq",
         "ayahNumber": 1,
@@ -9030,7 +9862,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-283",
+    "id": "quiz-extracted-309",
     "arabic": "كلا لئن لم ينته لنسفعا بالناصية",
     "transliteration": "kla lئn lm ynth lnsf'a balnasyh",
     "meanings": [
@@ -9045,7 +9877,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-283",
+        "id": "example-309",
         "surahNumber": 96,
         "surahName": "Al-Alaq",
         "ayahNumber": 1,
@@ -9062,7 +9894,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-284",
+    "id": "quiz-extracted-310",
     "arabic": "علق",
     "transliteration": "'lq",
     "meanings": [
@@ -9077,7 +9909,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-284",
+        "id": "example-310",
         "surahNumber": 96,
         "surahName": "Al-Alaq",
         "ayahNumber": 1,
@@ -9094,7 +9926,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-285",
+    "id": "quiz-extracted-311",
     "arabic": "ع ل ق",
     "transliteration": "' l q",
     "meanings": [
@@ -9109,7 +9941,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-285",
+        "id": "example-311",
         "surahNumber": 96,
         "surahName": "Al-Alaq",
         "ayahNumber": 1,
@@ -9126,7 +9958,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-286",
+    "id": "quiz-extracted-312",
     "arabic": "اقرأ",
     "transliteration": "aqrأ",
     "meanings": [
@@ -9141,7 +9973,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-286",
+        "id": "example-312",
         "surahNumber": 96,
         "surahName": "Al-Alaq",
         "ayahNumber": 1,
@@ -9158,7 +9990,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-287",
+    "id": "quiz-extracted-313",
     "arabic": "ق ر أ",
     "transliteration": "q r أ",
     "meanings": [
@@ -9173,7 +10005,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-287",
+        "id": "example-313",
         "surahNumber": 96,
         "surahName": "Al-Alaq",
         "ayahNumber": 1,
@@ -9190,7 +10022,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-288",
+    "id": "quiz-extracted-314",
     "arabic": "ناصية",
     "transliteration": "nasyh",
     "meanings": [
@@ -9205,7 +10037,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-288",
+        "id": "example-314",
         "surahNumber": 96,
         "surahName": "Al-Alaq",
         "ayahNumber": 1,
@@ -9222,7 +10054,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-289",
+    "id": "quiz-extracted-315",
     "arabic": "ن ص ي",
     "transliteration": "n s y",
     "meanings": [
@@ -9237,7 +10069,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-289",
+        "id": "example-315",
         "surahNumber": 96,
         "surahName": "Al-Alaq",
         "ayahNumber": 1,
@@ -9254,7 +10086,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-290",
+    "id": "quiz-extracted-316",
     "arabic": "سجد",
     "transliteration": "sjd",
     "meanings": [
@@ -9269,7 +10101,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-290",
+        "id": "example-316",
         "surahNumber": 96,
         "surahName": "Al-Alaq",
         "ayahNumber": 1,
@@ -9286,7 +10118,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-291",
+    "id": "quiz-extracted-317",
     "arabic": "س ج د",
     "transliteration": "s j d",
     "meanings": [
@@ -9301,7 +10133,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-291",
+        "id": "example-317",
         "surahNumber": 96,
         "surahName": "Al-Alaq",
         "ayahNumber": 1,
@@ -9318,7 +10150,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-292",
+    "id": "quiz-extracted-318",
     "arabic": "كلا إن الإنسان ليطغى",
     "transliteration": "kla إn alإnsan lytgha",
     "meanings": [
@@ -9333,7 +10165,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-292",
+        "id": "example-318",
         "surahNumber": 96,
         "surahName": "Al-Alaq",
         "ayahNumber": 1,
@@ -9350,7 +10182,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-293",
+    "id": "quiz-extracted-319",
     "arabic": "ك ل ل",
     "transliteration": "k l l",
     "meanings": [
@@ -9365,7 +10197,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-293",
+        "id": "example-319",
         "surahNumber": 96,
         "surahName": "Al-Alaq",
         "ayahNumber": 1,
@@ -9382,7 +10214,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-294",
+    "id": "quiz-extracted-320",
     "arabic": "ط غ ي",
     "transliteration": "t gh y",
     "meanings": [
@@ -9397,7 +10229,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-294",
+        "id": "example-320",
         "surahNumber": 96,
         "surahName": "Al-Alaq",
         "ayahNumber": 1,
@@ -9414,7 +10246,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-295",
+    "id": "quiz-extracted-321",
     "arabic": "ليطغى",
     "transliteration": "lytgha",
     "meanings": [
@@ -9429,7 +10261,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-295",
+        "id": "example-321",
         "surahNumber": 96,
         "surahName": "Al-Alaq",
         "ayahNumber": 1,
@@ -9446,7 +10278,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-296",
+    "id": "quiz-extracted-322",
     "arabic": "ينهى",
     "transliteration": "ynha",
     "meanings": [
@@ -9461,7 +10293,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-296",
+        "id": "example-322",
         "surahNumber": 96,
         "surahName": "Al-Alaq",
         "ayahNumber": 1,
@@ -9478,7 +10310,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-297",
+    "id": "quiz-extracted-323",
     "arabic": "ن ه ي",
     "transliteration": "n h y",
     "meanings": [
@@ -9493,7 +10325,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-297",
+        "id": "example-323",
         "surahNumber": 96,
         "surahName": "Al-Alaq",
         "ayahNumber": 1,
@@ -9510,7 +10342,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-298",
+    "id": "quiz-extracted-324",
     "arabic": "فليدع ناديه",
     "transliteration": "flyd' nadyh",
     "meanings": [
@@ -9525,7 +10357,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-298",
+        "id": "example-324",
         "surahNumber": 96,
         "surahName": "Al-Alaq",
         "ayahNumber": 1,
@@ -9542,7 +10374,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-299",
+    "id": "quiz-extracted-325",
     "arabic": "د ع و",
     "transliteration": "d ' w",
     "meanings": [
@@ -9557,7 +10389,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-299",
+        "id": "example-325",
         "surahNumber": 96,
         "surahName": "Al-Alaq",
         "ayahNumber": 1,
@@ -9574,7 +10406,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-300",
+    "id": "quiz-extracted-326",
     "arabic": "ن د و",
     "transliteration": "n d w",
     "meanings": [
@@ -9589,7 +10421,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-300",
+        "id": "example-326",
         "surahNumber": 96,
         "surahName": "Al-Alaq",
         "ayahNumber": 1,
@@ -9606,7 +10438,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-301",
+    "id": "quiz-extracted-327",
     "arabic": "لنسفعا",
     "transliteration": "lnsf'a",
     "meanings": [
@@ -9621,7 +10453,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-301",
+        "id": "example-327",
         "surahNumber": 96,
         "surahName": "Al-Alaq",
         "ayahNumber": 1,
@@ -9638,7 +10470,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-302",
+    "id": "quiz-extracted-328",
     "arabic": "س ف ع",
     "transliteration": "s f '",
     "meanings": [
@@ -9653,7 +10485,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-302",
+        "id": "example-328",
         "surahNumber": 96,
         "surahName": "Al-Alaq",
         "ayahNumber": 1,
@@ -9670,7 +10502,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-303",
+    "id": "quiz-extracted-329",
     "arabic": "كلا لا تطعه",
     "transliteration": "kla la tt'h",
     "meanings": [
@@ -9685,7 +10517,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-303",
+        "id": "example-329",
         "surahNumber": 96,
         "surahName": "Al-Alaq",
         "ayahNumber": 1,
@@ -9702,7 +10534,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-304",
+    "id": "quiz-extracted-330",
     "arabic": "ط و ع",
     "transliteration": "t w '",
     "meanings": [
@@ -9717,7 +10549,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-304",
+        "id": "example-330",
         "surahNumber": 96,
         "surahName": "Al-Alaq",
         "ayahNumber": 1,
@@ -9734,7 +10566,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-305",
+    "id": "quiz-extracted-331",
     "arabic": "لا تطعه",
     "transliteration": "la tt'h",
     "meanings": [
@@ -9749,7 +10581,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-305",
+        "id": "example-331",
         "surahNumber": 96,
         "surahName": "Al-Alaq",
         "ayahNumber": 1,
@@ -9766,7 +10598,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-306",
+    "id": "quiz-extracted-332",
     "arabic": "واسجد واقترب",
     "transliteration": "wasjd waqtrb",
     "meanings": [
@@ -9781,7 +10613,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-306",
+        "id": "example-332",
         "surahNumber": 96,
         "surahName": "Al-Alaq",
         "ayahNumber": 1,
@@ -9798,7 +10630,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-307",
+    "id": "quiz-extracted-333",
     "arabic": "ق ر ب",
     "transliteration": "q r b",
     "meanings": [
@@ -9813,7 +10645,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-307",
+        "id": "example-333",
         "surahNumber": 96,
         "surahName": "Al-Alaq",
         "ayahNumber": 1,
@@ -9830,7 +10662,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-308",
+    "id": "quiz-extracted-334",
     "arabic": "أرأيت",
     "transliteration": "أrأyt",
     "meanings": [
@@ -9845,7 +10677,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-308",
+        "id": "example-334",
         "surahNumber": 96,
         "surahName": "Al-Alaq",
         "ayahNumber": 1,
@@ -9862,7 +10694,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-309",
+    "id": "quiz-extracted-335",
     "arabic": "ر أ ي",
     "transliteration": "r أ y",
     "meanings": [
@@ -9877,7 +10709,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-309",
+        "id": "example-335",
         "surahNumber": 96,
         "surahName": "Al-Alaq",
         "ayahNumber": 1,
@@ -9894,7 +10726,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-310",
+    "id": "quiz-extracted-336",
     "arabic": "خلق الإنسان من علق",
     "transliteration": "khlq alإnsan mn 'lq",
     "meanings": [
@@ -9909,7 +10741,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-310",
+        "id": "example-336",
         "surahNumber": 96,
         "surahName": "Al-Alaq",
         "ayahNumber": 1,
@@ -9926,7 +10758,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-311",
+    "id": "quiz-extracted-337",
     "arabic": "أكرم",
     "transliteration": "أkrm",
     "meanings": [
@@ -9941,7 +10773,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-311",
+        "id": "example-337",
         "surahNumber": 96,
         "surahName": "Al-Alaq",
         "ayahNumber": 1,
@@ -9958,7 +10790,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-312",
+    "id": "quiz-extracted-338",
     "arabic": "القدر",
     "transliteration": "alqdr",
     "meanings": [
@@ -9973,7 +10805,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-312",
+        "id": "example-338",
         "surahNumber": 97,
         "surahName": "Al-Qadr",
         "ayahNumber": 1,
@@ -9990,7 +10822,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-313",
+    "id": "quiz-extracted-339",
     "arabic": "من قام ليلة القدر إيمانا واحتسابا غفر له ما تقدم من ذنبه",
     "transliteration": "mn qam lylh alqdr إymana wahtsaba ghfr lh ma tqdm mn dhnbh",
     "meanings": [
@@ -10005,7 +10837,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-313",
+        "id": "example-339",
         "surahNumber": 97,
         "surahName": "Al-Qadr",
         "ayahNumber": 1,
@@ -10022,7 +10854,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-314",
+    "id": "quiz-extracted-340",
     "arabic": "تحروا ليلة القدر في الوتر من العشر الأواخر من رمضان",
     "transliteration": "thrwa lylh alqdr fy alwtr mn al'shr alأwakhr mn rmdan",
     "meanings": [
@@ -10037,7 +10869,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-314",
+        "id": "example-340",
         "surahNumber": 97,
         "surahName": "Al-Qadr",
         "ayahNumber": 1,
@@ -10054,7 +10886,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-315",
+    "id": "quiz-extracted-341",
     "arabic": "ليلة القدر ليلة طلقة، لا حارة ولا باردة، تصبح الشمس صبيحتها ضعيفة حمراء",
     "transliteration": "lylh alqdr lylh tlqh، la harh wla bardh، tsbh alshms sbyhtha d'yfh hmra'",
     "meanings": [
@@ -10069,7 +10901,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-315",
+        "id": "example-341",
         "surahNumber": 97,
         "surahName": "Al-Qadr",
         "ayahNumber": 1,
@@ -10086,7 +10918,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-316",
+    "id": "quiz-extracted-342",
     "arabic": "تنزل",
     "transliteration": "tnzl",
     "meanings": [
@@ -10101,7 +10933,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-316",
+        "id": "example-342",
         "surahNumber": 97,
         "surahName": "Al-Qadr",
         "ayahNumber": 1,
@@ -10118,7 +10950,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-317",
+    "id": "quiz-extracted-343",
     "arabic": "ن ز ل",
     "transliteration": "n z l",
     "meanings": [
@@ -10133,7 +10965,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-317",
+        "id": "example-343",
         "surahNumber": 97,
         "surahName": "Al-Qadr",
         "ayahNumber": 1,
@@ -10150,7 +10982,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-318",
+    "id": "quiz-extracted-344",
     "arabic": "الروح",
     "transliteration": "alrwh",
     "meanings": [
@@ -10165,7 +10997,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-318",
+        "id": "example-344",
         "surahNumber": 97,
         "surahName": "Al-Qadr",
         "ayahNumber": 1,
@@ -10182,7 +11014,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-319",
+    "id": "quiz-extracted-345",
     "arabic": "ر و ح",
     "transliteration": "r w h",
     "meanings": [
@@ -10197,7 +11029,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-319",
+        "id": "example-345",
         "surahNumber": 97,
         "surahName": "Al-Qadr",
         "ayahNumber": 1,
@@ -10214,7 +11046,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-320",
+    "id": "quiz-extracted-346",
     "arabic": "سلام",
     "transliteration": "slam",
     "meanings": [
@@ -10229,7 +11061,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-320",
+        "id": "example-346",
         "surahNumber": 97,
         "surahName": "Al-Qadr",
         "ayahNumber": 1,
@@ -10246,7 +11078,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-321",
+    "id": "quiz-extracted-347",
     "arabic": "س ل م",
     "transliteration": "s l m",
     "meanings": [
@@ -10261,7 +11093,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-321",
+        "id": "example-347",
         "surahNumber": 97,
         "surahName": "Al-Qadr",
         "ayahNumber": 1,
@@ -10278,7 +11110,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-322",
+    "id": "quiz-extracted-348",
     "arabic": "تنزل الملائكة والروح فيها بإذن ربهم من كل أمر",
     "transliteration": "tnzl almlaئkh walrwh fyha bإdhn rbhm mn kl أmr",
     "meanings": [
@@ -10293,7 +11125,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-322",
+        "id": "example-348",
         "surahNumber": 97,
         "surahName": "Al-Qadr",
         "ayahNumber": 1,
@@ -10310,7 +11142,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-323",
+    "id": "quiz-extracted-349",
     "arabic": "إنا أنزلناه في ليلة القدر",
     "transliteration": "إna أnzlnah fy lylh alqdr",
     "meanings": [
@@ -10325,7 +11157,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-323",
+        "id": "example-349",
         "surahNumber": 97,
         "surahName": "Al-Qadr",
         "ayahNumber": 1,
@@ -10342,7 +11174,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-324",
+    "id": "quiz-extracted-350",
     "arabic": "ليلة القدر",
     "transliteration": "lylh alqdr",
     "meanings": [
@@ -10357,7 +11189,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-324",
+        "id": "example-350",
         "surahNumber": 97,
         "surahName": "Al-Qadr",
         "ayahNumber": 1,
@@ -10374,7 +11206,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-325",
+    "id": "quiz-extracted-351",
     "arabic": "خير من ألف شهر",
     "transliteration": "khyr mn أlf shhr",
     "meanings": [
@@ -10389,7 +11221,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-325",
+        "id": "example-351",
         "surahNumber": 97,
         "surahName": "Al-Qadr",
         "ayahNumber": 1,
@@ -10406,7 +11238,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-326",
+    "id": "quiz-extracted-352",
     "arabic": "ش ه ر",
     "transliteration": "sh h r",
     "meanings": [
@@ -10421,7 +11253,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-326",
+        "id": "example-352",
         "surahNumber": 97,
         "surahName": "Al-Qadr",
         "ayahNumber": 1,
@@ -10438,7 +11270,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-327",
+    "id": "quiz-extracted-353",
     "arabic": "سلام هي حتى مطلع الفجر",
     "transliteration": "slam hy hta mtl' alfjr",
     "meanings": [
@@ -10453,7 +11285,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-327",
+        "id": "example-353",
         "surahNumber": 97,
         "surahName": "Al-Qadr",
         "ayahNumber": 1,
@@ -10470,7 +11302,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-328",
+    "id": "quiz-extracted-354",
     "arabic": "ط ل ع",
     "transliteration": "t l '",
     "meanings": [
@@ -10485,7 +11317,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-328",
+        "id": "example-354",
         "surahNumber": 97,
         "surahName": "Al-Qadr",
         "ayahNumber": 1,
@@ -10502,7 +11334,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-329",
+    "id": "quiz-extracted-355",
     "arabic": "سلام هي",
     "transliteration": "slam hy",
     "meanings": [
@@ -10517,7 +11349,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-329",
+        "id": "example-355",
         "surahNumber": 97,
         "surahName": "Al-Qadr",
         "ayahNumber": 1,
@@ -10534,7 +11366,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-330",
+    "id": "quiz-extracted-356",
     "arabic": "من كل أمر",
     "transliteration": "mn kl أmr",
     "meanings": [
@@ -10549,7 +11381,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-330",
+        "id": "example-356",
         "surahNumber": 97,
         "surahName": "Al-Qadr",
         "ayahNumber": 1,
@@ -10566,7 +11398,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-331",
+    "id": "quiz-extracted-357",
     "arabic": "أ م ر",
     "transliteration": "أ m r",
     "meanings": [
@@ -10581,7 +11413,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-331",
+        "id": "example-357",
         "surahNumber": 97,
         "surahName": "Al-Qadr",
         "ayahNumber": 1,
@@ -10598,7 +11430,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-332",
+    "id": "quiz-extracted-358",
     "arabic": "مطلع الفجر",
     "transliteration": "mtl' alfjr",
     "meanings": [
@@ -10613,7 +11445,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-332",
+        "id": "example-358",
         "surahNumber": 97,
         "surahName": "Al-Qadr",
         "ayahNumber": 1,
@@ -10630,7 +11462,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-333",
+    "id": "quiz-extracted-359",
     "arabic": "أنزلناه",
     "transliteration": "أnzlnah",
     "meanings": [
@@ -10645,7 +11477,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-333",
+        "id": "example-359",
         "surahNumber": 97,
         "surahName": "Al-Qadr",
         "ayahNumber": 1,
@@ -10662,7 +11494,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-334",
+    "id": "quiz-extracted-360",
     "arabic": "في ليلة القدر",
     "transliteration": "fy lylh alqdr",
     "meanings": [
@@ -10677,7 +11509,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-334",
+        "id": "example-360",
         "surahNumber": 97,
         "surahName": "Al-Qadr",
         "ayahNumber": 1,
@@ -10694,7 +11526,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-335",
+    "id": "quiz-extracted-361",
     "arabic": "بإذن ربهم",
     "transliteration": "bإdhn rbhm",
     "meanings": [
@@ -10709,7 +11541,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-335",
+        "id": "example-361",
         "surahNumber": 97,
         "surahName": "Al-Qadr",
         "ayahNumber": 1,
@@ -10726,7 +11558,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-336",
+    "id": "quiz-extracted-362",
     "arabic": "أ ذ ن",
     "transliteration": "أ dh n",
     "meanings": [
@@ -10741,7 +11573,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-336",
+        "id": "example-362",
         "surahNumber": 97,
         "surahName": "Al-Qadr",
         "ayahNumber": 1,
@@ -10758,7 +11590,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-337",
+    "id": "quiz-extracted-363",
     "arabic": "البينة",
     "transliteration": "albynh",
     "meanings": [
@@ -10773,7 +11605,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-337",
+        "id": "example-363",
         "surahNumber": 98,
         "surahName": "Al-Bayyinah",
         "ayahNumber": 1,
@@ -10790,7 +11622,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-338",
+    "id": "quiz-extracted-364",
     "arabic": "ب ي ن",
     "transliteration": "b y n",
     "meanings": [
@@ -10805,7 +11637,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-338",
+        "id": "example-364",
         "surahNumber": 98,
         "surahName": "Al-Bayyinah",
         "ayahNumber": 1,
@@ -10822,7 +11654,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-339",
+    "id": "quiz-extracted-365",
     "arabic": "الكتاب",
     "transliteration": "alktab",
     "meanings": [
@@ -10837,7 +11669,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-339",
+        "id": "example-365",
         "surahNumber": 98,
         "surahName": "Al-Bayyinah",
         "ayahNumber": 1,
@@ -10854,39 +11686,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-340",
-    "arabic": "ك ت ب",
-    "transliteration": "k t b",
-    "meanings": [
-      "[Translation needed for: ك ت ب]"
-    ],
-    "difficulty": "Intermediate",
-    "category": "Short Chapters",
-    "tags": [
-      "quiz-extracted",
-      "surah-98",
-      "short-chapters"
-    ],
-    "examples": [
-      {
-        "id": "example-340",
-        "surahNumber": 98,
-        "surahName": "Al-Bayyinah",
-        "ayahNumber": 1,
-        "arabicText": "ك ت ب",
-        "translationText": "[Translation needed for: ك ت ب]",
-        "wordLocation": {
-          "startIndex": 0,
-          "endIndex": 5
-        },
-        "hasAudio": false
-      }
-    ],
-    "hasAudio": false,
-    "frequency": 1
-  },
-  {
-    "id": "quiz-extracted-341",
+    "id": "quiz-extracted-366",
     "arabic": "المشركون",
     "transliteration": "almshrkwn",
     "meanings": [
@@ -10901,7 +11701,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-341",
+        "id": "example-366",
         "surahNumber": 98,
         "surahName": "Al-Bayyinah",
         "ayahNumber": 1,
@@ -10918,7 +11718,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-342",
+    "id": "quiz-extracted-367",
     "arabic": "ش ر ك",
     "transliteration": "sh r k",
     "meanings": [
@@ -10933,7 +11733,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-342",
+        "id": "example-367",
         "surahNumber": 98,
         "surahName": "Al-Bayyinah",
         "ayahNumber": 1,
@@ -10950,7 +11750,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-343",
+    "id": "quiz-extracted-368",
     "arabic": "أبرار",
     "transliteration": "أbrar",
     "meanings": [
@@ -10965,7 +11765,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-343",
+        "id": "example-368",
         "surahNumber": 98,
         "surahName": "Al-Bayyinah",
         "ayahNumber": 1,
@@ -10982,7 +11782,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-344",
+    "id": "quiz-extracted-369",
     "arabic": "ب ر ر",
     "transliteration": "b r r",
     "meanings": [
@@ -10997,7 +11797,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-344",
+        "id": "example-369",
         "surahNumber": 98,
         "surahName": "Al-Bayyinah",
         "ayahNumber": 1,
@@ -11014,7 +11814,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-345",
+    "id": "quiz-extracted-370",
     "arabic": "الصلاة",
     "transliteration": "alslah",
     "meanings": [
@@ -11029,7 +11829,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-345",
+        "id": "example-370",
         "surahNumber": 98,
         "surahName": "Al-Bayyinah",
         "ayahNumber": 1,
@@ -11046,7 +11846,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-346",
+    "id": "quiz-extracted-371",
     "arabic": "الزكاة",
     "transliteration": "alzkah",
     "meanings": [
@@ -11061,7 +11861,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-346",
+        "id": "example-371",
         "surahNumber": 98,
         "surahName": "Al-Bayyinah",
         "ayahNumber": 1,
@@ -11078,7 +11878,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-347",
+    "id": "quiz-extracted-372",
     "arabic": "الخلود",
     "transliteration": "alkhlwd",
     "meanings": [
@@ -11093,7 +11893,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-347",
+        "id": "example-372",
         "surahNumber": 98,
         "surahName": "Al-Bayyinah",
         "ayahNumber": 1,
@@ -11110,7 +11910,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-348",
+    "id": "quiz-extracted-373",
     "arabic": "خ ل د",
     "transliteration": "kh l d",
     "meanings": [
@@ -11125,7 +11925,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-348",
+        "id": "example-373",
         "surahNumber": 98,
         "surahName": "Al-Bayyinah",
         "ayahNumber": 1,
@@ -11142,7 +11942,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-349",
+    "id": "quiz-extracted-374",
     "arabic": "غساق",
     "transliteration": "ghsaq",
     "meanings": [
@@ -11157,7 +11957,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-349",
+        "id": "example-374",
         "surahNumber": 98,
         "surahName": "Al-Bayyinah",
         "ayahNumber": 1,
@@ -11174,7 +11974,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-350",
+    "id": "quiz-extracted-375",
     "arabic": "غ س ق",
     "transliteration": "gh s q",
     "meanings": [
@@ -11189,7 +11989,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-350",
+        "id": "example-375",
         "surahNumber": 98,
         "surahName": "Al-Bayyinah",
         "ayahNumber": 1,
@@ -11206,7 +12006,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-351",
+    "id": "quiz-extracted-376",
     "arabic": "من قرأ سورة البينة كان شهيدا يوم القيامة",
     "transliteration": "mn qrأ swrh albynh kan shhyda ywm alqyamh",
     "meanings": [
@@ -11221,7 +12021,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-351",
+        "id": "example-376",
         "surahNumber": 98,
         "surahName": "Al-Bayyinah",
         "ayahNumber": 1,
@@ -11238,7 +12038,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-352",
+    "id": "quiz-extracted-377",
     "arabic": "لم يكن الذين كفروا من أهل الكتاب والمشركين منفكين",
     "transliteration": "lm ykn aldhyn kfrwa mn أhl alktab walmshrkyn mnfkyn",
     "meanings": [
@@ -11253,7 +12053,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-352",
+        "id": "example-377",
         "surahNumber": 98,
         "surahName": "Al-Bayyinah",
         "ayahNumber": 1,
@@ -11270,7 +12070,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-353",
+    "id": "quiz-extracted-378",
     "arabic": "ك ف ر",
     "transliteration": "k f r",
     "meanings": [
@@ -11285,7 +12085,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-353",
+        "id": "example-378",
         "surahNumber": 98,
         "surahName": "Al-Bayyinah",
         "ayahNumber": 1,
@@ -11302,7 +12102,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-354",
+    "id": "quiz-extracted-379",
     "arabic": "منفكين",
     "transliteration": "mnfkyn",
     "meanings": [
@@ -11317,7 +12117,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-354",
+        "id": "example-379",
         "surahNumber": 98,
         "surahName": "Al-Bayyinah",
         "ayahNumber": 1,
@@ -11334,7 +12134,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-355",
+    "id": "quiz-extracted-380",
     "arabic": "رسول من الله",
     "transliteration": "rswl mn allh",
     "meanings": [
@@ -11349,7 +12149,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-355",
+        "id": "example-380",
         "surahNumber": 98,
         "surahName": "Al-Bayyinah",
         "ayahNumber": 1,
@@ -11366,7 +12166,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-356",
+    "id": "quiz-extracted-381",
     "arabic": "ر س ل",
     "transliteration": "r s l",
     "meanings": [
@@ -11381,7 +12181,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-356",
+        "id": "example-381",
         "surahNumber": 98,
         "surahName": "Al-Bayyinah",
         "ayahNumber": 1,
@@ -11398,7 +12198,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-357",
+    "id": "quiz-extracted-382",
     "arabic": "ل ه",
     "transliteration": "l h",
     "meanings": [
@@ -11413,7 +12213,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-357",
+        "id": "example-382",
         "surahNumber": 98,
         "surahName": "Al-Bayyinah",
         "ayahNumber": 1,
@@ -11430,7 +12230,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-358",
+    "id": "quiz-extracted-383",
     "arabic": "صحفا مطهرة",
     "transliteration": "shfa mthrh",
     "meanings": [
@@ -11445,7 +12245,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-358",
+        "id": "example-383",
         "surahNumber": 98,
         "surahName": "Al-Bayyinah",
         "ayahNumber": 1,
@@ -11462,7 +12262,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-359",
+    "id": "quiz-extracted-384",
     "arabic": "ص ح ف",
     "transliteration": "s h f",
     "meanings": [
@@ -11477,7 +12277,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-359",
+        "id": "example-384",
         "surahNumber": 98,
         "surahName": "Al-Bayyinah",
         "ayahNumber": 1,
@@ -11494,7 +12294,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-360",
+    "id": "quiz-extracted-385",
     "arabic": "ط ه ر",
     "transliteration": "t h r",
     "meanings": [
@@ -11509,7 +12309,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-360",
+        "id": "example-385",
         "surahNumber": 98,
         "surahName": "Al-Bayyinah",
         "ayahNumber": 1,
@@ -11526,7 +12326,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-361",
+    "id": "quiz-extracted-386",
     "arabic": "القيمة",
     "transliteration": "alqymh",
     "meanings": [
@@ -11541,7 +12341,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-361",
+        "id": "example-386",
         "surahNumber": 98,
         "surahName": "Al-Bayyinah",
         "ayahNumber": 1,
@@ -11558,7 +12358,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-362",
+    "id": "quiz-extracted-387",
     "arabic": "وما تفرق الذين أوتوا الكتاب إلا من بعد ما جاءتهم البينة",
     "transliteration": "wma tfrq aldhyn أwtwa alktab إla mn b'd ma ja'thm albynh",
     "meanings": [
@@ -11573,7 +12373,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-362",
+        "id": "example-387",
         "surahNumber": 98,
         "surahName": "Al-Bayyinah",
         "ayahNumber": 1,
@@ -11590,7 +12390,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-363",
+    "id": "quiz-extracted-388",
     "arabic": "ف ر ق",
     "transliteration": "f r q",
     "meanings": [
@@ -11605,7 +12405,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-363",
+        "id": "example-388",
         "surahNumber": 98,
         "surahName": "Al-Bayyinah",
         "ayahNumber": 1,
@@ -11622,7 +12422,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-364",
+    "id": "quiz-extracted-389",
     "arabic": "حنفاء",
     "transliteration": "hnfa'",
     "meanings": [
@@ -11637,7 +12437,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-364",
+        "id": "example-389",
         "surahNumber": 98,
         "surahName": "Al-Bayyinah",
         "ayahNumber": 1,
@@ -11654,7 +12454,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-365",
+    "id": "quiz-extracted-390",
     "arabic": "ح ن ف",
     "transliteration": "h n f",
     "meanings": [
@@ -11669,7 +12469,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-365",
+        "id": "example-390",
         "surahNumber": 98,
         "surahName": "Al-Bayyinah",
         "ayahNumber": 1,
@@ -11686,7 +12486,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-366",
+    "id": "quiz-extracted-391",
     "arabic": "ويقيموا الصلاة ويؤتوا الزكاة",
     "transliteration": "wyqymwa alslah wyؤtwa alzkah",
     "meanings": [
@@ -11701,7 +12501,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-366",
+        "id": "example-391",
         "surahNumber": 98,
         "surahName": "Al-Bayyinah",
         "ayahNumber": 1,
@@ -11718,7 +12518,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-367",
+    "id": "quiz-extracted-392",
     "arabic": "الفاسقون",
     "transliteration": "alfasqwn",
     "meanings": [
@@ -11733,7 +12533,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-367",
+        "id": "example-392",
         "surahNumber": 98,
         "surahName": "Al-Bayyinah",
         "ayahNumber": 1,
@@ -11750,7 +12550,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-368",
+    "id": "quiz-extracted-393",
     "arabic": "ف س ق",
     "transliteration": "f s q",
     "meanings": [
@@ -11765,7 +12565,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-368",
+        "id": "example-393",
         "surahNumber": 98,
         "surahName": "Al-Bayyinah",
         "ayahNumber": 1,
@@ -11782,7 +12582,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-369",
+    "id": "quiz-extracted-394",
     "arabic": "ذلك جزاء أعداء الله",
     "transliteration": "dhlk jza' أ'da' allh",
     "meanings": [
@@ -11797,7 +12597,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-369",
+        "id": "example-394",
         "surahNumber": 98,
         "surahName": "Al-Bayyinah",
         "ayahNumber": 1,
@@ -11814,7 +12614,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-370",
+    "id": "quiz-extracted-395",
     "arabic": "ج ز ي",
     "transliteration": "j z y",
     "meanings": [
@@ -11829,7 +12629,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-370",
+        "id": "example-395",
         "surahNumber": 98,
         "surahName": "Al-Bayyinah",
         "ayahNumber": 1,
@@ -11846,7 +12646,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-371",
+    "id": "quiz-extracted-396",
     "arabic": "ع د و",
     "transliteration": "' d w",
     "meanings": [
@@ -11861,7 +12661,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-371",
+        "id": "example-396",
         "surahNumber": 98,
         "surahName": "Al-Bayyinah",
         "ayahNumber": 1,
@@ -11878,7 +12678,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-372",
+    "id": "quiz-extracted-397",
     "arabic": "البرية",
     "transliteration": "albryh",
     "meanings": [
@@ -11893,7 +12693,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-372",
+        "id": "example-397",
         "surahNumber": 98,
         "surahName": "Al-Bayyinah",
         "ayahNumber": 1,
@@ -11910,7 +12710,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-373",
+    "id": "quiz-extracted-398",
     "arabic": "ب ر أ",
     "transliteration": "b r أ",
     "meanings": [
@@ -11925,7 +12725,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-373",
+        "id": "example-398",
         "surahNumber": 98,
         "surahName": "Al-Bayyinah",
         "ayahNumber": 1,
@@ -11942,7 +12742,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-374",
+    "id": "quiz-extracted-399",
     "arabic": "الزلزلة",
     "transliteration": "alzlzlh",
     "meanings": [
@@ -11957,7 +12757,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-374",
+        "id": "example-399",
         "surahNumber": 99,
         "surahName": "Az-Zalzalah",
         "ayahNumber": 1,
@@ -11974,7 +12774,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-375",
+    "id": "quiz-extracted-400",
     "arabic": "زلزال",
     "transliteration": "zlzal",
     "meanings": [
@@ -11989,7 +12789,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-375",
+        "id": "example-400",
         "surahNumber": 99,
         "surahName": "Az-Zalzalah",
         "ayahNumber": 1,
@@ -12006,7 +12806,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-376",
+    "id": "quiz-extracted-401",
     "arabic": "أثقالها",
     "transliteration": "أthqalha",
     "meanings": [
@@ -12021,7 +12821,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-376",
+        "id": "example-401",
         "surahNumber": 99,
         "surahName": "Az-Zalzalah",
         "ayahNumber": 1,
@@ -12038,7 +12838,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-377",
+    "id": "quiz-extracted-402",
     "arabic": "أخبارها",
     "transliteration": "أkhbarha",
     "meanings": [
@@ -12053,7 +12853,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-377",
+        "id": "example-402",
         "surahNumber": 99,
         "surahName": "Az-Zalzalah",
         "ayahNumber": 1,
@@ -12070,7 +12870,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-378",
+    "id": "quiz-extracted-403",
     "arabic": "أوحى",
     "transliteration": "أwha",
     "meanings": [
@@ -12085,7 +12885,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-378",
+        "id": "example-403",
         "surahNumber": 99,
         "surahName": "Az-Zalzalah",
         "ayahNumber": 1,
@@ -12102,7 +12902,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-379",
+    "id": "quiz-extracted-404",
     "arabic": "مثقال",
     "transliteration": "mthqal",
     "meanings": [
@@ -12117,7 +12917,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-379",
+        "id": "example-404",
         "surahNumber": 99,
         "surahName": "Az-Zalzalah",
         "ayahNumber": 1,
@@ -12134,7 +12934,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-380",
+    "id": "quiz-extracted-405",
     "arabic": "ذرة",
     "transliteration": "dhrh",
     "meanings": [
@@ -12149,7 +12949,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-380",
+        "id": "example-405",
         "surahNumber": 99,
         "surahName": "Az-Zalzalah",
         "ayahNumber": 1,
@@ -12166,7 +12966,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-381",
+    "id": "quiz-extracted-406",
     "arabic": "يومئذ تحدث أخبارها",
     "transliteration": "ywmئdh thdth أkhbarha",
     "meanings": [
@@ -12181,7 +12981,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-381",
+        "id": "example-406",
         "surahNumber": 99,
         "surahName": "Az-Zalzalah",
         "ayahNumber": 1,
@@ -12198,7 +12998,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-382",
+    "id": "quiz-extracted-407",
     "arabic": "مثقال ذرة",
     "transliteration": "mthqal dhrh",
     "meanings": [
@@ -12213,7 +13013,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-382",
+        "id": "example-407",
         "surahNumber": 99,
         "surahName": "Az-Zalzalah",
         "ayahNumber": 1,
@@ -12230,7 +13030,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-383",
+    "id": "quiz-extracted-408",
     "arabic": "فمن يعمل مثقال ذرة خيرا يره ومن يعمل مثقال ذرة شرا يره",
     "transliteration": "fmn y'ml mthqal dhrh khyra yrh wmn y'ml mthqal dhrh shra yrh",
     "meanings": [
@@ -12245,7 +13045,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-383",
+        "id": "example-408",
         "surahNumber": 99,
         "surahName": "Az-Zalzalah",
         "ayahNumber": 1,
@@ -12262,7 +13062,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-384",
+    "id": "quiz-extracted-409",
     "arabic": "اتقوا النار ولو بشق تمرة",
     "transliteration": "atqwa alnar wlw bshq tmrh",
     "meanings": [
@@ -12277,7 +13077,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-384",
+        "id": "example-409",
         "surahNumber": 99,
         "surahName": "Az-Zalzalah",
         "ayahNumber": 1,
@@ -12294,7 +13094,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-385",
+    "id": "quiz-extracted-410",
     "arabic": "إذا زلزلت الأرض زلزالها",
     "transliteration": "إdha zlzlt alأrd zlzalha",
     "meanings": [
@@ -12309,7 +13109,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-385",
+        "id": "example-410",
         "surahNumber": 99,
         "surahName": "Az-Zalzalah",
         "ayahNumber": 1,
@@ -12326,7 +13126,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-386",
+    "id": "quiz-extracted-411",
     "arabic": "ز ل ز ل",
     "transliteration": "z l z l",
     "meanings": [
@@ -12341,7 +13141,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-386",
+        "id": "example-411",
         "surahNumber": 99,
         "surahName": "Az-Zalzalah",
         "ayahNumber": 1,
@@ -12358,7 +13158,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-387",
+    "id": "quiz-extracted-412",
     "arabic": "وأخرجت الأرض أثقالها",
     "transliteration": "wأkhrjt alأrd أthqalha",
     "meanings": [
@@ -12373,7 +13173,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-387",
+        "id": "example-412",
         "surahNumber": 99,
         "surahName": "Az-Zalzalah",
         "ayahNumber": 1,
@@ -12390,7 +13190,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-388",
+    "id": "quiz-extracted-413",
     "arabic": "ث ق ل",
     "transliteration": "th q l",
     "meanings": [
@@ -12405,7 +13205,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-388",
+        "id": "example-413",
         "surahNumber": 99,
         "surahName": "Az-Zalzalah",
         "ayahNumber": 1,
@@ -12422,7 +13222,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-389",
+    "id": "quiz-extracted-414",
     "arabic": "فيومئذ تحدث أخبارها",
     "transliteration": "fywmئdh thdth أkhbarha",
     "meanings": [
@@ -12437,7 +13237,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-389",
+        "id": "example-414",
         "surahNumber": 99,
         "surahName": "Az-Zalzalah",
         "ayahNumber": 1,
@@ -12454,7 +13254,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-390",
+    "id": "quiz-extracted-415",
     "arabic": "خ ب ر",
     "transliteration": "kh b r",
     "meanings": [
@@ -12469,7 +13269,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-390",
+        "id": "example-415",
         "surahNumber": 99,
         "surahName": "Az-Zalzalah",
         "ayahNumber": 1,
@@ -12486,7 +13286,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-391",
+    "id": "quiz-extracted-416",
     "arabic": "زلزالها",
     "transliteration": "zlzalha",
     "meanings": [
@@ -12501,7 +13301,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-391",
+        "id": "example-416",
         "surahNumber": 99,
         "surahName": "Az-Zalzalah",
         "ayahNumber": 1,
@@ -12518,7 +13318,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-392",
+    "id": "quiz-extracted-417",
     "arabic": "بأن ربك أوحى لها",
     "transliteration": "bأn rbk أwha lha",
     "meanings": [
@@ -12533,7 +13333,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-392",
+        "id": "example-417",
         "surahNumber": 99,
         "surahName": "Az-Zalzalah",
         "ayahNumber": 1,
@@ -12550,7 +13350,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-393",
+    "id": "quiz-extracted-418",
     "arabic": "و ح ي",
     "transliteration": "w h y",
     "meanings": [
@@ -12565,7 +13365,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-393",
+        "id": "example-418",
         "surahNumber": 99,
         "surahName": "Az-Zalzalah",
         "ayahNumber": 1,
@@ -12582,7 +13382,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-394",
+    "id": "quiz-extracted-419",
     "arabic": "ذ ر ر",
     "transliteration": "dh r r",
     "meanings": [
@@ -12597,7 +13397,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-394",
+        "id": "example-419",
         "surahNumber": 99,
         "surahName": "Az-Zalzalah",
         "ayahNumber": 1,
@@ -12614,7 +13414,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-395",
+    "id": "quiz-extracted-420",
     "arabic": "فمن يعمل مثقال ذرة خيرا يره",
     "transliteration": "fmn y'ml mthqal dhrh khyra yrh",
     "meanings": [
@@ -12629,7 +13429,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-395",
+        "id": "example-420",
         "surahNumber": 99,
         "surahName": "Az-Zalzalah",
         "ayahNumber": 1,
@@ -12646,7 +13446,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-396",
+    "id": "quiz-extracted-421",
     "arabic": "الخبير",
     "transliteration": "alkhbyr",
     "meanings": [
@@ -12661,7 +13461,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-396",
+        "id": "example-421",
         "surahNumber": 99,
         "surahName": "Az-Zalzalah",
         "ayahNumber": 1,
@@ -12678,7 +13478,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-397",
+    "id": "quiz-extracted-422",
     "arabic": "يومئذ يصدر الناس أشتاتا",
     "transliteration": "ywmئdh ysdr alnas أshtata",
     "meanings": [
@@ -12693,7 +13493,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-397",
+        "id": "example-422",
         "surahNumber": 99,
         "surahName": "Az-Zalzalah",
         "ayahNumber": 1,
@@ -12710,7 +13510,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-398",
+    "id": "quiz-extracted-423",
     "arabic": "يصدر الناس أشتاتا",
     "transliteration": "ysdr alnas أshtata",
     "meanings": [
@@ -12725,7 +13525,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-398",
+        "id": "example-423",
         "surahNumber": 99,
         "surahName": "Az-Zalzalah",
         "ayahNumber": 1,
@@ -12742,7 +13542,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-399",
+    "id": "quiz-extracted-424",
     "arabic": "العاديات",
     "transliteration": "al'adyat",
     "meanings": [
@@ -12757,7 +13557,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-399",
+        "id": "example-424",
         "surahNumber": 100,
         "surahName": "Al-Adiyat",
         "ayahNumber": 1,
@@ -12774,7 +13574,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-400",
+    "id": "quiz-extracted-425",
     "arabic": "ضبحا",
     "transliteration": "dbha",
     "meanings": [
@@ -12789,7 +13589,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-400",
+        "id": "example-425",
         "surahNumber": 100,
         "surahName": "Al-Adiyat",
         "ayahNumber": 1,
@@ -12806,7 +13606,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-401",
+    "id": "quiz-extracted-426",
     "arabic": "ض ب ح",
     "transliteration": "d b h",
     "meanings": [
@@ -12821,7 +13621,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-401",
+        "id": "example-426",
         "surahNumber": 100,
         "surahName": "Al-Adiyat",
         "ayahNumber": 1,
@@ -12838,7 +13638,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-402",
+    "id": "quiz-extracted-427",
     "arabic": "فالموريات قدحا",
     "transliteration": "falmwryat qdha",
     "meanings": [
@@ -12853,7 +13653,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-402",
+        "id": "example-427",
         "surahNumber": 100,
         "surahName": "Al-Adiyat",
         "ayahNumber": 1,
@@ -12870,7 +13670,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-403",
+    "id": "quiz-extracted-428",
     "arabic": "و ر ي",
     "transliteration": "w r y",
     "meanings": [
@@ -12885,7 +13685,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-403",
+        "id": "example-428",
         "surahNumber": 100,
         "surahName": "Al-Adiyat",
         "ayahNumber": 1,
@@ -12902,7 +13702,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-404",
+    "id": "quiz-extracted-429",
     "arabic": "ق د ح",
     "transliteration": "q d h",
     "meanings": [
@@ -12917,7 +13717,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-404",
+        "id": "example-429",
         "surahNumber": 100,
         "surahName": "Al-Adiyat",
         "ayahNumber": 1,
@@ -12934,7 +13734,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-405",
+    "id": "quiz-extracted-430",
     "arabic": "فالمغيرات صبحا",
     "transliteration": "falmghyrat sbha",
     "meanings": [
@@ -12949,7 +13749,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-405",
+        "id": "example-430",
         "surahNumber": 100,
         "surahName": "Al-Adiyat",
         "ayahNumber": 1,
@@ -12966,7 +13766,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-406",
+    "id": "quiz-extracted-431",
     "arabic": "غ و ر",
     "transliteration": "gh w r",
     "meanings": [
@@ -12981,7 +13781,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-406",
+        "id": "example-431",
         "surahNumber": 100,
         "surahName": "Al-Adiyat",
         "ayahNumber": 1,
@@ -12998,7 +13798,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-407",
+    "id": "quiz-extracted-432",
     "arabic": "ص ب ح",
     "transliteration": "s b h",
     "meanings": [
@@ -13013,7 +13813,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-407",
+        "id": "example-432",
         "surahNumber": 100,
         "surahName": "Al-Adiyat",
         "ayahNumber": 1,
@@ -13030,7 +13830,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-408",
+    "id": "quiz-extracted-433",
     "arabic": "فأثرن به نقعا",
     "transliteration": "fأthrn bh nq'a",
     "meanings": [
@@ -13045,7 +13845,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-408",
+        "id": "example-433",
         "surahNumber": 100,
         "surahName": "Al-Adiyat",
         "ayahNumber": 1,
@@ -13062,7 +13862,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-409",
+    "id": "quiz-extracted-434",
     "arabic": "ث و ر",
     "transliteration": "th w r",
     "meanings": [
@@ -13077,7 +13877,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-409",
+        "id": "example-434",
         "surahNumber": 100,
         "surahName": "Al-Adiyat",
         "ayahNumber": 1,
@@ -13094,7 +13894,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-410",
+    "id": "quiz-extracted-435",
     "arabic": "ن ق ع",
     "transliteration": "n q '",
     "meanings": [
@@ -13109,7 +13909,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-410",
+        "id": "example-435",
         "surahNumber": 100,
         "surahName": "Al-Adiyat",
         "ayahNumber": 1,
@@ -13126,7 +13926,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-411",
+    "id": "quiz-extracted-436",
     "arabic": "فوسطن به جمعا",
     "transliteration": "fwstn bh jm'a",
     "meanings": [
@@ -13141,7 +13941,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-411",
+        "id": "example-436",
         "surahNumber": 100,
         "surahName": "Al-Adiyat",
         "ayahNumber": 1,
@@ -13158,7 +13958,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-412",
+    "id": "quiz-extracted-437",
     "arabic": "و س ط",
     "transliteration": "w s t",
     "meanings": [
@@ -13173,7 +13973,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-412",
+        "id": "example-437",
         "surahNumber": 100,
         "surahName": "Al-Adiyat",
         "ayahNumber": 1,
@@ -13190,7 +13990,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-413",
+    "id": "quiz-extracted-438",
     "arabic": "ج م ع",
     "transliteration": "j m '",
     "meanings": [
@@ -13205,7 +14005,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-413",
+        "id": "example-438",
         "surahNumber": 100,
         "surahName": "Al-Adiyat",
         "ayahNumber": 1,
@@ -13222,7 +14022,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-414",
+    "id": "quiz-extracted-439",
     "arabic": "لكنود",
     "transliteration": "lknwd",
     "meanings": [
@@ -13237,7 +14037,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-414",
+        "id": "example-439",
         "surahNumber": 100,
         "surahName": "Al-Adiyat",
         "ayahNumber": 1,
@@ -13254,7 +14054,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-415",
+    "id": "quiz-extracted-440",
     "arabic": "ك ن د",
     "transliteration": "k n d",
     "meanings": [
@@ -13269,7 +14069,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-415",
+        "id": "example-440",
         "surahNumber": 100,
         "surahName": "Al-Adiyat",
         "ayahNumber": 1,
@@ -13286,7 +14086,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-416",
+    "id": "quiz-extracted-441",
     "arabic": "لشهيد",
     "transliteration": "lshhyd",
     "meanings": [
@@ -13301,7 +14101,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-416",
+        "id": "example-441",
         "surahNumber": 100,
         "surahName": "Al-Adiyat",
         "ayahNumber": 1,
@@ -13318,7 +14118,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-417",
+    "id": "quiz-extracted-442",
     "arabic": "ش ه د",
     "transliteration": "sh h d",
     "meanings": [
@@ -13333,7 +14133,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-417",
+        "id": "example-442",
         "surahNumber": 100,
         "surahName": "Al-Adiyat",
         "ayahNumber": 1,
@@ -13350,7 +14150,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-418",
+    "id": "quiz-extracted-443",
     "arabic": "لحب الخير لشديد",
     "transliteration": "lhb alkhyr lshdyd",
     "meanings": [
@@ -13365,7 +14165,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-418",
+        "id": "example-443",
         "surahNumber": 100,
         "surahName": "Al-Adiyat",
         "ayahNumber": 1,
@@ -13382,7 +14182,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-419",
+    "id": "quiz-extracted-444",
     "arabic": "ح ب ب",
     "transliteration": "h b b",
     "meanings": [
@@ -13397,7 +14197,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-419",
+        "id": "example-444",
         "surahNumber": 100,
         "surahName": "Al-Adiyat",
         "ayahNumber": 1,
@@ -13414,7 +14214,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-420",
+    "id": "quiz-extracted-445",
     "arabic": "ش د د",
     "transliteration": "sh d d",
     "meanings": [
@@ -13429,7 +14229,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-420",
+        "id": "example-445",
         "surahNumber": 100,
         "surahName": "Al-Adiyat",
         "ayahNumber": 1,
@@ -13446,7 +14246,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-421",
+    "id": "quiz-extracted-446",
     "arabic": "بعثر ما في القبور",
     "transliteration": "b'thr ma fy alqbwr",
     "meanings": [
@@ -13461,7 +14261,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-421",
+        "id": "example-446",
         "surahNumber": 100,
         "surahName": "Al-Adiyat",
         "ayahNumber": 1,
@@ -13478,7 +14278,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-422",
+    "id": "quiz-extracted-447",
     "arabic": "ب ع ث ر",
     "transliteration": "b ' th r",
     "meanings": [
@@ -13493,7 +14293,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-422",
+        "id": "example-447",
         "surahNumber": 100,
         "surahName": "Al-Adiyat",
         "ayahNumber": 1,
@@ -13510,7 +14310,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-423",
+    "id": "quiz-extracted-448",
     "arabic": "ق ب ر",
     "transliteration": "q b r",
     "meanings": [
@@ -13525,7 +14325,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-423",
+        "id": "example-448",
         "surahNumber": 100,
         "surahName": "Al-Adiyat",
         "ayahNumber": 1,
@@ -13542,7 +14342,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-424",
+    "id": "quiz-extracted-449",
     "arabic": "وحصل ما في الصدور",
     "transliteration": "whsl ma fy alsdwr",
     "meanings": [
@@ -13557,7 +14357,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-424",
+        "id": "example-449",
         "surahNumber": 100,
         "surahName": "Al-Adiyat",
         "ayahNumber": 1,
@@ -13574,7 +14374,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-425",
+    "id": "quiz-extracted-450",
     "arabic": "ح ص ل",
     "transliteration": "h s l",
     "meanings": [
@@ -13589,7 +14389,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-425",
+        "id": "example-450",
         "surahNumber": 100,
         "surahName": "Al-Adiyat",
         "ayahNumber": 1,
@@ -13606,7 +14406,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-426",
+    "id": "quiz-extracted-451",
     "arabic": "لخبير",
     "transliteration": "lkhbyr",
     "meanings": [
@@ -13621,7 +14421,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-426",
+        "id": "example-451",
         "surahNumber": 100,
         "surahName": "Al-Adiyat",
         "ayahNumber": 1,
@@ -13638,7 +14438,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-427",
+    "id": "quiz-extracted-452",
     "arabic": "القارعة",
     "transliteration": "alqar'h",
     "meanings": [
@@ -13653,7 +14453,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-427",
+        "id": "example-452",
         "surahNumber": 101,
         "surahName": "Al-Qari'ah",
         "ayahNumber": 1,
@@ -13670,7 +14470,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-428",
+    "id": "quiz-extracted-453",
     "arabic": "ق ر ع",
     "transliteration": "q r '",
     "meanings": [
@@ -13685,7 +14485,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-428",
+        "id": "example-453",
         "surahNumber": 101,
         "surahName": "Al-Qari'ah",
         "ayahNumber": 1,
@@ -13702,7 +14502,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-429",
+    "id": "quiz-extracted-454",
     "arabic": "ما القارعة",
     "transliteration": "ma alqar'h",
     "meanings": [
@@ -13717,7 +14517,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-429",
+        "id": "example-454",
         "surahNumber": 101,
         "surahName": "Al-Qari'ah",
         "ayahNumber": 1,
@@ -13734,7 +14534,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-430",
+    "id": "quiz-extracted-455",
     "arabic": "وما أدراك ما القارعة",
     "transliteration": "wma أdrak ma alqar'h",
     "meanings": [
@@ -13749,7 +14549,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-430",
+        "id": "example-455",
         "surahNumber": 101,
         "surahName": "Al-Qari'ah",
         "ayahNumber": 1,
@@ -13766,7 +14566,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-431",
+    "id": "quiz-extracted-456",
     "arabic": "د ر ي",
     "transliteration": "d r y",
     "meanings": [
@@ -13781,7 +14581,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-431",
+        "id": "example-456",
         "surahNumber": 101,
         "surahName": "Al-Qari'ah",
         "ayahNumber": 1,
@@ -13798,7 +14598,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-432",
+    "id": "quiz-extracted-457",
     "arabic": "كالفراش المبثوث",
     "transliteration": "kalfrash almbthwth",
     "meanings": [
@@ -13813,7 +14613,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-432",
+        "id": "example-457",
         "surahNumber": 101,
         "surahName": "Al-Qari'ah",
         "ayahNumber": 1,
@@ -13830,7 +14630,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-433",
+    "id": "quiz-extracted-458",
     "arabic": "ف ر ش",
     "transliteration": "f r sh",
     "meanings": [
@@ -13845,7 +14645,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-433",
+        "id": "example-458",
         "surahNumber": 101,
         "surahName": "Al-Qari'ah",
         "ayahNumber": 1,
@@ -13862,7 +14662,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-434",
+    "id": "quiz-extracted-459",
     "arabic": "ب ث ث",
     "transliteration": "b th th",
     "meanings": [
@@ -13877,7 +14677,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-434",
+        "id": "example-459",
         "surahNumber": 101,
         "surahName": "Al-Qari'ah",
         "ayahNumber": 1,
@@ -13894,7 +14694,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-435",
+    "id": "quiz-extracted-460",
     "arabic": "كالعهن المنفوش",
     "transliteration": "kal'hn almnfwsh",
     "meanings": [
@@ -13909,7 +14709,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-435",
+        "id": "example-460",
         "surahNumber": 101,
         "surahName": "Al-Qari'ah",
         "ayahNumber": 1,
@@ -13926,7 +14726,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-436",
+    "id": "quiz-extracted-461",
     "arabic": "ع ه ن",
     "transliteration": "' h n",
     "meanings": [
@@ -13941,7 +14741,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-436",
+        "id": "example-461",
         "surahNumber": 101,
         "surahName": "Al-Qari'ah",
         "ayahNumber": 1,
@@ -13958,7 +14758,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-437",
+    "id": "quiz-extracted-462",
     "arabic": "ن ف ش",
     "transliteration": "n f sh",
     "meanings": [
@@ -13973,7 +14773,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-437",
+        "id": "example-462",
         "surahNumber": 101,
         "surahName": "Al-Qari'ah",
         "ayahNumber": 1,
@@ -13990,7 +14790,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-438",
+    "id": "quiz-extracted-463",
     "arabic": "ثقلت موازينه",
     "transliteration": "thqlt mwazynh",
     "meanings": [
@@ -14005,7 +14805,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-438",
+        "id": "example-463",
         "surahNumber": 101,
         "surahName": "Al-Qari'ah",
         "ayahNumber": 1,
@@ -14022,7 +14822,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-439",
+    "id": "quiz-extracted-464",
     "arabic": "و ز ن",
     "transliteration": "w z n",
     "meanings": [
@@ -14037,7 +14837,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-439",
+        "id": "example-464",
         "surahNumber": 101,
         "surahName": "Al-Qari'ah",
         "ayahNumber": 1,
@@ -14054,7 +14854,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-440",
+    "id": "quiz-extracted-465",
     "arabic": "عيشة راضية",
     "transliteration": "'yshh radyh",
     "meanings": [
@@ -14069,7 +14869,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-440",
+        "id": "example-465",
         "surahNumber": 101,
         "surahName": "Al-Qari'ah",
         "ayahNumber": 1,
@@ -14086,7 +14886,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-441",
+    "id": "quiz-extracted-466",
     "arabic": "ع ي ش",
     "transliteration": "' y sh",
     "meanings": [
@@ -14101,7 +14901,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-441",
+        "id": "example-466",
         "surahNumber": 101,
         "surahName": "Al-Qari'ah",
         "ayahNumber": 1,
@@ -14118,7 +14918,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-442",
+    "id": "quiz-extracted-467",
     "arabic": "خفت موازينه",
     "transliteration": "khft mwazynh",
     "meanings": [
@@ -14133,7 +14933,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-442",
+        "id": "example-467",
         "surahNumber": 101,
         "surahName": "Al-Qari'ah",
         "ayahNumber": 1,
@@ -14150,7 +14950,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-443",
+    "id": "quiz-extracted-468",
     "arabic": "خ ف ف",
     "transliteration": "kh f f",
     "meanings": [
@@ -14165,7 +14965,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-443",
+        "id": "example-468",
         "surahNumber": 101,
         "surahName": "Al-Qari'ah",
         "ayahNumber": 1,
@@ -14182,7 +14982,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-444",
+    "id": "quiz-extracted-469",
     "arabic": "فأمه هاوية",
     "transliteration": "fأmh hawyh",
     "meanings": [
@@ -14197,7 +14997,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-444",
+        "id": "example-469",
         "surahNumber": 101,
         "surahName": "Al-Qari'ah",
         "ayahNumber": 1,
@@ -14214,7 +15014,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-445",
+    "id": "quiz-extracted-470",
     "arabic": "أ م م",
     "transliteration": "أ m m",
     "meanings": [
@@ -14229,7 +15029,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-445",
+        "id": "example-470",
         "surahNumber": 101,
         "surahName": "Al-Qari'ah",
         "ayahNumber": 1,
@@ -14246,7 +15046,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-446",
+    "id": "quiz-extracted-471",
     "arabic": "ه و ي",
     "transliteration": "h w y",
     "meanings": [
@@ -14261,7 +15061,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-446",
+        "id": "example-471",
         "surahNumber": 101,
         "surahName": "Al-Qari'ah",
         "ayahNumber": 1,
@@ -14278,7 +15078,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-447",
+    "id": "quiz-extracted-472",
     "arabic": "نار حامية",
     "transliteration": "nar hamyh",
     "meanings": [
@@ -14293,7 +15093,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-447",
+        "id": "example-472",
         "surahNumber": 101,
         "surahName": "Al-Qari'ah",
         "ayahNumber": 1,
@@ -14310,7 +15110,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-448",
+    "id": "quiz-extracted-473",
     "arabic": "الجبال",
     "transliteration": "aljbal",
     "meanings": [
@@ -14325,7 +15125,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-448",
+        "id": "example-473",
         "surahNumber": 101,
         "surahName": "Al-Qari'ah",
         "ayahNumber": 1,
@@ -14342,7 +15142,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-449",
+    "id": "quiz-extracted-474",
     "arabic": "ج ب ل",
     "transliteration": "j b l",
     "meanings": [
@@ -14357,7 +15157,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-449",
+        "id": "example-474",
         "surahNumber": 101,
         "surahName": "Al-Qari'ah",
         "ayahNumber": 1,
@@ -14374,7 +15174,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-450",
+    "id": "quiz-extracted-475",
     "arabic": "يوم يكون الناس",
     "transliteration": "ywm ykwn alnas",
     "meanings": [
@@ -14389,7 +15189,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-450",
+        "id": "example-475",
         "surahNumber": 101,
         "surahName": "Al-Qari'ah",
         "ayahNumber": 1,
@@ -14406,7 +15206,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-451",
+    "id": "quiz-extracted-476",
     "arabic": "ك و ن",
     "transliteration": "k w n",
     "meanings": [
@@ -14421,7 +15221,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-451",
+        "id": "example-476",
         "surahNumber": 101,
         "surahName": "Al-Qari'ah",
         "ayahNumber": 1,
@@ -14438,7 +15238,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-452",
+    "id": "quiz-extracted-477",
     "arabic": "ن و س",
     "transliteration": "n w s",
     "meanings": [
@@ -14453,7 +15253,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-452",
+        "id": "example-477",
         "surahNumber": 101,
         "surahName": "Al-Qari'ah",
         "ayahNumber": 1,
@@ -14470,7 +15270,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-453",
+    "id": "quiz-extracted-478",
     "arabic": "التكاثر",
     "transliteration": "altkathr",
     "meanings": [
@@ -14485,7 +15285,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-453",
+        "id": "example-478",
         "surahNumber": 102,
         "surahName": "At-Takathur",
         "ayahNumber": 1,
@@ -14502,7 +15302,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-454",
+    "id": "quiz-extracted-479",
     "arabic": "ك ث ر",
     "transliteration": "k th r",
     "meanings": [
@@ -14517,7 +15317,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-454",
+        "id": "example-479",
         "surahNumber": 102,
         "surahName": "At-Takathur",
         "ayahNumber": 1,
@@ -14534,7 +15334,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-455",
+    "id": "quiz-extracted-480",
     "arabic": "حتى زرتم المقابر",
     "transliteration": "hta zrtm almqabr",
     "meanings": [
@@ -14549,7 +15349,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-455",
+        "id": "example-480",
         "surahNumber": 102,
         "surahName": "At-Takathur",
         "ayahNumber": 1,
@@ -14566,7 +15366,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-456",
+    "id": "quiz-extracted-481",
     "arabic": "ز و ر",
     "transliteration": "z w r",
     "meanings": [
@@ -14581,7 +15381,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-456",
+        "id": "example-481",
         "surahNumber": 102,
         "surahName": "At-Takathur",
         "ayahNumber": 1,
@@ -14598,7 +15398,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-457",
+    "id": "quiz-extracted-482",
     "arabic": "عين اليقين",
     "transliteration": "'yn alyqyn",
     "meanings": [
@@ -14613,7 +15413,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-457",
+        "id": "example-482",
         "surahNumber": 102,
         "surahName": "At-Takathur",
         "ayahNumber": 1,
@@ -14630,7 +15430,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-458",
+    "id": "quiz-extracted-483",
     "arabic": "ي ق ن",
     "transliteration": "y q n",
     "meanings": [
@@ -14645,7 +15445,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-458",
+        "id": "example-483",
         "surahNumber": 102,
         "surahName": "At-Takathur",
         "ayahNumber": 1,
@@ -14662,7 +15462,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-459",
+    "id": "quiz-extracted-484",
     "arabic": "لهو",
     "transliteration": "lhw",
     "meanings": [
@@ -14677,7 +15477,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-459",
+        "id": "example-484",
         "surahNumber": 102,
         "surahName": "At-Takathur",
         "ayahNumber": 1,
@@ -14694,7 +15494,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-460",
+    "id": "quiz-extracted-485",
     "arabic": "ل ه و",
     "transliteration": "l h w",
     "meanings": [
@@ -14709,7 +15509,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-460",
+        "id": "example-485",
         "surahNumber": 102,
         "surahName": "At-Takathur",
         "ayahNumber": 1,
@@ -14726,7 +15526,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-461",
+    "id": "quiz-extracted-486",
     "arabic": "لترون الجحيم",
     "transliteration": "ltrwn aljhym",
     "meanings": [
@@ -14741,7 +15541,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-461",
+        "id": "example-486",
         "surahNumber": 102,
         "surahName": "At-Takathur",
         "ayahNumber": 1,
@@ -14758,7 +15558,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-462",
+    "id": "quiz-extracted-487",
     "arabic": "ج ح م",
     "transliteration": "j h m",
     "meanings": [
@@ -14773,7 +15573,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-462",
+        "id": "example-487",
         "surahNumber": 102,
         "surahName": "At-Takathur",
         "ayahNumber": 1,
@@ -14790,7 +15590,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-463",
+    "id": "quiz-extracted-488",
     "arabic": "لتسألن",
     "transliteration": "ltsأln",
     "meanings": [
@@ -14805,7 +15605,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-463",
+        "id": "example-488",
         "surahNumber": 102,
         "surahName": "At-Takathur",
         "ayahNumber": 1,
@@ -14822,7 +15622,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-464",
+    "id": "quiz-extracted-489",
     "arabic": "س ء ل",
     "transliteration": "s ' l",
     "meanings": [
@@ -14837,7 +15637,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-464",
+        "id": "example-489",
         "surahNumber": 102,
         "surahName": "At-Takathur",
         "ayahNumber": 1,
@@ -14854,7 +15654,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-465",
+    "id": "quiz-extracted-490",
     "arabic": "التفاخر",
     "transliteration": "altfakhr",
     "meanings": [
@@ -14869,7 +15669,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-465",
+        "id": "example-490",
         "surahNumber": 102,
         "surahName": "At-Takathur",
         "ayahNumber": 1,
@@ -14886,7 +15686,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-466",
+    "id": "quiz-extracted-491",
     "arabic": "ف خ ر",
     "transliteration": "f kh r",
     "meanings": [
@@ -14901,7 +15701,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-466",
+        "id": "example-491",
         "surahNumber": 102,
         "surahName": "At-Takathur",
         "ayahNumber": 1,
@@ -14918,7 +15718,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-467",
+    "id": "quiz-extracted-492",
     "arabic": "مالك",
     "transliteration": "malk",
     "meanings": [
@@ -14933,7 +15733,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-467",
+        "id": "example-492",
         "surahNumber": 102,
         "surahName": "At-Takathur",
         "ayahNumber": 1,
@@ -14950,7 +15750,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-468",
+    "id": "quiz-extracted-493",
     "arabic": "المقابر",
     "transliteration": "almqabr",
     "meanings": [
@@ -14965,7 +15765,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-468",
+        "id": "example-493",
         "surahNumber": 102,
         "surahName": "At-Takathur",
         "ayahNumber": 1,
@@ -14982,7 +15782,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-469",
+    "id": "quiz-extracted-494",
     "arabic": "ألهاكم",
     "transliteration": "أlhakm",
     "meanings": [
@@ -14997,7 +15797,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-469",
+        "id": "example-494",
         "surahNumber": 102,
         "surahName": "At-Takathur",
         "ayahNumber": 1,
@@ -15014,7 +15814,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-470",
+    "id": "quiz-extracted-495",
     "arabic": "العصر",
     "transliteration": "al'sr",
     "meanings": [
@@ -15029,7 +15829,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-470",
+        "id": "example-495",
         "surahNumber": 103,
         "surahName": "Al-Asr",
         "ayahNumber": 1,
@@ -15046,7 +15846,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-471",
+    "id": "quiz-extracted-496",
     "arabic": "ع ص ر",
     "transliteration": "' s r",
     "meanings": [
@@ -15061,7 +15861,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-471",
+        "id": "example-496",
         "surahNumber": 103,
         "surahName": "Al-Asr",
         "ayahNumber": 1,
@@ -15078,7 +15878,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-472",
+    "id": "quiz-extracted-497",
     "arabic": "خسر",
     "transliteration": "khsr",
     "meanings": [
@@ -15093,7 +15893,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-472",
+        "id": "example-497",
         "surahNumber": 103,
         "surahName": "Al-Asr",
         "ayahNumber": 1,
@@ -15110,7 +15910,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-473",
+    "id": "quiz-extracted-498",
     "arabic": "خ س ر",
     "transliteration": "kh s r",
     "meanings": [
@@ -15125,7 +15925,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-473",
+        "id": "example-498",
         "surahNumber": 103,
         "surahName": "Al-Asr",
         "ayahNumber": 1,
@@ -15142,7 +15942,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-474",
+    "id": "quiz-extracted-499",
     "arabic": "إيمان",
     "transliteration": "إyman",
     "meanings": [
@@ -15157,7 +15957,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-474",
+        "id": "example-499",
         "surahNumber": 103,
         "surahName": "Al-Asr",
         "ayahNumber": 1,
@@ -15174,7 +15974,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-475",
+    "id": "quiz-extracted-500",
     "arabic": "عملوا الصالحات",
     "transliteration": "'mlwa alsalhat",
     "meanings": [
@@ -15189,7 +15989,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-475",
+        "id": "example-500",
         "surahNumber": 103,
         "surahName": "Al-Asr",
         "ayahNumber": 1,
@@ -15206,7 +16006,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-476",
+    "id": "quiz-extracted-501",
     "arabic": "الحق",
     "transliteration": "alhq",
     "meanings": [
@@ -15221,7 +16021,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-476",
+        "id": "example-501",
         "surahNumber": 103,
         "surahName": "Al-Asr",
         "ayahNumber": 1,
@@ -15238,7 +16038,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-477",
+    "id": "quiz-extracted-502",
     "arabic": "ح ق ق",
     "transliteration": "h q q",
     "meanings": [
@@ -15253,7 +16053,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-477",
+        "id": "example-502",
         "surahNumber": 103,
         "surahName": "Al-Asr",
         "ayahNumber": 1,
@@ -15270,7 +16070,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-478",
+    "id": "quiz-extracted-503",
     "arabic": "صبر",
     "transliteration": "sbr",
     "meanings": [
@@ -15285,7 +16085,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-478",
+        "id": "example-503",
         "surahNumber": 103,
         "surahName": "Al-Asr",
         "ayahNumber": 1,
@@ -15302,7 +16102,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-479",
+    "id": "quiz-extracted-504",
     "arabic": "ص ب ر",
     "transliteration": "s b r",
     "meanings": [
@@ -15317,7 +16117,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-479",
+        "id": "example-504",
         "surahNumber": 103,
         "surahName": "Al-Asr",
         "ayahNumber": 1,
@@ -15334,7 +16134,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-480",
+    "id": "quiz-extracted-505",
     "arabic": "تواصوا",
     "transliteration": "twaswa",
     "meanings": [
@@ -15349,7 +16149,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-480",
+        "id": "example-505",
         "surahNumber": 103,
         "surahName": "Al-Asr",
         "ayahNumber": 1,
@@ -15366,7 +16166,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-481",
+    "id": "quiz-extracted-506",
     "arabic": "و ص ي",
     "transliteration": "w s y",
     "meanings": [
@@ -15381,7 +16181,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-481",
+        "id": "example-506",
         "surahNumber": 103,
         "surahName": "Al-Asr",
         "ayahNumber": 1,
@@ -15398,7 +16198,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-482",
+    "id": "quiz-extracted-507",
     "arabic": "الهمزة",
     "transliteration": "alhmzh",
     "meanings": [
@@ -15413,7 +16213,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-482",
+        "id": "example-507",
         "surahNumber": 104,
         "surahName": "Al-Humazah",
         "ayahNumber": 1,
@@ -15430,7 +16230,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-483",
+    "id": "quiz-extracted-508",
     "arabic": "ويل لكل همزة لمزة",
     "transliteration": "wyl lkl hmzh lmzh",
     "meanings": [
@@ -15445,7 +16245,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-483",
+        "id": "example-508",
         "surahNumber": 104,
         "surahName": "Al-Humazah",
         "ayahNumber": 1,
@@ -15462,7 +16262,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-484",
+    "id": "quiz-extracted-509",
     "arabic": "ه م ز",
     "transliteration": "h m z",
     "meanings": [
@@ -15477,7 +16277,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-484",
+        "id": "example-509",
         "surahNumber": 104,
         "surahName": "Al-Humazah",
         "ayahNumber": 1,
@@ -15494,7 +16294,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-485",
+    "id": "quiz-extracted-510",
     "arabic": "همزة",
     "transliteration": "hmzh",
     "meanings": [
@@ -15509,7 +16309,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-485",
+        "id": "example-510",
         "surahNumber": 104,
         "surahName": "Al-Humazah",
         "ayahNumber": 1,
@@ -15526,7 +16326,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-486",
+    "id": "quiz-extracted-511",
     "arabic": "الحطمة",
     "transliteration": "alhtmh",
     "meanings": [
@@ -15541,7 +16341,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-486",
+        "id": "example-511",
         "surahNumber": 104,
         "surahName": "Al-Humazah",
         "ayahNumber": 1,
@@ -15558,7 +16358,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-487",
+    "id": "quiz-extracted-512",
     "arabic": "ح ط م",
     "transliteration": "h t m",
     "meanings": [
@@ -15573,7 +16373,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-487",
+        "id": "example-512",
         "surahNumber": 104,
         "surahName": "Al-Humazah",
         "ayahNumber": 1,
@@ -15590,7 +16390,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-488",
+    "id": "quiz-extracted-513",
     "arabic": "لمزة",
     "transliteration": "lmzh",
     "meanings": [
@@ -15605,7 +16405,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-488",
+        "id": "example-513",
         "surahNumber": 104,
         "surahName": "Al-Humazah",
         "ayahNumber": 1,
@@ -15622,7 +16422,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-489",
+    "id": "quiz-extracted-514",
     "arabic": "ل م ز",
     "transliteration": "l m z",
     "meanings": [
@@ -15637,7 +16437,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-489",
+        "id": "example-514",
         "surahNumber": 104,
         "surahName": "Al-Humazah",
         "ayahNumber": 1,
@@ -15654,7 +16454,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-490",
+    "id": "quiz-extracted-515",
     "arabic": "الذي جمع مالا وعدده",
     "transliteration": "aldhy jm' mala w'ddh",
     "meanings": [
@@ -15669,7 +16469,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-490",
+        "id": "example-515",
         "surahNumber": 104,
         "surahName": "Al-Humazah",
         "ayahNumber": 1,
@@ -15686,7 +16486,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-491",
+    "id": "quiz-extracted-516",
     "arabic": "نار الله الموقدة",
     "transliteration": "nar allh almwqdh",
     "meanings": [
@@ -15701,7 +16501,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-491",
+        "id": "example-516",
         "surahNumber": 104,
         "surahName": "Al-Humazah",
         "ayahNumber": 1,
@@ -15718,7 +16518,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-492",
+    "id": "quiz-extracted-517",
     "arabic": "في الحطمة",
     "transliteration": "fy alhtmh",
     "meanings": [
@@ -15733,7 +16533,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-492",
+        "id": "example-517",
         "surahNumber": 104,
         "surahName": "Al-Humazah",
         "ayahNumber": 1,
@@ -15750,7 +16550,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-493",
+    "id": "quiz-extracted-518",
     "arabic": "تلظى على القلوب",
     "transliteration": "tlza 'la alqlwb",
     "meanings": [
@@ -15765,7 +16565,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-493",
+        "id": "example-518",
         "surahNumber": 104,
         "surahName": "Al-Humazah",
         "ayahNumber": 1,
@@ -15782,7 +16582,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-494",
+    "id": "quiz-extracted-519",
     "arabic": "ل ظ ي",
     "transliteration": "l z y",
     "meanings": [
@@ -15797,7 +16597,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-494",
+        "id": "example-519",
         "surahNumber": 104,
         "surahName": "Al-Humazah",
         "ayahNumber": 1,
@@ -15814,7 +16614,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-495",
+    "id": "quiz-extracted-520",
     "arabic": "همزة لمزة",
     "transliteration": "hmzh lmzh",
     "meanings": [
@@ -15829,7 +16629,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-495",
+        "id": "example-520",
         "surahNumber": 104,
         "surahName": "Al-Humazah",
         "ayahNumber": 1,
@@ -15846,7 +16646,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-496",
+    "id": "quiz-extracted-521",
     "arabic": "الفيل",
     "transliteration": "alfyl",
     "meanings": [
@@ -15861,7 +16661,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-496",
+        "id": "example-521",
         "surahNumber": 105,
         "surahName": "Al-Fil",
         "ayahNumber": 1,
@@ -15878,7 +16678,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-497",
+    "id": "quiz-extracted-522",
     "arabic": "ألم تر كيف فعل ربك بأصحاب الفيل",
     "transliteration": "أlm tr kyf f'l rbk bأshab alfyl",
     "meanings": [
@@ -15893,7 +16693,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-497",
+        "id": "example-522",
         "surahNumber": 105,
         "surahName": "Al-Fil",
         "ayahNumber": 1,
@@ -15910,7 +16710,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-498",
+    "id": "quiz-extracted-523",
     "arabic": "ف ع ل",
     "transliteration": "f ' l",
     "meanings": [
@@ -15925,7 +16725,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-498",
+        "id": "example-523",
         "surahNumber": 105,
         "surahName": "Al-Fil",
         "ayahNumber": 1,
@@ -15942,7 +16742,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-499",
+    "id": "quiz-extracted-524",
     "arabic": "فأرسل عليهم طيرا أبابيل",
     "transliteration": "fأrsl 'lyhm tyra أbabyl",
     "meanings": [
@@ -15957,7 +16757,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-499",
+        "id": "example-524",
         "surahNumber": 105,
         "surahName": "Al-Fil",
         "ayahNumber": 1,
@@ -15974,7 +16774,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-500",
+    "id": "quiz-extracted-525",
     "arabic": "ط ي ر",
     "transliteration": "t y r",
     "meanings": [
@@ -15989,7 +16789,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-500",
+        "id": "example-525",
         "surahNumber": 105,
         "surahName": "Al-Fil",
         "ayahNumber": 1,
@@ -16006,7 +16806,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-501",
+    "id": "quiz-extracted-526",
     "arabic": "أصحاب الفيل",
     "transliteration": "أshab alfyl",
     "meanings": [
@@ -16021,7 +16821,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-501",
+        "id": "example-526",
         "surahNumber": 105,
         "surahName": "Al-Fil",
         "ayahNumber": 1,
@@ -16038,7 +16838,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-502",
+    "id": "quiz-extracted-527",
     "arabic": "ف ي ل",
     "transliteration": "f y l",
     "meanings": [
@@ -16053,7 +16853,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-502",
+        "id": "example-527",
         "surahNumber": 105,
         "surahName": "Al-Fil",
         "ayahNumber": 1,
@@ -16070,7 +16870,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-503",
+    "id": "quiz-extracted-528",
     "arabic": "فجعلهم كعصف مأكول",
     "transliteration": "fj'lhm k'sf mأkwl",
     "meanings": [
@@ -16085,7 +16885,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-503",
+        "id": "example-528",
         "surahNumber": 105,
         "surahName": "Al-Fil",
         "ayahNumber": 1,
@@ -16102,7 +16902,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-504",
+    "id": "quiz-extracted-529",
     "arabic": "ع ص ف",
     "transliteration": "' s f",
     "meanings": [
@@ -16117,7 +16917,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-504",
+        "id": "example-529",
         "surahNumber": 105,
         "surahName": "Al-Fil",
         "ayahNumber": 1,
@@ -16134,7 +16934,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-505",
+    "id": "quiz-extracted-530",
     "arabic": "طيرا أبابيل",
     "transliteration": "tyra أbabyl",
     "meanings": [
@@ -16149,7 +16949,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-505",
+        "id": "example-530",
         "surahNumber": 105,
         "surahName": "Al-Fil",
         "ayahNumber": 1,
@@ -16166,7 +16966,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-506",
+    "id": "quiz-extracted-531",
     "arabic": "قريش",
     "transliteration": "qrysh",
     "meanings": [
@@ -16181,7 +16981,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-506",
+        "id": "example-531",
         "surahNumber": 106,
         "surahName": "Quraysh",
         "ayahNumber": 1,
@@ -16198,7 +16998,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-507",
+    "id": "quiz-extracted-532",
     "arabic": "ق ر ش",
     "transliteration": "q r sh",
     "meanings": [
@@ -16213,7 +17013,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-507",
+        "id": "example-532",
         "surahNumber": 106,
         "surahName": "Quraysh",
         "ayahNumber": 1,
@@ -16230,7 +17030,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-508",
+    "id": "quiz-extracted-533",
     "arabic": "لإيلاف قريش",
     "transliteration": "lإylaf qrysh",
     "meanings": [
@@ -16245,7 +17045,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-508",
+        "id": "example-533",
         "surahNumber": 106,
         "surahName": "Quraysh",
         "ayahNumber": 1,
@@ -16262,7 +17062,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-509",
+    "id": "quiz-extracted-534",
     "arabic": "أ ل ف",
     "transliteration": "أ l f",
     "meanings": [
@@ -16277,7 +17077,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-509",
+        "id": "example-534",
         "surahNumber": 106,
         "surahName": "Quraysh",
         "ayahNumber": 1,
@@ -16294,7 +17094,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-510",
+    "id": "quiz-extracted-535",
     "arabic": "إيلافهم رحلة الشتاء والصيف",
     "transliteration": "إylafhm rhlh alshta' walsyf",
     "meanings": [
@@ -16309,7 +17109,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-510",
+        "id": "example-535",
         "surahNumber": 106,
         "surahName": "Quraysh",
         "ayahNumber": 1,
@@ -16326,7 +17126,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-511",
+    "id": "quiz-extracted-536",
     "arabic": "ر ح ل",
     "transliteration": "r h l",
     "meanings": [
@@ -16341,7 +17141,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-511",
+        "id": "example-536",
         "surahNumber": 106,
         "surahName": "Quraysh",
         "ayahNumber": 1,
@@ -16358,7 +17158,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-512",
+    "id": "quiz-extracted-537",
     "arabic": "فليعبدوا رب هذا البيت",
     "transliteration": "fly'bdwa rb hdha albyt",
     "meanings": [
@@ -16373,7 +17173,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-512",
+        "id": "example-537",
         "surahNumber": 106,
         "surahName": "Quraysh",
         "ayahNumber": 1,
@@ -16390,7 +17190,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-513",
+    "id": "quiz-extracted-538",
     "arabic": "الذي أطعمهم من جوع وآمنهم من خوف",
     "transliteration": "aldhy أt'mhm mn jw' wآmnhm mn khwf",
     "meanings": [
@@ -16405,7 +17205,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-513",
+        "id": "example-538",
         "surahNumber": 106,
         "surahName": "Quraysh",
         "ayahNumber": 1,
@@ -16422,7 +17222,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-514",
+    "id": "quiz-extracted-539",
     "arabic": "رب هذا البيت",
     "transliteration": "rb hdha albyt",
     "meanings": [
@@ -16437,7 +17237,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-514",
+        "id": "example-539",
         "surahNumber": 106,
         "surahName": "Quraysh",
         "ayahNumber": 1,
@@ -16454,7 +17254,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-515",
+    "id": "quiz-extracted-540",
     "arabic": "ٱلذىٓ أطعمهم من جوع وءامنهم من خوفۭ",
     "transliteration": "ٱldhaٓ أt'mhm mn jw' w'amnhm mn khwfۭ",
     "meanings": [
@@ -16469,7 +17269,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-515",
+        "id": "example-540",
         "surahNumber": 106,
         "surahName": "Quraysh",
         "ayahNumber": 1,
@@ -16486,7 +17286,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-516",
+    "id": "quiz-extracted-541",
     "arabic": "الماعون",
     "transliteration": "alma'wn",
     "meanings": [
@@ -16501,7 +17301,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-516",
+        "id": "example-541",
         "surahNumber": 107,
         "surahName": "Al-Ma'un",
         "ayahNumber": 1,
@@ -16518,7 +17318,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-517",
+    "id": "quiz-extracted-542",
     "arabic": "م ع ن",
     "transliteration": "m ' n",
     "meanings": [
@@ -16533,7 +17333,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-517",
+        "id": "example-542",
         "surahNumber": 107,
         "surahName": "Al-Ma'un",
         "ayahNumber": 1,
@@ -16550,7 +17350,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-518",
+    "id": "quiz-extracted-543",
     "arabic": "أرأيت الذي يكذب بالدين",
     "transliteration": "أrأyt aldhy ykdhb baldyn",
     "meanings": [
@@ -16565,7 +17365,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-518",
+        "id": "example-543",
         "surahNumber": 107,
         "surahName": "Al-Ma'un",
         "ayahNumber": 1,
@@ -16582,7 +17382,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-519",
+    "id": "quiz-extracted-544",
     "arabic": "د ي ن",
     "transliteration": "d y n",
     "meanings": [
@@ -16597,7 +17397,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-519",
+        "id": "example-544",
         "surahNumber": 107,
         "surahName": "Al-Ma'un",
         "ayahNumber": 1,
@@ -16614,7 +17414,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-520",
+    "id": "quiz-extracted-545",
     "arabic": "فذلك الذي يدع اليتيم",
     "transliteration": "fdhlk aldhy yd' alytym",
     "meanings": [
@@ -16629,7 +17429,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-520",
+        "id": "example-545",
         "surahNumber": 107,
         "surahName": "Al-Ma'un",
         "ayahNumber": 1,
@@ -16646,7 +17446,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-521",
+    "id": "quiz-extracted-546",
     "arabic": "د ع ع",
     "transliteration": "d ' '",
     "meanings": [
@@ -16661,7 +17461,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-521",
+        "id": "example-546",
         "surahNumber": 107,
         "surahName": "Al-Ma'un",
         "ayahNumber": 1,
@@ -16678,7 +17478,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-522",
+    "id": "quiz-extracted-547",
     "arabic": "ولا يحض على طعام المسكين",
     "transliteration": "wla yhd 'la t'am almskyn",
     "meanings": [
@@ -16693,7 +17493,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-522",
+        "id": "example-547",
         "surahNumber": 107,
         "surahName": "Al-Ma'un",
         "ayahNumber": 1,
@@ -16710,7 +17510,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-523",
+    "id": "quiz-extracted-548",
     "arabic": "فويل للمصلين",
     "transliteration": "fwyl llmslyn",
     "meanings": [
@@ -16725,7 +17525,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-523",
+        "id": "example-548",
         "surahNumber": 107,
         "surahName": "Al-Ma'un",
         "ayahNumber": 1,
@@ -16742,7 +17542,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-524",
+    "id": "quiz-extracted-549",
     "arabic": "الذين هم عن صلاتهم ساهون",
     "transliteration": "aldhyn hm 'n slathm sahwn",
     "meanings": [
@@ -16757,7 +17557,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-524",
+        "id": "example-549",
         "surahNumber": 107,
         "surahName": "Al-Ma'un",
         "ayahNumber": 1,
@@ -16774,7 +17574,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-525",
+    "id": "quiz-extracted-550",
     "arabic": "س ه و",
     "transliteration": "s h w",
     "meanings": [
@@ -16789,7 +17589,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-525",
+        "id": "example-550",
         "surahNumber": 107,
         "surahName": "Al-Ma'un",
         "ayahNumber": 1,
@@ -16806,7 +17606,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-526",
+    "id": "quiz-extracted-551",
     "arabic": "ويمنعون الماعون",
     "transliteration": "wymn'wn alma'wn",
     "meanings": [
@@ -16821,7 +17621,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-526",
+        "id": "example-551",
         "surahNumber": 107,
         "surahName": "Al-Ma'un",
         "ayahNumber": 1,
@@ -16838,7 +17638,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-527",
+    "id": "quiz-extracted-552",
     "arabic": "م ن ع",
     "transliteration": "m n '",
     "meanings": [
@@ -16853,7 +17653,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-527",
+        "id": "example-552",
         "surahNumber": 107,
         "surahName": "Al-Ma'un",
         "ayahNumber": 1,
@@ -16870,7 +17670,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-528",
+    "id": "quiz-extracted-553",
     "arabic": "الكوثر",
     "transliteration": "alkwthr",
     "meanings": [
@@ -16885,7 +17685,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-528",
+        "id": "example-553",
         "surahNumber": 108,
         "surahName": "Al-Kawthar",
         "ayahNumber": 1,
@@ -16902,7 +17702,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-529",
+    "id": "quiz-extracted-554",
     "arabic": "إنا أعطيناك الكوثر",
     "transliteration": "إna أ'tynak alkwthr",
     "meanings": [
@@ -16917,7 +17717,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-529",
+        "id": "example-554",
         "surahNumber": 108,
         "surahName": "Al-Kawthar",
         "ayahNumber": 1,
@@ -16934,7 +17734,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-530",
+    "id": "quiz-extracted-555",
     "arabic": "ع ط ي",
     "transliteration": "' t y",
     "meanings": [
@@ -16949,7 +17749,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-530",
+        "id": "example-555",
         "surahNumber": 108,
         "surahName": "Al-Kawthar",
         "ayahNumber": 1,
@@ -16966,7 +17766,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-531",
+    "id": "quiz-extracted-556",
     "arabic": "فصل لربك وانحر",
     "transliteration": "fsl lrbk wanhr",
     "meanings": [
@@ -16981,7 +17781,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-531",
+        "id": "example-556",
         "surahNumber": 108,
         "surahName": "Al-Kawthar",
         "ayahNumber": 1,
@@ -16998,7 +17798,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-532",
+    "id": "quiz-extracted-557",
     "arabic": "ن ح ر",
     "transliteration": "n h r",
     "meanings": [
@@ -17013,7 +17813,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-532",
+        "id": "example-557",
         "surahNumber": 108,
         "surahName": "Al-Kawthar",
         "ayahNumber": 1,
@@ -17030,7 +17830,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-533",
+    "id": "quiz-extracted-558",
     "arabic": "إن شانئك هو الأبتر",
     "transliteration": "إn shanئk hw alأbtr",
     "meanings": [
@@ -17045,7 +17845,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-533",
+        "id": "example-558",
         "surahNumber": 108,
         "surahName": "Al-Kawthar",
         "ayahNumber": 1,
@@ -17062,7 +17862,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-534",
+    "id": "quiz-extracted-559",
     "arabic": "ب ت ر",
     "transliteration": "b t r",
     "meanings": [
@@ -17077,7 +17877,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-534",
+        "id": "example-559",
         "surahNumber": 108,
         "surahName": "Al-Kawthar",
         "ayahNumber": 1,
@@ -17094,7 +17894,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-535",
+    "id": "quiz-extracted-560",
     "arabic": "وانحر",
     "transliteration": "wanhr",
     "meanings": [
@@ -17109,7 +17909,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-535",
+        "id": "example-560",
         "surahNumber": 108,
         "surahName": "Al-Kawthar",
         "ayahNumber": 1,
@@ -17126,7 +17926,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-536",
+    "id": "quiz-extracted-561",
     "arabic": "شانئك",
     "transliteration": "shanئk",
     "meanings": [
@@ -17141,7 +17941,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-536",
+        "id": "example-561",
         "surahNumber": 108,
         "surahName": "Al-Kawthar",
         "ayahNumber": 1,
@@ -17158,7 +17958,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-537",
+    "id": "quiz-extracted-562",
     "arabic": "ش ن أ",
     "transliteration": "sh n أ",
     "meanings": [
@@ -17173,7 +17973,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-537",
+        "id": "example-562",
         "surahNumber": 108,
         "surahName": "Al-Kawthar",
         "ayahNumber": 1,
@@ -17190,7 +17990,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-538",
+    "id": "quiz-extracted-563",
     "arabic": "الكافرون",
     "transliteration": "alkafrwn",
     "meanings": [
@@ -17205,7 +18005,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-538",
+        "id": "example-563",
         "surahNumber": 109,
         "surahName": "Al-Kafirun",
         "ayahNumber": 1,
@@ -17222,7 +18022,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-539",
+    "id": "quiz-extracted-564",
     "arabic": "قل يا أيها الكافرون",
     "transliteration": "ql ya أyha alkafrwn",
     "meanings": [
@@ -17237,7 +18037,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-539",
+        "id": "example-564",
         "surahNumber": 109,
         "surahName": "Al-Kafirun",
         "ayahNumber": 1,
@@ -17254,7 +18054,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-540",
+    "id": "quiz-extracted-565",
     "arabic": "ق و ل",
     "transliteration": "q w l",
     "meanings": [
@@ -17269,7 +18069,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-540",
+        "id": "example-565",
         "surahNumber": 109,
         "surahName": "Al-Kafirun",
         "ayahNumber": 1,
@@ -17286,7 +18086,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-541",
+    "id": "quiz-extracted-566",
     "arabic": "لا أعبد ما تعبدون",
     "transliteration": "la أ'bd ma t'bdwn",
     "meanings": [
@@ -17301,7 +18101,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-541",
+        "id": "example-566",
         "surahNumber": 109,
         "surahName": "Al-Kafirun",
         "ayahNumber": 1,
@@ -17318,7 +18118,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-542",
+    "id": "quiz-extracted-567",
     "arabic": "ولا أنتم عابدون ما أعبد",
     "transliteration": "wla أntm 'abdwn ma أ'bd",
     "meanings": [
@@ -17333,7 +18133,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-542",
+        "id": "example-567",
         "surahNumber": 109,
         "surahName": "Al-Kafirun",
         "ayahNumber": 1,
@@ -17350,7 +18150,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-543",
+    "id": "quiz-extracted-568",
     "arabic": "ولا أنا عابد ما عبدتم",
     "transliteration": "wla أna 'abd ma 'bdtm",
     "meanings": [
@@ -17365,7 +18165,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-543",
+        "id": "example-568",
         "surahNumber": 109,
         "surahName": "Al-Kafirun",
         "ayahNumber": 1,
@@ -17382,7 +18182,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-544",
+    "id": "quiz-extracted-569",
     "arabic": "لكم دينكم ولي دين",
     "transliteration": "lkm dynkm wly dyn",
     "meanings": [
@@ -17397,7 +18197,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-544",
+        "id": "example-569",
         "surahNumber": 109,
         "surahName": "Al-Kafirun",
         "ayahNumber": 1,
@@ -17414,7 +18214,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-545",
+    "id": "quiz-extracted-570",
     "arabic": "دين",
     "transliteration": "dyn",
     "meanings": [
@@ -17429,7 +18229,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-545",
+        "id": "example-570",
         "surahNumber": 109,
         "surahName": "Al-Kafirun",
         "ayahNumber": 1,
@@ -17446,7 +18246,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-546",
+    "id": "quiz-extracted-571",
     "arabic": "يا أيها الكافرون",
     "transliteration": "ya أyha alkafrwn",
     "meanings": [
@@ -17461,7 +18261,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-546",
+        "id": "example-571",
         "surahNumber": 109,
         "surahName": "Al-Kafirun",
         "ayahNumber": 1,
@@ -17478,7 +18278,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-547",
+    "id": "quiz-extracted-572",
     "arabic": "النصر",
     "transliteration": "alnsr",
     "meanings": [
@@ -17493,7 +18293,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-547",
+        "id": "example-572",
         "surahNumber": 110,
         "surahName": "An-Nasr",
         "ayahNumber": 1,
@@ -17510,39 +18310,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-548",
-    "arabic": "ن ص ر",
-    "transliteration": "n s r",
-    "meanings": [
-      "[Translation needed for: ن ص ر]"
-    ],
-    "difficulty": "Intermediate",
-    "category": "Short Chapters",
-    "tags": [
-      "quiz-extracted",
-      "surah-110",
-      "short-chapters"
-    ],
-    "examples": [
-      {
-        "id": "example-548",
-        "surahNumber": 110,
-        "surahName": "An-Nasr",
-        "ayahNumber": 1,
-        "arabicText": "ن ص ر",
-        "translationText": "[Translation needed for: ن ص ر]",
-        "wordLocation": {
-          "startIndex": 0,
-          "endIndex": 5
-        },
-        "hasAudio": false
-      }
-    ],
-    "hasAudio": false,
-    "frequency": 1
-  },
-  {
-    "id": "quiz-extracted-549",
+    "id": "quiz-extracted-573",
     "arabic": "إذا جاء نصر الله والفتح",
     "transliteration": "إdha ja' nsr allh walfth",
     "meanings": [
@@ -17557,7 +18325,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-549",
+        "id": "example-573",
         "surahNumber": 110,
         "surahName": "An-Nasr",
         "ayahNumber": 1,
@@ -17574,7 +18342,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-550",
+    "id": "quiz-extracted-574",
     "arabic": "ف ت ح",
     "transliteration": "f t h",
     "meanings": [
@@ -17589,7 +18357,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-550",
+        "id": "example-574",
         "surahNumber": 110,
         "surahName": "An-Nasr",
         "ayahNumber": 1,
@@ -17606,7 +18374,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-551",
+    "id": "quiz-extracted-575",
     "arabic": "ورأيت الناس يدخلون في دين الله أفواجا",
     "transliteration": "wrأyt alnas ydkhlwn fy dyn allh أfwaja",
     "meanings": [
@@ -17621,7 +18389,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-551",
+        "id": "example-575",
         "surahNumber": 110,
         "surahName": "An-Nasr",
         "ayahNumber": 1,
@@ -17638,7 +18406,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-552",
+    "id": "quiz-extracted-576",
     "arabic": "ف و ج",
     "transliteration": "f w j",
     "meanings": [
@@ -17653,7 +18421,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-552",
+        "id": "example-576",
         "surahNumber": 110,
         "surahName": "An-Nasr",
         "ayahNumber": 1,
@@ -17670,7 +18438,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-553",
+    "id": "quiz-extracted-577",
     "arabic": "فسبح بحمد ربك",
     "transliteration": "fsbh bhmd rbk",
     "meanings": [
@@ -17685,7 +18453,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-553",
+        "id": "example-577",
         "surahNumber": 110,
         "surahName": "An-Nasr",
         "ayahNumber": 1,
@@ -17702,7 +18470,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-554",
+    "id": "quiz-extracted-578",
     "arabic": "واستغفره إنه كان توابا",
     "transliteration": "wastghfrh إnh kan twaba",
     "meanings": [
@@ -17717,7 +18485,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-554",
+        "id": "example-578",
         "surahNumber": 110,
         "surahName": "An-Nasr",
         "ayahNumber": 1,
@@ -17734,7 +18502,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-555",
+    "id": "quiz-extracted-579",
     "arabic": "غ ف ر",
     "transliteration": "gh f r",
     "meanings": [
@@ -17749,7 +18517,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-555",
+        "id": "example-579",
         "surahNumber": 110,
         "surahName": "An-Nasr",
         "ayahNumber": 1,
@@ -17766,7 +18534,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-556",
+    "id": "quiz-extracted-580",
     "arabic": "الفتح",
     "transliteration": "alfth",
     "meanings": [
@@ -17781,7 +18549,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-556",
+        "id": "example-580",
         "surahNumber": 110,
         "surahName": "An-Nasr",
         "ayahNumber": 1,
@@ -17798,7 +18566,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-557",
+    "id": "quiz-extracted-581",
     "arabic": "واستغفره",
     "transliteration": "wastghfrh",
     "meanings": [
@@ -17813,7 +18581,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-557",
+        "id": "example-581",
         "surahNumber": 110,
         "surahName": "An-Nasr",
         "ayahNumber": 1,
@@ -17830,7 +18598,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-558",
+    "id": "quiz-extracted-582",
     "arabic": "توابا",
     "transliteration": "twaba",
     "meanings": [
@@ -17845,7 +18613,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-558",
+        "id": "example-582",
         "surahNumber": 110,
         "surahName": "An-Nasr",
         "ayahNumber": 1,
@@ -17862,7 +18630,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-559",
+    "id": "quiz-extracted-583",
     "arabic": "ت و ب",
     "transliteration": "t w b",
     "meanings": [
@@ -17877,7 +18645,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-559",
+        "id": "example-583",
         "surahNumber": 110,
         "surahName": "An-Nasr",
         "ayahNumber": 1,
@@ -17894,7 +18662,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-560",
+    "id": "quiz-extracted-584",
     "arabic": "فسبح بحمد ربك واستغفره",
     "transliteration": "fsbh bhmd rbk wastghfrh",
     "meanings": [
@@ -17909,7 +18677,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-560",
+        "id": "example-584",
         "surahNumber": 110,
         "surahName": "An-Nasr",
         "ayahNumber": 1,
@@ -17926,7 +18694,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-561",
+    "id": "quiz-extracted-585",
     "arabic": "المسد",
     "transliteration": "almsd",
     "meanings": [
@@ -17941,7 +18709,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-561",
+        "id": "example-585",
         "surahNumber": 111,
         "surahName": "Al-Masad",
         "ayahNumber": 1,
@@ -17958,7 +18726,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-562",
+    "id": "quiz-extracted-586",
     "arabic": "م س د",
     "transliteration": "m s d",
     "meanings": [
@@ -17973,7 +18741,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-562",
+        "id": "example-586",
         "surahNumber": 111,
         "surahName": "Al-Masad",
         "ayahNumber": 1,
@@ -17990,7 +18758,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-563",
+    "id": "quiz-extracted-587",
     "arabic": "تبت يدا أبي لهب وتب",
     "transliteration": "tbt yda أby lhb wtb",
     "meanings": [
@@ -18005,7 +18773,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-563",
+        "id": "example-587",
         "surahNumber": 111,
         "surahName": "Al-Masad",
         "ayahNumber": 1,
@@ -18022,7 +18790,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-564",
+    "id": "quiz-extracted-588",
     "arabic": "ت ب ب",
     "transliteration": "t b b",
     "meanings": [
@@ -18037,7 +18805,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-564",
+        "id": "example-588",
         "surahNumber": 111,
         "surahName": "Al-Masad",
         "ayahNumber": 1,
@@ -18054,7 +18822,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-565",
+    "id": "quiz-extracted-589",
     "arabic": "أبي لهب",
     "transliteration": "أby lhb",
     "meanings": [
@@ -18069,7 +18837,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-565",
+        "id": "example-589",
         "surahNumber": 111,
         "surahName": "Al-Masad",
         "ayahNumber": 1,
@@ -18086,7 +18854,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-566",
+    "id": "quiz-extracted-590",
     "arabic": "ما أغنى عنه ماله وما كسب",
     "transliteration": "ma أghna 'nh malh wma ksb",
     "meanings": [
@@ -18101,7 +18869,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-566",
+        "id": "example-590",
         "surahNumber": 111,
         "surahName": "Al-Masad",
         "ayahNumber": 1,
@@ -18118,7 +18886,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-567",
+    "id": "quiz-extracted-591",
     "arabic": "سيصلى نارا ذات لهب",
     "transliteration": "sysla nara dhat lhb",
     "meanings": [
@@ -18133,7 +18901,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-567",
+        "id": "example-591",
         "surahNumber": 111,
         "surahName": "Al-Masad",
         "ayahNumber": 1,
@@ -18150,7 +18918,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-568",
+    "id": "quiz-extracted-592",
     "arabic": "وامرأته حمالة الحطب",
     "transliteration": "wamrأth hmalh alhtb",
     "meanings": [
@@ -18165,7 +18933,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-568",
+        "id": "example-592",
         "surahNumber": 111,
         "surahName": "Al-Masad",
         "ayahNumber": 1,
@@ -18182,7 +18950,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-569",
+    "id": "quiz-extracted-593",
     "arabic": "ح م ل",
     "transliteration": "h m l",
     "meanings": [
@@ -18197,7 +18965,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-569",
+        "id": "example-593",
         "surahNumber": 111,
         "surahName": "Al-Masad",
         "ayahNumber": 1,
@@ -18214,7 +18982,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-570",
+    "id": "quiz-extracted-594",
     "arabic": "في جيدها حبل من مسد",
     "transliteration": "fy jydha hbl mn msd",
     "meanings": [
@@ -18229,7 +18997,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-570",
+        "id": "example-594",
         "surahNumber": 111,
         "surahName": "Al-Masad",
         "ayahNumber": 1,
@@ -18246,7 +19014,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-571",
+    "id": "quiz-extracted-595",
     "arabic": "ج ي د",
     "transliteration": "j y d",
     "meanings": [
@@ -18261,7 +19029,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-571",
+        "id": "example-595",
         "surahNumber": 111,
         "surahName": "Al-Masad",
         "ayahNumber": 1,
@@ -18278,7 +19046,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-572",
+    "id": "quiz-extracted-596",
     "arabic": "يدا",
     "transliteration": "yda",
     "meanings": [
@@ -18293,7 +19061,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-572",
+        "id": "example-596",
         "surahNumber": 111,
         "surahName": "Al-Masad",
         "ayahNumber": 1,
@@ -18310,7 +19078,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-573",
+    "id": "quiz-extracted-597",
     "arabic": "الإخلاص",
     "transliteration": "alإkhlas",
     "meanings": [
@@ -18325,7 +19093,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-573",
+        "id": "example-597",
         "surahNumber": 112,
         "surahName": "Al-Ikhlas",
         "ayahNumber": 1,
@@ -18342,7 +19110,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-574",
+    "id": "quiz-extracted-598",
     "arabic": "خ ل ص",
     "transliteration": "kh l s",
     "meanings": [
@@ -18357,7 +19125,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-574",
+        "id": "example-598",
         "surahNumber": 112,
         "surahName": "Al-Ikhlas",
         "ayahNumber": 1,
@@ -18374,7 +19142,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-575",
+    "id": "quiz-extracted-599",
     "arabic": "قل هو الله أحد",
     "transliteration": "ql hw allh أhd",
     "meanings": [
@@ -18389,7 +19157,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-575",
+        "id": "example-599",
         "surahNumber": 112,
         "surahName": "Al-Ikhlas",
         "ayahNumber": 1,
@@ -18406,7 +19174,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-576",
+    "id": "quiz-extracted-600",
     "arabic": "أ ح د",
     "transliteration": "أ h d",
     "meanings": [
@@ -18421,7 +19189,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-576",
+        "id": "example-600",
         "surahNumber": 112,
         "surahName": "Al-Ikhlas",
         "ayahNumber": 1,
@@ -18438,7 +19206,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-577",
+    "id": "quiz-extracted-601",
     "arabic": "الله الصمد",
     "transliteration": "allh alsmd",
     "meanings": [
@@ -18453,7 +19221,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-577",
+        "id": "example-601",
         "surahNumber": 112,
         "surahName": "Al-Ikhlas",
         "ayahNumber": 1,
@@ -18470,7 +19238,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-578",
+    "id": "quiz-extracted-602",
     "arabic": "ص م د",
     "transliteration": "s m d",
     "meanings": [
@@ -18485,7 +19253,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-578",
+        "id": "example-602",
         "surahNumber": 112,
         "surahName": "Al-Ikhlas",
         "ayahNumber": 1,
@@ -18502,7 +19270,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-579",
+    "id": "quiz-extracted-603",
     "arabic": "لم يلد ولم يولد",
     "transliteration": "lm yld wlm ywld",
     "meanings": [
@@ -18517,7 +19285,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-579",
+        "id": "example-603",
         "surahNumber": 112,
         "surahName": "Al-Ikhlas",
         "ayahNumber": 1,
@@ -18534,7 +19302,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-580",
+    "id": "quiz-extracted-604",
     "arabic": "و ل د",
     "transliteration": "w l d",
     "meanings": [
@@ -18549,7 +19317,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-580",
+        "id": "example-604",
         "surahNumber": 112,
         "surahName": "Al-Ikhlas",
         "ayahNumber": 1,
@@ -18566,7 +19334,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-581",
+    "id": "quiz-extracted-605",
     "arabic": "ولم يكن له كفوا أحد",
     "transliteration": "wlm ykn lh kfwa أhd",
     "meanings": [
@@ -18581,7 +19349,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-581",
+        "id": "example-605",
         "surahNumber": 112,
         "surahName": "Al-Ikhlas",
         "ayahNumber": 1,
@@ -18598,7 +19366,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-582",
+    "id": "quiz-extracted-606",
     "arabic": "ك ف و",
     "transliteration": "k f w",
     "meanings": [
@@ -18613,7 +19381,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-582",
+        "id": "example-606",
         "surahNumber": 112,
         "surahName": "Al-Ikhlas",
         "ayahNumber": 1,
@@ -18630,7 +19398,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-583",
+    "id": "quiz-extracted-607",
     "arabic": "أحد",
     "transliteration": "أhd",
     "meanings": [
@@ -18645,7 +19413,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-583",
+        "id": "example-607",
         "surahNumber": 112,
         "surahName": "Al-Ikhlas",
         "ayahNumber": 1,
@@ -18662,7 +19430,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-584",
+    "id": "quiz-extracted-608",
     "arabic": "الصمد",
     "transliteration": "alsmd",
     "meanings": [
@@ -18677,7 +19445,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-584",
+        "id": "example-608",
         "surahNumber": 112,
         "surahName": "Al-Ikhlas",
         "ayahNumber": 1,
@@ -18694,7 +19462,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-585",
+    "id": "quiz-extracted-609",
     "arabic": "لم يلد",
     "transliteration": "lm yld",
     "meanings": [
@@ -18709,7 +19477,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-585",
+        "id": "example-609",
         "surahNumber": 112,
         "surahName": "Al-Ikhlas",
         "ayahNumber": 1,
@@ -18726,7 +19494,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-586",
+    "id": "quiz-extracted-610",
     "arabic": "كفوا",
     "transliteration": "kfwa",
     "meanings": [
@@ -18741,7 +19509,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-586",
+        "id": "example-610",
         "surahNumber": 112,
         "surahName": "Al-Ikhlas",
         "ayahNumber": 1,
@@ -18758,7 +19526,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-587",
+    "id": "quiz-extracted-611",
     "arabic": "الفلق",
     "transliteration": "alflq",
     "meanings": [
@@ -18773,7 +19541,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-587",
+        "id": "example-611",
         "surahNumber": 113,
         "surahName": "Al-Falaq",
         "ayahNumber": 1,
@@ -18790,7 +19558,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-588",
+    "id": "quiz-extracted-612",
     "arabic": "المعوذتان",
     "transliteration": "alm'wdhtan",
     "meanings": [
@@ -18805,7 +19573,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-588",
+        "id": "example-612",
         "surahNumber": 113,
         "surahName": "Al-Falaq",
         "ayahNumber": 1,
@@ -18822,7 +19590,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-589",
+    "id": "quiz-extracted-613",
     "arabic": "ف ل ق",
     "transliteration": "f l q",
     "meanings": [
@@ -18837,7 +19605,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-589",
+        "id": "example-613",
         "surahNumber": 113,
         "surahName": "Al-Falaq",
         "ayahNumber": 1,
@@ -18854,7 +19622,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-590",
+    "id": "quiz-extracted-614",
     "arabic": "قل أعوذ برب الفلق",
     "transliteration": "ql أ'wdh brb alflq",
     "meanings": [
@@ -18869,7 +19637,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-590",
+        "id": "example-614",
         "surahNumber": 113,
         "surahName": "Al-Falaq",
         "ayahNumber": 1,
@@ -18886,7 +19654,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-591",
+    "id": "quiz-extracted-615",
     "arabic": "ع و ذ",
     "transliteration": "' w dh",
     "meanings": [
@@ -18901,7 +19669,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-591",
+        "id": "example-615",
         "surahNumber": 113,
         "surahName": "Al-Falaq",
         "ayahNumber": 1,
@@ -18918,7 +19686,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-592",
+    "id": "quiz-extracted-616",
     "arabic": "من شر ما خلق",
     "transliteration": "mn shr ma khlq",
     "meanings": [
@@ -18933,7 +19701,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-592",
+        "id": "example-616",
         "surahNumber": 113,
         "surahName": "Al-Falaq",
         "ayahNumber": 1,
@@ -18950,7 +19718,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-593",
+    "id": "quiz-extracted-617",
     "arabic": "ش ر ر",
     "transliteration": "sh r r",
     "meanings": [
@@ -18965,7 +19733,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-593",
+        "id": "example-617",
         "surahNumber": 113,
         "surahName": "Al-Falaq",
         "ayahNumber": 1,
@@ -18982,7 +19750,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-594",
+    "id": "quiz-extracted-618",
     "arabic": "ومن شر غاسق إذا وقب",
     "transliteration": "wmn shr ghasq إdha wqb",
     "meanings": [
@@ -18997,7 +19765,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-594",
+        "id": "example-618",
         "surahNumber": 113,
         "surahName": "Al-Falaq",
         "ayahNumber": 1,
@@ -19014,7 +19782,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-595",
+    "id": "quiz-extracted-619",
     "arabic": "ومن شر النفاثات في العقد",
     "transliteration": "wmn shr alnfathat fy al'qd",
     "meanings": [
@@ -19029,7 +19797,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-595",
+        "id": "example-619",
         "surahNumber": 113,
         "surahName": "Al-Falaq",
         "ayahNumber": 1,
@@ -19046,7 +19814,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-596",
+    "id": "quiz-extracted-620",
     "arabic": "ن ف ث",
     "transliteration": "n f th",
     "meanings": [
@@ -19061,7 +19829,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-596",
+        "id": "example-620",
         "surahNumber": 113,
         "surahName": "Al-Falaq",
         "ayahNumber": 1,
@@ -19078,7 +19846,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-597",
+    "id": "quiz-extracted-621",
     "arabic": "ومن شر حاسد إذا حسد",
     "transliteration": "wmn shr hasd إdha hsd",
     "meanings": [
@@ -19093,7 +19861,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-597",
+        "id": "example-621",
         "surahNumber": 113,
         "surahName": "Al-Falaq",
         "ayahNumber": 1,
@@ -19110,7 +19878,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-598",
+    "id": "quiz-extracted-622",
     "arabic": "ح س د",
     "transliteration": "h s d",
     "meanings": [
@@ -19125,7 +19893,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-598",
+        "id": "example-622",
         "surahNumber": 113,
         "surahName": "Al-Falaq",
         "ayahNumber": 1,
@@ -19142,7 +19910,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-599",
+    "id": "quiz-extracted-623",
     "arabic": "رب الفلق",
     "transliteration": "rb alflq",
     "meanings": [
@@ -19157,7 +19925,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-599",
+        "id": "example-623",
         "surahNumber": 113,
         "surahName": "Al-Falaq",
         "ayahNumber": 1,
@@ -19174,7 +19942,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-600",
+    "id": "quiz-extracted-624",
     "arabic": "إذا وقب",
     "transliteration": "إdha wqb",
     "meanings": [
@@ -19189,7 +19957,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-600",
+        "id": "example-624",
         "surahNumber": 113,
         "surahName": "Al-Falaq",
         "ayahNumber": 1,
@@ -19206,7 +19974,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-601",
+    "id": "quiz-extracted-625",
     "arabic": "و ق ب",
     "transliteration": "w q b",
     "meanings": [
@@ -19221,7 +19989,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-601",
+        "id": "example-625",
         "surahNumber": 113,
         "surahName": "Al-Falaq",
         "ayahNumber": 1,
@@ -19238,7 +20006,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-602",
+    "id": "quiz-extracted-626",
     "arabic": "الناس",
     "transliteration": "alnas",
     "meanings": [
@@ -19253,7 +20021,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-602",
+        "id": "example-626",
         "surahNumber": 114,
         "surahName": "An-Nas",
         "ayahNumber": 1,
@@ -19270,7 +20038,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-603",
+    "id": "quiz-extracted-627",
     "arabic": "قل أعوذ برب الناس",
     "transliteration": "ql أ'wdh brb alnas",
     "meanings": [
@@ -19285,7 +20053,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-603",
+        "id": "example-627",
         "surahNumber": 114,
         "surahName": "An-Nas",
         "ayahNumber": 1,
@@ -19302,7 +20070,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-604",
+    "id": "quiz-extracted-628",
     "arabic": "ملك الناس",
     "transliteration": "mlk alnas",
     "meanings": [
@@ -19317,7 +20085,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-604",
+        "id": "example-628",
         "surahNumber": 114,
         "surahName": "An-Nas",
         "ayahNumber": 1,
@@ -19334,7 +20102,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-605",
+    "id": "quiz-extracted-629",
     "arabic": "إله الناس",
     "transliteration": "إlh alnas",
     "meanings": [
@@ -19349,7 +20117,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-605",
+        "id": "example-629",
         "surahNumber": 114,
         "surahName": "An-Nas",
         "ayahNumber": 1,
@@ -19366,7 +20134,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-606",
+    "id": "quiz-extracted-630",
     "arabic": "أ ل ه",
     "transliteration": "أ l h",
     "meanings": [
@@ -19381,7 +20149,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-606",
+        "id": "example-630",
         "surahNumber": 114,
         "surahName": "An-Nas",
         "ayahNumber": 1,
@@ -19398,7 +20166,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-607",
+    "id": "quiz-extracted-631",
     "arabic": "من شر الوسواس الخناس",
     "transliteration": "mn shr alwswas alkhnas",
     "meanings": [
@@ -19413,7 +20181,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-607",
+        "id": "example-631",
         "surahNumber": 114,
         "surahName": "An-Nas",
         "ayahNumber": 1,
@@ -19430,7 +20198,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-608",
+    "id": "quiz-extracted-632",
     "arabic": "و س و س",
     "transliteration": "w s w s",
     "meanings": [
@@ -19445,7 +20213,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-608",
+        "id": "example-632",
         "surahNumber": 114,
         "surahName": "An-Nas",
         "ayahNumber": 1,
@@ -19462,7 +20230,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-609",
+    "id": "quiz-extracted-633",
     "arabic": "الذي يوسوس في صدور الناس",
     "transliteration": "aldhy ywsws fy sdwr alnas",
     "meanings": [
@@ -19477,7 +20245,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-609",
+        "id": "example-633",
         "surahNumber": 114,
         "surahName": "An-Nas",
         "ayahNumber": 1,
@@ -19494,7 +20262,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-610",
+    "id": "quiz-extracted-634",
     "arabic": "من الجنة والناس",
     "transliteration": "mn aljnh walnas",
     "meanings": [
@@ -19509,7 +20277,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-610",
+        "id": "example-634",
         "surahNumber": 114,
         "surahName": "An-Nas",
         "ayahNumber": 1,
@@ -19526,7 +20294,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-611",
+    "id": "quiz-extracted-635",
     "arabic": "رب الناس ملك الناس إله الناس",
     "transliteration": "rb alnas mlk alnas إlh alnas",
     "meanings": [
@@ -19541,7 +20309,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-611",
+        "id": "example-635",
         "surahNumber": 114,
         "surahName": "An-Nas",
         "ayahNumber": 1,
@@ -19558,7 +20326,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-612",
+    "id": "quiz-extracted-636",
     "arabic": "الخناس",
     "transliteration": "alkhnas",
     "meanings": [
@@ -19573,7 +20341,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-612",
+        "id": "example-636",
         "surahNumber": 114,
         "surahName": "An-Nas",
         "ayahNumber": 1,
@@ -19590,7 +20358,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     "frequency": 1
   },
   {
-    "id": "quiz-extracted-613",
+    "id": "quiz-extracted-637",
     "arabic": "خ ن س",
     "transliteration": "kh n s",
     "meanings": [
@@ -19605,7 +20373,7 @@ export const quizExtractedVocabulary: VocabularyWord[] = [
     ],
     "examples": [
       {
-        "id": "example-613",
+        "id": "example-637",
         "surahNumber": 114,
         "surahName": "An-Nas",
         "ayahNumber": 1,
