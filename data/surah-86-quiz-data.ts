@@ -6,7 +6,7 @@ export const atTariqQuizData: SurahQuizData = {
   type: "Meccan",
   difficulty: "Beginner",
   introduction:
-    "Surah At-Tariq (The Knocking Visitor) is the 86th chapter of the Quran, revealed in Mecca. It swears by the heaven and the piercing star to affirm Allah's power in creation and resurrection, emphasizing that every soul has a guardian and will face accountability on the Day when secrets are revealed. The surah counters the disbelievers' plots against the message by asserting Allah's superior plan and declares the Quran a decisive, protected word inscribed in a preserved tablet.",
+    "Surah At-Tariq (The Night Visitor) is the 86th chapter of the Quran, revealed in Mecca. It swears by the heaven and the piercing star to affirm Allah's power in creation and resurrection, emphasizing that every soul has a guardian and will face accountability on the Day when secrets are revealed. The surah counters the disbelievers' plots against the message by asserting Allah's superior plan and declares the Quran a decisive, protected word inscribed in a preserved tablet.",
   additionalContextElements: [
     {
       title: "Oaths by Creation and Human Origin",
