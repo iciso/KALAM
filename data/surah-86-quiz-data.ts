@@ -128,7 +128,7 @@ export const atTariqQuizData: SurahQuizData = {
       options: [
         { id: "a", text: "Let man forget from what he is created", isCorrect: false },
         { id: "b", text: "Let man ponder his final destiny", isCorrect: false },
-        { id: "c", text: "Let man see from what he is created", isCorrect: false },
+        { id: "c", text: "Let man see what state he is in", isCorrect: false },
         { id: "d", text: "Let man see from what he is created", isCorrect: true },
       ],
       explanation: "فَلْيَنْظُرِ الْإِنْسَانُ مِمَّ خُلِقَ (Falyanzuri al-insanu mimma khuliq) means 'Let man see from what he is created,' roots ن-ظ-ر (see), أ-ن-س (man), خ-ل-ق (created).",
