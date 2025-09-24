@@ -1,5 +1,5 @@
 "use client"
-  
+
 import { useState } from "react"
 import Link from "next/link"
 import { ArrowLeft, BookOpen, Search, Home, Info, Clock, Layers, CheckCircle2, AlertCircle } from "lucide-react"
