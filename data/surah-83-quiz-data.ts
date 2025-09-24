@@ -288,7 +288,7 @@ export const alMutaffifinQuizData: SurahQuizData = {
         { id: "c", text: "Indeed, the record of the believers is hidden", isCorrect: false },
         { id: "d", text: "Indeed, the record of the disbelievers is in hellfire", isCorrect: false },
       ],
-      explanation:  'كَلَّا إِنَّ كِتَابَ الْأَبْرَارِ لَفِي عِلِّيِّينَ' means 'Indeed, the record of the righteous is in 'Illiyyun,' roots ص-ل-و (burn) and ج-ح-م (hellfire).",  
+      explanation:  "'كَلَّا إِنَّ كِتَابَ الْأَبْرَارِ لَفِي عِلِّيِّينَ' (Kalla Innal Kitabal Abrara Lafi Illiyuun) means 'Indeed, the record of the righteous is in 'Illiyyun,' roots ص-ل-و (burn) and ج-ح-م (hellfire).",  
     },
     {
       id: "q18",
