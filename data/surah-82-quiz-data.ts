@@ -279,15 +279,15 @@ export const alInfitarQuizData: SurahQuizData = {
     {
       id: "q17",
       question: "What does the Arabic phrase 'وَمَا هُمْ بِخَارِجِينَ مِنْهَا' mean?",
-      arabic: "وَمَا هُمْ بِخَارِجِينَ مِنْهَا",
+      arabic: "وَمَا هُمۡ عَنۡهَا بِغَآئِبِينَ",
       rootLetters: "خ ر ج",
       options: [
-        { id: "a", text: "And they will not be able to emerge from it", isCorrect: true },
+        { id: "a", text: "And never therefrom will they be absent", isCorrect: true },
         { id: "b", text: "And they will not be able to enter it", isCorrect: false },
         { id: "c", text: "And they will not be able to see it", isCorrect: false },
         { id: "d", text: "And they will not be able to avoid it", isCorrect: false },
       ],
-      explanation: "وَمَا هُمْ بِخَارِجِينَ مِنْهَا (Wa ma hum bikharijina minha) means 'And they will not be able to emerge from it,' root خ-ر-ج (emerge) (MyIslam, Al-Maududi).",
+      explanation: "وَمَا هُمْ بِخَارِجِينَ مِنْهَا (Wa maa hum ‘anhaa bighaaa ‘ibeen) means 'And never therefrom will they be absent,' root خ-ر-ج (emerge) (MyIslam, Al-Maududi).",
     },
     {
       id: "q18",
