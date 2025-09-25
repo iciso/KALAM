@@ -236,6 +236,18 @@ const surahs = [
     implementationPhase: 1,
     sections: [],
   },
+   {
+    id: 82,
+    name: "Al-Infitar",
+    arabicName: "الإنفطار",
+    verses: 19,
+    type: "Meccan",
+    vocabularyCount: 82,
+    difficulty: "Beginner",
+    implementationStatus: "available" as ImplementationStatus,
+    implementationPhase: 1,
+    sections: [],
+  },
     {
     id: 83,
     name: "Al-Mutaffifin",
@@ -682,7 +694,7 @@ const getImplementationStatus = (status: ImplementationStatus) => {
 // Function to get the appropriate link for a surah
 const getSurahLink = (surahId: number) => {
   // List of implemented surahs
-  const implementedSurahs = [1, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114]
+  const implementedSurahs = [1, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114]
 
   if (implementedSurahs.includes(surahId)) {
     return `/quizzes/surah/${surahId}`
