@@ -1,4 +1,4 @@
-import AtTakwirQuizClient from "./client";
+import AtTakwirQuizClient from "./client"; 
 
 export const metadata = {
   title: "Surah At-Takwir Quiz | KALAM",
