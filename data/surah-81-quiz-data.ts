@@ -273,7 +273,7 @@ export const atTakwirQuizData: SurahQuizData = {
       options: [
         { id: "a", text: "The flowing oceans", isCorrect: false },
         { id: "b", text: "The planets that recede and hide", isCorrect: true },
-        { id: "c", text: The soaring birds, isCorrect: false },
+        { id: "c", text: "The soaring birds", isCorrect: false },
         { id: "d", text: "The revolving sun and moon", isCorrect: false },
       ],
       explanation: "الْجَوَارِ الْكُنَّسِ means 'The planets that recede and hide,' roots ج-و-ر (flowing) and ك-ن-س (hide) (MyIslam, Al-Maududi).",
