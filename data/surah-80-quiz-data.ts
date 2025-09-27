@@ -152,7 +152,7 @@ export const abasaQuizData: SurahQuizData = {
       arabic: "فَأَنتَ لَهُ تَصَدَّى",
       rootLetters: "ص د ي",
       options: [
-        { id: "a", text: "You attend to him", isCorrect: false },
+        { id: "a", text: "You agree to him", isCorrect: false },
         { id: "b", text: "You ignore him", isCorrect: false },
         { id: "c", text: "You attend to him", isCorrect: true },
         { id: "d", text: "You turn from him", isCorrect: false },
@@ -230,7 +230,7 @@ export const abasaQuizData: SurahQuizData = {
       arabic: "فَمَن شَاءَ ذَكَرَهُ",
       rootLetters: "ش ي ء | ذ ك ر",
       options: [
-        { id: "a", text: "So whoever wills may remember it", isCorrect: false },
+        { id: "a", text: "So whoever wills may read it", isCorrect: false },
         { id: "b", text: "So whoever wills may forget it", isCorrect: false },
         { id: "c", text: "So whoever wills may remember it", isCorrect: true },
         { id: "d", text: "So whoever wills may deny it", isCorrect: false },
@@ -270,11 +270,11 @@ export const abasaQuizData: SurahQuizData = {
       rootLetters: "ي د ي | س ف ر",
       options: [
         { id: "a", text: "In the hands of travelers", isCorrect: false },
-        { id: "b", text: "In the hands of scribes", isCorrect: false },
+        { id: "b", text: "In the hands of followers", isCorrect: false },
         { id: "c", text: "In the hands of messengers", isCorrect: false },
-        { id: "d", text: "In the hands of ambassadors", isCorrect: true },
+        { id: "d", text: "In the hands of scribes", isCorrect: true },
       ],
-      explanation: "بِأَيْدِي سَفَرَةٍ (Bi'aydi safarah) means 'In the hands of ambassadors,' root س-ف-ر (ambassadors/scribes) (MyIslam, Al-Maududi).",
+      explanation: "بِأَيْدِي سَفَرَةٍ (Bi'aydi safarah) means 'In the hands of scribes or ambassadors,' root س-ف-ر (ambassadors/scribes) (MyIslam, Al-Maududi).",
     },
     {
       id: "q17",
@@ -282,7 +282,7 @@ export const abasaQuizData: SurahQuizData = {
       arabic: "كِرَامٍ بَرَرَةٍ",
       rootLetters: "ك ر م | ب ر ر",
       options: [
-        { id: "a", text: "Noble and dutiful", isCorrect: false },
+        { id: "a", text: "Respected and diligent", isCorrect: false },
         { id: "b", text: "Honored and righteous", isCorrect: false },
         { id: "c", text: "Noble and dutiful", isCorrect: true },
         { id: "d", text: "Exalted and pure", isCorrect: false },
@@ -334,7 +334,7 @@ export const abasaQuizData: SurahQuizData = {
       arabic: "ثُمَّ السَّبِيلَ يَسَّرَهُ",
       rootLetters: "س ب ل | ي س ر",
       options: [
-        { id: "a", text: "Then He eased the way for him", isCorrect: false },
+        { id: "a", text: "Then He showed the way for him", isCorrect: false },
         { id: "b", text: "Then He made the path difficult for him", isCorrect: false },
         { id: "c", text: "Then He eased the way for him", isCorrect: true },
         { id: "d", text: "Then He closed the path for him", isCorrect: false },
@@ -348,7 +348,7 @@ export const abasaQuizData: SurahQuizData = {
       rootLetters: "م و ت | ق ب ر",
       options: [
         { id: "a", text: "Then He gave him life and resurrected him", isCorrect: false },
-        { id: "b", text: "Then He caused him to die and had him buried", isCorrect: false },
+        { id: "b", text: "Then He granted favours and rewarded him", isCorrect: false },
         { id: "c", text: "Then He honored him and exalted him", isCorrect: false },
         { id: "d", text: "Then He caused him to die and had him buried", isCorrect: true },
       ],
@@ -399,7 +399,7 @@ export const abasaQuizData: SurahQuizData = {
       arabic: "أَنَّا صَبَبْنَا الْمَاءَ صَبًّا",
       rootLetters: "ص ب ب | م و ء",
       options: [
-        { id: "a", text: "That We pour down the water in abundance", isCorrect: false },
+        { id: "a", text: "That We pour down our blessings and mercies", isCorrect: false },
         { id: "b", text: "That We pour down the water in abundance", isCorrect: true },
         { id: "c", text: "That We send down the fire in torrents", isCorrect: false },
         { id: "d", text: "That We scatter the seeds in plenty", isCorrect: false },
@@ -412,10 +412,10 @@ export const abasaQuizData: SurahQuizData = {
       arabic: "ثُمَّ شَقَقْنَا الْأَرْضَ شَقًّا",
       rootLetters: "ش ق ق | أ ر ض",
       options: [
-        { id: "a", text: "Then We split the earth in fissures", isCorrect: false },
+        { id: "a", text: "Then We flatten the earth completely", isCorrect: false },
         { id: "b", text: "Then We shake the earth violently", isCorrect: false },
         { id: "c", text: "Then We cover the earth with plants", isCorrect: false },
-        { id: "d", text: "Then We flatten the earth completely", isCorrect: true },
+        { id: "d", text: "Then We split the earth in fissures", isCorrect: true },
       ],
       explanation: "ثُمَّ شَقَقْنَا الْأَرْضَ شَقًّا (Thumma shaqaqna al-arda shaqqa) means 'Then We split the earth in fissures,' root ش-ق-ق (split) and أ-ر-ض (earth) (Quran.com, Ibn Kathir).",
     },
