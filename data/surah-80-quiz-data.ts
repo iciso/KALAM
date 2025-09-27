@@ -126,7 +126,7 @@ export const abasaQuizData: SurahQuizData = {
       arabic: "أَوْ يَذَّكَّرُ فَتَنفَعَهُ الذِّكْرَى",
       rootLetters: "ذ ك ر | ن ف ع",
       options: [
-        { id: "a", text: "Or be reminded and the reminder would benefit him", isCorrect: false },
+        { id: "a", text: "Or be awakened and the awakening would hurt him", isCorrect: false },
         { id: "b", text: "Or be warned and the warning would scare him", isCorrect: false },
         { id: "c", text: "Or be reminded and the reminder would benefit him", isCorrect: true },
         { id: "d", text: "Or be taught and the teaching would guide him", isCorrect: false },
