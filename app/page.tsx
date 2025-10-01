@@ -145,7 +145,7 @@ export default function HomePage() {
                 size="lg"
                 className="text-emerald-600 hover:text-emerald-700 border-emerald-600 hover:border-emerald-700"
               >
-                See all 15 games <ArrowRight className="ml-2 h-4 w-4" />
+                See all 18 games <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
           </div>
@@ -281,24 +281,7 @@ export default function HomePage() {
               </CardFooter>
             </Card>
 
-            {/* Surah-Specific Quiz */}
-            <Card className="border-blue-200 bg-blue-50 dark:bg-blue-950 dark:border-blue-800">
-              <CardHeader>
-                <BookOpen className="h-6 w-6 text-blue-600 mb-2" />
-                <CardTitle className="text-blue-800 dark:text-blue-200">Surah-Specific Quiz</CardTitle>
-                <CardDescription>Focus on vocabulary from specific Surahs</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-gray-600 dark:text-gray-300">
-                  Test your knowledge of vocabulary from individual chapters of the Quran.
-                </p>
-              </CardContent>
-              <CardFooter>
-                <Link href="/quizzes/surah" className="w-full">
-                  <Button className="w-full bg-blue-600 hover:bg-blue-700">Browse Surahs</Button>
-                </Link>
-              </CardFooter>
-            </Card>
+            
 
             {/* Category Quiz */}
             <Card className="border-purple-200 bg-purple-50 dark:bg-purple-950 dark:border-purple-800">
@@ -342,6 +325,26 @@ export default function HomePage() {
                 </Link>
               </CardFooter>
             </Card>
+
+            {/* Hijra Journey Quiz */}
+            <Card className="border-blue-200 bg-blue-50 dark:bg-blue-950 dark:border-blue-800">
+              <CardHeader>
+                <BookOpen className="h-6 w-6 text-blue-600 mb-2" />
+                <CardTitle className="text-blue-800 dark:text-blue-200">Hijra Journey Quiz</CardTitle>
+                <CardDescription>Focus on The Prophet's migration from Mecca to Medina</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-gray-600 dark:text-gray-300">
+                  Test your knowledge of the Key events, locations, and Quranic references, pertaining to the Prophet's migration.
+                </p>
+              </CardContent>
+              <CardFooter>
+                <Link href="/hijra/quiz" className="w-full">
+                  <Button className="w-full bg-blue-600 hover:bg-blue-700">Start Quiz</Button>
+                </Link>
+              </CardFooter>
+            </Card>
+            
           </div>
 
          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 mt-6">
