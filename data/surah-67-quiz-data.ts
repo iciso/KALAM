@@ -370,7 +370,7 @@ export const alMulkQuizData: SurahQuizData = {
     {
       id: "q24",
       question: "What does the Arabic phrase 'فَكَذَّبۡنَا وَقُلۡنَا مَا نَزَّلَ ٱللَّهُ مِن شَيۡءٍ' mean?",
-      arabic: "فَكَذَّبْنَا فَقُلْنَا مَا نَدْرِي مَا السَّاعَةُ",
+      arabic: "فَكَذَّبۡنَا وَقُلۡنَا مَا نَزَّلَ ٱللَّهُ مِن شَيۡءٍ",
       rootLetters: "ك ذ ب | ق و ل | د ر ي | س و ع",
       options: [
         { id: "a", text: "But we denied and said, ‘Allah has not sent down anything'", isCorrect: true },
@@ -382,16 +382,16 @@ export const alMulkQuizData: SurahQuizData = {
     },
     {
       id: "q25",
-      question: "What does the Arabic phrase 'إِنْ نَظُنُّ إِلَّا ظَنًّا وَمَا نَحْنُ بِمُسْتَيْقِنِينَ' mean?",
-      arabic: "إِنْ نَظُنُّ إِلَّا ظَنًّا وَمَا نَحْنُ بِمُسْتَيْقِنِينَ",
+      question: "What does the Arabic phrase 'لَوۡ كُنَّا نَسۡمَعُ أَوۡ نَعۡقِلُ مَا كُنَّا فِيٓ أَصۡحَٰبِ ٱلسَّعِيرِ' mean?",
+      arabic: "لَوۡ كُنَّا نَسۡمَعُ أَوۡ نَعۡقِلُ مَا كُنَّا فِيٓ أَصۡحَٰبِ ٱلسَّعِيرِ",
       rootLetters: "ظ ن ن | ي ق ن",
       options: [
-        { id: "a", text: "We assume only an assumption, and we are not convinced", isCorrect: false },
-        { id: "b", text: "We think only a thought, and we are not certain", isCorrect: false },
-        { id: "c", text: "We know only knowledge, and we are believers", isCorrect: false },
-        { id: "d", text: "We assume only an assumption, and we are not convinced", isCorrect: true },
+        { id: "a", text: "We knew it was an assumption, so we were not the companions of the Blaze", isCorrect: false },
+        { id: "b", text: "If only we had not listened, we would not be among the companions of the Blaze", isCorrect: false },
+        { id: "c", text: "If only we knew, we would be among the companions of Paradise", isCorrect: false },
+        { id: "d", text: "If only we had been listening, we would not be among the companions of the Blaze", isCorrect: true },
       ],
-      explanation: "إِنْ نَظُنُّ إِلَّا ظَنًّا وَمَا نَحْنُ بِمُسْتَيْقِنِينَ (In nazunnu illa zannan wa ma nahnu bimustayqinin) means 'We assume only an assumption, and we are not convinced,' roots ظ-ن-ن (assume), ي-ق-ن (convinced) (Quran.com, Ibn Kathir).",
+      explanation: "لَوۡ كُنَّا نَسۡمَعُ أَوۡ نَعۡقِلُ مَا كُنَّا فِيٓ أَصۡحَٰبِ ٱلسَّعِيرِ (law kunnaa nasma’u awna’qilu maa kunnaa feee as haabis sa’eer) means 'If only we had been listening, we would not be among the companions of the Blaze,' roots ظ-ن-ن (assume), ي-ق-ن (convinced) (Quran.com, Ibn Kathir).",
     },
     {
       id: "q26",
