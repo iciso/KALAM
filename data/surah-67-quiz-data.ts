@@ -155,7 +155,7 @@ export const alMulkQuizData: SurahQuizData = {
         { id: "a", text: "You see no inconsistency in the creation of the Merciful", isCorrect: true },
         { id: "b", text: "You see much perfection in the creation of the Merciful", isCorrect: false },
         { id: "c", text: "You see great beauty in the creation of the Merciful", isCorrect: false },
-        { id: "d", text: "You see no flaw in the creation of the Merciful", isCorrect: false },
+        { id: "d", text: "You see no hardship in the creation of the Merciful", isCorrect: false },
       ],
       explanation: "مَّا تَرَىٰ فِي خَلْقِ الرَّحْمَـٰنِ مِن تَفَاوُتٍ (Ma tara fi khalqi ar-rahmani min tafawut) means 'You see no inconsistency in the creation of the Merciful,' roots ر-أ-ي (see), خ-ل-ق (creation), ر-ح-م (Merciful), ف-و-ت (inconsistency) (Quran.com, Ibn Kathir).",
     },
