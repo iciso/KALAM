@@ -100,9 +100,9 @@ export const alMulkQuizData: SurahQuizData = {
       arabic: "وَهُوَ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ",
       rootLetters: "ك ل ل | ش ي ء | ق د ر",
       options: [
-        { id: "a", text: "And He is over all things knowledgeable", isCorrect: false },
+        { id: "a", text: "And He is over all things lovable", isCorrect: false },
         { id: "b", text: "And He is over all things merciful", isCorrect: false },
-        { id: "c", text: "And He is over all things wise", isCorrect: false },
+        { id: "c", text: "And He is over all things thankful", isCorrect: false },
         { id: "d", text: "And He is over all things competent", isCorrect: true },
       ],
       explanation: "وَهُوَ عَلَىٰ كُلِّ شَيْءٍ قَدِيرٌ (Wa huwa 'ala kulli shay'in qadir) means 'And He is over all things competent,' roots ك-ل-ل (all), ش-ي-ء (things), ق-د-ر (competent) (Quran.com, Ibn Kathir).",
