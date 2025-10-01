@@ -326,33 +326,29 @@ export default function HomePage() {
 
 
              {/* Hijra Journey Quiz Card */}
-          <Card className="border-orange-200 bg-orange-50">
-            <CardHeader>
-              <CardTitle className="text-orange-800 flex items-center gap-2">
-                <MapPin className="h-4 w-4" />
-                Hijra Journey Quiz
-                <span className="bg-orange-500 text-white text-xs font-bold px-2 py-1 rounded-full">
-                  NEW
-                </span>
-              </CardTitle>
-              <CardDescription>The Prophet's migration from Mecca to Medina</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-600 dark:text-gray-400">
-                Key events, locations, and Quranic references.
-              </p>
-            </CardContent>
-            <CardFooter>
-              <Link href="/hijra/quiz" className="w-full">
-                <Button className="w-full bg-orange-600 hover:bg-orange-700">
-                  <MapPin className="mr-2 h-4 w-4" />
-                  Start Hijra Quiz
-                </Button>
-              </Link>
-            </CardFooter>
-          </Card>
-          </div>
-
+                   <Card className="border-blue-200 bg-blue-50 dark:bg-blue-950 dark:border-blue-800">
+              <CardHeader>
+                 <Star className="h-6 w-6 text-blue-600 mb-2" />
+                <CardTitle className="text-blue-800 dark:text-blue-200 relative">
+                  Hijra Journey Quiz
+                  <span className="absolute -top-2 -right-2 bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+                    NEW
+                  </span>
+                </CardTitle>
+                <CardDescription>Quiz on the Prophet's migration from Mecca to Medina</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-gray-600 dark:text-gray-300">
+                  Challenge yourself by testing your knowledge on the incidents related to the Hijra journey.
+                </p>
+              </CardContent>
+              <CardFooter>
+                <Link href="/hijra/quiz" className="w-full">
+                  <Button className="w-full bg-blue-600 hover:bg-blue-700">Start Reverse Quiz</Button>
+                </Link>
+              </CardFooter>
+            </Card>
+            
          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 mt-6">
   {/* See All Quizzes Buttons */}
 </div>
@@ -375,7 +371,7 @@ export default function HomePage() {
 
 
 
-        {/* 3. Timelines that are Lifelines! */}
+        {/* 4. Timelines that are Lifelines! */}
         <section className="mb-12">
           <h3 className="text-xl font-semibold mb-6 flex items-center justify-center space-x-2">
   <Milestone className="h-8 w-8 text-orange-600" /> Timelines that are Lifelines!</h3>
@@ -472,14 +468,11 @@ export default function HomePage() {
         </section>
 
 
-        {/* 4. Reference & Study Tools Section */}
+        {/* 5. Reference & Study Tools Section */}
         <section className="mb-12">
-          <h3 className="text-xl font-semibold mb-6 text-center">📚 Reference & Study Tools</h3>
+          <h3 className="text-xl font-semibold mb-6 text-center">📚 References & Study Tools</h3>
 
-          {/* Vocabulary Statistics */}
-          <div className="mb-8">
-            <VocabularyStats />
-          </div>
+         
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <Card>
@@ -542,6 +535,12 @@ export default function HomePage() {
                 </Link>
               </CardFooter>
             </Card>
+          </div>
+
+
+           {/* Vocabulary Statistics */}
+          <div className="mb-8">
+            <VocabularyStats />
           </div>
         </section>
 
