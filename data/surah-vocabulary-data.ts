@@ -1,4 +1,3 @@
-
 // Auto-generated Surah vocabulary data
 // Generated on: 2025-09-16T15:18:47.469Z
 

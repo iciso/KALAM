@@ -1,4 +1,3 @@
-
 export const alMutaffifinQuizData: SurahQuizData = {
   surahId: 83,
   surahName: "Al-Mutaffifin",
