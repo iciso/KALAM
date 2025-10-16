@@ -5,12 +5,19 @@ import { KalamAcronym } from "@/components/kalam-acronym"
 
 /*
 KALAM To do list: 
+To add Surah 77 Quizzes add new file, or code to the following:
+data/surah-77-quiz-data.ts
+app/quizzes/surah/77/client.tsx
+app/quizzes/surah/77/loading.tsx
+app/quizzes/surah/77/page.tsx
+app/quizzes/surah/page.tsx
+
 Acknowledge all other AI contributors like Grok, DeepSeek, and Gemini
 Make all Games, quizzes, and pages Mobile Responsive one by one
 Maintain uniform UI and UX as if one AI did the entire project
 For Games, use pre-defined data especially for vocabulary to avoid doubles
 Create an open-access single KALAM Leaderboard for all games & quizzes
-Cross-link IQRA & KALAM to guide users who want or do not want challenges
+Cross-refer IQRA & KALAM to guide users who want or do not want challenges
 New games like Dawah Game, Hajj Game, Salah Game, Allah's Attributes' game,
 Charity game,
 Expand and Complete Surah Quizzes -> 1 to 114
