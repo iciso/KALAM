@@ -408,16 +408,16 @@ export const alMulkQuizData: SurahQuizData = {
     },
     {
       id: "q27",
-      question: "What does the Arabic phrase 'هُوَ الَّذِي جَعَلَ لَكُمُ الْأَرْضَ ذَلُولًا' mean?",
-      arabic: "هُوَ الَّذِي جَعَلَ لَكُمُ الْأَرْضَ ذَلُولًا",
-      rootLetters: "ج ع ل | أ ر ض | ذ ل ل",
-      options: [
-        { id: "a", text: "He is the one who made the earth difficult for you", isCorrect: false },
-        { id: "b", text: "He is the one who made the earth submissive for you", isCorrect: false },
-        { id: "c", text: "He is the one who made the earth barren for you", isCorrect: false },
-        { id: "d", text: "He is the one who made the earth exalted for you", isCorrect: true },
-      ],
-      explanation: "هُوَ الَّذِي جَعَلَ لَكُمُ الْأَرْضَ ذَلُولًا (Huwa alladhi ja'ala lakumu al-arda dhalulan) means 'He is the one who made the earth submissive for you,' roots ج-ع-ل (made), أ-ر-ض (earth), ذ-ل-ل (submissive) (Quran.com, Ibn Kathir).",
+  question: "What does the Arabic phrase 'هُوَ الَّذِي جَعَلَ لَكُمُ الْأَرْضَ ذَلُولًا' mean?",
+  arabic: "هُوَ الَّذِي جَعَلَ لَكُمُ الْأَرْضَ ذَلُولًا",
+  rootLetters: "ج ع ل | أ ر ض | ذ ل ل",
+  options: [
+    { id: "a", text: "He is the one who made the earth difficult for you", isCorrect: false },
+    { id: "b", text: "He is the one who made the earth submissive for you", isCorrect: true },  
+    { id: "c", text: "He is the one who made the earth barren for you", isCorrect: false },
+    { id: "d", text: "He is the one who made the earth elevated for you", isCorrect: false },  
+    ],
+  explanation: "هُوَ الَّذِي جَعَلَ لَكُمُ الْأَرْضَ ذَلُولًا (Huwa alladhi ja'ala lakumu al-arda dhaloolan) means 'He is the one who made the earth submissive for you,' roots ج-ع-ل (made), أ-ر-ض (earth), ذ-ل-ل (submissive/manageable). The word 'dhaloolan' means easy to traverse, manageable, or submissive to human use. (Quran.com Saheeh International, Maududi, Ibn Kathir, MyIslam).",
     },
     {
       id: "q28",
