@@ -13,20 +13,19 @@ export default function GamesPage() {
       <h1 className="text-3xl font-bold mb-8 text-center">Quranic Games</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {/* New Barzaq Game Card */}
+        {/* Spiritual-Model Card */}
         <Card className="border-indigo-200 bg-indigo-50">
           <CardHeader>
-            <CardTitle className="text-indigo-800">Barzaq Game</CardTitle>
-            <CardDescription>Learn about the intermediate state after death</CardDescription>
+            <CardTitle className="text-indigo-800">Spiritual Model Game</CardTitle>
+            <CardDescription>Move sliders to see how spiritual factors influence your deeds</CardDescription>
           </CardHeader>
           <CardContent>
             <p>
-              Explore the concept of Barzaq (the intermediate state between death and resurrection) through an
-              interactive educational game based on Islamic teachings.
+              Move sliders and see how different spiritual factors influence your deeds based on Surah Al-Qariah, verses 6-9, which describes the fate of those whose deeds are weighed on the Day of Judgment.
             </p>
           </CardContent>
           <CardFooter>
-            <Link href="https://v0-barzaq.vercel.app/" target="_blank" rel="noopener noreferrer" className="w-full">
+            <Link href="https://v0-kalam.vercel.app/pages/spiritual-model" target="_blank" rel="noopener noreferrer" className="w-full">
               <Button className="bg-indigo-600 hover:bg-indigo-700">Play Now</Button>
             </Link>
           </CardFooter>
@@ -308,6 +307,27 @@ export default function GamesPage() {
             </Link>
           </CardFooter>
         </Card>
+
+
+         {/* New Barzaq Game Card */}
+        <Card className="border-indigo-200 bg-indigo-50">
+          <CardHeader>
+            <CardTitle className="text-indigo-800">Barzaq Game</CardTitle>
+            <CardDescription>Learn about the intermediate state after death</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p>
+              Explore the concept of Barzaq (the intermediate state between death and resurrection) through an
+              interactive educational game based on Islamic teachings.
+            </p>
+          </CardContent>
+          <CardFooter>
+            <Link href="https://v0-barzaq.vercel.app/" target="_blank" rel="noopener noreferrer" className="w-full">
+              <Button className="bg-indigo-600 hover:bg-indigo-700">Play Now</Button>
+            </Link>
+          </CardFooter>
+        </Card>
+
       </div>
     </div>
   )
