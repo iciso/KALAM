@@ -184,3 +184,38 @@ input[type="range"]::-moz-range-thumb {
   position: relative;
   z-index: 1;
 }
+
+/* Custom range slider styles */
+.range-thumb-white::-webkit-slider-thumb {
+  background: white;
+  border: 2px solid #374151;
+}
+
+.range-thumb-blue::-webkit-slider-thumb {
+  background: #2563eb;
+}
+
+.range-thumb-red::-webkit-slider-thumb {
+  background: #dc2626;
+}
+
+.range-thumb-green::-webkit-slider-thumb {
+  background: #16a34a;
+}
+
+.range-thumb-purple::-webkit-slider-thumb {
+  background: #9333ea;
+}
+
+.scale-glow {
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #10b981, 0 0 20px #10b981;
+  }
+  to {
+    box-shadow: 0 0 10px #fff, 0 0 15px #34d399, 0 0 20px #34d399, 0 0 25px #34d399;
+  }
+}
