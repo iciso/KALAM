@@ -137,8 +137,8 @@ const SpiritualModel = () => {
         {/* Quranic Verse */}
         <div className="absolute top-0 text-center text-2xl text-black-600">
           {score > 50 ? 
-            "فَأَمَّا مَن ثَقُلَتْ مَوَازِينُهُۥ ﴿٦﴾ فَهُوَ فِى عِيشَةٍ رَّاضِيَةٍ ﴿٧﴾" :
-            "وَأَمَّا مَنْ خَفَّتْ مَوَازِينُهُۥ ﴿٨﴾ فَأُمُّهُۥ هَاوِيَةٌ ﴿٩﴾"}
+            "فَأَمَّا مَن ثَقُلَتْ مَوَازِينُهُۥ   فَهُوَ فِى عِيشَةٍ رَّاضِيَةٍ " :
+            "وَأَمَّا مَنْ خَفَّتْ مَوَازِينُهُۥ   فَأُمُّهُۥ هَاوِيَةٌ "}
         </div>
 
         {/* Base Stand */}
@@ -271,7 +271,7 @@ const SpiritualModel = () => {
           </p>
            
           <p className="text-lg text-gray-600">
-          فَهُوَ فِي عِيشَةٖ رَّاضِيَةٖ   فَأَمَّا مَن ثَقُلَتۡ مَوَٰزِينُهُۥ
+          فَأَمَّا مَن ثَقُلَتۡ مَوَٰزِينُهُ   فَهُوَ فِي عِيشَةٖ رَّاضِيَةٖۥ
            </p>
           <p className="text-gray-600 mb-3">
             Then as for him whose scales are heavy. He will be in a pleasant life.
