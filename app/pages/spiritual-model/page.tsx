@@ -1,4 +1,6 @@
 // File: pages/spiritual-model.tsx
+ "use client"
+
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
 
