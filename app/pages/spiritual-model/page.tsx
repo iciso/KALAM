@@ -1,11 +1,11 @@
-// File: pages/spiritual-model.tsx
+// File: pages/spiritual-model/page.tsx
  "use client"
 
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
 
 // Add this CSS import at the top
-import '../styles/globals.css'; // Or create a specific CSS file for this component
+import '@/styles/globals.css'; // Or create a specific CSS file for this component
 
 const SpiritualModel = () => {
   type SpiritualFactor = {
