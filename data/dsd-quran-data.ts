@@ -296,7 +296,7 @@ export const DSDQuestions: DSDQuestion[] = [
     historicalContext: "Pre-Hijra persecution by Quraysh leaders and their secret plot to kill the noble prophet.",
     hadeeth: "The Prophet (peace be upon him) said, 'Allah protects His messenger.' (Sahih Muslim)",
     comparativeReligion: "Like plots against Jesus by Sanhedrin.",
-    islamophobia: "Parallels targeted attacks on Muslim leaders.",
+    islamophobia: "Parallels targeted attacks on Muslim leaders throghout world history.",
     significance: "Divine protection prevails over physical threats.",
     answer: "Extermination",
     arabicVerse: "وَإِذْ يَمْكُرُ بِكَ الَّذِينَ كَفَرُوا لِيُثْبِتُوكَ أَوْ يَقْتُلُوكَ أَوْ يُخْرِجُوكَ ۚ وَيَمْكُرُونَ وَيَمْكُرُ اللَّهُ ۖ وَاللَّهُ خَيْرُ الْمَاكِرِينَ"
