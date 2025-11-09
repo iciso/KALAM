@@ -29,7 +29,7 @@ export default function DSDQuranGamePage() {
   const [currentSet, setCurrentSet] = useState(0);
   const [score, setScore] = useState(0);
   const [correctAnswers, setCorrectAnswers] = useState(0);
-  const [totalQuestionsAttempted, setTotalQuestionsAttempted] = useState(0); // Tracks attempted questions for accurate set score
+  const [totalQuestionsAttempted, setTotalQuestionsAttempted] = useState(0); 
   const [showTransitionCard, setShowTransitionCard] = useState(false);
   const questionsPerSet = 5;
 
@@ -45,7 +45,7 @@ export default function DSDQuranGamePage() {
         setScore(score + 10);
         setCorrectAnswers(correctAnswers + 1);
       }
-      setTotalQuestionsAttempted(totalQuestionsAttempted + 1); // Increment attempted questions
+      setTotalQuestionsAttempted(totalQuestionsAttempted + 1); 
       setShowModal(true);
     }
   };
@@ -77,15 +77,14 @@ export default function DSDQuranGamePage() {
     if (currentQuestionIndex > 0 && currentQuestionIndex % questionsPerSet === 0) {
       setCurrentSet(currentSet + 1);
     }
-    // currentQuestionIndex is already correctly set by handleNextQuestion, so no increment here.
   };
 
-  // Calculate the maximum possible score based on all questions
+  // Calculate scores
   const maxPossibleScore = questions.length * 10;
-  // Calculate the maximum possible score based on attempted questions (for Set Card)
   const maxAttemptedScore = totalQuestionsAttempted * 10;
 
-  // 1. Renders the final Game Over screen after the user clicks "Finish" on the final transition card.
+  // 1. 🛑 FINAL FIX: Renders the final Game Over screen immediately when the game is finished 
+  // and the final transition card is dismissed. This MUST come before any access to `currentQuestion`.
   if (currentQuestionIndex >= questions.length && !showTransitionCard) {
     return (
       <div className="p-4 max-w-md mx-auto">
@@ -98,7 +97,8 @@ export default function DSDQuranGamePage() {
   }
 
   // 2. Fallback for initial loading failure (currentQuestion is undefined but we aren't at the end)
-  if (!currentQuestion && currentQuestionIndex < questions.length) return <div>Loading...</div>;
+  // This is now safe as it comes after the primary game-over check.
+  if (!currentQuestion) return <div>Loading...</div>;
 
   const allportStages = [
     "Denial & Antilocution",
@@ -112,6 +112,7 @@ export default function DSDQuranGamePage() {
     <div className="p-4 max-w-md mx-auto">
       <h1 className="text-2xl font-bold mb-4">DSD Quran Game</h1>
       <div className="mb-4">
+        {/* These lines are now safe because of the checks above */}
         <p className="text-lg">Set {currentSet + 1} - Question {currentQuestionIndex % questionsPerSet + 1}: {currentQuestion.text}</p>
         <p className="text-base mt-2 text-right dir-rtl" style={{ fontFamily: "Amiri, serif" }}>
           {currentQuestion.arabicVerse}
@@ -160,7 +161,6 @@ export default function DSDQuranGamePage() {
             <h2 className="text-xl font-bold mb-4">
               {currentQuestionIndex >= questions.length ? "Game Over! Alhamdulillah!" : `Set ${currentSet + 1} Completed!`}
             </h2>
-            {/* Displaying score based on questions attempted so far */}
             <p className="mb-2">Score: {score} / {maxAttemptedScore}</p>
             <p className="mb-2">Correct Answers: {correctAnswers} / {totalQuestionsAttempted}</p>
             <p className="mb-4">Accuracy: {totalQuestionsAttempted > 0 ? ((correctAnswers / totalQuestionsAttempted) * 100).toFixed(1) : 0}%</p>
