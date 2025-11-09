@@ -78,7 +78,7 @@ export const DSDQuestions: DSDQuestion[] = [
   {
   surah: "Al-Hashr",
   verse: "59:2",
-  text: "The people of a town were expelled from their homes due to their enmity and plotting against the believers.",
+  text: "The people of a town were expelled from their homes due to their hatred, enmity and plotting against the believers.",
   stage: "Discrimination",
   commentary: "This verse highlights systemic expulsion as a form of organized discrimination against a religious group.",
   tafsir: "Ibn Kathir explains this as the Banu Nadir’s removal from Medina for their treachery against the Prophet (peace be upon him).",
@@ -123,7 +123,7 @@ export const DSDQuestions: DSDQuestion[] = [
   {
     surah: "Hud",
     verse: "11:91",
-    text: "The elite of Madyan scorn Prophet Shu’ayb, saying, 'We would expel you and your followers were it not for your clan.'",
+    text: "The elite of Madyan intolerant of Prophet Shu’ayb, scorn him, saying, 'We would expel you and your followers were it not for your clan.'",
     stage: "Discrimination",
     commentary: "Systemic bias favoring tribal ties over justice.",
     tafsir: "Al-Razi explains this as tribal nepotism overriding truth.",
@@ -138,8 +138,8 @@ export const DSDQuestions: DSDQuestion[] = [
   {
     surah: "Ghafir",
     verse: "40:25",
-    text: "Pharaoh’s chiefs counsel to 'leave Moses and his people to spread corruption,' justifying oppression.",
-    stage: "Discrimination",
+    text: "Pharaoh and his chiefs plotted to suppress the believers by killing their male children and sparing the females justifying oppressing them.",
+    stage: "Extermination",
     commentary: "State-sanctioned discrimination under false pretenses.",
     tafsir: "Al-Jalalayn notes this as propaganda to justify persecution.",
     historicalContext: "Pharaoh’s regime framed Israelites as a 'threat.'",
@@ -147,7 +147,7 @@ export const DSDQuestions: DSDQuestion[] = [
     comparativeReligion: "Like Nazi propaganda against Jews.",
     islamophobia: "Echoes 'Muslim bans' based on security narratives.",
     significance: "Exposes how power distorts truth to oppress.",
-    answer: "Discrimination",
+    answer: "Extermination",
     arabicVerse: "فَلَمَّا جَاءَهُمْ بِالْحَقِّ مِنْ عِنْدِنَا قَالُوا اقْتُلُوا أَبْنَاءَ الَّذِينَ آمَنُوا مَعَهُ وَاسْتَحْيُوا نِسَاءَهُمْ ۚ وَمَا كَيْدُ الْكَافِرِينَ إِلَّا فِي ضَلَالٍ"
   },
   {
@@ -168,14 +168,14 @@ export const DSDQuestions: DSDQuestion[] = [
   {
     surah: "Ta-Ha",
     verse: "20:71",
-    text: "Pharaoh threatens believers with crucifixion and limb severing unless they renounce faith, which he carried out on his maagicians.",
+    text: "Pharaoh threatens believers with crucifixion and limb severing unless they renounce faith, which he carried out on his magicians.",
     stage: "Physical Attack",
     commentary: "State terror to force apostasy.",
     tafsir: "Al-Qurtubi notes this as psychological and physical torture.",
     historicalContext: "Pharaoh’s desperation to crush monotheism.",
     hadeeth: "The Prophet (peace be upon him) said, 'If the entire world opposed a believer, Allah would aid them.' (Al-Tabarani)",
     comparativeReligion: "Like medieval inquisitions torturing heretics.",
-    islamophobia: "Mirrors ISIS-style executions of minorities.",
+    islamophobia: "Ethnocide or Cultural Genocide to erase the Uyghur which include mass arbitrary detention of an estimated one million or more Uyghurs and other Turkic Muslims in internment camps, forced labor, forced sterilizations and other coercive population control measures, torture, and the separation of children from their families.",
     significance: "Faith cannot be coerced by violence.",
     answer: "Physical Attack",
     arabicVerse: "قَالَ آمَنْتُمْ لَهُ قَبْلَ أَنْ آذَنَ لَكُمْ ۖ إِنَّهُ لَكَبِيرُكُمُ الَّذِي عَلَّمَكُمُ السِّحْرَ ۖ فَلَأُقَطِّعَنَّ أَيْدِيَكُمْ وَأَرْجُلَكُمْ مِنْ خِلَافٍ وَلَأُصَلِّبَنَّكُمْ فِي جُذُوعِ النَّخْلِ وَلَتَعْلَمُنَّ أَيُّنَا أَشَدُّ عَذَابًا وَأَبْقَىٰ"
@@ -228,8 +228,8 @@ export const DSDQuestions: DSDQuestion[] = [
   {
     surah: "Abasa",
     verse: "80:1-12",
-    text: "The Prophet (peace be upon him) is rebuked for momentarily ignoring a blind man in favor of wealthy elites.",
-    stage: "Stigma & Avoidance",
+    text: "The Prophet (peace be upon him) is rebuked for momentarily ignoring a blind man in favor or bias towards wealthy elites.",
+    stage: "Discrimination",
     commentary: "Unintentional bias toward social status.",
     tafsir: "Al-Tabari emphasizes Allah’s correction of this lapse.",
     historicalContext: "Early Makkan period, prioritizing dawah targets.",
@@ -237,7 +237,7 @@ export const DSDQuestions: DSDQuestion[] = [
     comparativeReligion: "Like Jesus criticizing Pharisees for neglecting the poor.",
     islamophobia: "Parallels 'respectability politics' in minority communities.",
     significance: "Islam rejects all forms of class hierarchy.",
-    answer: "Stigma & Avoidance",
+    answer: "Discrimination",
     arabicVerse: "عَبَسَ وَتَوَلَّىٰ * أَنْ جَاءَهُ الْأَعْمَىٰ * وَمَا يُدْرِيكَ لَعَلَّهُ يَزَّكَّىٰ * أَوْ يَذَّكَّرُ فَتَنْفَعَهُ الذِّكْرَىٰ * أَمَّا مَنِ اسْتَغْنَىٰ * فَأَنْتَ لَهُ تَصَدَّىٰ * وَمَا عَلَيْكَ أَلَّا يَزَّكَّىٰ * وَأَمَّا مَنْ جَاءَكَ يَسْعَىٰ * وَهُوَ يَخْشَىٰ * فَأَنْتَ عَنْهُ تَلَهَّىٰ"
   },
   // New Entries
@@ -260,15 +260,15 @@ export const DSDQuestions: DSDQuestion[] = [
   surah: "Yaseen",
   verse: "20-29",
   text: "A man from the farthest part of the city, Habib, supports the prophets, but his people mock and kill him; he is then admitted to Paradise while his people face destruction.",
-  stage: "Physical Attack",
-  commentary: "Escalation to violence with Habib’s murder, reflecting Allport's fourth stage, though initial mockery aligns with Denial & Antilocution.",
+  stage: "Extermination",
+  commentary: "Escalation to violence with Habib’s murder, reflecting Allport's fifth stage, though initial mockery aligns with Denial & Antilocution.",
   tafsir: "Ibn Kathir identifies Habib as a believer martyred for his faith, with his people’s destruction as divine justice.",
   historicalContext: "A historical account of a community rejecting prophets, leading to their annihilation.",
   hadeeth: "The Prophet (peace be upon him) said, 'The martyr is forgiven with the first drop of blood.' (Sahih Bukhari)",
   comparativeReligion: "Similar to Stephen’s stoning in the New Testament.",
   islamophobia: "Mirrors targeted killings of Muslim advocates today.",
   significance: "Faith and martyrdom lead to divine reward despite persecution.",
-  answer: "Physical Attack",
+  answer: "Extermination",
   arabicVerse: "وَجَاءَ مِنْ أَقْصَى الْمَدِينَةِ رَجُلٌ يَسْعَىٰ قَالَ يَا قَوْمِ اتَّبِعُوا الْمُرْسَلِينَ * اتَّبِعُوا مَنْ لَا يَسْأَلُكُمْ أَجْرًا وَهُمْ مُهْتَدُونَ * وَمَا لِيَ لَا أَعْبُدُ الَّذِي فَطَرَنِي وَإِلَيْهِ تُرْجَعُونَ * أَأَتَّخِذُ مِنْ دُونِهِ آلِهَةً إِنْ يُرِدْنِ الرَّحْمَٰنُ بِضُرٍّ لَا تُغْنِ عَنِّي شَفَاعَتُهُمْ شَيْئًا وَلَا يُنْقِذُونِ * إِنِّي إِذًا لَفِي ضَلَالٍ مُبِينٍ * إِنِّي آمَنْتُ بِرَبِّكُمْ فَاسْمَعُونِ * قِيلَ ادْخُلِ الْجَنَّةَ ۚ قَالَ يَا لَيْتَ قَوْمِي يَعْلَمُونَ * بِمَا غَفَرَ لِي رَبِّي وَجَعَلَنِي مِنَ الْمُكْرَمِينَ * وَمَا أَنْزَلْنَا عَلَىٰ قَوْمِهِ مِنْ بَعْدِهِ مِنْ جُندٍ مِنَ السَّمَاءِ وَمَا كُنَّا مُنْزِلِينَ * إِنْ كَانَتْ إِلَّا صَيْحَةً وَاحِدَةً فَإِذَا هُمْ خَامِدُونَ"
   },
   {
@@ -290,15 +290,15 @@ export const DSDQuestions: DSDQuestion[] = [
     surah: "Al-Anfal",
     verse: "8:30",
     text: "The Quraysh plot to assassinate the Prophet (peace be upon him) before his migration.",
-    stage: "Physical Attack",
+    stage: "Extermination",
     commentary: "Organized violence to eliminate the prophetic mission.",
     tafsir: "Ibn Kathir details the conspiracy in Mecca.",
-    historicalContext: "Pre-Hijra persecution by Quraysh leaders.",
+    historicalContext: "Pre-Hijra persecution by Quraysh leaders and their secret plot to kill the noble prophet.",
     hadeeth: "The Prophet (peace be upon him) said, 'Allah protects His messenger.' (Sahih Muslim)",
     comparativeReligion: "Like plots against Jesus by Sanhedrin.",
     islamophobia: "Parallels targeted attacks on Muslim leaders.",
     significance: "Divine protection prevails over physical threats.",
-    answer: "Physical Attack",
+    answer: "Extermination",
     arabicVerse: "وَإِذْ يَمْكُرُ بِكَ الَّذِينَ كَفَرُوا لِيُثْبِتُوكَ أَوْ يَقْتُلُوكَ أَوْ يُخْرِجُوكَ ۚ وَيَمْكُرُونَ وَيَمْكُرُ اللَّهُ ۖ وَاللَّهُ خَيْرُ الْمَاكِرِينَ"
   },
   {
