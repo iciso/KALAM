@@ -83,8 +83,8 @@ export default function DSDQuranGamePage() {
   const maxPossibleScore = questions.length * 10;
   const maxAttemptedScore = totalQuestionsAttempted * 10;
 
-  // 1. 🛑 FINAL FIX: Renders the final Game Over screen immediately when the game is finished 
-  // and the final transition card is dismissed. This MUST come before any access to `currentQuestion`.
+  // 1. Renders the final Game Over screen after the transition card is dismissed.
+  // This must precede any rendering that accesses currentQuestion.
   if (currentQuestionIndex >= questions.length && !showTransitionCard) {
     return (
       <div className="p-4 max-w-md mx-auto">
@@ -96,9 +96,8 @@ export default function DSDQuranGamePage() {
     );
   }
 
-  // 2. Fallback for initial loading failure (currentQuestion is undefined but we aren't at the end)
-  // This is now safe as it comes after the primary game-over check.
-  if (!currentQuestion) return <div>Loading...</div>;
+  // 2. 🛑 FINAL FIX: Only show "Loading..." if currentQuestion is undefined AND we are NOT in a transition state.
+  if (!currentQuestion && !showTransitionCard) return <div>Loading...</div>;
 
   const allportStages = [
     "Denial & Antilocution",
@@ -112,7 +111,8 @@ export default function DSDQuranGamePage() {
     <div className="p-4 max-w-md mx-auto">
       <h1 className="text-2xl font-bold mb-4">DSD Quran Game</h1>
       <div className="mb-4">
-        {/* These lines are now safe because of the checks above */}
+        {/* These lines are now safe because the checks above prevent execution here 
+            when currentQuestion is undefined and the game is over. */}
         <p className="text-lg">Set {currentSet + 1} - Question {currentQuestionIndex % questionsPerSet + 1}: {currentQuestion.text}</p>
         <p className="text-base mt-2 text-right dir-rtl" style={{ fontFamily: "Amiri, serif" }}>
           {currentQuestion.arabicVerse}
