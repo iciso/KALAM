@@ -168,7 +168,7 @@ export const DSDQuestions: DSDQuestion[] = [
   {
     surah: "Ta-Ha",
     verse: "20:71",
-    text: "Pharaoh threatens believers with crucifixion and limb severing unless they renounce faith.",
+    text: "Pharaoh threatens believers with crucifixion and limb severing unless they renounce faith, which he carried out on his maagicians.",
     stage: "Physical Attack",
     commentary: "State terror to force apostasy.",
     tafsir: "Al-Qurtubi notes this as psychological and physical torture.",
