@@ -83,8 +83,7 @@ export default function DSDQuranGamePage() {
   const maxPossibleScore = questions.length * 10;
   const maxAttemptedScore = totalQuestionsAttempted * 10;
 
-  // 1. Renders the final Game Over screen after the transition card is dismissed.
-  // This must precede any rendering that accesses currentQuestion.
+  // 1. Renders the final Game Over screen immediately when the transition card is dismissed.
   if (currentQuestionIndex >= questions.length && !showTransitionCard) {
     return (
       <div className="p-4 max-w-md mx-auto">
@@ -96,7 +95,7 @@ export default function DSDQuranGamePage() {
     );
   }
 
-  // 2. 🛑 FINAL FIX: Only show "Loading..." if currentQuestion is undefined AND we are NOT in a transition state.
+  // 2. Fallback for initial loading failure.
   if (!currentQuestion && !showTransitionCard) return <div>Loading...</div>;
 
   const allportStages = [
@@ -107,38 +106,49 @@ export default function DSDQuranGamePage() {
     "Extermination",
   ];
 
+  // 3. Conditional Rendering Check: Only render the question content if currentQuestion exists 
+  // AND we are not showing the transition card (which covers the Game Over state).
+  const renderGameContent = currentQuestion && !showTransitionCard;
+
   return (
     <div className="p-4 max-w-md mx-auto">
       <h1 className="text-2xl font-bold mb-4">DSD Quran Game</h1>
-      <div className="mb-4">
-        {/* These lines are now safe because the checks above prevent execution here 
-            when currentQuestion is undefined and the game is over. */}
-        <p className="text-lg">Set {currentSet + 1} - Question {currentQuestionIndex % questionsPerSet + 1}: {currentQuestion.text}</p>
-        <p className="text-base mt-2 text-right dir-rtl" style={{ fontFamily: "Amiri, serif" }}>
-          {currentQuestion.arabicVerse}
-        </p>
-        <p className="text-sm text-gray-600 mt-1">Hint: Tap the Allport stage that matches this event.</p>
-        <div className="mt-2 grid grid-cols-2 gap-2">
-          {allportStages.map((stage, index) => (
-            <button
-              key={index}
-              onClick={() => setUserAnswer(stage)}
-              className={`p-3 border rounded ${userAnswer === stage ? "bg-blue-500 text-white" : "bg-white text-black"}`}
-              style={{ minHeight: "44px" }}
-            >
-              {stage}
-            </button>
-          ))}
-        </div>
-      </div>
-      <button
-        onClick={handleCheckAnswer}
-        disabled={!userAnswer}
-        className="bg-blue-500 text-white px-4 py-2 rounded mt-4 disabled:bg-gray-400"
-      >
-        Check Answer
-      </button>
-      {showModal && (
+      
+      {renderGameContent && (
+        <>
+          <div className="mb-4">
+            {/* These lines are now protected by the renderGameContent check */}
+            <p className="text-lg">Set {currentSet + 1} - Question {currentQuestionIndex % questionsPerSet + 1}: {currentQuestion.text}</p>
+            <p className="text-base mt-2 text-right dir-rtl" style={{ fontFamily: "Amiri, serif" }}>
+              {currentQuestion.arabicVerse}
+            </p>
+            <p className="text-sm text-gray-600 mt-1">Hint: Tap the Allport stage that matches this event.</p>
+            <div className="mt-2 grid grid-cols-2 gap-2">
+              {allportStages.map((stage, index) => (
+                <button
+                  key={index}
+                  onClick={() => setUserAnswer(stage)}
+                  className={`p-3 border rounded ${userAnswer === stage ? "bg-blue-500 text-white" : "bg-white text-black"}`}
+                  style={{ minHeight: "44px" }}
+                >
+                  {stage}
+                </button>
+              ))}
+            </div>
+          </div>
+          <button
+            onClick={handleCheckAnswer}
+            disabled={!userAnswer}
+            className="bg-blue-500 text-white px-4 py-2 rounded mt-4 disabled:bg-gray-400"
+          >
+            Check Answer
+          </button>
+        </>
+      )}
+
+      {/* DSDQuranModal is safe as it uses currentQuestion only when showModal is true, 
+          and showModal is only true right after handleCheckAnswer (before index changes). */}
+      {showModal && currentQuestion && (
         <DSDQuranModal
           isCorrect={isCorrect}
           onClose={handleNextQuestion}
@@ -155,6 +165,7 @@ export default function DSDQuranGamePage() {
           significance={currentQuestion.significance}
         />
       )}
+      
       {showTransitionCard && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full mx-4">
