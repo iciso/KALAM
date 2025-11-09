@@ -29,15 +29,13 @@ export default function DSDQuranGamePage() {
   const [currentSet, setCurrentSet] = useState(0);
   const [score, setScore] = useState(0);
   const [correctAnswers, setCorrectAnswers] = useState(0);
-  const [totalQuestions, setTotalQuestions] = useState(0);
+  const [totalQuestionsAttempted, setTotalQuestionsAttempted] = useState(0); // Renamed for clarity
   const [showTransitionCard, setShowTransitionCard] = useState(false);
   const questionsPerSet = 5;
 
   const currentQuestion = questions[currentQuestionIndex];
 
-  useEffect(() => {
-    setTotalQuestions(questions.length);
-  }, [questions]);
+  // No need for useEffect to set totalQuestions as questions.length is constant here
 
   const handleCheckAnswer = () => {
     if (currentQuestion) {
@@ -49,6 +47,7 @@ export default function DSDQuranGamePage() {
         setScore(score + 10);
         setCorrectAnswers(correctAnswers + 1);
       }
+      setTotalQuestionsAttempted(totalQuestionsAttempted + 1); // Increment attempted questions
       setShowModal(true);
     }
   };
@@ -58,33 +57,49 @@ export default function DSDQuranGamePage() {
     setShowModal(false);
     setIsCorrect(null);
     const nextIndex = currentQuestionIndex + 1;
+
     if (nextIndex >= questions.length) {
+      // Game Over
+      setCurrentQuestionIndex(nextIndex); // Move index past the end for Game Over screen
       setShowTransitionCard(true); // Show final stats
-    } else if (nextIndex % questionsPerSet === 0) {
+    } else if (nextIndex > 0 && nextIndex % questionsPerSet === 0) {
+      // End of a Set (but not Game Over)
+      setCurrentQuestionIndex(nextIndex); // Move index to the start of the next set
       setShowTransitionCard(true); // Show transition card for set end
-    }
-    if (nextIndex < questions.length) {
+    } else {
+      // Standard next question
       setCurrentQuestionIndex(nextIndex);
     }
   };
 
   const handleContinue = () => {
     setShowTransitionCard(false);
+    // If the game is over (index is >= questions.length), this button should do nothing or refresh/go home
     if (currentQuestionIndex < questions.length) {
-      if (currentQuestionIndex % questionsPerSet === 0 && currentQuestionIndex > 0) {
+      // Only increment set if we are about to start a new one (index is at start of a new set)
+      if (currentQuestionIndex > 0 && currentQuestionIndex % questionsPerSet === 0) {
         setCurrentSet(currentSet + 1);
       }
-      setCurrentQuestionIndex(currentQuestionIndex + 1);
+      // currentQuestionIndex is already set correctly in handleNextQuestion.
+      // We just need to close the transition card.
     }
+    // No need to increment currentQuestionIndex here, as it was already handled in handleNextQuestion.
+    // If it's the game over screen, closing the modal effectively finishes the game.
   };
 
-  if (!currentQuestion && currentQuestionIndex >= questions.length) {
+  // Calculate the maximum possible score based on *all* questions
+  const maxPossibleScore = questions.length * 10;
+  // Calculate the maximum possible score based on *attempted* questions
+  const maxAttemptedScore = totalQuestionsAttempted * 10;
+
+  // Render Game Over Screen
+  if (currentQuestionIndex >= questions.length && !showTransitionCard) {
     return (
       <div className="p-4 max-w-md mx-auto">
         <h1 className="text-2xl font-bold mb-4">Game Over! Alhamdulillah!</h1>
-        <p>Final Score: {score} / {totalQuestions * 10}</p>
-        <p>Correct Answers: {correctAnswers} / {totalQuestions}</p>
-        <p>Accuracy: {totalQuestions > 0 ? ((correctAnswers / totalQuestions) * 100).toFixed(1) : 0}%</p>
+        <p>Final Score: {score} / {maxPossibleScore}</p>
+        <p>Correct Answers: {correctAnswers} / {questions.length}</p>
+        <p>Accuracy: {questions.length > 0 ? ((correctAnswers / questions.length) * 100).toFixed(1) : 0}%</p>
       </div>
     );
   }
@@ -151,9 +166,9 @@ export default function DSDQuranGamePage() {
             <h2 className="text-xl font-bold mb-4">
               {currentQuestionIndex >= questions.length ? "Game Over! Alhamdulillah!" : `Set ${currentSet + 1} Completed!`}
             </h2>
-            <p className="mb-2">Score: {score} / {totalQuestions * 10}</p>
-            <p className="mb-2">Correct Answers: {correctAnswers} / {totalQuestions}</p>
-            <p className="mb-4">Accuracy: {totalQuestions > 0 ? ((correctAnswers / totalQuestions) * 100).toFixed(1) : 0}%</p>
+            <p className="mb-2">Score: **{score}** / **{maxAttemptedScore}** (Attempted)</p>
+            <p className="mb-2">Correct Answers: **{correctAnswers}** / **{totalQuestionsAttempted}** (Attempted)</p>
+            <p className="mb-4">Accuracy: **{totalQuestionsAttempted > 0 ? ((correctAnswers / totalQuestionsAttempted) * 100).toFixed(1) : 0}%**</p>
             <button
               onClick={handleContinue}
               className="bg-blue-500 text-white px-4 py-2 rounded w-full"
