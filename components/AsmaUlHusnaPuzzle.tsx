@@ -1,267 +1,284 @@
-"use client"
+"use client";
 
-import type React from "react"
-import { useRef, useEffect, useState } from "react"
-
-interface AsmaName {
-  arabic: string
-  english: string
-}
-
-const asmaNames: AsmaName[] = [
-  { arabic: "الرحمن", english: "The Most Merciful" },
-  { arabic: "الرحيم", english: "The Especially Merciful" },
-  { arabic: "الملك", english: "The King" },
-  { arabic: "القدوس", english: "The Most Holy" },
-]
+import React, { useRef, useEffect, useState } from 'react';
+import { getSet, AsmaName } from '@/data/asmaSets';
 
 interface PuzzlePiece {
-  id: number
-  text: string
-  x: number
-  y: number
-  isArabic: boolean
-  correctIndex: number
+  id: number;
+  text: string;
+  x: number;
+  y: number;
+  isArabic: boolean;
+  correctCol: number;
 }
 
-const AsmaUlHusnaPuzzle: React.FC = () => {
-  const canvasRef = useRef<HTMLCanvasElement>(null)
-  const [pieces, setPieces] = useState<PuzzlePiece[]>([])
-  const [selectedPiece, setSelectedPiece] = useState<PuzzlePiece | null>(null)
-  const [isComplete, setIsComplete] = useState(false)
-  const [hasStarted, setHasStarted] = useState(false)
+interface AsmaUlHusnaPuzzleProps {
+  setIndex: number;
+  onComplete?: () => void;
+}
 
-  const gridRows = 2
-  const gridCols = 4
-  const pieceWidth = 120
-  const pieceHeight = 70
-  const canvasWidth = 550
-  const canvasHeight = 320
-  const startX = 20
-  const startY = 20
+const AsmaUlHusnaPuzzle: React.FC<AsmaUlHusnaPuzzleProps> = ({ setIndex, onComplete }) => {
+  const names: AsmaName[] = getSet(setIndex);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [pieces, setPieces] = useState<PuzzlePiece[]>([]);
+  const [selectedPiece, setSelectedPiece] = useState<PuzzlePiece | null>(null);
+  const [isComplete, setIsComplete] = useState(false);
 
-  const shuffleArray = <T,>(array: T[]): T[] => {
-    const shuffled = [...array]
-    for (let i = shuffled.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1))
-      ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
-    }
-    return shuffled
-  }
+  // Dynamic grid based on set size (4 or 5 names)
+  const pieceCount = names.length;
+  const cols = pieceCount;
+  const rows = 2;
+  const pieceWidth = 110;
+  const pieceHeight = 70;
+  const gap = 25;
+  const canvasWidth = cols * (pieceWidth + gap) + 100;
+  const canvasHeight = 380;
+  const startX = 50;
+  const startY = 80;
+
+  // Sounds
+  const [snapSound] = useState(() => new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwF'));
+  const [victorySound] = useState(() => new Audio('data:audio/wav;base64,UklGRiQFAABXQVZFZm10IBAAAAABAAEAIlYAAESsAAACABAAZGF0YQdFAACAhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwF'));
 
   useEffect(() => {
-    const initialPieces: PuzzlePiece[] = []
+    initializePuzzle();
+  }, [setIndex]);
 
-    asmaNames.forEach((name, index) => {
-      // Arabic piece
+  const initializePuzzle = () => {
+    const initialPieces: PuzzlePiece[] = [];
+    const shuffledCols = shuffleArray([...Array(pieceCount).keys()]);
+
+    names.forEach((name, i) => {
+      const col = shuffledCols[i];
       initialPieces.push({
-        id: index * 2,
+        id: i * 2,
         text: name.arabic,
-        x: startX + (index % gridCols) * (pieceWidth + 10),
-        y: 200 + Math.random() * 50,
+        x: 50 + Math.random() * 300,
+        y: 220 + Math.random() * 60,
         isArabic: true,
-        correctIndex: index,
-      })
-      // English piece
+        correctCol: col,
+      });
       initialPieces.push({
-        id: index * 2 + 1,
+        id: i * 2 + 1,
         text: name.english,
-        x: startX + (index % gridCols) * (pieceWidth + 10),
-        y: 250 + Math.random() * 50,
+        x: 300 + Math.random() * 300,
+        y: 220 + Math.random() * 60,
         isArabic: false,
-        correctIndex: index,
-      })
-    })
+        correctCol: col,
+      });
+    });
 
-    // Shuffle the pieces array and randomize positions
-    const shuffledPieces = shuffleArray(initialPieces).map((piece) => ({
-      ...piece,
-      x: Math.random() * (canvasWidth - pieceWidth),
-      y: Math.random() * (canvasHeight - pieceHeight),
-    }))
-
-    setPieces(shuffledPieces)
-    setHasStarted(true)
-  }, [])
+    setPieces(initialPieces);
+    setIsComplete(false);
+  };
 
   useEffect(() => {
-    const canvas = canvasRef.current
-    if (!canvas) return
+    drawPuzzle();
+  }, [pieces]);
 
-    const ctx = canvas.getContext("2d")
-    if (!ctx) return
+  const drawPuzzle = () => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
 
-    // Clear canvas
-    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Draw background
-    ctx.fillStyle = "#f0f8ff"
-    ctx.fillRect(0, 0, canvas.width, canvas.height)
-
-    // Draw grid
-    ctx.strokeStyle = "#9370db"
-    ctx.lineWidth = 2
-    for (let row = 0; row < gridRows; row++) {
-      for (let col = 0; col < gridCols; col++) {
-        const x = startX + col * (pieceWidth + 10)
-        const y = startY + row * (pieceHeight + 10)
-        ctx.strokeRect(x, y, pieceWidth, pieceHeight)
+    // Draw grid slots
+    ctx.strokeStyle = '#4B0082';
+    ctx.lineWidth = 3;
+    for (let row = 0; row < rows; row++) {
+      for (let col = 0; col < cols; col++) {
+        const x = startX + col * (pieceWidth + gap);
+        const y = startY + row * (pieceHeight + gap);
+        ctx.strokeRect(x, y, pieceWidth, pieceHeight);
+        ctx.fillStyle = '#555';
+        ctx.font = '14px Arial';
+        ctx.fillText(row === 0 ? 'Arabic' : 'English', x + 5, y - 8);
       }
     }
 
     // Draw pieces
     pieces.forEach((piece) => {
-      ctx.fillStyle = piece.isArabic ? "#ffd700" : "#98fb98"
-      ctx.fillRect(piece.x, piece.y, pieceWidth, pieceHeight)
-      ctx.strokeStyle = "#333"
-      ctx.lineWidth = 2
-      ctx.strokeRect(piece.x, piece.y, pieceWidth, pieceHeight)
+      const isCorrect = isPieceCorrect(piece);
+      ctx.fillStyle = piece.isArabic
+        ? (isCorrect ? '#FFD700' : '#FFF8DC')
+        : (isCorrect ? '#98FB98' : '#E0FFE0');
+      ctx.fillRect(piece.x, piece.y, pieceWidth, pieceHeight);
+      ctx.strokeStyle = isCorrect ? '#228B22' : '#888';
+      ctx.lineWidth = isCorrect ? 4 : 2;
+      ctx.strokeRect(piece.x, piece.y, pieceWidth, pieceHeight);
 
-      ctx.fillStyle = "#000"
-      ctx.font = piece.isArabic ? "bold 18px Amiri" : "14px Arial"
-      ctx.textAlign = "center"
-      ctx.textBaseline = "middle"
-      ctx.fillText(piece.text, piece.x + pieceWidth / 2, piece.y + pieceHeight / 2)
-    })
+      ctx.fillStyle = '#000';
+      ctx.font = piece.isArabic ? '26px Amiri, serif' : '15px Arial';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(piece.text, piece.x + pieceWidth / 2, piece.y + pieceHeight / 2);
+    });
 
-    // Check if puzzle is complete
-    if (hasStarted) {
-      const isSolved = pieces.every((piece) => {
-        const row = piece.isArabic ? 0 : 1
-        const col = piece.correctIndex
-        const targetX = startX + col * (pieceWidth + 10)
-        const targetY = startY + row * (pieceHeight + 10)
-        return Math.abs(piece.x - targetX) < 10 && Math.abs(piece.y - targetY) < 10
-      })
-
-      setIsComplete(isSolved)
-
-      if (isSolved) {
-        ctx.fillStyle = "rgba(34, 139, 34, 0.85)"
-        ctx.fillRect(0, 0, canvas.width, canvas.height)
-        ctx.fillStyle = "#fff"
-        ctx.font = "bold 28px Arial"
-        ctx.textAlign = "center"
-        ctx.textBaseline = "middle"
-        ctx.fillText("Congratulations!", canvas.width / 2, canvas.height / 2 - 20)
-        ctx.font = "bold 20px Arial"
-        ctx.fillText("Puzzle Completed!", canvas.width / 2, canvas.height / 2 + 20)
-      }
+    // Check completion
+    const allCorrect = pieces.length > 0 && pieces.every(isPieceCorrect);
+    if (allCorrect && !isComplete) {
+      setIsComplete(true);
+      onComplete?.();
+      victorySound.currentTime = 0;
+      victorySound.play();
+      drawVictory(ctx);
     }
-  }, [pieces, hasStarted])
+  };
+
+  const isPieceCorrect = (piece: PuzzlePiece): boolean => {
+    const targetX = startX + piece.correctCol * (pieceWidth + gap);
+    const targetY = piece.isArabic ? startY : startY + pieceHeight + gap;
+    return Math.abs(piece.x - targetX) < 10 && Math.abs(piece.y - targetY) < 10;
+  };
+
+  const drawVictory = (ctx: CanvasRenderingContext2D) => {
+    ctx.fillStyle = 'rgba(0, 128, 0, 0.9)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = '#FFF';
+    ctx.font = '36px Amiri, serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('ماشاء الله!', canvas.width / 2, canvas.height / 2 - 30);
+    ctx.font = '24px Arial';
+    ctx.fillText('Puzzle Completed!', canvas.width / 2, canvas.height / 2 + 10);
+  };
+
+  const shuffleArray = <T,>(array: T[]): T[] => {
+    const arr = [...array];
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  };
 
   const handleMouseDown = (e: React.MouseEvent<HTMLCanvasElement>) => {
-    const canvas = canvasRef.current
-    if (!canvas) return
+    if (isComplete) return;
+    const canvas = canvasRef.current;
+    if (!canvas) return;
 
-    const rect = canvas.getBoundingClientRect()
-    const mouseX = e.clientX - rect.left
-    const mouseY = e.clientY - rect.top
+    const rect = canvas.getBoundingClientRect();
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
 
-    const clickedPiece = pieces.find(
-      (piece) =>
-        mouseX >= piece.x && mouseX <= piece.x + pieceWidth && mouseY >= piece.y && mouseY <= piece.y + pieceHeight,
-    )
+    const clicked = pieces.slice().reverse().find(p =>
+      mouseX >= p.x && mouseX <= p.x + pieceWidth &&
+      mouseY >= p.y && mouseY <= p.y + pieceHeight
+    );
 
-    if (clickedPiece) {
-      setSelectedPiece(clickedPiece)
-    }
-  }
+    if (clicked) setSelectedPiece(clicked);
+  };
 
   const handleMouseMove = (e: React.MouseEvent<HTMLCanvasElement>) => {
-    if (!selectedPiece || isComplete) return
+    if (!selectedPiece || isComplete) return;
+    const canvas = canvasRef.current;
+    if (!canvas) return;
 
-    const canvas = canvasRef.current
-    if (!canvas) return
+    const rect = canvas.getBoundingClientRect();
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
 
-    const rect = canvas.getBoundingClientRect()
-    const mouseX = e.clientX - rect.left
-    const mouseY = e.clientY - rect.top
-
-    setPieces((prevPieces) =>
-      prevPieces.map((piece) =>
-        piece.id === selectedPiece.id
-          ? {
-              ...piece,
-              x: Math.max(0, Math.min(mouseX - pieceWidth / 2, canvasWidth - pieceWidth)),
-              y: Math.max(0, Math.min(mouseY - pieceHeight / 2, canvasHeight - pieceHeight)),
-            }
-          : piece,
-      ),
-    )
-  }
+    setPieces(prev => prev.map(p =>
+      p.id === selectedPiece.id
+        ? { ...p, x: mouseX - pieceWidth / 2, y: mouseY - pieceHeight / 2 }
+        : p
+    ));
+  };
 
   const handleMouseUp = () => {
-    if (!selectedPiece) return
+    if (!selectedPiece || isComplete) return;
 
-    const row = selectedPiece.isArabic ? 0 : 1
-    const targetX = startX + selectedPiece.correctIndex * (pieceWidth + 10)
-    const targetY = startY + row * (pieceHeight + 10)
+    const col = Math.round((selectedPiece.x - startX) / (pieceWidth + gap));
+    const row = selectedPiece.isArabic ? 0 : 1;
 
-    // Snap to grid if close
-    if (Math.abs(selectedPiece.x - targetX) < 40 && Math.abs(selectedPiece.y - targetY) < 40) {
-      setPieces((prevPieces) =>
-        prevPieces.map((piece) => (piece.id === selectedPiece.id ? { ...piece, x: targetX, y: targetY } : piece)),
-      )
+    if (col >= 0 && col < cols && ((selectedPiece.isArabic && row === 0) || (!selectedPiece.isArabic && row === 1))) {
+      const targetX = startX + col * (pieceWidth + gap);
+      const targetY = startY + row * (pieceHeight + gap);
+
+      setPieces(prev => prev.map(p =>
+        p.id === selectedPiece.id ? { ...p, x: targetX, y: targetY } : p
+      ));
+
+      if (Math.abs(selectedPiece.x - targetX) > 10 || Math.abs(selectedPiece.y - targetY) > 10) {
+        snapSound.currentTime = 0;
+        snapSound.play();
+      }
     }
 
-    setSelectedPiece(null)
-  }
+    setSelectedPiece(null);
+  };
 
   return (
-    <div className="w-full max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-lg">
-      <div className="text-center mb-6">
-        <h2 className="text-3xl font-bold text-purple-900 mb-2">أسماء الله الحسنى</h2>
-        <p className="text-gray-600 mb-4">Drag and drop to match Arabic names with their English meanings</p>
-        <div className="grid grid-cols-2 gap-2 text-sm mb-4 p-4 bg-purple-50 rounded">
-          <div className="flex items-center gap-2">
-            <div className="w-6 h-6 bg-yellow-400 border-2 border-gray-400 rounded"></div>
-            <span>Arabic Names</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-6 h-6 bg-green-300 border-2 border-gray-400 rounded"></div>
-            <span>English Meanings</span>
-          </div>
-        </div>
-      </div>
+    <div style={{
+      textAlign: 'center',
+      padding: '30px 20px',
+      fontFamily: "'Amiri', Arial, sans-serif",
+      maxWidth: '900px',
+      margin: '0 auto',
+      background: '#f8f9fa',
+      borderRadius: '16px',
+      boxShadow: '0 8px 25px rgba(0,0,0,0.1)',
+    }}>
+      <h2 style={{ color: '#4B0082', marginBottom: '10px', fontSize: '28px' }}>
+        أسماء الله الحسنى - المجموعة {setIndex + 1}
+      </h2>
+      <p style={{ color: '#555', fontSize: '18px', marginBottom: '25px' }}>
+        اسحب الأسماء لترتيبها: العربية في الأعلى، المعاني في الأسفل
+      </p>
 
-      <div className="flex justify-center">
+      <div style={{ display: 'inline-block', position: 'relative' }}>
         <canvas
           ref={canvasRef}
           width={canvasWidth}
           height={canvasHeight}
           style={{
-            border: "3px solid #9370db",
-            background: "#f0f8ff",
-            borderRadius: "8px",
-            cursor: selectedPiece ? "grabbing" : "grab",
+            border: '4px solid #4B0082',
+            borderRadius: '16px',
+            background: '#F0F8FF',
+            boxShadow: '0 10px 30px rgba(0,0,0,0.2)',
+            cursor: isComplete ? 'default' : 'grab',
           }}
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUp}
-          onMouseLeave={handleMouseUp}
+          onMouseLeave={() => setSelectedPiece(null)}
         />
       </div>
 
+      <div style={{ marginTop: '30px' }}>
+        <button
+          onClick={initializePuzzle}
+          style={{
+            padding: '14px 32px',
+            fontSize: '18px',
+            background: '#4B0082',
+            color: 'white',
+            border: 'none',
+            borderRadius: '12px',
+            cursor: 'pointer',
+            fontWeight: 'bold',
+          }}
+        >
+          إعادة الترتيب
+        </button>
+      </div>
+
       {isComplete && (
-        <div className="text-center mt-6 p-4 bg-green-100 border-2 border-green-500 rounded-lg">
-          <p className="text-green-700 font-bold text-lg">✓ Alhamdulillah! Puzzle Completed Successfully!</p>
+        <div style={{
+          marginTop: '20px',
+          padding: '20px',
+          background: '#d4edda',
+          color: '#155724',
+          borderRadius: '12px',
+          fontSize: '20px',
+          fontWeight: 'bold',
+        }}>
+          ماشاء الله! لقد أكملت المجموعة بنجاح
         </div>
       )}
-
-      <div className="mt-6 p-4 bg-blue-50 rounded-lg">
-        <h3 className="font-bold text-purple-900 mb-2">Names of Allah (The First Four):</h3>
-        <ul className="space-y-2 text-sm">
-          {asmaNames.map((name, idx) => (
-            <li key={idx} className="flex justify-between items-center">
-              <span className="text-xl text-purple-700 font-bold">{name.arabic}</span>
-              <span className="text-gray-600">{name.english}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
     </div>
-  )
-}
+  );
+};
 
-export default AsmaUlHusnaPuzzle
+export default AsmaUlHusnaPuzzle;
