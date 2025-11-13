@@ -31,6 +31,25 @@ export default function GamesPage() {
           </CardFooter>
         </Card>
 
+
+        {/* Spiritual-Model Card */}
+        <Card>
+          <CardHeader>
+            <CardTitle>Spiritual Model Game</CardTitle>
+            <CardDescription>Move sliders & see how spiritual factors influence your deeds</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p>See how spiritual factors influence your deeds based on Quran, which describes how deeds are weighed on Judgment Day.</p>
+          </CardContent>
+          <CardFooter>
+            <Link href="/pages/spiritual-model" passHref>
+              <Button>Play Now</Button>
+            </Link>
+          </CardFooter>
+        </Card>
+
+
+
         {/* Make Quranic Ayats Game Card */}
         <Card className="border-purple-200 bg-purple-50">
           <CardHeader>
@@ -202,7 +221,7 @@ export default function GamesPage() {
         </Card>
 
         
-        {/* New DSD and Quranic Ayats Game Card */}
+        {/* DSD and Quranic Ayats Game Card */}
         <Card className="border-purple-200 bg-purple-50">
           <CardHeader>
             <CardTitle className="text-purple-800">DSD in Quranic Ayats</CardTitle>
