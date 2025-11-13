@@ -33,9 +33,9 @@ const AsmaUlHusnaPuzzle: React.FC<AsmaUlHusnaPuzzleProps> = ({ setIndex, onCompl
   const pieceHeight = 70;
   const gap = 25;
   const canvasWidth = cols * (pieceWidth + gap) + 100;
-  const canvasHeight = 380;
+  const canvasHeight = 420; // Extra space for hints
   const startX = 50;
-  const startY = 80;
+  const startY = 110; // Move down to make room for hints
 
   const [snapSound] = useState(() => new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwF'));
   const [victorySound] = useState(() => new Audio('data:audio/wav;base64,UklGRiQFAABXQVZFZm10IBAAAAABAAEAIlYAAESsAAACABAAZGF0YQdFAACAhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwF'));
@@ -46,17 +46,16 @@ const AsmaUlHusnaPuzzle: React.FC<AsmaUlHusnaPuzzleProps> = ({ setIndex, onCompl
 
   const initializePuzzle = () => {
     const initialPieces: PuzzlePiece[] = [];
-    const shuffledCols = shuffleArray([...Array(pieceCount).keys()]);
 
+    // Fixed order: column 0 = name 0, column 1 = name 1, etc.
     names.forEach((name, i) => {
-      const col = shuffledCols[i];
       initialPieces.push({
         id: i * 2,
         text: name.arabic,
         x: 50 + Math.random() * 300,
-        y: 220 + Math.random() * 60,
+        y: 250 + Math.random() * 60,
         isArabic: true,
-        correctCol: col,
+        correctCol: i,        // Fixed: Arabic goes to column i
         currentCol: -1,
         currentRow: -1,
       });
@@ -64,9 +63,9 @@ const AsmaUlHusnaPuzzle: React.FC<AsmaUlHusnaPuzzleProps> = ({ setIndex, onCompl
         id: i * 2 + 1,
         text: name.english,
         x: 300 + Math.random() * 300,
-        y: 220 + Math.random() * 60,
+        y: 250 + Math.random() * 60,
         isArabic: false,
-        correctCol: col,
+        correctCol: i,        // English also goes to column i
         currentCol: -1,
         currentRow: -1,
       });
@@ -88,6 +87,15 @@ const AsmaUlHusnaPuzzle: React.FC<AsmaUlHusnaPuzzleProps> = ({ setIndex, onCompl
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+    // Draw hints: Number + Arabic name at top
+    ctx.fillStyle = '#4B0082';
+    ctx.font = 'bold 20px Amiri, serif';
+    ctx.textAlign = 'center';
+    names.forEach((name, i) => {
+      const x = startX + i * (pieceWidth + gap) + pieceWidth / 2;
+      ctx.fillText(`${i + 1}. ${name.arabic}`, x, 70);
+    });
+
     // Draw grid
     ctx.strokeStyle = '#4B0082';
     ctx.lineWidth = 3;
@@ -97,7 +105,7 @@ const AsmaUlHusnaPuzzle: React.FC<AsmaUlHusnaPuzzleProps> = ({ setIndex, onCompl
         const y = startY + row * (pieceHeight + gap);
         ctx.strokeRect(x, y, pieceWidth, pieceHeight);
 
-        // Labels
+        // Row labels
         ctx.fillStyle = '#555';
         ctx.font = '14px Arial';
         ctx.textAlign = 'left';
@@ -107,8 +115,8 @@ const AsmaUlHusnaPuzzle: React.FC<AsmaUlHusnaPuzzleProps> = ({ setIndex, onCompl
 
     // Draw pieces
     pieces.forEach((piece) => {
-      const isCorrect = isPieceInCorrectPosition(piece);
-      const isInGrid = piece.currentRow >= 0 && piece.currentCol >= 0;
+      const isCorrect = piece.currentRow === (piece.isArabic ? 0 : 1) && piece.currentCol === piece.correctCol;
+      const isInGrid = piece.currentRow >= 0;
 
       ctx.fillStyle = piece.isArabic
         ? (isCorrect ? '#FFD700' : '#FFF8DC')
@@ -119,30 +127,22 @@ const AsmaUlHusnaPuzzle: React.FC<AsmaUlHusnaPuzzleProps> = ({ setIndex, onCompl
       ctx.strokeRect(piece.x, piece.y, pieceWidth, pieceHeight);
 
       ctx.fillStyle = '#000';
-      ctx.font = piece.isArabic ? '26px Amiri, serif' : '15px Arial';
+      ctx.font = piece.isArabic ? '24px Amiri, serif' : '14px Arial';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
       ctx.fillText(piece.text, piece.x + pieceWidth / 2, piece.y + pieceHeight / 2);
     });
 
-    // Check completion
-    const allCorrect = pieces.length > 0 && pieces.every(isPieceInCorrectPosition);
-    if (allCorrect && !isComplete) {
-      setIsComplete(true);
-      onComplete?.();
-      victorySound.currentTime = 0;
-      victorySound.play();
+    // Victory
+    if (pieces.length > 0 && pieces.every(p => p.currentRow === (p.isArabic ? 0 : 1) && p.currentCol === p.correctCol)) {
+      if (!isComplete) {
+        setIsComplete(true);
+        onComplete?.();
+        victorySound.currentTime = 0;
+        victorySound.play();
+      }
       drawVictory(ctx);
     }
-  };
-
-  const isPieceInCorrectPosition = (piece: PuzzlePiece): boolean => {
-    return piece.currentRow === (piece.isArabic ? 0 : 1) &&
-           piece.currentCol === piece.correctCol;
-  };
-
-  const isSlotOccupied = (row: number, col: number): boolean => {
-    return pieces.some(p => p.currentRow === row && p.currentCol === col && p.id !== selectedPiece?.id);
   };
 
   const drawVictory = (ctx: CanvasRenderingContext2D) => {
@@ -153,16 +153,11 @@ const AsmaUlHusnaPuzzle: React.FC<AsmaUlHusnaPuzzleProps> = ({ setIndex, onCompl
     ctx.textAlign = 'center';
     ctx.fillText('Masha Allah!', canvas.width / 2, canvas.height / 2 - 30);
     ctx.font = '24px Arial';
-    ctx.fillText('Puzzle Completed!', canvas.width / 2, canvas.height / 2 + 10);
+    ctx.fillText('Set Completed!', canvas.width / 2, canvas.height / 2 + 10);
   };
 
-  const shuffleArray = <T,>(array: T[]): T[] => {
-    const arr = [...array];
-    for (let i = arr.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [arr[i], arr[j]] = [arr[j], arr[i]];
-    }
-    return arr;
+  const isSlotOccupied = (row: number, col: number): boolean => {
+    return pieces.some(p => p.currentRow === row && p.currentCol === col && p.id !== selectedPiece?.id);
   };
 
   const handleMouseDown = (e: React.MouseEvent<HTMLCanvasElement>) => {
@@ -203,13 +198,13 @@ const AsmaUlHusnaPuzzle: React.FC<AsmaUlHusnaPuzzleProps> = ({ setIndex, onCompl
 
     const col = Math.round((selectedPiece.x - startX) / (pieceWidth + gap));
     const row = Math.round((selectedPiece.y - startY) / (pieceHeight + gap));
+    const targetRow = selectedPiece.isArabic ? 0 : 1;
 
-    const isArabicTarget = selectedPiece.isArabic ? 0 : 1;
-
+    // Only allow correct column
     if (
-      row >= 0 && row < rows &&
+      row === targetRow &&
       col >= 0 && col < cols &&
-      row === isArabicTarget &&
+      col === selectedPiece.correctCol &&
       !isSlotOccupied(row, col)
     ) {
       const targetX = startX + col * (pieceWidth + gap);
@@ -223,13 +218,6 @@ const AsmaUlHusnaPuzzle: React.FC<AsmaUlHusnaPuzzleProps> = ({ setIndex, onCompl
 
       snapSound.currentTime = 0;
       snapSound.play();
-    } else {
-      // Return to original position if invalid
-      setPieces(prev => prev.map(p =>
-        p.id === selectedPiece.id
-          ? { ...p, currentCol: -1, currentRow: -1 }
-          : p
-      ));
     }
 
     setSelectedPiece(null);
@@ -250,7 +238,7 @@ const AsmaUlHusnaPuzzle: React.FC<AsmaUlHusnaPuzzleProps> = ({ setIndex, onCompl
         Asma ul Husna - Set {setIndex + 1}
       </h2>
       <p style={{ color: '#555', fontSize: '18px', marginBottom: '25px' }}>
-        Drag Arabic names to top row, English meanings to bottom row
+        Match each name with its meaning in the correct column
       </p>
 
       <div style={{ display: 'inline-block', position: 'relative' }}>
