@@ -13,25 +13,25 @@ export default function GamesPage() {
       <h1 className="text-3xl font-bold mb-8 text-center">Quranic Games</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {/* Spiritual-Model Card */}
-        <Card className="border-indigo-200 bg-indigo-50">
+         {/* Asma-Ul-Husna Puzzle Card */}
+        <Card className="border-orange-200 bg-orange-50">
           <CardHeader>
-            <CardTitle className="text-indigo-800">Spiritual Model Game</CardTitle>
-            <CardDescription>Move sliders to see how spiritual factors influence your deeds</CardDescription>
+            <CardTitle className="text-orange-800">Asma-Ul-Husna Puzzle</CardTitle>
+            <CardDescription>Rearrange puzzles of the Most Beautiful Names of God</CardDescription>
           </CardHeader>
           <CardContent>
             <p>
-              Move sliders and see how different spiritual factors influence your deeds based on Surah Al-Qariah, verses 6-9, which describes the fate of those whose deeds are weighed on the Day of Judgment.
+              Arrange the puzzle of juggled Arabic and English names of Allah in order. Choose a group to start learning through play.
             </p>
           </CardContent>
           <CardFooter>
-            <Link href="https://v0-kalam.vercel.app/pages/spiritual-model" target="_blank" rel="noopener noreferrer" className="w-full">
-              <Button className="bg-indigo-600 hover:bg-indigo-700">Play Now</Button>
+            <Link href="/pages/asma-puzzle" passHref>
+              <Button className="bg-orange-600 hover:bg-orange-700">Play Now</Button>
             </Link>
           </CardFooter>
         </Card>
 
-        {/* New Make Quranic Ayats Game Card */}
+        {/* Make Quranic Ayats Game Card */}
         <Card className="border-purple-200 bg-purple-50">
           <CardHeader>
             <CardTitle className="text-purple-800">Make Quranic Ayats</CardTitle>
@@ -83,7 +83,7 @@ export default function GamesPage() {
           </CardFooter>
         </Card>
 
-         {/* New Dua & Emotions Matching Game Card */}
+         {/* Dua & Emotions Matching Game Card */}
         <Card className="border-indigo-200 bg-indigo-50">
           <CardHeader>
             <CardTitle className="text-purple-800">Match Dua and Emotions</CardTitle>
@@ -183,7 +183,7 @@ export default function GamesPage() {
         </Card>
 
 
-           {/* New Make Dua Match Game Card */}
+           {/* Match Dua & Prophets Game Card */}
         <Card className="border-orange-200 bg-orange-50">
           <CardHeader>
             <CardTitle className="text-orange-800">Match Duas</CardTitle>

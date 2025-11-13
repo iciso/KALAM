@@ -59,20 +59,20 @@ export default function HomePage() {
         <section className="mb-12">
           <h3 className="text-xl font-semibold mb-6 flex items-center justify-center space-x-2"><Gamepad2 className="h-6 w-6 text-black-600 mb-2" />{" "}Featured Games</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Barzaq Game */}
+            {/* Asma Ul Husna Puzzle */}
             <Card className="border-indigo-200 bg-indigo-50 dark:bg-indigo-950 dark:border-indigo-800">
               <CardHeader>
                 <Award className="h-6 w-6 text-blue-600 mb-2" />
-                <CardTitle className="text-indigo-800 dark:text-indigo-200">Barzaq Game</CardTitle>
-                <CardDescription>Learn about the intermediate state after death</CardDescription>
+                <CardTitle className="text-indigo-800 dark:text-indigo-200"> Asma-Ul-Husna Puzzle</CardTitle>
+                <CardDescription>Learn the Most Beautiful Names of God</CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-gray-600 dark:text-gray-300">
-                  Explore the concept of Barzaq through an interactive educational game based on Islamic teachings.
+                  Arrange the puzzle of juggled Arabic and English names of Allah in order. Choose a group to start learning through play.
                 </p>
               </CardContent>
               <CardFooter>
-                <Link href="https://v0-barzaq.vercel.app/" target="_blank" rel="noopener noreferrer" className="w-full">
+                <Link href="https://v0-kalam.vercel.app/pages/asma-puzzle/" target="_blank" rel="noopener noreferrer" className="w-full">
                   <Button className="w-full bg-indigo-600 hover:bg-indigo-700">Play Now</Button>
                 </Link>
               </CardFooter>
@@ -145,7 +145,7 @@ export default function HomePage() {
                 size="lg"
                 className="text-emerald-600 hover:text-emerald-700 border-emerald-600 hover:border-emerald-700"
               >
-                See all 18 games <ArrowRight className="ml-2 h-4 w-4" />
+                See all 19 games <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
           </div>
