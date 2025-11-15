@@ -102,7 +102,7 @@ const SpiritualModel = () => {
         label: 'Struggling',
         color: 'bg-red-500',
         text: 'Focus on strengthening your connection with Allah through dhikr and salah',
-        emoji: '🤲'
+        emoji: '🚨'
       };
     } else if (score < 60) {
       return {
