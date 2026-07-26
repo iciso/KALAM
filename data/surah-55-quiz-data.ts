@@ -1,4 +1,4 @@
-import type { SurahQuizData } from "./types"
+import type { SurahQuizData } from "./types" 
 
 export const arRahmanQuizData: SurahQuizData = {
   surahId: 55,
