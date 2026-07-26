@@ -1,4 +1,4 @@
-import arRahmanQuizClient from "./client";
+import arRahmanQuizClient from "./client"; 
 
 export const metadata = {
   title: "Surah Ar-Rahman Quiz | KALAM",
