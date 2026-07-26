@@ -1,5 +1,3 @@
-import type { SurahQuizData } from "./types"
-
 export const alMulkQuizData: SurahQuizData = {
   surahId: 67,
   surahName: "Al-Mulk",
