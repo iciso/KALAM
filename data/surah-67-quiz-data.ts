@@ -1,5 +1,3 @@
-import type { SurahQuizData } from "./types" // Assuming SurahQuizData type is declared in another file
-
 export const alMulkQuizData: SurahQuizData = {
   surahId: 67,
   surahName: "Al-Mulk",
@@ -79,7 +77,7 @@ export const alMulkQuizData: SurahQuizData = {
         { id: "a", text: "The Kingdom", isCorrect: false },
         { id: "b", text: "The Power", isCorrect: false },
         { id: "c", text: "The Sovereignty", isCorrect: true },
-        { id: "d", text: "The Authority", isCorrect: false },
+        { id: "d", text: "The Dominion", isCorrect: false },
       ],
       explanation:
         "الملك (Al-Mulk) means 'The Sovereignty,' derived from the root م-ل-ك, referring to Allah's absolute dominion (Quran.com, Ibn Kathir).",
@@ -394,7 +392,7 @@ export const alMulkQuizData: SurahQuizData = {
       explanation:
         "فَإِذَا هِيَ تَمُورُ (Fa'idha hiya tamur) means 'And suddenly it is quaking,' root م-و-ر (quaking) (Quran.com, Ibn Kathir).",
     },
-        {
+    {
       id: "q24",
       question: "What does the Arabic phrase 'أَأَمِنتُم مَّن فِي السَّمَاءِ' mean?",
       arabic: "أَأَمِنتُم مَّن فِي السَّمَاءِ",
@@ -406,8 +404,8 @@ export const alMulkQuizData: SurahQuizData = {
         { id: "d", text: "Do you know He who is in the heaven?", isCorrect: false },
       ],
       explanation: "أَأَمِنتُم مَّن فِي السَّمَاءِ (A-amintum man fi as-sama') means 'Do you feel secure from He who is in the heaven?' roots أ-م-ن (secure) and س-م-و (heaven) (MyIslam, Al-Maududi).",
-    }, 
-          {
+    },
+    {
       id: "q25",
       question: "What does the Arabic phrase 'هُوَ الَّذِي جَعَلَ لَكُمُ الْأَرْضَ ذَلُولًا' mean?",
       arabic: "هُوَ الَّذِي جَعَلَ لَكُمُ الْأَرْضَ ذَلُولًا",
@@ -537,7 +535,7 @@ export const alMulkQuizData: SurahQuizData = {
       explanation:
         "فَسَتَعۡلَمُونَ كَيۡفَ نَذِيرِ (Fasata'lamun kayfa nadhir) means 'Then you would know how [severe] was My warning,' the second part of Surah Al-Mulk 67:17. Roots: ع-ل-م (know), ك-ي-ف (how), ن-ذ-ر (warning). This verse conveys the certainty of Allah's punishment for those who ignore His signs and warnings. The structure emphasizes that disbelievers will eventually experience the consequences of their rejection. (MyIslam.org 67:17, Quran.com, Ibn Kathir, Al-Maududi)",
     },
-      {
+    {
       id: "q34",
       question: "What does the Arabic phrase 'أَوَلَمْ يَرَوْاْ إِلَى الطَّيْرِ فَوْقَهُمْ' mean?",
       arabic: "أَوَلَمْ يَرَوْاْ إِلَى الطَّيْرِ فَوْقَهُمْ",
@@ -575,7 +573,7 @@ export const alMulkQuizData: SurahQuizData = {
         { id: "d", text: "Who is it that could be a helper for you?", isCorrect: false },
       ],
       explanation: "أَمَّنْ هَٰذَا الَّذِي هُوَ جُندٌ لَّكُمْ (Amman hadha alladhi huwa jundun lakum) means 'Who is it that could be an army for you?' roots م-ن (who) and ج-ن-د (army) (Quran.com, Ibn Kathir).",
-    },//Missing Verses here --checked till here.
+    },
     {
       id: "q37",
       question: "What does the Arabic phrase 'أَفَمَن يَمْشِي مُكِبًّا عَلَىٰ وَجْهِهِ' mean?",
@@ -719,7 +717,6 @@ export const alMulkQuizData: SurahQuizData = {
       ],
       explanation: "قُلْ إِنَّمَا أَنَا نَذِيرٌ (Qul innama ana nadhir) means 'Say: I am only a warner,' roots ق-و-ل (say) and ن-ذ-ر (warn) (Quran.com, Ibn Kathir).",
     },
-      
     {
       id: "q48",
       question: "What does the Arabic phrase 'قُلْ أَرَأَيْتُمْ إِنْ أَصْبَحَ مَاؤُكُمْ غَوْرًا' mean?",
@@ -758,6 +755,6 @@ export const alMulkQuizData: SurahQuizData = {
         { id: "d", text: "Allah's absolute knowledge and power over resurrection", isCorrect: true },
       ],
       explanation: "The final verses of Surah Al-Mulk emphasize Allah's absolute knowledge of everything hidden and His complete power to resurrect and hold accountable, responding to disbelievers' skepticism about the Hereafter (Ibn Kathir, Al-Maududi).",
-    }, 
+    },
   ],
 }
