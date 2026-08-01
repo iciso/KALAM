@@ -394,16 +394,16 @@ export const alMulkQuizData: SurahQuizData = {
     },
     {
       id: "q24",
-      question: "What does the Arabic phrase 'أَأَمِنتُم مَّن فِي السَّمَاءِ' mean?",
-      arabic: "أَأَمِنتُم مَّن فِي السَّمَاءِ",
+       question: "What does the Arabic phrase ' أَن يُرۡسِلَ عَلَيۡكُمۡ حَاصِبٗاۖ' mean?",
+      arabic: "أَن يُرۡسِلَ عَلَيۡكُمۡ حَاصِبٗاِۖ",
       rootLetters: "أ م ن | س م و",
       options: [
-        { id: "a", text: "Do you feel secure from He who is in the heaven?", isCorrect: true },
-        { id: "b", text: "Do you fear He who is in the heaven?", isCorrect: false },
-        { id: "c", text: "Do you worship He who is in the heaven?", isCorrect: false },
-        { id: "d", text: "Do you know He who is in the heaven?", isCorrect: false },
+        { id: "a", text: "would not send against you a storm of stones?", isCorrect: true },
+        { id: "b", text: "would protect you from a storm of dust?", isCorrect: false },
+        { id: "c", text: "would not send against you a storm of dust?", isCorrect: false },
+        { id: "d", text: "would send against you wind and rain?", isCorrect: false },
       ],
-      explanation: "أَأَمِنتُم مَّن فِي السَّمَاءِ (A-amintum man fi as-sama') means 'Do you feel secure from He who is in the heaven?' roots أ-م-ن (secure) and س-م-و (heaven) (MyIslam, Al-Maududi).",
+      explanation: "أَن يُرۡسِلَ عَلَيۡكُمۡ حَاصِبٗاِۖ (ai yursila ‘alaikum haasiban) means 'Do you feel secure from He who is in the heaven?' roots أ-م-ن (secure) and س-م-و (heaven) (MyIslam, Al-Maududi).",
     },
     {
       id: "q25",
