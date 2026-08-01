@@ -352,7 +352,6 @@ export const alMulkQuizData: SurahQuizData = {
     },
     // ===== VERSES 67:9–15 =====
 // Insert these after your existing questions and renumber subsequent ones.
-
 {
   id: "q21",
   question: "What does the Arabic phrase 'مَا نَزَّلَ اللَّهُ مِنْ شَيْءٍ' mean (from verse 67:9)?",
