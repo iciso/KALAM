@@ -350,8 +350,6 @@ export const alMulkQuizData: SurahQuizData = {
       explanation:
         "كُلَّمَا أُلْقِيَ فِيهَا فَوْجٌ (Kullama ulqiya fiha fawj) means 'Every time a group is thrown into it,' roots ك-ل-م (every time), ل-ق-ي (thrown), ف-و-ج (group) (Quran.com, Ibn Kathir).",
     },
-    // ===== VERSES 67:9–15 =====
-// Insert these after your existing questions and renumber subsequent ones.
 {
   id: "q21",
   question: "What does the Arabic phrase 'مَا نَزَّلَ اللَّهُ مِنْ شَيْءٍ' mean (from verse 67:9)?",
@@ -400,10 +398,10 @@ export const alMulkQuizData: SurahQuizData = {
   arabic: "إِنَّ الَّذِينَ يَخْشَوْنَ رَبَّهُمْ بِالْغَيْبِ",
   rootLetters: "خ ش ي | ر ب ب | غ ي ب",
   options: [
-    { id: "a", text: "Those who fear their Lord openly", isCorrect: false },
-    { id: "b", text: "Those who fear their Lord unseen", isCorrect: true },
-    { id: "c", text: "Those who love their Lord unseen", isCorrect: false },
-    { id: "d", text: "Those who obey their Lord openly", isCorrect: false },
+    { id: "a", text: "Indeed, Those who fear their Lord openly", isCorrect: false },
+    { id: "b", text: "Indeed, Those who fear their Lord unseen", isCorrect: true },
+    { id: "c", text: "Indeed, Those who love their Lord unseen", isCorrect: false },
+    { id: "d", text: "Indeed, Those who obey their Lord openly", isCorrect: false },
   ],
   explanation:
     "إِنَّ الَّذِينَ يَخْشَوْنَ رَبَّهُمْ بِالْغَيْبِ (Inna alladhīna yakhshawna rabbahum bil-ghayb) means 'Indeed, those who fear their Lord unseen.' For them is forgiveness and a great reward (MyIslam, Al-Maududi).",
@@ -450,7 +448,6 @@ export const alMulkQuizData: SurahQuizData = {
   explanation:
     "جَعَلَ لَكُمُ الْأَرْضَ ذَلُولًا (Jaʿala lakumu l-arḍa dhalūlan) means 'Made the earth submissive for you.' So walk in its paths and eat of His provision, and to Him is the resurrection (Quran.com, Ibn Kathir).",
 },
-// ===== END OF NEW QUESTIONS =====
     {
       id: "q28",
       question: "What does the Arabic phrase 'أَأَمِنتُم مَّن فِي السَّمَاءِ' mean?",
@@ -493,18 +490,18 @@ export const alMulkQuizData: SurahQuizData = {
       explanation:
         "فَإِذَا هِيَ تَمُورُ (Fa'idha hiya tamur) means 'And suddenly it is quaking,' root م-و-ر (quaking) (Quran.com, Ibn Kathir).",
     },
-    {
+  {
       id: "q31",
-      question: "What does the Arabic phrase 'أَأَمِنتُم مَّن فِي السَّمَاءِ' mean?",
-      arabic: "أَأَمِنتُم مَّن فِي السَّمَاءِ",
+      question: "What does the Arabic phrase ' أَن يُرۡسِلَ عَلَيۡكُمۡ حَاصِبٗاۖ' mean?",
+      arabic: "أَن يُرۡسِلَ عَلَيۡكُمۡ حَاصِبٗاِۖ",
       rootLetters: "أ م ن | س م و",
       options: [
-        { id: "a", text: "Do you feel secure from He who is in the heaven?", isCorrect: true },
-        { id: "b", text: "Do you fear He who is in the heaven?", isCorrect: false },
-        { id: "c", text: "Do you worship He who is in the heaven?", isCorrect: false },
-        { id: "d", text: "Do you know He who is in the heaven?", isCorrect: false },
+        { id: "a", text: "would not send against you a storm of stones?", isCorrect: true },
+        { id: "b", text: "would protect you from a storm of dust?", isCorrect: false },
+        { id: "c", text: "would not send against you a storm of dust?", isCorrect: false },
+        { id: "d", text: "would send against you wind and rain?", isCorrect: false },
       ],
-      explanation: "أَأَمِنتُم مَّن فِي السَّمَاءِ (A-amintum man fi as-sama') means 'Do you feel secure from He who is in the heaven?' roots أ-م-ن (secure) and س-م-و (heaven) (MyIslam, Al-Maududi).",
+      explanation: "أَن يُرۡسِلَ عَلَيۡكُمۡ حَاصِبٗاِۖ (ai yursila ‘alaikum haasiban) means 'Do you feel secure from He who is in the heaven?' roots أ-م-ن (secure) and س-م-و (heaven) (MyIslam, Al-Maududi).",
     },
     {
       id: "q32",
