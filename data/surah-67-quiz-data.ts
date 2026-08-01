@@ -76,8 +76,8 @@ export const alMulkQuizData: SurahQuizData = {
       options: [
         { id: "a", text: "The Kingdom", isCorrect: false },
         { id: "b", text: "The Power", isCorrect: false },
-        { id: "c", text: "The Sovereignty", isCorrect: true },
-        { id: "d", text: "The Dominion", isCorrect: false },
+        { id: "c", text: "The Sovereignty or Dominion", isCorrect: true },
+        { id: "d", text: "The Universe", isCorrect: false },
       ],
       explanation:
         "الملك (Al-Mulk) means 'The Sovereignty,' derived from the root م-ل-ك, referring to Allah's absolute dominion (Quran.com, Ibn Kathir).",
