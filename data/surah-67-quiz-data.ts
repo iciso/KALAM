@@ -76,8 +76,8 @@ export const alMulkQuizData: SurahQuizData = {
       options: [
         { id: "a", text: "The Kingdom", isCorrect: false },
         { id: "b", text: "The Power", isCorrect: false },
-        { id: "c", text: "The Sovereignty", isCorrect: true },
-        { id: "d", text: "The Dominion", isCorrect: false },
+        { id: "c", text: "The Sovereignty or Dominion", isCorrect: true },
+        { id: "d", text: "The Creation", isCorrect: false },
       ],
       explanation:
         "الملك (Al-Mulk) means 'The Sovereignty,' derived from the root م-ل-ك, referring to Allah's absolute dominion (Quran.com, Ibn Kathir).",
@@ -351,62 +351,92 @@ export const alMulkQuizData: SurahQuizData = {
         "كُلَّمَا أُلْقِيَ فِيهَا فَوْجٌ (Kullama ulqiya fiha fawj) means 'Every time a group is thrown into it,' roots ك-ل-م (every time), ل-ق-ي (thrown), ف-و-ج (group) (Quran.com, Ibn Kathir).",
     },
     {
-      id: "q21",
-      question: "What does the Arabic phrase 'أَأَمِنتُم مَّن فِي السَّمَاءِ' mean?",
-      arabic: "أَأَمِنتُم مَّن فِي السَّمَاءِ",
-      rootLetters: "أ م ن | س م و",
-      options: [
-        { id: "a", text: "Do you feel secure from who is in the earth", isCorrect: false },
-        { id: "b", text: "Do you feel secure from who is in the heaven", isCorrect: true },
-        { id: "c", text: "Do you fear who is in the sky", isCorrect: false },
-        { id: "d", text: "Do you trust who is above the clouds", isCorrect: false },
-      ],
-      explanation:
-        "أَأَمِنتُم مَّن فِي السَّمَاءِ (A'amintum man fi as-sama'i) means 'Do you feel secure from who is in the heaven,' roots أ-م-ن (secure) and س-م-و (heaven) (Quran.com, Ibn Kathir).",
-    },
+  id: "q21",
+  question: "What does the Arabic phrase 'مَا نَزَّلَ اللَّهُ مِنْ شَيْءٍ' mean (from verse 67:9)?",
+  arabic: "مَا نَزَّلَ اللَّهُ مِنْ شَيْءٍ",
+  rootLetters: "ن ز ل | ل هـ | ش ي أ",
+  options: [
+    { id: "a", text: "Allah has not sent down anything", isCorrect: true },
+    { id: "b", text: "Allah has sent down everything", isCorrect: false },
+    { id: "c", text: "Allah has not created anything", isCorrect: false },
+    { id: "d", text: "Allah has not revealed any book", isCorrect: false },
+  ],
+  explanation:
+    "مَا نَزَّلَ اللَّهُ مِنْ شَيْءٍ (Mā nazzala Allāhu min shayʾin) means 'Allah has not sent down anything.' This is the denial of the disbelievers when a warner came to them (Quran.com, Ibn Kathir).",
+},
+{
+  id: "q22",
+  question: "What does the Arabic phrase 'لَوْ كُنَّا نَسْمَعُ أَوْ نَعْقِلُ' mean (from verse 67:10)?",
+  arabic: "لَوْ كُنَّا نَسْمَعُ أَوْ نَعْقِلُ",
+  rootLetters: "س م ع | ع ق ل",
+  options: [
+    { id: "a", text: "If only we had listened and obeyed", isCorrect: false },
+    { id: "b", text: "If only we had listened and understood", isCorrect: false },
+    { id: "c", text: "If only we had listened and reasoned", isCorrect: true },
+    { id: "d", text: "If only we had listened and believed", isCorrect: false },
+  ],
+  explanation:
+    "لَوْ كُنَّا نَسْمَعُ أَوْ نَعْقِلُ (Law kunnā nasmaʿu aw naʿqilu) means 'If only we had listened and reasoned.' The disbelievers will regret not using their hearing and intellect to accept the truth (MyIslam, Al-Maududi).",
+},
+{
+  id: "q23",
+  question: "What does the Arabic phrase 'فَاعْتَرَفُوا بِذَنْبِهِمْ' mean (from verse 67:11)?",
+  arabic: "فَاعْتَرَفُوا بِذَنْبِهِمْ",
+  rootLetters: "ع ت ر ف | ذ ن ب",
+  options: [
+    { id: "a", text: "So they denied their sin", isCorrect: false },
+    { id: "b", text: "So they admitted their sin", isCorrect: true },
+    { id: "c", text: "So they regretted their sin", isCorrect: false },
+    { id: "d", text: "So they concealed their sin", isCorrect: false },
+  ],
+  explanation:
+    "فَاعْتَرَفُوا بِذَنْبِهِمْ (Faʿtarafū bi-dhanbihim) means 'So they admitted their sin.' This follows their regret on the Day of Judgment (Quran.com, Ibn Kathir).",
+},
+{
+  id: "q24",
+  question: "What does the Arabic phrase 'إِنَّ الَّذِينَ يَخْشَوْنَ رَبَّهُمْ بِالْغَيْبِ' mean (from verse 67:12)?",
+  arabic: "إِنَّ الَّذِينَ يَخْشَوْنَ رَبَّهُمْ بِالْغَيْبِ",
+  rootLetters: "خ ش ي | ر ب ب | غ ي ب",
+  options: [
+    { id: "a", text: "Those who fear their Lord openly", isCorrect: false },
+    { id: "b", text: "Those who fear their Lord unseen", isCorrect: true },
+    { id: "c", text: "Those who love their Lord unseen", isCorrect: false },
+    { id: "d", text: "Those who obey their Lord openly", isCorrect: false },
+  ],
+  explanation:
+    "إِنَّ الَّذِينَ يَخْشَوْنَ رَبَّهُمْ بِالْغَيْبِ (Inna alladhīna yakhshawna rabbahum bil-ghayb) means 'Indeed, those who fear their Lord unseen.' For them is forgiveness and a great reward (MyIslam, Al-Maududi).",
+},
+{
+  id: "q25",
+  question: "What does the Arabic phrase 'وَأَسِرُّوا قَوْلَكُمْ أَوِ اجْهَرُوا بِهِ' mean (from verse 67:13)?",
+  arabic: "وَأَسِرُّوا قَوْلَكُمْ أَوِ اجْهَرُوا بِهِ",
+  rootLetters: "س ر ر | ق و ل | ج ه ر",
+  options: [
+    { id: "a", text: "Conceal your deeds or reveal them", isCorrect: false },
+    { id: "b", text: "Conceal your speech or proclaim it", isCorrect: true },
+    { id: "c", text: "Conceal your thoughts or share them", isCorrect: false },
+    { id: "d", text: "Conceal your wealth or spend it", isCorrect: false },
+  ],
+  explanation:
+    "وَأَسِرُّوا قَوْلَكُمْ أَوِ اجْهَرُوا بِهِ (Wa asirrū qawlakum aw ijharū bihī) means 'Conceal your speech or proclaim it.' Indeed, He knows what is in the hearts (Quran.com, Ibn Kathir).",
+},
+{
+  id: "q26",
+  question: "What does the Arabic phrase 'أَلَا يَعْلَمُ مَنْ خَلَقَ' mean (from verse 67:14)?",
+  arabic: "أَلَا يَعْلَمُ مَنْ خَلَقَ",
+  rootLetters: "ع ل م | خ ل ق",
+  options: [
+    { id: "a", text: "Does He who created not know?", isCorrect: true },
+    { id: "b", text: "Does He who knows not create?", isCorrect: false },
+    { id: "c", text: "Does He who created not see?", isCorrect: false },
+    { id: "d", text: "Does He who created not hear?", isCorrect: false },
+  ],
+  explanation:
+    "أَلَا يَعْلَمُ مَنْ خَلَقَ (Alā yaʿlamu man khalaqa) means 'Does He who created not know?' while He is the Subtle, the Acquainted (MyIslam, Al-Maududi).",
+},
+//cutting out repeated questions and adding new ones
     {
-      id: "q22",
-      question: "What does the Arabic phrase 'أَن يَخْسِفَ بِكُمُ الْأَرْضَ' mean?",
-      arabic: "أَن يَخْسِفَ بِكُمُ الْأَرْضَ",
-      rootLetters: "خ س ف | أ ر ض",
-      options: [
-        { id: "a", text: "That He will cause the earth to flood with you", isCorrect: false },
-        { id: "b", text: "That He will cause the earth to shake with you", isCorrect: false },
-        { id: "c", text: "That He will cause the earth to swallow you up", isCorrect: true },
-        { id: "d", text: "That He will cause the earth to burn with you", isCorrect: false },
-      ],
-      explanation:
-        "أَن يَخْسِفَ بِكُمُ الْأَرْضَ (An yakhsifa bikumu al-arda) means 'That He will cause the earth to swallow you up,' root خ-س-ف (swallow) and أ-ر-ض (earth) (MyIslam, Al-Maududi).",
-    },
-    {
-      id: "q23",
-      question: "What does the Arabic phrase 'فَإِذَا هِيَ تَمُورُ' mean?",
-      arabic: "فَإِذَا هِيَ تَمُورُ",
-      rootLetters: "م و ر",
-      options: [
-        { id: "a", text: "And suddenly it is calm", isCorrect: false },
-        { id: "b", text: "And suddenly it is still", isCorrect: false },
-        { id: "c", text: "And suddenly it is stable", isCorrect: false },
-        { id: "d", text: "And suddenly it is quaking", isCorrect: true },
-      ],
-      explanation:
-        "فَإِذَا هِيَ تَمُورُ (Fa'idha hiya tamur) means 'And suddenly it is quaking,' root م-و-ر (quaking) (Quran.com, Ibn Kathir).",
-    },
-    {
-      id: "q24",
-       question: "What does the Arabic phrase ' أَن يُرۡسِلَ عَلَيۡكُمۡ حَاصِبٗاۖ' mean?",
-      arabic: "أَن يُرۡسِلَ عَلَيۡكُمۡ حَاصِبٗاِۖ",
-      rootLetters: "أ م ن | س م و",
-      options: [
-        { id: "a", text: "would not send against you a storm of stones?", isCorrect: true },
-        { id: "b", text: "would protect you from a storm of dust?", isCorrect: false },
-        { id: "c", text: "would not send against you a storm of dust?", isCorrect: false },
-        { id: "d", text: "would send against you wind and rain?", isCorrect: false },
-      ],
-      explanation: "أَن يُرۡسِلَ عَلَيۡكُمۡ حَاصِبٗاِۖ (ai yursila ‘alaikum haasiban) means 'Do you feel secure from He who is in the heaven?' roots أ-م-ن (secure) and س-م-و (heaven) (MyIslam, Al-Maududi).",
-    },
-    {
-      id: "q25",
+      id: "q27",
       question: "What does the Arabic phrase 'هُوَ الَّذِي جَعَلَ لَكُمُ الْأَرْضَ ذَلُولًا' mean?",
       arabic: "هُوَ الَّذِي جَعَلَ لَكُمُ الْأَرْضَ ذَلُولًا",
       rootLetters: "ج ع ل | أ ر ض | ذ ل ل",
@@ -420,7 +450,7 @@ export const alMulkQuizData: SurahQuizData = {
         "هُوَ الَّذِي جَعَلَ لَكُمُ الْأَرْضَ ذَلُولًا (Huwa alladhi ja'ala lakumu al-arda dhaloolan) means 'He is the one who made the earth submissive for you,' roots ج-ع-ل (made), أ-ر-ض (earth), ذ-ل-ل (submissive/manageable). The word 'dhaloolan' means easy to traverse, manageable, or submissive to human use. (Quran.com Saheeh International, Maududi, Ibn Kathir, MyIslam).",
     },
     {
-      id: "q26",
+      id: "q28",
       question: "What does the Arabic phrase 'فَامْشُوا فِي مَنَاكِبِهَا' mean?",
       arabic: "فَامْشُوا فِي مَنَاكِبِهَا",
       rootLetters: "م ش ي | ن ك ب",
@@ -434,7 +464,7 @@ export const alMulkQuizData: SurahQuizData = {
         "فَامْشُوا فِي مَنَاكِبِهَا (Famshoo fi manakibiha) means 'So walk upon its paths,' roots م-ش-ي (walk) and ن-ك-ب (paths/shoulders) (MyIslam, Al-Maududi).",
     },
     {
-      id: "q27",
+      id: "q29",
       question: "What does the Arabic phrase 'وَكُلُوا مِن رِّزْقِهِ' mean?",
       arabic: "وَكُلُوا مِن رِّزْقِهِ",
       rootLetters: "ك ل ل | ر ز ق",
@@ -448,7 +478,7 @@ export const alMulkQuizData: SurahQuizData = {
         "وَكُلُوا مِن رِّزْقِهِ (Wa kulu min rizqihi) means 'And eat of His provision,' roots ك-ل-ل (eat) and ر-ز-ق (provision) (Quran.com, Ibn Kathir).",
     },
     {
-      id: "q28",
+      id: "q30",
       question: "What does the Arabic phrase 'وَإِلَيْهِ النُّشُورُ' mean?",
       arabic: "وَإِلَيْهِ النُّشُورُ",
       rootLetters: "ن ش ر",
@@ -461,8 +491,9 @@ export const alMulkQuizData: SurahQuizData = {
       explanation:
         "وَإِلَيْهِ النُّشُورُ (Wa ilayhi an-nushur) means 'And to Him is the resurrection,' root ن-ش-ر (resurrection) (MyIslam, Al-Maududi).",
     },
+    //cutting out repeated questions and adding new ones
     {
-      id: "q29",
+      id: "q31",
       question: "What does the Arabic phrase 'أَأَمِنتُم مَّن فِي السَّمَاءِ' mean?",
       arabic: "أَأَمِنتُم مَّن فِي السَّمَاءِ",
       rootLetters: "أ م ن | س م و",
@@ -476,7 +507,7 @@ export const alMulkQuizData: SurahQuizData = {
         "أَأَمِنتُم مَّن فِي السَّمَاءِ (A'amintum man fi as-sama'i) means 'Do you feel secure from who is in the heaven,' roots أ-م-ن (secure) and س-م-و (heaven) (Quran.com, Ibn Kathir).",
     },
     {
-      id: "q30",
+      id: "q32",
       question: "What does the Arabic phrase 'أَن يَخْسِفَ بِكُمُ الْأَرْضَ' mean?",
       arabic: "أَن يَخْسِفَ بِكُمُ الْأَرْضَ",
       rootLetters: "خ س ف | أ ر ض",
@@ -490,7 +521,7 @@ export const alMulkQuizData: SurahQuizData = {
         "أَن يَخْسِفَ بِكُمُ الْأَرْضَ (An yakhsifa bikumu al-arda) means 'That He will cause the earth to swallow you up,' root خ-س-ف (swallow) and أ-ر-ض (earth) (MyIslam, Al-Maududi).",
     },
     {
-      id: "q31",
+      id: "q33",
       question: "What does the Arabic phrase 'فَإِذَا هِيَ تَمُورُ' mean?",
       arabic: "فَإِذَا هِيَ تَمُورُ",
       rootLetters: "م و ر",
@@ -504,7 +535,7 @@ export const alMulkQuizData: SurahQuizData = {
         "فَإِذَا هِيَ تَمُورُ (Fa'idha hiya tamur) means 'And suddenly it is quaking,' root م-و-ر (quaking) (Quran.com, Ibn Kathir).",
     },
     {
-      id: "q32",
+      id: "q34",
       question: "What does the Arabic phrase 'أَمۡ أَمِنتُم مَّن فِي ٱلسَّمَآءِ أَن يُرۡسِلَ عَلَيۡكُمۡ حَاصِبٗا' mean?",
       arabic: "أَمۡ أَمِنتُم مَّن فِي ٱلسَّمَآءِ أَن يُرۡسِلَ عَلَيۡكُمۡ حَاصِبٗا",
       rootLetters: "أ م ن | س م و | ر س ل | ح ص ب",
@@ -521,7 +552,7 @@ export const alMulkQuizData: SurahQuizData = {
         "أَمۡ أَمِنتُم مَّن فِي ٱلسَّمَآءِ أَن يُرۡسِلَ عَلَيۡكُمۡ حَاصِبٗا (Am amintum man fi as-sama'i an yursila 'alaykum hasiba) means 'Do you feel secure that He who [holds authority] in the heaven would not send against you a storm of stones?' from Surah Al-Mulk 67:17. Roots: أ-م-ن (feel secure), س-م-و (heaven), ر-س-ل (send), ح-ص-ب (stones/storm). This verse is a rhetorical question warning disbelievers against complacency, reminding them of Allah's power to send punishment. The word 'hasib' refers to a storm of stones or a violent wind. (MyIslam.org 67:17, Quran.com, Ibn Kathir, Al-Maududi)",
     },
     {
-      id: "q33",
+      id: "q35",
       question: "What does the Arabic phrase 'فَسَتَعۡلَمُونَ كَيۡفَ نَذِيرِ' mean?",
       arabic: "فَسَتَعۡلَمُونَ كَيۡفَ نَذِيرِ",
       rootLetters: "ع ل م | ك ي ف | ن ذ ر",
@@ -535,7 +566,7 @@ export const alMulkQuizData: SurahQuizData = {
         "فَسَتَعۡلَمُونَ كَيۡفَ نَذِيرِ (Fasata'lamun kayfa nadhir) means 'Then you would know how [severe] was My warning,' the second part of Surah Al-Mulk 67:17. Roots: ع-ل-م (know), ك-ي-ف (how), ن-ذ-ر (warning). This verse conveys the certainty of Allah's punishment for those who ignore His signs and warnings. The structure emphasizes that disbelievers will eventually experience the consequences of their rejection. (MyIslam.org 67:17, Quran.com, Ibn Kathir, Al-Maududi)",
     },
     {
-      id: "q34",
+      id: "q36",
       question: "What does the Arabic phrase 'أَوَلَمْ يَرَوْاْ إِلَى الطَّيْرِ فَوْقَهُمْ' mean?",
       arabic: "أَوَلَمْ يَرَوْاْ إِلَى الطَّيْرِ فَوْقَهُمْ",
       rootLetters: "ر ء ي | ط ي ر | ف و ق",
@@ -548,7 +579,7 @@ export const alMulkQuizData: SurahQuizData = {
       explanation: "أَوَلَمْ يَرَوْاْ إِلَى الطَّيْرِ فَوْقَهُمْ (A-walam yaraw ila at-tayri fawqahum) means 'Have they not seen the birds above them?' roots ر-ء-ي (see), ط-ي-ر (birds), ف-و-ق (above) (Quran.com, Ibn Kathir).",
     },
     {
-      id: "q35",
+      id: "q37",
       question: "What does the Arabic phrase 'مَّا يُمْسِكُهُنَّ إِلَّا الرَّحْمَٰنُ' mean?",
       arabic: "مَّا يُمْسِكُهُنَّ إِلَّا الرَّحْمَٰنُ",
       rootLetters: "م س ك | ر ح م",
@@ -561,7 +592,7 @@ export const alMulkQuizData: SurahQuizData = {
       explanation: "مَّا يُمْسِكُهُنَّ إِلَّا الرَّحْمَٰنُ (Ma yumsikuhunna illa ar-Rahman) means 'None holds them except the Most Merciful,' roots م-س-ك (hold) and ر-ح-م (mercy) (MyIslam, Al-Maududi).",
     },
     {
-      id: "q36",
+      id: "q38",
       question: "What does the Arabic phrase 'أَمَّنْ هَٰذَا الَّذِي هُوَ جُندٌ لَّكُمْ' mean?",
       arabic: "أَمَّنْ هَٰذَا الَّذِي هُوَ جُندٌ لَّكُمْ",
       rootLetters: "م ن | ج ن د",
@@ -574,7 +605,7 @@ export const alMulkQuizData: SurahQuizData = {
       explanation: "أَمَّنْ هَٰذَا الَّذِي هُوَ جُندٌ لَّكُمْ (Amman hadha alladhi huwa jundun lakum) means 'Who is it that could be an army for you?' roots م-ن (who) and ج-ن-د (army) (Quran.com, Ibn Kathir).",
     },
     {
-      id: "q37",
+      id: "q39",
       question: "What does the Arabic phrase 'أَفَمَن يَمْشِي مُكِبًّا عَلَىٰ وَجْهِهِ' mean?",
       arabic: "أَفَمَن يَمْشِي مُكِبًّا عَلَىٰ وَجْهِهِ",
       rootLetters: "م ش ي | ك ب ب | و ج ه",
@@ -587,7 +618,7 @@ export const alMulkQuizData: SurahQuizData = {
       explanation: "أَفَمَن يَمْشِي مُكِبًّا عَلَىٰ وَجْهِهِ (A-faman yamshi mukibban 'ala wajhih) means 'Is one who walks prone on his face,' roots م-ش-ي (walk), ك-ب-ب (prone), و-ج-ه (face) (MyIslam, Al-Maududi).",
     },
     {
-      id: "q38",
+      id: "q40",
       question: "What does the Arabic phrase 'أَهْدَىٰ أَمَّن يَمْشِي سَوِيًّا عَلَىٰ صِرَاطٍ مُّسْتَقِيمٍ' mean?",
       arabic: "أَهْدَىٰ أَمَّن يَمْشِي سَوِيًّا عَلَىٰ صِرَاطٍ مُّسْتَقِيمٍ",
       rootLetters: "ه د ي | م ش ي | س و ي | ص ر ط | ق و م",
@@ -600,9 +631,9 @@ export const alMulkQuizData: SurahQuizData = {
       explanation: "أَهْدَىٰ أَمَّن يَمْشِي سَوِيًّا عَلَىٰ صِرَاطٍ مُّسْتَقِيمٍ (Ahda amman yamshi sawiyyan 'ala siratin mustaqim) means 'More guided or one who walks upright on a straight path?' roots ه-د-ي (guide), م-ش-ي (walk), س-و-ي (upright), ص-ر-ط (path), ق-و-م (straight) (Quran.com, Ibn Kathir).",
     },
     {
-      id: "q39",
-      question: "What does the Arabic phrase 'قُلْ هُوَ الَّذِي أَنشَأَكُمْ' mean?",
-      arabic: "قُلْ هُوَ الَّذِي أَنشَأَكُمْ",
+      id: "q41",
+      question: "What does the Arabic phrase 'قُلْ هُوَ الَّذِي أَنشَأَكُمْ' mean?",
+      arabic: "قُلْ هُوَ الَّذِي أَنشَأَكُمْ",
       rootLetters: "ق و ل | ن ش أ",
       options: [
         { id: "a", text: "Say: He is the One who created you", isCorrect: false },
@@ -613,7 +644,7 @@ export const alMulkQuizData: SurahQuizData = {
       explanation: "قُلْ هُوَ الَّذِي أَنشَأَكُمْ (Qul huwa alladhi ansha'akum) means 'Say: He is the One who originated you,' roots ق-و-ل (say) and ن-ش-أ (originate) (MyIslam, Al-Maududi).",
     },
     {
-      id: "q40",
+      id: "q42",
       question: "What does the Arabic phrase 'وَجَعَلَ لَكُمُ السَّمْعَ وَالْأَبْصَارَ وَالْأَفْئِدَةَ' mean?",
       arabic: "وَجَعَلَ لَكُمُ السَّمْعَ وَالْأَبْصَارَ وَالْأَفْئِدَةَ",
       rootLetters: "ج ع ل | س م ع | ب ص ر | ف ء د",
@@ -626,7 +657,7 @@ export const alMulkQuizData: SurahQuizData = {
       explanation: "وَجَعَلَ لَكُمُ السَّمْعَ وَالْأَبْصَارَ وَالْأَفْئِدَةَ (Wa ja'ala lakumu as-sam'a wal-absara wal-af'idah) means 'And made for you the hearing and sight and intellect,' roots ج-ع-ل (make), س-م-ع (hearing), ب-ص-ر (sight), ف-ء-د (intellect) (Quran.com, Ibn Kathir).",
     },
     {
-      id: "q41",
+      id: "q43",
       question: "What does the Arabic phrase 'قَلِيلًا مَّا تَشْكُرُونَ' mean?",
       arabic: "قَلِيلًا مَّا تَشْكُرُونَ",
       rootLetters: "ق ل ل | ش ك ر",
@@ -639,7 +670,7 @@ export const alMulkQuizData: SurahQuizData = {
       explanation: "قَلِيلًا مَّا تَشْكُرُونَ (Qalilan ma tashkurun) means 'Little do you give thanks,' roots ق-ل-ل (little) and ش-ك-ر (thank) (MyIslam, Al-Maududi).",
     },
     {
-      id: "q42",
+      id: "q44",
       question: "What does the Arabic phrase 'قُلْ هُوَ الَّذِي ذَرَأَكُمْ فِي الْأَرْضِ' mean?",
       arabic: "قُلْ هُوَ الَّذِي ذَرَأَكُمْ فِي الْأَرْضِ",
       rootLetters: "ق و ل | ذ ر أ | أ ر ض",
@@ -652,7 +683,7 @@ export const alMulkQuizData: SurahQuizData = {
       explanation: "قُلْ هُوَ الَّذِي ذَرَأَكُمْ فِي الْأَرْضِ (Qul huwa alladhi dhara'akum fi al-ard) means 'Say: He is the One who multiplied you on earth,' roots ق-و-ل (say), ذ-ر-أ (multiply), أ-ر-ض (earth) (Quran.com, Ibn Kathir).",
     },
     {
-      id: "q43",
+      id: "q45",
       question: "What does the Arabic phrase 'وَإِلَيْهِ تُحْشَرُونَ' mean?",
       arabic: "وَإِلَيْهِ تُحْشَرُونَ",
       rootLetters: "ح ش ر",
@@ -665,7 +696,7 @@ export const alMulkQuizData: SurahQuizData = {
       explanation: "وَإِلَيْهِ تُحْشَرُونَ (Wa ilayhi tuhsharun) means 'And to Him you will be gathered,' root ح-ش-ر (gather) (MyIslam, Al-Maududi).",
     },
     {
-      id: "q44",
+      id: "q46",
       question: "What does the Arabic phrase 'وَيَقُولُونَ مَتَىٰ هَٰذَا الْوَعْدُ' mean?",
       arabic: "وَيَقُولُونَ مَتَىٰ هَٰذَا الْوَعْدُ",
       rootLetters: "ق و ل | م ت ي | و ع د",
@@ -678,7 +709,7 @@ export const alMulkQuizData: SurahQuizData = {
       explanation: "وَيَقُولُونَ مَتَىٰ هَٰذَا الْوَعْدُ (Wa yaquluna mata hadha al-wa'd) means 'And they say: When is this promise?' roots ق-و-ل (say), م-ت-ي (when), و-ع-د (promise) (Quran.com, Ibn Kathir).",
     },
     {
-      id: "q45",
+      id: "q47",
       question: "What does the Arabic phrase 'إِن كُنتُمْ صَادِقِينَ' mean?",
       arabic: "إِن كُنتُمْ صَادِقِينَ",
       rootLetters: "ك و ن | ص د ق",
@@ -691,7 +722,7 @@ export const alMulkQuizData: SurahQuizData = {
       explanation: "إِن كُنتُمْ صَادِقِينَ (In kuntum sadiqin) means 'If you should be truthful,' roots ك-و-ن (be) and ص-د-ق (truthful) (MyIslam, Al-Maududi).",
     },
     {
-      id: "q46",
+      id: "q48",
       question: "What does the Arabic phrase 'قُلْ إِنَّمَا الْعِلْمُ عِندَ اللَّهِ' mean?",
       arabic: "قُلْ إِنَّمَا الْعِلْمُ عِندَ اللَّهِ",
       rootLetters: "ق و ل | ع ل م | ل ه",
@@ -704,20 +735,20 @@ export const alMulkQuizData: SurahQuizData = {
       explanation: "قُلْ إِنَّمَا الْعِلْمُ عِندَ اللَّهِ (Qul innama al-'ilmu 'inda Allah) means 'Say: Only the knowledge is with Allah,' roots ق-و-ل (say), ع-ل-م (knowledge), ل-ه (Allah) (Quran.com, Ibn Kathir).",
     },
     {
-      id: "q47",
+      id: "q49",
       question: "What does the Arabic phrase 'قُلْ إِنَّمَا أَنَا نَذِيرٌ' mean?",
       arabic: "قُلْ إِنَّمَا أَنَا نَذِيرٌ",
       rootLetters: "ق و ل | ن ذ ر",
       options: [
         { id: "a", text: "Say: I am only a guide", isCorrect: false },
         { id: "b", text: "Say: I am only a messenger", isCorrect: false },
-        { id: "c", text: "Say: I am only a warner", isCorrect: false },
+        { id: "c", text: "Say: I am only a prophet", isCorrect: false },
         { id: "d", text: "Say: I am only a warner", isCorrect: true },
       ],
       explanation: "قُلْ إِنَّمَا أَنَا نَذِيرٌ (Qul innama ana nadhir) means 'Say: I am only a warner,' roots ق-و-ل (say) and ن-ذ-ر (warn) (Quran.com, Ibn Kathir).",
     },
     {
-      id: "q48",
+      id: "q50",
       question: "What does the Arabic phrase 'قُلْ أَرَأَيْتُمْ إِنْ أَصْبَحَ مَاؤُكُمْ غَوْرًا' mean?",
       arabic: "قُلْ أَرَأَيْتُمْ إِنْ أَصْبَحَ مَاؤُكُمْ غَوْرًا",
       rootLetters: "ق و ل | ر ء ي | ص ب ح | م و ه | غ و ر",
@@ -730,7 +761,7 @@ export const alMulkQuizData: SurahQuizData = {
       explanation: "قُلْ أَرَأَيْتُمْ إِنْ أَصْبَحَ مَاؤُكُمْ غَوْرًا (Qul ara'aytum in asbaha ma'ukum ghawran) means 'Say: Have you considered if your water becomes deep?' roots ق-و-ل (say), ر-ء-ي (see), ص-ب-ح (become), م-و-ه (water), غ-و-ر (deep) (Quran.com, Ibn Kathir).",
     },
     {
-      id: "q49",
+      id: "q51",
       question: "What does the Arabic phrase 'فَمَن يَأْتِيكُم بِمَاءٍ مَّعِينٍ' mean?",
       arabic: "فَمَن يَأْتِيكُم بِمَاءٍ مَّعِينٍ",
       rootLetters: "م ن | أ ت ي | م و ه | ع ي ن",
@@ -743,7 +774,7 @@ export const alMulkQuizData: SurahQuizData = {
       explanation: "فَمَن يَأْتِيكُم بِمَاءٍ مَّعِينٍ (Faman ya'tikum bima'in ma'in) means 'Then who could bring you fresh water?' roots م-ن (who), أ-ت-ي (bring), م-و-ه (water), ع-ي-ن (fresh) (MyIslam, Al-Maududi).",
     },
     {
-      id: "q50",
+      id: "q52",
       question: "What is the main theme emphasized in the final verses of Surah Al-Mulk?",
       arabic: "سورة الملك",
       rootLetters: "م ل ك",
