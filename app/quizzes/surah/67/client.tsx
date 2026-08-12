@@ -9,18 +9,20 @@ const SurahQuiz = dynamic(() => import("@/components/surah-quiz"), { ssr: false 
 export default function AlMulkQuiz() {
   const searchParams = useSearchParams();
 
-  // Read optional ?start=1&end=20 style params from the URL (1-indexed, inclusive).
-  // If absent, fall back to the full question set so the existing "Start Quiz"
-  // link (with no params) keeps working exactly as before.
   const startParam = searchParams.get("start");
   const endParam = searchParams.get("end");
+
+  // CHECKPOINT 1: what does the URL actually give us?
+  console.error("[AlMulkQuiz] raw searchParams:", searchParams.toString());
+  console.error("[AlMulkQuiz] startParam:", startParam, "endParam:", endParam);
 
   const totalQuestions = alMulkQuizData.questions.length;
   const start = startParam ? Math.max(1, Number(startParam)) : 1;
   const end = endParam ? Math.min(totalQuestions, Number(endParam)) : totalQuestions;
 
-  // Build a shallow copy of quizData with just the sliced questions,
-  // leaving everything else (introduction, additionalContextElements, etc.) intact.
+  // CHECKPOINT 2: resolved numeric range
+  console.error("[AlMulkQuiz] resolved start:", start, "end:", end, "totalQuestions:", totalQuestions);
+
   const sectionedQuizData =
     start === 1 && end === totalQuestions
       ? alMulkQuizData
@@ -29,5 +31,15 @@ export default function AlMulkQuiz() {
           questions: alMulkQuizData.questions.slice(start - 1, end),
         };
 
-  return <SurahQuiz quizData={sectionedQuizData} />;
+  // CHECKPOINT 3: what's actually being handed to <SurahQuiz />?
+  console.error(
+    "[AlMulkQuiz] sectionedQuizData.questions.length:",
+    sectionedQuizData.questions.length,
+    "first id:",
+    sectionedQuizData.questions[0]?.id,
+    "last id:",
+    sectionedQuizData.questions[sectionedQuizData.questions.length - 1]?.id
+  );
+
+  return <SurahQuiz key={`${start}-${end}`} quizData={sectionedQuizData} />;
 }
