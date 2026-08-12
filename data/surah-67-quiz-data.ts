@@ -846,7 +846,7 @@ export const alMulkQuizData: SurahQuizData = {
       options: [
         { id: "a", text: "And upon Him we have relied", isCorrect: true },
         { id: "b", text: "And upon Him we have depended solely", isCorrect: false },
-        { id: "c", text: "And upon Him we have put our trust", isCorrect: false },
+        { id: "c", text: "And upon Him we believe and have put our faith", isCorrect: false },
         { id: "d", text: "And upon Him we have placed our hope", isCorrect: false },
       ],
       explanation: "وَعَلَيْهِ تَوَكَّلْنَا (Wa 'alayhi tawakkalna) means 'And upon Him we have relied,' root و-ك-ل (rely/trust) (MyIslam, Al-Maududi).",
@@ -896,7 +896,7 @@ export const alMulkQuizData: SurahQuizData = {
       arabic: "سورة الملك",
       rootLetters: "م ل ك",
       options: [
-        { id: "a", text: "Allah's sovereignty and the reality of resurrection", isCorrect: false },
+        { id: "a", text: "Allah's mercy and the reality of resurrection", isCorrect: false },
         { id: "b", text: "The importance of prayer and charity", isCorrect: false },
         { id: "c", text: "The stories of previous prophets", isCorrect: false },
         { id: "d", text: "Allah's absolute knowledge and power over resurrection", isCorrect: true },
