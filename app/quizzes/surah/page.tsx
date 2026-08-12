@@ -12,6 +12,16 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 // Implementation status types
 type ImplementationStatus = "available" | "partial" | "coming-soon" | "in-progress"
 
+// A question-range section within a surah's quiz (e.g. "Questions 1-20")
+type QuizSection = {
+  id: string
+  name: string
+  status: ImplementationStatus
+  phase: number
+  start: number // 1-indexed, inclusive
+  end: number // 1-indexed, inclusive
+}
+
 // Surah data with implementation status
 const surahs = [
   {
@@ -24,7 +34,7 @@ const surahs = [
     difficulty: "Beginner",
     implementationStatus: "available" as ImplementationStatus,
     implementationPhase: 1,
-    sections: [],
+    sections: [] as QuizSection[],
   },
   {
     id: 2,
@@ -37,11 +47,11 @@ const surahs = [
     implementationStatus: "partial" as ImplementationStatus,
     implementationPhase: 3,
     sections: [
-      { id: "2-1", name: "Verses 1-60", status: "in-progress" as ImplementationStatus, phase: 3 },
-      { id: "2-2", name: "Verses 61-120", status: "coming-soon" as ImplementationStatus, phase: 4 },
-      { id: "2-3", name: "Verses 121-180", status: "coming-soon" as ImplementationStatus, phase: 5 },
-      { id: "2-4", name: "Verses 181-240", status: "coming-soon" as ImplementationStatus, phase: 6 },
-      { id: "2-5", name: "Verses 241-286", status: "coming-soon" as ImplementationStatus, phase: 7 },
+      { id: "2-1", name: "Verses 1-60", status: "in-progress" as ImplementationStatus, phase: 3, start: 1, end: 60 },
+      { id: "2-2", name: "Verses 61-120", status: "coming-soon" as ImplementationStatus, phase: 4, start: 61, end: 120 },
+      { id: "2-3", name: "Verses 121-180", status: "coming-soon" as ImplementationStatus, phase: 5, start: 121, end: 180 },
+      { id: "2-4", name: "Verses 181-240", status: "coming-soon" as ImplementationStatus, phase: 6, start: 181, end: 240 },
+      { id: "2-5", name: "Verses 241-286", status: "coming-soon" as ImplementationStatus, phase: 7, start: 241, end: 286 },
     ],
   },
   {
@@ -54,7 +64,7 @@ const surahs = [
     difficulty: "Intermediate",
     implementationStatus: "coming-soon" as ImplementationStatus,
     implementationPhase: 5,
-    sections: [],
+    sections: [] as QuizSection[],
   },
   {
     id: 4,
@@ -66,7 +76,7 @@ const surahs = [
     difficulty: "Advanced",
     implementationStatus: "coming-soon" as ImplementationStatus,
     implementationPhase: 6,
-    sections: [],
+    sections: [] as QuizSection[],
   },
   {
     id: 5,
@@ -78,7 +88,7 @@ const surahs = [
     difficulty: "Intermediate",
     implementationStatus: "coming-soon" as ImplementationStatus,
     implementationPhase: 7,
-    sections: [],
+    sections: [] as QuizSection[],
   },
   {
     id: 6,
@@ -90,7 +100,7 @@ const surahs = [
     difficulty: "Intermediate",
     implementationStatus: "coming-soon" as ImplementationStatus,
     implementationPhase: 8,
-    sections: [],
+    sections: [] as QuizSection[],
   },
   {
     id: 7,
@@ -102,7 +112,7 @@ const surahs = [
     difficulty: "Advanced",
     implementationStatus: "coming-soon" as ImplementationStatus,
     implementationPhase: 9,
-    sections: [],
+    sections: [] as QuizSection[],
   },
   {
     id: 8,
@@ -114,7 +124,7 @@ const surahs = [
     difficulty: "Intermediate",
     implementationStatus: "coming-soon" as ImplementationStatus,
     implementationPhase: 10,
-    sections: [],
+    sections: [] as QuizSection[],
   },
   {
     id: 9,
@@ -126,7 +136,7 @@ const surahs = [
     difficulty: "Advanced",
     implementationStatus: "coming-soon" as ImplementationStatus,
     implementationPhase: 11,
-    sections: [],
+    sections: [] as QuizSection[],
   },
   {
     id: 10,
@@ -138,7 +148,7 @@ const surahs = [
     difficulty: "Intermediate",
     implementationStatus: "coming-soon" as ImplementationStatus,
     implementationPhase: 12,
-    sections: [],
+    sections: [] as QuizSection[],
   },
   {
     id: 12,
@@ -150,7 +160,7 @@ const surahs = [
     difficulty: "Intermediate",
     implementationStatus: "coming-soon" as ImplementationStatus,
     implementationPhase: 13,
-    sections: [],
+    sections: [] as QuizSection[],
   },
   {
     id: 18,
@@ -162,7 +172,7 @@ const surahs = [
     difficulty: "Intermediate",
     implementationStatus: "in-progress" as ImplementationStatus,
     implementationPhase: 2,
-    sections: [],
+    sections: [] as QuizSection[],
   },
   {
     id: 19,
@@ -174,7 +184,7 @@ const surahs = [
     difficulty: "Intermediate",
     implementationStatus: "coming-soon" as ImplementationStatus,
     implementationPhase: 14,
-    sections: [],
+    sections: [] as QuizSection[],
   },
   {
     id: 36,
@@ -186,7 +196,7 @@ const surahs = [
     difficulty: "Beginner",
     implementationStatus: "in-progress" as ImplementationStatus,
     implementationPhase: 2,
-    sections: [],
+    sections: [] as QuizSection[],
   },
   {
     id: 55,
@@ -198,7 +208,7 @@ const surahs = [
     difficulty: "Beginner",
     implementationStatus: "available" as ImplementationStatus,
     implementationPhase: 2,
-    sections: [],
+    sections: [] as QuizSection[],
   },
   {
     id: 56,
@@ -210,7 +220,7 @@ const surahs = [
     difficulty: "Intermediate",
     implementationStatus: "coming-soon" as ImplementationStatus,
     implementationPhase: 15,
-    sections: [],
+    sections: [] as QuizSection[],
   },
   {
     id: 67,
@@ -220,9 +230,15 @@ const surahs = [
     type: "Meccan",
     vocabularyCount: 60,
     difficulty: "Beginner",
-    implementationStatus: "available" as ImplementationStatus,
+    implementationStatus: "partial" as ImplementationStatus,
     implementationPhase: 1,
-    sections: [],
+    // 61 questions total, split into three practice sections so users
+    // don't have to redo Q1-40 just to reach the last twenty.
+    sections: [
+      { id: "67-1", name: "Questions 1-20", status: "available" as ImplementationStatus, phase: 1, start: 1, end: 20 },
+      { id: "67-2", name: "Questions 21-40", status: "available" as ImplementationStatus, phase: 1, start: 21, end: 40 },
+      { id: "67-3", name: "Questions 41-61", status: "available" as ImplementationStatus, phase: 1, start: 41, end: 61 },
+    ] as QuizSection[],
   },
   {
     id: 78,
@@ -234,7 +250,7 @@ const surahs = [
     difficulty: "Beginner",
     implementationStatus: "available" as ImplementationStatus,
     implementationPhase: 1,
-    sections: [],
+    sections: [] as QuizSection[],
   },
      {
     id: 79,
@@ -246,7 +262,7 @@ const surahs = [
     difficulty: "Beginner",
     implementationStatus: "available" as ImplementationStatus,
     implementationPhase: 1,
-    sections: [],
+    sections: [] as QuizSection[],
   },
      {
     id: 80,
@@ -258,7 +274,7 @@ const surahs = [
     difficulty: "Beginner",
     implementationStatus: "available" as ImplementationStatus,
     implementationPhase: 1,
-    sections: [],
+    sections: [] as QuizSection[],
   },
     {
     id: 81,
@@ -270,7 +286,7 @@ const surahs = [
     difficulty: "Beginner",
     implementationStatus: "available" as ImplementationStatus,
     implementationPhase: 1,
-    sections: [],
+    sections: [] as QuizSection[],
   },
    {
     id: 82,
@@ -282,7 +298,7 @@ const surahs = [
     difficulty: "Beginner",
     implementationStatus: "available" as ImplementationStatus,
     implementationPhase: 1,
-    sections: [],
+    sections: [] as QuizSection[],
   },
     {
     id: 83,
@@ -294,7 +310,7 @@ const surahs = [
     difficulty: "Beginner",
     implementationStatus: "available" as ImplementationStatus,
     implementationPhase: 1,
-    sections: [],
+    sections: [] as QuizSection[],
   },
     {
     id: 84,
@@ -306,7 +322,7 @@ const surahs = [
     difficulty: "Beginner",
     implementationStatus: "available" as ImplementationStatus,
     implementationPhase: 1,
-    sections: [],
+    sections: [] as QuizSection[],
   },
    {
     id: 85,
@@ -318,7 +334,7 @@ const surahs = [
     difficulty: "Beginner",
     implementationStatus: "available" as ImplementationStatus,
     implementationPhase: 1,
-    sections: [],
+    sections: [] as QuizSection[],
   },
      {
     id: 86,
@@ -330,7 +346,7 @@ const surahs = [
     difficulty: "Beginner",
     implementationStatus: "available" as ImplementationStatus,
     implementationPhase: 1,
-    sections: [],
+    sections: [] as QuizSection[],
   },
     {
     id: 87,
@@ -342,7 +358,7 @@ const surahs = [
     difficulty: "Intermediate",
     implementationStatus: "available" as ImplementationStatus,
     implementationPhase: 1,
-    sections: [],
+    sections: [] as QuizSection[],
   },  
           {
     id: 88,
@@ -354,7 +370,7 @@ const surahs = [
     difficulty: "Intermediate",
     implementationStatus: "available" as ImplementationStatus,
     implementationPhase: 1,
-    sections: [],
+    sections: [] as QuizSection[],
   },  
        {
     id: 89,
@@ -366,7 +382,7 @@ const surahs = [
     difficulty: "Intermediate",
     implementationStatus: "available" as ImplementationStatus,
     implementationPhase: 1,
-    sections: [],
+    sections: [] as QuizSection[],
   },  
        {
     id: 90,
@@ -378,7 +394,7 @@ const surahs = [
     difficulty: "Intermediate",
     implementationStatus: "available" as ImplementationStatus,
     implementationPhase: 1,
-    sections: [],
+    sections: [] as QuizSection[],
   },  
     {
     id: 91,
@@ -390,7 +406,7 @@ const surahs = [
     difficulty: "Intermediate",
     implementationStatus: "available" as ImplementationStatus,
     implementationPhase: 1,
-    sections: [],
+    sections: [] as QuizSection[],
   },
     {
     id: 92,
@@ -402,7 +418,7 @@ const surahs = [
     difficulty: "Beginner",
     implementationStatus: "available" as ImplementationStatus,
     implementationPhase: 1,
-    sections: [],
+    sections: [] as QuizSection[],
   },
   {
     id: 93,
@@ -414,7 +430,7 @@ const surahs = [
     difficulty: "Beginner",
     implementationStatus: "available" as ImplementationStatus,
     implementationPhase: 1,
-    sections: [],
+    sections: [] as QuizSection[],
   },
    {
     id: 94,
@@ -426,7 +442,7 @@ const surahs = [
     difficulty: "Beginner",
     implementationStatus: "available" as ImplementationStatus,
     implementationPhase: 1,
-    sections: [],
+    sections: [] as QuizSection[],
   },
     {
     id: 95,
@@ -438,7 +454,7 @@ const surahs = [
     difficulty: "Beginner",
     implementationStatus: "available" as ImplementationStatus,
     implementationPhase: 1,
-    sections: [],
+    sections: [] as QuizSection[],
   },
   {
     id: 96,
@@ -450,7 +466,7 @@ const surahs = [
     difficulty: "Beginner",
     implementationStatus: "available" as ImplementationStatus,
     implementationPhase: 1,
-    sections: [],
+    sections: [] as QuizSection[],
   },
   {
     id: 97,
@@ -462,7 +478,7 @@ const surahs = [
     difficulty: "Beginner",
     implementationStatus: "available" as ImplementationStatus,
     implementationPhase: 1,
-    sections: [],
+    sections: [] as QuizSection[],
   },
       {
     id: 98,
@@ -474,7 +490,7 @@ const surahs = [
     difficulty: "Beginner",
     implementationStatus: "available" as ImplementationStatus,
     implementationPhase: 1,
-    sections: [],
+    sections: [] as QuizSection[],
   },
       {
     id: 99,
@@ -486,7 +502,7 @@ const surahs = [
     difficulty: "Beginner",
     implementationStatus: "available" as ImplementationStatus,
     implementationPhase: 1,
-    sections: [],
+    sections: [] as QuizSection[],
   },
     {
     id: 100,
@@ -498,7 +514,7 @@ const surahs = [
     difficulty: "Beginner",
     implementationStatus: "available" as ImplementationStatus,
     implementationPhase: 1,
-    sections: [],
+    sections: [] as QuizSection[],
   },
       {
     id: 101,
@@ -510,7 +526,7 @@ const surahs = [
     difficulty: "Beginner",
     implementationStatus: "available" as ImplementationStatus,
     implementationPhase: 1,
-    sections: [],
+    sections: [] as QuizSection[],
     },   
      {
     id: 102,
@@ -522,7 +538,7 @@ const surahs = [
     difficulty: "Beginner",
     implementationStatus: "available" as ImplementationStatus,
     implementationPhase: 1,
-    sections: [],
+    sections: [] as QuizSection[],
     },   
       {
     id: 103,
@@ -534,7 +550,7 @@ const surahs = [
     difficulty: "Beginner",
     implementationStatus: "available" as ImplementationStatus,
     implementationPhase: 1,
-    sections: [],
+    sections: [] as QuizSection[],
     },
   {
     id: 104,
@@ -546,7 +562,7 @@ const surahs = [
     difficulty: "Beginner",
     implementationStatus: "available" as ImplementationStatus,
     implementationPhase: 1,
-    sections: [],
+    sections: [] as QuizSection[],
     },
    {
     id: 105,
@@ -558,7 +574,7 @@ const surahs = [
     difficulty: "Beginner",
     implementationStatus: "available" as ImplementationStatus,
     implementationPhase: 1,
-    sections: [],
+    sections: [] as QuizSection[],
     },
     {
     id: 106,
@@ -570,7 +586,7 @@ const surahs = [
     difficulty: "Beginner",
     implementationStatus: "available" as ImplementationStatus,
     implementationPhase: 1,
-    sections: [],
+    sections: [] as QuizSection[],
   },
     {
     id: 107,
@@ -582,7 +598,7 @@ const surahs = [
     difficulty: "Beginner",
     implementationStatus: "available" as ImplementationStatus,
     implementationPhase: 1,
-    sections: [],
+    sections: [] as QuizSection[],
   },
    {
     id: 108,
@@ -594,7 +610,7 @@ const surahs = [
     difficulty: "Beginner",
     implementationStatus: "available" as ImplementationStatus,
     implementationPhase: 1,
-    sections: [],
+    sections: [] as QuizSection[],
   },
   {
     id: 109,
@@ -606,7 +622,7 @@ const surahs = [
     difficulty: "Beginner",
     implementationStatus: "available" as ImplementationStatus,
     implementationPhase: 1,
-    sections: [],
+    sections: [] as QuizSection[],
   },
   {
     id: 110,
@@ -618,7 +634,7 @@ const surahs = [
     difficulty: "Beginner",
     implementationStatus: "available" as ImplementationStatus,
     implementationPhase: 1,
-    sections: [],
+    sections: [] as QuizSection[],
   },
   {
     id: 111,
@@ -630,7 +646,7 @@ const surahs = [
     difficulty: "Beginner",
     implementationStatus: "available" as ImplementationStatus,
     implementationPhase: 1,
-    sections: [],
+    sections: [] as QuizSection[],
   },
   {
     id: 112,
@@ -642,7 +658,7 @@ const surahs = [
     difficulty: "Beginner",
     implementationStatus: "available" as ImplementationStatus,
     implementationPhase: 1,
-    sections: [],
+    sections: [] as QuizSection[],
   },
   {
     id: 113,
@@ -654,7 +670,7 @@ const surahs = [
     difficulty: "Beginner",
     implementationStatus: "available" as ImplementationStatus,
     implementationPhase: 1,
-    sections: [],
+    sections: [] as QuizSection[],
   },
   {
     id: 114,
@@ -666,7 +682,7 @@ const surahs = [
     difficulty: "Beginner",
     implementationStatus: "available" as ImplementationStatus,
     implementationPhase: 1,
-    sections: [],
+    sections: [] as QuizSection[],
   },
 ]
 
@@ -727,7 +743,7 @@ const getImplementationStatus = (status: ImplementationStatus) => {
   }
 }
 
-// Function to get the appropriate link for a surah
+// Function to get the appropriate link for a surah (full quiz, all questions)
 const getSurahLink = (surahId: number) => {
   // List of implemented surahs
   const implementedSurahs = [1, 55, 67, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114]
@@ -737,6 +753,19 @@ const getSurahLink = (surahId: number) => {
   }
 
   return null
+}
+
+// Function to get the link for a specific question-range section of a surah's quiz.
+// The quiz-taking page (e.g. app/quizzes/surah/[id]/page.tsx) should read the
+// `start` and `end` search params and slice its questions array accordingly, e.g.:
+//
+//   const searchParams = useSearchParams()
+//   const start = Number(searchParams.get("start")) || 1
+//   const end = Number(searchParams.get("end")) || quizData.questions.length
+//   const questionsToShow = quizData.questions.slice(start - 1, end)
+//
+const getSectionLink = (surahId: number, section: QuizSection) => {
+  return `/quizzes/surah/${surahId}?start=${section.start}&end=${section.end}`
 }
 
 export default function SurahQuizPage() {
@@ -792,7 +821,7 @@ export default function SurahQuizPage() {
             </p>
             <div className="flex items-center text-amber-600 dark:text-amber-400 mb-4">
               <Info className="h-5 w-5 mr-2 flex-shrink-0" />
-              <p className="text-sm">Select a surah below to begin a quiz focused on its vocabulary.</p>
+              <p className="text-sm">Select a surah below to begin a quiz focused on its vocabulary. Surahs with many questions offer shorter practice sections too.</p>
             </div>
 
             <div className="border-t pt-4 mt-2">
@@ -951,18 +980,32 @@ export default function SurahQuizPage() {
                                       {status.icon} {status.label}
                                     </Badge>
                                   </div>
-                                  <Button
-                                    className="w-full bg-emerald-600 hover:bg-emerald-700"
-                                    disabled={section.status !== "available"}
-                                  >
-                                    <BookOpen className="mr-2 h-4 w-4" />
-                                    {section.status === "available" ? "Start Quiz" : "Coming in Phase " + section.phase}
-                                  </Button>
+                                  {section.status === "available" ? (
+                                    <Link href={getSectionLink(surah.id, section)} className="w-full">
+                                      <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
+                                        <BookOpen className="mr-2 h-4 w-4" />
+                                        Start Quiz
+                                      </Button>
+                                    </Link>
+                                  ) : (
+                                    <Button className="w-full bg-emerald-600 hover:bg-emerald-700" disabled>
+                                      <BookOpen className="mr-2 h-4 w-4" />
+                                      Coming in Phase {section.phase}
+                                    </Button>
+                                  )}
                                 </div>
                               )
                             })}
                           </div>
                         </CardContent>
+                        <CardFooter>
+                          <Link href={`/quizzes/surah/${surah.id}`} className="w-full">
+                            <Button variant="outline" className="w-full">
+                              <Layers className="mr-2 h-4 w-4" />
+                              Or take the full quiz ({surah.vocabularyCount} words)
+                            </Button>
+                          </Link>
+                        </CardFooter>
                       </Card>
                     ) : (
                       <Card className="overflow-hidden">
@@ -998,7 +1041,7 @@ export default function SurahQuizPage() {
                             )}
                           </div>
                         </CardContent>
-                        <CardFooter>
+                        <CardFooter className="flex flex-col gap-2">
                           {surah.sections.length > 0 ? (
                             <Button
                               className="w-full bg-blue-600 hover:bg-blue-700"
