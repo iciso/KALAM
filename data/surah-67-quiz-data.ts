@@ -649,9 +649,9 @@ export const alMulkQuizData: SurahQuizData = {
       arabic: "وَجَعَلَ لَكُمُ السَّمْعَ وَالْأَبْصَارَ وَالْأَفْئِدَةَ",
       rootLetters: "ج ع ل | س م ع | ب ص ر | ف ء د",
       options: [
-        { id: "a", text: "And made for you hearing and sight and hearts", isCorrect: false },
-        { id: "b", text: "And made for you the hearing and sight and intellect", isCorrect: true },
-        { id: "c", text: "And made for you the ears and eyes and minds", isCorrect: false },
+        { id: "a", text: "And made for you hearing and sight and minds", isCorrect: false },
+        { id: "b", text: "And made for you hearing and vision and hearts", isCorrect: true },
+        { id: "c", text: "And made for you the ears and eyes and brains", isCorrect: false },
         { id: "d", text: "And made for you the ability to hear, see and feel", isCorrect: false },
       ],
       explanation: "وَجَعَلَ لَكُمُ السَّمْعَ وَالْأَبْصَارَ وَالْأَفْئِدَةَ (Wa ja'ala lakumu as-sam'a wal-absara wal-af'idah) means 'And made for you the hearing and sight and intellect,' roots ج-ع-ل (make), س-م-ع (hearing), ب-ص-ر (sight), ف-ء-د (intellect) (Quran.com, Ibn Kathir).",
