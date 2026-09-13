@@ -238,18 +238,18 @@ const surahs = [
       { id: "67-3", name: "Questions 41-61", status: "available" as ImplementationStatus, phase: 1, start: 41, end: 61 },
     ] as QuizSection[],
   },
-    {
-    id: 78,
+     {
+    id: 77,
     name: "Al-Mursalat",
-    arabicName: "وَٱلْمُرْسَلَـٰتِ",
+    arabicName: "المرسلات",
     verses: 50,
     type: "Meccan",
-    vocabularyCount: 174,
+    vocabularyCount: 160,
     difficulty: "Beginner",
     implementationStatus: "partial" as ImplementationStatus,
     implementationPhase: 1,
     sections: [
-     { id: "77-1", name: "Questions 1-20", status: "available" as ImplementationStatus, phase: 1, start: 1, end: 20 },
+      { id: "77-1", name: "Questions 1-20", status: "available" as ImplementationStatus, phase: 1, start: 1, end: 20 },
       { id: "77-2", name: "Questions 21-40", status: "available" as ImplementationStatus, phase: 1, start: 21, end: 40 },
       { id: "77-3", name: "Questions 41-61", status: "available" as ImplementationStatus, phase: 1, start: 41, end: 61 },
     ] as QuizSection[],
