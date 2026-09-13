@@ -232,12 +232,26 @@ const surahs = [
     difficulty: "Beginner",
     implementationStatus: "partial" as ImplementationStatus,
     implementationPhase: 1,
-    // 61 questions total, split into three practice sections so users
-    // don't have to redo Q1-40 just to reach the last twenty.
     sections: [
       { id: "67-1", name: "Questions 1-20", status: "available" as ImplementationStatus, phase: 1, start: 1, end: 20 },
       { id: "67-2", name: "Questions 21-40", status: "available" as ImplementationStatus, phase: 1, start: 21, end: 40 },
       { id: "67-3", name: "Questions 41-61", status: "available" as ImplementationStatus, phase: 1, start: 41, end: 61 },
+    ] as QuizSection[],
+  },
+    {
+    id: 78,
+    name: "Al-Mursalat",
+    arabicName: "وَٱلْمُرْسَلَـٰتِ",
+    verses: 50,
+    type: "Meccan",
+    vocabularyCount: 174,
+    difficulty: "Beginner",
+    implementationStatus: "partial" as ImplementationStatus,
+    implementationPhase: 1,
+    sections: [
+     { id: "77-1", name: "Questions 1-20", status: "available" as ImplementationStatus, phase: 1, start: 1, end: 20 },
+      { id: "77-2", name: "Questions 21-40", status: "available" as ImplementationStatus, phase: 1, start: 21, end: 40 },
+      { id: "77-3", name: "Questions 41-61", status: "available" as ImplementationStatus, phase: 1, start: 41, end: 61 },
     ] as QuizSection[],
   },
   {
@@ -746,7 +760,7 @@ const getImplementationStatus = (status: ImplementationStatus) => {
 // Function to get the appropriate link for a surah (full quiz, all questions)
 const getSurahLink = (surahId: number) => {
   // List of implemented surahs
-  const implementedSurahs = [1, 55, 67, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114]
+  const implementedSurahs = [1, 55, 67, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114]
 
   if (implementedSurahs.includes(surahId)) {
     return `/quizzes/surah/${surahId}`
