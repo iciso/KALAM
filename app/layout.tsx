@@ -1,5 +1,5 @@
 import type React from "react";
-import { Inter } from "next/font/google";
+import { Inter, Amiri } from "next/font/google"; // 1. Import Amiri here
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { NavBar } from "@/components/nav-bar";
@@ -7,6 +7,13 @@ import { FontSizeProvider } from "@/contexts/font-size-context";
 import { AuthProvider } from "@/contexts/auth-context";
 
 const inter = Inter({ subsets: ["latin"] });
+
+// 2. Configure the Amiri font
+const amiri = Amiri({ 
+  subsets: ["arabic", "latin"],
+  weight: ["400", "700"],
+  variable: "--font-amiri", // Creates a CSS variable you can use in Tailwind/CSS
+});
  
 export const metadata = {
   metadataBase: new URL('https://v0-kalam.vercel.app/'),
@@ -46,10 +53,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="light" style={{ colorScheme: "light" }}>
-      <head>
-       <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
-      </head>
-      <body className={inter.className}>
+      {/* 3. You can safely remove the manual <head> and <link> block entirely */}
+      <body className={`${inter.className} ${amiri.variable}`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <AuthProvider>
             <FontSizeProvider>
