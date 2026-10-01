@@ -47,10 +47,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="light" style={{ colorScheme: "light" }}>
       <head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;700&display=swap"
-          rel="stylesheet"
-        />
+       <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
       </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
