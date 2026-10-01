@@ -66,8 +66,8 @@ const AyatItem = ({ id, text, index, moveAyat }) => {
       ref={(node) => drag(drop(node))}
       className="ayat-item bg-gray-100 p-4 mb-3 rounded cursor-move"
       style={{
-        fontSize: '4rem',          // Doubled from 2rem
-        lineHeight: '1.8',         // Adjusted for the larger font
+        fontSize: '6rem',          // Triple from 2rem
+        lineHeight: '1.1',         // Adjusted for the larger font
         fontFamily: '"Amiri", "Scheherazade New", "Noto Naskh Arabic", serif',
         direction: 'rtl',
         textAlign: 'right',
