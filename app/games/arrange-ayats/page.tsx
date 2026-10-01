@@ -52,7 +52,6 @@ const AyatItem = ({ id, text, index, moveAyat }) => {
     type: ItemTypes.AYAT,
     item: { id, index }
   });
-
   const [, drop] = useDrop({
     accept: ItemTypes.AYAT,
     hover: (item) => {
@@ -62,14 +61,13 @@ const AyatItem = ({ id, text, index, moveAyat }) => {
       }
     }
   });
-
   return (
     <div
       ref={(node) => drag(drop(node))}
       className="ayat-item bg-gray-100 p-4 mb-3 rounded cursor-move"
       style={{
-        fontSize: '2rem',
-        lineHeight: '2.5',
+        fontSize: '4rem',          // Doubled from 2rem
+        lineHeight: '1.8',         // Adjusted for the larger font
         fontFamily: '"Amiri", "Scheherazade New", "Noto Naskh Arabic", serif',
         direction: 'rtl',
         textAlign: 'right',
