@@ -347,6 +347,26 @@ export default function GamesPage() {
           </CardFooter>
         </Card>
 
+
+             {/* Arrange Surah An-Naba Ayats Game Card */}
+        <Card className="border-purple-200 bg-purple-50">
+          <CardHeader>
+            <CardTitle className="text-purple-800">Arrange Surah An-Naba Ayats</CardTitle>
+            <CardDescription>Arrange words to form verses of Surah An-Naba</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p>
+              Test your knowledge of Surah An-Naba by arranging Arabic words in the correct order to form complete
+              ayats.
+            </p>
+          </CardContent>
+          <CardFooter>
+            <Link href="/games/arrange-an-naba" passHref>
+              <Button className="bg-purple-600 hover:bg-purple-700">Play Now</Button>
+            </Link>
+          </CardFooter>
+        </Card>
+        
       </div>
     </div>
   )
