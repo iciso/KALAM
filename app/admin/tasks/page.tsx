@@ -61,18 +61,18 @@ const doingTasks: TaskItem[] = [
       <div>
         <span className="font-semibold text-amber-900 block mb-1">Adding New Surah Quiz Categories</span>
         <p className="text-amber-800/90 text-xs leading-relaxed mb-2">
-          Al-Baqarah, Ya-seen, Sajdaah and others.
+         To add Al-Baqarah Surah Quiz, add new file, or code to the following:
         </p>
         <div className="space-y-1 font-mono text-[11px] text-indigo-600 bg-indigo-50/50 p-2 rounded border border-indigo-100/50 mb-2">
-          <div>• iqra/data/</div>
-          <div>• iqra/app/categories/page</div>
-          <div>• iqra/components/challenge/category-first-challenge-dialog.tsx</div>
-          <div>• iqra/components/challenge/category-first-challenge-sender.tsx</div>
-          <div>• iqra/data/quiz-data-manager.tsx</div>
+          <div>• data/surah-01-quiz-data.ts</div>
+          <div>• app/quizzes/surah/01/client.tsx</div>
+          <div>• app/quizzes/surah/01/loading.tsx</div>
+          <div>• app/quizzes/surah/77/page.tsx</div>
+          <div>• app/quizzes/surah/page.tsx</div>
           <div>
-            • iqra/app/about/page →{' '}
-            <a href="https://iqrar.vercel.app/about#iqra-quizzes" target="_blank" rel="noopener noreferrer" className="underline hover:text-indigo-800">
-              about#iqra-quizzes
+            • KALAM/app/about/page →{' '}
+            <a href="https://v0-kalam.vercel.app/about#surah-quizzes" target="_blank" rel="noopener noreferrer" className="underline hover:text-indigo-800">
+              about#surah-quizzes
             </a>
           </div>
         </div>
@@ -159,7 +159,7 @@ const doneTasks: TaskItem[] = [
       <div>
         <span className="font-semibold text-emerald-900 block mb-1">Added New Quiz Categories</span>
         <p className="text-emerald-800/90 text-xs leading-relaxed">
-          Overall added New Quiz Categories from 23 to over 50. Specifically Tamil and Surah Quiz Divisions introduced.
+          Overall added New Surah Quizzes from 78 to 114. Kalam Surah quizzes have only translations.
         </p>
         <div className="mt-2 inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-medium bg-emerald-100 text-emerald-800 border border-emerald-200">
           <span className="text-emerald-600 font-bold">✓</span> Completed
@@ -171,7 +171,7 @@ const doneTasks: TaskItem[] = [
     id: "4a",
     description: (
       <div>
-        <span className="font-semibold text-emerald-900 block mb-1">How IQRA Works Flowchart</span>
+        <span className="font-semibold text-emerald-900 block mb-1">How KALAM Works Flowchart</span>
         <p className="text-emerald-800/90 text-xs leading-relaxed">
           Explaining workflow of challenge to player.
         </p>
@@ -190,9 +190,9 @@ const doneTasks: TaskItem[] = [
           Names of Players who contributed to content validation, as well as their rewards anounced.
         </p>
          <div>
-            • iqra/app/about/page →{' '}
-            <a href="https://iqrar.vercel.app/about#player-contributions-dhanish-ali" target="_blank" rel="noopener noreferrer" className="underline hover:text-indigo-800">
-             about#player-contributions-dhanish-ali
+            • KALAM/app/about/page →{' '}
+            <a href="https://v0-kalam.vercel.app/about#player-contributions-name" target="_blank" rel="noopener noreferrer" className="underline hover:text-indigo-800">
+             about#player-contributions-name
             </a>
           </div>
         <div className="mt-2 inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-medium bg-emerald-100 text-emerald-800 border border-emerald-200">
