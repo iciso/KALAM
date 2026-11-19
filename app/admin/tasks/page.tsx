@@ -212,9 +212,9 @@ export default function AdminTasksPage() {
         <header className="mb-10 pb-6 border-b border-gray-200/60 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div>
             <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-indigo-600 mb-1">
-              <span>IQRA Admin Portal</span>
+              <span>KALAM Admin Portal</span>
               <span className="text-gray-300">•</span>
-              <span className="text-gray-500 font-mono text-[11px] lowercase">iqra/app/admin/tasks/page.tsx</span>
+              <span className="text-gray-500 font-mono text-[11px] lowercase">v0-kalam/app/admin/tasks/page.tsx</span>
             </div>
             <h1 className="text-2xl font-bold tracking-tight text-gray-900">Project Engine Roadmap & Backlog</h1>
           </div>
